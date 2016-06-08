@@ -2,9 +2,10 @@
 title: Moesif API Reference
 
 language_tabs:
-  - shell
-  - ruby
-  - python
+  - javascript
+  - swift
+  - objective_c
+  - java
 
 toc_footers:
   - <a href='/wrap'>Back to main dash</a>
@@ -28,22 +29,54 @@ This example API documentation page was created with [Slate](https://github.com/
 
 > To authorize, use this code:
 
-```ruby
-require 'kittn'
+```javascript
+// With javascript, you can do this. 
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+function registerMoesif() {
+  const it = 'blahlbah';
+  console.log('blahb lahb lah');
+}
 ```
 
-```python
-import kittn
+```objective_c
+#import <Foundation/Foundation.h>
 
-api = kittn.authorize('meowmeowmeow')
+int main (int argc, const char * argv[])
+{
+        NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+        NSLog (@"Hello, World!");
+        [pool drain];
+        return 0;
+}
 ```
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+```swift
+class Counter {
+    var count = 0
+    func increment() {
+        count += 1
+    }
+    func incrementBy(amount: Int) {
+        count += amount
+    }
+    func reset() {
+        count = 0
+    }
+}
+```
+
+```java
+BufferedWriter out = null;
+try {
+    out = new BufferedWriter(new FileWriter(”filename”, true));
+    out.write(”aString”);
+} catch (IOException e) {
+    // error processing code
+} finally {
+    if (out != null) {
+        out.close();
+    }
+}
 ```
 
 > Make sure to replace `meowmeowmeow` with your API key.
@@ -62,25 +95,55 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 
 ## Get All Kittens
 
-```ruby
-require 'kittn'
+```javascript
+// With javascript, you can do this. 
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
+function registerMoesif() {
+  const it = 'blahlbah';
+  console.log('blahb lahb lah');
+}
 ```
 
-```python
-import kittn
+```objective_c
+#import <Foundation/Foundation.h>
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
+int main (int argc, const char * argv[])
+{
+        NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+        NSLog (@"Hello, World!");
+        [pool drain];
+        return 0;
+}
 ```
 
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+```swift
+class Counter {
+    var count = 0
+    func increment() {
+        count += 1
+    }
+    func incrementBy(amount: Int) {
+        count += amount
+    }
+    func reset() {
+        count = 0
+    }
+}
 ```
 
+```java
+BufferedWriter out = null;
+try {
+    out = new BufferedWriter(new FileWriter(”filename”, true));
+    out.write(”aString”);
+} catch (IOException e) {
+    // error processing code
+} finally {
+    if (out != null) {
+        out.close();
+    }
+}
+```
 > The above command returns JSON structured like this:
 
 ```json
@@ -120,24 +183,54 @@ Remember — a happy kitten is an authenticated kitten!
 </aside>
 
 ## Get a Specific Kitten
+```javascript
+// With javascript, you can do this. 
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
+function registerMoesif() {
+  const it = 'blahlbah';
+  console.log('blahb lahb lah');
+}
 ```
 
-```python
-import kittn
+```objective_c
+#import <Foundation/Foundation.h>
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
+int main (int argc, const char * argv[])
+{
+        NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+        NSLog (@"Hello, World!");
+        [pool drain];
+        return 0;
+}
 ```
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+```swift
+class Counter {
+    var count = 0
+    func increment() {
+        count += 1
+    }
+    func incrementBy(amount: Int) {
+        count += amount
+    }
+    func reset() {
+        count = 0
+    }
+}
+```
+
+```java
+BufferedWriter out = null;
+try {
+    out = new BufferedWriter(new FileWriter(”filename”, true));
+    out.write(”aString”);
+} catch (IOException e) {
+    // error processing code
+} finally {
+    if (out != null) {
+        out.close();
+    }
+}
 ```
 
 > The above command returns JSON structured like this:
