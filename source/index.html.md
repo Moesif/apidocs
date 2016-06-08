@@ -2,10 +2,10 @@
 title: Moesif API Reference
 
 language_tabs:
-  - javascript
-  - swift
-  - objective_c
-  - java
+  - javascript: Web (Javascript)
+  - swift: iOS (Swift)
+  - objective_c: iOS (Objective C)
+  - java: Android (Java)
 
 toc_footers:
   - <a href='/wrap'>Back to main dash</a>
