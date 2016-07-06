@@ -19,11 +19,38 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to Moesif integration guide. Moesif is basically a proxy server 
+that also collects metadata for analysis. The 5 min integration only 
+requires set up a static map proxy for your APIs, and add a few headers. 
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+We put in a lot of effort in making sure that the proxy itself doesn’t 
+impact availability, i.e even if there are issues with the web portal, 
+it should not negatively impact your service. The proxy itself is not dependent 
+on any persistent storage. Even though it is a static proxy mapping, it is actually 
+deployed to multiple data centers all over the world, in many cases, 
+it should improve the performance of your app. 
 
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+# Create Proxy Mapping
+
+On our site, go to settings. You can create prod or dev “apps”, once created, 
+you can enter a url such as https://api.yourcompany.com and it will generate 
+a static mapping like 
+
+    `http(s)://CIBQGPAK7Y5MLRPZCEVIWA3OOUWQ.moesif.net`
+
+Just replace your https://api.company.com with the statically mapped url
+provided. 
+
+# headers
+
+Header | Example | Optional | Description
+------ | ------- | -------- | -----------
+`X-Moesif-Application-Id` | your_token  | Required | This is a signed JWT to identify your API with Moesif
+`X-Moesif-Tags` | user 	| Strongly Recommend | This is a hint to what is considered a “user”. Add to a single endpoint which you consider has the most user metadata.)
+`X-Moesif-Api-Version` | `v3.X.X` | Optional | You don’t need this, but you can take this API with a version, and even use finer granularity or semantic versioning.
+`X-Moesif-User-Id` | id from your app | Optional | We automatically figure out what your user id is from conventional patterns, but you can override it by setting it manually. From looking at hornet API, Moesif will choose the device identifier automatically.
+`X-Moesif-Session-Token` | token from your app	| Optional | Again, we parse conventional tokens such as “Authorization” or “X-Auth-Token”, but you are free to override what is considered a session token.
+
 
 # Authentication
 
