@@ -31,13 +31,13 @@ it should improve the performance of your app.
 
 # Create Proxy Mapping
 
-On our site, go to settings. You can create prod or dev “apps”, once created, 
+On our dash, go to menu -> settings. You can create prod or dev “apps”, once created, 
 you can enter a url such as https://api.yourcompany.com and it will generate 
-a static mapping like 
+a static mapping like this:
 
-    `http(s)://CIBQGPAK7Y5MLRPZCEVIWA3OOUWQ.moesif.net`
+    `https://s91RHMP1s6fiM3o5vc854783N583tLI7.moesif.net`
 
-Just replace your https://api.company.com with the statically mapped url
+Just replace your https://api.company.com base url with the statically mapped url
 provided. 
 
 # Headers
@@ -45,11 +45,10 @@ provided.
 > Example code:
 
 ```javascript
-
 var request = require('request');
 
 var options = {
-  url: 'https://CIBQGPAK7Y5MLRPZCEVIWA3OOUWQ.moesif.net/users/123',
+  url: 'https://s91RHMP1s6fiM3o5vc854783N583tLI7.moesif.net/users/123',
   // replace your api base url with the encoded base url from Moesif 
   headers: {
     'X-Moesif-Application-Id': 'XXXXXXXXXXXXXXXX',
@@ -64,11 +63,10 @@ function callback(error, response, body) {
 }
 
 request(options, callback);
-
 ```
 
 ```objective_c
-NSURL *url = [NSURL URLWithString: @"https://CIBQGPAK7Y5MLRPZCEVIWA3OOUWQ.moesif.net/users/123"];
+NSURL *url = [NSURL URLWithString: @"https://s91RHMP1s6fiM3o5vc854783N583tLI7.moesif.net/users/123"];
 // replace your api base url with the encoded base url from Moesif. 
 
 NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:url 
@@ -78,49 +76,61 @@ NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:url
 [request setHTTPMethod:@"GET"];
 
 [request setValue:@"XXXXXXXXXXXXXXXX" forHTTPHeaderField:@"X-Moesif-Application-Id"];
-// do above for all API calls to identify yourself to Moseif.  
+// set the token for all API calls to identify your app to Moseif.  
 
 [request setValue:@"user" forHTTPHeaderField:@"X-Moesif-Tags"];
 // only set the user tag for the key API endpoint for user data. 
-
 ```
 
 ```swift
-
-let url: NSURL = NSURL(string: "https://CIBQGPAK7Y5MLRPZCEVIWA3OOUWQ.moesif.net/users/123")!
+let url: NSURL = NSURL(string: "https://s91RHMP1s6fiM3o5vc854783N583tLI7.moesif.net/users/123")!
 // replace your api base url with the encoded base url from Moesif. 
+
 request = NSMutableURLRequest(URL:url)
 request.HTTPMethod = "GET"
 
 request.addValue("XXXXXXXXXXXXXXXX", forHTTPHeaderField: "X-Moesif-Application-Id")
-// do above for all API calls to identify yourself to Moseif. 
+// set the token for all API calls to identify your app to Moseif. 
 
 request.addValue("user", forHTTPHeaderField: "X-Moesif-Tags")
 // only set the user tag for the key API endpoint for user data. 
-
 ```
-
 
 ```java
-BufferedWriter out = null;
-try {
-    out = new BufferedWriter(new FileWriter(”filename”, true));
-    out.write(”aString”);
-} catch (IOException e) {
-    // error processing code
-} finally {
-    if (out != null) {
-        out.close();
+    private Map<String, String> mHeaders = new HashMap<String, String>();
+    
+    private static final String sBaseUrl = "https://s91RHMP1s6fiM3o5vc854783N583tLI7.moesif.net";
+    
+    public void sendHttpRequest(String verb, String path) {
+        mHeaders.put("X-Moesif-Api-Version", "1.0.1");
+        mHeaders.put("X-Moesif-Application-Id", "XXXXXXXXXXXXXXXXX");
+        // set the token for all API calls to identify your app to Moseif. 
+        
+        if (verb.equals("GET") && path.startsWith("/user")) {
+            mHeaders.put("X-Moesif-Tags", "user");
+            // only set the user tag for the key API endpoint for user data. 
+        }
+        String userId = getUserSession().getUserId();
+        if (!Strings.isNullOrEmpty(userId)) {
+            mHeaders.put("X-Moesif-User-Id", userId);
+        }
+        
+        String url = sBaseUrl + path;
+        
+        // do HTTP request
     }
-}
 ```
 
-The only required header is the token that generated for your app. 
-You can find the token in settings for your app. Other headers primarily 
-gives us hints on how to best parse and identify key data. Although, since
-our system is quite smart, it can detect quite well without some of the hints.
-As the concept of user is key to almost every app, we do highly recommend
-tag at least one of the API end points as where 'user' metadata is returned.  
+The only required header is the token is generated for your app to identify
+and authenticate with Moesif. 
+You can find the token in settings for your app after you logged into the dashboard. 
+Other headers primarily gives us hints on how to best parse and understand your data. 
+
+Since our system is quite smart, we use variety of pattern recognition and 
+machine learning techniques, it can detect quite well the hints. But with some hints, 
+it would speed up the learning dramatically. One of the key concept in any app is the user. 
+We do highly recommend tag at least one of your API end points as where your
+app 'user' metadata is contained the response body. 
 
 - `X-Moesif-Application-Id` **required**
 
@@ -135,13 +145,13 @@ tag at least one of the API end points as where 'user' metadata is returned.
     For example if you have an endpoint that gets json for user by id: `GET /users/:id`, 
     then add this header to that API end point. The response body should have
     user's data. This helps us link the users object with in all other API calls. 
-  - please add this tag for 'user' to only one API end point. 
+  - please add this 'user" tag for only one API end point. 
  
     
 - `X-Moesif-Api-Version` **optional** 
 
   - value: `v3.X.X`
-  - You don’t need this, but you can take this API with a version, 
+  - You don’t need this, but you can tag this API with a version, 
     and even use finer granularity or semantic versioning.
   
 - `X-Moesif-User-Id` **optional**
@@ -155,9 +165,9 @@ tag at least one of the API end points as where 'user' metadata is returned.
   - value: token from your app
   - Again, we parse conventional tokens such as “Authorization” or 
     “X-Auth-Token”, but you are free to override what is considered a 
-    session token.  
+    session token.
 
 <aside class="success">
-That's it! It is that simple. 
+That's it! It's that simple. 
 </aside>
 
