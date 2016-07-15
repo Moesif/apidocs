@@ -17,23 +17,21 @@ search: true
 
 # Introduction
 
-Welcome to Moesif integration guide. Moesif is basically a proxy server 
-that also collects metadata for analysis. The 5 min integration only 
-requires set up a static map proxy for your APIs, and add a few headers. 
-There is no libraries to install or update. 
+Welcome to Moesif integration guide. Moesif proxies your API and processes the data.
+The 5 min integration only requires changing your API Base URL and add a few headers.
+There are no libraries or binaries to install or update.
 
-We put in a lot of effort in making sure that the proxy itself doesn’t 
-impact availability, i.e even if there are issues with the web portal, 
-it should not negatively impact your service. The proxy itself is not dependent 
-on any persistent storage. Even though it is a static proxy mapping, it is actually 
-deployed to multiple data centers all over the world, in many cases, 
-it should improve the performance of your app. 
+<p>Moesif is built for high availability for production use.
+moesif.net will route against our data centers located in West US, East US, and Northern Europe.
+If you would like additional regions, just let us know.
+Our proxy clusters are isolated from the rest of the data pipeline and rely only on static mapping
+(i.e. no persistence storage)
 
 # Create Proxy Mapping
 
-On our dash, go to menu -> settings. You can create prod or dev “apps”, once created, 
-you can enter a url such as https://api.yourcompany.com and it will generate 
-a static mapping like this:
+In our dash, go to menu -> settings. You can create production or dev “apps”. Once your app is created,
+you can enter a url to be encoded such as https://api.yourcompany.com and it will generate
+an encoded url like:
 
     `https://s91RHMP1s6fiM3o5vc854783N583tLI7.moesif.net`
 
@@ -53,7 +51,7 @@ var options = {
   headers: {
     'X-Moesif-Application-Id': 'XXXXXXXXXXXXXXXX',
     // set the token for all API calls to identify your app with Moesif 
-    'X-Moesif-Tags': 'user' 
+    'X-Moesif-Tags': 'me' 
     // only set above tag for key user API end point
   }
 };
@@ -121,14 +119,14 @@ request.addValue("user", forHTTPHeaderField: "X-Moesif-Tags")
     }
 ```
 
-The only required header is the token is generated for your app to identify
-and authenticate with Moesif. 
-You can find the token in settings for your app after you logged into the dashboard. 
+The only required header is the application id which identifies
+your app with Moesif.
+You can find the token in settings for your app after you logged into the dashboard.
 Other headers primarily gives us hints on how to best parse and understand your data. 
 
-Since our system is quite smart, we use variety of pattern recognition and 
-machine learning techniques, it can detect quite well the hints. But with some hints, 
-it would speed up the learning dramatically. One of the key concept in any app is the user. 
+We use variety of pattern recognition and
+machine learning techniques, it can detect quite well. But with some hints,
+it would speed up the learning dramatically. One of the key concept in any app is the user.
 We do highly recommend tag at least one of your API end points as where your
 app 'user' metadata is contained the response body. 
 
@@ -140,32 +138,32 @@ app 'user' metadata is contained the response body.
 - `X-Moesif-Tags` **strongly recommend**
 
   - value: `user` 
-  - This is a hint to what is considered a “user”. 
-  - Add to a single endpoint which you consider has the most user metadata. 
-    For example if you have an endpoint that gets json for user by id: `GET /users/:id`, 
-    then add this header to that API end point. The response body should have
-    user's data. This helps us link the users object with in all other API calls. 
-  - please add this 'user" tag for only one API end point. 
+  - This is a hint to what is considered the “user profile” for the signed in end user. 
+  - Add to a single endpoint which you consider has the most user metadata.
+  - For example, if you have an endpoint that gets the authenticated user via `GET /users/me`.
+  - Add this header to that API. The verb or url doesn't matter but the response body should have
+    user's data. This helps us link the users object with other API calls. </li>
+  - Please add this tag for only one API template. </li>
  
     
 - `X-Moesif-Api-Version` **optional** 
 
-  - value: `v3.X.X`
-  - You don’t need this, but you can tag this API with a version, 
-    and even use finer granularity or semantic versioning.
+  - value: `X.X.X`
+  - Not required, but you can tag this API with a version. Any string is fine
+such as semantic versioning.
   
 - `X-Moesif-User-Id` **optional**
 
-  - value: id from your app 
-  - We automatically figure out what your user id is from conventional 
-    patterns, but you can override it by setting it manually. 
+  - value: user_id string from your app 
+  - We attempt to figure out what your user_id is automatically, If Moesif has trouble,
+    you can override it by setting it manually.
   
 - `X-Moesif-Session-Token` **optional**
   
   - value: token from your app
-  - Again, we parse conventional tokens such as “Authorization” or 
-    “X-Auth-Token”, but you are free to override what is considered a 
-    session token.
+  - Again, we automatically figure out what is your session token, and fall back to IP Address 
+    if can't be found. You are free to override this if unhappy with
+    the results. Session Token can be temporal.
 
 <aside class="success">
 That's it! It's that simple. 
