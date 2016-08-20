@@ -27,6 +27,9 @@ that all data related to that app is analyzed together.
 
 ## Posting a single Event
 
+Since for now, we are focusing on restful API, so event object consistent of
+an request and response objects. 
+
 ### HTTP Request
 
 `POST /moesifapi/events`
