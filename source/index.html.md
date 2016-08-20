@@ -11,6 +11,8 @@ toc_footers:
   - <a href='/wrap'>Back to main dash</a>
   - <a href='/'>www.moesif.com</a>
 
+includes: 
+  - postingapi
 
 search: true
 ---
