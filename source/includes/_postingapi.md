@@ -70,7 +70,7 @@ time | Required | The timestamp for the request in ISO 8601 format.
 uri | Required | The full uri, `https://api.com/?query=string` if there is a query string, please keep it as part of uri
 verb | Required | The http method used, i.e. `GET`, `POST`
 ip_address | Required | This should be the ip address of the end user
-headers | Optional | This would be the headers of the original request. Again, if this is a user related request, please tag it with `X-Moesif-Tags` with the value `me`
+headers | Optional | This would be the headers of the original request. Again, if this is a user related request, please tag it with `X-Moesif-Tags` with the value `user`
 body | Optional | This should be the body of the original request. 
 
 
