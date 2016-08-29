@@ -167,6 +167,18 @@ such as semantic versioning.
     if can't be found. You are free to override this if unhappy with
     the results. Session Token can be temporal.
 
+- `X-Moesif-Request-Masks` **optional**
+  
+  - value: `field1,field2,field3`
+  - This header is a comma separated list of keys in the request body that you want to be masked (i.e. hidden from the analytics pipeline)
+  - For privacy reasons, if you like to hide some of the fields in the request body from Moesif's data analytics pipeline, please indicate so. For each field in listed here, we'll recursively find all fields in the request body's JSON with that key, and mask it, so they won't be stored or analyzed in anyway. For example, if the key is `password`, then if body's JSON has `password` as a key for any of the fields or its sub-objects, it will be masked away before it is send to the analytics pipeline. The fields are removed in memory at beginning of the pipeline, so they are never stored in any database or persistence queue. To simplify your code, it is ok to add this header in all your API requests even if there is nothing to mask in some of the API request. 
+  
+- `X-Moesif-Response-Masks` **optional**
+  
+  - value: `field1,field2,field3`
+  - This header is a comma separated list of keys in the response body that you want to be masked (i.e. hidden from the analytics pipeline)
+  - Similar to the `X-Moesif-Request-Masks` header, except this header is for the response body. This will hide fields in the response body from Moesif's data analytics pipeline. For each of key listed field, we recursively find all keys that match in the body and mask it from our data analytics. 
+
 <aside class="success">
 That's it! It's that simple. 
 </aside>
