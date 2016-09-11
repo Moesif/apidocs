@@ -2,184 +2,58 @@
 title: Moesif API Reference
 
 language_tabs:
-  - javascript: Web (Javascript)
-  - swift: iOS (Swift)
+  - javascript: Javascript
+  - python: Python
+  - ruby: Ruby
+  - java: Java & Android
   - objective_c: iOS (Objective C)
-  - java: Android (Java)
+  - swift: iOS (Swift)
 
 toc_footers:
-  - <a href='/wrap'>Back to main dash</a>
+  - <a href='/wrap'>Back to my dashboard</a>
   - <a href='/'>www.moesif.com</a>
 
-includes: 
-  - postingapi
+includes:
+  - proxy
+  - sdk
+  - restfulapi
 
 search: true
 ---
 
 # Introduction
+*Debugging is hard. It's even harder in a microservice world. We make it easier.*
 
-Welcome to Moesif integration guide. Moesif proxies your API and processes the data.
-The 5 min integration only requires changing your API Base URL and add a few headers.
-There are no libraries or binaries to install or update.
+### Why Moesif?
+Imagine you, as a software developer, receive a support ticket. An end-user complaining your search does not return any results.
+All you have is the name & email of the end-user.
+You have to find the session token for that email, lookup the user profile in your Db, start looking at the logs for the search service. You filter enough hoping you aren't looking at a firehose of log data.
+What if the root cause wasn’t even in the search service?
 
-<p>Moesif is built for high availability for production use.
-moesif.net will route against our data centers located in West US, East US, and Northern Europe.
-If you would like additional regions, just let us know.
-Our proxy clusters are isolated from the rest of the data pipeline and rely only on static mapping
-(i.e. no persistence storage)
+In fact, the error may be way upstream in some other services. Can you root cause and reproduce directly from logs? Usually context is missing. It can takes hours or days to get to a direct root cause just from logs alone.
 
-# Create Proxy Mapping
+### What is Moesif?
+Moesif captures every RESTful API Call such as between your iOS/Android apps and your backend or from IoT Devices to backends or other devices. Moesif can also capture outbound API Calls from your backend such as to Stripe or Algolia or internal API Calls to deeper microservices in your backend. We can then recreate full session traces and understand API behavior so you can root cause in 5 minutes.
 
-In our dash, go to menu -> settings. You can create production or dev “apps”. Once your app is created,
-you can enter a url to be encoded such as https://api.yourcompany.com and it will generate
-an encoded url like:
 
-    `https://s91RHMP1s6fiM3o5vc854783N583tLI7.moesif.net`
+# Installation
+We have three options for installation:
+1. **Cloud Proxy Server**
 
-Just replace your https://api.company.com base url with the statically mapped url
-provided. 
+   Moesif proxies your API and processes the data. The 5 min integration only requires changing your API Base URL and add a few headers. There are no libraries to install.
+   Your API Calls will be routes to the closest datacenter (We currently run in West US, East US, and Northern Europe). If you would like additional regions, just let us know.
+   Our proxy clusters are isolated from the rest of the data pipeline and rely only on static mappings (i.e. no persistence storage)
 
-# Headers
+2. **Simple SDKs for common frontend/backend languages**
 
-> Example code:
+   You you prefer the flexibility of a library. We have those also. If you ever used an events-based analytics library with a sendEvent() method, you'll feel right at home. Most MVC frameworks and frontends are created with middleware to handle API Calls in a single location, so you probably only need a single sendEvent() unlike analytics libs. Our libraries support async operations and queue HTTP calls on background threads.
 
-```javascript
-var request = require('request');
+3. **RESTful API**
 
-var options = {
-  url: 'https://s91RHMP1s6fiM3o5vc854783N583tLI7.moesif.net/users/123',
-  // replace your api base url with the encoded base url from Moesif 
-  headers: {
-    'X-Moesif-Application-Id': 'XXXXXXXXXXXXXXXX',
-    // set the token for all API calls to identify your app with Moesif 
-    'X-Moesif-Tags': 'me' 
-    // only set above tag for key user API end point
-  }
-};
+  While libs are preferred, our API is open if there is a 3rd party integration you would like to integrate with.
 
-function callback(error, response, body) {
-  // your code
-}
 
-request(options, callback);
-```
-
-```objective_c
-NSURL *url = [NSURL URLWithString: @"https://s91RHMP1s6fiM3o5vc854783N583tLI7.moesif.net/users/123"];
-// replace your api base url with the encoded base url from Moesif. 
-
-NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:url 
-                               cachePolicy:NSURLRequestReloadIgnoringCacheData 
-                               timeoutInterval:60];
-
-[request setHTTPMethod:@"GET"];
-
-[request setValue:@"XXXXXXXXXXXXXXXX" forHTTPHeaderField:@"X-Moesif-Application-Id"];
-// set the token for all API calls to identify your app to Moseif.  
-
-[request setValue:@"user" forHTTPHeaderField:@"X-Moesif-Tags"];
-// only set the user tag for the key API endpoint for user data. 
-```
-
-```swift
-let url: NSURL = NSURL(string: "https://s91RHMP1s6fiM3o5vc854783N583tLI7.moesif.net/users/123")!
-// replace your api base url with the encoded base url from Moesif. 
-
-request = NSMutableURLRequest(URL:url)
-request.HTTPMethod = "GET"
-
-request.addValue("XXXXXXXXXXXXXXXX", forHTTPHeaderField: "X-Moesif-Application-Id")
-// set the token for all API calls to identify your app to Moseif. 
-
-request.addValue("user", forHTTPHeaderField: "X-Moesif-Tags")
-// only set the user tag for the key API endpoint for user data. 
-```
-
-```java
-    private Map<String, String> mHeaders = new HashMap<String, String>();
-    
-    private static final String sBaseUrl = "https://s91RHMP1s6fiM3o5vc854783N583tLI7.moesif.net";
-    
-    public void sendHttpRequest(String verb, String path) {
-        mHeaders.put("X-Moesif-Api-Version", "1.0.1");
-        mHeaders.put("X-Moesif-Application-Id", "XXXXXXXXXXXXXXXXX");
-        // set the token for all API calls to identify your app to Moseif. 
-        
-        if (verb.equals("GET") && path.startsWith("/user")) {
-            mHeaders.put("X-Moesif-Tags", "user");
-            // only set the user tag for the key API endpoint for user data. 
-        }
-        String userId = getUserSession().getUserId();
-        if (!Strings.isNullOrEmpty(userId)) {
-            mHeaders.put("X-Moesif-User-Id", userId);
-        }
-        
-        String url = sBaseUrl + path;
-        
-        // do HTTP request
-    }
-```
-
-The only required header is the application id which identifies
-your app with Moesif.
-You can find the token in settings for your app after you logged into the dashboard.
-Other headers primarily gives us hints on how to best parse and understand your data. 
-
-We use variety of pattern recognition and
-machine learning techniques, it can detect quite well. But with some hints,
-it would speed up the learning dramatically. One of the key concept in any app is the user.
-We do highly recommend tag at least one of your API end points as where your
-app 'user' metadata is contained the response body. 
-
-- `X-Moesif-Application-Id` **required**
-
-  - value: your_token 
-  - This is a signed JWT to identify your API with Moesif
-  
-- `X-Moesif-Tags` **strongly recommend**
-
-  - value: `user` 
-  - This is a hint to what is considered the “user profile” for the signed in end user. 
-  - Add to a single endpoint which you consider has the most user metadata.
-  - For example, if you have an endpoint that gets the authenticated user via `GET /users/me`.
-  - Add this header to that API. The verb or url doesn't matter but the response body should have
-    user's data. This helps us link the users object with other API calls. </li>
-  - Please add this tag for only one API template. </li>
- 
-    
-- `X-Moesif-Api-Version` **optional** 
-
-  - value: `X.X.X`
-  - Not required, but you can tag this API with a version. Any string is fine
-such as semantic versioning.
-  
-- `X-Moesif-User-Id` **optional**
-
-  - value: user_id string from your app 
-  - We attempt to figure out what your user_id is automatically, If Moesif has trouble,
-    you can override it by setting it manually.
-  
-- `X-Moesif-Session-Token` **optional**
-  
-  - value: token from your app
-  - Again, we automatically figure out what is your session token, and fall back to IP Address 
-    if can't be found. You are free to override this if unhappy with
-    the results. Session Token can be temporal.
-
-- `X-Moesif-Request-Masks` **optional**
-  
-  - value: `field1,field2,field3`
-  - This header is a comma separated list of keys in the request body that you want to be masked (i.e. hidden from the analytics pipeline)
-  - For privacy reasons, if you like to hide some of the fields in the request body from Moesif's data analytics pipeline, please indicate so. For each field in listed here, we'll recursively find all fields in the request body's JSON with that key, and mask it, so they won't be stored or analyzed in anyway. For example, if the key is `password`, then if body's JSON has `password` as a key for any of the fields or its sub-objects, it will be masked away before it is send to the analytics pipeline. The fields are removed in memory at beginning of the pipeline, so they are never stored in any database or persistence queue. To simplify your code, it is ok to add this header in all your API requests even if there is nothing to mask in some of the API request. 
-  
-- `X-Moesif-Response-Masks` **optional**
-  
-  - value: `field1,field2,field3`
-  - This header is a comma separated list of keys in the response body that you want to be masked (i.e. hidden from the analytics pipeline)
-  - Similar to the `X-Moesif-Request-Masks` header, except this header is for the response body. This will hide fields in the response body from Moesif's data analytics pipeline. For each of key listed field, we recursively find all keys that match in the body and mask it from our data analytics. 
 
 <aside class="success">
-That's it! It's that simple. 
+That's it! It's that simple.
 </aside>
-
