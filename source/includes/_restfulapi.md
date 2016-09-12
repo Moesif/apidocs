@@ -1,4 +1,4 @@
-# Installation: Ingestion RESTful API
+# Ingest using RESTful API
 
 Our RESTful API is open for developers who want to build new extensions and clients. They can integrate with Moesif as long as it can send HTTP requests.
 
@@ -7,31 +7,34 @@ We already developed libraries for common frontend and backend languages. They a
 This RESTful API should be needed only if developing new clients.
 </aside>
 
-## Quick Reference
-
-#### API Base URL
+## Getting Started
+### API Base URL
 
 The base url for our current version is:
 
-`https://api.moesif.net/v1`
+**<https://api.moesif.net/v1>**
 
 Prepend all endpoints below with this base url.
 Calls to our API are routed to the nearest datacenter.
 
-#### API Authentication
+### API Authentication
 Authentication is done via HTTP Headers
 The same Application Id required for our proxy server and client libs can be used for our RESTful API. Simply add the following header to all API Calls.
 
-`X-Moesif-Application-Id`: 'XXXXXXXXXXXXXXXX'
+`X-Moesif-Application-Id: my_application_id`
 
-#### Request Format
+<aside class="info">
+Replace <i>my_application_id</i> with your real Application Id
+</aside>
+
+### Request Format
   For POST and PUT requests, the request body should be JSON. The `Content-Type` header should be set to `application/json`
 
 
-#### Response Format
+### Response Format
   The response body format is always JSON. Successful operations are seen via 2xx status code. Successful creation of new objects will be seen via 201. 4xx status implies client error.
 
-#### Endpoints
+### Endpoints
 |URL | VERB | Description|
 |----|----|---|
 |/events | POST | Add a single API Call to Moesif|
@@ -39,7 +42,7 @@ The same Application Id required for our proxy server and client libs can be use
 
 ## Add Single Event API
 
-#### `POST /events`
+**`POST /events`**
 
 Adds Single API Call to Moesif where the request body itself is a single API Call object with fields such as request and response.
 
@@ -84,7 +87,7 @@ Adds Single API Call to Moesif where the request body itself is a single API Cal
       "Pragma": "no-cache",
       "Expires": "-1",
       "Content-Type": "application/json; charset=utf-8",
-      "Cache-Control": "no-cache",
+      "Cache-Control": "no-cache"
     },
     "body": {
       "Error": "InvalidArgumentException",
@@ -108,19 +111,19 @@ request.api_version | Optional | API Version you want to tag this request with
 request.ip_address | Optional | IP address of the end user
 request.headers | Optional | Headers of the  request
 request.body | Optional | Body of the request in JSON format
-|--|
+||
 response.time | Required | Timestamp for the response in ISO 8601 format
 response.status | Required | HTTP status code such as 200 or 500
 request.ip_address | Optional | IP address of the responding server
 response.headers | Required | Headers of the response
 response.body | Required | Body of the response in JSON format
-|--|
+||
 session_token | Recommend | The end user session token such as a JWT or Device Identifier. We auto-detect the session token but IP Address is used if we cannot detect it.
 tags | Recommend | Comma separated list of tags for this API Call. **See Supported Tags**
 user_id | Recommend | The permanent user_id for the enduser associated with this API Call
 
 
-#### Supported Tags:
+### Supported Tags:
 1. `user`
 - The `user` tag is a hint to what is considered the “user profile” for the signed in end user.
 - Add to a *single* method/endpoint template which you consider has the most user metadata.
@@ -129,7 +132,7 @@ user_id | Recommend | The permanent user_id for the enduser associated with this
 
 ## Add Events Batch API
 
-#### `POST /events/batch`
+**`POST /events/batch`**
 
 Adds a batch of API Call to Moesif where the request body itself is a list of API Call objects with fields such as request and response.
 
@@ -181,7 +184,7 @@ API Calls from different end-users can be added in a single batch. Each API Call
   				"Pragma": "no-cache",
   				"Expires": "-1",
   				"Content-Type": "application/json; charset=utf-8",
-  				"Cache-Control": "no-cache",
+  				"Cache-Control": "no-cache"
   			},
   			"body": {
   				"Error": "InvalidArgumentException",
@@ -206,19 +209,19 @@ request.api_version | Optional | API Version you want to tag this request with
 request.ip_address | Optional | IP address of the end user
 request.headers | Optional | Headers of the  request
 request.body | Optional | Body of the request in JSON format
-|--|
+||
 response.time | Required | Timestamp for the response in ISO 8601 format
 response.status | Required | HTTP status code such as 200 or 500
 request.ip_address | Optional | IP address of the responding server
 response.headers | Required | Headers of the response
 response.body | Required | Body of the response in JSON format
-|--|
+||
 session_token | Recommend | The end user session token such as a JWT or Device Identifier. We auto-detect the session token but IP Address is used if we cannot detect it.
 tags | Recommend | Comma separated list of tags for this API Call. **See Supported Tags**
 user_id | Recommend | The permanent user_id for the enduser associated with this API Call
 
 
-#### Supported Tags:
+### Supported Tags:
 1. `user`
   - The `user` tag is a hint to what is considered the “user profile” for the signed in end user.
   - Add to a *single* method/endpoint template which you consider has the most user metadata.
