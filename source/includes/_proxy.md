@@ -1,17 +1,18 @@
-# Installation: Cloud Proxy
+# Ingest using Cloud Proxy
 
-In our dash, go to menu -> settings. You can create production or dev “apps”. Once your app is created, you can enter a url to be encoded such as https://api.yourcompany.com and it will generate an encoded url like:
+
+## Getting Started
+In our dash, go to menu -> settings. You can create production or dev “apps”. Once your app is created, you can enter a url to be encoded such as <https://api.yourcompany.com> and it will generate an encoded url like:
 
     `https://s91RHMP1s6fiM3o5vc854783N583tLI7.moesif.net`
 
-Just replace your https://api.company.com base url with the statically mapped url
+Just replace your <https://api.company.com> base url with the statically mapped url
 provided.
 
-### Headers
-
-> Example client code calling your backend RESTful API through our proxy
+## Headers
 
 ```javascript
+// Example client code calling your backend RESTful API through our proxy
 
 var request = require('request');
 
@@ -45,6 +46,8 @@ request(options, callback);
 ```
 
 ```objective_c
+// Example client code calling your backend RESTful API through our proxy
+
 NSURL *url = [NSURL URLWithString: @"https://s91RHMP1s6fiM3o5vc854783N583tLI7.moesif.net/users/123"];
 // replace your api base url with the encoded base url from Moesif.
 
@@ -62,6 +65,8 @@ NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:url
 ```
 
 ```swift
+// Example client code calling your backend RESTful API through our proxy
+
 let url: NSURL = NSURL(string: "https://s91RHMP1s6fiM3o5vc854783N583tLI7.moesif.net/users/123")!
 // replace your api base url with the encoded base url from Moesif.
 
@@ -76,28 +81,30 @@ request.addValue("user", forHTTPHeaderField: "X-Moesif-Tags")
 ```
 
 ```java
-    private Map<String, String> mHeaders = new HashMap<String, String>();
+// Example client code calling your backend RESTful API through our proxy
 
-    private static final String sBaseUrl = "https://s91RHMP1s6fiM3o5vc854783N583tLI7.moesif.net";
+  private Map<String, String> mHeaders = new HashMap<String, String>();
 
-    public void sendHttpRequest(String verb, String path) {
-        mHeaders.put("X-Moesif-Api-Version", "1.0.1");
-        mHeaders.put("X-Moesif-Application-Id", "XXXXXXXXXXXXXXXXX");
-        // set the token for all API calls to identify your app to Moseif.
+  private static final String sBaseUrl = "https://s91RHMP1s6fiM3o5vc854783N583tLI7.moesif.net";
 
-        if (verb.equals("GET") && path.startsWith("/user")) {
-            mHeaders.put("X-Moesif-Tags", "user");
-            // only set the user tag for the key API endpoint for user data.
-        }
-        String userId = getUserSession().getUserId();
-        if (!Strings.isNullOrEmpty(userId)) {
-            mHeaders.put("X-Moesif-User-Id", userId);
-        }
+  public void sendHttpRequest(String verb, String path) {
+      mHeaders.put("X-Moesif-Api-Version", "1.0.1");
+      mHeaders.put("X-Moesif-Application-Id", "XXXXXXXXXXXXXXXXX");
+      // set the token for all API calls to identify your app to Moseif.
 
-        String url = sBaseUrl + path;
+      if (verb.equals("GET") && path.startsWith("/user")) {
+          mHeaders.put("X-Moesif-Tags", "user");
+          // only set the user tag for the key API endpoint for user data.
+      }
+      String userId = getUserSession().getUserId();
+      if (!Strings.isNullOrEmpty(userId)) {
+          mHeaders.put("X-Moesif-User-Id", userId);
+      }
 
-        // do HTTP request
-    }
+      String url = sBaseUrl + path;
+
+      // do HTTP request
+  }
 ```
 
 The only required header is the application_id which identifies
