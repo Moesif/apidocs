@@ -150,18 +150,73 @@ controller.createEvent(myEventModel, function(error, response, context) {
 ```python
 from __future__ import print_function
 from moesifapi.moesif_api_client import *
+from moesifapi.models import *
 
-# Setup API Client
-api_client = MoesifAPIClient(my_application_id)
-controller = api_client.api_controller
+client = MoesifAPIClient(my_application_id)
+api_client = client.api
+
+# Note: we recommend sending all API Calls via MVC framework middleware.
 
 
-# Create API Event Model and set fields
-my_event_model = EventModel()
-my_event_model.tags = "user" #  ...
+req_headers = APIHelper.json_deserialize("""  {
+  "Host": "api.acmeinc.com",
+  "Accept": "*/*",
+  "Connection": "Keep-Alive",
+  "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)",
+  "Content-Type": "application/json",
+  "Content-Length": "126",
+  "Accept-Encoding": "gzip"
+} """)
 
-# Send the actual event
-controller.create_event(my_event_model)
+req_body = APIHelper.json_deserialize( """{
+  "items": [
+    {
+      "type": 1,
+      "id": "fwfrf"
+    },
+    {
+      "type": 2,
+      "id": "d43d3f"
+    }
+  ]
+}""")
+
+rsp_headers = APIHelper.json_deserialize("""  {
+  "Date": "Tue, 23 Aug 2016 23:46:49 GMT",
+  "Vary": "Accept-Encoding",
+  "Pragma": "no-cache",
+  "Expires": "-1",
+  "Content-Type": "application/json; charset=utf-8",
+  "Cache-Control": "no-cache"
+} """)
+
+rsp_body = APIHelper.json_deserialize( """{
+  "Error": "InvalidArgumentException",
+  "Message": "Missing field field_a"
+}""")
+
+
+event_req = EventRequestModel(time = "2016-09-09T04:45:42.914",
+    uri = "https://api.acmeinc.com/items/reviews/",
+    verb = "PATCH",
+    api_version = "1.1.0",
+    ip_address = "61.48.220.123",
+    headers = req_headers,
+    body = req_body)
+
+event_rsp = EventResponseModel(time = "2016-09-09T04:45:42.914",
+    status = 500,
+    headers = rsp_headers,
+    body = rsp_body)
+
+event_model = EventModel(request = event_req,
+    response = event_rsp,
+    user_id = "my_user_id",
+    session_token = "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f")
+
+
+# Perform the API call through the SDK function
+api_client.create_event(event_model)
 
 ```
 
@@ -170,14 +225,69 @@ require 'moesif_api'
 
 # Setup API Client
 api_client = MoesifApi::MoesifAPIClient.new(my_application_id)
-controller = api_client.api_controller
+api_controller = api_client.api_controller
 
-# Create API Event Model and set fields
-my_event_model = EventModel.new()
-my_event_model.tags = "user" # ...
+req_headers = JSON.parse('{'\
+  '"Host": "api.acmeinc.com",'\
+  '"Accept": "*/*",'\
+  '"Connection": "Keep-Alive",'\
+  '"User-Agent": "Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)",'\
+  '"Content-Type": "application/json",'\
+  '"Content-Length": "126",'\
+  '"Accept-Encoding": "gzip"'\
+'}')
 
-# Send the actual event
-controller.create_event(my_event_model)
+req_body = JSON.parse( '{'\
+  '"items": ['\
+    '{'\
+      '"type": 1,'\
+      '"id": "fwfrf"'\
+    '},'\
+    '{'\
+      '"type": 2,'\
+      '"id": "d43d3f"'\
+    '}'\
+  ']'\
+'}')
+
+rsp_headers = JSON.parse('{'\
+  '"Date": "Tue, 23 Aug 2016 23:46:49 GMT",'\
+                '"Vary": "Accept-Encoding",'\
+  '"Pragma": "no-cache",'\
+  '"Expires": "-1",'\
+  '"Content-Type": "application/json; charset=utf-8",'\
+                '"Cache-Control": "no-cache"'\
+'}')
+
+rsp_body = JSON.parse('{'\
+  '"Error": "InvalidArgumentException",'\
+  '"Message": "Missing field field_a"'\
+'}')
+
+
+event_req = EventRequestModel.new()
+event_req.time = "2016-09-09T04:45:42.914"
+event_req.uri = "https://api.acmeinc.com/items/reviews/"
+event_req.verb = "PATCH"
+event_req.api_version = "1.1.0"
+event_req.ip_address = "61.48.220.123"
+event_req.headers = req_headers
+event_req.body = req_body
+
+event_rsp = EventResponseModel.new()
+event_rsp.time = "2016-09-09T04:45:42.914"
+event_rsp.status = 500
+event_rsp.headers = rsp_headers
+event_rsp.body = rsp_body
+
+event_model = EventModel.new()
+event_model.request = event_req
+event_model.response = event_rsp
+event_model.user_id ="my_user_id"
+event_model.session_token = "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"
+
+# Perform the API call through the SDK function
+response = api_controller.create_event(event_model)
 
 ```
 
