@@ -8,6 +8,7 @@ language_tabs:
   - ruby: Ruby
   - objective_c: iOS (Objective-C)
   - swift: iOS (Swift)
+  - csharp: C#
 
 toc_footers:
   - <a href='/wrap'>Back to my dashboard</a>
