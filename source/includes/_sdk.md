@@ -70,6 +70,12 @@ Source Code:<br><br>
 > gem install moesif_api
 ```
 
+```csharp
+# Install the Nuget Package via Package Manager Console:
+
+> Install-Package Moesif.Api
+```
+
 ### Authentication
 Each SDK takes an application_id which authenticates your app with Moesif.
 You can find your Application Id under *menu -> App Setup Details*
@@ -288,6 +294,93 @@ event_model.session_token = "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98
 
 # Perform the API call through the SDK function
 response = api_controller.create_event(event_model)
+
+```
+
+```csharp
+using Moesif.Api;
+using Moesif.Api.Helpers;
+
+// Create client instance using your ApplicationId
+var client = new MoesifAPIClient("my_application_id");
+var apiClient = GetClient().Api;
+
+// Parameters for the API call
+var reqHeaders = APIHelper.JsonDeserialize<object>(@" {
+        ""Host"": ""api.acmeinc.com"",
+        ""Accept"": ""*/*"",
+        ""Connection"": ""Keep-Alive"",
+        ""User-Agent"": ""Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)"",
+        ""Content-Type"": ""application/json"",
+        ""Content-Length"": ""126"",
+        ""Accept-Encoding"": ""gzip""
+    }");
+
+var reqBody = APIHelper.JsonDeserialize<object>(@" {
+        ""items"": [
+            {
+                ""type"": 1,
+                ""id"": ""fwfrf""
+            },
+            {
+                ""type"": 2,
+                ""id"": ""d43d3f""
+            }
+        ]
+    }");
+
+var rspHeaders = APIHelper.JsonDeserialize<object>(@" {
+        ""Date"": ""Tue, 23 Aug 2016 23:46:49 GMT"",
+        ""Vary"": ""Accept-Encoding"",
+        ""Pragma"": ""no-cache"",
+        ""Expires"": ""-1"",
+        ""Content-Type"": ""application/json; charset=utf-8"",
+        ""Cache-Control"": ""no-cache""
+    } ");
+
+var rspBody = APIHelper.JsonDeserialize<object>(@" {
+        ""Error"": ""InvalidArgumentException"",
+        ""Message"": ""Missing field field_a""
+    }");
+
+
+var eventReq = new EventRequestModel()
+{
+    Time = DateTime.Parse("2016-09-09T04:45:42.914"),
+    Uri = "https://api.acmeinc.com/items/reviews/",
+    Verb = "PATCH",
+    ApiVersion = "1.1.0",
+    IpAddress = "61.48.220.123",
+    Headers = reqHeaders,
+    Body = reqBody
+};
+
+var eventRsp = new EventResponseModel()
+{
+    Time = DateTime.Parse("2016-09-09T04:45:42.914"),
+    Status = 500,
+    Headers = rspHeaders,
+    Body = rspBody
+};
+
+var eventModel = new EventModel()
+{
+    Request = eventReq,
+    Response = eventRsp,
+    UserId = "my_user_id",
+    SessionToken = "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"
+};
+
+// Perform API call through the SDK function
+
+try
+{
+    await controller.CreateEventAsync(eventModel);
+}
+catch(APIException)
+{
+    // Handle Error
+};
 
 ```
 
