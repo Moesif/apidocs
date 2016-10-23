@@ -10,36 +10,35 @@ The SDKs are open-source and available on GitHub.
 
 
 <blockquote class="lang-specific java">
-<a href="https://jitpack.io/#Moesif/Moesif-API-Java">
-  <img src="https://jitpack.io/v/Moesif/Moesif-API-Java.svg">
+<a href="https://jitpack.io/#Moesif/moesifapi-java">
+  <img src="https://jitpack.io/v/Moesif/moesifapi-java.svg">
 </a>
 <br><br>
 Source Code:<br><br>
-<a href="https://github.com/Moesif/Moesif-API-Java">https://github.com/Moesif/Moesif-API-Java</a>
+<a href="https://github.com/moesif/moesifapi-java">https://github.com/moesif/moesifapi-java</a>
 </blockquote>
 
 ```java
 // Step 1. Add the JitPack repository to your build file
-
 <repositories>
-    <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
-    </repository>
+  <repository>
+      <id>jitpack.io</id>
+      <url>https://jitpack.io</url>
+  </repository>
 </repositories>
 
-// Step 2. Add the dependency for latest version
 
-<dependency>
-    <groupId>com.github.Moesif</groupId>
-    <artifactId>Moesif-API-Java</artifactId>
-    <version>X.X.X</version>
-</dependency>
+  // Step 2. Add the dependency
+  <dependency>
+      <groupId>com.moesif</groupId>
+      <artifactId>moesifapi-java</artifactId>
+      <version>1.0.2</version>
+  </dependency>
 
 ```
 <blockquote class="lang-specific javascript">
 Source Code:<br><br>
-<a href="https://github.com/Moesif/Moesif-API-NodeJS">https://github.com/Moesif/Moesif-API-NodeJS</a>
+<a href="https://github.com/moesif/moesifapi-nodejs">https://github.com/moesif/moesifapi-nodejs</a>
 </blockquote>
 
 ```javascript
@@ -50,7 +49,7 @@ Source Code:<br><br>
 
 <blockquote class="lang-specific python">
 Source Code:<br><br>
-<a href="https://github.com/Moesif/Moesif-API-Python">https://github.com/Moesif/Moesif-API-Python</a>
+<a href="https://github.com/moesif/moesifapi-python">https://github.com/moesif/moesifapi-python</a>
 </blockquote>
 
 ```python
@@ -61,7 +60,7 @@ Source Code:<br><br>
 
 <blockquote class="lang-specific ruby">
 Source Code:<br><br>
-<a href="https://github.com/Moesif/Moesif-API-Ruby">https://github.com/Moesif/Moesif-API-Ruby</a>
+<a href="https://github.com/moesif/moesifapi-ruby">https://github.com/moesif/moesifapi-ruby</a>
 </blockquote>
 
 ```ruby
@@ -69,6 +68,11 @@ Source Code:<br><br>
 
 > gem install moesif_api
 ```
+
+<blockquote class="lang-specific csharp">
+Source Code:<br><br>
+<a href="https://github.com/moesif/moesifapi-csharp">https://github.com/moesif/moesifapi-csharp</a>
+</blockquote>
 
 ```csharp
 # Install the Nuget Package via Package Manager Console:
@@ -131,25 +135,94 @@ controller.createEventAsync(myEventModel, callBack);
 ```
 
 ```javascript
-// Import the module:
-var moesifapi = require('moesifapi');
-
-// Set your application id
-var config = moesifapi.configuration;
-config.ApplicationId = 'my_application_id';
-
-// Create API Event Model and set fields
-var myEventModel = new EventModel();
-myEventModel.setTags("user"); // ...
+///////////////////////////
+// 1. Import the module: //
+///////////////////////////
+    var moesifapi = require('moesifapi');
 
 
-//Access various controllers by:
-var controller = moesifapi.ApiController;
+////////////////////////////////
+// 2. Configure ApplicationId //
+////////////////////////////////
+    var config = moesifapi.configuration;
+    config.ApplicationId = my_application_id;
 
-// Send the actual event
-controller.createEvent(myEventModel, function(error, response, context) {
-  //  Handle Errors
-});
+
+///////////////////////////////
+// 3. Create API Event Model //
+///////////////////////////////
+    var reqHeaders = JSON.parse('{' +
+            '"Host": "api.acmeinc.com",' +
+            '"Accept": "*/*",' +
+            '"Connection": "Keep-Alive",' +
+            '"User-Agent": "Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)",' +
+            '"Content-Type": "application/json",' +
+            '"Content-Length": "126",' +
+            '"Accept-Encoding": "gzip"' +
+        '}');
+
+    var reqBody = JSON.parse( '{' +
+            '"items": [' +
+                '{' +
+                    '"type": 1,' +
+                    '"id": "fwfrf"' +
+                '},' +
+                '{' +
+                    '"type": 2,' +
+                    '"id": "d43d3f"' +
+                '}' +
+            ']' +
+        '}');
+
+    var rspHeaders = JSON.parse('{' +
+            '"Date": "Tue, 23 Aug 2016 23:46:49 GMT",' +
+            '"Vary": "Accept-Encoding",' +
+            '"Pragma": "no-cache",' +
+            '"Expires": "-1",' +
+            '"Content-Type": "application/json; charset=utf-8",' +
+            '"Cache-Control": "no-cache"' +
+        '}');
+
+    var rspBody = JSON.parse('{' +
+            '"Error": "InvalidArgumentException",' +
+            '"Message": "Missing field field_a"' +
+        '}');
+
+    var eventReq = {
+        time: "2016-09-09T04:45:42.914",
+        uri: "https://api.acmeinc.com/items/reviews/",
+        verb: "PATCH",
+        apiVersion: "1.1.0",
+        ipAddress: "61.48.220.123",
+        headers: reqHeaders,
+        body: reqBody
+    };
+
+    var eventRsp = {
+        time: "2016-09-09T04:45:42.914",
+        status: 500,
+        headers: rspHeaders,
+        body: rspBody
+    };
+
+    var eventModel = {
+        request: eventReq,
+        response: eventRsp,
+        userId: "my_user_id",
+        sessionToken: "my_application_id"
+    };
+
+
+//////////////////////////
+// 4. Create new event: //
+//////////////////////////
+    var controller = moesifapi.ApiController;
+
+    // Create a single event
+    controller.createEvent(new EventModel(eventModel), callback);
+
+    // Create batched set of events
+    controller.createEventsBatch(someEventModelList, callback);
 
 ```
 
@@ -162,7 +235,6 @@ client = MoesifAPIClient(my_application_id)
 api_client = client.api
 
 # Note: we recommend sending all API Calls via MVC framework middleware.
-
 
 req_headers = APIHelper.json_deserialize("""  {
   "Host": "api.acmeinc.com",
@@ -188,18 +260,18 @@ req_body = APIHelper.json_deserialize( """{
 }""")
 
 rsp_headers = APIHelper.json_deserialize("""  {
-  "Date": "Tue, 23 Aug 2016 23:46:49 GMT",
-  "Vary": "Accept-Encoding",
-  "Pragma": "no-cache",
-  "Expires": "-1",
-  "Content-Type": "application/json; charset=utf-8",
-  "Cache-Control": "no-cache"
-} """)
+    "Date": "Tue, 23 Aug 2016 23:46:49 GMT",
+    "Vary": "Accept-Encoding",
+    "Pragma": "no-cache",
+    "Expires": "-1",
+    "Content-Type": "application/json; charset=utf-8"
+    "Cache-Control": "no-cache"
+  } """)
 
 rsp_body = APIHelper.json_deserialize( """{
-  "Error": "InvalidArgumentException",
-  "Message": "Missing field field_a"
-}""")
+    "Error": "InvalidArgumentException",
+    "Message": "Missing field field_a"
+  }""")
 
 
 event_req = EventRequestModel(time = "2016-09-09T04:45:42.914",
@@ -218,18 +290,19 @@ event_rsp = EventResponseModel(time = "2016-09-09T04:45:42.914",
 event_model = EventModel(request = event_req,
     response = event_rsp,
     user_id = "my_user_id",
-    session_token = "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f")
+    session_token = "my_application_id")
 
 
 # Perform the API call through the SDK function
 api_client.create_event(event_model)
 
+
+controller.create_event(my_api_event_model)
 ```
 
 ```ruby
 require 'moesif_api'
 
-# Setup API Client
 api_client = MoesifApi::MoesifAPIClient.new(my_application_id)
 api_controller = api_client.api_controller
 
@@ -290,7 +363,7 @@ event_model = EventModel.new()
 event_model.request = event_req
 event_model.response = event_rsp
 event_model.user_id ="my_user_id"
-event_model.session_token = "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"
+event_model.session_token = "my_application_id"
 
 # Perform the API call through the SDK function
 response = api_controller.create_event(event_model)
@@ -368,7 +441,7 @@ var eventModel = new EventModel()
     Request = eventReq,
     Response = eventRsp,
     UserId = "my_user_id",
-    SessionToken = "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"
+    SessionToken = "my_application_id"
 };
 
 // Perform API call through the SDK function
@@ -429,35 +502,106 @@ Replace <i>my_application_id</i> with your real Application Id
 
 
 ```java
-// Import the Library
-MoesifAPIClient client = new MoesifAPIClient("my_application_id");
-ApiController controller = getClient().getApi();
+///////////////////////
+// Create the Client //
+///////////////////////
+    MoesifAPIClient client = new MoesifAPIClient("my_application_id");
+    ApiController controller = getClient().getApi();
 
 
-// Create API Event Models and set fields
-List<EventModel> myEventModels = new ArrayList<EventModel>();
+/////////////////////////////////
+// Create the API Event Model: //
+/////////////////////////////////
 
-EventModel eventA = new EventModel();
-eventA.setTags("user"); // ...
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
 
-myEventModels.add(eventA);
+        // Parameters for the API call
+        Object reqHeaders = APIHelper.deserialize("{" +
+                    "\"Host\": \"api.acmeinc.com\"," +
+                    "\"Accept\": \"*/*\"," +
+                    "\"Connection\": \"Keep-Alive\"," +
+                    "\"User-Agent\": \"Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)\"," +
+                    "\"Content-Type\": \"application/json\"," +
+                    "\"Content-Length\": \"126\"," +
+                    "\"Accept-Encoding\": \"gzip\"" +
+                "}");
 
-// Synchronous Call to add Events
-controller.createEventsBatch(myEventModels);
+        Object reqBody = APIHelper.deserialize("{" +
+                    "\"items\": [" +
+                        "{" +
+                            "\"type\": 1," +
+                            "\"id\": \"fwfrf\"" +
+                        "}," +
+                        "{" +
+                            "\"type\": 2," +
+                             "\"id\": \"d43d3f\"" +
+                         "}" +
+                    "]" +
+                "}");
+
+        Object rspHeaders = APIHelper.deserialize("{" +
+                    "\"Date\": \"Tue, 23 Aug 2016 23:46:49 GMT\"," +
+                    "\"Vary\": \"Accept-Encoding\"," +
+                    "\"Pragma\": \"no-cache\"," +
+                    "\"Expires\": \"-1\"," +
+                    "\"Content-Type\": \"application/json; charset=utf-8\"," +
+                    "\"Cache-Control\": \"no-cache\"" +
+                "}");
+
+        Object rspBody = APIHelper.deserialize("{" +
+                    "\"Error\": \"InvalidArgumentException\"," +
+                    "\"Message\": \"Missing field field_a\"" +
+                "}");
 
 
-// Asynchronous Call to add Events
-APICallBack<Object> callBack = new APICallBack<Object>() {
-    public void onSuccess(HttpContext context, Object response) {
-        // Event Added Successfully
-    }
+        EventRequestModel eventReq = new EventRequestModel();
 
-    public void onFailure(HttpContext context, Throwable error) {
-        // Throw exception or print error
-    }
-};
+        eventReq.setTime(dateFormat.parse("2016-09-09T04:45:42.914"));
+        eventReq.setUri("https://api.acmeinc.com/items/reviews/");
+        eventReq.setVerb("PATCH");
+        eventReq.setApiVersion("1.1.0");
+        eventReq.setIpAddress("61.48.220.123");
+        eventReq.setHeaders(reqHeaders);
+        eventReq.setBody(reqBody);
 
-controller.createEventsBatchAsync(myEventModels, callBack);
+
+        EventResponseModel eventRsp = new EventResponseModel();
+
+        eventRsp.setTime(dateFormat.parse("2016-09-09T04:45:42.914"));
+        eventRsp.setStatus(500);
+        eventRsp.setHeaders(rspHeaders);
+        eventRsp.setBody(rspBody);
+
+        EventModel eventModel = new EventModel();
+        eventModel.setRequest(eventReq);
+        eventModel.setResponse(eventRsp);
+        eventModel.setUserId("my_user_id");
+        eventModel.setSessionToken("23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f");
+
+
+///////////////////////////////////////////
+// Synchronous Call to create new event: //
+///////////////////////////////////////////
+
+    controller.createEvent(eventModel);
+
+////////////////////////////////////////////
+// Asynchronous Call to create new event: //
+////////////////////////////////////////////
+
+    APICallBack<Object> callBack = new APICallBack<Object>() {
+        public void onSuccess(HttpContext context, Object response) {
+            assertEquals("Status is not 201",
+                    201, context.getResponse().getStatusCode());
+            lock.countDown();
+        }
+
+        public void onFailure(HttpContext context, Throwable error) {
+            fail();
+        }
+    };
+
+    controller.createEventAsync(eventModel, callBack);
 ```
 
 ```javascript
