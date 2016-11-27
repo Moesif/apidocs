@@ -1,4 +1,4 @@
-# Ingest using Cloud Proxy
+# Using Cloud Proxy
 
 
 ## Getting Started

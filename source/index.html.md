@@ -2,54 +2,52 @@
 title: Moesif API Reference
 
 language_tabs:
-  - java: Java & Android
   - javascript: Javascript
   - python: Python
   - ruby: Ruby
-  - objective_c: iOS (Objective-C)
-  - swift: iOS (Swift)
+  - php: PHP
+  - go: Go
   - csharp: C#
+  - java: Java / Android
+  - objective_c: Objective-C
+  - swift: Swift
 
 toc_footers:
   - <a href='/wrap'>Back to my dashboard</a>
   - <a href='/'>www.moesif.com</a>
 
 includes:
-  - proxy
-  - sdk
-  - restfulapi
+  - server-sdks
+  - mobile-sdks
+  - api-libs
+  - cloud-proxy
+  - restful-api
 
 search: true
 ---
 
 # Introduction
-*Debugging is hard. It's even harder in a microservice world. We make it easier.*
+*Debugging RESTful APIs Made Easier.*
 
 ### Why Moesif?
-Imagine you, as a software developer, receive a support ticket. An end-user complaining your search does not return any results.
-All you have is the name & email of the end-user.
-You have to find the session token for that email, lookup the user profile in your Db, start looking at the logs for the search service. You filter enough hoping you aren't looking at a firehose of log data.
-What if the root cause wasn’t even in the search service?
+We find support teams bogged down with integration problems and developer questions the most. These API related issues are the most difficult for teams to identify and resolve causing time lost and unhappy customers.
 
-In fact, the error may be way upstream in some other services. Can you root cause and reproduce directly from logs? Usually context is missing. It can takes hours or days to get to a direct root cause just from logs alone.
+Time is wasted finding the needle in the haystack of API logs, which is now terabytes a day. Another time sinker is trying to reproduce the bug with the correct context. Finally, a lot of time to spend to trying root cause it. Often errors are seen way downstream from where the root cause of the error is. Even a completely difference service/API.
 
 ### What is Moesif?
-Moesif captures every RESTful API Call such as between your iOS/Android apps and your backend or from IoT Devices to backends or other devices. Moesif can also capture outbound API Calls from your backend such as to Stripe or Algolia or internal API Calls to deeper microservices in your backend. We can then recreate full session traces and understand API behavior so you can root cause in 5 minutes.
+Moesif monitors your RESTful API calls with our open-source libs. Your API log data is analyzed by our managed service to give you deep insights into why errors happen.
+Moesif attributes API calls to each customer account, so your support team can see the customer's API history with no manual log search and even replay the API Calls.
 
+### Who is Moesif for?
+Moesif is designed for high-bandwidth RESTful API providers, whether sold directly or through partner integrations. However, Moesif is also useful for any API driven service, whether internal or external.
 
 # Installation Options
-We have three options for installation:
+We have five options for installation, although most users will use the __server middleware__.
 
-1. **Ingest using Cloud Proxy**
-
-   Moesif proxies your API and processes the data. The 5 min integration only requires changing your API Base URL and add a few headers. There are no libraries to install.
-   Your API Calls will be routes to the closest datacenter (We currently run in West US, East US, and Northern Europe). If you would like additional regions, just let us know.
-   Our proxy clusters are isolated from the rest of the data pipeline and rely only on static mappings (i.e. no persistence storage)
-
-2. **Ingest using SDKs for common frontend/backend languages**
-
-   You you prefer the flexibility of a library. We have those also. If you ever used an events-based analytics library with a `sendEvent()` method, you'll feel right at home. Most MVC frameworks and frontends are created with middleware to handle API Calls in a single location, so you probably only need a single `sendEvent()` unlike analytics libs. Our libraries support async operations and queue HTTP calls on background threads.
-
-3. **Ingest using RESTful API**
-
-  While libs are preferred, our API is open if there is a 3rd party integration you would like to integrate with.
+Option | Integration Effort | Definition | Use Case
+---------- | ------- | ---------- | ----------
+[Server Middleware SDKs](#using-server-sdks) | Easy: Few lines of code | Open-source middleware for common frameworks like Express and Django. The middleware monitors your RESTful API and sends the even data to api.moesif.net. | You have your own service powered by an API that other developers depend on. __Most common integration__.
+[Mobile SDKs](#using-mobile-sdks) | Easy: Few lines of code | Open-source SDKs for mobile devices Android. If you control both server and client side of your API, you can choose to integrate our mobile SDK to have a better end-to-end flow. The SDK will also capture API calls from 3rd party APIs such as Google or FB APIs. | You are an app developer and consume someone else's APIs which need to be monitored.
+[API Libs](#using-api-libs)  | Medium: Some object mapping required | These open-source libs are the building blocks for the server middleware and Mobile SDKs. We recommend using the [server middleware SDKs](#using-server-sdks) or [mobile SDKs](#using-mobile-sdks) if available. These libs can be used similarly to other analytics event libs with a `sendEvent()` call which sends event data to api.moesif.net. Our libraries support async operations and queue HTTP calls on background threads. | Server middleware or mobile SDKs not available for your environment or not suitable.
+[Cloud Proxy](#using-cloud-proxy) | Easy: No software required | This integration only requires changing your API Base URL and add a few headers. There are no libraries to install. Your API Calls will be routes to the closest datacenter (We currently run in West US, East US, and Northern Europe). If you would like additional regions, just let us know. | You want to get started quickly in a dev environment or debugging a service that you don't control (i.e. you want to debug a Stripe integration that's not working).
+[RESTful API](#using-restful-api) | Hard | We have an open API at api.moesif.net. While the SDKs are recommended, you can build applications directly on our API. | You are building a 3rd party plugin or extension on top of Moesif's API. __Not Common__

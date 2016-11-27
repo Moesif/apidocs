@@ -1,10 +1,18 @@
-# Ingest using  SDKs
+# Using API Libs
 
-If you ever used an events-based analytics library with a `sendEvent()` method, you'll feel right at home with our API event ingestion SDKs. Most MVC frameworks and frontends are created with middleware to handle API Calls in a single location, so you probably only need a single `sendEvent()` unlike analytics libs. Our libraries support async operations and queue HTTP calls on background threads.
+These open-source libs are the building blocks for the server middleware and Mobile SDKs. We recommend using the [server middleware SDKs](#using-server-sdks) or [mobile SDKs](#using-mobile-sdks) if available. These libs can be used similarly to other analytics event libs with a `sendEvent()` call which sends event data to api.moesif.net. Our libraries support async operations and queue HTTP calls on background threads.
 
-## Installing the Library
+## How to Install
 
-Select your language on the right.
+Select your language on the right:
+
+* Javascript
+* Python
+* Ruby
+* PHP
+* Go
+* C#
+* Java
 
 The SDKs are open-source and available on GitHub.
 
@@ -80,23 +88,32 @@ Source Code:<br><br>
 > Install-Package Moesif.Api
 ```
 
+<blockquote class="lang-specific go">
+Source Code:<br><br>
+<a href="https://github.com/Moesif/moesifapi-go">https://github.com/Moesif/moesifapi-go</a>
+</blockquote>
+
+```go
+// The code depends on unirest-go http library. Run the following commands:
+
+> go get github.com/moesif/moesifapi-go;
+  go get github.com/apimatic/unirest-go
+```
+
+<blockquote class="lang-specific php">
+Source Code:<br><br>
+<a href="https://github.com/Moesif/moesifapi-php">https://github.com/Moesif/moesifapi-php</a>
+</blockquote>
+
+```php
+// Install via Composer
+
+> composer require moesif/moesifapi
+```
+
 ### Authentication
 Each SDK takes an application_id which authenticates your app with Moesif.
-You can find your Application Id under *menu -> App Setup Details*
-
-## Where to collect?
-You can collect API Calls either in clients such as iOS/Android or in backend code such as python or java. We don't recommend collecting the same API twice though as you will be charged twice.
-
-Benefits of collecting client side:
-- Capture errors as seen by clients which may be end-users.
-- Peace of mind that you will know if an edge load balancer is down or if DNS Settings are broken, you will see it.
-- If you call many separate API from the client directly, then client has them all in same spot.
-
-Benefits of collecting server side:
-- You have a public API and don't have control over clients
-- May be easier integration for all clients (i.e. don't need to integrate both Swift & Java for iOS & Android respectively).
-- No need to push changes to app stores.
-- No impact on end-users data usage/battery usage if that is a concern.
+You can find your Application Id under *Menu -> App Setup Details*
 
 ## Add Single Event API
 
@@ -454,6 +471,84 @@ catch(APIException)
 {
     // Handle Error
 };
+
+```
+
+```go
+import "github.com/moesif/moesifapi-go"
+import "github.com/moesif/moesifapi-go/api"
+import "github.com/moesif/moesifapi-go/models"
+import "time"
+
+moesifapi.Config.ApplicationId = "my_application_id"
+apiClient := api.NewAPI()
+
+reqTime := time.Now().UTC()
+apiVersion := "1.0"
+ipAddress := "61.48.220.123"
+
+req := models.EventRequestModel{
+    Time:       &reqTime,
+    Uri:        "https://api.acmeinc.com/widgets",
+    Verb:       "GET",
+    ApiVersion: &apiVersion,
+    IpAddress:  &ipAddress,
+    Headers: map[string]interface{}{
+        "ReqHeader1": "ReqHeaderValue1",
+    },
+    Body: nil,
+}
+
+rspTime := time.Now().UTC().Add(time.Duration(1) * time.Second)
+
+rsp := models.EventResponseModel{
+    Time:      &rspTime,
+    Status:    500,
+    IpAddress: nil,
+    Headers: map[string]interface{}{
+        "RspHeader1": "RspHeaderValue1",
+    },
+    Body: map[string]interface{}{
+        "Key1": "Value1",
+        "Key2": 12,
+        "Key3": map[string]interface{}{
+            "Key3_1": "SomeValue",
+        },
+    },
+}
+
+sessionToken := "my_application_id"
+userId := "end_user_id"
+
+event := models.EventModel{
+    Request:      req,
+    Response:     rsp,
+    SessionToken: &sessionToken,
+    Tags:         nil,
+    UserId:       &userId,
+}
+
+result := apiClient.CreateEvent(&event)
+
+```
+
+```php
+// 1. Use Composer to install the dependencies. See the section "How To Build".
+// 2. See that you have configured your SDK correctly. See the section "How To Configure".
+// 3. Depending on your project setup, you might need to include composer's autoloader
+   in your PHP code to enable autoloading of classes.
+
+   require_once "vendor/autoload.php";
+
+// 4. Import the SDK client in your project:
+
+    use MoesifApi\MoesifApiClient;
+
+// 5. Instantiate the client. After this, you can now get the controllers and call the
+    respective methods:
+
+    $client = new MoesifApiClient();
+    $controller = $client->getApi();
 
 ```
 
