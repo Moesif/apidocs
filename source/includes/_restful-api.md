@@ -1,4 +1,4 @@
-# Ingest using RESTful API
+# Using RESTful API
 
 Our RESTful API is open for developers who want to build new extensions and clients. They can integrate with Moesif as long as it can send HTTP requests.
 
@@ -42,7 +42,7 @@ Replace <i>my_application_id</i> with your real Application Id
 
 ## Add Single Event API
 
-**`POST /events`**
+**`POST https://api.moesif.net/v1/events`**
 
 Adds Single API Call to Moesif where the request body itself is a single API Call object with fields such as request and response.
 
@@ -132,7 +132,7 @@ user_id | Recommend | The permanent user_id for the enduser associated with this
 
 ## Add Events Batch API
 
-**`POST /events/batch`**
+**`POST https://api.moesif.net/v1/events/batch`**
 
 Adds a batch of API Call to Moesif where the request body itself is a list of API Call objects with fields such as request and response.
 
