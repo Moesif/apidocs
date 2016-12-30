@@ -46,7 +46,9 @@ Source Code:<br><br>
 ```
 <blockquote class="lang-specific javascript">
 Source Code:<br><br>
-<a href="https://github.com/moesif/moesifapi-nodejs">https://github.com/moesif/moesifapi-nodejs</a>
+<a href="https://github.com/moesif/moesifapi-nodejs">https://github.com/moesif/moesifapi-nodejs</a><br><br><br>
+Package:<br><br>
+<a href="https://www.npmjs.com/package/moesifapi">https://www.npmjs.com/package/moesifapi</a>
 </blockquote>
 
 ```javascript
@@ -57,7 +59,9 @@ Source Code:<br><br>
 
 <blockquote class="lang-specific python">
 Source Code:<br><br>
-<a href="https://github.com/moesif/moesifapi-python">https://github.com/moesif/moesifapi-python</a>
+<a href="https://github.com/moesif/moesifapi-python">https://github.com/moesif/moesifapi-python</a><br><br><br>
+Package:<br><br>
+<a href="https://pypi.python.org/pypi/moesifapi">https://pypi.python.org/pypi/moesifapi</a>
 </blockquote>
 
 ```python
@@ -68,7 +72,9 @@ Source Code:<br><br>
 
 <blockquote class="lang-specific ruby">
 Source Code:<br><br>
-<a href="https://github.com/moesif/moesifapi-ruby">https://github.com/moesif/moesifapi-ruby</a>
+<a href="https://github.com/moesif/moesifapi-ruby">https://github.com/moesif/moesifapi-ruby</a></a><br><br><br>
+Package:<br><br>
+<a href="https://rubygems.org/gems/moesif_api">https://rubygems.org/gems/moesif_api</a>
 </blockquote>
 
 ```ruby
@@ -79,7 +85,9 @@ Source Code:<br><br>
 
 <blockquote class="lang-specific csharp">
 Source Code:<br><br>
-<a href="https://github.com/moesif/moesifapi-csharp">https://github.com/moesif/moesifapi-csharp</a>
+<a href="https://github.com/moesif/moesifapi-csharp">https://github.com/moesif/moesifapi-csharp</a></a><br><br><br>
+Package:<br><br>
+<a href="https://www.nuget.org/packages/Moesif.Api/">https://www.nuget.org/packages/Moesif.Api/</a>
 </blockquote>
 
 ```csharp

@@ -132,22 +132,30 @@ Replace <i>my_application_id</i> with your real Application Id
 ## How to Configure
 <blockquote class="lang-specific javascript">
 Source Code:<br><br>
-<a href="https://github.com/Moesif/moesif-express">https://github.com/Moesif/moesif-express</a>
+<a href="https://github.com/Moesif/moesif-express">https://github.com/Moesif/moesif-express</a><br><br><br>
+Package:<br><br>
+<a href="https://www.npmjs.com/package/moesif-express">https://www.npmjs.com/package/moesif-express</a>
 </blockquote>
 
 <blockquote class="lang-specific python">
 Source Code:<br><br>
-<a href="https://github.com/Moesif/moesifdjango">https://github.com/Moesif/moesifdjango</a>
+<a href="https://github.com/Moesif/moesifdjango">https://github.com/Moesif/moesifdjango</a><br><br><br>
+Package:<br><br>
+<a href="https://pypi.python.org/pypi/moesifdjango">https://pypi.python.org/pypi/moesifdjango</a>
 </blockquote>
 
 
 <blockquote class="lang-specific ruby">
 Source Code:<br><br>
-<a href="https://github.com/Moesif/moesif-rack">https://github.com/Moesif/moesif-rack</a>
+<a href="https://github.com/Moesif/moesif-rack">https://github.com/Moesif/moesif-rack</a><br><br><br>
+Package:<br><br>
+<a href="https://rubygems.org/gems/moesif_rack">https://rubygems.org/gems/moesif_rack</a>
 </blockquote>
 
 <blockquote class="lang-specific php">
 Source Code:<br><br>
-<a href="https://github.com/Moesif/moesif-laravel">https://github.com/Moesif/moesif-laravel</a>
+<a href="https://github.com/Moesif/moesif-laravel">https://github.com/Moesif/moesif-laravel</a><br><br><br>
+Package:<br><br>
+<a href="https://packagist.org/packages/moesif/moesif-laravel">https://packagist.org/packages/moesif/moesif-laravel</a>
 </blockquote>
 See respective README on GitHub repo for details

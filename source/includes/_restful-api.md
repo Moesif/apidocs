@@ -10,6 +10,8 @@ This RESTful API should be needed only if developing new clients.
 ## Getting Started
 ### API Base URL
 
+[![Moesif on Programmable Web](https://moesif.com/developer-documentation/images/programmable-web.png)](http://www.programmableweb.com/api/moesif)
+
 The base url for our current version is:
 
 **<https://api.moesif.net/v1>**
