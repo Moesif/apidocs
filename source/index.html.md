@@ -1,5 +1,5 @@
 ---
-title: Moesif API Reference
+title: Moesif API Documentation
 
 language_tabs:
   - javascript: Javascript
@@ -31,15 +31,13 @@ search: true
 
 ### Why Moesif?
 We find support teams bogged down with integration problems and developer questions the most. These API related issues are the most difficult for teams to identify and resolve causing time lost and unhappy customers.
-
-Time is wasted finding the needle in the haystack of API logs, which is now terabytes a day. Another time sinker is trying to reproduce the bug with the correct context. Finally, a lot of time to spend to trying root cause it. Often errors are seen way downstream from where the root cause of the error is. Even a completely difference service/API.
+Time is wasted finding the needle in the haystack of API logs, which is now terabytes a day.
 
 ### What is Moesif?
-Moesif monitors your RESTful API calls with our open-source libs. Your API log data is analyzed by our managed service to give you deep insights into why errors happen.
-Moesif attributes API calls to each customer account, so your support team can see the customer's API history with no manual log search and even replay the API Calls.
+Moesif logs your RESTful API calls with our open-source libs. Your API log data is analyzed by our managed service to give you deep insights into why errors happen.
 
 ### Who is Moesif for?
-Moesif is designed for high-bandwidth RESTful API providers, whether sold directly or through partner integrations. However, Moesif is also useful for any API driven service, whether internal or external.
+Moesif is designed for RESTful API providers and also internal APIs powering integrated applications and services.
 
 # Installation Options
 We have five options for installation, although most users will use the __server middleware__.

@@ -13,7 +13,7 @@
 
 
 ### URI scheme
-*Host* : https://moesif.net  
+*Host* : https://api.moesif.net  
 *Schemes* : HTTPS
 
 
@@ -30,6 +30,3 @@
 ### Produces
 
 * `application/json`
-
-
-
