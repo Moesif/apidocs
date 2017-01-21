@@ -8,7 +8,7 @@ language_tabs:
   - php: PHP
   - go: Go
   - csharp: C#
-  - java: Java / Android
+  - java: Java
   - objective_c: Objective-C
   - swift: Swift
 
