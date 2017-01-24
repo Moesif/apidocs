@@ -29,8 +29,8 @@ activate :autoprefixer do |config|
 end
 
 # Github pages require relative links
-activate :relative_assets
-set :relative_links, true
+#activate :relative_assets
+#set :relative_links, true
 
 # Build Configuration
 configure :build do
