@@ -23,14 +23,14 @@ set :fonts_dir, 'fonts'
 # SEO Settings
 =begin Uncomment this section to enable SEO (search engine optimization) meta data
 
-set :host, 'https://www.moesif.com' # the base hostname & protocol for your homepage
+set :host, 'https://www.acmeinc.com' # the base hostname & protocol for your homepage
 set :base_path, '/docs' # Base/Root Path of Slate (For example if you proxy Slate at www.example.com/docs, then set to /docs)
 set :locale, 'en'
 
 # http://json-ld.org/spec/
 set :seo, {
   :legal_name => "Acme, Inc",
-  :email => "support@acme.com",
+  :email => "support@acmeinc.com",
   :contact_point => { # if contact_point is set, all subfields required
     :email => "support@acmeinc.com",
     :telephone => "+1-234-567-8901"
