@@ -11,12 +11,12 @@ The request body itself is a single API Call object consisting of both the HTTP 
 Replace <i>my_application_id</i> with your real Application Id
 </aside>
 
-<blockquote class="lang-specific json">
+<blockquote class="lang-specific yaml">
 Example Request Body:
 </blockquote>
 
 
-```json
+```yaml
 {
   "request": {
     "time": "2016-09-09T04:45:42.914",
@@ -541,10 +541,10 @@ API Calls from different end-users can be added in a single batch. Each API Call
 Replace <i>my_application_id</i> with your real Application Id
 </aside>
 
-<blockquote class="lang-specific json">
+<blockquote class="lang-specific yaml">
 Example Request Body:
 </blockquote>
-```json
+```yaml
 [
   {
   		"request": {

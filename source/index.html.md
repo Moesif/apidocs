@@ -2,7 +2,7 @@
 title: Moesif API Documentation
 
 language_tabs:
-  - json: JSON
+  - yaml: JSON
   - javascript: Javascript
   - python: Python
   - ruby: Ruby

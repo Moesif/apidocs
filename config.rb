@@ -11,6 +11,8 @@ set :markdown,
     with_toc_data: true,
     no_intra_emphasis: true
 
+set :haml, { ugly: true }
+
 # Assets
 set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
@@ -20,25 +22,23 @@ set :fonts_dir, 'fonts'
 # Site Settings
 
 # If set, the logo in the navbar will also be a link to this URL
-# set :navbar_url, 'https://www.moesif.com'
+set :navbar_url, 'https://www.moesif.com'
 
 # SEO Settings
-=begin Uncomment this section to enable SEO (search engine optimization) meta data
-
 set :host, 'https://www.moesif.com' # the base hostname & protocol for your homepage
-set :base_path, '/docs' # Base/Root Path of Slate (For example if you proxy Slate at www.example.com/docs, then set to /docs)
+set :base_path, '/docs/api' # Base/Root Path of Slate (For example if you proxy Slate at www.example.com/docs, then set to /docs)
 set :locale, 'en'
 
 # http://json-ld.org/spec/
 set :seo, {
-  :legal_name => "Acme, Inc",
-  :email => "support@acme.com",
+  :legal_name => "Moesif, Inc",
+  :email => "support@moesif.com",
   :contact_point => { # if contact_point is set, all subfields required
-    :email => "support@acmeinc.com",
-    :telephone => "+1-234-567-8901"
+    :email => "support@moesif.com",
+    :telephone => "+1-415-851-0943"
   },
   :address => { # if address is set, all subfields required
-    :street_address => "1 Dr Carlton B Goodlett Pl",
+    :street_address => "77 Van Ness Ave STE 101-1513",
     :address_locality => "San Francisco",
     :address_region => "California",
     :post_office_box_number => 94102
@@ -46,17 +46,16 @@ set :seo, {
 }
 
 # Controls images like Facebook's OG Image'
-set :social_image, 'images/logo.png'
+set :social_image, 'https://www.moesif.com/static/og_image.png'
 
 # No special characters in usernames (i.e. no @)
-set :twitter_username, 'MyTwitterAccount'
-set :facebook_username, 'MyFbUserName'
-set :facebook_app_id, 'MyFbAppId'
-set :github_username, 'MyGithubUserName'
-=end
+set :twitter_username, 'MoesifHQ'
+set :facebook_username, 'MoesifHQ'
+set :facebook_app_id, '232433703771289'
+set :github_username, 'Moesif'
 
 # When set, enables Google Analytics tracking script
-# set :google_analytics_id, 'UA-XXX-X'
+set :google_analytics_id, 'UA-78525975-1'
 
 # Activate the syntax highlighter
 activate :syntax
