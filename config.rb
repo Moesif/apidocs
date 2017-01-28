@@ -18,7 +18,7 @@ set :fonts_dir, 'fonts'
 # Site Settings
 
 # If set, the logo in the navbar will also be a link to this URL
-# set :navbar_url, 'https://www.moesif.com'
+# set :navbar_url, 'https://www.acmeinc.com'
 
 # SEO Settings
 =begin Uncomment this section to enable SEO (search engine optimization) meta data
