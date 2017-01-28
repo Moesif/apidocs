@@ -51,7 +51,7 @@ Package:<br><br>
 ```javascript
 // To Install Moesif Lib, run in your terminal
 
-> npm install --save moesifapi
+npm install --save moesifapi
 ```
 
 <blockquote class="lang-specific python">
@@ -64,7 +64,7 @@ Package:<br><br>
 ```python
 # To Install Moesif Lib, run in your terminal
 
-> pip install moesifapi
+pip install moesifapi
 ```
 
 <blockquote class="lang-specific ruby">
@@ -77,7 +77,7 @@ Package:<br><br>
 ```ruby
 # To Install Moesif Lib, run in your terminal
 
-> gem install moesif_api
+gem install moesif_api
 ```
 
 <blockquote class="lang-specific csharp">
@@ -90,7 +90,7 @@ Package:<br><br>
 ```csharp
 // Install the Nuget Package via Package Manager Console:
 
-> Install-Package Moesif.Api
+Install-Package Moesif.Api
 ```
 
 <blockquote class="lang-specific go">
@@ -113,7 +113,7 @@ Source Code:<br><br>
 ```php
 // Install via Composer
 
-> composer require moesif/moesifapi
+composer require moesif/moesifapi
 ```
 
 Select your language on the right:
