@@ -264,6 +264,7 @@
         <ul class="toc-footer">
             <li><a href='/docs'>Back to Docs</a></li>
             <li><a href='/wrap'>My Dashboard</a></li>
+            <li><a href='http://status.moesif.com'>API Status</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -304,15 +305,20 @@ Replace <i>my_application_id</i> with your real Application Id. You can find you
 
 <h2 id="request-format">Request Format</h2>
 
-<p>For POST, PUT, and PATCH requests, the request body should be JSON. The <code class="prettyprint">Content-Type</code> header should be set to <code class="prettyprint">application/json</code></p>
-
-<h2 id="cors">CORS</h2>
-
-<p><a href="/blog/technical/cors/Authoritative-Guide-to-CORS-Cross-Origin-Resource-Sharing-for-REST-APIs/">CORS</a> is allowed on this API. <code class="prettyprint">Access-Control-Allow-Origin</code> is set to *</p>
+<p>For POST, PUT, and PATCH requests, the request body should be JSON. The <code class="prettyprint">Content-Type</code> header
+should be set to <code class="prettyprint">application/json</code></p>
 
 <h2 id="response-format">Response Format</h2>
 
 <p>The response body format is always JSON. Successful operations are seen via 2xx status code. Successful creation of new objects will be seen via 201. 4xx status implies client error.</p>
+
+<p>The REST API JSON payloads uses <em>underscore</em> format (i.e some_key). Many of the API libs
+may use camelCase, PascalCase, or other as their model entities. Please
+select the respective language tab.</p>
+
+<h2 id="cors">CORS</h2>
+
+<p><a href="/blog/technical/cors/Authoritative-Guide-to-CORS-Cross-Origin-Resource-Sharing-for-REST-APIs/">CORS</a> is enabled on this API. <code class="prettyprint">Access-Control-Allow-Origin</code> is set to *</p>
 
 <h2 id="list-of-endpoints">List of Endpoints</h2>
 
@@ -332,6 +338,48 @@ Replace <i>my_application_id</i> with your real Application Id. You can find you
 <td>/events/batch</td>
 <td>POST</td>
 <td>Create a batch of API Calls to Moesif</td>
+</tr>
+</tbody></table>
+
+          <h2 id="errors">Errors</h2>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request &ndash; Your request has an incorrect parameter</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized &ndash; Your <code class="prettyprint">X-Moesif-Application-Id</code> header is incorrect</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden &ndash; You accessed a resource not allowed with your key</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found &ndash; The specified resource could not be found</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed &ndash; You tried to access a resource with an invalid HTTP method</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable &ndash; You requested a format that is not JSON format, Moesif&rsquo;s API supports JSON</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone &ndash; The resource requested has been removed from our servers</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error &ndash; We had a problem with our server. Please <a href="mailto:support@moesif.com">contact us</a></td>
 </tr>
 </tbody></table>
 
