@@ -34,7 +34,6 @@ select the respective language tab.
 ## CORS
 [CORS](/blog/technical/cors/Authoritative-Guide-to-CORS-Cross-Origin-Resource-Sharing-for-REST-APIs/) is enabled on this API. `Access-Control-Allow-Origin` is set to *
 
-
 ## List of Endpoints
 |URL | VERB | Description|
 |----|----|---|
