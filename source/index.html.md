@@ -17,6 +17,7 @@ toc_footers:
 
 includes:
   - overview
+  - errors
   - api-libs
   - event-log-api
 
