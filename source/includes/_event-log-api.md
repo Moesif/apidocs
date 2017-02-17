@@ -45,7 +45,8 @@ Example Request Body:
           "liked": true
         }
       ]
-    }
+    },
+    "transfer_encoding": ""
   },
   "response": {
     "time": "2016-09-09T04:45:42.914",
@@ -60,7 +61,8 @@ Example Request Body:
     "body": {
       "Error": "InvalidArgumentException",
       "Message": "Missing field location"
-    }
+    },
+    "transfer_encoding": ""
   },
   "user_id": "mndug437f43",
   "session_token": "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"
@@ -406,11 +408,24 @@ var eventModel = new EventModel()
     SessionToken = "my_application_id"
 };
 
-// Perform API call through the SDK function
-
+//////////////////////////////////////
+// Example for making an async call //     
+//////////////////////////////////////
 try
 {
     await controller.CreateEventAsync(eventModel);
+}
+catch(APIException)
+{
+    // Handle Error
+};
+
+///////////////////////////////////////////
+// Example for making a synchronous call //
+///////////////////////////////////////////
+try
+{
+    controller.CreateEvent(eventModel);
 }
 catch(APIException)
 {
@@ -421,59 +436,64 @@ catch(APIException)
 
 ```go
 import "github.com/moesif/moesifapi-go"
-import "github.com/moesif/moesifapi-go/api"
 import "github.com/moesif/moesifapi-go/models"
 import "time"
 
-moesifapi.Config.ApplicationId = "my_application_id"
-apiClient := api.NewAPI()
+apiClient := moesifapi.NewAPI("your_moesif_application_id")
 
 reqTime := time.Now().UTC()
 apiVersion := "1.0"
 ipAddress := "61.48.220.123"
 
 req := models.EventRequestModel{
-    Time:       &reqTime,
-    Uri:        "https://api.acmeinc.com/widgets",
-    Verb:       "GET",
-    ApiVersion: &apiVersion,
-    IpAddress:  &ipAddress,
-    Headers: map[string]interface{}{
-        "ReqHeader1": "ReqHeaderValue1",
-    },
-    Body: nil,
+  Time:       &reqTime,
+  Uri:        "https://api.acmeinc.com/widgets",
+  Verb:       "GET",
+  ApiVersion: &apiVersion,
+  IpAddress:  &ipAddress,
+  Headers: map[string]interface{}{
+    "ReqHeader1": "ReqHeaderValue1",
+  },
+  Body: nil,
 }
 
 rspTime := time.Now().UTC().Add(time.Duration(1) * time.Second)
 
 rsp := models.EventResponseModel{
-    Time:      &rspTime,
-    Status:    500,
-    IpAddress: nil,
-    Headers: map[string]interface{}{
-        "RspHeader1": "RspHeaderValue1",
+  Time:      &rspTime,
+  Status:    500,
+  IpAddress: nil,
+  Headers: map[string]interface{}{
+    "RspHeader1":     "RspHeaderValue1",
+    "Content-Type":   "application/json",
+    "Content-Length": "1000",
+  },
+  Body: map[string]interface{}{
+    "Key1": "Value1",
+    "Key2": 12,
+    "Key3": map[string]interface{}{
+      "Key3_1": "SomeValue",
     },
-    Body: map[string]interface{}{
-        "Key1": "Value1",
-        "Key2": 12,
-        "Key3": map[string]interface{}{
-            "Key3_1": "SomeValue",
-        },
-    },
+  },
 }
 
-sessionToken := "my_application_id"
-userId := "end_user_id"
+sessionToken := "end user's API or Session Token"
+userId := "end user_id"
 
 event := models.EventModel{
-    Request:      req,
-    Response:     rsp,
-    SessionToken: &sessionToken,
-    Tags:         nil,
-    UserId:       &userId,
+  Request:      req,
+  Response:     rsp,
+  SessionToken: &sessionToken,
+  Tags:         nil,
+  UserId:       &userId,
 }
 
-result := apiClient.CreateEvent(&event)
+
+// Queue the event (will queue the requests into batches and flush buffers periodically.)
+err := apiClient.QueueEvent(&event)
+
+// Create the event synchronously
+err := apiClient.CreateEvent(&event)
 
 ```
 
@@ -497,25 +517,29 @@ result := apiClient.CreateEvent(&event)
 
 ```
 
-Fields | Required | Description
+Fields | Required? | Description
 --------- | -------- | -----------
-request.time | Required | Timestamp for the request in ISO 8601 format
-request.uri | Required | Full uri such as https://api.com/?query=string including host, query string, etc
-request.verb | Required | HTTP method used, i.e. `GET`, `POST`
-request.api_version | Optional | API Version you want to tag this request with
-request.ip_address | Optional | IP address of the end user
-request.headers | Optional | Headers of the  request
-request.body | Optional | Body of the request in JSON format
+request | __Required__ | The object that specifies the request message
+<p style="margin-left:1.5em">request.time</p> | __Required__ | Timestamp for the request in ISO 8601 format
+<p style="margin-left:1.5em">request.uri</p> | __Required__ | Full uri such as _https://api.com/?query=string_ including host, query string, etc
+<p style="margin-left:1.5em">request.verb</p> | __Required__ | HTTP method used, i.e. `GET`, `POST`
+<p style="margin-left:1.5em">request.api_version</p> | Optional | API Version you want to tag this request with such as _1.0.0_
+<p style="margin-left:1.5em">request.ip_address</p> | Optional | IP address of the requester, If not set, we use the IP address of your logging API calls.
+<p style="margin-left:1.5em">request.headers</p> | Optional | Headers of the  request as a `Map<string, string>`
+<p style="margin-left:1.5em">request.body</p> | Optional | Body of the request in JSON format or Base64 encoded binary data (see _transfer_encoding_)
+<p style="margin-left:1.5em">request.transfer_encoding</p> | Optional | A string that specifies the transfer encoding of Body being sent to Moesif. If field nonexistent, body assumed to be JSON or text. Only possible value is _base64_ for sending binary data like protobuf
 ||
-response.time | Required | Timestamp for the response in ISO 8601 format
-response.status | Required | HTTP status code such as 200 or 500
-request.ip_address | Optional | IP address of the responding server
-response.headers | Required | Headers of the response
-response.body | Required | Body of the response in JSON format
+response | Optional | The object that specifies the response message, not set implies no response received such as a timeout.
+<p style="margin-left:1.5em">response.time</p> | __Required__ | Timestamp for the response in ISO 8601 format
+<p style="margin-left:1.5em">response.status</p> | __Required__ | HTTP status code as number such as _200_ or _500_
+<p style="margin-left:1.5em">request.ip_address</p> | Optional | IP address of the responding server
+<p style="margin-left:1.5em">response.headers</p> | __Required__ | Headers of the response as a `Map<string, string>`
+<p style="margin-left:1.5em">response.body</p> | __Required__ | Body of the response in JSON format or Base64 encoded binary data (see _transfer_encoding_)
+<p style="margin-left:1.5em">response.transfer_encoding</p> | Optional | A string that specifies the transfer encoding of Body being sent to Moesif. If field nonexistent, body assumed to be JSON or text. Only possible value is _base64_ for sending binary data like protobuf
 ||
-session_token | Recommend | The end user session token such as a JWT or Device Identifier. We auto-detect the session token but IP Address is used if we cannot detect it.
-tags | Recommend | Comma separated list of tags for this API Call. **See Supported Tags**
-user_id | Recommend | The permanent user_id for the enduser associated with this API Call
+session_token | _Recommend_ | The end user session or API token such as a JWT or API key. Moesif will auto-detect the session token automatically if not set.
+tags | _Recommend_ | Comma separated list of tags for this API Call. **See Supported Tags**
+user_id | _Recommend_ | Identifies this API call to a permanent user_id
 
 
 ### Supported Tags:
@@ -527,14 +551,16 @@ user_id | Recommend | The permanent user_id for the enduser associated with this
 
 ## Create an Events Batch
 
-Creates and logs a batch of API Call to Moesif.
+**`POST https://api.moesif.net/v1/events/batch`**
+
+Creates and logs a batch of API Calls to Moesif.
 The request body itself is an array API Calls object consisting of both the HTTP request and HTTP response.
 
 This API takes a list form of the same model defined in create single event.
 
-The maximum batch size is **250kb**. Break up larger batches.
+The maximum batch size is **12MB**. Break up larger batches.
 
-API Calls from different end-users can be added in a single batch. Each API Call Event in the list has independent `session_token` and `user_id` fields.
+API Calls from multiple end users can be added in a single batch. Each Event in the list has independent `session_token` and `user_id` fields.
 
 
 <aside class="info">
@@ -574,7 +600,8 @@ Example Request Body:
   						"liked": true
   					}
   				]
-  			}
+  			},
+        "transfer_encoding": "",
   		},
   		"response": {
   			"time": "2016-09-09T04:45:42.914",
@@ -589,7 +616,8 @@ Example Request Body:
   			"body": {
   				"Error": "InvalidArgumentException",
   				"Message": "Missing field location"
-  			}
+  			},
+        "transfer_encoding": "",
   		},
   		"user_id": "mndug437f43",
   		"session_token": "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"
@@ -761,25 +789,219 @@ controller.create_events_batch(my_event_models)
 
 ```
 
-Fields | Required | Description
+```csharp
+using Moesif.Api;
+using Moesif.Api.Helpers;
+
+// Create client instance using your ApplicationId
+var client = new MoesifAPIClient("my_application_id");
+var apiClient = GetClient().Api;
+
+// Parameters for the API call
+var reqHeaders = APIHelper.JsonDeserialize<object>(@" {
+        ""Host"": ""api.acmeinc.com"",
+        ""Accept"": ""*/*"",
+        ""Connection"": ""Keep-Alive"",
+        ""User-Agent"": ""Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)"",
+        ""Content-Type"": ""application/json"",
+        ""Content-Length"": ""126"",
+        ""Accept-Encoding"": ""gzip""
+    }");
+
+var reqBody = APIHelper.JsonDeserialize<object>(@" {
+        ""items"": [
+            {
+                ""type"": 1,
+                ""id"": ""fwfrf""
+            },
+            {
+                ""type"": 2,
+                ""id"": ""d43d3f""
+            }
+        ]
+    }");
+
+var rspHeaders = APIHelper.JsonDeserialize<object>(@" {
+        ""Date"": ""Tue, 23 Aug 2016 23:46:49 GMT"",
+        ""Vary"": ""Accept-Encoding"",
+        ""Pragma"": ""no-cache"",
+        ""Expires"": ""-1"",
+        ""Content-Type"": ""application/json; charset=utf-8"",
+        ""Cache-Control"": ""no-cache""
+    } ");
+
+var rspBody = APIHelper.JsonDeserialize<object>(@" {
+        ""Error"": ""InvalidArgumentException"",
+        ""Message"": ""Missing field field_a""
+    }");
+
+
+var eventReq = new EventRequestModel()
+{
+    Time = DateTime.Parse("2016-09-09T04:45:42.914"),
+    Uri = "https://api.acmeinc.com/items/reviews/",
+    Verb = "PATCH",
+    ApiVersion = "1.1.0",
+    IpAddress = "61.48.220.123",
+    Headers = reqHeaders,
+    Body = reqBody
+};
+
+var eventRsp = new EventResponseModel()
+{
+    Time = DateTime.Parse("2016-09-09T04:45:42.914"),
+    Status = 500,
+    Headers = rspHeaders,
+    Body = rspBody
+};
+
+var eventModel = new EventModel()
+{
+    Request = eventReq,
+    Response = eventRsp,
+    UserId = "my_user_id",
+    SessionToken = "my_application_id"
+};
+
+// Create a List
+var events = new List<EventModel>();
+events.Add(eventModel);
+events.Add(eventModel);
+events.Add(eventModel);
+
+//////////////////////////////////////
+// Example for making an async call //  
+//////////////////////////////////////
+try
+{
+    await controller.CreateEventsBatchAsync(events);
+}
+catch(APIException)
+{
+    // Handle Error
+};
+
+///////////////////////////////////////////
+// Example for making a synchronous call //
+///////////////////////////////////////////
+try
+{
+    controller.CreateEventsBatch(events);
+}
+catch(APIException)
+{
+    // Handle Error
+};
+
+```
+
+```go
+import "github.com/moesif/moesifapi-go"
+import "github.com/moesif/moesifapi-go/models"
+import "time"
+
+apiClient := moesifapi.NewAPI("my_application_id")
+
+reqTime := time.Now().UTC()
+apiVersion := "1.0"
+ipAddress := "61.48.220.123"
+
+req := models.EventRequestModel{
+	Time:       &reqTime,
+	Uri:        "https://api.acmeinc.com/widgets",
+	Verb:       "GET",
+	ApiVersion: &apiVersion,
+	IpAddress:  &ipAddress,
+	Headers: map[string]interface{}{
+		"ReqHeader1": "ReqHeaderValue1",
+	},
+	Body: nil,
+}
+
+rspTime := time.Now().UTC().Add(time.Duration(1) * time.Second)
+
+rsp := models.EventResponseModel{
+	Time:      &rspTime,
+	Status:    500,
+	IpAddress: nil,
+	Headers: map[string]interface{}{
+		"RspHeader1": "RspHeaderValue1",
+	},
+	Body: map[string]interface{}{
+		"Key1": "Value1",
+		"Key2": 12,
+		"Key3": map[string]interface{}{
+			"Key3_1": "SomeValue",
+		},
+	},
+}
+
+sessionToken := "end user API or session token"
+userId := "end user_id"
+
+event := models.EventModel{
+	Request:      req,
+	Response:     rsp,
+	SessionToken: &sessionToken,
+	Tags:         nil,
+	UserId:       &userId,
+}
+
+events := make([]*models.EventModel, 20)
+for i := 0; i < 20; i++ {
+	events[i] = &event
+}
+
+// Queue the events
+err := apiClient.QueueEvents(events)
+
+// Create the events batch synchronously
+err := apiClient.CreateEventsBatch(event)
+
+```
+
+```php
+// 1. Use Composer to install the dependencies. See the section "How To Build".
+// 2. See that you have configured your SDK correctly. See the section "How To Configure".
+// 3. Depending on your project setup, you might need to include composer's autoloader
+   in your PHP code to enable autoloading of classes.
+
+   require_once "vendor/autoload.php";
+
+// 4. Import the SDK client in your project:
+
+    use MoesifApi\MoesifApiClient;
+
+// 5. Instantiate the client. After this, you can now get the controllers and call the
+    respective methods:
+
+    $client = new MoesifApiClient();
+    $controller = $client->getApi();
+```
+
+Fields | Required? | Description
 --------- | -------- | -----------
-request.time | Required | Timestamp for the request in ISO 8601 format
-request.uri | Required | Full uri such as <https://api.com/?query=string> including host, query string, etc
-request.verb | Required | HTTP method used, i.e. `GET`, `POST`
-request.api_version | Optional | API Version you want to tag this request with
-request.ip_address | Optional | IP address of the end user
-request.headers | Optional | Headers of the  request
-request.body | Optional | Body of the request in JSON format
+request | __Required__ | The object that specifies the request message
+<p style="margin-left:1.5em">request.time</p> | __Required__ | Timestamp for the request in ISO 8601 format
+<p style="margin-left:1.5em">request.uri</p> | __Required__ | Full uri such as _https://api.com/?query=string_ including host, query string, etc
+<p style="margin-left:1.5em">request.verb</p> | __Required__ | HTTP method used, i.e. `GET`, `POST`
+<p style="margin-left:1.5em">request.api_version</p> | Optional | API Version you want to tag this request with such as _1.0.0_
+<p style="margin-left:1.5em">request.ip_address</p> | Optional | IP address of the requester, If not set, we use the IP address of your logging API calls.
+<p style="margin-left:1.5em">request.headers</p> | Optional | Headers of the  request as a `Map<string, string>`
+<p style="margin-left:1.5em">request.body</p> | Optional | Body of the request in JSON format or Base64 encoded binary data (see _transfer_encoding_)
+<p style="margin-left:1.5em">request.transfer_encoding</p> | Optional | A string that specifies the transfer encoding of Body being sent to Moesif. If field nonexistent, body assumed to be JSON or text. Only possible value is _base64_ for sending binary data like protobuf
 ||
-response.time | Required | Timestamp for the response in ISO 8601 format
-response.status | Required | HTTP status code such as 200 or 500
-request.ip_address | Optional | IP address of the responding server
-response.headers | Required | Headers of the response
-response.body | Required | Body of the response in JSON format
+response | Optional | The object that specifies the response message, not set implies no response received such as a timeout.
+<p style="margin-left:1.5em">response.time</p> | __Required__ | Timestamp for the response in ISO 8601 format
+<p style="margin-left:1.5em">response.status</p> | __Required__ | HTTP status code as number such as _200_ or _500_
+<p style="margin-left:1.5em">request.ip_address</p> | Optional | IP address of the responding server
+<p style="margin-left:1.5em">response.headers</p> | __Required__ | Headers of the response as a `Map<string, string>`
+<p style="margin-left:1.5em">response.body</p> | __Required__ | Body of the response in JSON format or Base64 encoded binary data (see _transfer_encoding_)
+<p style="margin-left:1.5em">response.transfer_encoding</p> | Optional | A string that specifies the transfer encoding of Body being sent to Moesif. If field nonexistent, body assumed to be JSON or text. Only possible value is _base64_ for sending binary data like protobuf
 ||
-session_token | Recommend | The end user session token such as a JWT or Device Identifier. We auto-detect the session token but IP Address is used if we cannot detect it.
-tags | Recommend | Comma separated list of tags for this API Call. **See Supported Tags**
-user_id | Recommend | The permanent user_id for the enduser associated with this API Call
+session_token | _Recommend_ | The end user session or API token such as a JWT or API key. Moesif will auto-detect the session token automatically if not set.
+tags | _Recommend_ | Comma separated list of tags for this API Call. **See Supported Tags**
+user_id | _Recommend_ | Identifies this API call to a permanent user_id
 
 
 ### Supported Tags:

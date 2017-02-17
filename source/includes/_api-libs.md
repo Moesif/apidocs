@@ -99,10 +99,8 @@ Source Code:<br><br>
 </blockquote>
 
 ```go
-// The moesifapi-go depends on unirest-go http library. Run the following commands:
 
 go get github.com/moesif/moesifapi-go;
-go get github.com/apimatic/unirest-go
 ```
 
 <blockquote class="lang-specific php">
