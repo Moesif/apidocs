@@ -4,7 +4,8 @@ These open-source libs are advanced wrappers for the Moesif REST API and are the
 
 ## Important
 <aside class="warning">
-Use the Moesif SDKs for the easiest integration if available, they are all open-source and available on Github. Checkout Moesif's <a href="/docs">Developer Docs</a> for more info.
+Moesif has Middleware SDKs designed for common Web API frameworks which are easier to integrate for common environments.
+Checkout Moesif's <a href="https://www.moesif.com/docs/server-integration/">Server Middleware SDK Docs</a> for more info.
 </aside>
 
 
