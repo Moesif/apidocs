@@ -465,10 +465,8 @@ Package:<br><br>
 Source Code:<br><br>
 <a href="https://github.com/Moesif/moesifapi-go">https://github.com/Moesif/moesifapi-go</a>
 </blockquote>
-<pre class="highlight go tab-go"><code><span class="c">// The moesifapi-go depends on unirest-go http library. Run the following commands:</span><span class="x">
-
+<pre class="highlight go tab-go"><code><span class="x">
 </span><span class="k">go</span><span class="x"> </span><span class="n">get</span><span class="x"> </span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">moesif</span><span class="o">/</span><span class="n">moesifapi</span><span class="o">-</span><span class="k">go</span><span class="p">;</span><span class="x">
-</span><span class="k">go</span><span class="x"> </span><span class="n">get</span><span class="x"> </span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">apimatic</span><span class="o">/</span><span class="n">unirest</span><span class="o">-</span><span class="k">go</span><span class="x">
 </span></code></pre>
 <blockquote class="lang-specific php">
 Source Code:<br><br>
@@ -540,7 +538,8 @@ Example Request Body:
           <span class="s2">"</span><span class="s">liked"</span><span class="pi">:</span> <span class="nv">true</span>
         <span class="pi">}</span>
       <span class="pi">]</span>
-    <span class="pi">}</span>
+    <span class="pi">},</span>
+    <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
   <span class="pi">},</span>
   <span class="s2">"</span><span class="s">response"</span><span class="pi">:</span> <span class="pi">{</span>
     <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2016-09-09T04:45:42.914"</span><span class="pi">,</span>
@@ -555,7 +554,8 @@ Example Request Body:
     <span class="s2">"</span><span class="s">body"</span><span class="pi">:</span> <span class="pi">{</span>
       <span class="s2">"</span><span class="s">Error"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">InvalidArgumentException"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">Message"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Missing</span><span class="nv"> </span><span class="s">field</span><span class="nv"> </span><span class="s">location"</span>
-    <span class="pi">}</span>
+    <span class="pi">},</span>
+    <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
   <span class="pi">},</span>
   <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">mndug437f43"</span><span class="pi">,</span>
   <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"</span>
@@ -886,8 +886,9 @@ Example Request Body:
     <span class="n">SessionToken</span> <span class="p">=</span> <span class="s">"my_application_id"</span>
 <span class="p">};</span>
 
-<span class="c1">// Perform API call through the SDK function</span>
-
+<span class="c1">//////////////////////////////////////</span>
+<span class="c1">// Example for making an async call //     </span>
+<span class="c1">//////////////////////////////////////</span>
 <span class="k">try</span>
 <span class="p">{</span>
     <span class="k">await</span> <span class="n">controller</span><span class="p">.</span><span class="nf">CreateEventAsync</span><span class="p">(</span><span class="n">eventModel</span><span class="p">);</span>
@@ -897,60 +898,77 @@ Example Request Body:
     <span class="c1">// Handle Error</span>
 <span class="p">};</span>
 
+<span class="c1">///////////////////////////////////////////</span>
+<span class="c1">// Example for making a synchronous call //</span>
+<span class="c1">///////////////////////////////////////////</span>
+<span class="k">try</span>
+<span class="p">{</span>
+    <span class="n">controller</span><span class="p">.</span><span class="nf">CreateEvent</span><span class="p">(</span><span class="n">eventModel</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">catch</span><span class="p">(</span><span class="n">APIException</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Handle Error</span>
+<span class="p">};</span>
+
 </code></pre><pre class="highlight go tab-go"><code><span class="k">import</span><span class="x"> </span><span class="s">"github.com/moesif/moesifapi-go"</span><span class="x">
-</span><span class="k">import</span><span class="x"> </span><span class="s">"github.com/moesif/moesifapi-go/api"</span><span class="x">
 </span><span class="k">import</span><span class="x"> </span><span class="s">"github.com/moesif/moesifapi-go/models"</span><span class="x">
 </span><span class="k">import</span><span class="x"> </span><span class="s">"time"</span><span class="x">
 
-</span><span class="n">moesifapi</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">ApplicationId</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="s">"my_application_id"</span><span class="x">
-</span><span class="n">apiClient</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">api</span><span class="o">.</span><span class="n">NewAPI</span><span class="p">()</span><span class="x">
+</span><span class="n">apiClient</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">moesifapi</span><span class="o">.</span><span class="n">NewAPI</span><span class="p">(</span><span class="s">"your_moesif_application_id"</span><span class="p">)</span><span class="x">
 
 </span><span class="n">reqTime</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">time</span><span class="o">.</span><span class="n">Now</span><span class="p">()</span><span class="o">.</span><span class="n">UTC</span><span class="p">()</span><span class="x">
 </span><span class="n">apiVersion</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"1.0"</span><span class="x">
 </span><span class="n">ipAddress</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"61.48.220.123"</span><span class="x">
 
 </span><span class="n">req</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">models</span><span class="o">.</span><span class="n">EventRequestModel</span><span class="p">{</span><span class="x">
-    </span><span class="n">Time</span><span class="o">:</span><span class="x">       </span><span class="o">&amp;</span><span class="n">reqTime</span><span class="p">,</span><span class="x">
-    </span><span class="n">Uri</span><span class="o">:</span><span class="x">        </span><span class="s">"https://api.acmeinc.com/widgets"</span><span class="p">,</span><span class="x">
-    </span><span class="n">Verb</span><span class="o">:</span><span class="x">       </span><span class="s">"GET"</span><span class="p">,</span><span class="x">
-    </span><span class="n">ApiVersion</span><span class="o">:</span><span class="x"> </span><span class="o">&amp;</span><span class="n">apiVersion</span><span class="p">,</span><span class="x">
-    </span><span class="n">IpAddress</span><span class="o">:</span><span class="x">  </span><span class="o">&amp;</span><span class="n">ipAddress</span><span class="p">,</span><span class="x">
-    </span><span class="n">Headers</span><span class="o">:</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span><span class="x">
-        </span><span class="s">"ReqHeader1"</span><span class="o">:</span><span class="x"> </span><span class="s">"ReqHeaderValue1"</span><span class="p">,</span><span class="x">
-    </span><span class="p">},</span><span class="x">
-    </span><span class="n">Body</span><span class="o">:</span><span class="x"> </span><span class="no">nil</span><span class="p">,</span><span class="x">
+  </span><span class="n">Time</span><span class="o">:</span><span class="x">       </span><span class="o">&amp;</span><span class="n">reqTime</span><span class="p">,</span><span class="x">
+  </span><span class="n">Uri</span><span class="o">:</span><span class="x">        </span><span class="s">"https://api.acmeinc.com/widgets"</span><span class="p">,</span><span class="x">
+  </span><span class="n">Verb</span><span class="o">:</span><span class="x">       </span><span class="s">"GET"</span><span class="p">,</span><span class="x">
+  </span><span class="n">ApiVersion</span><span class="o">:</span><span class="x"> </span><span class="o">&amp;</span><span class="n">apiVersion</span><span class="p">,</span><span class="x">
+  </span><span class="n">IpAddress</span><span class="o">:</span><span class="x">  </span><span class="o">&amp;</span><span class="n">ipAddress</span><span class="p">,</span><span class="x">
+  </span><span class="n">Headers</span><span class="o">:</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span><span class="x">
+    </span><span class="s">"ReqHeader1"</span><span class="o">:</span><span class="x"> </span><span class="s">"ReqHeaderValue1"</span><span class="p">,</span><span class="x">
+  </span><span class="p">},</span><span class="x">
+  </span><span class="n">Body</span><span class="o">:</span><span class="x"> </span><span class="no">nil</span><span class="p">,</span><span class="x">
 </span><span class="p">}</span><span class="x">
 
 </span><span class="n">rspTime</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">time</span><span class="o">.</span><span class="n">Now</span><span class="p">()</span><span class="o">.</span><span class="n">UTC</span><span class="p">()</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="m">1</span><span class="p">)</span><span class="x"> </span><span class="o">*</span><span class="x"> </span><span class="n">time</span><span class="o">.</span><span class="n">Second</span><span class="p">)</span><span class="x">
 
 </span><span class="n">rsp</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">models</span><span class="o">.</span><span class="n">EventResponseModel</span><span class="p">{</span><span class="x">
-    </span><span class="n">Time</span><span class="o">:</span><span class="x">      </span><span class="o">&amp;</span><span class="n">rspTime</span><span class="p">,</span><span class="x">
-    </span><span class="n">Status</span><span class="o">:</span><span class="x">    </span><span class="m">500</span><span class="p">,</span><span class="x">
-    </span><span class="n">IpAddress</span><span class="o">:</span><span class="x"> </span><span class="no">nil</span><span class="p">,</span><span class="x">
-    </span><span class="n">Headers</span><span class="o">:</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span><span class="x">
-        </span><span class="s">"RspHeader1"</span><span class="o">:</span><span class="x"> </span><span class="s">"RspHeaderValue1"</span><span class="p">,</span><span class="x">
+  </span><span class="n">Time</span><span class="o">:</span><span class="x">      </span><span class="o">&amp;</span><span class="n">rspTime</span><span class="p">,</span><span class="x">
+  </span><span class="n">Status</span><span class="o">:</span><span class="x">    </span><span class="m">500</span><span class="p">,</span><span class="x">
+  </span><span class="n">IpAddress</span><span class="o">:</span><span class="x"> </span><span class="no">nil</span><span class="p">,</span><span class="x">
+  </span><span class="n">Headers</span><span class="o">:</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span><span class="x">
+    </span><span class="s">"RspHeader1"</span><span class="o">:</span><span class="x">     </span><span class="s">"RspHeaderValue1"</span><span class="p">,</span><span class="x">
+    </span><span class="s">"Content-Type"</span><span class="o">:</span><span class="x">   </span><span class="s">"application/json"</span><span class="p">,</span><span class="x">
+    </span><span class="s">"Content-Length"</span><span class="o">:</span><span class="x"> </span><span class="s">"1000"</span><span class="p">,</span><span class="x">
+  </span><span class="p">},</span><span class="x">
+  </span><span class="n">Body</span><span class="o">:</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span><span class="x">
+    </span><span class="s">"Key1"</span><span class="o">:</span><span class="x"> </span><span class="s">"Value1"</span><span class="p">,</span><span class="x">
+    </span><span class="s">"Key2"</span><span class="o">:</span><span class="x"> </span><span class="m">12</span><span class="p">,</span><span class="x">
+    </span><span class="s">"Key3"</span><span class="o">:</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span><span class="x">
+      </span><span class="s">"Key3_1"</span><span class="o">:</span><span class="x"> </span><span class="s">"SomeValue"</span><span class="p">,</span><span class="x">
     </span><span class="p">},</span><span class="x">
-    </span><span class="n">Body</span><span class="o">:</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span><span class="x">
-        </span><span class="s">"Key1"</span><span class="o">:</span><span class="x"> </span><span class="s">"Value1"</span><span class="p">,</span><span class="x">
-        </span><span class="s">"Key2"</span><span class="o">:</span><span class="x"> </span><span class="m">12</span><span class="p">,</span><span class="x">
-        </span><span class="s">"Key3"</span><span class="o">:</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span><span class="x">
-            </span><span class="s">"Key3_1"</span><span class="o">:</span><span class="x"> </span><span class="s">"SomeValue"</span><span class="p">,</span><span class="x">
-        </span><span class="p">},</span><span class="x">
-    </span><span class="p">},</span><span class="x">
+  </span><span class="p">},</span><span class="x">
 </span><span class="p">}</span><span class="x">
 
-</span><span class="n">sessionToken</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"my_application_id"</span><span class="x">
-</span><span class="n">userId</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"end_user_id"</span><span class="x">
+</span><span class="n">sessionToken</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"end user's API or Session Token"</span><span class="x">
+</span><span class="n">userId</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"end user_id"</span><span class="x">
 
 </span><span class="n">event</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">models</span><span class="o">.</span><span class="n">EventModel</span><span class="p">{</span><span class="x">
-    </span><span class="n">Request</span><span class="o">:</span><span class="x">      </span><span class="n">req</span><span class="p">,</span><span class="x">
-    </span><span class="n">Response</span><span class="o">:</span><span class="x">     </span><span class="n">rsp</span><span class="p">,</span><span class="x">
-    </span><span class="n">SessionToken</span><span class="o">:</span><span class="x"> </span><span class="o">&amp;</span><span class="n">sessionToken</span><span class="p">,</span><span class="x">
-    </span><span class="n">Tags</span><span class="o">:</span><span class="x">         </span><span class="no">nil</span><span class="p">,</span><span class="x">
-    </span><span class="n">UserId</span><span class="o">:</span><span class="x">       </span><span class="o">&amp;</span><span class="n">userId</span><span class="p">,</span><span class="x">
+  </span><span class="n">Request</span><span class="o">:</span><span class="x">      </span><span class="n">req</span><span class="p">,</span><span class="x">
+  </span><span class="n">Response</span><span class="o">:</span><span class="x">     </span><span class="n">rsp</span><span class="p">,</span><span class="x">
+  </span><span class="n">SessionToken</span><span class="o">:</span><span class="x"> </span><span class="o">&amp;</span><span class="n">sessionToken</span><span class="p">,</span><span class="x">
+  </span><span class="n">Tags</span><span class="o">:</span><span class="x">         </span><span class="no">nil</span><span class="p">,</span><span class="x">
+  </span><span class="n">UserId</span><span class="o">:</span><span class="x">       </span><span class="o">&amp;</span><span class="n">userId</span><span class="p">,</span><span class="x">
 </span><span class="p">}</span><span class="x">
 
-</span><span class="n">result</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">apiClient</span><span class="o">.</span><span class="n">CreateEvent</span><span class="p">(</span><span class="o">&amp;</span><span class="n">event</span><span class="p">)</span><span class="x">
+
+</span><span class="c">// Queue the event (will queue the requests into batches and flush buffers periodically.)</span><span class="x">
+</span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">apiClient</span><span class="o">.</span><span class="n">QueueEvent</span><span class="p">(</span><span class="o">&amp;</span><span class="n">event</span><span class="p">)</span><span class="x">
+
+</span><span class="c">// Create the event synchronously</span><span class="x">
+</span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">apiClient</span><span class="o">.</span><span class="n">CreateEvent</span><span class="p">(</span><span class="o">&amp;</span><span class="n">event</span><span class="p">)</span><span class="x">
 
 </span></code></pre><pre class="highlight php tab-php"><code>// 1. Use Composer to install the dependencies. See the section "How To Build".
 // 2. See that you have configured your SDK correctly. See the section "How To Configure".
@@ -973,44 +991,54 @@ Example Request Body:
 <table><thead>
 <tr>
 <th>Fields</th>
-<th>Required</th>
+<th>Required?</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>request.time</td>
-<td>Required</td>
+<td>request</td>
+<td><strong>Required</strong></td>
+<td>The object that specifies the request message</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">request.time</p></td>
+<td><strong>Required</strong></td>
 <td>Timestamp for the request in ISO 8601 format</td>
 </tr>
 <tr>
-<td>request.uri</td>
-<td>Required</td>
-<td>Full uri such as https://api.com/?query=string including host, query string, etc</td>
+<td><p style="margin-left:1.5em">request.uri</p></td>
+<td><strong>Required</strong></td>
+<td>Full uri such as <em>https://api.com/?query=string</em> including host, query string, etc</td>
 </tr>
 <tr>
-<td>request.verb</td>
-<td>Required</td>
+<td><p style="margin-left:1.5em">request.verb</p></td>
+<td><strong>Required</strong></td>
 <td>HTTP method used, i.e. <code class="prettyprint">GET</code>, <code class="prettyprint">POST</code></td>
 </tr>
 <tr>
-<td>request.api_version</td>
+<td><p style="margin-left:1.5em">request.api_version</p></td>
 <td>Optional</td>
-<td>API Version you want to tag this request with</td>
+<td>API Version you want to tag this request with such as <em>1.0.0</em></td>
 </tr>
 <tr>
-<td>request.ip_address</td>
+<td><p style="margin-left:1.5em">request.ip_address</p></td>
 <td>Optional</td>
-<td>IP address of the end user</td>
+<td>IP address of the requester, If not set, we use the IP address of your logging API calls.</td>
 </tr>
 <tr>
-<td>request.headers</td>
+<td><p style="margin-left:1.5em">request.headers</p></td>
 <td>Optional</td>
-<td>Headers of the  request</td>
+<td>Headers of the  request as a <code class="prettyprint">Map&lt;string, string&gt;</code></td>
 </tr>
 <tr>
-<td>request.body</td>
+<td><p style="margin-left:1.5em">request.body</p></td>
 <td>Optional</td>
-<td>Body of the request in JSON format</td>
+<td>Body of the request in JSON format or Base64 encoded binary data (see <em>transfer_encoding</em>)</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">request.transfer_encoding</p></td>
+<td>Optional</td>
+<td>A string that specifies the transfer encoding of Body being sent to Moesif. If field nonexistent, body assumed to be JSON or text. Only possible value is <em>base64</em> for sending binary data like protobuf</td>
 </tr>
 <tr>
 <td></td>
@@ -1018,29 +1046,39 @@ Example Request Body:
 <td></td>
 </tr>
 <tr>
-<td>response.time</td>
-<td>Required</td>
+<td>response</td>
+<td>Optional</td>
+<td>The object that specifies the response message, not set implies no response received such as a timeout.</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">response.time</p></td>
+<td><strong>Required</strong></td>
 <td>Timestamp for the response in ISO 8601 format</td>
 </tr>
 <tr>
-<td>response.status</td>
-<td>Required</td>
-<td>HTTP status code such as 200 or 500</td>
+<td><p style="margin-left:1.5em">response.status</p></td>
+<td><strong>Required</strong></td>
+<td>HTTP status code as number such as <em>200</em> or <em>500</em></td>
 </tr>
 <tr>
-<td>request.ip_address</td>
+<td><p style="margin-left:1.5em">request.ip_address</p></td>
 <td>Optional</td>
 <td>IP address of the responding server</td>
 </tr>
 <tr>
-<td>response.headers</td>
-<td>Required</td>
-<td>Headers of the response</td>
+<td><p style="margin-left:1.5em">response.headers</p></td>
+<td><strong>Required</strong></td>
+<td>Headers of the response as a <code class="prettyprint">Map&lt;string, string&gt;</code></td>
 </tr>
 <tr>
-<td>response.body</td>
-<td>Required</td>
-<td>Body of the response in JSON format</td>
+<td><p style="margin-left:1.5em">response.body</p></td>
+<td><strong>Required</strong></td>
+<td>Body of the response in JSON format or Base64 encoded binary data (see <em>transfer_encoding</em>)</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">response.transfer_encoding</p></td>
+<td>Optional</td>
+<td>A string that specifies the transfer encoding of Body being sent to Moesif. If field nonexistent, body assumed to be JSON or text. Only possible value is <em>base64</em> for sending binary data like protobuf</td>
 </tr>
 <tr>
 <td></td>
@@ -1049,18 +1087,18 @@ Example Request Body:
 </tr>
 <tr>
 <td>session_token</td>
-<td>Recommend</td>
-<td>The end user session token such as a JWT or Device Identifier. We auto-detect the session token but IP Address is used if we cannot detect it.</td>
+<td><em>Recommend</em></td>
+<td>The end user session or API token such as a JWT or API key. Moesif will auto-detect the session token automatically if not set.</td>
 </tr>
 <tr>
 <td>tags</td>
-<td>Recommend</td>
+<td><em>Recommend</em></td>
 <td>Comma separated list of tags for this API Call. <strong>See Supported Tags</strong></td>
 </tr>
 <tr>
 <td>user_id</td>
-<td>Recommend</td>
-<td>The permanent user_id for the enduser associated with this API Call</td>
+<td><em>Recommend</em></td>
+<td>Identifies this API call to a permanent user_id</td>
 </tr>
 </tbody></table>
 
@@ -1076,14 +1114,16 @@ Example Request Body:
 
 <h2 id="create-an-events-batch">Create an Events Batch</h2>
 
-<p>Creates and logs a batch of API Call to Moesif.
+<p><strong><code class="prettyprint">POST https://api.moesif.net/v1/events/batch</code></strong></p>
+
+<p>Creates and logs a batch of API Calls to Moesif.
 The request body itself is an array API Calls object consisting of both the HTTP request and HTTP response.</p>
 
 <p>This API takes a list form of the same model defined in create single event.</p>
 
-<p>The maximum batch size is <strong>250kb</strong>. Break up larger batches.</p>
+<p>The maximum batch size is <strong>12MB</strong>. Break up larger batches.</p>
 
-<p>API Calls from different end-users can be added in a single batch. Each API Call Event in the list has independent <code class="prettyprint">session_token</code> and <code class="prettyprint">user_id</code> fields.</p>
+<p>API Calls from multiple end users can be added in a single batch. Each Event in the list has independent <code class="prettyprint">session_token</code> and <code class="prettyprint">user_id</code> fields.</p>
 
 <aside class="info">
 Replace <i>my_application_id</i> with your real Application Id
@@ -1121,7 +1161,8 @@ Example Request Body:
                         <span class="s2">"</span><span class="s">liked"</span><span class="pi">:</span> <span class="nv">true</span>
                     <span class="pi">}</span>
                 <span class="pi">]</span>
-            <span class="pi">}</span>
+            <span class="pi">},</span>
+        <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span><span class="pi">,</span>
         <span class="pi">},</span>
         <span class="s2">"</span><span class="s">response"</span><span class="pi">:</span> <span class="pi">{</span>
             <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2016-09-09T04:45:42.914"</span><span class="pi">,</span>
@@ -1136,7 +1177,8 @@ Example Request Body:
             <span class="s2">"</span><span class="s">body"</span><span class="pi">:</span> <span class="pi">{</span>
                 <span class="s2">"</span><span class="s">Error"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">InvalidArgumentException"</span><span class="pi">,</span>
                 <span class="s2">"</span><span class="s">Message"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Missing</span><span class="nv"> </span><span class="s">field</span><span class="nv"> </span><span class="s">location"</span>
-            <span class="pi">}</span>
+            <span class="pi">},</span>
+        <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span><span class="pi">,</span>
         <span class="pi">},</span>
         <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">mndug437f43"</span><span class="pi">,</span>
         <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"</span>
@@ -1294,48 +1336,239 @@ Example Request Body:
 <span class="c1"># Send the actual events</span>
 <span class="n">controller</span><span class="p">.</span><span class="nf">create_events_batch</span><span class="p">(</span><span class="n">my_event_models</span><span class="p">)</span>
 
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="k">using</span> <span class="nn">Moesif.Api</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Moesif.Api.Helpers</span><span class="p">;</span>
+
+<span class="c1">// Create client instance using your ApplicationId</span>
+<span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">MoesifAPIClient</span><span class="p">(</span><span class="s">"my_application_id"</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">apiClient</span> <span class="p">=</span> <span class="nf">GetClient</span><span class="p">().</span><span class="n">Api</span><span class="p">;</span>
+
+<span class="c1">// Parameters for the API call</span>
+<span class="kt">var</span> <span class="n">reqHeaders</span> <span class="p">=</span> <span class="n">APIHelper</span><span class="p">.</span><span class="n">JsonDeserialize</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="err">@</span><span class="s">" {
+</span>        <span class="s">""</span><span class="n">Host</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">api</span><span class="p">.</span><span class="n">acmeinc</span><span class="p">.</span><span class="n">com</span><span class="s">""</span><span class="p">,</span>
+        <span class="s">""</span><span class="n">Accept</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="p">*/*</span><span class="s">""</span><span class="p">,</span>
+        <span class="s">""</span><span class="n">Connection</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Keep</span><span class="p">-</span><span class="n">Alive</span><span class="s">""</span><span class="p">,</span>
+        <span class="s">""</span><span class="n">User</span><span class="p">-</span><span class="n">Agent</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Dalvik</span><span class="p">/</span><span class="m">2.1</span><span class="p">.</span><span class="m">0</span> <span class="p">(</span><span class="n">Linux</span><span class="p">;</span> <span class="n">U</span><span class="p">;</span> <span class="n">Android</span> <span class="m">5.0</span><span class="p">.</span><span class="m">2</span><span class="p">;</span> <span class="n">C6906</span> <span class="n">Build</span><span class="p">/</span><span class="m">14.5</span><span class="p">.</span><span class="n">A</span><span class="p">.</span><span class="m">0.242</span><span class="p">)</span><span class="s">""</span><span class="p">,</span>
+        <span class="s">""</span><span class="n">Content</span><span class="p">-</span><span class="n">Type</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">application</span><span class="p">/</span><span class="n">json</span><span class="s">""</span><span class="p">,</span>
+        <span class="s">""</span><span class="n">Content</span><span class="p">-</span><span class="n">Length</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="m">126</span><span class="s">""</span><span class="p">,</span>
+        <span class="s">""</span><span class="n">Accept</span><span class="p">-</span><span class="n">Encoding</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">gzip</span><span class="s">""</span>
+    <span class="p">}</span><span class="s">");
+</span>
+<span class="kt">var</span> <span class="n">reqBody</span> <span class="p">=</span> <span class="n">APIHelper</span><span class="p">.</span><span class="n">JsonDeserialize</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="err">@</span><span class="s">" {
+</span>        <span class="s">""</span><span class="n">items</span><span class="s">""</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s">""</span><span class="n">type</span><span class="s">""</span><span class="p">:</span> <span class="m">1</span><span class="p">,</span>
+                <span class="s">""</span><span class="n">id</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">fwfrf</span><span class="s">""</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s">""</span><span class="n">type</span><span class="s">""</span><span class="p">:</span> <span class="m">2</span><span class="p">,</span>
+                <span class="s">""</span><span class="n">id</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">d43d3f</span><span class="s">""</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span><span class="s">");
+</span>
+<span class="kt">var</span> <span class="n">rspHeaders</span> <span class="p">=</span> <span class="n">APIHelper</span><span class="p">.</span><span class="n">JsonDeserialize</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="err">@</span><span class="s">" {
+</span>        <span class="s">""</span><span class="n">Date</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Tue</span><span class="p">,</span> <span class="m">23</span> <span class="n">Aug</span> <span class="m">2016</span> <span class="m">23</span><span class="p">:</span><span class="m">46</span><span class="p">:</span><span class="m">49</span> <span class="n">GMT</span><span class="s">""</span><span class="p">,</span>
+        <span class="s">""</span><span class="n">Vary</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Accept</span><span class="p">-</span><span class="n">Encoding</span><span class="s">""</span><span class="p">,</span>
+        <span class="s">""</span><span class="n">Pragma</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">no</span><span class="p">-</span><span class="n">cache</span><span class="s">""</span><span class="p">,</span>
+        <span class="s">""</span><span class="n">Expires</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="p">-</span><span class="m">1</span><span class="s">""</span><span class="p">,</span>
+        <span class="s">""</span><span class="n">Content</span><span class="p">-</span><span class="n">Type</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">application</span><span class="p">/</span><span class="n">json</span><span class="p">;</span> <span class="n">charset</span><span class="p">=</span><span class="n">utf</span><span class="p">-</span><span class="m">8</span><span class="s">""</span><span class="p">,</span>
+        <span class="s">""</span><span class="n">Cache</span><span class="p">-</span><span class="n">Control</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">no</span><span class="p">-</span><span class="n">cache</span><span class="s">""</span>
+    <span class="p">}</span> <span class="s">");
+</span>
+<span class="kt">var</span> <span class="n">rspBody</span> <span class="p">=</span> <span class="n">APIHelper</span><span class="p">.</span><span class="n">JsonDeserialize</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="err">@</span><span class="s">" {
+</span>        <span class="s">""</span><span class="n">Error</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">InvalidArgumentException</span><span class="s">""</span><span class="p">,</span>
+        <span class="s">""</span><span class="n">Message</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Missing</span> <span class="n">field</span> <span class="n">field_a</span><span class="s">""</span>
+    <span class="p">}</span><span class="s">");
+</span>
+
+<span class="kt">var</span> <span class="n">eventReq</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventRequestModel</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2016-09-09T04:45:42.914"</span><span class="p">),</span>
+    <span class="n">Uri</span> <span class="p">=</span> <span class="s">"https://api.acmeinc.com/items/reviews/"</span><span class="p">,</span>
+    <span class="n">Verb</span> <span class="p">=</span> <span class="s">"PATCH"</span><span class="p">,</span>
+    <span class="n">ApiVersion</span> <span class="p">=</span> <span class="s">"1.1.0"</span><span class="p">,</span>
+    <span class="n">IpAddress</span> <span class="p">=</span> <span class="s">"61.48.220.123"</span><span class="p">,</span>
+    <span class="n">Headers</span> <span class="p">=</span> <span class="n">reqHeaders</span><span class="p">,</span>
+    <span class="n">Body</span> <span class="p">=</span> <span class="n">reqBody</span>
+<span class="p">};</span>
+
+<span class="kt">var</span> <span class="n">eventRsp</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventResponseModel</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2016-09-09T04:45:42.914"</span><span class="p">),</span>
+    <span class="n">Status</span> <span class="p">=</span> <span class="m">500</span><span class="p">,</span>
+    <span class="n">Headers</span> <span class="p">=</span> <span class="n">rspHeaders</span><span class="p">,</span>
+    <span class="n">Body</span> <span class="p">=</span> <span class="n">rspBody</span>
+<span class="p">};</span>
+
+<span class="kt">var</span> <span class="n">eventModel</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventModel</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Request</span> <span class="p">=</span> <span class="n">eventReq</span><span class="p">,</span>
+    <span class="n">Response</span> <span class="p">=</span> <span class="n">eventRsp</span><span class="p">,</span>
+    <span class="n">UserId</span> <span class="p">=</span> <span class="s">"my_user_id"</span><span class="p">,</span>
+    <span class="n">SessionToken</span> <span class="p">=</span> <span class="s">"my_application_id"</span>
+<span class="p">};</span>
+
+<span class="c1">// Create a List</span>
+<span class="kt">var</span> <span class="n">events</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">EventModel</span><span class="p">&gt;();</span>
+<span class="n">events</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">eventModel</span><span class="p">);</span>
+<span class="n">events</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">eventModel</span><span class="p">);</span>
+<span class="n">events</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">eventModel</span><span class="p">);</span>
+
+<span class="c1">//////////////////////////////////////</span>
+<span class="c1">// Example for making an async call //  </span>
+<span class="c1">//////////////////////////////////////</span>
+<span class="k">try</span>
+<span class="p">{</span>
+    <span class="k">await</span> <span class="n">controller</span><span class="p">.</span><span class="nf">CreateEventsBatchAsync</span><span class="p">(</span><span class="n">events</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">catch</span><span class="p">(</span><span class="n">APIException</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Handle Error</span>
+<span class="p">};</span>
+
+<span class="c1">///////////////////////////////////////////</span>
+<span class="c1">// Example for making a synchronous call //</span>
+<span class="c1">///////////////////////////////////////////</span>
+<span class="k">try</span>
+<span class="p">{</span>
+    <span class="n">controller</span><span class="p">.</span><span class="nf">CreateEventsBatch</span><span class="p">(</span><span class="n">events</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">catch</span><span class="p">(</span><span class="n">APIException</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Handle Error</span>
+<span class="p">};</span>
+
+</code></pre><pre class="highlight go tab-go"><code><span class="k">import</span><span class="x"> </span><span class="s">"github.com/moesif/moesifapi-go"</span><span class="x">
+</span><span class="k">import</span><span class="x"> </span><span class="s">"github.com/moesif/moesifapi-go/models"</span><span class="x">
+</span><span class="k">import</span><span class="x"> </span><span class="s">"time"</span><span class="x">
+
+</span><span class="n">apiClient</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">moesifapi</span><span class="o">.</span><span class="n">NewAPI</span><span class="p">(</span><span class="s">"my_application_id"</span><span class="p">)</span><span class="x">
+
+</span><span class="n">reqTime</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">time</span><span class="o">.</span><span class="n">Now</span><span class="p">()</span><span class="o">.</span><span class="n">UTC</span><span class="p">()</span><span class="x">
+</span><span class="n">apiVersion</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"1.0"</span><span class="x">
+</span><span class="n">ipAddress</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"61.48.220.123"</span><span class="x">
+
+</span><span class="n">req</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">models</span><span class="o">.</span><span class="n">EventRequestModel</span><span class="p">{</span><span class="x">
+    </span><span class="n">Time</span><span class="o">:</span><span class="x">       </span><span class="o">&amp;</span><span class="n">reqTime</span><span class="p">,</span><span class="x">
+    </span><span class="n">Uri</span><span class="o">:</span><span class="x">        </span><span class="s">"https://api.acmeinc.com/widgets"</span><span class="p">,</span><span class="x">
+    </span><span class="n">Verb</span><span class="o">:</span><span class="x">       </span><span class="s">"GET"</span><span class="p">,</span><span class="x">
+    </span><span class="n">ApiVersion</span><span class="o">:</span><span class="x"> </span><span class="o">&amp;</span><span class="n">apiVersion</span><span class="p">,</span><span class="x">
+    </span><span class="n">IpAddress</span><span class="o">:</span><span class="x">  </span><span class="o">&amp;</span><span class="n">ipAddress</span><span class="p">,</span><span class="x">
+    </span><span class="n">Headers</span><span class="o">:</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span><span class="x">
+        </span><span class="s">"ReqHeader1"</span><span class="o">:</span><span class="x"> </span><span class="s">"ReqHeaderValue1"</span><span class="p">,</span><span class="x">
+    </span><span class="p">},</span><span class="x">
+    </span><span class="n">Body</span><span class="o">:</span><span class="x"> </span><span class="no">nil</span><span class="p">,</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span><span class="n">rspTime</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">time</span><span class="o">.</span><span class="n">Now</span><span class="p">()</span><span class="o">.</span><span class="n">UTC</span><span class="p">()</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="m">1</span><span class="p">)</span><span class="x"> </span><span class="o">*</span><span class="x"> </span><span class="n">time</span><span class="o">.</span><span class="n">Second</span><span class="p">)</span><span class="x">
+
+</span><span class="n">rsp</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">models</span><span class="o">.</span><span class="n">EventResponseModel</span><span class="p">{</span><span class="x">
+    </span><span class="n">Time</span><span class="o">:</span><span class="x">      </span><span class="o">&amp;</span><span class="n">rspTime</span><span class="p">,</span><span class="x">
+    </span><span class="n">Status</span><span class="o">:</span><span class="x">    </span><span class="m">500</span><span class="p">,</span><span class="x">
+    </span><span class="n">IpAddress</span><span class="o">:</span><span class="x"> </span><span class="no">nil</span><span class="p">,</span><span class="x">
+    </span><span class="n">Headers</span><span class="o">:</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span><span class="x">
+        </span><span class="s">"RspHeader1"</span><span class="o">:</span><span class="x"> </span><span class="s">"RspHeaderValue1"</span><span class="p">,</span><span class="x">
+    </span><span class="p">},</span><span class="x">
+    </span><span class="n">Body</span><span class="o">:</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span><span class="x">
+        </span><span class="s">"Key1"</span><span class="o">:</span><span class="x"> </span><span class="s">"Value1"</span><span class="p">,</span><span class="x">
+        </span><span class="s">"Key2"</span><span class="o">:</span><span class="x"> </span><span class="m">12</span><span class="p">,</span><span class="x">
+        </span><span class="s">"Key3"</span><span class="o">:</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span><span class="x">
+            </span><span class="s">"Key3_1"</span><span class="o">:</span><span class="x"> </span><span class="s">"SomeValue"</span><span class="p">,</span><span class="x">
+        </span><span class="p">},</span><span class="x">
+    </span><span class="p">},</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span><span class="n">sessionToken</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"end user API or session token"</span><span class="x">
+</span><span class="n">userId</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"end user_id"</span><span class="x">
+
+</span><span class="n">event</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">models</span><span class="o">.</span><span class="n">EventModel</span><span class="p">{</span><span class="x">
+    </span><span class="n">Request</span><span class="o">:</span><span class="x">      </span><span class="n">req</span><span class="p">,</span><span class="x">
+    </span><span class="n">Response</span><span class="o">:</span><span class="x">     </span><span class="n">rsp</span><span class="p">,</span><span class="x">
+    </span><span class="n">SessionToken</span><span class="o">:</span><span class="x"> </span><span class="o">&amp;</span><span class="n">sessionToken</span><span class="p">,</span><span class="x">
+    </span><span class="n">Tags</span><span class="o">:</span><span class="x">         </span><span class="no">nil</span><span class="p">,</span><span class="x">
+    </span><span class="n">UserId</span><span class="o">:</span><span class="x">       </span><span class="o">&amp;</span><span class="n">userId</span><span class="p">,</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span><span class="n">events</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="nb">make</span><span class="p">([]</span><span class="o">*</span><span class="n">models</span><span class="o">.</span><span class="n">EventModel</span><span class="p">,</span><span class="x"> </span><span class="m">20</span><span class="p">)</span><span class="x">
+</span><span class="k">for</span><span class="x"> </span><span class="n">i</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="m">0</span><span class="p">;</span><span class="x"> </span><span class="n">i</span><span class="x"> </span><span class="o">&lt;</span><span class="x"> </span><span class="m">20</span><span class="p">;</span><span class="x"> </span><span class="n">i</span><span class="o">++</span><span class="x"> </span><span class="p">{</span><span class="x">
+    </span><span class="n">events</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">event</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span><span class="c">// Queue the events</span><span class="x">
+</span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">apiClient</span><span class="o">.</span><span class="n">QueueEvents</span><span class="p">(</span><span class="n">events</span><span class="p">)</span><span class="x">
+
+</span><span class="c">// Create the events batch synchronously</span><span class="x">
+</span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">apiClient</span><span class="o">.</span><span class="n">CreateEventsBatch</span><span class="p">(</span><span class="n">event</span><span class="p">)</span><span class="x">
+
+</span></code></pre><pre class="highlight php tab-php"><code>// 1. Use Composer to install the dependencies. See the section "How To Build".
+// 2. See that you have configured your SDK correctly. See the section "How To Configure".
+// 3. Depending on your project setup, you might need to include composer's autoloader
+   in your PHP code to enable autoloading of classes.
+
+   require_once "vendor/autoload.php";
+
+// 4. Import the SDK client in your project:
+
+    use MoesifApi\MoesifApiClient;
+
+// 5. Instantiate the client. After this, you can now get the controllers and call the
+    respective methods:
+
+    $client = new MoesifApiClient();
+    $controller = $client-&gt;getApi();
 </code></pre>
 <table><thead>
 <tr>
 <th>Fields</th>
-<th>Required</th>
+<th>Required?</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>request.time</td>
-<td>Required</td>
+<td>request</td>
+<td><strong>Required</strong></td>
+<td>The object that specifies the request message</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">request.time</p></td>
+<td><strong>Required</strong></td>
 <td>Timestamp for the request in ISO 8601 format</td>
 </tr>
 <tr>
-<td>request.uri</td>
-<td>Required</td>
-<td>Full uri such as <a href="https://api.com/?query=string">https://api.com/?query=string</a> including host, query string, etc</td>
+<td><p style="margin-left:1.5em">request.uri</p></td>
+<td><strong>Required</strong></td>
+<td>Full uri such as <em>https://api.com/?query=string</em> including host, query string, etc</td>
 </tr>
 <tr>
-<td>request.verb</td>
-<td>Required</td>
+<td><p style="margin-left:1.5em">request.verb</p></td>
+<td><strong>Required</strong></td>
 <td>HTTP method used, i.e. <code class="prettyprint">GET</code>, <code class="prettyprint">POST</code></td>
 </tr>
 <tr>
-<td>request.api_version</td>
+<td><p style="margin-left:1.5em">request.api_version</p></td>
 <td>Optional</td>
-<td>API Version you want to tag this request with</td>
+<td>API Version you want to tag this request with such as <em>1.0.0</em></td>
 </tr>
 <tr>
-<td>request.ip_address</td>
+<td><p style="margin-left:1.5em">request.ip_address</p></td>
 <td>Optional</td>
-<td>IP address of the end user</td>
+<td>IP address of the requester, If not set, we use the IP address of your logging API calls.</td>
 </tr>
 <tr>
-<td>request.headers</td>
+<td><p style="margin-left:1.5em">request.headers</p></td>
 <td>Optional</td>
-<td>Headers of the  request</td>
+<td>Headers of the  request as a <code class="prettyprint">Map&lt;string, string&gt;</code></td>
 </tr>
 <tr>
-<td>request.body</td>
+<td><p style="margin-left:1.5em">request.body</p></td>
 <td>Optional</td>
-<td>Body of the request in JSON format</td>
+<td>Body of the request in JSON format or Base64 encoded binary data (see <em>transfer_encoding</em>)</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">request.transfer_encoding</p></td>
+<td>Optional</td>
+<td>A string that specifies the transfer encoding of Body being sent to Moesif. If field nonexistent, body assumed to be JSON or text. Only possible value is <em>base64</em> for sending binary data like protobuf</td>
 </tr>
 <tr>
 <td></td>
@@ -1343,29 +1576,39 @@ Example Request Body:
 <td></td>
 </tr>
 <tr>
-<td>response.time</td>
-<td>Required</td>
+<td>response</td>
+<td>Optional</td>
+<td>The object that specifies the response message, not set implies no response received such as a timeout.</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">response.time</p></td>
+<td><strong>Required</strong></td>
 <td>Timestamp for the response in ISO 8601 format</td>
 </tr>
 <tr>
-<td>response.status</td>
-<td>Required</td>
-<td>HTTP status code such as 200 or 500</td>
+<td><p style="margin-left:1.5em">response.status</p></td>
+<td><strong>Required</strong></td>
+<td>HTTP status code as number such as <em>200</em> or <em>500</em></td>
 </tr>
 <tr>
-<td>request.ip_address</td>
+<td><p style="margin-left:1.5em">request.ip_address</p></td>
 <td>Optional</td>
 <td>IP address of the responding server</td>
 </tr>
 <tr>
-<td>response.headers</td>
-<td>Required</td>
-<td>Headers of the response</td>
+<td><p style="margin-left:1.5em">response.headers</p></td>
+<td><strong>Required</strong></td>
+<td>Headers of the response as a <code class="prettyprint">Map&lt;string, string&gt;</code></td>
 </tr>
 <tr>
-<td>response.body</td>
-<td>Required</td>
-<td>Body of the response in JSON format</td>
+<td><p style="margin-left:1.5em">response.body</p></td>
+<td><strong>Required</strong></td>
+<td>Body of the response in JSON format or Base64 encoded binary data (see <em>transfer_encoding</em>)</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">response.transfer_encoding</p></td>
+<td>Optional</td>
+<td>A string that specifies the transfer encoding of Body being sent to Moesif. If field nonexistent, body assumed to be JSON or text. Only possible value is <em>base64</em> for sending binary data like protobuf</td>
 </tr>
 <tr>
 <td></td>
@@ -1374,18 +1617,18 @@ Example Request Body:
 </tr>
 <tr>
 <td>session_token</td>
-<td>Recommend</td>
-<td>The end user session token such as a JWT or Device Identifier. We auto-detect the session token but IP Address is used if we cannot detect it.</td>
+<td><em>Recommend</em></td>
+<td>The end user session or API token such as a JWT or API key. Moesif will auto-detect the session token automatically if not set.</td>
 </tr>
 <tr>
 <td>tags</td>
-<td>Recommend</td>
+<td><em>Recommend</em></td>
 <td>Comma separated list of tags for this API Call. <strong>See Supported Tags</strong></td>
 </tr>
 <tr>
 <td>user_id</td>
-<td>Recommend</td>
-<td>The permanent user_id for the enduser associated with this API Call</td>
+<td><em>Recommend</em></td>
+<td>Identifies this API call to a permanent user_id</td>
 </tr>
 </tbody></table>
 
