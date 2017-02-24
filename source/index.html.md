@@ -21,6 +21,7 @@ includes:
   - errors
   - api-libs
   - event-log-api
+  - users-api
 
 search: true
 ---
