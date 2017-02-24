@@ -1668,6 +1668,11 @@ will be stored as part of the user profile.</p>
 <li>photo_url</li>
 </ul>
 
+<p>If user does not exist, a new one will be created.
+If a user exists, it will be merged on top of existing fields.
+Any new field set will override the existing fields.
+This is done via recursive merge which merges inner objects.</p>
+
 <aside class="info">
 Replace <i>my_application_id</i> with your real Application Id
 </aside>
@@ -1752,12 +1757,17 @@ which will be stored as part of the user profile.</p>
 <li>first_name</li>
 <li>last_name</li>
 <li>phone</li>
-<li>photo_url
-<aside class="info"></li>
+<li>photo_url</li>
 </ul>
 
-<p>Replace <i>my_application_id</i> with your real Application Id
-</aside></p>
+<p>If user does not exist, a new one will be created.
+If a user exists, it will be merged on top of existing fields.
+Any new field set will override the existing fields.
+This is done via recursive merge which merges inner objects.</p>
+
+<aside class="info">
+Replace <i>my_application_id</i> with your real Application Id
+</aside>
 
 <blockquote class="lang-specific yaml">
 Example Request Body:
