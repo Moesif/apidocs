@@ -18,6 +18,11 @@ If present, Moesif will detect special metadata fields like:
   - phone
   - photo_url
 
+If user does not exist, a new one will be created.
+If a user exists, it will be merged on top of existing fields.
+Any new field set will override the existing fields.
+This is done via recursive merge which merges inner objects.
+
 <aside class="info">
 Replace <i>my_application_id</i> with your real Application Id
 </aside>
@@ -77,8 +82,13 @@ If present, Moesif will detect special metadata fields like:
   - last_name
   - phone
   - photo_url
-<aside class="info">
 
+If user does not exist, a new one will be created.
+If a user exists, it will be merged on top of existing fields.
+Any new field set will override the existing fields.
+This is done via recursive merge which merges inner objects.
+
+<aside class="info">
 Replace <i>my_application_id</i> with your real Application Id
 </aside>
 
