@@ -398,8 +398,8 @@ Checkout Moesif&rsquo;s <a href="https://www.moesif.com/docs/server-integration/
 <pre class="highlight plaintext"><code>Pick a language at the top
 </code></pre>
 <blockquote class="lang-specific java">
-<a href="https://jitpack.io/#Moesif/moesifapi-java">
-  <img src="https://jitpack.io/v/Moesif/moesifapi-java.svg">
+<a href="https://jitpack.io/#com.moesif/moesifapi-java">
+  <img src="https://jitpack.io/v/com.moesif/moesifapi-java.svg">
 </a>
 <br><br>
 Source Code:<br><br>
@@ -418,7 +418,7 @@ Source Code:<br><br>
 <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">com</span><span class="o">.</span><span class="na">moesif</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">moesifapi</span><span class="o">-</span><span class="n">java</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">2</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">1.2</span><span class="o">.</span><span class="mi">0</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
 
 </code></pre>
@@ -509,172 +509,222 @@ Replace <i>my_application_id</i> with your real Application Id
 </aside>
 
 <blockquote class="lang-specific yaml">
-Example Request Body:
+<code><b>POST</b> https://api.moesif.net/v1/events</code>
+<br><br><i>Example Request Body:</i><br>
 </blockquote>
-<pre class="highlight yaml tab-yaml"><code><span class="pi">{</span>
-  <span class="s2">"</span><span class="s">request"</span><span class="pi">:</span> <span class="pi">{</span>
-    <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2017-02-22T04:45:42.914"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">uri"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://api.acmeinc.com/items/83738/reviews/"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">verb"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">POST"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">api_version"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.1.0"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">61.48.220.123"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">headers"</span><span class="pi">:</span> <span class="pi">{</span>
-      <span class="s2">"</span><span class="s">Host"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">api.acmeinc.com"</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">Accept"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">*/*"</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">Connection"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Keep-Alive"</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">Content-Type"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">application/json"</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">Content-Length"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">126"</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">Accept-Encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">gzip"</span>
+<pre class="highlight yaml tab-yaml"><code>  <span class="pi">{</span>
+    <span class="s2">"</span><span class="s">request"</span><span class="pi">:</span> <span class="pi">{</span>
+      <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2017-02-22T04:45:42.914"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">uri"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://api.acmeinc.com/items/12345/reviews/"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">verb"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">POST"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">api_version"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.1.0"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">61.48.220.123"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">headers"</span><span class="pi">:</span> <span class="pi">{</span>
+        <span class="s2">"</span><span class="s">Host"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">api.acmeinc.com"</span><span class="pi">,</span>
+        <span class="s2">"</span><span class="s">Accept"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">*/*"</span><span class="pi">,</span>
+        <span class="s2">"</span><span class="s">Connection"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Keep-Alive"</span><span class="pi">,</span>
+        <span class="s2">"</span><span class="s">Content-Type"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">application/json"</span><span class="pi">,</span>
+        <span class="s2">"</span><span class="s">Content-Length"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">126"</span><span class="pi">,</span>
+        <span class="s2">"</span><span class="s">Accept-Encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">gzip"</span>
+      <span class="pi">},</span>
+      <span class="s2">"</span><span class="s">body"</span><span class="pi">:</span> <span class="pi">{</span>
+        <span class="s2">"</span><span class="s">items"</span><span class="pi">:</span> <span class="pi">[</span>
+          <span class="pi">{</span>
+            <span class="s2">"</span><span class="s">direction_type"</span><span class="pi">:</span> <span class="nv">1</span><span class="pi">,</span>
+            <span class="s2">"</span><span class="s">item_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">fwdsfrf"</span><span class="pi">,</span>
+            <span class="s2">"</span><span class="s">liked"</span><span class="pi">:</span> <span class="nv">false</span>
+          <span class="pi">},</span>
+          <span class="pi">{</span>
+            <span class="s2">"</span><span class="s">direction_type"</span><span class="pi">:</span> <span class="nv">2</span><span class="pi">,</span>
+            <span class="s2">"</span><span class="s">item_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">d43d3f"</span><span class="pi">,</span>
+            <span class="s2">"</span><span class="s">liked"</span><span class="pi">:</span> <span class="nv">true</span>
+          <span class="pi">}</span>
+        <span class="pi">]</span>
+      <span class="pi">},</span>
+      <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
     <span class="pi">},</span>
-    <span class="s2">"</span><span class="s">body"</span><span class="pi">:</span> <span class="pi">{</span>
-      <span class="s2">"</span><span class="s">items"</span><span class="pi">:</span> <span class="pi">[</span>
-        <span class="pi">{</span>
-          <span class="s2">"</span><span class="s">direction_type"</span><span class="pi">:</span> <span class="nv">1</span><span class="pi">,</span>
-          <span class="s2">"</span><span class="s">item_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">fwdsfrf"</span><span class="pi">,</span>
-          <span class="s2">"</span><span class="s">liked"</span><span class="pi">:</span> <span class="nv">false</span>
-        <span class="pi">},</span>
-        <span class="pi">{</span>
-          <span class="s2">"</span><span class="s">direction_type"</span><span class="pi">:</span> <span class="nv">2</span><span class="pi">,</span>
-          <span class="s2">"</span><span class="s">item_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">d43d3f"</span><span class="pi">,</span>
-          <span class="s2">"</span><span class="s">liked"</span><span class="pi">:</span> <span class="nv">true</span>
-        <span class="pi">}</span>
-      <span class="pi">]</span>
+    <span class="s2">"</span><span class="s">response"</span><span class="pi">:</span> <span class="pi">{</span>
+      <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2017-02-22T04:45:42.914"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">status"</span><span class="pi">:</span> <span class="nv">500</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">headers"</span><span class="pi">:</span> <span class="pi">{</span>
+        <span class="s2">"</span><span class="s">Vary"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Accept-Encoding"</span><span class="pi">,</span>
+        <span class="s2">"</span><span class="s">Pragma"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">no-cache"</span><span class="pi">,</span>
+        <span class="s2">"</span><span class="s">Expires"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">-1"</span><span class="pi">,</span>
+        <span class="s2">"</span><span class="s">Content-Type"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">application/json;</span><span class="nv"> </span><span class="s">charset=utf-8"</span><span class="pi">,</span>
+        <span class="s2">"</span><span class="s">Cache-Control"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">no-cache"</span>
+      <span class="pi">},</span>
+      <span class="s2">"</span><span class="s">body"</span><span class="pi">:</span> <span class="pi">{</span>
+        <span class="s2">"</span><span class="s">Error"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">InvalidArgumentException"</span><span class="pi">,</span>
+        <span class="s2">"</span><span class="s">Message"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Missing</span><span class="nv"> </span><span class="s">field</span><span class="nv"> </span><span class="s">location"</span>
+      <span class="pi">},</span>
+      <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
     <span class="pi">},</span>
-    <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
-  <span class="pi">},</span>
-  <span class="s2">"</span><span class="s">response"</span><span class="pi">:</span> <span class="pi">{</span>
-    <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2017-02-22T04:45:42.914"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">status"</span><span class="pi">:</span> <span class="nv">500</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">headers"</span><span class="pi">:</span> <span class="pi">{</span>
-      <span class="s2">"</span><span class="s">Vary"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Accept-Encoding"</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">Pragma"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">no-cache"</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">Expires"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">-1"</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">Content-Type"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">application/json;</span><span class="nv"> </span><span class="s">charset=utf-8"</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">Cache-Control"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">no-cache"</span>
-    <span class="pi">},</span>
-    <span class="s2">"</span><span class="s">body"</span><span class="pi">:</span> <span class="pi">{</span>
-      <span class="s2">"</span><span class="s">Error"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">InvalidArgumentException"</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">Message"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Missing</span><span class="nv"> </span><span class="s">field</span><span class="nv"> </span><span class="s">location"</span>
-    <span class="pi">},</span>
-    <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
-  <span class="pi">},</span>
-  <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">mndug437f43"</span><span class="pi">,</span>
-  <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"</span>
-<span class="pi">}</span>
-
+    <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">mndug437f43"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"</span>
+  <span class="pi">}</span>
 </code></pre><pre class="highlight java tab-java"><code><span class="c1">// Import the Library</span>
 <span class="n">MoesifAPIClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MoesifAPIClient</span><span class="o">(</span><span class="s">"my_application_id"</span><span class="o">);</span>
-<span class="n">ApiController</span> <span class="n">controller</span> <span class="o">=</span> <span class="n">getClient</span><span class="o">().</span><span class="na">getApi</span><span class="o">();</span>
+<span class="n">APIController</span> <span class="n">api</span> <span class="o">=</span> <span class="n">getClient</span><span class="o">().</span><span class="na">getAPI</span><span class="o">();</span>
+
+<span class="c1">// Generate the event</span>
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">reqHeaders</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;();</span>
+<span class="n">reqHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Host"</span><span class="o">,</span> <span class="s">"api.acmeinc.com"</span><span class="o">);</span>
+<span class="n">reqHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"*/*"</span><span class="o">);</span>
+<span class="n">reqHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Connection"</span><span class="o">,</span> <span class="s">"Keep-Alive"</span><span class="o">);</span>
+<span class="n">reqHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"User-Agent"</span><span class="o">,</span> <span class="s">"Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)"</span><span class="o">);</span>
+<span class="n">reqHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span>
+<span class="n">reqHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Content-Length"</span><span class="o">,</span> <span class="s">"126"</span><span class="o">);</span>
+<span class="n">reqHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Accept-Encoding"</span><span class="o">,</span> <span class="s">"gzip"</span><span class="o">);</span>
+
+<span class="n">Object</span> <span class="n">reqBody</span> <span class="o">=</span> <span class="n">APIHelper</span><span class="o">.</span><span class="na">deserialize</span><span class="o">(</span><span class="s">"{"</span> <span class="o">+</span>
+  <span class="s">"\"items\": ["</span> <span class="o">+</span>
+    <span class="s">"{"</span> <span class="o">+</span>
+      <span class="s">"\"type\": 1,"</span> <span class="o">+</span>
+      <span class="s">"\"id\": \"fwfrf\""</span> <span class="o">+,</span>
+    <span class="s">"},"</span> <span class="o">+</span>
+    <span class="s">"{"</span> <span class="o">+</span>
+      <span class="s">"\"type\": 2,"</span> <span class="o">+</span>
+       <span class="s">"\"id\": \"d43d3f\""</span> <span class="o">+</span>
+     <span class="s">"}"</span> <span class="o">+</span>
+  <span class="s">"]"</span> <span class="o">+</span>
+  <span class="s">"}"</span><span class="o">);</span>
+
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">rspHeaders</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;();</span>
+<span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Date"</span><span class="o">,</span> <span class="s">"Tue, 23 Feb 2017 23:46:49 GMT"</span><span class="o">);</span>
+<span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Vary"</span><span class="o">,</span> <span class="s">"Accept-Encoding"</span><span class="o">);</span>
+<span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Pragma"</span><span class="o">,</span> <span class="s">"no-cache"</span><span class="o">);</span>
+<span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Expires"</span><span class="o">,</span> <span class="s">"-1"</span><span class="o">);</span>
+<span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json; charset=utf-8"</span><span class="o">);</span>
+<span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Cache-Control"</span><span class="o">,</span><span class="s">"no-cache"</span><span class="o">);</span>
+
+<span class="n">Object</span> <span class="n">rspBody</span> <span class="o">=</span> <span class="n">APIHelper</span><span class="o">.</span><span class="na">deserialize</span><span class="o">(</span><span class="s">"{"</span> <span class="o">+</span>
+    <span class="s">"\"Error\": \"InvalidArgumentException\","</span> <span class="o">+</span>
+    <span class="s">"\"Message\": \"Missing field field_a\""</span> <span class="o">+</span>
+  <span class="s">"}"</span><span class="o">);</span>
 
 
-<span class="c1">// Create API Event Model and set fields</span>
-<span class="n">EventModel</span> <span class="n">myEventModel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EventModel</span><span class="o">();</span>
-<span class="n">myEventModel</span><span class="o">.</span><span class="na">setTags</span><span class="o">(</span><span class="s">"user"</span><span class="o">);</span> <span class="c1">// ...</span>
+<span class="n">EventRequestModel</span> <span class="n">eventReq</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EventRequestBuilder</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">time</span><span class="o">(</span><span class="k">new</span> <span class="n">Date</span><span class="o">())</span>
+        <span class="o">.</span><span class="na">uri</span><span class="o">(</span><span class="s">"https://api.acmeinc.com/items/reviews/"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">verb</span><span class="o">(</span><span class="s">"PATCH"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">apiVersion</span><span class="o">(</span><span class="s">"1.1.0"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">ipAddress</span><span class="o">(</span><span class="s">"61.48.220.123"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">headers</span><span class="o">(</span><span class="n">reqHeaders</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">body</span><span class="o">(</span><span class="n">reqBody</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
-<span class="c1">// Synchronous Call to Create Event</span>
-<span class="n">controller</span><span class="o">.</span><span class="na">createEvent</span><span class="o">(</span><span class="n">myEventModel</span><span class="o">);</span>
 
+<span class="n">EventResponseModel</span> <span class="n">eventRsp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EventResponseBuilder</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">time</span><span class="o">(</span><span class="k">new</span> <span class="n">Date</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()</span> <span class="o">+</span> <span class="mi">1000</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">status</span><span class="o">(</span><span class="mi">500</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">headers</span><span class="o">(</span><span class="n">rspHeaders</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">body</span><span class="o">(</span><span class="n">rspBody</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+
+<span class="n">EventModel</span> <span class="n">eventModel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EventBuilder</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">request</span><span class="o">(</span><span class="n">eventReq</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">response</span><span class="o">(</span><span class="n">eventRsp</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">userId</span><span class="o">(</span><span class="s">"my_user_id"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">sessionToken</span><span class="o">(</span><span class="s">"23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
 <span class="c1">// Asynchronous Call to Create Event</span>
+<span class="n">MoesifAPIClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MoesifAPIClient</span><span class="o">(</span><span class="s">"my_application_id"</span><span class="o">);</span>
+<span class="n">APIController</span> <span class="n">api</span> <span class="o">=</span> <span class="n">getClient</span><span class="o">().</span><span class="na">getAPI</span><span class="o">();</span>
+
 <span class="n">APICallBack</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">callBack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">APICallBack</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="n">HttpContext</span> <span class="n">context</span><span class="o">,</span> <span class="n">Object</span> <span class="n">response</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Event Added Successfully</span>
+        <span class="c1">// Do something</span>
     <span class="o">}</span>
 
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onFailure</span><span class="o">(</span><span class="n">HttpContext</span> <span class="n">context</span><span class="o">,</span> <span class="n">Throwable</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Throw exception or print error</span>
+        <span class="c1">// Do something else</span>
     <span class="o">}</span>
 <span class="o">};</span>
 
-<span class="n">controller</span><span class="o">.</span><span class="na">createEventAsync</span><span class="o">(</span><span class="n">myEventModel</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">///////////////////////////</span>
-<span class="c1">// 1. Import the module: //</span>
-<span class="c1">///////////////////////////</span>
-    <span class="kd">var</span> <span class="nx">moesifapi</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'moesifapi'</span><span class="p">);</span>
+<span class="n">api</span><span class="o">.</span><span class="na">createEventsBatchAsync</span><span class="o">(</span><span class="n">eventsList</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
 
+<span class="c1">// Synchronous Call to Create Event</span>
+<span class="n">api</span><span class="o">.</span><span class="na">createEventsBatch</span><span class="o">(</span><span class="n">eventsList</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// 1. Import the module</span>
+<span class="kd">var</span> <span class="nx">moesifapi</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'moesifapi'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">moesifapi</span><span class="p">.</span><span class="nx">ApiController</span><span class="p">;</span>
 
-<span class="c1">////////////////////////////////</span>
-<span class="c1">// 2. Configure ApplicationId //</span>
-<span class="c1">////////////////////////////////</span>
-    <span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">moesifapi</span><span class="p">.</span><span class="nx">configuration</span><span class="p">;</span>
-    <span class="nx">config</span><span class="p">.</span><span class="nx">ApplicationId</span> <span class="o">=</span> <span class="nx">my_application_id</span><span class="p">;</span>
+<span class="c1">// 2. Configure the ApplicationId</span>
+<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">moesifapi</span><span class="p">.</span><span class="nx">configuration</span><span class="p">;</span>
+<span class="nx">config</span><span class="p">.</span><span class="nx">ApplicationId</span> <span class="o">=</span> <span class="s2">"my_application_id"</span><span class="p">;</span>
 
+<span class="c1">// 3. Generate an API Event Model</span>
+<span class="kd">var</span> <span class="nx">reqHeaders</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="s1">'{'</span> <span class="o">+</span>
+        <span class="s1">'"Host": "api.acmeinc.com",'</span> <span class="o">+</span>
+        <span class="s1">'"Accept": "*/*",'</span> <span class="o">+</span>
+        <span class="s1">'"Connection": "Keep-Alive",'</span> <span class="o">+</span>
+        <span class="s1">'"User-Agent": "Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)",'</span> <span class="o">+</span>
+        <span class="s1">'"Content-Type": "application/json",'</span> <span class="o">+</span>
+        <span class="s1">'"Content-Length": "126",'</span> <span class="o">+</span>
+        <span class="s1">'"Accept-Encoding": "gzip"'</span> <span class="o">+</span>
+    <span class="s1">'}'</span><span class="p">);</span>
 
-<span class="c1">///////////////////////////////</span>
-<span class="c1">// 3. Create API Event Model //</span>
-<span class="c1">///////////////////////////////</span>
-    <span class="kd">var</span> <span class="nx">reqHeaders</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="s1">'{'</span> <span class="o">+</span>
-            <span class="s1">'"Host": "api.acmeinc.com",'</span> <span class="o">+</span>
-            <span class="s1">'"Accept": "*/*",'</span> <span class="o">+</span>
-            <span class="s1">'"Connection": "Keep-Alive",'</span> <span class="o">+</span>
-            <span class="s1">'"User-Agent": "Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)",'</span> <span class="o">+</span>
-            <span class="s1">'"Content-Type": "application/json",'</span> <span class="o">+</span>
-            <span class="s1">'"Content-Length": "126",'</span> <span class="o">+</span>
-            <span class="s1">'"Accept-Encoding": "gzip"'</span> <span class="o">+</span>
-        <span class="s1">'}'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">reqBody</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span> <span class="s1">'{'</span> <span class="o">+</span>
+        <span class="s1">'"items": ['</span> <span class="o">+</span>
+            <span class="s1">'{'</span> <span class="o">+</span>
+                <span class="s1">'"type": 1,'</span> <span class="o">+</span>
+                <span class="s1">'"id": "fwfrf"'</span> <span class="o">+</span>
+            <span class="s1">'},'</span> <span class="o">+</span>
+            <span class="s1">'{'</span> <span class="o">+</span>
+                <span class="s1">'"type": 2,'</span> <span class="o">+</span>
+                <span class="s1">'"id": "d43d3f"'</span> <span class="o">+</span>
+            <span class="s1">'}'</span> <span class="o">+</span>
+        <span class="s1">']'</span> <span class="o">+</span>
+    <span class="s1">'}'</span><span class="p">);</span>
 
-    <span class="kd">var</span> <span class="nx">reqBody</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span> <span class="s1">'{'</span> <span class="o">+</span>
-            <span class="s1">'"items": ['</span> <span class="o">+</span>
-                <span class="s1">'{'</span> <span class="o">+</span>
-                    <span class="s1">'"type": 1,'</span> <span class="o">+</span>
-                    <span class="s1">'"id": "fwfrf"'</span> <span class="o">+</span>
-                <span class="s1">'},'</span> <span class="o">+</span>
-                <span class="s1">'{'</span> <span class="o">+</span>
-                    <span class="s1">'"type": 2,'</span> <span class="o">+</span>
-                    <span class="s1">'"id": "d43d3f"'</span> <span class="o">+</span>
-                <span class="s1">'}'</span> <span class="o">+</span>
-            <span class="s1">']'</span> <span class="o">+</span>
-        <span class="s1">'}'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">rspHeaders</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="s1">'{'</span> <span class="o">+</span>
+        <span class="s1">'"Date": "Tue, 25 Feb 2017 23:46:49 GMT",'</span> <span class="o">+</span>
+        <span class="s1">'"Vary": "Accept-Encoding",'</span> <span class="o">+</span>
+        <span class="s1">'"Pragma": "no-cache",'</span> <span class="o">+</span>
+        <span class="s1">'"Expires": "-1",'</span> <span class="o">+</span>
+        <span class="s1">'"Content-Type": "application/json; charset=utf-8",'</span> <span class="o">+</span>
+        <span class="s1">'"Cache-Control": "no-cache"'</span> <span class="o">+</span>
+    <span class="s1">'}'</span><span class="p">);</span>
 
-    <span class="kd">var</span> <span class="nx">rspHeaders</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="s1">'{'</span> <span class="o">+</span>
-            <span class="s1">'"Date": "Tue, 23 Jan 2017 23:46:49 GMT",'</span> <span class="o">+</span>
-            <span class="s1">'"Vary": "Accept-Encoding",'</span> <span class="o">+</span>
-            <span class="s1">'"Pragma": "no-cache",'</span> <span class="o">+</span>
-            <span class="s1">'"Expires": "-1",'</span> <span class="o">+</span>
-            <span class="s1">'"Content-Type": "application/json; charset=utf-8",'</span> <span class="o">+</span>
-            <span class="s1">'"Cache-Control": "no-cache"'</span> <span class="o">+</span>
-        <span class="s1">'}'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">rspBody</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="s1">'{'</span> <span class="o">+</span>
+        <span class="s1">'"Error": "InvalidArgumentException",'</span> <span class="o">+</span>
+        <span class="s1">'"Message": "Missing field field_a"'</span> <span class="o">+</span>
+    <span class="s1">'}'</span><span class="p">);</span>
 
-    <span class="kd">var</span> <span class="nx">rspBody</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="s1">'{'</span> <span class="o">+</span>
-            <span class="s1">'"Error": "InvalidArgumentException",'</span> <span class="o">+</span>
-            <span class="s1">'"Message": "Missing field field_a"'</span> <span class="o">+</span>
-        <span class="s1">'}'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">eventReq</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">time</span><span class="p">:</span> <span class="s2">"2017-02-25T04:45:42.914"</span><span class="p">,</span>
+    <span class="na">uri</span><span class="p">:</span> <span class="s2">"https://api.acmeinc.com/items/reviews/"</span><span class="p">,</span>
+    <span class="na">verb</span><span class="p">:</span> <span class="s2">"PATCH"</span><span class="p">,</span>
+    <span class="na">apiVersion</span><span class="p">:</span> <span class="s2">"1.1.0"</span><span class="p">,</span>
+    <span class="na">ipAddress</span><span class="p">:</span> <span class="s2">"61.48.220.123"</span><span class="p">,</span>
+    <span class="na">headers</span><span class="p">:</span> <span class="nx">reqHeaders</span><span class="p">,</span>
+    <span class="na">body</span><span class="p">:</span> <span class="nx">reqBody</span>
+<span class="p">};</span>
 
-    <span class="kd">var</span> <span class="nx">eventReq</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="na">time</span><span class="p">:</span> <span class="s2">"2017-09-09T04:45:42.914"</span><span class="p">,</span>
-        <span class="na">uri</span><span class="p">:</span> <span class="s2">"https://api.acmeinc.com/items/reviews/"</span><span class="p">,</span>
-        <span class="na">verb</span><span class="p">:</span> <span class="s2">"PATCH"</span><span class="p">,</span>
-        <span class="na">apiVersion</span><span class="p">:</span> <span class="s2">"1.1.0"</span><span class="p">,</span>
-        <span class="na">ipAddress</span><span class="p">:</span> <span class="s2">"61.48.220.123"</span><span class="p">,</span>
-        <span class="na">headers</span><span class="p">:</span> <span class="nx">reqHeaders</span><span class="p">,</span>
-        <span class="na">body</span><span class="p">:</span> <span class="nx">reqBody</span>
-    <span class="p">};</span>
+<span class="kd">var</span> <span class="nx">eventRsp</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">time</span><span class="p">:</span> <span class="s2">"2016-09-09T04:45:42.914"</span><span class="p">,</span>
+    <span class="na">status</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+    <span class="na">headers</span><span class="p">:</span> <span class="nx">rspHeaders</span><span class="p">,</span>
+    <span class="na">body</span><span class="p">:</span> <span class="nx">rspBody</span>
+<span class="p">};</span>
 
-    <span class="kd">var</span> <span class="nx">eventRsp</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="na">time</span><span class="p">:</span> <span class="s2">"2017-02-22T04:45:42.914"</span><span class="p">,</span>
-        <span class="na">status</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
-        <span class="na">headers</span><span class="p">:</span> <span class="nx">rspHeaders</span><span class="p">,</span>
-        <span class="na">body</span><span class="p">:</span> <span class="nx">rspBody</span>
-    <span class="p">};</span>
+<span class="kd">var</span> <span class="nx">eventModel</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">request</span><span class="p">:</span> <span class="nx">eventReq</span><span class="p">,</span>
+    <span class="na">response</span><span class="p">:</span> <span class="nx">eventRsp</span><span class="p">,</span>
+    <span class="na">userId</span><span class="p">:</span> <span class="s2">"my_user_id"</span><span class="p">,</span>
+    <span class="na">sessionToken</span><span class="p">:</span> <span class="s2">"23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"</span>
+<span class="p">};</span>
 
-    <span class="kd">var</span> <span class="nx">eventModel</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="na">request</span><span class="p">:</span> <span class="nx">eventReq</span><span class="p">,</span>
-        <span class="na">response</span><span class="p">:</span> <span class="nx">eventRsp</span><span class="p">,</span>
-        <span class="na">userId</span><span class="p">:</span> <span class="s2">"my_user_id"</span><span class="p">,</span>
-        <span class="na">sessionToken</span><span class="p">:</span> <span class="s2">"my_application_id"</span>
-    <span class="p">};</span>
+<span class="kd">var</span> <span class="nx">events</span> <span class="o">=</span> <span class="p">[</span><span class="k">new</span> <span class="nx">EventModel</span><span class="p">(</span><span class="nx">eventModel</span><span class="p">),</span>
+  <span class="k">new</span> <span class="nx">EventModel</span><span class="p">(</span><span class="nx">eventModel</span><span class="p">),</span>
+  <span class="k">new</span> <span class="nx">EventModel</span><span class="p">(</span><span class="nx">eventModel</span><span class="p">),</span>
+  <span class="k">new</span> <span class="nx">EventModel</span><span class="p">(</span><span class="nx">eventModel</span><span class="p">)];</span>
 
-
-<span class="c1">//////////////////////////</span>
-<span class="c1">// 4. Create new event: //</span>
-<span class="c1">//////////////////////////</span>
-    <span class="kd">var</span> <span class="nx">controller</span> <span class="o">=</span> <span class="nx">moesifapi</span><span class="p">.</span><span class="nx">ApiController</span><span class="p">;</span>
-
-    <span class="c1">// Create a single event</span>
-    <span class="nx">controller</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="k">new</span> <span class="nx">EventModel</span><span class="p">(</span><span class="nx">eventModel</span><span class="p">),</span> <span class="nx">callback</span><span class="p">);</span>
-
-    <span class="c1">// Create batched set of events</span>
-    <span class="nx">controller</span><span class="p">.</span><span class="nx">createEventsBatch</span><span class="p">(</span><span class="nx">someEventModelList</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+<span class="c1">// 4. Send batch of events</span>
+<span class="nx">api</span><span class="p">.</span><span class="nx">createEventsBatch</span><span class="p">(</span><span class="nx">events</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do Something</span>
+<span class="p">});</span>
 
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
 <span class="kn">from</span> <span class="nn">moesifapi.moesif_api_client</span> <span class="kn">import</span> <span class="o">*</span>
@@ -1131,161 +1181,151 @@ Replace <i>my_application_id</i> with your real Application Id
 </aside>
 
 <blockquote class="lang-specific yaml">
-Example Request Body:
+<code><b>POST</b> https://api.moesif.net/v1/events/batch</code>
+<br><br><i>Example Request Body:</i><br>
 </blockquote>
-<pre class="highlight yaml tab-yaml"><code><span class="pi">[</span>
-  <span class="pi">{</span>
+<pre class="highlight yaml tab-yaml"><code>  <span class="pi">[</span>
+    <span class="pi">{</span>
         <span class="s2">"</span><span class="s">request"</span><span class="pi">:</span> <span class="pi">{</span>
-            <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2017-02-22T04:45:42.914"</span><span class="pi">,</span>
-            <span class="s2">"</span><span class="s">uri"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://api.acmeinc.com/items/83738/reviews/"</span><span class="pi">,</span>
-            <span class="s2">"</span><span class="s">verb"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">POST"</span><span class="pi">,</span>
-            <span class="s2">"</span><span class="s">api_version"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.1.0"</span><span class="pi">,</span>
-            <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">61.48.220.123"</span><span class="pi">,</span>
-            <span class="s2">"</span><span class="s">headers"</span><span class="pi">:</span> <span class="pi">{</span>
-                <span class="s2">"</span><span class="s">Host"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">api.acmeinc.com"</span><span class="pi">,</span>
-                <span class="s2">"</span><span class="s">Accept"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">*/*"</span><span class="pi">,</span>
-                <span class="s2">"</span><span class="s">Connection"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Keep-Alive"</span><span class="pi">,</span>
-                <span class="s2">"</span><span class="s">Content-Type"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">application/json"</span><span class="pi">,</span>
-                <span class="s2">"</span><span class="s">Content-Length"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">126"</span><span class="pi">,</span>
-                <span class="s2">"</span><span class="s">Accept-Encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">gzip"</span>
-            <span class="pi">},</span>
-            <span class="s2">"</span><span class="s">body"</span><span class="pi">:</span> <span class="pi">{</span>
-                <span class="s2">"</span><span class="s">items"</span><span class="pi">:</span> <span class="pi">[</span>
-                    <span class="pi">{</span>
-                        <span class="s2">"</span><span class="s">direction_type"</span><span class="pi">:</span> <span class="nv">1</span><span class="pi">,</span>
-                        <span class="s2">"</span><span class="s">item_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">fwdsfrf"</span><span class="pi">,</span>
-                        <span class="s2">"</span><span class="s">liked"</span><span class="pi">:</span> <span class="nv">false</span>
-                    <span class="pi">},</span>
-                    <span class="pi">{</span>
-                        <span class="s2">"</span><span class="s">direction_type"</span><span class="pi">:</span> <span class="nv">2</span><span class="pi">,</span>
-                        <span class="s2">"</span><span class="s">item_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">d43d3f"</span><span class="pi">,</span>
-                        <span class="s2">"</span><span class="s">liked"</span><span class="pi">:</span> <span class="nv">true</span>
-                    <span class="pi">}</span>
-                <span class="pi">]</span>
-            <span class="pi">},</span>
-        <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span><span class="pi">,</span>
+          <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2017-02-22T04:45:42.914"</span><span class="pi">,</span>
+          <span class="s2">"</span><span class="s">uri"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://api.acmeinc.com/items/83738/reviews/"</span><span class="pi">,</span>
+          <span class="s2">"</span><span class="s">verb"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">POST"</span><span class="pi">,</span>
+          <span class="s2">"</span><span class="s">api_version"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.1.0"</span><span class="pi">,</span>
+          <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">61.48.220.123"</span><span class="pi">,</span>
+          <span class="s2">"</span><span class="s">headers"</span><span class="pi">:</span> <span class="pi">{</span>
+            <span class="s2">"</span><span class="s">Host"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">api.acmeinc.com"</span><span class="pi">,</span>
+            <span class="s2">"</span><span class="s">Accept"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">*/*"</span><span class="pi">,</span>
+            <span class="s2">"</span><span class="s">Connection"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Keep-Alive"</span><span class="pi">,</span>
+            <span class="s2">"</span><span class="s">Content-Type"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">application/json"</span><span class="pi">,</span>
+            <span class="s2">"</span><span class="s">Content-Length"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">126"</span><span class="pi">,</span>
+            <span class="s2">"</span><span class="s">Accept-Encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">gzip"</span>
+          <span class="pi">},</span>
+          <span class="s2">"</span><span class="s">body"</span><span class="pi">:</span> <span class="pi">{</span>
+            <span class="s2">"</span><span class="s">items"</span><span class="pi">:</span> <span class="pi">[</span>
+              <span class="pi">{</span>
+                <span class="s2">"</span><span class="s">direction_type"</span><span class="pi">:</span> <span class="nv">1</span><span class="pi">,</span>
+                <span class="s2">"</span><span class="s">item_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">fwdsfrf"</span><span class="pi">,</span>
+                <span class="s2">"</span><span class="s">liked"</span><span class="pi">:</span> <span class="nv">false</span>
+              <span class="pi">},</span>
+              <span class="pi">{</span>
+                <span class="s2">"</span><span class="s">direction_type"</span><span class="pi">:</span> <span class="nv">2</span><span class="pi">,</span>
+                <span class="s2">"</span><span class="s">item_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">d43d3f"</span><span class="pi">,</span>
+                <span class="s2">"</span><span class="s">liked"</span><span class="pi">:</span> <span class="nv">true</span>
+              <span class="pi">}</span>
+            <span class="pi">]</span>
+          <span class="pi">},</span>
+          <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span><span class="pi">,</span>
         <span class="pi">},</span>
         <span class="s2">"</span><span class="s">response"</span><span class="pi">:</span> <span class="pi">{</span>
-            <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2017-02-22T04:45:42.914"</span><span class="pi">,</span>
-            <span class="s2">"</span><span class="s">status"</span><span class="pi">:</span> <span class="nv">500</span><span class="pi">,</span>
-            <span class="s2">"</span><span class="s">headers"</span><span class="pi">:</span> <span class="pi">{</span>
-                <span class="s2">"</span><span class="s">Vary"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Accept-Encoding"</span><span class="pi">,</span>
-                <span class="s2">"</span><span class="s">Pragma"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">no-cache"</span><span class="pi">,</span>
-                <span class="s2">"</span><span class="s">Expires"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">-1"</span><span class="pi">,</span>
-                <span class="s2">"</span><span class="s">Content-Type"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">application/json;</span><span class="nv"> </span><span class="s">charset=utf-8"</span><span class="pi">,</span>
-                <span class="s2">"</span><span class="s">Cache-Control"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">no-cache"</span>
-            <span class="pi">},</span>
-            <span class="s2">"</span><span class="s">body"</span><span class="pi">:</span> <span class="pi">{</span>
-                <span class="s2">"</span><span class="s">Error"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">InvalidArgumentException"</span><span class="pi">,</span>
-                <span class="s2">"</span><span class="s">Message"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Missing</span><span class="nv"> </span><span class="s">field</span><span class="nv"> </span><span class="s">location"</span>
-            <span class="pi">},</span>
-        <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span><span class="pi">,</span>
+          <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2017-02-22T04:45:42.914"</span><span class="pi">,</span>
+          <span class="s2">"</span><span class="s">status"</span><span class="pi">:</span> <span class="nv">500</span><span class="pi">,</span>
+          <span class="s2">"</span><span class="s">headers"</span><span class="pi">:</span> <span class="pi">{</span>
+            <span class="s2">"</span><span class="s">Vary"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Accept-Encoding"</span><span class="pi">,</span>
+            <span class="s2">"</span><span class="s">Pragma"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">no-cache"</span><span class="pi">,</span>
+            <span class="s2">"</span><span class="s">Expires"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">-1"</span><span class="pi">,</span>
+            <span class="s2">"</span><span class="s">Content-Type"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">application/json;</span><span class="nv"> </span><span class="s">charset=utf-8"</span><span class="pi">,</span>
+            <span class="s2">"</span><span class="s">Cache-Control"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">no-cache"</span>
+          <span class="pi">},</span>
+          <span class="s2">"</span><span class="s">body"</span><span class="pi">:</span> <span class="pi">{</span>
+            <span class="s2">"</span><span class="s">Error"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">InvalidArgumentException"</span><span class="pi">,</span>
+            <span class="s2">"</span><span class="s">Message"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Missing</span><span class="nv"> </span><span class="s">field</span><span class="nv"> </span><span class="s">location"</span>
+          <span class="pi">},</span>
+          <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span><span class="pi">,</span>
         <span class="pi">},</span>
         <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">mndug437f43"</span><span class="pi">,</span>
         <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"</span>
-  <span class="pi">}</span>
-<span class="pi">]</span>
+    <span class="pi">}</span>
+  <span class="pi">]</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="c1">// Import the Library</span>
+<span class="n">MoesifAPIClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MoesifAPIClient</span><span class="o">(</span><span class="s">"my_application_id"</span><span class="o">);</span>
+<span class="n">APIController</span> <span class="n">api</span> <span class="o">=</span> <span class="n">getClient</span><span class="o">().</span><span class="na">getAPI</span><span class="o">();</span>
 
-</code></pre><pre class="highlight java tab-java"><code><span class="c1">///////////////////////</span>
-<span class="c1">// Create the Client //</span>
-<span class="c1">///////////////////////</span>
-    <span class="n">MoesifAPIClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MoesifAPIClient</span><span class="o">(</span><span class="s">"my_application_id"</span><span class="o">);</span>
-    <span class="n">ApiController</span> <span class="n">controller</span> <span class="o">=</span> <span class="n">getClient</span><span class="o">().</span><span class="na">getApi</span><span class="o">();</span>
+<span class="c1">// Generate the events</span>
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">reqHeaders</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;();</span>
+<span class="n">reqHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Host"</span><span class="o">,</span> <span class="s">"api.acmeinc.com"</span><span class="o">);</span>
+<span class="n">reqHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"*/*"</span><span class="o">);</span>
+<span class="n">reqHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Connection"</span><span class="o">,</span> <span class="s">"Keep-Alive"</span><span class="o">);</span>
+<span class="n">reqHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"User-Agent"</span><span class="o">,</span> <span class="s">"Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)"</span><span class="o">);</span>
+<span class="n">reqHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span>
+<span class="n">reqHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Content-Length"</span><span class="o">,</span> <span class="s">"126"</span><span class="o">);</span>
+<span class="n">reqHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Accept-Encoding"</span><span class="o">,</span> <span class="s">"gzip"</span><span class="o">);</span>
 
+<span class="n">Object</span> <span class="n">reqBody</span> <span class="o">=</span> <span class="n">APIHelper</span><span class="o">.</span><span class="na">deserialize</span><span class="o">(</span><span class="s">"{"</span> <span class="o">+</span>
+  <span class="s">"\"items\": ["</span> <span class="o">+</span>
+    <span class="s">"{"</span> <span class="o">+</span>
+      <span class="s">"\"type\": 1,"</span> <span class="o">+</span>
+      <span class="s">"\"id\": \"fwfrf\""</span> <span class="o">+</span>
+    <span class="s">"},"</span> <span class="o">+</span>
+    <span class="s">"{"</span> <span class="o">+</span>
+      <span class="s">"\"type\": 2,"</span> <span class="o">+</span>
+      <span class="s">"\"id\": \"d43d3f\""</span> <span class="o">+</span>
+    <span class="s">"}"</span> <span class="o">+</span>
+  <span class="s">"]"</span> <span class="o">+</span>
+  <span class="s">"}"</span><span class="o">);</span>
 
-<span class="c1">/////////////////////////////////</span>
-<span class="c1">// Create the API Event Model: //</span>
-<span class="c1">/////////////////////////////////</span>
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">rspHeaders</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;();</span>
+<span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Date"</span><span class="o">,</span> <span class="s">"Tue, 23 Feb 2017 23:46:49 GMT"</span><span class="o">);</span>
+<span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Vary"</span><span class="o">,</span> <span class="s">"Accept-Encoding"</span><span class="o">);</span>
+<span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Pragma"</span><span class="o">,</span> <span class="s">"no-cache"</span><span class="o">);</span>
+<span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Expires"</span><span class="o">,</span> <span class="s">"-1"</span><span class="o">);</span>
+<span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json; charset=utf-8"</span><span class="o">);</span>
+<span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Cache-Control"</span><span class="o">,</span><span class="s">"no-cache"</span><span class="o">);</span>
 
-        <span class="n">DateFormat</span> <span class="n">dateFormat</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SimpleDateFormat</span><span class="o">(</span><span class="s">"yyyy-MM-dd'T'HH:mm:ss.SSS"</span><span class="o">);</span>
-
-        <span class="c1">// Parameters for the API call</span>
-        <span class="n">Object</span> <span class="n">reqHeaders</span> <span class="o">=</span> <span class="n">APIHelper</span><span class="o">.</span><span class="na">deserialize</span><span class="o">(</span><span class="s">"{"</span> <span class="o">+</span>
-                    <span class="s">"\"Host\": \"api.acmeinc.com\","</span> <span class="o">+</span>
-                    <span class="s">"\"Accept\": \"*/*\","</span> <span class="o">+</span>
-                    <span class="s">"\"Connection\": \"Keep-Alive\","</span> <span class="o">+</span>
-                    <span class="s">"\"User-Agent\": \"Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)\","</span> <span class="o">+</span>
-                    <span class="s">"\"Content-Type\": \"application/json\","</span> <span class="o">+</span>
-                    <span class="s">"\"Content-Length\": \"126\","</span> <span class="o">+</span>
-                    <span class="s">"\"Accept-Encoding\": \"gzip\""</span> <span class="o">+</span>
-                <span class="s">"}"</span><span class="o">);</span>
-
-        <span class="n">Object</span> <span class="n">reqBody</span> <span class="o">=</span> <span class="n">APIHelper</span><span class="o">.</span><span class="na">deserialize</span><span class="o">(</span><span class="s">"{"</span> <span class="o">+</span>
-                    <span class="s">"\"items\": ["</span> <span class="o">+</span>
-                        <span class="s">"{"</span> <span class="o">+</span>
-                            <span class="s">"\"type\": 1,"</span> <span class="o">+</span>
-                            <span class="s">"\"id\": \"fwfrf\""</span> <span class="o">+</span>
-                        <span class="s">"},"</span> <span class="o">+</span>
-                        <span class="s">"{"</span> <span class="o">+</span>
-                            <span class="s">"\"type\": 2,"</span> <span class="o">+</span>
-                             <span class="s">"\"id\": \"d43d3f\""</span> <span class="o">+</span>
-                         <span class="s">"}"</span> <span class="o">+</span>
-                    <span class="s">"]"</span> <span class="o">+</span>
-                <span class="s">"}"</span><span class="o">);</span>
-
-        <span class="n">Object</span> <span class="n">rspHeaders</span> <span class="o">=</span> <span class="n">APIHelper</span><span class="o">.</span><span class="na">deserialize</span><span class="o">(</span><span class="s">"{"</span> <span class="o">+</span>
-                    <span class="s">"\"Date\": \"Tue, 23 Jan 2017 23:46:49 GMT\","</span> <span class="o">+</span>
-                    <span class="s">"\"Vary\": \"Accept-Encoding\","</span> <span class="o">+</span>
-                    <span class="s">"\"Pragma\": \"no-cache\","</span> <span class="o">+</span>
-                    <span class="s">"\"Expires\": \"-1\","</span> <span class="o">+</span>
-                    <span class="s">"\"Content-Type\": \"application/json; charset=utf-8\","</span> <span class="o">+</span>
-                    <span class="s">"\"Cache-Control\": \"no-cache\""</span> <span class="o">+</span>
-                <span class="s">"}"</span><span class="o">);</span>
-
-        <span class="n">Object</span> <span class="n">rspBody</span> <span class="o">=</span> <span class="n">APIHelper</span><span class="o">.</span><span class="na">deserialize</span><span class="o">(</span><span class="s">"{"</span> <span class="o">+</span>
-                    <span class="s">"\"Error\": \"InvalidArgumentException\","</span> <span class="o">+</span>
-                    <span class="s">"\"Message\": \"Missing field field_a\""</span> <span class="o">+</span>
-                <span class="s">"}"</span><span class="o">);</span>
+<span class="n">Object</span> <span class="n">rspBody</span> <span class="o">=</span> <span class="n">APIHelper</span><span class="o">.</span><span class="na">deserialize</span><span class="o">(</span><span class="s">"{"</span> <span class="o">+</span>
+    <span class="s">"\"Error\": \"InvalidArgumentException\","</span> <span class="o">+</span>
+    <span class="s">"\"Message\": \"Missing field field_a\""</span> <span class="o">+</span>
+  <span class="s">"}"</span><span class="o">);</span>
 
 
-        <span class="n">EventRequestModel</span> <span class="n">eventReq</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EventRequestModel</span><span class="o">();</span>
-
-        <span class="n">eventReq</span><span class="o">.</span><span class="na">setTime</span><span class="o">(</span><span class="n">dateFormat</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"2017-02-22T04:45:42.914"</span><span class="o">));</span>
-        <span class="n">eventReq</span><span class="o">.</span><span class="na">setUri</span><span class="o">(</span><span class="s">"https://api.acmeinc.com/items/reviews/"</span><span class="o">);</span>
-        <span class="n">eventReq</span><span class="o">.</span><span class="na">setVerb</span><span class="o">(</span><span class="s">"PATCH"</span><span class="o">);</span>
-        <span class="n">eventReq</span><span class="o">.</span><span class="na">setApiVersion</span><span class="o">(</span><span class="s">"1.1.0"</span><span class="o">);</span>
-        <span class="n">eventReq</span><span class="o">.</span><span class="na">setIpAddress</span><span class="o">(</span><span class="s">"61.48.220.123"</span><span class="o">);</span>
-        <span class="n">eventReq</span><span class="o">.</span><span class="na">setHeaders</span><span class="o">(</span><span class="n">reqHeaders</span><span class="o">);</span>
-        <span class="n">eventReq</span><span class="o">.</span><span class="na">setBody</span><span class="o">(</span><span class="n">reqBody</span><span class="o">);</span>
-
-
-        <span class="n">EventResponseModel</span> <span class="n">eventRsp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EventResponseModel</span><span class="o">();</span>
-
-        <span class="n">eventRsp</span><span class="o">.</span><span class="na">setTime</span><span class="o">(</span><span class="n">dateFormat</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"2017-02-22T04:45:42.914"</span><span class="o">));</span>
-        <span class="n">eventRsp</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="mi">500</span><span class="o">);</span>
-        <span class="n">eventRsp</span><span class="o">.</span><span class="na">setHeaders</span><span class="o">(</span><span class="n">rspHeaders</span><span class="o">);</span>
-        <span class="n">eventRsp</span><span class="o">.</span><span class="na">setBody</span><span class="o">(</span><span class="n">rspBody</span><span class="o">);</span>
-
-        <span class="n">EventModel</span> <span class="n">eventModel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EventModel</span><span class="o">();</span>
-        <span class="n">eventModel</span><span class="o">.</span><span class="na">setRequest</span><span class="o">(</span><span class="n">eventReq</span><span class="o">);</span>
-        <span class="n">eventModel</span><span class="o">.</span><span class="na">setResponse</span><span class="o">(</span><span class="n">eventRsp</span><span class="o">);</span>
-        <span class="n">eventModel</span><span class="o">.</span><span class="na">setUserId</span><span class="o">(</span><span class="s">"my_user_id"</span><span class="o">);</span>
-        <span class="n">eventModel</span><span class="o">.</span><span class="na">setSessionToken</span><span class="o">(</span><span class="s">"23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"</span><span class="o">);</span>
+<span class="n">EventRequestModel</span> <span class="n">eventReq</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EventRequestBuilder</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">time</span><span class="o">(</span><span class="k">new</span> <span class="n">Date</span><span class="o">())</span>
+        <span class="o">.</span><span class="na">uri</span><span class="o">(</span><span class="s">"https://api.acmeinc.com/items/reviews/"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">verb</span><span class="o">(</span><span class="s">"PATCH"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">apiVersion</span><span class="o">(</span><span class="s">"1.1.0"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">ipAddress</span><span class="o">(</span><span class="s">"61.48.220.123"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">headers</span><span class="o">(</span><span class="n">reqHeaders</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">body</span><span class="o">(</span><span class="n">reqBody</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
 
-<span class="c1">///////////////////////////////////////////</span>
-<span class="c1">// Synchronous Call to create new event: //</span>
-<span class="c1">///////////////////////////////////////////</span>
+<span class="n">EventResponseModel</span> <span class="n">eventRsp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EventResponseBuilder</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">time</span><span class="o">(</span><span class="k">new</span> <span class="n">Date</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()</span> <span class="o">+</span> <span class="mi">1000</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">status</span><span class="o">(</span><span class="mi">500</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">headers</span><span class="o">(</span><span class="n">rspHeaders</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">body</span><span class="o">(</span><span class="n">rspBody</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
-    <span class="n">controller</span><span class="o">.</span><span class="na">createEvent</span><span class="o">(</span><span class="n">eventModel</span><span class="o">);</span>
+<span class="n">EventModel</span> <span class="n">eventModel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EventBuilder</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">request</span><span class="o">(</span><span class="n">eventReq</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">response</span><span class="o">(</span><span class="n">eventRsp</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">userId</span><span class="o">(</span><span class="s">"my_user_id"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">sessionToken</span><span class="o">(</span><span class="s">"23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
-<span class="c1">////////////////////////////////////////////</span>
-<span class="c1">// Asynchronous Call to create new event: //</span>
-<span class="c1">////////////////////////////////////////////</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">EventModel</span><span class="o">&gt;</span> <span class="n">events</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">EventModel</span><span class="o">&gt;();</span>
+<span class="n">events</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">eventModel</span><span class="o">);</span>
+<span class="n">events</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">eventModel</span><span class="o">);</span>
+<span class="n">events</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">eventModel</span><span class="o">);</span>
+<span class="n">events</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">eventModel</span><span class="o">);</span>
 
-    <span class="n">APICallBack</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">callBack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">APICallBack</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{</span>
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="n">HttpContext</span> <span class="n">context</span><span class="o">,</span> <span class="n">Object</span> <span class="n">response</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">assertEquals</span><span class="o">(</span><span class="s">"Status is not 201"</span><span class="o">,</span>
-                    <span class="mi">201</span><span class="o">,</span> <span class="n">context</span><span class="o">.</span><span class="na">getResponse</span><span class="o">().</span><span class="na">getStatusCode</span><span class="o">());</span>
-            <span class="n">lock</span><span class="o">.</span><span class="na">countDown</span><span class="o">();</span>
-        <span class="o">}</span>
+<span class="c1">// Asynchronous Call to create new event</span>
+<span class="n">MoesifAPIClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MoesifAPIClient</span><span class="o">(</span><span class="s">"my_application_id"</span><span class="o">);</span>
+<span class="n">APIController</span> <span class="n">api</span> <span class="o">=</span> <span class="n">getClient</span><span class="o">().</span><span class="na">getAPI</span><span class="o">();</span>
 
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onFailure</span><span class="o">(</span><span class="n">HttpContext</span> <span class="n">context</span><span class="o">,</span> <span class="n">Throwable</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">fail</span><span class="o">();</span>
-        <span class="o">}</span>
-    <span class="o">};</span>
+<span class="n">APICallBack</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">callBack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">APICallBack</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="n">HttpContext</span> <span class="n">context</span><span class="o">,</span> <span class="n">Object</span> <span class="n">response</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// Do something</span>
+    <span class="o">}</span>
 
-    <span class="n">controller</span><span class="o">.</span><span class="na">createEventAsync</span><span class="o">(</span><span class="n">eventModel</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onFailure</span><span class="o">(</span><span class="n">HttpContext</span> <span class="n">context</span><span class="o">,</span> <span class="n">Throwable</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// Do something else</span>
+    <span class="o">}</span>
+<span class="o">};</span>
+
+<span class="n">api</span><span class="o">.</span><span class="na">createEventsBatchAsync</span><span class="o">(</span><span class="n">events</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
+
+<span class="c1">// Synchronous Call to create new event</span>
+<span class="n">api</span><span class="o">.</span><span class="na">createEventsBatch</span><span class="o">(</span><span class="n">events</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// Import the module:</span>
 <span class="kd">var</span> <span class="nx">moesifapi</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'moesifapi'</span><span class="p">);</span>
 
@@ -1451,49 +1491,49 @@ Example Request Body:
 </span><span class="n">ipAddress</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"61.48.220.123"</span><span class="x">
 
 </span><span class="n">req</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">models</span><span class="o">.</span><span class="n">EventRequestModel</span><span class="p">{</span><span class="x">
-    </span><span class="n">Time</span><span class="o">:</span><span class="x">       </span><span class="o">&amp;</span><span class="n">reqTime</span><span class="p">,</span><span class="x">
-    </span><span class="n">Uri</span><span class="o">:</span><span class="x">        </span><span class="s">"https://api.acmeinc.com/widgets"</span><span class="p">,</span><span class="x">
-    </span><span class="n">Verb</span><span class="o">:</span><span class="x">       </span><span class="s">"GET"</span><span class="p">,</span><span class="x">
-    </span><span class="n">ApiVersion</span><span class="o">:</span><span class="x"> </span><span class="o">&amp;</span><span class="n">apiVersion</span><span class="p">,</span><span class="x">
-    </span><span class="n">IpAddress</span><span class="o">:</span><span class="x">  </span><span class="o">&amp;</span><span class="n">ipAddress</span><span class="p">,</span><span class="x">
-    </span><span class="n">Headers</span><span class="o">:</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span><span class="x">
-        </span><span class="s">"ReqHeader1"</span><span class="o">:</span><span class="x"> </span><span class="s">"ReqHeaderValue1"</span><span class="p">,</span><span class="x">
-    </span><span class="p">},</span><span class="x">
-    </span><span class="n">Body</span><span class="o">:</span><span class="x"> </span><span class="no">nil</span><span class="p">,</span><span class="x">
+  </span><span class="n">Time</span><span class="o">:</span><span class="x">       </span><span class="o">&amp;</span><span class="n">reqTime</span><span class="p">,</span><span class="x">
+  </span><span class="n">Uri</span><span class="o">:</span><span class="x">        </span><span class="s">"https://api.acmeinc.com/widgets"</span><span class="p">,</span><span class="x">
+  </span><span class="n">Verb</span><span class="o">:</span><span class="x">       </span><span class="s">"GET"</span><span class="p">,</span><span class="x">
+  </span><span class="n">ApiVersion</span><span class="o">:</span><span class="x"> </span><span class="o">&amp;</span><span class="n">apiVersion</span><span class="p">,</span><span class="x">
+  </span><span class="n">IpAddress</span><span class="o">:</span><span class="x">  </span><span class="o">&amp;</span><span class="n">ipAddress</span><span class="p">,</span><span class="x">
+  </span><span class="n">Headers</span><span class="o">:</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span><span class="x">
+    </span><span class="s">"ReqHeader1"</span><span class="o">:</span><span class="x"> </span><span class="s">"ReqHeaderValue1"</span><span class="p">,</span><span class="x">
+  </span><span class="p">},</span><span class="x">
+  </span><span class="n">Body</span><span class="o">:</span><span class="x"> </span><span class="no">nil</span><span class="p">,</span><span class="x">
 </span><span class="p">}</span><span class="x">
 
 </span><span class="n">rspTime</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">time</span><span class="o">.</span><span class="n">Now</span><span class="p">()</span><span class="o">.</span><span class="n">UTC</span><span class="p">()</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="m">1</span><span class="p">)</span><span class="x"> </span><span class="o">*</span><span class="x"> </span><span class="n">time</span><span class="o">.</span><span class="n">Second</span><span class="p">)</span><span class="x">
 
 </span><span class="n">rsp</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">models</span><span class="o">.</span><span class="n">EventResponseModel</span><span class="p">{</span><span class="x">
-    </span><span class="n">Time</span><span class="o">:</span><span class="x">      </span><span class="o">&amp;</span><span class="n">rspTime</span><span class="p">,</span><span class="x">
-    </span><span class="n">Status</span><span class="o">:</span><span class="x">    </span><span class="m">500</span><span class="p">,</span><span class="x">
-    </span><span class="n">IpAddress</span><span class="o">:</span><span class="x"> </span><span class="no">nil</span><span class="p">,</span><span class="x">
-    </span><span class="n">Headers</span><span class="o">:</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span><span class="x">
-        </span><span class="s">"RspHeader1"</span><span class="o">:</span><span class="x"> </span><span class="s">"RspHeaderValue1"</span><span class="p">,</span><span class="x">
+  </span><span class="n">Time</span><span class="o">:</span><span class="x">      </span><span class="o">&amp;</span><span class="n">rspTime</span><span class="p">,</span><span class="x">
+  </span><span class="n">Status</span><span class="o">:</span><span class="x">    </span><span class="m">500</span><span class="p">,</span><span class="x">
+  </span><span class="n">IpAddress</span><span class="o">:</span><span class="x"> </span><span class="no">nil</span><span class="p">,</span><span class="x">
+  </span><span class="n">Headers</span><span class="o">:</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span><span class="x">
+    </span><span class="s">"RspHeader1"</span><span class="o">:</span><span class="x"> </span><span class="s">"RspHeaderValue1"</span><span class="p">,</span><span class="x">
+  </span><span class="p">},</span><span class="x">
+  </span><span class="n">Body</span><span class="o">:</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span><span class="x">
+    </span><span class="s">"Key1"</span><span class="o">:</span><span class="x"> </span><span class="s">"Value1"</span><span class="p">,</span><span class="x">
+    </span><span class="s">"Key2"</span><span class="o">:</span><span class="x"> </span><span class="m">12</span><span class="p">,</span><span class="x">
+    </span><span class="s">"Key3"</span><span class="o">:</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span><span class="x">
+      </span><span class="s">"Key3_1"</span><span class="o">:</span><span class="x"> </span><span class="s">"SomeValue"</span><span class="p">,</span><span class="x">
     </span><span class="p">},</span><span class="x">
-    </span><span class="n">Body</span><span class="o">:</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span><span class="x">
-        </span><span class="s">"Key1"</span><span class="o">:</span><span class="x"> </span><span class="s">"Value1"</span><span class="p">,</span><span class="x">
-        </span><span class="s">"Key2"</span><span class="o">:</span><span class="x"> </span><span class="m">12</span><span class="p">,</span><span class="x">
-        </span><span class="s">"Key3"</span><span class="o">:</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span><span class="x">
-            </span><span class="s">"Key3_1"</span><span class="o">:</span><span class="x"> </span><span class="s">"SomeValue"</span><span class="p">,</span><span class="x">
-        </span><span class="p">},</span><span class="x">
-    </span><span class="p">},</span><span class="x">
+  </span><span class="p">},</span><span class="x">
 </span><span class="p">}</span><span class="x">
 
 </span><span class="n">sessionToken</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"end user API or session token"</span><span class="x">
 </span><span class="n">userId</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"end user_id"</span><span class="x">
 
 </span><span class="n">event</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">models</span><span class="o">.</span><span class="n">EventModel</span><span class="p">{</span><span class="x">
-    </span><span class="n">Request</span><span class="o">:</span><span class="x">      </span><span class="n">req</span><span class="p">,</span><span class="x">
-    </span><span class="n">Response</span><span class="o">:</span><span class="x">     </span><span class="n">rsp</span><span class="p">,</span><span class="x">
-    </span><span class="n">SessionToken</span><span class="o">:</span><span class="x"> </span><span class="o">&amp;</span><span class="n">sessionToken</span><span class="p">,</span><span class="x">
-    </span><span class="n">Tags</span><span class="o">:</span><span class="x">         </span><span class="no">nil</span><span class="p">,</span><span class="x">
-    </span><span class="n">UserId</span><span class="o">:</span><span class="x">       </span><span class="o">&amp;</span><span class="n">userId</span><span class="p">,</span><span class="x">
+  </span><span class="n">Request</span><span class="o">:</span><span class="x">      </span><span class="n">req</span><span class="p">,</span><span class="x">
+  </span><span class="n">Response</span><span class="o">:</span><span class="x">     </span><span class="n">rsp</span><span class="p">,</span><span class="x">
+  </span><span class="n">SessionToken</span><span class="o">:</span><span class="x"> </span><span class="o">&amp;</span><span class="n">sessionToken</span><span class="p">,</span><span class="x">
+  </span><span class="n">Tags</span><span class="o">:</span><span class="x">         </span><span class="no">nil</span><span class="p">,</span><span class="x">
+  </span><span class="n">UserId</span><span class="o">:</span><span class="x">       </span><span class="o">&amp;</span><span class="n">userId</span><span class="p">,</span><span class="x">
 </span><span class="p">}</span><span class="x">
 
 </span><span class="n">events</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="nb">make</span><span class="p">([]</span><span class="o">*</span><span class="n">models</span><span class="o">.</span><span class="n">EventModel</span><span class="p">,</span><span class="x"> </span><span class="m">20</span><span class="p">)</span><span class="x">
 </span><span class="k">for</span><span class="x"> </span><span class="n">i</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="m">0</span><span class="p">;</span><span class="x"> </span><span class="n">i</span><span class="x"> </span><span class="o">&lt;</span><span class="x"> </span><span class="m">20</span><span class="p">;</span><span class="x"> </span><span class="n">i</span><span class="o">++</span><span class="x"> </span><span class="p">{</span><span class="x">
-    </span><span class="n">events</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">event</span><span class="x">
+  </span><span class="n">events</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">event</span><span class="x">
 </span><span class="p">}</span><span class="x">
 
 </span><span class="c">// Queue the events</span><span class="x">
@@ -1668,7 +1708,8 @@ will be stored as part of the user profile.</p>
 <li>photo_url</li>
 </ul>
 
-<p>If user does not exist, a new one will be created.
+<p>Updating an end user will create one if it does not exist,
+also know as <a href="https://en.wikipedia.org/wiki/Merge_(SQL)">upsert</a>
 If a user exists, it will be merged on top of existing fields.
 Any new field set will override the existing fields.
 This is done via recursive merge which merges inner objects.</p>
@@ -1678,28 +1719,91 @@ Replace <i>my_application_id</i> with your real Application Id
 </aside>
 
 <blockquote class="lang-specific yaml">
-Example Request Body:
+<code><b>POST</b> https://api.moesif.net/v1/users</code>
+<br><br><i>Example Request Body:</i><br>
 </blockquote>
-<pre class="highlight yaml tab-yaml"><code><span class="pi">{</span>
-  <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2017-02-22T04:45:42.914"</span><span class="pi">,</span>
-  <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">61.48.220.123"</span><span class="pi">,</span>
-  <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">df32dkj32opxzfdmji4hf4fs98y18cx98q3yhwmnhcfx43f"</span><span class="pi">,</span>
-  <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">123456"</span><span class="pi">,</span>
-  <span class="s2">"</span><span class="s">user_agent_string"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Mozilla/5.0</span><span class="nv"> </span><span class="s">(Macintosh;</span><span class="nv"> </span><span class="s">Intel</span><span class="nv"> </span><span class="s">Mac</span><span class="nv"> </span><span class="s">OS</span><span class="nv"> </span><span class="s">X</span><span class="nv"> </span><span class="s">10_12_3)</span><span class="nv"> </span><span class="s">AppleWebKit/537.36</span><span class="nv"> </span><span class="s">(KHTML,</span><span class="nv"> </span><span class="s">like</span><span class="nv"> </span><span class="s">Gecko)</span><span class="nv"> </span><span class="s">Chrome/56.0.2924.87</span><span class="nv"> </span><span class="s">Safari/537.36"</span><span class="pi">,</span>
-  <span class="s2">"</span><span class="s">metadata"</span><span class="pi">:</span> <span class="pi">{</span>
-    <span class="s2">"</span><span class="s">first_name"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">John</span><span class="nv"> </span><span class="s">Doe"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">last_name"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">John</span><span class="nv"> </span><span class="s">Doe"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">email"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">john@gmail.com"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">phone"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">123-456-7890"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">custom_string_field"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">some_value"</span>
-    <span class="s2">"</span><span class="s">custom_int_field"</span><span class="pi">:</span> <span class="nv">55</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">custom_obj_field"</span><span class="pi">:</span> <span class="pi">{</span>
-        <span class="s2">"</span><span class="s">sub_a"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">value_a"</span><span class="pi">,</span>
-        <span class="s2">"</span><span class="s">sub_b"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">value_b"</span>
+<pre class="highlight yaml tab-yaml"><code>  <span class="pi">{</span>
+    <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2017-02-22T04:45:42.914"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">61.48.220.123"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">df32dkj32opxzfdmji4hf4fs98y18cx98q3yhwmnhcfx43f"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">123456"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">user_agent_string"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Mozilla/5.0</span><span class="nv"> </span><span class="s">(Macintosh;</span><span class="nv"> </span><span class="s">Intel</span><span class="nv"> </span><span class="s">Mac</span><span class="nv"> </span><span class="s">OS</span><span class="nv"> </span><span class="s">X</span><span class="nv"> </span><span class="s">10_12_3)</span><span class="nv"> </span><span class="s">AppleWebKit/537.36</span><span class="nv"> </span><span class="s">(KHTML,</span><span class="nv"> </span><span class="s">like</span><span class="nv"> </span><span class="s">Gecko)</span><span class="nv"> </span><span class="s">Chrome/56.0.2924.87</span><span class="nv"> </span><span class="s">Safari/537.36"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">metadata"</span><span class="pi">:</span> <span class="pi">{</span>
+      <span class="s2">"</span><span class="s">first_name"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">John</span><span class="nv"> </span><span class="s">Doe"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">last_name"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">John</span><span class="nv"> </span><span class="s">Doe"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">email"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">john@gmail.com"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">phone"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">123-456-7890"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">custom_string_field"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">some_value"</span>
+      <span class="s2">"</span><span class="s">custom_int_field"</span><span class="pi">:</span> <span class="nv">55</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">custom_obj_field"</span><span class="pi">:</span> <span class="pi">{</span>
+          <span class="s2">"</span><span class="s">sub_a"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">value_a"</span><span class="pi">,</span>
+          <span class="s2">"</span><span class="s">sub_b"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">value_b"</span>
+      <span class="pi">}</span>
     <span class="pi">}</span>
   <span class="pi">}</span>
-<span class="pi">}</span>
 
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// 1. Import the module</span>
+<span class="kd">var</span> <span class="nx">moesifapi</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'moesifapi'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">moesifapi</span><span class="p">.</span><span class="nx">ApiController</span><span class="p">;</span>
+
+<span class="c1">// 2. Configure the ApplicationId</span>
+<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">moesifapi</span><span class="p">.</span><span class="nx">configuration</span><span class="p">;</span>
+<span class="nx">config</span><span class="p">.</span><span class="nx">ApplicationId</span> <span class="o">=</span> <span class="s2">"my_application_id"</span><span class="p">;</span>
+
+<span class="c1">// 3. Generate a User Model</span>
+<span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">userId</span><span class="p">:</span> <span class="s2">"my_user_id"</span><span class="p">,</span>
+    <span class="na">sessionToken</span><span class="p">:</span> <span class="s2">"23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"</span><span class="p">,</span>
+    <span class="na">metadata</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">email</span><span class="p">:</span> <span class="s2">"johndoe@acmeinc.com"</span><span class="p">,</span>
+      <span class="na">string_field</span><span class="p">:</span> <span class="s2">"value_1"</span><span class="p">,</span>
+      <span class="na">number_field</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="na">object_field</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">field_a</span><span class="p">:</span> <span class="s2">"value_a"</span><span class="p">,</span>
+        <span class="na">field_b</span><span class="p">:</span> <span class="s2">"value_b"</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// 4. Create a single user</span>
+<span class="nx">api</span><span class="p">.</span><span class="nx">updateUser</span><span class="p">(</span><span class="k">new</span> <span class="nx">UserModel</span><span class="p">(</span><span class="nx">user</span><span class="p">),</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do Something</span>
+<span class="p">});</span>
+</code></pre><pre class="highlight python tab-python"><code></code></pre><pre class="highlight ruby tab-ruby"><code></code></pre><pre class="highlight php tab-php"><code></code></pre><pre class="highlight go tab-go"><code></code></pre><pre class="highlight csharp tab-csharp"><code></code></pre><pre class="highlight java tab-java"><code><span class="n">MoesifAPIClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MoesifAPIClient</span><span class="o">(</span><span class="s">"my_application_id"</span><span class="o">);</span>
+<span class="n">APIController</span> <span class="n">api</span> <span class="o">=</span> <span class="n">getClient</span><span class="o">().</span><span class="na">getAPI</span><span class="o">();</span>
+
+<span class="n">UserModel</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UserBuilder</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">userId</span><span class="o">(</span><span class="s">"12345"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">modifiedTime</span><span class="o">(</span><span class="k">new</span> <span class="n">Date</span><span class="o">())</span>
+    <span class="o">.</span><span class="na">ipAddress</span><span class="o">(</span><span class="s">"29.80.250.240"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">sessionToken</span><span class="o">(</span><span class="s">"di3hd982h3fubv3yfd94egf"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">userAgentString</span><span class="o">(</span><span class="s">"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">metadata</span><span class="o">(</span><span class="n">APIHelper</span><span class="o">.</span><span class="na">deserialize</span><span class="o">(</span><span class="s">"{"</span> <span class="o">+</span>
+        <span class="s">"\"email\": \"johndoe@acmeinc.com\","</span> <span class="o">+</span>
+        <span class="s">"\"string_field\": \"value_1\","</span> <span class="o">+</span>
+        <span class="s">"\"number_field\": 0,"</span> <span class="o">+</span>
+        <span class="s">"\"object_field\": {"</span> <span class="o">+</span>
+          <span class="s">"\"field_1\": \"value_1\","</span> <span class="o">+</span>
+          <span class="s">"\"field_2\": \"value_2\""</span> <span class="o">+</span>
+        <span class="s">"}"</span> <span class="o">+</span>
+      <span class="s">"}"</span><span class="o">))</span>
+     <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+
+<span class="c1">// Asynchronous Call to update user</span>
+<span class="n">APICallBack</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">callBack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">APICallBack</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="n">HttpContext</span> <span class="n">context</span><span class="o">,</span> <span class="n">Object</span> <span class="n">response</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// Do something</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onFailure</span><span class="o">(</span><span class="n">HttpContext</span> <span class="n">context</span><span class="o">,</span> <span class="n">Throwable</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// Do something else</span>
+    <span class="o">}</span>
+<span class="o">};</span>
+
+<span class="n">api</span><span class="o">.</span><span class="na">updateUserAsync</span><span class="o">(</span><span class="n">user</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
+
+<span class="c1">// Synchronous Call to update user</span>
+<span class="n">api</span><span class="o">.</span><span class="na">updateUser</span><span class="o">(</span><span class="n">user</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
 </code></pre>
 <table><thead>
 <tr>
@@ -1770,49 +1874,149 @@ Replace <i>my_application_id</i> with your real Application Id
 </aside>
 
 <blockquote class="lang-specific yaml">
-Example Request Body:
+<code><b>POST</b> https://api.moesif.net/v1/users/batch</code>
+<br><br><i>Example Request Body:</i><br>
 </blockquote>
-<pre class="highlight yaml tab-yaml"><code><span class="pi">[</span>
-  <span class="pi">{</span>
-    <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2017-02-22T04:45:42.914"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">61.48.220.123"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">df32dkj32opxzfdmji4hf4fs98y18cx98q3yhwmnhcfx43f"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">12345"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">user_agent_string"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Mozilla/5.0</span><span class="nv"> </span><span class="s">(Macintosh;</span><span class="nv"> </span><span class="s">Intel</span><span class="nv"> </span><span class="s">Mac</span><span class="nv"> </span><span class="s">OS</span><span class="nv"> </span><span class="s">X</span><span class="nv"> </span><span class="s">10_12_3)</span><span class="nv"> </span><span class="s">AppleWebKit/537.36</span><span class="nv"> </span><span class="s">(KHTML,</span><span class="nv"> </span><span class="s">like</span><span class="nv"> </span><span class="s">Gecko)</span><span class="nv"> </span><span class="s">Chrome/56.0.2924.87</span><span class="nv"> </span><span class="s">Safari/537.36"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">metadata"</span><span class="pi">:</span> <span class="pi">{</span>
-      <span class="s2">"</span><span class="s">first_name"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">John</span><span class="nv"> </span><span class="s">Doe"</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">last_name"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">John</span><span class="nv"> </span><span class="s">Doe"</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">email"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">john@gmail.com"</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">phone"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">123-456-7890"</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">custom_string_field"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">some_value"</span>
-      <span class="s2">"</span><span class="s">custom_int_field"</span><span class="pi">:</span> <span class="nv">55</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">custom_obj_field"</span><span class="pi">:</span> <span class="pi">{</span>
-          <span class="s2">"</span><span class="s">sub_a"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">value_a"</span><span class="pi">,</span>
-          <span class="s2">"</span><span class="s">sub_b"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">value_b"</span>
+<pre class="highlight yaml tab-yaml"><code>  <span class="pi">[</span>
+    <span class="pi">{</span>
+      <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2017-02-22T04:45:42.914"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">61.48.220.123"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">df32dkj32opxzfdmji4hf4fs98y18cx98q3yhwmnhcfx43f"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">12345"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">user_agent_string"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Mozilla/5.0</span><span class="nv"> </span><span class="s">(Macintosh;</span><span class="nv"> </span><span class="s">Intel</span><span class="nv"> </span><span class="s">Mac</span><span class="nv"> </span><span class="s">OS</span><span class="nv"> </span><span class="s">X</span><span class="nv"> </span><span class="s">10_12_3)</span><span class="nv"> </span><span class="s">AppleWebKit/537.36</span><span class="nv"> </span><span class="s">(KHTML,</span><span class="nv"> </span><span class="s">like</span><span class="nv"> </span><span class="s">Gecko)</span><span class="nv"> </span><span class="s">Chrome/56.0.2924.87</span><span class="nv"> </span><span class="s">Safari/537.36"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">metadata"</span><span class="pi">:</span> <span class="pi">{</span>
+        <span class="s2">"</span><span class="s">first_name"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">John</span><span class="nv"> </span><span class="s">Doe"</span><span class="pi">,</span>
+        <span class="s2">"</span><span class="s">last_name"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">John</span><span class="nv"> </span><span class="s">Doe"</span><span class="pi">,</span>
+        <span class="s2">"</span><span class="s">email"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">john@gmail.com"</span><span class="pi">,</span>
+        <span class="s2">"</span><span class="s">phone"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">123-456-7890"</span><span class="pi">,</span>
+        <span class="s2">"</span><span class="s">custom_string_field"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">some_value"</span>
+        <span class="s2">"</span><span class="s">custom_int_field"</span><span class="pi">:</span> <span class="nv">55</span><span class="pi">,</span>
+        <span class="s2">"</span><span class="s">custom_obj_field"</span><span class="pi">:</span> <span class="pi">{</span>
+            <span class="s2">"</span><span class="s">sub_a"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">value_a"</span><span class="pi">,</span>
+            <span class="s2">"</span><span class="s">sub_b"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">value_b"</span>
+        <span class="pi">}</span>
+      <span class="pi">}</span>
+    <span class="pi">},</span>
+    <span class="pi">{</span>
+      <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2017-02-22T04:45:42.914"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">61.48.220.129"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">d2ewzcazchurvcqdevnhcuiyrgvru"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">7890"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">user_agent_string"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Mozilla/5.0</span><span class="nv"> </span><span class="s">(Macintosh;</span><span class="nv"> </span><span class="s">Intel</span><span class="nv"> </span><span class="s">Mac</span><span class="nv"> </span><span class="s">OS</span><span class="nv"> </span><span class="s">X</span><span class="nv"> </span><span class="s">10_12_3)</span><span class="nv"> </span><span class="s">AppleWebKit/537.36</span><span class="nv"> </span><span class="s">(KHTML,</span><span class="nv"> </span><span class="s">like</span><span class="nv"> </span><span class="s">Gecko)</span><span class="nv"> </span><span class="s">Chrome/56.0.2924.87</span><span class="nv"> </span><span class="s">Safari/537.36"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">metadata"</span><span class="pi">:</span> <span class="pi">{</span>
+        <span class="s2">"</span><span class="s">first_name"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Mary</span><span class="nv"> </span><span class="s">Doe"</span><span class="pi">,</span>
+        <span class="s2">"</span><span class="s">last_name"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Mary</span><span class="nv"> </span><span class="s">Doe"</span><span class="pi">,</span>
+        <span class="s2">"</span><span class="s">email"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">mary@gmail.com"</span><span class="pi">,</span>
+        <span class="s2">"</span><span class="s">phone"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">123-456-7890"</span><span class="pi">,</span>
+        <span class="s2">"</span><span class="s">custom_string_field"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">some_value"</span>
+        <span class="s2">"</span><span class="s">custom_int_field"</span><span class="pi">:</span> <span class="nv">55</span><span class="pi">,</span>
+        <span class="s2">"</span><span class="s">custom_obj_field"</span><span class="pi">:</span> <span class="pi">{</span>
+            <span class="s2">"</span><span class="s">sub_a"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">value_a"</span><span class="pi">,</span>
+            <span class="s2">"</span><span class="s">sub_b"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">value_b"</span>
+        <span class="pi">}</span>
       <span class="pi">}</span>
     <span class="pi">}</span>
-  <span class="pi">},</span>
-  <span class="pi">{</span>
-    <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2017-02-22T04:45:42.914"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">61.48.220.129"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">d2ewzcazchurvcqdevnhcuiyrgvru"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">7890"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">user_agent_string"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Mozilla/5.0</span><span class="nv"> </span><span class="s">(Macintosh;</span><span class="nv"> </span><span class="s">Intel</span><span class="nv"> </span><span class="s">Mac</span><span class="nv"> </span><span class="s">OS</span><span class="nv"> </span><span class="s">X</span><span class="nv"> </span><span class="s">10_12_3)</span><span class="nv"> </span><span class="s">AppleWebKit/537.36</span><span class="nv"> </span><span class="s">(KHTML,</span><span class="nv"> </span><span class="s">like</span><span class="nv"> </span><span class="s">Gecko)</span><span class="nv"> </span><span class="s">Chrome/56.0.2924.87</span><span class="nv"> </span><span class="s">Safari/537.36"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">metadata"</span><span class="pi">:</span> <span class="pi">{</span>
-      <span class="s2">"</span><span class="s">first_name"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Mary</span><span class="nv"> </span><span class="s">Doe"</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">last_name"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Mary</span><span class="nv"> </span><span class="s">Doe"</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">email"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">mary@gmail.com"</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">phone"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">123-456-7890"</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">custom_string_field"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">some_value"</span>
-      <span class="s2">"</span><span class="s">custom_int_field"</span><span class="pi">:</span> <span class="nv">55</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">custom_obj_field"</span><span class="pi">:</span> <span class="pi">{</span>
-          <span class="s2">"</span><span class="s">sub_a"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">value_a"</span><span class="pi">,</span>
-          <span class="s2">"</span><span class="s">sub_b"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">value_b"</span>
-      <span class="pi">}</span>
-    <span class="pi">}</span>
-  <span class="pi">}</span>
-<span class="pi">]</span>
+  <span class="pi">]</span>
 
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">moesifapi</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'moesifapi'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">moesifapi</span><span class="p">.</span><span class="nx">ApiController</span><span class="p">;</span>
+
+<span class="c1">// 2. Configure the ApplicationId</span>
+<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">moesifapi</span><span class="p">.</span><span class="nx">configuration</span><span class="p">;</span>
+<span class="nx">config</span><span class="p">.</span><span class="nx">ApplicationId</span> <span class="o">=</span> <span class="s2">"my_application_id"</span><span class="p">;</span>
+
+<span class="c1">// 3. Generate an API Event Model</span>
+<span class="kd">var</span> <span class="nx">userA</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">userId</span><span class="p">:</span> <span class="s2">"12345"</span><span class="p">,</span>
+    <span class="na">sessionToken</span><span class="p">:</span> <span class="s2">"23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"</span><span class="p">,</span>
+    <span class="na">metadata</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">email</span><span class="p">:</span> <span class="s2">"johndoe@acmeinc.com"</span><span class="p">,</span>
+      <span class="na">string_field</span><span class="p">:</span> <span class="s2">"value_1"</span><span class="p">,</span>
+      <span class="na">number_field</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="na">object_field</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">field_a</span><span class="p">:</span> <span class="s2">"value_a"</span><span class="p">,</span>
+        <span class="na">field_b</span><span class="p">:</span> <span class="s2">"value_b"</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">userB</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">userId</span><span class="p">:</span> <span class="s2">"6789"</span><span class="p">,</span>
+    <span class="na">sessionToken</span><span class="p">:</span> <span class="s2">"23jdf0oszfexfqe[lwjfiefovprewv4d8ayrcdx8nu2ng]zfeeadedefx43f"</span><span class="p">,</span>
+    <span class="na">metadata</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">email</span><span class="p">:</span> <span class="s2">"maryjane@acmeinc.com"</span><span class="p">,</span>
+      <span class="na">string_field</span><span class="p">:</span> <span class="s2">"value_1"</span><span class="p">,</span>
+      <span class="na">number_field</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="na">object_field</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">field_a</span><span class="p">:</span> <span class="s2">"value_a"</span><span class="p">,</span>
+        <span class="na">field_b</span><span class="p">:</span> <span class="s2">"value_b"</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="p">[</span><span class="k">new</span> <span class="nx">UserModel</span><span class="p">(</span><span class="nx">userA</span><span class="p">),</span> <span class="k">new</span> <span class="nx">UserModel</span><span class="p">(</span><span class="nx">userB</span><span class="p">)];</span>
+
+<span class="c1">// 4. Send batch of events</span>
+<span class="nx">api</span><span class="p">.</span><span class="nx">updateUsersBatch</span><span class="p">(</span><span class="nx">users</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do Something</span>
+<span class="p">});</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">MoesifAPIClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MoesifAPIClient</span><span class="o">(</span><span class="s">"my_application_id"</span><span class="o">);</span>
+<span class="n">APIController</span> <span class="n">api</span> <span class="o">=</span> <span class="n">getClient</span><span class="o">().</span><span class="na">getAPI</span><span class="o">();</span>
+
+<span class="n">List</span><span class="o">&lt;</span><span class="n">UserModel</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">UserModel</span><span class="o">&gt;();</span>
+
+<span class="n">UserModel</span> <span class="n">userA</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UserBuilder</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">userId</span><span class="o">(</span><span class="s">"12345"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">modifiedTime</span><span class="o">(</span><span class="k">new</span> <span class="n">Date</span><span class="o">())</span>
+    <span class="o">.</span><span class="na">ipAddress</span><span class="o">(</span><span class="s">"29.80.250.240"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">sessionToken</span><span class="o">(</span><span class="s">"di3hd982h3fubv3yfd94egf"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">userAgentString</span><span class="o">(</span><span class="s">"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">metadata</span><span class="o">(</span><span class="n">APIHelper</span><span class="o">.</span><span class="na">deserialize</span><span class="o">(</span><span class="s">"{"</span> <span class="o">+</span>
+        <span class="s">"\"email\": \"johndoe@acmeinc.com\","</span> <span class="o">+</span>
+        <span class="s">"\"string_field\": \"value_1\","</span> <span class="o">+</span>
+        <span class="s">"\"number_field\": 0,"</span> <span class="o">+</span>
+        <span class="s">"\"object_field\": {"</span> <span class="o">+</span>
+          <span class="s">"\"field_1\": \"value_1\","</span> <span class="o">+</span>
+          <span class="s">"\"field_2\": \"value_2\""</span> <span class="o">+</span>
+        <span class="s">"}"</span> <span class="o">+</span>
+      <span class="s">"}"</span><span class="o">))</span>
+    <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="n">users</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">userA</span><span class="o">);</span>
+
+<span class="n">UserModel</span> <span class="n">userB</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UserBuilder</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">userId</span><span class="o">(</span><span class="s">"56789"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">modifiedTime</span><span class="o">(</span><span class="k">new</span> <span class="n">Date</span><span class="o">())</span>
+    <span class="o">.</span><span class="na">ipAddress</span><span class="o">(</span><span class="s">"21.80.11.242"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">sessionToken</span><span class="o">(</span><span class="s">"zceadckekvsfgfpsakvnbfouavsdvds"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">userAgentString</span><span class="o">(</span><span class="s">"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">metadata</span><span class="o">(</span><span class="n">APIHelper</span><span class="o">.</span><span class="na">deserialize</span><span class="o">(</span><span class="s">"{"</span> <span class="o">+</span>
+        <span class="s">"\"email\": \"maryjane@acmeinc.com\","</span> <span class="o">+</span>
+        <span class="s">"\"string_field\": \"value_1\","</span> <span class="o">+</span>
+        <span class="s">"\"number_field\": 1,"</span> <span class="o">+</span>
+        <span class="s">"\"object_field\": {"</span> <span class="o">+</span>
+          <span class="s">"\"field_1\": \"value_1\","</span> <span class="o">+</span>
+          <span class="s">"\"field_2\": \"value_2\""</span> <span class="o">+</span>
+        <span class="s">"}"</span> <span class="o">+</span>
+      <span class="s">"}"</span><span class="o">))</span>
+    <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="n">users</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">userB</span><span class="o">);</span>
+
+<span class="c1">// Asynchronous call to update users</span>
+<span class="n">APICallBack</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">callBack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">APICallBack</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="n">HttpContext</span> <span class="n">context</span><span class="o">,</span> <span class="n">Object</span> <span class="n">response</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// Do something</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onFailure</span><span class="o">(</span><span class="n">HttpContext</span> <span class="n">context</span><span class="o">,</span> <span class="n">Throwable</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// Do something else</span>
+    <span class="o">}</span>
+<span class="o">};</span>
+
+<span class="n">api</span><span class="o">.</span><span class="na">updateUsersBatchAsync</span><span class="o">(</span><span class="n">users</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
+
+
+<span class="c1">//Synchronous call to update users</span>
+<span class="n">api</span><span class="o">.</span><span class="na">updateUsersBatch</span><span class="o">(</span><span class="n">users</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
 </code></pre>
 <table><thead>
 <tr>
