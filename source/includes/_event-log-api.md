@@ -12,181 +12,229 @@ Replace <i>my_application_id</i> with your real Application Id
 </aside>
 
 <blockquote class="lang-specific yaml">
-Example Request Body:
+<code><b>POST</b> https://api.moesif.net/v1/events</code>
+<br><br><i>Example Request Body:</i><br>
 </blockquote>
-
-
 ```yaml
-{
-  "request": {
-    "time": "2017-02-22T04:45:42.914",
-    "uri": "https://api.acmeinc.com/items/83738/reviews/",
-    "verb": "POST",
-    "api_version": "1.1.0",
-    "ip_address": "61.48.220.123",
-    "headers": {
-      "Host": "api.acmeinc.com",
-      "Accept": "*/*",
-      "Connection": "Keep-Alive",
-      "Content-Type": "application/json",
-      "Content-Length": "126",
-      "Accept-Encoding": "gzip"
+  {
+    "request": {
+      "time": "2017-02-22T04:45:42.914",
+      "uri": "https://api.acmeinc.com/items/12345/reviews/",
+      "verb": "POST",
+      "api_version": "1.1.0",
+      "ip_address": "61.48.220.123",
+      "headers": {
+        "Host": "api.acmeinc.com",
+        "Accept": "*/*",
+        "Connection": "Keep-Alive",
+        "Content-Type": "application/json",
+        "Content-Length": "126",
+        "Accept-Encoding": "gzip"
+      },
+      "body": {
+        "items": [
+          {
+            "direction_type": 1,
+            "item_id": "fwdsfrf",
+            "liked": false
+          },
+          {
+            "direction_type": 2,
+            "item_id": "d43d3f",
+            "liked": true
+          }
+        ]
+      },
+      "transfer_encoding": ""
     },
-    "body": {
-      "items": [
-        {
-          "direction_type": 1,
-          "item_id": "fwdsfrf",
-          "liked": false
-        },
-        {
-          "direction_type": 2,
-          "item_id": "d43d3f",
-          "liked": true
-        }
-      ]
+    "response": {
+      "time": "2017-02-22T04:45:42.914",
+      "status": 500,
+      "headers": {
+        "Vary": "Accept-Encoding",
+        "Pragma": "no-cache",
+        "Expires": "-1",
+        "Content-Type": "application/json; charset=utf-8",
+        "Cache-Control": "no-cache"
+      },
+      "body": {
+        "Error": "InvalidArgumentException",
+        "Message": "Missing field location"
+      },
+      "transfer_encoding": ""
     },
-    "transfer_encoding": ""
-  },
-  "response": {
-    "time": "2017-02-22T04:45:42.914",
-    "status": 500,
-    "headers": {
-      "Vary": "Accept-Encoding",
-      "Pragma": "no-cache",
-      "Expires": "-1",
-      "Content-Type": "application/json; charset=utf-8",
-      "Cache-Control": "no-cache"
-    },
-    "body": {
-      "Error": "InvalidArgumentException",
-      "Message": "Missing field location"
-    },
-    "transfer_encoding": ""
-  },
-  "user_id": "mndug437f43",
-  "session_token": "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"
-}
-
+    "user_id": "mndug437f43",
+    "session_token": "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"
+  }
 ```
 
 ```java
 // Import the Library
 MoesifAPIClient client = new MoesifAPIClient("my_application_id");
-ApiController controller = getClient().getApi();
+APIController api = getClient().getAPI();
+
+// Generate the event
+Map<String, String> reqHeaders = new HashMap<String, String>();
+reqHeaders.put("Host", "api.acmeinc.com");
+reqHeaders.put("Accept", "*/*");
+reqHeaders.put("Connection", "Keep-Alive");
+reqHeaders.put("User-Agent", "Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)");
+reqHeaders.put("Content-Type", "application/json");
+reqHeaders.put("Content-Length", "126");
+reqHeaders.put("Accept-Encoding", "gzip");
+
+Object reqBody = APIHelper.deserialize("{" +
+  "\"items\": [" +
+    "{" +
+      "\"type\": 1," +
+      "\"id\": \"fwfrf\"" +,
+    "}," +
+    "{" +
+      "\"type\": 2," +
+       "\"id\": \"d43d3f\"" +
+     "}" +
+  "]" +
+  "}");
+
+Map<String, String> rspHeaders = new HashMap<String, String>();
+rspHeaders.put("Date", "Tue, 23 Feb 2017 23:46:49 GMT");
+rspHeaders.put("Vary", "Accept-Encoding");
+rspHeaders.put("Pragma", "no-cache");
+rspHeaders.put("Expires", "-1");
+rspHeaders.put("Content-Type", "application/json; charset=utf-8");
+rspHeaders.put("Cache-Control","no-cache");
+
+Object rspBody = APIHelper.deserialize("{" +
+    "\"Error\": \"InvalidArgumentException\"," +
+    "\"Message\": \"Missing field field_a\"" +
+  "}");
 
 
-// Create API Event Model and set fields
-EventModel myEventModel = new EventModel();
-myEventModel.setTags("user"); // ...
+EventRequestModel eventReq = new EventRequestBuilder()
+        .time(new Date())
+        .uri("https://api.acmeinc.com/items/reviews/")
+        .verb("PATCH")
+        .apiVersion("1.1.0")
+        .ipAddress("61.48.220.123")
+        .headers(reqHeaders)
+        .body(reqBody)
+        .build();
 
-// Synchronous Call to Create Event
-controller.createEvent(myEventModel);
 
+EventResponseModel eventRsp = new EventResponseBuilder()
+        .time(new Date(System.currentTimeMillis() + 1000))
+        .status(500)
+        .headers(rspHeaders)
+        .body(rspBody)
+        .build();
+
+EventModel eventModel = new EventBuilder()
+        .request(eventReq)
+        .response(eventRsp)
+        .userId("my_user_id")
+        .sessionToken("23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f")
+        .build();
 
 // Asynchronous Call to Create Event
+MoesifAPIClient client = new MoesifAPIClient("my_application_id");
+APIController api = getClient().getAPI();
+
 APICallBack<Object> callBack = new APICallBack<Object>() {
     public void onSuccess(HttpContext context, Object response) {
-        // Event Added Successfully
+        // Do something
     }
 
     public void onFailure(HttpContext context, Throwable error) {
-        // Throw exception or print error
+        // Do something else
     }
 };
 
-controller.createEventAsync(myEventModel, callBack);
+api.createEventsBatchAsync(eventsList, callBack);
+
+// Synchronous Call to Create Event
+api.createEventsBatch(eventsList, callBack);
 ```
 
 ```javascript
-///////////////////////////
-// 1. Import the module: //
-///////////////////////////
-    var moesifapi = require('moesifapi');
+// 1. Import the module
+var moesifapi = require('moesifapi');
+var api = moesifapi.ApiController;
 
+// 2. Configure the ApplicationId
+var config = moesifapi.configuration;
+config.ApplicationId = "my_application_id";
 
-////////////////////////////////
-// 2. Configure ApplicationId //
-////////////////////////////////
-    var config = moesifapi.configuration;
-    config.ApplicationId = my_application_id;
+// 3. Generate an API Event Model
+var reqHeaders = JSON.parse('{' +
+        '"Host": "api.acmeinc.com",' +
+        '"Accept": "*/*",' +
+        '"Connection": "Keep-Alive",' +
+        '"User-Agent": "Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)",' +
+        '"Content-Type": "application/json",' +
+        '"Content-Length": "126",' +
+        '"Accept-Encoding": "gzip"' +
+    '}');
 
+var reqBody = JSON.parse( '{' +
+        '"items": [' +
+            '{' +
+                '"type": 1,' +
+                '"id": "fwfrf"' +
+            '},' +
+            '{' +
+                '"type": 2,' +
+                '"id": "d43d3f"' +
+            '}' +
+        ']' +
+    '}');
 
-///////////////////////////////
-// 3. Create API Event Model //
-///////////////////////////////
-    var reqHeaders = JSON.parse('{' +
-            '"Host": "api.acmeinc.com",' +
-            '"Accept": "*/*",' +
-            '"Connection": "Keep-Alive",' +
-            '"User-Agent": "Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)",' +
-            '"Content-Type": "application/json",' +
-            '"Content-Length": "126",' +
-            '"Accept-Encoding": "gzip"' +
-        '}');
+var rspHeaders = JSON.parse('{' +
+        '"Date": "Tue, 25 Feb 2017 23:46:49 GMT",' +
+        '"Vary": "Accept-Encoding",' +
+        '"Pragma": "no-cache",' +
+        '"Expires": "-1",' +
+        '"Content-Type": "application/json; charset=utf-8",' +
+        '"Cache-Control": "no-cache"' +
+    '}');
 
-    var reqBody = JSON.parse( '{' +
-            '"items": [' +
-                '{' +
-                    '"type": 1,' +
-                    '"id": "fwfrf"' +
-                '},' +
-                '{' +
-                    '"type": 2,' +
-                    '"id": "d43d3f"' +
-                '}' +
-            ']' +
-        '}');
+var rspBody = JSON.parse('{' +
+        '"Error": "InvalidArgumentException",' +
+        '"Message": "Missing field field_a"' +
+    '}');
 
-    var rspHeaders = JSON.parse('{' +
-            '"Date": "Tue, 23 Jan 2017 23:46:49 GMT",' +
-            '"Vary": "Accept-Encoding",' +
-            '"Pragma": "no-cache",' +
-            '"Expires": "-1",' +
-            '"Content-Type": "application/json; charset=utf-8",' +
-            '"Cache-Control": "no-cache"' +
-        '}');
+var eventReq = {
+    time: "2017-02-25T04:45:42.914",
+    uri: "https://api.acmeinc.com/items/reviews/",
+    verb: "PATCH",
+    apiVersion: "1.1.0",
+    ipAddress: "61.48.220.123",
+    headers: reqHeaders,
+    body: reqBody
+};
 
-    var rspBody = JSON.parse('{' +
-            '"Error": "InvalidArgumentException",' +
-            '"Message": "Missing field field_a"' +
-        '}');
+var eventRsp = {
+    time: "2016-09-09T04:45:42.914",
+    status: 500,
+    headers: rspHeaders,
+    body: rspBody
+};
 
-    var eventReq = {
-        time: "2017-09-09T04:45:42.914",
-        uri: "https://api.acmeinc.com/items/reviews/",
-        verb: "PATCH",
-        apiVersion: "1.1.0",
-        ipAddress: "61.48.220.123",
-        headers: reqHeaders,
-        body: reqBody
-    };
+var eventModel = {
+    request: eventReq,
+    response: eventRsp,
+    userId: "my_user_id",
+    sessionToken: "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"
+};
 
-    var eventRsp = {
-        time: "2017-02-22T04:45:42.914",
-        status: 500,
-        headers: rspHeaders,
-        body: rspBody
-    };
+var events = [new EventModel(eventModel),
+  new EventModel(eventModel),
+  new EventModel(eventModel),
+  new EventModel(eventModel)];
 
-    var eventModel = {
-        request: eventReq,
-        response: eventRsp,
-        userId: "my_user_id",
-        sessionToken: "my_application_id"
-    };
-
-
-//////////////////////////
-// 4. Create new event: //
-//////////////////////////
-    var controller = moesifapi.ApiController;
-
-    // Create a single event
-    controller.createEvent(new EventModel(eventModel), callback);
-
-    // Create batched set of events
-    controller.createEventsBatch(someEventModelList, callback);
+// 4. Send batch of events
+api.createEventsBatch(events, function(error, response, context) {
+  // Do Something
+});
 
 ```
 
@@ -568,165 +616,155 @@ Replace <i>my_application_id</i> with your real Application Id
 </aside>
 
 <blockquote class="lang-specific yaml">
-Example Request Body:
+<code><b>POST</b> https://api.moesif.net/v1/events/batch</code>
+<br><br><i>Example Request Body:</i><br>
 </blockquote>
 ```yaml
-[
-  {
-  		"request": {
-  			"time": "2017-02-22T04:45:42.914",
-  			"uri": "https://api.acmeinc.com/items/83738/reviews/",
-  			"verb": "POST",
-  			"api_version": "1.1.0",
-  			"ip_address": "61.48.220.123",
-  			"headers": {
-  				"Host": "api.acmeinc.com",
-  				"Accept": "*/*",
-  				"Connection": "Keep-Alive",
-  				"Content-Type": "application/json",
-  				"Content-Length": "126",
-  				"Accept-Encoding": "gzip"
-  			},
-  			"body": {
-  				"items": [
-  					{
-  						"direction_type": 1,
-  						"item_id": "fwdsfrf",
-  						"liked": false
-  					},
-  					{
-  						"direction_type": 2,
-  						"item_id": "d43d3f",
-  						"liked": true
-  					}
-  				]
-  			},
-        "transfer_encoding": "",
-  		},
-  		"response": {
-  			"time": "2017-02-22T04:45:42.914",
-  			"status": 500,
-  			"headers": {
-  				"Vary": "Accept-Encoding",
-  				"Pragma": "no-cache",
-  				"Expires": "-1",
-  				"Content-Type": "application/json; charset=utf-8",
-  				"Cache-Control": "no-cache"
-  			},
-  			"body": {
-  				"Error": "InvalidArgumentException",
-  				"Message": "Missing field location"
-  			},
-        "transfer_encoding": "",
-  		},
-  		"user_id": "mndug437f43",
-  		"session_token": "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"
-  }
-]
-
+  [
+    {
+        "request": {
+          "time": "2017-02-22T04:45:42.914",
+          "uri": "https://api.acmeinc.com/items/83738/reviews/",
+          "verb": "POST",
+          "api_version": "1.1.0",
+          "ip_address": "61.48.220.123",
+          "headers": {
+            "Host": "api.acmeinc.com",
+            "Accept": "*/*",
+            "Connection": "Keep-Alive",
+            "Content-Type": "application/json",
+            "Content-Length": "126",
+            "Accept-Encoding": "gzip"
+          },
+          "body": {
+            "items": [
+              {
+                "direction_type": 1,
+                "item_id": "fwdsfrf",
+                "liked": false
+              },
+              {
+                "direction_type": 2,
+                "item_id": "d43d3f",
+                "liked": true
+              }
+            ]
+          },
+          "transfer_encoding": "",
+        },
+        "response": {
+          "time": "2017-02-22T04:45:42.914",
+          "status": 500,
+          "headers": {
+            "Vary": "Accept-Encoding",
+            "Pragma": "no-cache",
+            "Expires": "-1",
+            "Content-Type": "application/json; charset=utf-8",
+            "Cache-Control": "no-cache"
+          },
+          "body": {
+            "Error": "InvalidArgumentException",
+            "Message": "Missing field location"
+          },
+          "transfer_encoding": "",
+        },
+        "user_id": "mndug437f43",
+        "session_token": "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"
+    }
+  ]
 ```
 
 ```java
-///////////////////////
-// Create the Client //
-///////////////////////
-    MoesifAPIClient client = new MoesifAPIClient("my_application_id");
-    ApiController controller = getClient().getApi();
+// Import the Library
+MoesifAPIClient client = new MoesifAPIClient("my_application_id");
+APIController api = getClient().getAPI();
+
+// Generate the events
+Map<String, String> reqHeaders = new HashMap<String, String>();
+reqHeaders.put("Host", "api.acmeinc.com");
+reqHeaders.put("Accept", "*/*");
+reqHeaders.put("Connection", "Keep-Alive");
+reqHeaders.put("User-Agent", "Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)");
+reqHeaders.put("Content-Type", "application/json");
+reqHeaders.put("Content-Length", "126");
+reqHeaders.put("Accept-Encoding", "gzip");
+
+Object reqBody = APIHelper.deserialize("{" +
+  "\"items\": [" +
+    "{" +
+      "\"type\": 1," +
+      "\"id\": \"fwfrf\"" +
+    "}," +
+    "{" +
+      "\"type\": 2," +
+      "\"id\": \"d43d3f\"" +
+    "}" +
+  "]" +
+  "}");
+
+Map<String, String> rspHeaders = new HashMap<String, String>();
+rspHeaders.put("Date", "Tue, 23 Feb 2017 23:46:49 GMT");
+rspHeaders.put("Vary", "Accept-Encoding");
+rspHeaders.put("Pragma", "no-cache");
+rspHeaders.put("Expires", "-1");
+rspHeaders.put("Content-Type", "application/json; charset=utf-8");
+rspHeaders.put("Cache-Control","no-cache");
+
+Object rspBody = APIHelper.deserialize("{" +
+    "\"Error\": \"InvalidArgumentException\"," +
+    "\"Message\": \"Missing field field_a\"" +
+  "}");
 
 
-/////////////////////////////////
-// Create the API Event Model: //
-/////////////////////////////////
-
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
-
-        // Parameters for the API call
-        Object reqHeaders = APIHelper.deserialize("{" +
-                    "\"Host\": \"api.acmeinc.com\"," +
-                    "\"Accept\": \"*/*\"," +
-                    "\"Connection\": \"Keep-Alive\"," +
-                    "\"User-Agent\": \"Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)\"," +
-                    "\"Content-Type\": \"application/json\"," +
-                    "\"Content-Length\": \"126\"," +
-                    "\"Accept-Encoding\": \"gzip\"" +
-                "}");
-
-        Object reqBody = APIHelper.deserialize("{" +
-                    "\"items\": [" +
-                        "{" +
-                            "\"type\": 1," +
-                            "\"id\": \"fwfrf\"" +
-                        "}," +
-                        "{" +
-                            "\"type\": 2," +
-                             "\"id\": \"d43d3f\"" +
-                         "}" +
-                    "]" +
-                "}");
-
-        Object rspHeaders = APIHelper.deserialize("{" +
-                    "\"Date\": \"Tue, 23 Jan 2017 23:46:49 GMT\"," +
-                    "\"Vary\": \"Accept-Encoding\"," +
-                    "\"Pragma\": \"no-cache\"," +
-                    "\"Expires\": \"-1\"," +
-                    "\"Content-Type\": \"application/json; charset=utf-8\"," +
-                    "\"Cache-Control\": \"no-cache\"" +
-                "}");
-
-        Object rspBody = APIHelper.deserialize("{" +
-                    "\"Error\": \"InvalidArgumentException\"," +
-                    "\"Message\": \"Missing field field_a\"" +
-                "}");
+EventRequestModel eventReq = new EventRequestBuilder()
+        .time(new Date())
+        .uri("https://api.acmeinc.com/items/reviews/")
+        .verb("PATCH")
+        .apiVersion("1.1.0")
+        .ipAddress("61.48.220.123")
+        .headers(reqHeaders)
+        .body(reqBody)
+        .build();
 
 
-        EventRequestModel eventReq = new EventRequestModel();
+EventResponseModel eventRsp = new EventResponseBuilder()
+        .time(new Date(System.currentTimeMillis() + 1000))
+        .status(500)
+        .headers(rspHeaders)
+        .body(rspBody)
+        .build();
 
-        eventReq.setTime(dateFormat.parse("2017-02-22T04:45:42.914"));
-        eventReq.setUri("https://api.acmeinc.com/items/reviews/");
-        eventReq.setVerb("PATCH");
-        eventReq.setApiVersion("1.1.0");
-        eventReq.setIpAddress("61.48.220.123");
-        eventReq.setHeaders(reqHeaders);
-        eventReq.setBody(reqBody);
+EventModel eventModel = new EventBuilder()
+        .request(eventReq)
+        .response(eventRsp)
+        .userId("my_user_id")
+        .sessionToken("23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f")
+        .build();
 
+List<EventModel> events = new ArrayList<EventModel>();
+events.add(eventModel);
+events.add(eventModel);
+events.add(eventModel);
+events.add(eventModel);
 
-        EventResponseModel eventRsp = new EventResponseModel();
+// Asynchronous Call to create new event
+MoesifAPIClient client = new MoesifAPIClient("my_application_id");
+APIController api = getClient().getAPI();
 
-        eventRsp.setTime(dateFormat.parse("2017-02-22T04:45:42.914"));
-        eventRsp.setStatus(500);
-        eventRsp.setHeaders(rspHeaders);
-        eventRsp.setBody(rspBody);
+APICallBack<Object> callBack = new APICallBack<Object>() {
+    public void onSuccess(HttpContext context, Object response) {
+      // Do something
+    }
 
-        EventModel eventModel = new EventModel();
-        eventModel.setRequest(eventReq);
-        eventModel.setResponse(eventRsp);
-        eventModel.setUserId("my_user_id");
-        eventModel.setSessionToken("23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f");
+    public void onFailure(HttpContext context, Throwable error) {
+      // Do something else
+    }
+};
 
+api.createEventsBatchAsync(events, callBack);
 
-///////////////////////////////////////////
-// Synchronous Call to create new event: //
-///////////////////////////////////////////
-
-    controller.createEvent(eventModel);
-
-////////////////////////////////////////////
-// Asynchronous Call to create new event: //
-////////////////////////////////////////////
-
-    APICallBack<Object> callBack = new APICallBack<Object>() {
-        public void onSuccess(HttpContext context, Object response) {
-            assertEquals("Status is not 201",
-                    201, context.getResponse().getStatusCode());
-            lock.countDown();
-        }
-
-        public void onFailure(HttpContext context, Throwable error) {
-            fail();
-        }
-    };
-
-    controller.createEventAsync(eventModel, callBack);
+// Synchronous Call to create new event
+api.createEventsBatch(events, callBack);
 ```
 
 ```javascript
@@ -907,49 +945,49 @@ apiVersion := "1.0"
 ipAddress := "61.48.220.123"
 
 req := models.EventRequestModel{
-	Time:       &reqTime,
-	Uri:        "https://api.acmeinc.com/widgets",
-	Verb:       "GET",
-	ApiVersion: &apiVersion,
-	IpAddress:  &ipAddress,
-	Headers: map[string]interface{}{
-		"ReqHeader1": "ReqHeaderValue1",
-	},
-	Body: nil,
+  Time:       &reqTime,
+  Uri:        "https://api.acmeinc.com/widgets",
+  Verb:       "GET",
+  ApiVersion: &apiVersion,
+  IpAddress:  &ipAddress,
+  Headers: map[string]interface{}{
+    "ReqHeader1": "ReqHeaderValue1",
+  },
+  Body: nil,
 }
 
 rspTime := time.Now().UTC().Add(time.Duration(1) * time.Second)
 
 rsp := models.EventResponseModel{
-	Time:      &rspTime,
-	Status:    500,
-	IpAddress: nil,
-	Headers: map[string]interface{}{
-		"RspHeader1": "RspHeaderValue1",
-	},
-	Body: map[string]interface{}{
-		"Key1": "Value1",
-		"Key2": 12,
-		"Key3": map[string]interface{}{
-			"Key3_1": "SomeValue",
-		},
-	},
+  Time:      &rspTime,
+  Status:    500,
+  IpAddress: nil,
+  Headers: map[string]interface{}{
+    "RspHeader1": "RspHeaderValue1",
+  },
+  Body: map[string]interface{}{
+    "Key1": "Value1",
+    "Key2": 12,
+    "Key3": map[string]interface{}{
+      "Key3_1": "SomeValue",
+    },
+  },
 }
 
 sessionToken := "end user API or session token"
 userId := "end user_id"
 
 event := models.EventModel{
-	Request:      req,
-	Response:     rsp,
-	SessionToken: &sessionToken,
-	Tags:         nil,
-	UserId:       &userId,
+  Request:      req,
+  Response:     rsp,
+  SessionToken: &sessionToken,
+  Tags:         nil,
+  UserId:       &userId,
 }
 
 events := make([]*models.EventModel, 20)
 for i := 0; i < 20; i++ {
-	events[i] = &event
+  events[i] = &event
 }
 
 // Queue the events

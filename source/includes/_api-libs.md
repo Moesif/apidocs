@@ -16,8 +16,8 @@ Pick a language at the top
 ```
 
 <blockquote class="lang-specific java">
-<a href="https://jitpack.io/#Moesif/moesifapi-java">
-  <img src="https://jitpack.io/v/Moesif/moesifapi-java.svg">
+<a href="https://jitpack.io/#com.moesif/moesifapi-java">
+  <img src="https://jitpack.io/v/com.moesif/moesifapi-java.svg">
 </a>
 <br><br>
 Source Code:<br><br>
@@ -38,7 +38,7 @@ Source Code:<br><br>
 <dependency>
     <groupId>com.moesif</groupId>
     <artifactId>moesifapi-java</artifactId>
-    <version>1.0.2</version>
+    <version>1.2.0</version>
 </dependency>
 
 ```
