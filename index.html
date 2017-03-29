@@ -1079,7 +1079,7 @@ Replace <i>my_application_id</i> with your real Application Id
 <tr>
 <td><p style="margin-left:1.5em">request.headers</p></td>
 <td>Optional</td>
-<td>Headers of the  request as a <code class="prettyprint">Map&lt;string, string&gt;</code></td>
+<td>Headers of the  request as a <code class="prettyprint">Map&lt;string, string&gt;</code>.. Multiple headers with the same key name should be combined together such that the values are joined by a comma. <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2">HTTP Header Protocol on w3.org</a></td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">request.body</p></td>
@@ -1119,7 +1119,7 @@ Replace <i>my_application_id</i> with your real Application Id
 <tr>
 <td><p style="margin-left:1.5em">response.headers</p></td>
 <td><strong>Required</strong></td>
-<td>Headers of the response as a <code class="prettyprint">Map&lt;string, string&gt;</code></td>
+<td>Headers of the response as a <code class="prettyprint">Map&lt;string, string&gt;</code>. Multiple headers with the same key name should be combined together such that the values are joined by a comma. <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2">HTTP Header Protocol on w3.org</a></td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">response.body</p></td>
@@ -1139,12 +1139,12 @@ Replace <i>my_application_id</i> with your real Application Id
 <tr>
 <td>session_token</td>
 <td><em>Recommend</em></td>
-<td>The end user session or API token such as a JWT or API key. Moesif will auto-detect the session token automatically if not set.</td>
+<td>The end user session token such as a JWT or API key, which may or may not be temporary. Moesif will auto-detect the session token automatically if not set.</td>
 </tr>
 <tr>
 <td>tags</td>
 <td><em>Recommend</em></td>
-<td>Comma separated list of tags for this API Call. <strong>See Supported Tags</strong></td>
+<td>Comma separated list of tags for this API Call. <strong>See Special Tags</strong></td>
 </tr>
 <tr>
 <td>user_id</td>
@@ -1153,7 +1153,7 @@ Replace <i>my_application_id</i> with your real Application Id
 </tr>
 </tbody></table>
 
-<h3 id="supported-tags">Supported Tags:</h3>
+<h3 id="special-tags">Special Tags:</h3>
 
 <ol>
 <li><code class="prettyprint">user</code></li>
@@ -1599,7 +1599,7 @@ Replace <i>my_application_id</i> with your real Application Id
 <tr>
 <td><p style="margin-left:1.5em">request.headers</p></td>
 <td>Optional</td>
-<td>Headers of the  request as a <code class="prettyprint">Map&lt;string, string&gt;</code></td>
+<td>Headers of the  request as a <code class="prettyprint">Map&lt;string, string&gt;</code>. Multiple headers with the same key name should be combined together such that the values are joined by a comma. <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2">HTTP Header Protocol on w3.org</a></td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">request.body</p></td>
@@ -1639,7 +1639,7 @@ Replace <i>my_application_id</i> with your real Application Id
 <tr>
 <td><p style="margin-left:1.5em">response.headers</p></td>
 <td><strong>Required</strong></td>
-<td>Headers of the response as a <code class="prettyprint">Map&lt;string, string&gt;</code></td>
+<td>Headers of the response as a <code class="prettyprint">Map&lt;string, string&gt;</code>. Multiple headers with the same key name should be combined together such that the values are joined by a comma. <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2">HTTP Header Protocol on w3.org</a></td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">response.body</p></td>
@@ -1659,12 +1659,12 @@ Replace <i>my_application_id</i> with your real Application Id
 <tr>
 <td>session_token</td>
 <td><em>Recommend</em></td>
-<td>The end user session or API token such as a JWT or API key. Moesif will auto-detect the session token automatically if not set.</td>
+<td>The end user session token such as a JWT or API key, which may or may not be temporary. Moesif will auto-detect the session token automatically if not set.</td>
 </tr>
 <tr>
 <td>tags</td>
 <td><em>Recommend</em></td>
-<td>Comma separated list of tags for this API Call. <strong>See Supported Tags</strong></td>
+<td>Comma separated list of tags for this API Call. <strong>See Special Tags</strong></td>
 </tr>
 <tr>
 <td>user_id</td>
@@ -1673,7 +1673,7 @@ Replace <i>my_application_id</i> with your real Application Id
 </tr>
 </tbody></table>
 
-<h3 id="supported-tags">Supported Tags:</h3>
+<h3 id="special-tags">Special Tags:</h3>
 
 <ol>
 <li><code class="prettyprint">user</code>
@@ -1805,6 +1805,20 @@ Replace <i>my_application_id</i> with your real Application Id
 <span class="c1">// Synchronous Call to update user</span>
 <span class="n">api</span><span class="o">.</span><span class="na">updateUser</span><span class="o">(</span><span class="n">user</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
 </code></pre>
+<h3 id="user_id-vs-session_token"><em>user_id</em> vs. <em>session_token</em></h3>
+
+<p>Users in Moesif are identified by two attributes: <em>user_id</em> and <em>session_token</em>.</p>
+
+<ul>
+<li><p>A <code class="prettyprint">user_id</code> is a <strong>permanent</strong> and unique identifier to track a user across platforms and services.
+It is recommended to set the Moesif user_id field with the id used in your own databases and services.</p></li>
+<li><p>A <code class="prettyprint">session_token</code> may be <strong>temporary</strong> or can expire unlike a user_id.
+Examples include <a href="https://jwt.io/introduction/">JSON Web Tokens&rsquo;s</a> (JWT), API keys, and session ids.
+Moesif can <em>alias</em> multiple session_token&rsquo;s to the same user_id. To create a new alias,
+call the update user API with at least the user_id and session_token set.
+The new session_token will be appended to the alias table.</p></li>
+</ul>
+
 <table><thead>
 <tr>
 <th>Fields</th>
@@ -1830,7 +1844,7 @@ Replace <i>my_application_id</i> with your real Application Id
 <tr>
 <td>session_token</td>
 <td>Optional</td>
-<td>Current end user session or API token such as a JWT or API key.</td>
+<td>Current end user session or API token such as a JWT. Setting this field does not remove old session tokens previously stored. Instead, Moesif will append the new value to an alias table for this user_id.</td>
 </tr>
 <tr>
 <td>user_agent_string</td>
@@ -2018,6 +2032,20 @@ Replace <i>my_application_id</i> with your real Application Id
 <span class="c1">//Synchronous call to update users</span>
 <span class="n">api</span><span class="o">.</span><span class="na">updateUsersBatch</span><span class="o">(</span><span class="n">users</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
 </code></pre>
+<h3 id="user_id-vs-session_token"><em>user_id</em> vs. <em>session_token</em></h3>
+
+<p>Users in Moesif are identified by two attributes: <em>user_id</em> and <em>session_token</em>.</p>
+
+<ul>
+<li><p>A <code class="prettyprint">user_id</code> is a <strong>permanent</strong> and unique identifier to track a user across platforms and services.
+It is recommended to set the Moesif user_id field with the id used in your own databases and services.</p></li>
+<li><p>A <code class="prettyprint">session_token</code> may be <strong>temporary</strong> or can expire unlike a user_id.
+Examples include <a href="https://jwt.io/introduction/">JSON Web Tokens&rsquo;s</a> (JWT), API keys, and session ids.
+Moesif can <em>alias</em> multiple session_token&rsquo;s to the same user_id. To create a new alias,
+call the update user API with at least the user_id and session_token set.
+The new session_token will be appended to the alias table.</p></li>
+</ul>
+
 <table><thead>
 <tr>
 <th>Fields</th>
@@ -2043,7 +2071,7 @@ Replace <i>my_application_id</i> with your real Application Id
 <tr>
 <td>session_token</td>
 <td>Optional</td>
-<td>Current end user session or API token such as a JWT or API key.</td>
+<td>Current end user session or API token such as a JWT. Setting this field does not remove old session tokens previously stored. Instead, Moesif will append the new value to an alias table for this user_id.</td>
 </tr>
 <tr>
 <td>user_agent_string</td>
