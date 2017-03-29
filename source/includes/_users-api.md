@@ -138,13 +138,24 @@ api.updateUserAsync(user, callBack);
 api.updateUser(user, callBack);
 ```
 
+### _user_id_ vs. _session_token_
+Users in Moesif are identified by two attributes: _user_id_ and _session_token_.
+
+- A `user_id` is a __permanent__ and unique identifier to track a user across platforms and services.
+It is recommended to set the Moesif user_id field with the id used in your own databases and services.
+
+- A `session_token` may be __temporary__ or can expire unlike a user_id.
+Examples include [JSON Web Tokens's](https://jwt.io/introduction/) (JWT), API keys, and session ids.
+Moesif can _alias_ multiple session_token's to the same user_id. To create a new alias,
+call the update user API with at least the user_id and session_token set.
+The new session_token will be appended to the alias table.
 
 Fields | Required? | Description
 --------- | -------- | -----------
 user_id | __Required__ | Your application's `user_id` to identify this user.
 modified_time | Optional | Last Modified Timestamp for the user in ISO 8601 format (Set automatically if not provided).
 ip_address | Optional | Current IP address of the user, If not set, we use the IP address of the POST request.
-session_token | Optional | Current end user session or API token such as a JWT or API key.
+session_token | Optional | Current end user session or API token such as a JWT. Setting this field does not remove old session tokens previously stored. Instead, Moesif will append the new value to an alias table for this user_id.
 user_agent_string | Optional | If you want Moesif to parse a user agent string, you can do so via `user_agent_string`.
 metadata | Optional | A JSON Object consisting of any custom metadata to be stored with this user.
 
@@ -328,11 +339,23 @@ api.updateUsersBatchAsync(users, callBack);
 api.updateUsersBatch(users, callBack);
 ```
 
+### _user_id_ vs. _session_token_
+Users in Moesif are identified by two attributes: _user_id_ and _session_token_.
+
+- A `user_id` is a __permanent__ and unique identifier to track a user across platforms and services.
+It is recommended to set the Moesif user_id field with the id used in your own databases and services.
+
+- A `session_token` may be __temporary__ or can expire unlike a user_id.
+Examples include [JSON Web Tokens's](https://jwt.io/introduction/) (JWT), API keys, and session ids.
+Moesif can _alias_ multiple session_token's to the same user_id. To create a new alias,
+call the update user API with at least the user_id and session_token set.
+The new session_token will be appended to the alias table.
+
 Fields | Required? | Description
 --------- | -------- | -----------
 user_id | __Required__ | Your application's `user_id` to identify this user.
 modified_time | Optional | Last Modified Timestamp for the user in ISO 8601 format (Set automatically if not provided).
 ip_address | Optional | Current IP address of the user, If not set, we use the IP address of the POST request.
-session_token | Optional | Current end user session or API token such as a JWT or API key.
+session_token | Optional | Current end user session or API token such as a JWT. Setting this field does not remove old session tokens previously stored. Instead, Moesif will append the new value to an alias table for this user_id.
 user_agent_string | Optional | If you want Moesif to parse a user agent string, you can do so via `user_agent_string`.
 metadata | Optional | A JSON Object consisting of any custom metadata to be stored with this user.
