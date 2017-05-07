@@ -16,8 +16,8 @@ Pick a language at the top
 ```
 
 <blockquote class="lang-specific java">
-<a href="https://jitpack.io/#com.moesif/moesifapi-java">
-  <img src="https://jitpack.io/v/com.moesif/moesifapi-java.svg">
+<a href="https://bintray.com/moesif/maven/moesifapi/_latestVersion">
+  <img src="https://api.bintray.com/packages/moesif/maven/moesifapi/images/download.svg">
 </a>
 <br><br>
 Source Code:<br><br>
@@ -25,20 +25,22 @@ Source Code:<br><br>
 </blockquote>
 
 ```java
-// Step 1. Add the JitPack repository to your build file such as pom.xml
+// Step 1. Add the Bintray repository to your build file
 <repositories>
-  <repository>
-      <id>jitpack.io</id>
-      <url>https://jitpack.io</url>
-  </repository>
+	<repository>
+		<id>bintray-moesif-maven</id>
+		<name>bintray</name>
+		<url>http://dl.bintray.com/moesif/maven</url>
+	</repository>
 </repositories>
+
 
 
 // Step 2. Add the dependency
 <dependency>
-    <groupId>com.moesif</groupId>
-    <artifactId>moesifapi-java</artifactId>
-    <version>1.2.0</version>
+	<groupId>com.moesif.api</groupId>
+	<artifactId>moesifapi</artifactId>
+	<version>1.3.1</version>
 </dependency>
 
 ```
