@@ -25,18 +25,8 @@ Source Code:<br><br>
 </blockquote>
 
 ```java
-// Step 1. Add the Bintray repository to your build file
-<repositories>
-	<repository>
-		<id>bintray-moesif-maven</id>
-		<name>bintray</name>
-		<url>http://dl.bintray.com/moesif/maven</url>
-	</repository>
-</repositories>
+// Add the dependency
 
-
-
-// Step 2. Add the dependency
 <dependency>
 	<groupId>com.moesif.api</groupId>
 	<artifactId>moesifapi</artifactId>

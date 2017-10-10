@@ -18,7 +18,7 @@ Replace <i>my_application_id</i> with your real Application Id
 ```yaml
   {
     "request": {
-      "time": "2017-02-22T04:45:42.914",
+      "time": "2017-10-22T04:45:42.914",
       "uri": "https://api.acmeinc.com/items/12345/reviews/",
       "verb": "POST",
       "api_version": "1.1.0",
@@ -48,7 +48,7 @@ Replace <i>my_application_id</i> with your real Application Id
       "transfer_encoding": ""
     },
     "response": {
-      "time": "2017-02-22T04:45:42.914",
+      "time": "2017-10-22T04:45:42.914",
       "status": 500,
       "headers": {
         "Vary": "Accept-Encoding",
@@ -64,7 +64,14 @@ Replace <i>my_application_id</i> with your real Application Id
       "transfer_encoding": ""
     },
     "user_id": "mndug437f43",
-    "session_token": "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"
+    "session_token": "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f",
+    "metadata": {
+        "some_string": "I am a string",
+        "some_int": 77,
+        "some_object": {
+            "some_sub_field": "some_value"
+        }
+    }
   }
 ```
 
@@ -97,7 +104,6 @@ Object reqBody = APIHelper.deserialize("{" +
   "}");
 
 Map<String, String> rspHeaders = new HashMap<String, String>();
-rspHeaders.put("Date", "Tue, 23 Feb 2017 23:46:49 GMT");
 rspHeaders.put("Vary", "Accept-Encoding");
 rspHeaders.put("Pragma", "no-cache");
 rspHeaders.put("Expires", "-1");
@@ -189,7 +195,6 @@ var reqBody = JSON.parse( '{' +
     '}');
 
 var rspHeaders = JSON.parse('{' +
-        '"Date": "Tue, 25 Feb 2017 23:46:49 GMT",' +
         '"Vary": "Accept-Encoding",' +
         '"Pragma": "no-cache",' +
         '"Expires": "-1",' +
@@ -202,8 +207,9 @@ var rspBody = JSON.parse('{' +
         '"Message": "Missing field field_a"' +
     '}');
 
+var reqDate = new Date();
 var eventReq = {
-    time: "2017-02-25T04:45:42.914",
+    time: reqDate,
     uri: "https://api.acmeinc.com/items/reviews/",
     verb: "PATCH",
     apiVersion: "1.1.0",
@@ -213,7 +219,7 @@ var eventReq = {
 };
 
 var eventRsp = {
-    time: "2016-09-09T04:45:42.914",
+    time: (new Date()).setMilliseconds(reqDate.getMilliseconds() + 500),
     status: 500,
     headers: rspHeaders,
     body: rspBody
@@ -242,6 +248,7 @@ api.createEventsBatch(events, function(error, response, context) {
 from __future__ import print_function
 from moesifapi.moesif_api_client import *
 from moesifapi.models import *
+from datetime import *
 
 client = MoesifAPIClient(my_application_id)
 api_client = client.api
@@ -272,7 +279,7 @@ req_body = APIHelper.json_deserialize( """{
 }""")
 
 rsp_headers = APIHelper.json_deserialize("""  {
-    "Date": "Tue, 23 Jan 2017 23:46:49 GMT",
+    "Date": "Tue, 23 Oct 2017 23:46:49 GMT",
     "Vary": "Accept-Encoding",
     "Pragma": "no-cache",
     "Expires": "-1",
@@ -286,7 +293,7 @@ rsp_body = APIHelper.json_deserialize( """{
   }""")
 
 
-event_req = EventRequestModel(time = "2017-02-22T04:45:42.914",
+event_req = EventRequestModel(time = datetime.utcnow() - timedelta(seconds=-1),
     uri = "https://api.acmeinc.com/items/reviews/",
     verb = "PATCH",
     api_version = "1.1.0",
@@ -294,7 +301,7 @@ event_req = EventRequestModel(time = "2017-02-22T04:45:42.914",
     headers = req_headers,
     body = req_body)
 
-event_rsp = EventResponseModel(time = "2017-02-22T04:45:42.914",
+event_rsp = EventResponseModel(time = datetime.utcnow(),
     status = 500,
     headers = rsp_headers,
     body = rsp_body)
@@ -307,9 +314,6 @@ event_model = EventModel(request = event_req,
 
 # Perform the API call through the SDK function
 api_client.create_event(event_model)
-
-
-controller.create_event(my_api_event_model)
 ```
 
 ```ruby
@@ -342,7 +346,7 @@ req_body = JSON.parse( '{'\
 '}')
 
 rsp_headers = JSON.parse('{'\
-  '"Date": "Tue, 23 Jan 2017 23:46:49 GMT",'\
+  '"Date": "Tue, 23 Oct 2017 23:46:49 GMT",'\
                 '"Vary": "Accept-Encoding",'\
   '"Pragma": "no-cache",'\
   '"Expires": "-1",'\
@@ -357,7 +361,7 @@ rsp_body = JSON.parse('{'\
 
 
 event_req = EventRequestModel.new()
-event_req.time = "2017-02-22T04:45:42.914"
+event_req.time = "2017-10-22T04:45:42.914"
 event_req.uri = "https://api.acmeinc.com/items/reviews/"
 event_req.verb = "PATCH"
 event_req.api_version = "1.1.0"
@@ -366,7 +370,7 @@ event_req.headers = req_headers
 event_req.body = req_body
 
 event_rsp = EventResponseModel.new()
-event_rsp.time = "2017-02-22T04:45:42.914"
+event_rsp.time = "2017-10-22T04:45:42.914"
 event_rsp.status = 500
 event_rsp.headers = rsp_headers
 event_rsp.body = rsp_body
@@ -415,7 +419,7 @@ var reqBody = APIHelper.JsonDeserialize<object>(@" {
     }");
 
 var rspHeaders = APIHelper.JsonDeserialize<object>(@" {
-        ""Date"": ""Tue, 23 Jan 2017 23:46:49 GMT"",
+        ""Date"": ""Tue, 23 Oct 2017 23:46:49 GMT"",
         ""Vary"": ""Accept-Encoding"",
         ""Pragma"": ""no-cache"",
         ""Expires"": ""-1"",
@@ -431,7 +435,7 @@ var rspBody = APIHelper.JsonDeserialize<object>(@" {
 
 var eventReq = new EventRequestModel()
 {
-    Time = DateTime.Parse("2017-02-22T04:45:42.914"),
+    Time = DateTime.Parse("2017-10-22T04:45:42.914"),
     Uri = "https://api.acmeinc.com/items/reviews/",
     Verb = "PATCH",
     ApiVersion = "1.1.0",
@@ -442,7 +446,7 @@ var eventReq = new EventRequestModel()
 
 var eventRsp = new EventResponseModel()
 {
-    Time = DateTime.Parse("2017-02-22T04:45:42.914"),
+    Time = DateTime.Parse("2017-10-22T04:45:42.914"),
     Status = 500,
     Headers = rspHeaders,
     Body = rspBody
@@ -586,16 +590,9 @@ response | Optional | The object that specifies the response message, not set im
 <p style="margin-left:1.5em">response.transfer_encoding</p> | Optional | A string that specifies the transfer encoding of Body being sent to Moesif. If field nonexistent, body assumed to be JSON or text. Only possible value is _base64_ for sending binary data like protobuf
 ||
 session_token | _Recommend_ | The end user session token such as a JWT or API key, which may or may not be temporary. Moesif will auto-detect the session token automatically if not set.
-tags | _Recommend_ | Comma separated list of tags for this API Call. **See Special Tags**
 user_id | _Recommend_ | Identifies this API call to a permanent user_id
+metadata | Optional | A JSON Object consisting of any custom metadata to be stored with this event.
 
-
-### Special Tags:
-1. `user`
-- The `user` tag is a hint to what is considered the “user profile” for the signed in end user.
-- Add to a *single* method/endpoint template which you consider has the most user metadata.
-- For example, if you have an endpoint that gets the authenticated user via `GET /users/me`, add this header to those API Calls. The verb or url doesn't matter but the response body should have user's data.
-- You shouldn't add to more than one method/endpoint combination. i.e. Don't add it to both `GET /users` and `POST /users` unless both return the same JSON schema.
 
 ## Create an Events Batch
 
@@ -623,7 +620,7 @@ Replace <i>my_application_id</i> with your real Application Id
   [
     {
         "request": {
-          "time": "2017-02-22T04:45:42.914",
+          "time": "2017-10-22T04:45:42.914",
           "uri": "https://api.acmeinc.com/items/83738/reviews/",
           "verb": "POST",
           "api_version": "1.1.0",
@@ -653,7 +650,7 @@ Replace <i>my_application_id</i> with your real Application Id
           "transfer_encoding": "",
         },
         "response": {
-          "time": "2017-02-22T04:45:42.914",
+          "time": "2017-10-22T04:45:42.914",
           "status": 500,
           "headers": {
             "Vary": "Accept-Encoding",
@@ -669,7 +666,14 @@ Replace <i>my_application_id</i> with your real Application Id
           "transfer_encoding": "",
         },
         "user_id": "mndug437f43",
-        "session_token": "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"
+        "session_token": "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f",
+        "metadata": {
+            "some_string": "I am a string",
+            "some_int": 77,
+            "some_object": {
+                "some_sub_field": "some_value"
+            }
+        }
     }
   ]
 ```
@@ -703,7 +707,7 @@ Object reqBody = APIHelper.deserialize("{" +
   "}");
 
 Map<String, String> rspHeaders = new HashMap<String, String>();
-rspHeaders.put("Date", "Tue, 23 Feb 2017 23:46:49 GMT");
+rspHeaders.put("Date", "Tue, 23 Oct 2017 23:46:49 GMT");
 rspHeaders.put("Vary", "Accept-Encoding");
 rspHeaders.put("Pragma", "no-cache");
 rspHeaders.put("Expires", "-1");
@@ -776,8 +780,67 @@ var config = moesifapi.configuration;
 config.ApplicationId = 'my_application_id';
 
 // Create API Event Models and set fields
-var eventA = new EventModel();
-eventA.setTags("user"); // ...
+var reqHeaders = JSON.parse('{' +
+        '"Host": "api.acmeinc.com",' +
+        '"Accept": "*/*",' +
+        '"Connection": "Keep-Alive",' +
+        '"User-Agent": "Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)",' +
+        '"Content-Type": "application/json",' +
+        '"Content-Length": "126",' +
+        '"Accept-Encoding": "gzip"' +
+    '}');
+
+var reqBody = JSON.parse( '{' +
+        '"items": [' +
+            '{' +
+                '"type": 1,' +
+                '"id": "fwfrf"' +
+            '},' +
+            '{' +
+                '"type": 2,' +
+                '"id": "d43d3f"' +
+            '}' +
+        ']' +
+    '}');
+
+var rspHeaders = JSON.parse('{' +
+        '"Vary": "Accept-Encoding",' +
+        '"Pragma": "no-cache",' +
+        '"Expires": "-1",' +
+        '"Content-Type": "application/json; charset=utf-8",' +
+        '"Cache-Control": "no-cache"' +
+    '}');
+
+var rspBody = JSON.parse('{' +
+        '"Error": "InvalidArgumentException",' +
+        '"Message": "Missing field field_a"' +
+    '}');
+
+var reqDate = new Date();
+var eventReq = {
+    time: reqDate,
+    uri: "https://api.acmeinc.com/items/reviews/",
+    verb: "PATCH",
+    apiVersion: "1.1.0",
+    ipAddress: "61.48.220.123",
+    headers: reqHeaders,
+    body: reqBody
+};
+
+var eventRsp = {
+    time: (new Date()).setMilliseconds(reqDate.getMilliseconds() + 500),
+    status: 500,
+    headers: rspHeaders,
+    body: rspBody
+};
+
+var eventA = {
+    request: eventReq,
+    response: eventRsp,
+    userId: "my_user_id",
+    sessionToken: "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"
+};
+
 var myEventModels = [ eventA ]
 
 //Access various controllers by:
@@ -793,6 +856,8 @@ controller.createEventsBatch(myEventModels, function(error, response, context) {
 ```python
 from __future__ import print_function
 from moesifapi.moesif_api_client import *
+from moesifapi.models import *
+from datetime import *
 
 # Setup API Client
 api_client = MoesifAPIClient(my_application_id)
@@ -800,13 +865,66 @@ controller = api_client.api_controller
 
 
 # Create API Event Models and set fields
-event_a = EventModel()
-event_a.tags = "user" #  ...
+req_headers = APIHelper.json_deserialize("""  {
+  "Host": "api.acmeinc.com",
+  "Accept": "*/*",
+  "Connection": "Keep-Alive",
+  "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)",
+  "Content-Type": "application/json",
+  "Content-Length": "126",
+  "Accept-Encoding": "gzip"
+} """)
 
-my_event_models = [ eventA ]
+req_body = APIHelper.json_deserialize( """{
+  "items": [
+    {
+      "type": 1,
+      "id": "fwfrf"
+    },
+    {
+      "type": 2,
+      "id": "d43d3f"
+    }
+  ]
+}""")
+
+rsp_headers = APIHelper.json_deserialize("""  {
+    "Date": "Tue, 23 Oct 2017 23:46:49 GMT",
+    "Vary": "Accept-Encoding",
+    "Pragma": "no-cache",
+    "Expires": "-1",
+    "Content-Type": "application/json; charset=utf-8"
+    "Cache-Control": "no-cache"
+  } """)
+
+rsp_body = APIHelper.json_deserialize( """{
+    "Error": "InvalidArgumentException",
+    "Message": "Missing field field_a"
+  }""")
+
+
+event_req = EventRequestModel(time = datetime.utcnow() - timedelta(seconds=-1),
+    uri = "https://api.acmeinc.com/items/reviews/",
+    verb = "PATCH",
+    api_version = "1.1.0",
+    ip_address = "61.48.220.123",
+    headers = req_headers,
+    body = req_body)
+
+event_rsp = EventResponseModel(time = datetime.utcnow(),
+    status = 500,
+    headers = rsp_headers,
+    body = rsp_body)
+
+event_a = EventModel(request = event_req,
+    response = event_rsp,
+    user_id = "my_user_id",
+    session_token = "my_application_id")
+
+my_events = [ event_a ]
 
 # Send the actual events
-controller.create_events_batch(my_event_models)
+controller.create_events_batch(my_events)
 
 ```
 
@@ -819,8 +937,8 @@ controller = api_client.api_controller
 
 # Create API Event Models and set fields
 event_a = EventModel.new()
-event_a.tags = "user" # ...
-my_event_models = [ eventA ]
+event_a.user_id = "my user id" #  ...
+my_event_models = [ event_a ]
 
 # Send the actual events
 controller.create_events_batch(my_event_models)
@@ -860,7 +978,7 @@ var reqBody = APIHelper.JsonDeserialize<object>(@" {
     }");
 
 var rspHeaders = APIHelper.JsonDeserialize<object>(@" {
-        ""Date"": ""Tue, 23 Jan 2017 23:46:49 GMT"",
+        ""Date"": ""Tue, 23 Oct 2017 23:46:49 GMT"",
         ""Vary"": ""Accept-Encoding"",
         ""Pragma"": ""no-cache"",
         ""Expires"": ""-1"",
@@ -873,10 +991,10 @@ var rspBody = APIHelper.JsonDeserialize<object>(@" {
         ""Message"": ""Missing field field_a""
     }");
 
-
+var reqDate = new Date();
 var eventReq = new EventRequestModel()
 {
-    Time = DateTime.Parse("2017-02-22T04:45:42.914"),
+    Time = DateTime.Parse("2017-10-22T04:45:42.914"),
     Uri = "https://api.acmeinc.com/items/reviews/",
     Verb = "PATCH",
     ApiVersion = "1.1.0",
@@ -887,7 +1005,7 @@ var eventReq = new EventRequestModel()
 
 var eventRsp = new EventResponseModel()
 {
-    Time = DateTime.Parse("2017-02-22T04:45:42.914"),
+    Time = DateTime.Parse("2017-10-22T04:45:42.914"),
     Status = 500,
     Headers = rspHeaders,
     Body = rspBody
@@ -1038,12 +1156,5 @@ response | Optional | The object that specifies the response message, not set im
 <p style="margin-left:1.5em">response.transfer_encoding</p> | Optional | A string that specifies the transfer encoding of Body being sent to Moesif. If field nonexistent, body assumed to be JSON or text. Only possible value is _base64_ for sending binary data like protobuf
 ||
 session_token | _Recommend_ | The end user session token such as a JWT or API key, which may or may not be temporary. Moesif will auto-detect the session token automatically if not set.
-tags | _Recommend_ | Comma separated list of tags for this API Call. **See Special Tags**
 user_id | _Recommend_ | Identifies this API call to a permanent user_id
-
-### Special Tags:
-1. `user`
-  - The `user` tag is a hint to what is considered the “user profile” for the signed in end user.
-  - Add to a *single* method/endpoint template which you consider has the most user metadata.
-  - For example, if you have an endpoint that gets the authenticated user via `GET /users/me`, add this header to those API Calls. The verb or url doesn't matter but the response body should have user's data.
-  - You shouldn't add to more than one method/endpoint combination. i.e. Don't add it to both `GET /users` and `POST /users` unless both return the same JSON schema.
+metadata | Optional | A JSON Object consisting of any custom metadata to be stored with this event.
