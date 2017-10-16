@@ -730,7 +730,7 @@ Replace <i>my_application_id</i> with your real Application Id
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">MoesifAPIClient</span><span class="p">(</span><span class="n">my_application_id</span><span class="p">)</span>
-<span class="n">api_client</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">api</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">api</span>
 
 <span class="c"># Note: we recommend sending all API Calls via MVC framework middleware.</span>
 
@@ -792,11 +792,11 @@ Replace <i>my_application_id</i> with your real Application Id
 
 
 <span class="c"># Perform the API call through the SDK function</span>
-<span class="n">api_client</span><span class="o">.</span><span class="n">create_event</span><span class="p">(</span><span class="n">event_model</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">create_event</span><span class="p">(</span><span class="n">event_model</span><span class="p">)</span>
 </code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'moesif_api'</span>
 
-<span class="n">api_client</span> <span class="o">=</span> <span class="no">MoesifApi</span><span class="o">::</span><span class="no">MoesifAPIClient</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">my_application_id</span><span class="p">)</span>
-<span class="n">api_controller</span> <span class="o">=</span> <span class="n">api_client</span><span class="p">.</span><span class="nf">api_controller</span>
+<span class="n">client</span> <span class="o">=</span> <span class="no">MoesifApi</span><span class="o">::</span><span class="no">MoesifAPIClient</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">my_application_id</span><span class="p">)</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">api_controller</span>
 
 <span class="n">req_headers</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s1">'{'</span><span class="p">\</span>
   <span class="s1">'"Host": "api.acmeinc.com",'</span><span class="p">\</span>
@@ -858,7 +858,7 @@ Replace <i>my_application_id</i> with your real Application Id
 <span class="n">event_model</span><span class="p">.</span><span class="nf">session_token</span> <span class="o">=</span> <span class="s2">"my_application_id"</span>
 
 <span class="c1"># Perform the API call through the SDK function</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">api_controller</span><span class="p">.</span><span class="nf">create_event</span><span class="p">(</span><span class="n">event_model</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">api</span><span class="p">.</span><span class="nf">create_event</span><span class="p">(</span><span class="n">event_model</span><span class="p">)</span>
 
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="k">using</span> <span class="nn">Moesif.Api</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">Moesif.Api.Helpers</span><span class="p">;</span>
@@ -1017,23 +1017,31 @@ Replace <i>my_application_id</i> with your real Application Id
 </span><span class="c">// Create the event synchronously</span><span class="x">
 </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">apiClient</span><span class="o">.</span><span class="n">CreateEvent</span><span class="p">(</span><span class="o">&amp;</span><span class="n">event</span><span class="p">)</span><span class="x">
 
-</span></code></pre><pre class="highlight php tab-php"><code>// 1. Use Composer to install the dependencies. See the section "How To Build".
-// 2. See that you have configured your SDK correctly. See the section "How To Configure".
-// 3. Depending on your project setup, you might need to include composer's autoloader
-   in your PHP code to enable autoloading of classes.
+</span></code></pre><pre class="highlight php"><code><span class="c1">// Depending on your project setup, you might need to include composer's
+// autoloader in your PHP code to enable autoloading of classes.
+</span>
+<span class="k">require_once</span> <span class="s2">"vendor/autoload.php"</span><span class="p">;</span>
 
-   require_once "vendor/autoload.php";
+<span class="c1">// Import the SDK client in your project:
+</span>
+<span class="k">use</span> <span class="nx">MoesifApi\MoesifApiClient</span><span class="p">;</span>
 
-// 4. Import the SDK client in your project:
+<span class="c1">// Instantiate the client. After this, you can now access the Moesif API
+// and call the respective methods:
+</span>
+<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoesifApiClient</span><span class="p">(</span><span class="s2">"Your application Id"</span><span class="p">);</span>
+<span class="nv">$api</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">getApi</span><span class="p">();</span>
 
-    use MoesifApi\MoesifApiClient;
+<span class="nv">$event</span> <span class="o">=</span> <span class="nx">APIHelper</span><span class="o">::</span><span class="na">deserialize</span><span class="p">(</span><span class="s1">'{ "request": { "time": "2016-09-09T04:45:42.914", "uri": "&lt;https://api.acmeinc.com/items/reviews/&gt;", "verb": "PATCH", "api_version": "1.1.0", "ip_address": "61.48.220.123", "headers": { "Host": "api.acmeinc.com", "Accept": "_/_", "Connection": "Keep-Alive", "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)", "Content-Type": "application/json", "Content-Length": "126", "Accept-Encoding": "gzip" }, "body": { "items": [ { "direction_type": 1, "discovery_id": "fwfrf", "liked": false }, { "direction_type": 2, "discovery_id": "d43d3f", "liked": true } ] } }, "response": { "time": "2016-09-09T04:45:42.914", "status": 500, "headers": { "Date": "Tue, 23 Aug 2016 23:46:49 GMT", "Vary": "Accept-Encoding", "Pragma": "no-cache", "Expires": "-1", "Content-Type": "application/json; charset=utf-8", "X-Powered-By": "ARR/3.0", "Cache-Control": "no-cache", "Arr-Disable-Session-Affinity": "true" }, "body": { "Error": "InvalidArgumentException", "Message": "Missing field field_a" } }, "user_id": "mndug437f43", "session_token": "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f", "metadata": { "foo": "bar" } }'</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Models\EventModel</span><span class="p">());</span>
 
-// 5. Instantiate the client. After this, you can now get the controllers and call the
-    respective methods:
+<span class="c1">// Note: If the request.time is in the past, it can only be backdated up to 7 days.
+</span>
+<span class="nv">$reqdate</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DateTime</span><span class="p">();</span>
+<span class="nv">$event</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">time</span> <span class="o">=</span> <span class="nv">$reqdate</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="nx">DateTime</span><span class="o">::</span><span class="na">ISO8601</span><span class="p">);</span>
+<span class="nv">$rspdate</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DateTime</span><span class="p">();</span>
+<span class="nv">$event</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">time</span> <span class="o">=</span> <span class="nv">$rspdate</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="nx">DateTime</span><span class="o">::</span><span class="na">ISO8601</span><span class="p">);</span>
 
-    $client = new MoesifApiClient();
-    $controller = $client-&gt;getApi();
-
+<span class="nv">$api</span><span class="o">-&gt;</span><span class="na">createEvent</span><span class="p">(</span><span class="nv">$event</span><span class="p">);</span>
 </code></pre>
 <table><thead>
 <tr>
@@ -1404,8 +1412,8 @@ Replace <i>my_application_id</i> with your real Application Id
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="c"># Setup API Client</span>
-<span class="n">api_client</span> <span class="o">=</span> <span class="n">MoesifAPIClient</span><span class="p">(</span><span class="n">my_application_id</span><span class="p">)</span>
-<span class="n">controller</span> <span class="o">=</span> <span class="n">api_client</span><span class="o">.</span><span class="n">api_controller</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">MoesifAPIClient</span><span class="p">(</span><span class="n">my_application_id</span><span class="p">)</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">api_controller</span>
 
 
 <span class="c"># Create API Event Models and set fields</span>
@@ -1468,13 +1476,13 @@ Replace <i>my_application_id</i> with your real Application Id
 <span class="n">my_events</span> <span class="o">=</span> <span class="p">[</span> <span class="n">event_a</span> <span class="p">]</span>
 
 <span class="c"># Send the actual events</span>
-<span class="n">controller</span><span class="o">.</span><span class="n">create_events_batch</span><span class="p">(</span><span class="n">my_events</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">create_events_batch</span><span class="p">(</span><span class="n">my_events</span><span class="p">)</span>
 
 </code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'moesif_api'</span>
 
 <span class="c1"># Setup API Client</span>
-<span class="n">api_client</span> <span class="o">=</span> <span class="no">MoesifApi</span><span class="o">::</span><span class="no">MoesifAPIClient</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">my_application_id</span><span class="p">)</span>
-<span class="n">controller</span> <span class="o">=</span> <span class="n">api_client</span><span class="p">.</span><span class="nf">api_controller</span>
+<span class="n">client</span> <span class="o">=</span> <span class="no">MoesifApi</span><span class="o">::</span><span class="no">MoesifAPIClient</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">my_application_id</span><span class="p">)</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">api_controller</span>
 
 <span class="c1"># Create API Event Models and set fields</span>
 <span class="n">event_a</span> <span class="o">=</span> <span class="no">EventModel</span><span class="p">.</span><span class="nf">new</span><span class="p">()</span>
@@ -1482,7 +1490,7 @@ Replace <i>my_application_id</i> with your real Application Id
 <span class="n">my_event_models</span> <span class="o">=</span> <span class="p">[</span> <span class="n">event_a</span> <span class="p">]</span>
 
 <span class="c1"># Send the actual events</span>
-<span class="n">controller</span><span class="p">.</span><span class="nf">create_events_batch</span><span class="p">(</span><span class="n">my_event_models</span><span class="p">)</span>
+<span class="n">api</span><span class="p">.</span><span class="nf">create_events_batch</span><span class="p">(</span><span class="n">my_event_models</span><span class="p">)</span>
 
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="k">using</span> <span class="nn">Moesif.Api</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">Moesif.Api.Helpers</span><span class="p">;</span>
@@ -1649,22 +1657,20 @@ Replace <i>my_application_id</i> with your real Application Id
 </span><span class="c">// Create the events batch synchronously</span><span class="x">
 </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">apiClient</span><span class="o">.</span><span class="n">CreateEventsBatch</span><span class="p">(</span><span class="n">event</span><span class="p">)</span><span class="x">
 
-</span></code></pre><pre class="highlight php tab-php"><code>// 1. Use Composer to install the dependencies. See the section "How To Build".
-// 2. See that you have configured your SDK correctly. See the section "How To Configure".
-// 3. Depending on your project setup, you might need to include composer's autoloader
-   in your PHP code to enable autoloading of classes.
+</span></code></pre><pre class="highlight php"><code><span class="c1">// Depending on your project setup, you might need to include composer's
+// autoloader in your PHP code to enable autoloading of classes.
+</span>
+<span class="k">require_once</span> <span class="s2">"vendor/autoload.php"</span><span class="p">;</span>
 
-   require_once "vendor/autoload.php";
+<span class="c1">// Import the SDK client in your project:
+</span>
+<span class="k">use</span> <span class="nx">MoesifApi\MoesifApiClient</span><span class="p">;</span>
 
-// 4. Import the SDK client in your project:
-
-    use MoesifApi\MoesifApiClient;
-
-// 5. Instantiate the client. After this, you can now get the controllers and call the
-    respective methods:
-
-    $client = new MoesifApiClient();
-    $controller = $client-&gt;getApi();
+<span class="c1">// Instantiate the client. After this, you can now access the Moesif API
+// and call the respective methods:
+</span>
+<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoesifApiClient</span><span class="p">(</span><span class="s2">"Your application Id"</span><span class="p">);</span>
+<span class="nv">$api</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">getApi</span><span class="p">();</span>
 </code></pre>
 <table><thead>
 <tr>
@@ -1863,7 +1869,68 @@ Replace <i>my_application_id</i> with your real Application Id
 <span class="nx">api</span><span class="p">.</span><span class="nx">updateUser</span><span class="p">(</span><span class="k">new</span> <span class="nx">UserModel</span><span class="p">(</span><span class="nx">user</span><span class="p">),</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Do Something</span>
 <span class="p">});</span>
-</code></pre><pre class="highlight python tab-python"><code></code></pre><pre class="highlight ruby tab-ruby"><code></code></pre><pre class="highlight php tab-php"><code></code></pre><pre class="highlight go tab-go"><code></code></pre><pre class="highlight csharp tab-csharp"><code></code></pre><pre class="highlight java tab-java"><code><span class="n">MoesifAPIClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MoesifAPIClient</span><span class="o">(</span><span class="s">"my_application_id"</span><span class="o">);</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">moesifapi.moesif_api_client</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">moesifapi.models</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">MoesifAPIClient</span><span class="p">(</span><span class="n">my_application_id</span><span class="p">)</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">api</span>
+
+<span class="n">metadata</span> <span class="o">=</span> <span class="n">APIHelper</span><span class="o">.</span><span class="n">json_deserialize</span><span class="p">(</span><span class="s">"""  {
+        "email": "pythonapiuser@email.com",
+        "name": "pythonapiuser",
+        "custom": "testdata"
+    } """</span><span class="p">)</span>
+
+<span class="n">user_model</span> <span class="o">=</span> <span class="n">EventRequestModel</span><span class="p">(</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="s">'pythonapiuser1'</span><span class="p">,</span>
+    <span class="n">modified_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">(),</span>
+    <span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">)</span>
+
+<span class="c"># Perform the API call through the SDK function</span>
+<span class="n">api</span><span class="o">.</span><span class="n">update_user</span><span class="p">(</span><span class="n">user_model</span><span class="p">)</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">client</span> <span class="o">=</span> <span class="no">MoesifApi</span><span class="o">::</span><span class="no">MoesifAPIClient</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">my_application_id</span><span class="p">)</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">api</span>
+
+<span class="n">metadata</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s1">'{'</span><span class="p">\</span>
+  <span class="s1">'"email": "testrubyapi@user.com",'</span><span class="p">\</span>
+  <span class="s1">'"name": "ruby api user",'</span><span class="p">\</span>
+  <span class="s1">'"custom": "testdata"'</span><span class="p">\</span>
+<span class="s1">'}'</span><span class="p">)</span>
+
+<span class="n">user_model</span> <span class="o">=</span> <span class="no">UserModel</span><span class="p">.</span><span class="nf">new</span><span class="p">()</span>
+<span class="n">user_model</span><span class="p">.</span><span class="nf">modified_time</span> <span class="o">=</span> <span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">utc</span><span class="p">.</span><span class="nf">iso8601</span>  <span class="c1"># option, default now.</span>
+<span class="n">user_model</span><span class="p">.</span><span class="nf">user_id</span> <span class="o">=</span> <span class="s2">"testrubyapiuser"</span>  <span class="c1">#only required field.</span>
+<span class="n">user_model</span><span class="p">.</span><span class="nf">metadata</span> <span class="o">=</span> <span class="n">metadata</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">api</span><span class="p">.</span><span class="nf">update_user</span><span class="p">(</span><span class="n">user_model</span><span class="p">)</span>
+</code></pre><pre class="highlight php"><code><span class="c1">// Depending on your project setup, you might need to include composer's
+// autoloader in your PHP code to enable autoloading of classes.
+</span>
+<span class="k">require_once</span> <span class="s2">"vendor/autoload.php"</span><span class="p">;</span>
+
+<span class="c1">// Import the SDK client in your project:
+</span>
+<span class="k">use</span> <span class="nx">MoesifApi\MoesifApiClient</span><span class="p">;</span>
+
+<span class="c1">// Instantiate the client. After this, you can now access the Moesif API
+// and call the respective methods:
+</span>
+<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoesifApiClient</span><span class="p">(</span><span class="s2">"Your application Id"</span><span class="p">);</span>
+<span class="nv">$api</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">getApi</span><span class="p">();</span>
+
+<span class="nv">$user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Models\UserModel</span><span class="p">();</span>
+
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">userId</span> <span class="o">=</span> <span class="s2">"moesifphpuser"</span><span class="p">;</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">metadata</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="s2">"email"</span> <span class="o">=&gt;</span> <span class="s2">"moesifphp@email.com"</span><span class="p">,</span>
+  <span class="s2">"name"</span> <span class="o">=&gt;</span> <span class="s2">"moesif php"</span><span class="p">,</span>
+  <span class="s2">"custom"</span> <span class="o">=&gt;</span> <span class="s2">"randomdata"</span>
+<span class="p">];</span>
+
+<span class="nv">$api</span><span class="o">-&gt;</span><span class="na">updateUser</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
+</code></pre><pre class="highlight go tab-go"><code></code></pre><pre class="highlight csharp tab-csharp"><code></code></pre><pre class="highlight java tab-java"><code><span class="n">MoesifAPIClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MoesifAPIClient</span><span class="o">(</span><span class="s">"my_application_id"</span><span class="o">);</span>
 <span class="n">APIController</span> <span class="n">api</span> <span class="o">=</span> <span class="n">getClient</span><span class="o">().</span><span class="na">getAPI</span><span class="o">();</span>
 
 <span class="n">UserModel</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UserBuilder</span><span class="o">()</span>
