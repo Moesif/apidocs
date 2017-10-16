@@ -585,7 +585,7 @@ request | __Required__ | The object that specifies the request message
 <p style="margin-left:1.5em">request.verb</p> | __Required__ | HTTP method used, i.e. `GET`, `POST`
 <p style="margin-left:1.5em">request.api_version</p> | Optional | API Version you want to tag this request with such as _1.0.0_
 <p style="margin-left:1.5em">request.ip_address</p> | Optional | IP address of the requester, If not set, we use the IP address of your logging API calls.
-<p style="margin-left:1.5em">request.headers</p> | Optional | Headers of the  request as a `Map<string, string>`.. Multiple headers with the same key name should be combined together such that the values are joined by a comma. [HTTP Header Protocol on w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2)
+<p style="margin-left:1.5em">request.headers</p> | __Required__ | Headers of the  request as a `Map<string, string>`.. Multiple headers with the same key name should be combined together such that the values are joined by a comma. [HTTP Header Protocol on w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2)
 <p style="margin-left:1.5em">request.body</p> | Optional | Body of the request in JSON format or Base64 encoded binary data (see _transfer_encoding_)
 <p style="margin-left:1.5em">request.transfer_encoding</p> | Optional | A string that specifies the transfer encoding of Body being sent to Moesif. If field nonexistent, body assumed to be JSON or text. Only possible value is _base64_ for sending binary data like protobuf
 ||
@@ -594,7 +594,7 @@ response | Optional | The object that specifies the response message, not set im
 <p style="margin-left:1.5em">response.status</p> | __Required__ | HTTP status code as number such as _200_ or _500_
 <p style="margin-left:1.5em">request.ip_address</p> | Optional | IP address of the responding server
 <p style="margin-left:1.5em">response.headers</p> | __Required__ | Headers of the response as a `Map<string, string>`. Multiple headers with the same key name should be combined together such that the values are joined by a comma. [HTTP Header Protocol on w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2)
-<p style="margin-left:1.5em">response.body</p> | __Required__ | Body of the response in JSON format or Base64 encoded binary data (see _transfer_encoding_)
+<p style="margin-left:1.5em">response.body</p> | Optional | Body of the response in JSON format or Base64 encoded binary data (see _transfer_encoding_)
 <p style="margin-left:1.5em">response.transfer_encoding</p> | Optional | A string that specifies the transfer encoding of Body being sent to Moesif. If field nonexistent, body assumed to be JSON or text. Only possible value is _base64_ for sending binary data like protobuf
 ||
 session_token | _Recommend_ | The end user session token such as a JWT or API key, which may or may not be temporary. Moesif will auto-detect the session token automatically if not set.
@@ -1149,7 +1149,7 @@ request | __Required__ | The object that specifies the request message
 <p style="margin-left:1.5em">request.verb</p> | __Required__ | HTTP method used, i.e. `GET`, `POST`
 <p style="margin-left:1.5em">request.api_version</p> | Optional | API Version you want to tag this request with such as _1.0.0_
 <p style="margin-left:1.5em">request.ip_address</p> | Optional | IP address of the requester, If not set, we use the IP address of your logging API calls.
-<p style="margin-left:1.5em">request.headers</p> | Optional | Headers of the  request as a `Map<string, string>`. Multiple headers with the same key name should be combined together such that the values are joined by a comma. [HTTP Header Protocol on w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2)
+<p style="margin-left:1.5em">request.headers</p> | __Required__ | Headers of the  request as a `Map<string, string>`. Multiple headers with the same key name should be combined together such that the values are joined by a comma. [HTTP Header Protocol on w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2)
 <p style="margin-left:1.5em">request.body</p> | Optional | Body of the request in JSON format or Base64 encoded binary data (see _transfer_encoding_)
 <p style="margin-left:1.5em">request.transfer_encoding</p> | Optional | A string that specifies the transfer encoding of Body being sent to Moesif. If field nonexistent, body assumed to be JSON or text. Only possible value is _base64_ for sending binary data like protobuf
 ||
@@ -1158,7 +1158,7 @@ response | Optional | The object that specifies the response message, not set im
 <p style="margin-left:1.5em">response.status</p> | __Required__ | HTTP status code as number such as _200_ or _500_
 <p style="margin-left:1.5em">request.ip_address</p> | Optional | IP address of the responding server
 <p style="margin-left:1.5em">response.headers</p> | __Required__ | Headers of the response as a `Map<string, string>`. Multiple headers with the same key name should be combined together such that the values are joined by a comma. [HTTP Header Protocol on w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2)
-<p style="margin-left:1.5em">response.body</p> | __Required__ | Body of the response in JSON format or Base64 encoded binary data (see _transfer_encoding_)
+<p style="margin-left:1.5em">response.body</p> | Optional | Body of the response in JSON format or Base64 encoded binary data (see _transfer_encoding_)
 <p style="margin-left:1.5em">response.transfer_encoding</p> | Optional | A string that specifies the transfer encoding of Body being sent to Moesif. If field nonexistent, body assumed to be JSON or text. Only possible value is _base64_ for sending binary data like protobuf
 ||
 session_token | _Recommend_ | The end user session token such as a JWT or API key, which may or may not be temporary. Moesif will auto-detect the session token automatically if not set.
