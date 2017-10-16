@@ -86,12 +86,73 @@ api.updateUser(new UserModel(user), function(error, response, context) {
 ```
 
 ```python
+from __future__ import print_function
+from moesifapi.moesif_api_client import *
+from moesifapi.models import *
+from datetime import *
+
+client = MoesifAPIClient(my_application_id)
+api = client.api
+
+metadata = APIHelper.json_deserialize("""  {
+        "email": "pythonapiuser@email.com",
+        "name": "pythonapiuser",
+        "custom": "testdata"
+    } """)
+
+user_model = EventRequestModel(
+    user_id = 'pythonapiuser1',
+    modified_time = datetime.utcnow(),
+    metadata = metadata)
+
+# Perform the API call through the SDK function
+api.update_user(user_model)
 ```
 
 ```ruby
+client = MoesifApi::MoesifAPIClient.new(my_application_id)
+api = client.api
+
+metadata = JSON.parse('{'\
+  '"email": "testrubyapi@user.com",'\
+  '"name": "ruby api user",'\
+  '"custom": "testdata"'\
+'}')
+
+user_model = UserModel.new()
+user_model.modified_time = Time.now.utc.iso8601  # option, default now.
+user_model.user_id = "testrubyapiuser"  #only required field.
+user_model.metadata = metadata
+
+response = api.update_user(user_model)
 ```
 
-```php
+```php?start_inline=1
+// Depending on your project setup, you might need to include composer's
+// autoloader in your PHP code to enable autoloading of classes.
+
+require_once "vendor/autoload.php";
+
+// Import the SDK client in your project:
+
+use MoesifApi\MoesifApiClient;
+
+// Instantiate the client. After this, you can now access the Moesif API
+// and call the respective methods:
+
+$client = new MoesifApiClient("Your application Id");
+$api = $client->getApi();
+
+$user = new Models\UserModel();
+
+$user->userId = "moesifphpuser";
+$user->metadata = [
+  "email" => "moesifphp@email.com",
+  "name" => "moesif php",
+  "custom" => "randomdata"
+];
+
+$api->updateUser($user);
 ```
 
 ```go
