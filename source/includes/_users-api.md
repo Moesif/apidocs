@@ -40,11 +40,11 @@ Replace <i>my_application_id</i> with your real Application Id
     "user_id": "123456",
     "user_agent_string": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
     "metadata": {
-      "first_name": "John Doe",
-      "last_name": "John Doe",
+      "first_name": "John",
+      "last_name": "Doe",
       "email": "john@gmail.com",
       "phone": "123-456-7890",
-      "custom_string_field": "some_value"
+      "custom_string_field": "some_value",
       "custom_int_field": 55,
       "custom_obj_field": {
           "sub_a": "value_a",
@@ -260,11 +260,11 @@ Replace <i>my_application_id</i> with your real Application Id
       "user_id": "12345",
       "user_agent_string": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
       "metadata": {
-        "first_name": "John Doe",
-        "last_name": "John Doe",
+        "first_name": "John",
+        "last_name": "Doe",
         "email": "john@gmail.com",
         "phone": "123-456-7890",
-        "custom_string_field": "some_value"
+        "custom_string_field": "some_value",
         "custom_int_field": 55,
         "custom_obj_field": {
             "sub_a": "value_a",
@@ -279,11 +279,11 @@ Replace <i>my_application_id</i> with your real Application Id
       "user_id": "7890",
       "user_agent_string": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
       "metadata": {
-        "first_name": "Mary Doe",
-        "last_name": "Mary Doe",
+        "first_name": "Mary",
+        "last_name": "Doe",
         "email": "mary@gmail.com",
         "phone": "123-456-7890",
-        "custom_string_field": "some_value"
+        "custom_string_field": "some_value",
         "custom_int_field": 55,
         "custom_obj_field": {
             "sub_a": "value_a",
