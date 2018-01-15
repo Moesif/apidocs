@@ -127,7 +127,8 @@ user_model.metadata = metadata
 response = api.update_user(user_model)
 ```
 
-```php?start_inline=1
+```php
+<?php
 // Depending on your project setup, you might need to include composer's
 // autoloader in your PHP code to enable autoloading of classes.
 
