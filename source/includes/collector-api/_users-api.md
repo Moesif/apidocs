@@ -1,6 +1,6 @@
-# Users API
+## Users
 
-## Update a User
+### Update a User
 
 **`POST https://api.moesif.net/v1/users`**
 
@@ -55,7 +55,7 @@ Replace <i>my_application_id</i> with your real Application Id
 
 ```
 
-```javascript
+```javascript--nodejs
 // 1. Import the module
 var moesifapi = require('moesifapi');
 var api = moesifapi.ApiController;
@@ -200,7 +200,7 @@ api.updateUserAsync(user, callBack);
 api.updateUser(user, callBack);
 ```
 
-### _user_id_ vs. _session_token_
+#### _user_id_ vs. _session_token_
 Users in Moesif are identified by two attributes: _user_id_ and _session_token_.
 
 - A `user_id` is a __permanent__ and unique identifier to track a user across platforms and services.
@@ -221,7 +221,7 @@ session_token | Optional | Current end user session or API token such as a JWT. 
 user_agent_string | Optional | If you want Moesif to parse a user agent string, you can do so via `user_agent_string`.
 metadata | Optional | A JSON Object consisting of any custom metadata to be stored with this user.
 
-## Update Users in Batch
+### Update Users in Batch
 
 **`POST https://api.moesif.net/v1/users/batch`**
 
@@ -296,7 +296,7 @@ Replace <i>my_application_id</i> with your real Application Id
 
 ```
 
-```javascript
+```javascript--nodejs
 var moesifapi = require('moesifapi');
 var api = moesifapi.ApiController;
 
@@ -401,7 +401,7 @@ api.updateUsersBatchAsync(users, callBack);
 api.updateUsersBatch(users, callBack);
 ```
 
-### _user_id_ vs. _session_token_
+#### _user_id_ vs. _session_token_
 Users in Moesif are identified by two attributes: _user_id_ and _session_token_.
 
 - A `user_id` is a __permanent__ and unique identifier to track a user across platforms and services.

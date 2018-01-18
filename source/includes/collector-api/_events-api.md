@@ -1,6 +1,6 @@
-# Event Log API
+## Events
 
-## Create an Event
+### Create an Event
 
 **`POST https://api.moesif.net/v1/events`**
 
@@ -161,7 +161,7 @@ api.createEventsBatchAsync(eventsList, callBack);
 api.createEventsBatch(eventsList, callBack);
 ```
 
-```javascript
+```javascript--nodejs
 // 1. Import the module
 var moesifapi = require('moesifapi');
 var api = moesifapi.ApiController;
@@ -603,7 +603,7 @@ user_id | _Recommend_ | Identifies this API call to a permanent user_id
 metadata | Optional | A JSON Object consisting of any custom metadata to be stored with this event.
 
 
-## Create an Events Batch
+### Create an Events Batch
 
 **`POST https://api.moesif.net/v1/events/batch`**
 
@@ -780,7 +780,7 @@ api.createEventsBatchAsync(events, callBack);
 api.createEventsBatch(events, callBack);
 ```
 
-```javascript
+```javascript--nodejs
 // Import the module:
 var moesifapi = require('moesifapi');
 

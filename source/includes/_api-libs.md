@@ -34,14 +34,14 @@ Source Code:<br><br>
 </dependency>
 
 ```
-<blockquote class="lang-specific javascript">
+<blockquote class="lang-specific javascript--nodejs">
 Source Code:<br><br>
 <a href="https://github.com/moesif/moesifapi-nodejs">https://github.com/moesif/moesifapi-nodejs</a><br><br><br>
 Package:<br><br>
 <a href="https://www.npmjs.com/package/moesifapi">https://www.npmjs.com/package/moesifapi</a>
 </blockquote>
 
-```javascript
+```javascript--nodejs
 // To Install Moesif Lib, run in your terminal
 
 npm install --save moesifapi
