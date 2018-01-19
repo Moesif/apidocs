@@ -2271,28 +2271,7 @@ The new session_token will be appended to the alias table.</p></li>
 </tr>
 </tbody></table>
 
-          <hr>
-
-<p>title: Management API v1
-language_tabs:
-  - shell: Shell
-  - javascript&ndash;nodejs: Javascript
-  - python: Python
-  - ruby: Ruby
-  - php: PHP
-  - go: Go
-  - csharp: &lsquo;C#&rsquo;
-  - java: Java
-toc_footers:
-  - &lsquo;<a href="https://moesif.com/docs">Developer Docs</a>&rsquo;
-includes: []
-search: true
-highlight_theme: darkula
-headingLevel: 2</p>
-
-<hr>
-
-<h1 id="Management-API">Management API v1</h1>
+          <h1 id="Management-API">Management API v1</h1>
 
 <blockquote>
 <p>Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.</p>
@@ -2303,8 +2282,7 @@ headingLevel: 2</p>
 <p>Base URLs:</p>
 
 <ul>
-<li><p><a href="https://api.moesif.com/v1">https://api.moesif.com/v1</a></p></li>
-<li><p><a href="https://api.moesif.com/v1">https://api.moesif.com/v1</a></p></li>
+<li><a href="https://api.moesif.com/v1">https://api.moesif.com/v1</a></li>
 </ul>
 
 <p><a href="https://www.moesif.com/terms">Terms of service</a></p>
@@ -2389,7 +2367,7 @@ headingLevel: 2</p>
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X GET https://api.moesif.com/v1/organizations
+curl -X GET -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/organizations
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -2485,7 +2463,7 @@ managementAPIToken ( Scopes: read:organizations )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X DELETE https://api.moesif.com/v1/replay/<span class="o">{</span>orgId<span class="o">}</span>/history_events/<span class="o">{</span>id<span class="o">}</span>?app_id<span class="o">=</span>string
+curl -X DELETE -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/replay/<span class="o">{</span>orgId<span class="o">}</span>/history_events/<span class="o">{</span>id<span class="o">}</span>?app_id<span class="o">=</span>string
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -2611,7 +2589,7 @@ managementAPIToken ( Scopes: delete:history_events )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X GET https://api.moesif.com/v1/replay/<span class="o">{</span>orgId<span class="o">}</span>/workspaces/<span class="o">{</span>id<span class="o">}</span>?app_id<span class="o">=</span>string
+curl -X GET -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/replay/<span class="o">{</span>orgId<span class="o">}</span>/workspaces/<span class="o">{</span>id<span class="o">}</span>?app_id<span class="o">=</span>string
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -2737,7 +2715,7 @@ managementAPIToken ( Scopes: read:workspaces )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X DELETE https://api.moesif.com/v1/replay/<span class="o">{</span>orgId<span class="o">}</span>/workspaces/<span class="o">{</span>id<span class="o">}</span>?app_id<span class="o">=</span>string
+curl -X DELETE -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/replay/<span class="o">{</span>orgId<span class="o">}</span>/workspaces/<span class="o">{</span>id<span class="o">}</span>?app_id<span class="o">=</span>string
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -2863,7 +2841,7 @@ managementAPIToken ( Scopes: delete:workspaces )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X GET https://api.moesif.com/v1/replay/workspaces/access_token
+curl -X GET -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/replay/workspaces/access_token
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -2957,7 +2935,7 @@ managementAPIToken ( Scopes: read:workspaces )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.moesif.com/v1/replay/<span class="o">{</span>orgId<span class="o">}</span>/history_events?app_id<span class="o">=</span>string
+curl -X POST -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/replay/<span class="o">{</span>orgId<span class="o">}</span>/history_events?app_id<span class="o">=</span>string
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -3083,7 +3061,7 @@ managementAPIToken ( Scopes: create:history_events )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.moesif.com/v1/replay/<span class="o">{</span>orgId<span class="o">}</span>/workspaces?app_id<span class="o">=</span>string
+curl -X POST -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/replay/<span class="o">{</span>orgId<span class="o">}</span>/workspaces?app_id<span class="o">=</span>string
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -3202,7 +3180,7 @@ managementAPIToken ( Scopes: create:workspaces )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X GET https://api.moesif.com/v1/replay/<span class="o">{</span>orgId<span class="o">}</span>/workspaces?app_id<span class="o">=</span>string?take<span class="o">=</span>0
+curl -X GET -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/replay/<span class="o">{</span>orgId<span class="o">}</span>/workspaces?app_id<span class="o">=</span>string?take<span class="o">=</span>0
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -3336,7 +3314,7 @@ managementAPIToken ( Scopes: read:workspaces )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X GET https://api.moesif.com/v1/replay/<span class="o">{</span>orgId<span class="o">}</span>/workspaces/<span class="o">{</span>id<span class="o">}</span>/history_events?app_id<span class="o">=</span>string?take<span class="o">=</span>0
+curl -X GET -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/replay/<span class="o">{</span>orgId<span class="o">}</span>/workspaces/<span class="o">{</span>id<span class="o">}</span>/history_events?app_id<span class="o">=</span>string?take<span class="o">=</span>0
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -3477,7 +3455,7 @@ managementAPIToken ( Scopes: read:history_events )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X PUT https://api.moesif.com/v1/replay/<span class="o">{</span>orgId<span class="o">}</span>/workspaces/<span class="o">{</span>id<span class="o">}</span>/sequence?app_id<span class="o">=</span>string
+curl -X PUT -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/replay/<span class="o">{</span>orgId<span class="o">}</span>/workspaces/<span class="o">{</span>id<span class="o">}</span>/sequence?app_id<span class="o">=</span>string
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -3612,13 +3590,13 @@ managementAPIToken ( Scopes: update:workspaces )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X GET https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/traces?session_token<span class="o">=</span>string?%60triage_bucket%2Estate%60<span class="o">=</span>0?%60triage_bucket%2Everb%60<span class="o">=</span>string?%60triage_bucket%2Estatus%60<span class="o">=</span>0?%60triage_bucket%2Eapi_version%60<span class="o">=</span>string
+curl -X GET -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/traces?session_token<span class="o">=</span>string?triage_bucket.state<span class="o">=</span>0?triage_bucket.verb<span class="o">=</span>string?triage_bucket.status<span class="o">=</span>0?triage_bucket.api_version<span class="o">=</span>string
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
 
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/{orgId}/traces?session_token=string?%60triage_bucket%2Estate%60=0?%60triage_bucket%2Everb%60=string?%60triage_bucket%2Estatus%60=0?%60triage_bucket%2Eapi_version%60=string'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/{orgId}/traces?session_token=string?triage_bucket.state=0?triage_bucket.verb=string?triage_bucket.status=0?triage_bucket.api_version=string'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span>
 
@@ -3637,13 +3615,13 @@ curl -X GET https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/{orgId}/traces'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
   <span class="s">'session_token'</span><span class="p">:</span> <span class="p">[</span>
   <span class="s">"string"</span>
-<span class="p">],</span>  <span class="s">'`triage_bucket.state`'</span><span class="p">:</span> <span class="p">[</span>
+<span class="p">],</span>  <span class="s">'triage_bucket.state'</span><span class="p">:</span> <span class="p">[</span>
   <span class="mi">0</span>
-<span class="p">],</span>  <span class="s">'`triage_bucket.verb`'</span><span class="p">:</span> <span class="p">[</span>
+<span class="p">],</span>  <span class="s">'triage_bucket.verb'</span><span class="p">:</span> <span class="p">[</span>
   <span class="s">"string"</span>
-<span class="p">],</span>  <span class="s">'`triage_bucket.status`'</span><span class="p">:</span> <span class="p">[</span>
+<span class="p">],</span>  <span class="s">'triage_bucket.status'</span><span class="p">:</span> <span class="p">[</span>
   <span class="mi">0</span>
-<span class="p">],</span>  <span class="s">'`triage_bucket.api_version`'</span><span class="p">:</span> <span class="p">[</span>
+<span class="p">],</span>  <span class="s">'triage_bucket.api_version'</span><span class="p">:</span> <span class="p">[</span>
   <span class="s">"string"</span>
 <span class="p">]</span>
 <span class="p">)</span>
@@ -3659,17 +3637,17 @@ curl -X GET https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="
 <span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://api.moesif.com/v1/{orgId}/traces'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="s1">'session_token'</span> <span class="o">=&gt;</span> <span class="s1">'array[string]'</span><span class="p">,</span>
-<span class="s1">'`triage_bucket.state`'</span> <span class="o">=&gt;</span> <span class="s1">'array[integer]'</span><span class="p">,</span>
-<span class="s1">'`triage_bucket.verb`'</span> <span class="o">=&gt;</span> <span class="s1">'array[string]'</span><span class="p">,</span>
-<span class="s1">'`triage_bucket.status`'</span> <span class="o">=&gt;</span> <span class="s1">'array[integer]'</span><span class="p">,</span>
-<span class="s1">'`triage_bucket.api_version`'</span> <span class="o">=&gt;</span> <span class="s1">'array[string]'</span>
+<span class="s1">'triage_bucket.state'</span> <span class="o">=&gt;</span> <span class="s1">'array[integer]'</span><span class="p">,</span>
+<span class="s1">'triage_bucket.verb'</span> <span class="o">=&gt;</span> <span class="s1">'array[string]'</span><span class="p">,</span>
+<span class="s1">'triage_bucket.status'</span> <span class="o">=&gt;</span> <span class="s1">'array[integer]'</span><span class="p">,</span>
+<span class="s1">'triage_bucket.api_version'</span> <span class="o">=&gt;</span> <span class="s1">'array[string]'</span>
 <span class="p">}</span>
 
 
 <span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 
 
-</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/{orgId}/traces?session_token=string?%60triage_bucket%2Estate%60=0?%60triage_bucket%2Everb%60=string?%60triage_bucket%2Estatus%60=0?%60triage_bucket%2Eapi_version%60=string"</span><span class="o">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/{orgId}/traces?session_token=string?triage_bucket.state=0?triage_bucket.verb=string?triage_bucket.status=0?triage_bucket.api_version=string"</span><span class="o">);</span>
 <span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
 <span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"GET"</span><span class="o">);</span>
 <span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
@@ -3836,7 +3814,7 @@ managementAPIToken ( Scopes: read:traces )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X GET https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/traces/<span class="o">{</span>id<span class="o">}</span>
+curl -X GET -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/traces/<span class="o">{</span>id<span class="o">}</span>
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -3962,7 +3940,7 @@ managementAPIToken ( Scopes: read:traces )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X GET https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/traces/<span class="o">{</span>id<span class="o">}</span>/events?take<span class="o">=</span>0
+curl -X GET -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/traces/<span class="o">{</span>id<span class="o">}</span>/events?take<span class="o">=</span>0
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -4113,13 +4091,13 @@ managementAPIToken ( Scopes: read:traces )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X GET https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/dash/metrics?from<span class="o">=</span>2018-01-19T02%3A59%3A13Z
+curl -X GET -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/dash/metrics?from<span class="o">=</span>2018-01-19T21:37:03Z
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
 
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-01-19T02%3A59%3A13Z'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-01-19T21:37:03Z'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span>
 
@@ -4136,7 +4114,7 @@ curl -X GET https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="
 
 
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/{orgId}/dash/metrics'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
-  <span class="s">'from'</span><span class="p">:</span> <span class="s">'2018-01-19T02:59:13Z'</span>
+  <span class="s">'from'</span><span class="p">:</span> <span class="s">'2018-01-19T21:37:03Z'</span>
 <span class="p">)</span>
 
 
@@ -4156,7 +4134,7 @@ curl -X GET https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="
 <span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 
 
-</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-01-19T02%3A59%3A13Z"</span><span class="o">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-01-19T21:37:03Z"</span><span class="o">);</span>
 <span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
 <span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"GET"</span><span class="o">);</span>
 <span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
@@ -4257,7 +4235,7 @@ managementAPIToken ( Scopes: read:metrics )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X GET https://api.moesif.com/v1/~/oauth/tokeninfo?scope<span class="o">=</span>string
+curl -X GET -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/~/oauth/tokeninfo?scope<span class="o">=</span>string
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -4371,7 +4349,7 @@ managementAPIToken ( Scopes: read:access_tokens )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X GET https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/oauth/access_tokens?target<span class="o">=</span>string?scope<span class="o">=</span>string
+curl -X GET -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/oauth/access_tokens?target<span class="o">=</span>string?scope<span class="o">=</span>string
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -4516,7 +4494,7 @@ managementAPIToken ( Scopes: create:access_tokens )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.moesif.com/v1/url_encoder
+curl -X POST  https://api.moesif.com/v1/url_encoder
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -4631,13 +4609,13 @@ This operation does not require authentication
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X GET https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/triage_buckets/<span class="o">{</span>id<span class="o">}</span>/graph?depth<span class="o">=</span>0?%60error_event%2Eduration_ms%5Blte%5D%60<span class="o">=</span>0?%60error_event%2Eduration_ms%5Bgte%5D%60<span class="o">=</span>0?%60error_event%2Erequest%2Etime%5Blte%5D%60<span class="o">=</span>2018-01-19T02%3A59%3A13Z?%60error_event%2Erequest%2Etime%5Bgte%5D%60<span class="o">=</span>2018-01-19T02%3A59%3A13Z?%60error_event%2Erequest%2Eip_address%60<span class="o">=</span>string?%60error_event%2Erequest%2Euser_agent%2Eos%60<span class="o">=</span>string?%60error_event%2Erequest%2Euser_agent%2Edevice%60<span class="o">=</span>string?%60error_event%2Eresponse%2Eip_address%60<span class="o">=</span>string?%60error_event%2Esession_token%60<span class="o">=</span>string?%60error_event%2Euser_id%60<span class="o">=</span>string
+curl -X GET -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/triage_buckets/<span class="o">{</span>id<span class="o">}</span>/graph?depth<span class="o">=</span>0?error_event.duration_ms[lte]<span class="o">=</span>0?error_event.duration_ms[gte]<span class="o">=</span>0?error_event.request.time[lte]<span class="o">=</span>2018-01-19T21:37:03Z?error_event.request.time[gte]<span class="o">=</span>2018-01-19T21:37:03Z?error_event.request.ip_address<span class="o">=</span>string?error_event.request.user_agent.os<span class="o">=</span>string?error_event.request.user_agent.device<span class="o">=</span>string?error_event.response.ip_address<span class="o">=</span>string?error_event.session_token<span class="o">=</span>string?error_event.user_id<span class="o">=</span>string
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
 
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?%60error_event%2Eduration_ms%5Blte%5D%60=0?%60error_event%2Eduration_ms%5Bgte%5D%60=0?%60error_event%2Erequest%2Etime%5Blte%5D%60=2018-01-19T02%3A59%3A13Z?%60error_event%2Erequest%2Etime%5Bgte%5D%60=2018-01-19T02%3A59%3A13Z?%60error_event%2Erequest%2Eip_address%60=string?%60error_event%2Erequest%2Euser_agent%2Eos%60=string?%60error_event%2Erequest%2Euser_agent%2Edevice%60=string?%60error_event%2Eresponse%2Eip_address%60=string?%60error_event%2Esession_token%60=string?%60error_event%2Euser_id%60=string'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?error_event.duration_ms[lte]=0?error_event.duration_ms[gte]=0?error_event.request.time[lte]=2018-01-19T21:37:03Z?error_event.request.time[gte]=2018-01-19T21:37:03Z?error_event.request.ip_address=string?error_event.request.user_agent.os=string?error_event.request.user_agent.device=string?error_event.response.ip_address=string?error_event.session_token=string?error_event.user_id=string'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span>
 
@@ -4654,25 +4632,25 @@ curl -X GET https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="
 
 
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
-  <span class="s">'depth'</span><span class="p">:</span> <span class="s">'0'</span><span class="p">,</span>  <span class="s">'`error_event.duration_ms[lte]`'</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s">'depth'</span><span class="p">:</span> <span class="s">'0'</span><span class="p">,</span>  <span class="s">'error_event.duration_ms[lte]'</span><span class="p">:</span> <span class="p">[</span>
   <span class="mi">0</span>
-<span class="p">],</span>  <span class="s">'`error_event.duration_ms[gte]`'</span><span class="p">:</span> <span class="p">[</span>
+<span class="p">],</span>  <span class="s">'error_event.duration_ms[gte]'</span><span class="p">:</span> <span class="p">[</span>
   <span class="mi">0</span>
-<span class="p">],</span>  <span class="s">'`error_event.request.time[lte]`'</span><span class="p">:</span> <span class="p">[</span>
-  <span class="s">"2018-01-19T02:59:13Z"</span>
-<span class="p">],</span>  <span class="s">'`error_event.request.time[gte]`'</span><span class="p">:</span> <span class="p">[</span>
-  <span class="s">"2018-01-19T02:59:13Z"</span>
-<span class="p">],</span>  <span class="s">'`error_event.request.ip_address`'</span><span class="p">:</span> <span class="p">[</span>
+<span class="p">],</span>  <span class="s">'error_event.request.time[lte]'</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s">"2018-01-19T21:37:03Z"</span>
+<span class="p">],</span>  <span class="s">'error_event.request.time[gte]'</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s">"2018-01-19T21:37:03Z"</span>
+<span class="p">],</span>  <span class="s">'error_event.request.ip_address'</span><span class="p">:</span> <span class="p">[</span>
   <span class="s">"string"</span>
-<span class="p">],</span>  <span class="s">'`error_event.request.user_agent.os`'</span><span class="p">:</span> <span class="p">[</span>
+<span class="p">],</span>  <span class="s">'error_event.request.user_agent.os'</span><span class="p">:</span> <span class="p">[</span>
   <span class="s">"string"</span>
-<span class="p">],</span>  <span class="s">'`error_event.request.user_agent.device`'</span><span class="p">:</span> <span class="p">[</span>
+<span class="p">],</span>  <span class="s">'error_event.request.user_agent.device'</span><span class="p">:</span> <span class="p">[</span>
   <span class="s">"string"</span>
-<span class="p">],</span>  <span class="s">'`error_event.response.ip_address`'</span><span class="p">:</span> <span class="p">[</span>
+<span class="p">],</span>  <span class="s">'error_event.response.ip_address'</span><span class="p">:</span> <span class="p">[</span>
   <span class="s">"string"</span>
-<span class="p">],</span>  <span class="s">'`error_event.session_token`'</span><span class="p">:</span> <span class="p">[</span>
+<span class="p">],</span>  <span class="s">'error_event.session_token'</span><span class="p">:</span> <span class="p">[</span>
   <span class="s">"string"</span>
-<span class="p">],</span>  <span class="s">'`error_event.user_id`'</span><span class="p">:</span> <span class="p">[</span>
+<span class="p">],</span>  <span class="s">'error_event.user_id'</span><span class="p">:</span> <span class="p">[</span>
   <span class="s">"string"</span>
 <span class="p">]</span>
 <span class="p">)</span>
@@ -4688,23 +4666,23 @@ curl -X GET https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="
 <span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="s1">'depth'</span> <span class="o">=&gt;</span> <span class="s1">'integer(int32)'</span><span class="p">,</span>
-<span class="s1">'`error_event.duration_ms[lte]`'</span> <span class="o">=&gt;</span> <span class="s1">'array[integer]'</span><span class="p">,</span>
-<span class="s1">'`error_event.duration_ms[gte]`'</span> <span class="o">=&gt;</span> <span class="s1">'array[integer]'</span><span class="p">,</span>
-<span class="s1">'`error_event.request.time[lte]`'</span> <span class="o">=&gt;</span> <span class="s1">'array[string]'</span><span class="p">,</span>
-<span class="s1">'`error_event.request.time[gte]`'</span> <span class="o">=&gt;</span> <span class="s1">'array[string]'</span><span class="p">,</span>
-<span class="s1">'`error_event.request.ip_address`'</span> <span class="o">=&gt;</span> <span class="s1">'array[string]'</span><span class="p">,</span>
-<span class="s1">'`error_event.request.user_agent.os`'</span> <span class="o">=&gt;</span> <span class="s1">'array[string]'</span><span class="p">,</span>
-<span class="s1">'`error_event.request.user_agent.device`'</span> <span class="o">=&gt;</span> <span class="s1">'array[string]'</span><span class="p">,</span>
-<span class="s1">'`error_event.response.ip_address`'</span> <span class="o">=&gt;</span> <span class="s1">'array[string]'</span><span class="p">,</span>
-<span class="s1">'`error_event.session_token`'</span> <span class="o">=&gt;</span> <span class="s1">'array[string]'</span><span class="p">,</span>
-<span class="s1">'`error_event.user_id`'</span> <span class="o">=&gt;</span> <span class="s1">'array[string]'</span>
+<span class="s1">'error_event.duration_ms[lte]'</span> <span class="o">=&gt;</span> <span class="s1">'array[integer]'</span><span class="p">,</span>
+<span class="s1">'error_event.duration_ms[gte]'</span> <span class="o">=&gt;</span> <span class="s1">'array[integer]'</span><span class="p">,</span>
+<span class="s1">'error_event.request.time[lte]'</span> <span class="o">=&gt;</span> <span class="s1">'array[string]'</span><span class="p">,</span>
+<span class="s1">'error_event.request.time[gte]'</span> <span class="o">=&gt;</span> <span class="s1">'array[string]'</span><span class="p">,</span>
+<span class="s1">'error_event.request.ip_address'</span> <span class="o">=&gt;</span> <span class="s1">'array[string]'</span><span class="p">,</span>
+<span class="s1">'error_event.request.user_agent.os'</span> <span class="o">=&gt;</span> <span class="s1">'array[string]'</span><span class="p">,</span>
+<span class="s1">'error_event.request.user_agent.device'</span> <span class="o">=&gt;</span> <span class="s1">'array[string]'</span><span class="p">,</span>
+<span class="s1">'error_event.response.ip_address'</span> <span class="o">=&gt;</span> <span class="s1">'array[string]'</span><span class="p">,</span>
+<span class="s1">'error_event.session_token'</span> <span class="o">=&gt;</span> <span class="s1">'array[string]'</span><span class="p">,</span>
+<span class="s1">'error_event.user_id'</span> <span class="o">=&gt;</span> <span class="s1">'array[string]'</span>
 <span class="p">}</span>
 
 
 <span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 
 
-</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?%60error_event%2Eduration_ms%5Blte%5D%60=0?%60error_event%2Eduration_ms%5Bgte%5D%60=0?%60error_event%2Erequest%2Etime%5Blte%5D%60=2018-01-19T02%3A59%3A13Z?%60error_event%2Erequest%2Etime%5Bgte%5D%60=2018-01-19T02%3A59%3A13Z?%60error_event%2Erequest%2Eip_address%60=string?%60error_event%2Erequest%2Euser_agent%2Eos%60=string?%60error_event%2Erequest%2Euser_agent%2Edevice%60=string?%60error_event%2Eresponse%2Eip_address%60=string?%60error_event%2Esession_token%60=string?%60error_event%2Euser_id%60=string"</span><span class="o">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?error_event.duration_ms[lte]=0?error_event.duration_ms[gte]=0?error_event.request.time[lte]=2018-01-19T21:37:03Z?error_event.request.time[gte]=2018-01-19T21:37:03Z?error_event.request.ip_address=string?error_event.request.user_agent.os=string?error_event.request.user_agent.device=string?error_event.response.ip_address=string?error_event.session_token=string?error_event.user_id=string"</span><span class="o">);</span>
 <span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
 <span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"GET"</span><span class="o">);</span>
 <span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
@@ -4859,7 +4837,7 @@ managementAPIToken ( Scopes: read:triage_buckets )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X GET https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/triage_buckets?take<span class="o">=</span>0?state<span class="o">=</span>0?verb<span class="o">=</span>string?status<span class="o">=</span>0?api_version<span class="o">=</span>string
+curl -X GET -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/triage_buckets?take<span class="o">=</span>0?state<span class="o">=</span>0?verb<span class="o">=</span>string?status<span class="o">=</span>0?api_version<span class="o">=</span>string
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -5069,7 +5047,7 @@ managementAPIToken ( Scopes: read:triage_buckets )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/triage_buckets/<span class="o">{</span>triageBucketId<span class="o">}</span>
+curl -X POST -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/triage_buckets/<span class="o">{</span>triageBucketId<span class="o">}</span>
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -5206,7 +5184,7 @@ managementAPIToken ( Scopes: update:triage_buckets )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X GET https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/signatures/<span class="o">{</span>id<span class="o">}</span>/events?take<span class="o">=</span>0
+curl -X GET -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/signatures/<span class="o">{</span>id<span class="o">}</span>/events?take<span class="o">=</span>0
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -5348,7 +5326,7 @@ managementAPIToken ( Scopes: read:signatures )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X GET https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/signatures/<span class="o">{</span>id<span class="o">}</span>/traces?take<span class="o">=</span>0
+curl -X GET -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/signatures/<span class="o">{</span>id<span class="o">}</span>/traces?take<span class="o">=</span>0
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -5492,7 +5470,7 @@ managementAPIToken ( Scopes: read:signatures )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X GET https://api.moesif.com/v1/health/probe
+curl -X GET  https://api.moesif.com/v1/health/probe
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -5585,7 +5563,7 @@ This operation does not require authentication
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X GET https://api.moesif.com/v1/issue_tracking/<span class="o">{</span>orgId<span class="o">}</span>/jira/account?app_id<span class="o">=</span>string
+curl -X GET -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/issue_tracking/<span class="o">{</span>orgId<span class="o">}</span>/jira/account?app_id<span class="o">=</span>string
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -5706,7 +5684,7 @@ managementAPIToken ( Scopes: read:jira_accounts )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.moesif.com/v1/issue_tracking/<span class="o">{</span>orgId<span class="o">}</span>/jira/account?app_id<span class="o">=</span>string
+curl -X POST -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/issue_tracking/<span class="o">{</span>orgId<span class="o">}</span>/jira/account?app_id<span class="o">=</span>string
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -5834,7 +5812,7 @@ managementAPIToken ( Scopes: create:jira_accounts update:jira_accounts )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X DELETE https://api.moesif.com/v1/issue_tracking/<span class="o">{</span>orgId<span class="o">}</span>/jira/account?app_id<span class="o">=</span>string
+curl -X DELETE -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/issue_tracking/<span class="o">{</span>orgId<span class="o">}</span>/jira/account?app_id<span class="o">=</span>string
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -5957,7 +5935,7 @@ managementAPIToken ( Scopes: delete:jira_accounts )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X GET https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/mappings/users/properties
+curl -X GET -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/mappings/users/properties
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -6071,13 +6049,13 @@ managementAPIToken ( Scopes: read:users )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/count/events?from<span class="o">=</span>2018-01-19T02%3A59%3A13Z?to<span class="o">=</span>2018-01-19T02%3A59%3A13Z
+curl -X POST -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/count/events?from<span class="o">=</span>2018-01-19T21:37:03Z?to<span class="o">=</span>2018-01-19T21:37:03Z
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
 
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/{orgId}/count/events?from=2018-01-19T02%3A59%3A13Z?to=2018-01-19T02%3A59%3A13Z'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/{orgId}/count/events?from=2018-01-19T21:37:03Z?to=2018-01-19T21:37:03Z'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span>
 
@@ -6094,7 +6072,7 @@ curl -X POST https://api.moesif.com/v1/<span class="o">{</span>orgId<span class=
 
 
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/{orgId}/count/events'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
-  <span class="s">'from'</span><span class="p">:</span> <span class="s">'2018-01-19T02:59:13Z'</span><span class="p">,</span>  <span class="s">'to'</span><span class="p">:</span> <span class="s">'2018-01-19T02:59:13Z'</span>
+  <span class="s">'from'</span><span class="p">:</span> <span class="s">'2018-01-19T21:37:03Z'</span><span class="p">,</span>  <span class="s">'to'</span><span class="p">:</span> <span class="s">'2018-01-19T21:37:03Z'</span>
 <span class="p">)</span>
 
 
@@ -6115,7 +6093,7 @@ curl -X POST https://api.moesif.com/v1/<span class="o">{</span>orgId<span class=
 <span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 
 
-</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/{orgId}/count/events?from=2018-01-19T02%3A59%3A13Z?to=2018-01-19T02%3A59%3A13Z"</span><span class="o">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/{orgId}/count/events?from=2018-01-19T21:37:03Z?to=2018-01-19T21:37:03Z"</span><span class="o">);</span>
 <span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
 <span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"POST"</span><span class="o">);</span>
 <span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
@@ -6212,13 +6190,13 @@ managementAPIToken ( Scopes: read:events )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/search/events?from<span class="o">=</span>2018-01-19T02%3A59%3A13Z?to<span class="o">=</span>2018-01-19T02%3A59%3A13Z
+curl -X POST -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/search/events?from<span class="o">=</span>2018-01-19T21:37:03Z?to<span class="o">=</span>2018-01-19T21:37:03Z
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
 
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/{orgId}/search/events?from=2018-01-19T02%3A59%3A13Z?to=2018-01-19T02%3A59%3A13Z'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/{orgId}/search/events?from=2018-01-19T21:37:03Z?to=2018-01-19T21:37:03Z'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span>
 
@@ -6235,7 +6213,7 @@ curl -X POST https://api.moesif.com/v1/<span class="o">{</span>orgId<span class=
 
 
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/{orgId}/search/events'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
-  <span class="s">'from'</span><span class="p">:</span> <span class="s">'2018-01-19T02:59:13Z'</span><span class="p">,</span>  <span class="s">'to'</span><span class="p">:</span> <span class="s">'2018-01-19T02:59:13Z'</span>
+  <span class="s">'from'</span><span class="p">:</span> <span class="s">'2018-01-19T21:37:03Z'</span><span class="p">,</span>  <span class="s">'to'</span><span class="p">:</span> <span class="s">'2018-01-19T21:37:03Z'</span>
 <span class="p">)</span>
 
 
@@ -6256,7 +6234,7 @@ curl -X POST https://api.moesif.com/v1/<span class="o">{</span>orgId<span class=
 <span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 
 
-</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/{orgId}/search/events?from=2018-01-19T02%3A59%3A13Z?to=2018-01-19T02%3A59%3A13Z"</span><span class="o">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/{orgId}/search/events?from=2018-01-19T21:37:03Z?to=2018-01-19T21:37:03Z"</span><span class="o">);</span>
 <span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
 <span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"POST"</span><span class="o">);</span>
 <span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
@@ -6353,13 +6331,13 @@ managementAPIToken ( Scopes: read:events )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X GET https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/events/<span class="o">{</span>id<span class="o">}</span>?event_time<span class="o">=</span>2018-01-19T02%3A59%3A13Z
+curl -X GET -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/events/<span class="o">{</span>id<span class="o">}</span>?event_time<span class="o">=</span>2018-01-19T21:37:03Z
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
 
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-01-19T02%3A59%3A13Z'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-01-19T21:37:03Z'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span>
 
@@ -6376,7 +6354,7 @@ curl -X GET https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="
 
 
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/{orgId}/events/{id}'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
-  <span class="s">'event_time'</span><span class="p">:</span> <span class="s">'2018-01-19T02:59:13Z'</span>
+  <span class="s">'event_time'</span><span class="p">:</span> <span class="s">'2018-01-19T21:37:03Z'</span>
 <span class="p">)</span>
 
 
@@ -6396,7 +6374,7 @@ curl -X GET https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="
 <span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 
 
-</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-01-19T02%3A59%3A13Z"</span><span class="o">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-01-19T21:37:03Z"</span><span class="o">);</span>
 <span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
 <span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"GET"</span><span class="o">);</span>
 <span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
@@ -6481,7 +6459,7 @@ managementAPIToken ( Scopes: read:events )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/count/users
+curl -X POST -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/count/users
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -6607,7 +6585,7 @@ managementAPIToken ( Scopes: read:users )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/users
+curl -X POST -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/users
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -6733,7 +6711,7 @@ managementAPIToken ( Scopes: create:users update:users )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/search/users
+curl -X POST -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/search/users
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -6859,7 +6837,7 @@ managementAPIToken ( Scopes: read:users )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/users/batch
+curl -X POST -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/users/batch
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -6985,7 +6963,7 @@ managementAPIToken ( Scopes: create:users update:users )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X GET https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/users/<span class="o">{</span>id<span class="o">}</span>
+curl -X GET -H <span class="s2">"Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN"</span> https://api.moesif.com/v1/<span class="o">{</span>orgId<span class="o">}</span>/users/<span class="o">{</span>id<span class="o">}</span>
 
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
@@ -7127,7 +7105,7 @@ managementAPIToken ( Scopes: read:users )
   <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
   <span class="s2">"</span><span class="s">verb"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
   <span class="s2">"</span><span class="s">route"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
-  <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T02:59:13Z"</span><span class="pi">,</span>
+  <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T21:37:03Z"</span><span class="pi">,</span>
   <span class="s2">"</span><span class="s">headers"</span><span class="pi">:</span> <span class="pi">{},</span>
   <span class="s2">"</span><span class="s">instance_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span>
 <span class="pi">}</span>
@@ -7217,7 +7195,7 @@ managementAPIToken ( Scopes: read:users )
   <span class="s2">"</span><span class="s">name"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
   <span class="s2">"</span><span class="s">service_level"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
   <span class="s2">"</span><span class="s">id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
-  <span class="s2">"</span><span class="s">created"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T02:59:13Z"</span><span class="pi">,</span>
+  <span class="s2">"</span><span class="s">created"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T21:37:03Z"</span><span class="pi">,</span>
   <span class="s2">"</span><span class="s">apps"</span><span class="pi">:</span> <span class="pi">[</span>
     <span class="pi">{</span>
       <span class="s2">"</span><span class="s">id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
@@ -7392,7 +7370,7 @@ managementAPIToken ( Scopes: read:users )
   <span class="s2">"</span><span class="s">state"</span><span class="pi">:</span> <span class="nv">0</span><span class="pi">,</span>
   <span class="s2">"</span><span class="s">host"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
   <span class="s2">"</span><span class="s">session_count"</span><span class="pi">:</span> <span class="nv">0</span><span class="pi">,</span>
-  <span class="s2">"</span><span class="s">last_modified"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T02:59:13Z"</span><span class="pi">,</span>
+  <span class="s2">"</span><span class="s">last_modified"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T21:37:03Z"</span><span class="pi">,</span>
   <span class="s2">"</span><span class="s">api_version"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
   <span class="s2">"</span><span class="s">id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
   <span class="s2">"</span><span class="s">user_count"</span><span class="pi">:</span> <span class="nv">0</span><span class="pi">,</span>
@@ -7491,7 +7469,7 @@ managementAPIToken ( Scopes: read:users )
   <span class="pi">},</span>
   <span class="s2">"</span><span class="s">verb"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
   <span class="s2">"</span><span class="s">route"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
-  <span class="s2">"</span><span class="s">created"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T02:59:13Z"</span>
+  <span class="s2">"</span><span class="s">created"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T21:37:03Z"</span>
 <span class="pi">}</span>
 </code></pre>
 <h4 id="properties">Properties</h4>
@@ -7583,7 +7561,7 @@ managementAPIToken ( Scopes: read:users )
     <span class="s2">"</span><span class="s">state"</span><span class="pi">:</span> <span class="nv">0</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">host"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">session_count"</span><span class="pi">:</span> <span class="nv">0</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">last_modified"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T02:59:13Z"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">last_modified"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T21:37:03Z"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">api_version"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">user_count"</span><span class="pi">:</span> <span class="nv">0</span><span class="pi">,</span>
@@ -7594,7 +7572,7 @@ managementAPIToken ( Scopes: read:users )
   <span class="pi">},</span>
   <span class="s2">"</span><span class="s">id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
   <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
-  <span class="s2">"</span><span class="s">created"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T02:59:13Z"</span>
+  <span class="s2">"</span><span class="s">created"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T21:37:03Z"</span>
 <span class="pi">}</span>
 </code></pre>
 <h4 id="properties">Properties</h4>
@@ -7707,7 +7685,7 @@ managementAPIToken ( Scopes: read:users )
   <span class="pi">},</span>
   <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
   <span class="s2">"</span><span class="s">status"</span><span class="pi">:</span> <span class="nv">0</span><span class="pi">,</span>
-  <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T02:59:13Z"</span><span class="pi">,</span>
+  <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T21:37:03Z"</span><span class="pi">,</span>
   <span class="s2">"</span><span class="s">headers"</span><span class="pi">:</span> <span class="pi">{},</span>
   <span class="s2">"</span><span class="s">instance_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span>
 <span class="pi">}</span>
@@ -7884,7 +7862,7 @@ managementAPIToken ( Scopes: read:users )
     <span class="pi">},</span>
     <span class="s2">"</span><span class="s">verb"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">route"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">created"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T02:59:13Z"</span>
+    <span class="s2">"</span><span class="s">created"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T21:37:03Z"</span>
   <span class="pi">},</span>
   <span class="s2">"</span><span class="s">to_vertex"</span><span class="pi">:</span> <span class="pi">{</span>
     <span class="s2">"</span><span class="s">signature_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
@@ -7894,7 +7872,7 @@ managementAPIToken ( Scopes: read:users )
     <span class="pi">},</span>
     <span class="s2">"</span><span class="s">verb"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">route"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">created"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T02:59:13Z"</span>
+    <span class="s2">"</span><span class="s">created"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T21:37:03Z"</span>
   <span class="pi">},</span>
   <span class="s2">"</span><span class="s">value"</span><span class="pi">:</span> <span class="nv">0</span><span class="pi">,</span>
   <span class="s2">"</span><span class="s">time_span_ms"</span><span class="pi">:</span> <span class="nv">0</span>
@@ -8040,7 +8018,7 @@ managementAPIToken ( Scopes: read:users )
     <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">verb"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">route"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T02:59:13Z"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T21:37:03Z"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">headers"</span><span class="pi">:</span> <span class="pi">{},</span>
     <span class="s2">"</span><span class="s">instance_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span>
   <span class="pi">},</span>
@@ -8062,7 +8040,7 @@ managementAPIToken ( Scopes: read:users )
     <span class="pi">},</span>
     <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">status"</span><span class="pi">:</span> <span class="nv">0</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T02:59:13Z"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T21:37:03Z"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">headers"</span><span class="pi">:</span> <span class="pi">{},</span>
     <span class="s2">"</span><span class="s">instance_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span>
   <span class="pi">},</span>
@@ -8232,7 +8210,7 @@ managementAPIToken ( Scopes: read:users )
         <span class="pi">},</span>
         <span class="s2">"</span><span class="s">verb"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
         <span class="s2">"</span><span class="s">route"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
-        <span class="s2">"</span><span class="s">created"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T02:59:13Z"</span>
+        <span class="s2">"</span><span class="s">created"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T21:37:03Z"</span>
       <span class="pi">},</span>
       <span class="s2">"</span><span class="s">to_vertex"</span><span class="pi">:</span> <span class="pi">{</span>
         <span class="s2">"</span><span class="s">signature_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
@@ -8242,7 +8220,7 @@ managementAPIToken ( Scopes: read:users )
         <span class="pi">},</span>
         <span class="s2">"</span><span class="s">verb"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
         <span class="s2">"</span><span class="s">route"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
-        <span class="s2">"</span><span class="s">created"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T02:59:13Z"</span>
+        <span class="s2">"</span><span class="s">created"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T21:37:03Z"</span>
       <span class="pi">},</span>
       <span class="s2">"</span><span class="s">value"</span><span class="pi">:</span> <span class="nv">0</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">time_span_ms"</span><span class="pi">:</span> <span class="nv">0</span>
@@ -8252,7 +8230,7 @@ managementAPIToken ( Scopes: read:users )
     <span class="s2">"</span><span class="s">state"</span><span class="pi">:</span> <span class="nv">0</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">host"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">session_count"</span><span class="pi">:</span> <span class="nv">0</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">last_modified"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T02:59:13Z"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">last_modified"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-19T21:37:03Z"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">api_version"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">user_count"</span><span class="pi">:</span> <span class="nv">0</span><span class="pi">,</span>
