@@ -1,4 +1,3 @@
-
 <h1 id="Management-API">Management API v1</h1>
 
 
@@ -8,11 +7,10 @@
 Management API to query data in Moesif. You can use the management API to export data for custom reports or to build custom dashboards.
 
 
-Base URLs:
+Base URL:
 
 
 * <a href="https://api.moesif.com/v1">https://api.moesif.com/v1</a>
-
 
 
 <a href="https://www.moesif.com/terms">Terms of service</a>
@@ -56,12 +54,11 @@ Base URLs:
 <a id="opIdgetOrganizations"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/organizations
+curl -X GET https://api.moesif.com/v1/organizations \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -71,11 +68,20 @@ curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moes
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/organizations',
 {
-  method: 'GET'
+  method: 'GET',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -89,12 +95,16 @@ fetch('https://api.moesif.com/v1/organizations',
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.get('https://api.moesif.com/v1/organizations', params={
 
 
-)
+}, headers = headers)
 
 
 print r.json()
@@ -108,9 +118,15 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.get 'https://api.moesif.com/v1/organizations',
   params: {
-  }
+  }, headers: headers
 
 
 p JSON.parse(result)
@@ -144,12 +160,50 @@ System.out.println(response.toString());
 Gets a list of organization for authenticated in user
 
 
+> Example response
+
+
+```yaml
+[
+  {
+    "name": "string",
+    "service_level": "string",
+    "id": "string",
+    "created": "2018-01-20T03:03:53Z",
+    "apps": [
+      {
+        "id": "string",
+        "name": "string"
+      }
+    ]
+  }
+]
+```
+
+
 <h4 id="getOrganizations-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+
+<h4 id="getOrganizations-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
+|» name|string|true|No description|
+|» service_level|string|true|No description|
+|» id|string|false|No description|
+|» created|string(date-time)|true|No description|
+|» apps|[[AppResponse](#appresponse)]|true|No description|
+|»» id|string|false|No description|
+|»» name|string|true|No description|
 
 
 <aside class="warning">
@@ -167,12 +221,10 @@ managementAPIToken ( Scopes: read:organizations )
 <a id="opIddeleteHistoryEvent"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X DELETE -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/replay/{orgId}/history_events/{id}?app_id=string
+curl -X DELETE https://api.moesif.com/v1/replay/{orgId}/history_events/{id}?app_id=string \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -182,11 +234,19 @@ curl -X DELETE -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.m
 const request = require('node-fetch');
 
 
+const headers = {
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/replay/{orgId}/history_events/{id}?app_id=string',
 {
-  method: 'DELETE'
+  method: 'DELETE',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -200,11 +260,14 @@ fetch('https://api.moesif.com/v1/replay/{orgId}/history_events/{id}?app_id=strin
 
 ```python
 import requests
+headers = {
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.delete('https://api.moesif.com/v1/replay/{orgId}/history_events/{id}', params={
   'app_id': 'string'
-)
+}, headers = headers)
 
 
 print r.json()
@@ -218,10 +281,15 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.delete 'https://api.moesif.com/v1/replay/{orgId}/history_events/{id}',
   params: {
   'app_id' => 'string'
-}
+}, headers: headers
 
 
 p JSON.parse(result)
@@ -282,12 +350,11 @@ managementAPIToken ( Scopes: delete:history_events )
 <a id="opIdgetWorkspace"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/replay/{orgId}/workspaces/{id}?app_id=string
+curl -X GET https://api.moesif.com/v1/replay/{orgId}/workspaces/{id}?app_id=string \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -297,11 +364,20 @@ curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moes
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/replay/{orgId}/workspaces/{id}?app_id=string',
 {
-  method: 'GET'
+  method: 'GET',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -315,11 +391,15 @@ fetch('https://api.moesif.com/v1/replay/{orgId}/workspaces/{id}?app_id=string',
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.get('https://api.moesif.com/v1/replay/{orgId}/workspaces/{id}', params={
   'app_id': 'string'
-)
+}, headers = headers)
 
 
 print r.json()
@@ -333,10 +413,16 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.get 'https://api.moesif.com/v1/replay/{orgId}/workspaces/{id}',
   params: {
   'app_id' => 'string'
-}
+}, headers: headers
 
 
 p JSON.parse(result)
@@ -377,12 +463,25 @@ System.out.println(response.toString());
 |id|path|string|true|No description|
 
 
+> Example response
+
+
 <h4 id="getWorkspace-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+
+<h4 id="getWorkspace-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
 
 
 <aside class="warning">
@@ -397,12 +496,10 @@ managementAPIToken ( Scopes: read:workspaces )
 <a id="opIddeleteWorkspace"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X DELETE -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/replay/{orgId}/workspaces/{id}?app_id=string
+curl -X DELETE https://api.moesif.com/v1/replay/{orgId}/workspaces/{id}?app_id=string \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -412,11 +509,19 @@ curl -X DELETE -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.m
 const request = require('node-fetch');
 
 
+const headers = {
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/replay/{orgId}/workspaces/{id}?app_id=string',
 {
-  method: 'DELETE'
+  method: 'DELETE',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -430,11 +535,14 @@ fetch('https://api.moesif.com/v1/replay/{orgId}/workspaces/{id}?app_id=string',
 
 ```python
 import requests
+headers = {
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.delete('https://api.moesif.com/v1/replay/{orgId}/workspaces/{id}', params={
   'app_id': 'string'
-)
+}, headers = headers)
 
 
 print r.json()
@@ -448,10 +556,15 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.delete 'https://api.moesif.com/v1/replay/{orgId}/workspaces/{id}',
   params: {
   'app_id' => 'string'
-}
+}, headers: headers
 
 
 p JSON.parse(result)
@@ -512,12 +625,11 @@ managementAPIToken ( Scopes: delete:workspaces )
 <a id="opIdgetWorkspaceToken"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/replay/workspaces/access_token
+curl -X GET https://api.moesif.com/v1/replay/workspaces/access_token \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -527,11 +639,20 @@ curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moes
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/replay/workspaces/access_token',
 {
-  method: 'GET'
+  method: 'GET',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -545,12 +666,16 @@ fetch('https://api.moesif.com/v1/replay/workspaces/access_token',
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.get('https://api.moesif.com/v1/replay/workspaces/access_token', params={
 
 
-)
+}, headers = headers)
 
 
 print r.json()
@@ -564,9 +689,15 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.get 'https://api.moesif.com/v1/replay/workspaces/access_token',
   params: {
-  }
+  }, headers: headers
 
 
 p JSON.parse(result)
@@ -600,12 +731,35 @@ System.out.println(response.toString());
 Get a new Workspace Access Token
 
 
+> Example response
+
+
+```yaml
+{
+  "_id": "string",
+  "token": "string"
+}
+```
+
+
 <h4 id="getWorkspaceToken-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[Signeken](#signeken)|
+
+
+<h4 id="getWorkspaceToken-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
+|» _id|string|true|No description|
+|» token|string|true|No description|
 
 
 <aside class="warning">
@@ -620,12 +774,11 @@ managementAPIToken ( Scopes: read:workspaces )
 <a id="opIdaddHistoryEvent"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X POST -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/replay/{orgId}/history_events?app_id=string
+curl -X POST https://api.moesif.com/v1/replay/{orgId}/history_events?app_id=string \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -635,11 +788,20 @@ curl -X POST -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moe
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/replay/{orgId}/history_events?app_id=string',
 {
-  method: 'POST'
+  method: 'POST',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -653,11 +815,15 @@ fetch('https://api.moesif.com/v1/replay/{orgId}/history_events?app_id=string',
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.post('https://api.moesif.com/v1/replay/{orgId}/history_events', params={
   'app_id': 'string'
-)
+}, headers = headers)
 
 
 print r.json()
@@ -671,10 +837,16 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.post 'https://api.moesif.com/v1/replay/{orgId}/history_events',
   params: {
   'app_id' => 'string'
-}
+}, headers: headers
 
 
 p JSON.parse(result)
@@ -712,7 +884,10 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|true|No description|
-|body|body|undefined|false|No description|
+|body|body|_See Below_|false|No description|
+
+
+> Example response
 
 
 <h4 id="addHistoryEvent-responses">Responses</h4>
@@ -720,7 +895,17 @@ System.out.println(response.toString());
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|None|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|Inline|
+
+
+<h4 id="addHistoryEvent-responseschema">Response Schema</h4>
+
+
+Status Code **201**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
 
 
 <aside class="warning">
@@ -735,12 +920,11 @@ managementAPIToken ( Scopes: create:history_events )
 <a id="opIdcreateWorkspace"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X POST -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/replay/{orgId}/workspaces?app_id=string
+curl -X POST https://api.moesif.com/v1/replay/{orgId}/workspaces?app_id=string \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -750,11 +934,20 @@ curl -X POST -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moe
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/replay/{orgId}/workspaces?app_id=string',
 {
-  method: 'POST'
+  method: 'POST',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -768,11 +961,15 @@ fetch('https://api.moesif.com/v1/replay/{orgId}/workspaces?app_id=string',
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.post('https://api.moesif.com/v1/replay/{orgId}/workspaces', params={
   'app_id': 'string'
-)
+}, headers = headers)
 
 
 print r.json()
@@ -786,10 +983,16 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.post 'https://api.moesif.com/v1/replay/{orgId}/workspaces',
   params: {
   'app_id' => 'string'
-}
+}, headers: headers
 
 
 p JSON.parse(result)
@@ -829,12 +1032,25 @@ System.out.println(response.toString());
 |app_id|query|string|true|No description|
 
 
+> Example response
+
+
 <h4 id="createWorkspace-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|None|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|Inline|
+
+
+<h4 id="createWorkspace-responseschema">Response Schema</h4>
+
+
+Status Code **201**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
 
 
 <aside class="warning">
@@ -849,12 +1065,11 @@ managementAPIToken ( Scopes: create:workspaces )
 <a id="opIdgetWorkspaces"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/replay/{orgId}/workspaces?app_id=string?take=0
+curl -X GET https://api.moesif.com/v1/replay/{orgId}/workspaces?app_id=string?take=0 \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -864,11 +1079,20 @@ curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moes
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/replay/{orgId}/workspaces?app_id=string?take=0',
 {
-  method: 'GET'
+  method: 'GET',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -882,11 +1106,15 @@ fetch('https://api.moesif.com/v1/replay/{orgId}/workspaces?app_id=string?take=0'
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.get('https://api.moesif.com/v1/replay/{orgId}/workspaces', params={
   'app_id': 'string',  'take': '0'
-)
+}, headers = headers)
 
 
 print r.json()
@@ -900,11 +1128,17 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.get 'https://api.moesif.com/v1/replay/{orgId}/workspaces',
   params: {
   'app_id' => 'string',
 'take' => 'integer(int32)'
-}
+}, headers: headers
 
 
 p JSON.parse(result)
@@ -946,12 +1180,30 @@ System.out.println(response.toString());
 |before_id|query|string|false|No description|
 
 
+> Example response
+
+
+```yaml
+[]
+```
+
+
 <h4 id="getWorkspaces-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+
+<h4 id="getWorkspaces-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
 
 
 <aside class="warning">
@@ -966,12 +1218,11 @@ managementAPIToken ( Scopes: read:workspaces )
 <a id="opIdgetHistoryEvents"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/replay/{orgId}/workspaces/{id}/history_events?app_id=string?take=0
+curl -X GET https://api.moesif.com/v1/replay/{orgId}/workspaces/{id}/history_events?app_id=string?take=0 \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -981,11 +1232,20 @@ curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moes
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/replay/{orgId}/workspaces/{id}/history_events?app_id=string?take=0',
 {
-  method: 'GET'
+  method: 'GET',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -999,11 +1259,15 @@ fetch('https://api.moesif.com/v1/replay/{orgId}/workspaces/{id}/history_events?a
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.get('https://api.moesif.com/v1/replay/{orgId}/workspaces/{id}/history_events', params={
   'app_id': 'string',  'take': '0'
-)
+}, headers = headers)
 
 
 print r.json()
@@ -1017,11 +1281,17 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.get 'https://api.moesif.com/v1/replay/{orgId}/workspaces/{id}/history_events',
   params: {
   'app_id' => 'string',
 'take' => 'integer(int32)'
-}
+}, headers: headers
 
 
 p JSON.parse(result)
@@ -1064,12 +1334,30 @@ System.out.println(response.toString());
 |before_id|query|string|false|No description|
 
 
+> Example response
+
+
+```yaml
+[]
+```
+
+
 <h4 id="getHistoryEvents-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+
+<h4 id="getHistoryEvents-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
 
 
 <aside class="warning">
@@ -1084,12 +1372,11 @@ managementAPIToken ( Scopes: read:history_events )
 <a id="opIdupdateWorkspaceSequence"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X PUT -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/replay/{orgId}/workspaces/{id}/sequence?app_id=string
+curl -X PUT https://api.moesif.com/v1/replay/{orgId}/workspaces/{id}/sequence?app_id=string \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -1099,11 +1386,20 @@ curl -X PUT -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moes
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/replay/{orgId}/workspaces/{id}/sequence?app_id=string',
 {
-  method: 'PUT'
+  method: 'PUT',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -1117,11 +1413,15 @@ fetch('https://api.moesif.com/v1/replay/{orgId}/workspaces/{id}/sequence?app_id=
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.put('https://api.moesif.com/v1/replay/{orgId}/workspaces/{id}/sequence', params={
   'app_id': 'string'
-)
+}, headers = headers)
 
 
 print r.json()
@@ -1135,10 +1435,16 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.put 'https://api.moesif.com/v1/replay/{orgId}/workspaces/{id}/sequence',
   params: {
   'app_id' => 'string'
-}
+}, headers: headers
 
 
 p JSON.parse(result)
@@ -1177,7 +1483,15 @@ System.out.println(response.toString());
 |orgId|path|string|true|No description|
 |app_id|query|string|true|No description|
 |id|path|string|true|No description|
-|body|body|undefined|false|No description|
+|body|body|_See Below_|false|No description|
+
+
+> Example response
+
+
+```yaml
+[]
+```
 
 
 <h4 id="updateWorkspaceSequence-responses">Responses</h4>
@@ -1185,7 +1499,17 @@ System.out.println(response.toString());
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+
+<h4 id="updateWorkspaceSequence-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
 
 
 <aside class="warning">
@@ -1203,12 +1527,11 @@ managementAPIToken ( Scopes: update:workspaces )
 <a id="opIdgetTraces"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/{orgId}/traces?session_token=string?triage_bucket.state=0?triage_bucket.verb=string?triage_bucket.status=0?triage_bucket.api_version=string
+curl -X GET https://api.moesif.com/v1/{orgId}/traces?session_token=string?triage_bucket.state=0?triage_bucket.verb=string?triage_bucket.status=0?triage_bucket.api_version=string \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -1218,11 +1541,20 @@ curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moes
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/{orgId}/traces?session_token=string?triage_bucket.state=0?triage_bucket.verb=string?triage_bucket.status=0?triage_bucket.api_version=string',
 {
-  method: 'GET'
+  method: 'GET',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -1236,6 +1568,10 @@ fetch('https://api.moesif.com/v1/{orgId}/traces?session_token=string?triage_buck
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.get('https://api.moesif.com/v1/{orgId}/traces', params={
@@ -1250,7 +1586,7 @@ r = requests.get('https://api.moesif.com/v1/{orgId}/traces', params={
 ],  'triage_bucket.api_version': [
   "string"
 ]
-)
+}, headers = headers)
 
 
 print r.json()
@@ -1264,6 +1600,12 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.get 'https://api.moesif.com/v1/{orgId}/traces',
   params: {
   'session_token' => 'array[string]',
@@ -1271,7 +1613,7 @@ result = RestClient.get 'https://api.moesif.com/v1/{orgId}/traces',
 'triage_bucket.verb' => 'array[string]',
 'triage_bucket.status' => 'array[integer]',
 'triage_bucket.api_version' => 'array[string]'
-}
+}, headers: headers
 
 
 p JSON.parse(result)
@@ -1324,12 +1666,66 @@ System.out.println(response.toString());
 |sort|query|string|false|No description|
 
 
+> Example response
+
+
+```yaml
+[
+  {
+    "user_id": "string",
+    "triage_bucket": {
+      "state": 0,
+      "host": "string",
+      "session_count": 0,
+      "last_modified": "2018-01-20T03:03:53Z",
+      "api_version": "string",
+      "id": "string",
+      "user_count": 0,
+      "status": 0,
+      "verb": "string",
+      "event_count": 0,
+      "route": "string"
+    },
+    "id": "string",
+    "session_token": "string",
+    "created": "2018-01-20T03:03:53Z"
+  }
+]
+```
+
+
 <h4 id="getTraces-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+
+<h4 id="getTraces-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
+|» user_id|string|false|No description|
+|» triage_bucket|object|false|No description|
+|»» state|integer(int32)|true|No description|
+|»» host|string|true|No description|
+|»» session_count|integer(int64)|false|No description|
+|»» last_modified|string(date-time)|true|No description|
+|»» api_version|string|false|No description|
+|»» id|string|true|No description|
+|»» user_count|integer(int64)|false|No description|
+|»» status|integer(int32)|true|No description|
+|»» verb|string|true|No description|
+|»» event_count|integer(int64)|false|No description|
+|»» route|string|true|No description|
+|» id|string|true|No description|
+|» session_token|string|false|No description|
+|» created|string(date-time)|true|No description|
 
 
 <aside class="warning">
@@ -1344,12 +1740,11 @@ managementAPIToken ( Scopes: read:traces )
 <a id="opIdgetTrace"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/{orgId}/traces/{id}
+curl -X GET https://api.moesif.com/v1/{orgId}/traces/{id} \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -1359,11 +1754,20 @@ curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moes
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/{orgId}/traces/{id}',
 {
-  method: 'GET'
+  method: 'GET',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -1377,12 +1781,16 @@ fetch('https://api.moesif.com/v1/{orgId}/traces/{id}',
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.get('https://api.moesif.com/v1/{orgId}/traces/{id}', params={
 
 
-)
+}, headers = headers)
 
 
 print r.json()
@@ -1396,9 +1804,15 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.get 'https://api.moesif.com/v1/{orgId}/traces/{id}',
   params: {
-  }
+  }, headers: headers
 
 
 p JSON.parse(result)
@@ -1439,12 +1853,64 @@ System.out.println(response.toString());
 |id|path|string|true|No description|
 
 
+> Example response
+
+
+```yaml
+{
+  "user_id": "string",
+  "triage_bucket": {
+    "state": 0,
+    "host": "string",
+    "session_count": 0,
+    "last_modified": "2018-01-20T03:03:53Z",
+    "api_version": "string",
+    "id": "string",
+    "user_count": 0,
+    "status": 0,
+    "verb": "string",
+    "event_count": 0,
+    "route": "string"
+  },
+  "id": "string",
+  "session_token": "string",
+  "created": "2018-01-20T03:03:53Z"
+}
+```
+
+
 <h4 id="getTrace-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[TraceResponse](#traceresponse)|
+
+
+<h4 id="getTrace-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
+|» user_id|string|false|No description|
+|» triage_bucket|object|false|No description|
+|»» state|integer(int32)|true|No description|
+|»» host|string|true|No description|
+|»» session_count|integer(int64)|false|No description|
+|»» last_modified|string(date-time)|true|No description|
+|»» api_version|string|false|No description|
+|»» id|string|true|No description|
+|»» user_count|integer(int64)|false|No description|
+|»» status|integer(int32)|true|No description|
+|»» verb|string|true|No description|
+|»» event_count|integer(int64)|false|No description|
+|»» route|string|true|No description|
+|» id|string|true|No description|
+|» session_token|string|false|No description|
+|» created|string(date-time)|true|No description|
 
 
 <aside class="warning">
@@ -1459,12 +1925,11 @@ managementAPIToken ( Scopes: read:traces )
 <a id="opIdgetTraceEvents"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/{orgId}/traces/{id}/events?take=0
+curl -X GET https://api.moesif.com/v1/{orgId}/traces/{id}/events?take=0 \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -1474,11 +1939,20 @@ curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moes
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/{orgId}/traces/{id}/events?take=0',
 {
-  method: 'GET'
+  method: 'GET',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -1492,11 +1966,15 @@ fetch('https://api.moesif.com/v1/{orgId}/traces/{id}/events?take=0',
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.get('https://api.moesif.com/v1/{orgId}/traces/{id}/events', params={
   'take': '0'
-)
+}, headers = headers)
 
 
 print r.json()
@@ -1510,10 +1988,16 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.get 'https://api.moesif.com/v1/{orgId}/traces/{id}/events',
   params: {
   'take' => 'integer(int32)'
-}
+}, headers: headers
 
 
 p JSON.parse(result)
@@ -1560,12 +2044,131 @@ Get a list of events belonging to a single trace
 |before_id|query|string|false|No description|
 
 
+> Example response
+
+
+```yaml
+[
+  {
+    "request": {
+      "body": {},
+      "uri": "string",
+      "user_agent": {
+        "name": "string",
+        "os": "string",
+        "os_name": "string",
+        "major": "string",
+        "device": "string",
+        "minor": "string"
+      },
+      "api_version": "string",
+      "geo_ip": {
+        "region_name": "string",
+        "latitude": 0,
+        "timezone": "string",
+        "longitude": 0,
+        "real_region_name": "string",
+        "postal_code": "string",
+        "city_name": "string",
+        "country_code2": "string",
+        "country_name": "string"
+      },
+      "ip_address": "string",
+      "verb": "string",
+      "route": "string",
+      "time": "2018-01-20T03:03:53Z",
+      "headers": {},
+      "instance_id": "string"
+    },
+    "trace_id": "string",
+    "triage_bucket_id": "string",
+    "user_id": "string",
+    "response": {
+      "body": {},
+      "geo_ip": {
+        "region_name": "string",
+        "latitude": 0,
+        "timezone": "string",
+        "longitude": 0,
+        "real_region_name": "string",
+        "postal_code": "string",
+        "city_name": "string",
+        "country_code2": "string",
+        "country_name": "string"
+      },
+      "ip_address": "string",
+      "status": 0,
+      "time": "2018-01-20T03:03:53Z",
+      "headers": {},
+      "instance_id": "string"
+    },
+    "id": "string",
+    "session_token": "string",
+    "metadata": {},
+    "user": {}
+  }
+]
+```
+
+
 <h4 id="getTraceEvents-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+
+<h4 id="getTraceEvents-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
+|» request|object|true|No description|
+|»» body|object|false|No description|
+|»» uri|string|true|No description|
+|»» user_agent|object|false|No description|
+|»»» name|string|false|No description|
+|»»» os|string|false|No description|
+|»»» os_name|string|false|No description|
+|»»» major|string|false|No description|
+|»»» device|string|false|No description|
+|»»» minor|string|false|No description|
+|»» api_version|string|false|No description|
+|»» geo_ip|object|false|No description|
+|»»» region_name|string|false|No description|
+|»»» latitude|number(double)|false|No description|
+|»»» timezone|string|false|No description|
+|»»» longitude|number(double)|false|No description|
+|»»» real_region_name|string|false|No description|
+|»»» postal_code|string|false|No description|
+|»»» city_name|string|false|No description|
+|»»» country_code2|string|false|No description|
+|»»» country_name|string|false|No description|
+|»» ip_address|string|true|No description|
+|»» verb|string|true|No description|
+|»» route|string|true|No description|
+|»» time|string(date-time)|true|No description|
+|»» headers|object|true|No description|
+|»» instance_id|string|false|No description|
+|» trace_id|string|false|No description|
+|» triage_bucket_id|string|false|No description|
+|» user_id|string|false|No description|
+|» response|object|true|No description|
+|»» body|object|false|No description|
+|»» geo_ip|object|false|No description|
+|»» ip_address|string|false|No description|
+|»» status|integer(int32)|true|No description|
+|»» time|string(date-time)|true|No description|
+|»» headers|object|true|No description|
+|»» instance_id|string|false|No description|
+|» id|string|true|No description|
+|» session_token|string|false|No description|
+|» metadata|object|false|No description|
+|» user|object|false|No description|
 
 
 <aside class="warning">
@@ -1583,12 +2186,11 @@ managementAPIToken ( Scopes: read:traces )
 <a id="opIdgetDashMetrics"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-01-19T21:37:03Z
+curl -X GET https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-01-20T03:03:53Z \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -1598,11 +2200,20 @@ curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moes
 const request = require('node-fetch');
 
 
-fetch('https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-01-19T21:37:03Z',
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
+fetch('https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-01-20T03:03:53Z',
 {
-  method: 'GET'
+  method: 'GET',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -1616,11 +2227,15 @@ fetch('https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-01-19T21:37:03Z'
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.get('https://api.moesif.com/v1/{orgId}/dash/metrics', params={
-  'from': '2018-01-19T21:37:03Z'
-)
+  'from': '2018-01-20T03:03:53Z'
+}, headers = headers)
 
 
 print r.json()
@@ -1634,10 +2249,16 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.get 'https://api.moesif.com/v1/{orgId}/dash/metrics',
   params: {
   'from' => 'string(date-time)'
-}
+}, headers: headers
 
 
 p JSON.parse(result)
@@ -1647,7 +2268,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-01-19T21:37:03Z");
+URL obj = new URL("https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-01-20T03:03:53Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -1683,12 +2304,47 @@ Gets dashboard overview metrics
 |names|query|array[string]|false|No description|
 
 
+> Example response
+
+
+```yaml
+{
+  "average_duration_ms_ts": null,
+  "error_count": 0,
+  "error_count_ts": null,
+  "user_count_ts": null,
+  "user_count": 0,
+  "error_user_count": 0,
+  "average_duration_ms": 0,
+  "error_user_count_ts": null
+}
+```
+
+
 <h4 id="getDashMetrics-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[DashMetrics](#dashmetrics)|
+
+
+<h4 id="getDashMetrics-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
+|» average_duration_ms_ts|seq[(datetime, long)]|true|No description|
+|» error_count|integer(int64)|true|No description|
+|» error_count_ts|seq[(datetime, long)]|true|No description|
+|» user_count_ts|seq[(datetime, long)]|true|No description|
+|» user_count|integer(int64)|true|No description|
+|» error_user_count|integer(int64)|true|No description|
+|» average_duration_ms|integer(int64)|true|No description|
+|» error_user_count_ts|seq[(datetime, long)]|true|No description|
 
 
 <aside class="warning">
@@ -1706,12 +2362,11 @@ managementAPIToken ( Scopes: read:metrics )
 <a id="opIdgetTokenInfo"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/~/oauth/tokeninfo?scope=string
+curl -X GET https://api.moesif.com/v1/~/oauth/tokeninfo?scope=string \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -1721,11 +2376,20 @@ curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moes
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/~/oauth/tokeninfo?scope=string',
 {
-  method: 'GET'
+  method: 'GET',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -1739,11 +2403,15 @@ fetch('https://api.moesif.com/v1/~/oauth/tokeninfo?scope=string',
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.get('https://api.moesif.com/v1/~/oauth/tokeninfo', params={
   'scope': 'string'
-)
+}, headers = headers)
 
 
 print r.json()
@@ -1757,10 +2425,16 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.get 'https://api.moesif.com/v1/~/oauth/tokeninfo',
   params: {
   'scope' => 'string'
-}
+}, headers: headers
 
 
 p JSON.parse(result)
@@ -1802,12 +2476,25 @@ Get info for user's token
 |scope|query|string|true|No description|
 
 
+> Example response
+
+
 <h4 id="getTokenInfo-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+
+<h4 id="getTokenInfo-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
 
 
 <aside class="warning">
@@ -1822,12 +2509,11 @@ managementAPIToken ( Scopes: read:access_tokens )
 <a id="opIdgetAccessToken"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/{orgId}/oauth/access_tokens?target=string?scope=string
+curl -X GET https://api.moesif.com/v1/{orgId}/oauth/access_tokens?target=string?scope=string \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -1837,11 +2523,20 @@ curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moes
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/{orgId}/oauth/access_tokens?target=string?scope=string',
 {
-  method: 'GET'
+  method: 'GET',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -1855,11 +2550,15 @@ fetch('https://api.moesif.com/v1/{orgId}/oauth/access_tokens?target=string?scope
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.get('https://api.moesif.com/v1/{orgId}/oauth/access_tokens', params={
   'target': 'string',  'scope': 'string'
-)
+}, headers = headers)
 
 
 print r.json()
@@ -1873,11 +2572,17 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.get 'https://api.moesif.com/v1/{orgId}/oauth/access_tokens',
   params: {
   'target' => 'string',
 'scope' => 'string'
-}
+}, headers: headers
 
 
 p JSON.parse(result)
@@ -1923,12 +2628,33 @@ Get a new access_token using logged in user's token
 |expiration|query|string(date-time)|false|No description|
 
 
+> Example response
+
+
+```yaml
+{
+  "app_token": "string"
+}
+```
+
+
 <h4 id="getAccessToken-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[AccessToken](#accesstoken)|
+
+
+<h4 id="getAccessToken-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
+|» app_token|string|true|No description|
 
 
 <aside class="warning">
@@ -1946,12 +2672,9 @@ managementAPIToken ( Scopes: create:access_tokens )
 <a id="opIdencodeUrl"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X POST  https://api.moesif.com/v1/url_encoder
+curl -X POST https://api.moesif.com/v1/url_encoder
 
 
 ```
@@ -2039,7 +2762,25 @@ Encodes the URL to be used with Moesif Collector/Proxy Server
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|[models.UrlDTO](#schemamodels.urldto)|false|No description|
+|body|body|[Url](#url)|false|No description|
+
+
+> Example requests
+
+
+<h4 id="encodeUrl-requestschema">Request Schema</h4>
+
+
+```yaml
+{
+  "url": "string"
+}
+```
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
+|» url|string|true|No description|
 
 
 <h4 id="encodeUrl-responses">Responses</h4>
@@ -2064,12 +2805,11 @@ This operation does not require authentication
 <a id="opIdgetSignatureGraph"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?error_event.duration_ms[lte]=0?error_event.duration_ms[gte]=0?error_event.request.time[lte]=2018-01-19T21:37:03Z?error_event.request.time[gte]=2018-01-19T21:37:03Z?error_event.request.ip_address=string?error_event.request.user_agent.os=string?error_event.request.user_agent.device=string?error_event.response.ip_address=string?error_event.session_token=string?error_event.user_id=string
+curl -X GET https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?error_event.duration_ms[lte]=0?error_event.duration_ms[gte]=0?error_event.request.time[lte]=2018-01-20T03:03:53Z?error_event.request.time[gte]=2018-01-20T03:03:53Z?error_event.request.ip_address=string?error_event.request.user_agent.os=string?error_event.request.user_agent.device=string?error_event.response.ip_address=string?error_event.session_token=string?error_event.user_id=string \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -2079,11 +2819,20 @@ curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moes
 const request = require('node-fetch');
 
 
-fetch('https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?error_event.duration_ms[lte]=0?error_event.duration_ms[gte]=0?error_event.request.time[lte]=2018-01-19T21:37:03Z?error_event.request.time[gte]=2018-01-19T21:37:03Z?error_event.request.ip_address=string?error_event.request.user_agent.os=string?error_event.request.user_agent.device=string?error_event.response.ip_address=string?error_event.session_token=string?error_event.user_id=string',
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
+fetch('https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?error_event.duration_ms[lte]=0?error_event.duration_ms[gte]=0?error_event.request.time[lte]=2018-01-20T03:03:53Z?error_event.request.time[gte]=2018-01-20T03:03:53Z?error_event.request.ip_address=string?error_event.request.user_agent.os=string?error_event.request.user_agent.device=string?error_event.response.ip_address=string?error_event.session_token=string?error_event.user_id=string',
 {
-  method: 'GET'
+  method: 'GET',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -2097,6 +2846,10 @@ fetch('https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?error
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.get('https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph', params={
@@ -2105,9 +2858,9 @@ r = requests.get('https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph', 
 ],  'error_event.duration_ms[gte]': [
   0
 ],  'error_event.request.time[lte]': [
-  "2018-01-19T21:37:03Z"
+  "2018-01-20T03:03:53Z"
 ],  'error_event.request.time[gte]': [
-  "2018-01-19T21:37:03Z"
+  "2018-01-20T03:03:53Z"
 ],  'error_event.request.ip_address': [
   "string"
 ],  'error_event.request.user_agent.os': [
@@ -2121,7 +2874,7 @@ r = requests.get('https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph', 
 ],  'error_event.user_id': [
   "string"
 ]
-)
+}, headers = headers)
 
 
 print r.json()
@@ -2133,6 +2886,12 @@ print r.json()
 ```ruby
 require 'rest-client'
 require 'json'
+
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 result = RestClient.get 'https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph',
@@ -2148,7 +2907,7 @@ result = RestClient.get 'https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/g
 'error_event.response.ip_address' => 'array[string]',
 'error_event.session_token' => 'array[string]',
 'error_event.user_id' => 'array[string]'
-}
+}, headers: headers
 
 
 p JSON.parse(result)
@@ -2158,7 +2917,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?error_event.duration_ms[lte]=0?error_event.duration_ms[gte]=0?error_event.request.time[lte]=2018-01-19T21:37:03Z?error_event.request.time[gte]=2018-01-19T21:37:03Z?error_event.request.ip_address=string?error_event.request.user_agent.os=string?error_event.request.user_agent.device=string?error_event.response.ip_address=string?error_event.session_token=string?error_event.user_id=string");
+URL obj = new URL("https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?error_event.duration_ms[lte]=0?error_event.duration_ms[gte]=0?error_event.request.time[lte]=2018-01-20T03:03:53Z?error_event.request.time[gte]=2018-01-20T03:03:53Z?error_event.request.ip_address=string?error_event.request.user_agent.os=string?error_event.request.user_agent.device=string?error_event.response.ip_address=string?error_event.session_token=string?error_event.user_id=string");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -2202,12 +2961,98 @@ Get a graph of event signatures by triage bucket id
 |error_event.user_id|query|array[string]|true|No description|
 
 
+> Example response
+
+
+```yaml
+{
+  "triage_bucket_id": "string",
+  "error_signature_id": "string",
+  "edges": [
+    {
+      "from_vertex": {
+        "signature_id": "string",
+        "host": "string",
+        "response": {
+          "status_code": 0
+        },
+        "verb": "string",
+        "route": "string",
+        "created": "2018-01-20T03:03:53Z"
+      },
+      "to_vertex": {
+        "signature_id": "string",
+        "host": "string",
+        "response": {
+          "status_code": 0
+        },
+        "verb": "string",
+        "route": "string",
+        "created": "2018-01-20T03:03:53Z"
+      },
+      "value": 0,
+      "time_span_ms": 0
+    }
+  ],
+  "triage_bucket": {
+    "state": 0,
+    "host": "string",
+    "session_count": 0,
+    "last_modified": "2018-01-20T03:03:53Z",
+    "api_version": "string",
+    "id": "string",
+    "user_count": 0,
+    "status": 0,
+    "verb": "string",
+    "event_count": 0,
+    "route": "string"
+  }
+}
+```
+
+
 <h4 id="getSignatureGraph-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[SignatureGraphResponse](#signaturegraphresponse)|
+
+
+<h4 id="getSignatureGraph-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
+|» triage_bucket_id|string|true|No description|
+|» error_signature_id|string|true|No description|
+|» edges|[[SignatureEdge](#signatureedge)]|false|No description|
+|»» from_vertex|object|true|No description|
+|»»» signature_id|string|true|No description|
+|»»» host|string|false|No description|
+|»»» response|object|false|No description|
+|»»»» status_code|integer(int32)|true|No description|
+|»»» verb|string|true|No description|
+|»»» route|string|true|No description|
+|»»» created|string(date-time)|true|No description|
+|»» to_vertex|object|true|No description|
+|»» value|number(double)|true|No description|
+|»» time_span_ms|integer(int32)|true|No description|
+|» triage_bucket|object|false|No description|
+|»» state|integer(int32)|true|No description|
+|»» host|string|true|No description|
+|»» session_count|integer(int64)|false|No description|
+|»» last_modified|string(date-time)|true|No description|
+|»» api_version|string|false|No description|
+|»» id|string|true|No description|
+|»» user_count|integer(int64)|false|No description|
+|»» status|integer(int32)|true|No description|
+|»» verb|string|true|No description|
+|»» event_count|integer(int64)|false|No description|
+|»» route|string|true|No description|
 
 
 <aside class="warning">
@@ -2222,12 +3067,11 @@ managementAPIToken ( Scopes: read:triage_buckets )
 <a id="opIdgetTriageBuckets"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/{orgId}/triage_buckets?take=0?state=0?verb=string?status=0?api_version=string
+curl -X GET https://api.moesif.com/v1/{orgId}/triage_buckets?take=0?state=0?verb=string?status=0?api_version=string \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -2237,11 +3081,20 @@ curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moes
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/{orgId}/triage_buckets?take=0?state=0?verb=string?status=0?api_version=string',
 {
-  method: 'GET'
+  method: 'GET',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -2255,6 +3108,10 @@ fetch('https://api.moesif.com/v1/{orgId}/triage_buckets?take=0?state=0?verb=stri
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.get('https://api.moesif.com/v1/{orgId}/triage_buckets', params={
@@ -2267,7 +3124,7 @@ r = requests.get('https://api.moesif.com/v1/{orgId}/triage_buckets', params={
 ],  'api_version': [
   "string"
 ]
-)
+}, headers = headers)
 
 
 print r.json()
@@ -2281,6 +3138,12 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.get 'https://api.moesif.com/v1/{orgId}/triage_buckets',
   params: {
   'take' => 'integer(int32)',
@@ -2288,7 +3151,7 @@ result = RestClient.get 'https://api.moesif.com/v1/{orgId}/triage_buckets',
 'verb' => 'array[string]',
 'status' => 'array[integer]',
 'api_version' => 'array[string]'
-}
+}, headers: headers
 
 
 p JSON.parse(result)
@@ -2342,12 +3205,55 @@ Gets a list of triage buckets for authenticated in user under the given organiza
 |sort|query|string|false|No description|
 
 
+> Example response
+
+
+```yaml
+[
+  {
+    "state": 0,
+    "host": "string",
+    "session_count": 0,
+    "last_modified": "2018-01-20T03:03:53Z",
+    "api_version": "string",
+    "id": "string",
+    "user_count": 0,
+    "status": 0,
+    "verb": "string",
+    "event_count": 0,
+    "route": "string"
+  }
+]
+```
+
+
 <h4 id="getTriageBuckets-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+
+<h4 id="getTriageBuckets-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
+|» state|integer(int32)|true|No description|
+|» host|string|true|No description|
+|» session_count|integer(int64)|false|No description|
+|» last_modified|string(date-time)|true|No description|
+|» api_version|string|false|No description|
+|» id|string|true|No description|
+|» user_count|integer(int64)|false|No description|
+|» status|integer(int32)|true|No description|
+|» verb|string|true|No description|
+|» event_count|integer(int64)|false|No description|
+|» route|string|true|No description|
 
 
 <aside class="warning">
@@ -2362,12 +3268,11 @@ managementAPIToken ( Scopes: read:triage_buckets )
 <a id="opIdupdateTriageBucket"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X POST -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/{orgId}/triage_buckets/{triageBucketId}
+curl -X POST https://api.moesif.com/v1/{orgId}/triage_buckets/{triageBucketId} \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -2377,11 +3282,20 @@ curl -X POST -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moe
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/{orgId}/triage_buckets/{triageBucketId}',
 {
-  method: 'POST'
+  method: 'POST',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -2395,12 +3309,16 @@ fetch('https://api.moesif.com/v1/{orgId}/triage_buckets/{triageBucketId}',
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.post('https://api.moesif.com/v1/{orgId}/triage_buckets/{triageBucketId}', params={
 
 
-)
+}, headers = headers)
 
 
 print r.json()
@@ -2414,9 +3332,15 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.post 'https://api.moesif.com/v1/{orgId}/triage_buckets/{triageBucketId}',
   params: {
-  }
+  }, headers: headers
 
 
 p JSON.parse(result)
@@ -2458,7 +3382,27 @@ Updates a Triage Bucket (Null fields ignored)
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
 |triageBucketId|path|string|true|No description|
-|body|body|[models.TriageBucketUpdateDTO](#schemamodels.triagebucketupdatedto)|false|No description|
+|body|body|[TriageBucketUpdate](#triagebucketupdate)|false|No description|
+
+
+> Example response
+
+
+```yaml
+{
+  "state": 0,
+  "host": "string",
+  "session_count": 0,
+  "last_modified": "2018-01-20T03:03:53Z",
+  "api_version": "string",
+  "id": "string",
+  "user_count": 0,
+  "status": 0,
+  "verb": "string",
+  "event_count": 0,
+  "route": "string"
+}
+```
 
 
 <h4 id="updateTriageBucket-responses">Responses</h4>
@@ -2466,7 +3410,28 @@ Updates a Triage Bucket (Null fields ignored)
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[TriageBucketResponse](#triagebucketresponse)|
+
+
+<h4 id="updateTriageBucket-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
+|» state|integer(int32)|true|No description|
+|» host|string|true|No description|
+|» session_count|integer(int64)|false|No description|
+|» last_modified|string(date-time)|true|No description|
+|» api_version|string|false|No description|
+|» id|string|true|No description|
+|» user_count|integer(int64)|false|No description|
+|» status|integer(int32)|true|No description|
+|» verb|string|true|No description|
+|» event_count|integer(int64)|false|No description|
+|» route|string|true|No description|
 
 
 <aside class="warning">
@@ -2484,12 +3449,11 @@ managementAPIToken ( Scopes: update:triage_buckets )
 <a id="opIdgetSignatureEvents"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/{orgId}/signatures/{id}/events?take=0
+curl -X GET https://api.moesif.com/v1/{orgId}/signatures/{id}/events?take=0 \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -2499,11 +3463,20 @@ curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moes
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/{orgId}/signatures/{id}/events?take=0',
 {
-  method: 'GET'
+  method: 'GET',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -2517,11 +3490,15 @@ fetch('https://api.moesif.com/v1/{orgId}/signatures/{id}/events?take=0',
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.get('https://api.moesif.com/v1/{orgId}/signatures/{id}/events', params={
   'take': '0'
-)
+}, headers = headers)
 
 
 print r.json()
@@ -2535,10 +3512,16 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.get 'https://api.moesif.com/v1/{orgId}/signatures/{id}/events',
   params: {
   'take' => 'integer(int32)'
-}
+}, headers: headers
 
 
 p JSON.parse(result)
@@ -2584,12 +3567,131 @@ Get a list of events that matched a particular signature
 |before_id|query|string|false|No description|
 
 
+> Example response
+
+
+```yaml
+[
+  {
+    "request": {
+      "body": {},
+      "uri": "string",
+      "user_agent": {
+        "name": "string",
+        "os": "string",
+        "os_name": "string",
+        "major": "string",
+        "device": "string",
+        "minor": "string"
+      },
+      "api_version": "string",
+      "geo_ip": {
+        "region_name": "string",
+        "latitude": 0,
+        "timezone": "string",
+        "longitude": 0,
+        "real_region_name": "string",
+        "postal_code": "string",
+        "city_name": "string",
+        "country_code2": "string",
+        "country_name": "string"
+      },
+      "ip_address": "string",
+      "verb": "string",
+      "route": "string",
+      "time": "2018-01-20T03:03:53Z",
+      "headers": {},
+      "instance_id": "string"
+    },
+    "trace_id": "string",
+    "triage_bucket_id": "string",
+    "user_id": "string",
+    "response": {
+      "body": {},
+      "geo_ip": {
+        "region_name": "string",
+        "latitude": 0,
+        "timezone": "string",
+        "longitude": 0,
+        "real_region_name": "string",
+        "postal_code": "string",
+        "city_name": "string",
+        "country_code2": "string",
+        "country_name": "string"
+      },
+      "ip_address": "string",
+      "status": 0,
+      "time": "2018-01-20T03:03:53Z",
+      "headers": {},
+      "instance_id": "string"
+    },
+    "id": "string",
+    "session_token": "string",
+    "metadata": {},
+    "user": {}
+  }
+]
+```
+
+
 <h4 id="getSignatureEvents-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+
+<h4 id="getSignatureEvents-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
+|» request|object|true|No description|
+|»» body|object|false|No description|
+|»» uri|string|true|No description|
+|»» user_agent|object|false|No description|
+|»»» name|string|false|No description|
+|»»» os|string|false|No description|
+|»»» os_name|string|false|No description|
+|»»» major|string|false|No description|
+|»»» device|string|false|No description|
+|»»» minor|string|false|No description|
+|»» api_version|string|false|No description|
+|»» geo_ip|object|false|No description|
+|»»» region_name|string|false|No description|
+|»»» latitude|number(double)|false|No description|
+|»»» timezone|string|false|No description|
+|»»» longitude|number(double)|false|No description|
+|»»» real_region_name|string|false|No description|
+|»»» postal_code|string|false|No description|
+|»»» city_name|string|false|No description|
+|»»» country_code2|string|false|No description|
+|»»» country_name|string|false|No description|
+|»» ip_address|string|true|No description|
+|»» verb|string|true|No description|
+|»» route|string|true|No description|
+|»» time|string(date-time)|true|No description|
+|»» headers|object|true|No description|
+|»» instance_id|string|false|No description|
+|» trace_id|string|false|No description|
+|» triage_bucket_id|string|false|No description|
+|» user_id|string|false|No description|
+|» response|object|true|No description|
+|»» body|object|false|No description|
+|»» geo_ip|object|false|No description|
+|»» ip_address|string|false|No description|
+|»» status|integer(int32)|true|No description|
+|»» time|string(date-time)|true|No description|
+|»» headers|object|true|No description|
+|»» instance_id|string|false|No description|
+|» id|string|true|No description|
+|» session_token|string|false|No description|
+|» metadata|object|false|No description|
+|» user|object|false|No description|
 
 
 <aside class="warning">
@@ -2604,12 +3706,11 @@ managementAPIToken ( Scopes: read:signatures )
 <a id="opIdgetSignatureTraces"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/{orgId}/signatures/{id}/traces?take=0
+curl -X GET https://api.moesif.com/v1/{orgId}/signatures/{id}/traces?take=0 \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -2619,11 +3720,20 @@ curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moes
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/{orgId}/signatures/{id}/traces?take=0',
 {
-  method: 'GET'
+  method: 'GET',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -2637,11 +3747,15 @@ fetch('https://api.moesif.com/v1/{orgId}/signatures/{id}/traces?take=0',
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.get('https://api.moesif.com/v1/{orgId}/signatures/{id}/traces', params={
   'take': '0'
-)
+}, headers = headers)
 
 
 print r.json()
@@ -2655,10 +3769,16 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.get 'https://api.moesif.com/v1/{orgId}/signatures/{id}/traces',
   params: {
   'take' => 'integer(int32)'
-}
+}, headers: headers
 
 
 p JSON.parse(result)
@@ -2704,12 +3824,66 @@ Get a list of traces that matched a particular signature
 |before_id|query|string|false|No description|
 
 
+> Example response
+
+
+```yaml
+[
+  {
+    "user_id": "string",
+    "triage_bucket": {
+      "state": 0,
+      "host": "string",
+      "session_count": 0,
+      "last_modified": "2018-01-20T03:03:53Z",
+      "api_version": "string",
+      "id": "string",
+      "user_count": 0,
+      "status": 0,
+      "verb": "string",
+      "event_count": 0,
+      "route": "string"
+    },
+    "id": "string",
+    "session_token": "string",
+    "created": "2018-01-20T03:03:53Z"
+  }
+]
+```
+
+
 <h4 id="getSignatureTraces-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+
+<h4 id="getSignatureTraces-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
+|» user_id|string|false|No description|
+|» triage_bucket|object|false|No description|
+|»» state|integer(int32)|true|No description|
+|»» host|string|true|No description|
+|»» session_count|integer(int64)|false|No description|
+|»» last_modified|string(date-time)|true|No description|
+|»» api_version|string|false|No description|
+|»» id|string|true|No description|
+|»» user_count|integer(int64)|false|No description|
+|»» status|integer(int32)|true|No description|
+|»» verb|string|true|No description|
+|»» event_count|integer(int64)|false|No description|
+|»» route|string|true|No description|
+|» id|string|true|No description|
+|» session_token|string|false|No description|
+|» created|string(date-time)|true|No description|
 
 
 <aside class="warning">
@@ -2727,12 +3901,10 @@ managementAPIToken ( Scopes: read:signatures )
 <a id="opIdprobe"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X GET  https://api.moesif.com/v1/health/probe
+curl -X GET https://api.moesif.com/v1/health/probe \
+  -H 'Accept: application/json'
 
 
 ```
@@ -2742,11 +3914,19 @@ curl -X GET  https://api.moesif.com/v1/health/probe
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/health/probe',
 {
-  method: 'GET'
+  method: 'GET',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -2760,12 +3940,15 @@ fetch('https://api.moesif.com/v1/health/probe',
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json'
+}
 
 
 r = requests.get('https://api.moesif.com/v1/health/probe', params={
 
 
-)
+}, headers = headers)
 
 
 print r.json()
@@ -2779,9 +3962,14 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json'
+}
+
+
 result = RestClient.get 'https://api.moesif.com/v1/health/probe',
   params: {
-  }
+  }, headers: headers
 
 
 p JSON.parse(result)
@@ -2812,12 +4000,35 @@ System.out.println(response.toString());
 `GET /health/probe`
 
 
+> Example response
+
+
+```yaml
+{
+  "status": true,
+  "region": "string"
+}
+```
+
+
 <h4 id="probe-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[Status](#status)|
+
+
+<h4 id="probe-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
+|» status|boolean|true|No description|
+|» region|string|true|No description|
 
 
 <aside class="success">
@@ -2834,12 +4045,11 @@ This operation does not require authentication
 <a id="opIdgetJiraAccount"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/issue_tracking/{orgId}/jira/account?app_id=string
+curl -X GET https://api.moesif.com/v1/issue_tracking/{orgId}/jira/account?app_id=string \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -2849,11 +4059,20 @@ curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moes
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/issue_tracking/{orgId}/jira/account?app_id=string',
 {
-  method: 'GET'
+  method: 'GET',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -2867,11 +4086,15 @@ fetch('https://api.moesif.com/v1/issue_tracking/{orgId}/jira/account?app_id=stri
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.get('https://api.moesif.com/v1/issue_tracking/{orgId}/jira/account', params={
   'app_id': 'string'
-)
+}, headers = headers)
 
 
 print r.json()
@@ -2885,10 +4108,16 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.get 'https://api.moesif.com/v1/issue_tracking/{orgId}/jira/account',
   params: {
   'app_id' => 'string'
-}
+}, headers: headers
 
 
 p JSON.parse(result)
@@ -2931,12 +4160,25 @@ Get the linked Jira Account
 |app_id|query|string|true|No description|
 
 
+> Example response
+
+
 <h4 id="getJiraAccount-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+
+<h4 id="getJiraAccount-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
 
 
 <aside class="warning">
@@ -2951,12 +4193,11 @@ managementAPIToken ( Scopes: read:jira_accounts )
 <a id="opIdupdateJiraAccount"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X POST -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/issue_tracking/{orgId}/jira/account?app_id=string
+curl -X POST https://api.moesif.com/v1/issue_tracking/{orgId}/jira/account?app_id=string \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -2966,11 +4207,20 @@ curl -X POST -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moe
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/issue_tracking/{orgId}/jira/account?app_id=string',
 {
-  method: 'POST'
+  method: 'POST',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -2984,11 +4234,15 @@ fetch('https://api.moesif.com/v1/issue_tracking/{orgId}/jira/account?app_id=stri
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.post('https://api.moesif.com/v1/issue_tracking/{orgId}/jira/account', params={
   'app_id': 'string'
-)
+}, headers = headers)
 
 
 print r.json()
@@ -3002,10 +4256,16 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.post 'https://api.moesif.com/v1/issue_tracking/{orgId}/jira/account',
   params: {
   'app_id' => 'string'
-}
+}, headers: headers
 
 
 p JSON.parse(result)
@@ -3046,7 +4306,10 @@ Create or update a linked Jira Account
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|true|No description|
-|body|body|[com.moesif.issuetracking.models.JiraAccountUpdateDTO](#schemacom.moesif.issuetracking.models.jiraaccountupdatedto)|false|No description|
+|body|body|[JiraAccountUpdate](#jiraaccountupdate)|false|No description|
+
+
+> Example response
 
 
 <h4 id="updateJiraAccount-responses">Responses</h4>
@@ -3054,7 +4317,17 @@ Create or update a linked Jira Account
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|None|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|Inline|
+
+
+<h4 id="updateJiraAccount-responseschema">Response Schema</h4>
+
+
+Status Code **201**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
 
 
 <aside class="warning">
@@ -3069,12 +4342,10 @@ managementAPIToken ( Scopes: create:jira_accounts update:jira_accounts )
 <a id="opIddeleteJiraAccount"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X DELETE -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/issue_tracking/{orgId}/jira/account?app_id=string
+curl -X DELETE https://api.moesif.com/v1/issue_tracking/{orgId}/jira/account?app_id=string \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -3084,11 +4355,19 @@ curl -X DELETE -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.m
 const request = require('node-fetch');
 
 
+const headers = {
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/issue_tracking/{orgId}/jira/account?app_id=string',
 {
-  method: 'DELETE'
+  method: 'DELETE',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -3102,11 +4381,14 @@ fetch('https://api.moesif.com/v1/issue_tracking/{orgId}/jira/account?app_id=stri
 
 ```python
 import requests
+headers = {
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.delete('https://api.moesif.com/v1/issue_tracking/{orgId}/jira/account', params={
   'app_id': 'string'
-)
+}, headers = headers)
 
 
 print r.json()
@@ -3120,10 +4402,15 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.delete 'https://api.moesif.com/v1/issue_tracking/{orgId}/jira/account',
   params: {
   'app_id' => 'string'
-}
+}, headers: headers
 
 
 p JSON.parse(result)
@@ -3189,12 +4476,11 @@ managementAPIToken ( Scopes: delete:jira_accounts )
 <a id="opIdgetProperties"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/{orgId}/mappings/users/properties
+curl -X GET https://api.moesif.com/v1/{orgId}/mappings/users/properties \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -3204,11 +4490,20 @@ curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moes
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/{orgId}/mappings/users/properties',
 {
-  method: 'GET'
+  method: 'GET',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -3222,12 +4517,16 @@ fetch('https://api.moesif.com/v1/{orgId}/mappings/users/properties',
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.get('https://api.moesif.com/v1/{orgId}/mappings/users/properties', params={
 
 
-)
+}, headers = headers)
 
 
 print r.json()
@@ -3241,9 +4540,15 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.get 'https://api.moesif.com/v1/{orgId}/mappings/users/properties',
   params: {
-  }
+  }, headers: headers
 
 
 p JSON.parse(result)
@@ -3282,12 +4587,25 @@ System.out.println(response.toString());
 |orgId|path|string|true|No description|
 
 
+> Example response
+
+
 <h4 id="getProperties-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+
+<h4 id="getProperties-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
 
 
 <aside class="warning">
@@ -3305,12 +4623,11 @@ managementAPIToken ( Scopes: read:users )
 <a id="opIdcountEvents"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X POST -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/{orgId}/count/events?from=2018-01-19T21:37:03Z?to=2018-01-19T21:37:03Z
+curl -X POST https://api.moesif.com/v1/{orgId}/count/events?from=2018-01-20T03:03:53Z?to=2018-01-20T03:03:53Z \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -3320,11 +4637,20 @@ curl -X POST -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moe
 const request = require('node-fetch');
 
 
-fetch('https://api.moesif.com/v1/{orgId}/count/events?from=2018-01-19T21:37:03Z?to=2018-01-19T21:37:03Z',
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
+fetch('https://api.moesif.com/v1/{orgId}/count/events?from=2018-01-20T03:03:53Z?to=2018-01-20T03:03:53Z',
 {
-  method: 'POST'
+  method: 'POST',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -3338,11 +4664,15 @@ fetch('https://api.moesif.com/v1/{orgId}/count/events?from=2018-01-19T21:37:03Z?
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.post('https://api.moesif.com/v1/{orgId}/count/events', params={
-  'from': '2018-01-19T21:37:03Z',  'to': '2018-01-19T21:37:03Z'
-)
+  'from': '2018-01-20T03:03:53Z',  'to': '2018-01-20T03:03:53Z'
+}, headers = headers)
 
 
 print r.json()
@@ -3356,11 +4686,17 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.post 'https://api.moesif.com/v1/{orgId}/count/events',
   params: {
   'from' => 'string(date-time)',
 'to' => 'string(date-time)'
-}
+}, headers: headers
 
 
 p JSON.parse(result)
@@ -3370,7 +4706,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/count/events?from=2018-01-19T21:37:03Z?to=2018-01-19T21:37:03Z");
+URL obj = new URL("https://api.moesif.com/v1/{orgId}/count/events?from=2018-01-20T03:03:53Z?to=2018-01-20T03:03:53Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -3400,7 +4736,10 @@ System.out.println(response.toString());
 |app_id|query|string|false|No description|
 |from|query|string(date-time)|true|No description|
 |to|query|string(date-time)|true|No description|
-|body|body|undefined|false|No description|
+|body|body|_See Below_|false|No description|
+
+
+> Example response
 
 
 <h4 id="countEvents-responses">Responses</h4>
@@ -3408,7 +4747,17 @@ System.out.println(response.toString());
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+
+<h4 id="countEvents-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
 
 
 <aside class="warning">
@@ -3423,12 +4772,11 @@ managementAPIToken ( Scopes: read:events )
 <a id="opIdsearchEvents"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X POST -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/{orgId}/search/events?from=2018-01-19T21:37:03Z?to=2018-01-19T21:37:03Z
+curl -X POST https://api.moesif.com/v1/{orgId}/search/events?from=2018-01-20T03:03:53Z?to=2018-01-20T03:03:53Z \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -3438,11 +4786,20 @@ curl -X POST -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moe
 const request = require('node-fetch');
 
 
-fetch('https://api.moesif.com/v1/{orgId}/search/events?from=2018-01-19T21:37:03Z?to=2018-01-19T21:37:03Z',
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
+fetch('https://api.moesif.com/v1/{orgId}/search/events?from=2018-01-20T03:03:53Z?to=2018-01-20T03:03:53Z',
 {
-  method: 'POST'
+  method: 'POST',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -3456,11 +4813,15 @@ fetch('https://api.moesif.com/v1/{orgId}/search/events?from=2018-01-19T21:37:03Z
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.post('https://api.moesif.com/v1/{orgId}/search/events', params={
-  'from': '2018-01-19T21:37:03Z',  'to': '2018-01-19T21:37:03Z'
-)
+  'from': '2018-01-20T03:03:53Z',  'to': '2018-01-20T03:03:53Z'
+}, headers = headers)
 
 
 print r.json()
@@ -3474,11 +4835,17 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.post 'https://api.moesif.com/v1/{orgId}/search/events',
   params: {
   'from' => 'string(date-time)',
 'to' => 'string(date-time)'
-}
+}, headers: headers
 
 
 p JSON.parse(result)
@@ -3488,7 +4855,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/search/events?from=2018-01-19T21:37:03Z?to=2018-01-19T21:37:03Z");
+URL obj = new URL("https://api.moesif.com/v1/{orgId}/search/events?from=2018-01-20T03:03:53Z?to=2018-01-20T03:03:53Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -3518,7 +4885,10 @@ System.out.println(response.toString());
 |app_id|query|string|false|No description|
 |from|query|string(date-time)|true|No description|
 |to|query|string(date-time)|true|No description|
-|body|body|undefined|false|No description|
+|body|body|_See Below_|false|No description|
+
+
+> Example response
 
 
 <h4 id="searchEvents-responses">Responses</h4>
@@ -3526,7 +4896,17 @@ System.out.println(response.toString());
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+
+<h4 id="searchEvents-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
 
 
 <aside class="warning">
@@ -3541,12 +4921,11 @@ managementAPIToken ( Scopes: read:events )
 <a id="opIdgetEvent"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-01-19T21:37:03Z
+curl -X GET https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-01-20T03:03:53Z \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -3556,11 +4935,20 @@ curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moes
 const request = require('node-fetch');
 
 
-fetch('https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-01-19T21:37:03Z',
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
+fetch('https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-01-20T03:03:53Z',
 {
-  method: 'GET'
+  method: 'GET',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -3574,11 +4962,15 @@ fetch('https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-01-19T21:37
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.get('https://api.moesif.com/v1/{orgId}/events/{id}', params={
-  'event_time': '2018-01-19T21:37:03Z'
-)
+  'event_time': '2018-01-20T03:03:53Z'
+}, headers = headers)
 
 
 print r.json()
@@ -3592,10 +4984,16 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.get 'https://api.moesif.com/v1/{orgId}/events/{id}',
   params: {
   'event_time' => 'string(date-time)'
-}
+}, headers: headers
 
 
 p JSON.parse(result)
@@ -3605,7 +5003,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-01-19T21:37:03Z");
+URL obj = new URL("https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-01-20T03:03:53Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -3636,12 +5034,25 @@ System.out.println(response.toString());
 |event_time|query|string(date-time)|true|No description|
 
 
+> Example response
+
+
 <h4 id="getEvent-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+
+<h4 id="getEvent-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
 
 
 <aside class="warning">
@@ -3659,12 +5070,11 @@ managementAPIToken ( Scopes: read:events )
 <a id="opIdcountUsers"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X POST -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/{orgId}/count/users
+curl -X POST https://api.moesif.com/v1/{orgId}/count/users \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -3674,11 +5084,20 @@ curl -X POST -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moe
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/{orgId}/count/users',
 {
-  method: 'POST'
+  method: 'POST',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -3692,12 +5111,16 @@ fetch('https://api.moesif.com/v1/{orgId}/count/users',
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.post('https://api.moesif.com/v1/{orgId}/count/users', params={
 
 
-)
+}, headers = headers)
 
 
 print r.json()
@@ -3711,9 +5134,15 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.post 'https://api.moesif.com/v1/{orgId}/count/users',
   params: {
-  }
+  }, headers: headers
 
 
 p JSON.parse(result)
@@ -3751,7 +5180,10 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|body|body|undefined|false|No description|
+|body|body|_See Below_|false|No description|
+
+
+> Example response
 
 
 <h4 id="countUsers-responses">Responses</h4>
@@ -3759,7 +5191,17 @@ System.out.println(response.toString());
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+
+<h4 id="countUsers-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
 
 
 <aside class="warning">
@@ -3774,12 +5216,11 @@ managementAPIToken ( Scopes: read:users )
 <a id="opIdupdateUsers"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X POST -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/{orgId}/users
+curl -X POST https://api.moesif.com/v1/{orgId}/users \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -3789,11 +5230,20 @@ curl -X POST -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moe
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/{orgId}/users',
 {
-  method: 'POST'
+  method: 'POST',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -3807,12 +5257,16 @@ fetch('https://api.moesif.com/v1/{orgId}/users',
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.post('https://api.moesif.com/v1/{orgId}/users', params={
 
 
-)
+}, headers = headers)
 
 
 print r.json()
@@ -3826,9 +5280,15 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.post 'https://api.moesif.com/v1/{orgId}/users',
   params: {
-  }
+  }, headers: headers
 
 
 p JSON.parse(result)
@@ -3866,7 +5326,10 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|body|body|undefined|false|No description|
+|body|body|[UserUpdate](#userupdate)|false|No description|
+
+
+> Example response
 
 
 <h4 id="updateUsers-responses">Responses</h4>
@@ -3874,7 +5337,17 @@ System.out.println(response.toString());
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+
+<h4 id="updateUsers-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
 
 
 <aside class="warning">
@@ -3889,12 +5362,11 @@ managementAPIToken ( Scopes: create:users update:users )
 <a id="opIdsearchUsers"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X POST -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/{orgId}/search/users
+curl -X POST https://api.moesif.com/v1/{orgId}/search/users \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -3904,11 +5376,20 @@ curl -X POST -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moe
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/{orgId}/search/users',
 {
-  method: 'POST'
+  method: 'POST',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -3922,12 +5403,16 @@ fetch('https://api.moesif.com/v1/{orgId}/search/users',
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.post('https://api.moesif.com/v1/{orgId}/search/users', params={
 
 
-)
+}, headers = headers)
 
 
 print r.json()
@@ -3941,9 +5426,15 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.post 'https://api.moesif.com/v1/{orgId}/search/users',
   params: {
-  }
+  }, headers: headers
 
 
 p JSON.parse(result)
@@ -3981,7 +5472,10 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|body|body|undefined|false|No description|
+|body|body|_See Below_|false|No description|
+
+
+> Example response
 
 
 <h4 id="searchUsers-responses">Responses</h4>
@@ -3989,7 +5483,17 @@ System.out.println(response.toString());
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+
+<h4 id="searchUsers-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
 
 
 <aside class="warning">
@@ -4004,12 +5508,11 @@ managementAPIToken ( Scopes: read:users )
 <a id="opIdbatchUpdateUsers"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X POST -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/{orgId}/users/batch
+curl -X POST https://api.moesif.com/v1/{orgId}/users/batch \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -4019,11 +5522,20 @@ curl -X POST -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moe
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/{orgId}/users/batch',
 {
-  method: 'POST'
+  method: 'POST',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -4037,12 +5549,16 @@ fetch('https://api.moesif.com/v1/{orgId}/users/batch',
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.post('https://api.moesif.com/v1/{orgId}/users/batch', params={
 
 
-)
+}, headers = headers)
 
 
 print r.json()
@@ -4056,9 +5572,15 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.post 'https://api.moesif.com/v1/{orgId}/users/batch',
   params: {
-  }
+  }, headers: headers
 
 
 p JSON.parse(result)
@@ -4096,7 +5618,10 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|body|body|undefined|false|No description|
+|body|body|array[object]|false|No description|
+
+
+> Example response
 
 
 <h4 id="batchUpdateUsers-responses">Responses</h4>
@@ -4104,7 +5629,17 @@ System.out.println(response.toString());
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+
+<h4 id="batchUpdateUsers-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
 
 
 <aside class="warning">
@@ -4119,12 +5654,11 @@ managementAPIToken ( Scopes: create:users update:users )
 <a id="opIdgetUser"></a>
 
 
-> Code samples
-
-
 ```shell
 # You can also use wget
-curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moesif.com/v1/{orgId}/users/{id}
+curl -X GET https://api.moesif.com/v1/{orgId}/users/{id} \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
 ```
@@ -4134,11 +5668,20 @@ curl -X GET -H "Authorization:Bearer YOUR_MANAGEMENT_API_TOKEN" https://api.moes
 const request = require('node-fetch');
 
 
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
 fetch('https://api.moesif.com/v1/{orgId}/users/{id}',
 {
-  method: 'GET'
+  method: 'GET',
 
 
+  headers: headers
 })
 .then(function(res) {
     return res.json();
@@ -4152,12 +5695,16 @@ fetch('https://api.moesif.com/v1/{orgId}/users/{id}',
 
 ```python
 import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
 
 
 r = requests.get('https://api.moesif.com/v1/{orgId}/users/{id}', params={
 
 
-)
+}, headers = headers)
 
 
 print r.json()
@@ -4171,9 +5718,15 @@ require 'rest-client'
 require 'json'
 
 
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
 result = RestClient.get 'https://api.moesif.com/v1/{orgId}/users/{id}',
   params: {
-  }
+  }, headers: headers
 
 
 p JSON.parse(result)
@@ -4213,744 +5766,28 @@ System.out.println(response.toString());
 |id|path|string|true|No description|
 
 
+> Example response
+
+
 <h4 id="getUser-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+
+<h4 id="getUser-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
 
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 managementAPIToken ( Scopes: read:users )
 </aside>
-
-
-## Schemas
-
-
-<h3 id="tocSeventrequest">EventRequest</h3>
-
-
-<a id="schemaeventrequest"></a>
-
-
-```yaml
-{
-  "body": {},
-  "uri": "string",
-  "user_agent": {
-    "name": "string",
-    "os": "string",
-    "os_name": "string",
-    "major": "string",
-    "device": "string",
-    "minor": "string"
-  },
-  "api_version": "string",
-  "geo_ip": {
-    "region_name": "string",
-    "latitude": 0,
-    "timezone": "string",
-    "longitude": 0,
-    "real_region_name": "string",
-    "postal_code": "string",
-    "city_name": "string",
-    "country_code2": "string",
-    "country_name": "string"
-  },
-  "ip_address": "string",
-  "verb": "string",
-  "route": "string",
-  "time": "2018-01-19T21:37:03Z",
-  "headers": {},
-  "instance_id": "string"
-}
-```
-
-
-#### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|body|object|false|No description|
-|uri|string|true|No description|
-|user_agent|EventUserAgent](eventuseragent)|false|No description|
-|api_version|string|false|No description|
-|geo_ip|EventGeoIp](eventgeoip)|false|No description|
-|ip_address|string|true|No description|
-|verb|string|true|No description|
-|route|string|true|No description|
-|time|string(date-time)|true|No description|
-|headers|object|true|No description|
-|instance_id|string|false|No description|
-
-
-<h3 id="tocSorganizationresponse">OrganizationResponse</h3>
-
-
-<a id="schemaorganizationresponse"></a>
-
-
-```yaml
-{
-  "name": "string",
-  "service_level": "string",
-  "id": "string",
-  "created": "2018-01-19T21:37:03Z",
-  "apps": [
-    {
-      "id": "string",
-      "name": "string"
-    }
-  ]
-}
-```
-
-
-#### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|name|string|true|No description|
-|service_level|string|true|No description|
-|id|string|false|No description|
-|created|string(date-time)|true|No description|
-|apps|[AppResponse](appresponse)]|true|No description|
-
-
-<h3 id="tocSeventuseragent">EventUserAgent</h3>
-
-
-<a id="schemaeventuseragent"></a>
-
-
-```yaml
-{
-  "name": "string",
-  "os": "string",
-  "os_name": "string",
-  "major": "string",
-  "device": "string",
-  "minor": "string"
-}
-```
-
-
-#### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|name|string|false|No description|
-|os|string|false|No description|
-|os_name|string|false|No description|
-|major|string|false|No description|
-|device|string|false|No description|
-|minor|string|false|No description|
-
-
-<h3 id="tocSaccesstoken">AccessToken</h3>
-
-
-<a id="schemaaccesstoken"></a>
-
-
-```yaml
-{
-  "app_token": "string"
-}
-```
-
-
-#### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|app_token|string|true|No description|
-
-
-<h3 id="tocSappresponse">AppResponse</h3>
-
-
-<a id="schemaappresponse"></a>
-
-
-```yaml
-{
-  "id": "string",
-  "name": "string"
-}
-```
-
-
-#### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|id|string|false|No description|
-|name|string|true|No description|
-
-
-<h3 id="tocStriagebucketresponse">TriageBucketResponse</h3>
-
-
-<a id="schematriagebucketresponse"></a>
-
-
-```yaml
-{
-  "state": 0,
-  "host": "string",
-  "session_count": 0,
-  "last_modified": "2018-01-19T21:37:03Z",
-  "api_version": "string",
-  "id": "string",
-  "user_count": 0,
-  "status": 0,
-  "verb": "string",
-  "event_count": 0,
-  "route": "string"
-}
-```
-
-
-#### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|state|integer(int32)|true|No description|
-|host|string|true|No description|
-|session_count|integer(int64)|false|No description|
-|last_modified|string(date-time)|true|No description|
-|api_version|string|false|No description|
-|id|string|true|No description|
-|user_count|integer(int64)|false|No description|
-|status|integer(int32)|true|No description|
-|verb|string|true|No description|
-|event_count|integer(int64)|false|No description|
-|route|string|true|No description|
-
-
-<h3 id="tocSsignaturevertex">SignatureVertex</h3>
-
-
-<a id="schemasignaturevertex"></a>
-
-
-```yaml
-{
-  "signature_id": "string",
-  "host": "string",
-  "response": {
-    "status_code": 0
-  },
-  "verb": "string",
-  "route": "string",
-  "created": "2018-01-19T21:37:03Z"
-}
-```
-
-
-#### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|signature_id|string|true|No description|
-|host|string|false|No description|
-|response|ResponseSignature](responsesignature)|false|No description|
-|verb|string|true|No description|
-|route|string|true|No description|
-|created|string(date-time)|true|No description|
-
-
-<h3 id="tocSsigneken">Signeken</h3>
-
-
-<a id="schemasigneken"></a>
-
-
-```yaml
-{
-  "_id": "string",
-  "token": "string"
-}
-```
-
-
-#### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|_id|string|true|No description|
-|token|string|true|No description|
-
-
-<h3 id="tocStraceresponse">TraceResponse</h3>
-
-
-<a id="schematraceresponse"></a>
-
-
-```yaml
-{
-  "user_id": "string",
-  "triage_bucket": {
-    "state": 0,
-    "host": "string",
-    "session_count": 0,
-    "last_modified": "2018-01-19T21:37:03Z",
-    "api_version": "string",
-    "id": "string",
-    "user_count": 0,
-    "status": 0,
-    "verb": "string",
-    "event_count": 0,
-    "route": "string"
-  },
-  "id": "string",
-  "session_token": "string",
-  "created": "2018-01-19T21:37:03Z"
-}
-```
-
-
-#### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|user_id|string|false|No description|
-|triage_bucket|TriageBucketResponse](triagebucketresponse)|false|No description|
-|id|string|true|No description|
-|session_token|string|false|No description|
-|created|string(date-time)|true|No description|
-
-
-<h3 id="tocSresponsesignature">ResponseSignature</h3>
-
-
-<a id="schemaresponsesignature"></a>
-
-
-```yaml
-{
-  "status_code": 0
-}
-```
-
-
-#### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|status_code|integer(int32)|true|No description|
-
-
-<h3 id="tocStriagebucketupdate">TriageBucketUpdate</h3>
-
-
-<a id="schematriagebucketupdate"></a>
-
-
-```yaml
-{
-  "state": 0
-}
-```
-
-
-#### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|state|integer(int32)|false|No description|
-
-
-<h3 id="tocSeventresponse">EventResponse</h3>
-
-
-<a id="schemaeventresponse"></a>
-
-
-```yaml
-{
-  "body": {},
-  "geo_ip": {
-    "region_name": "string",
-    "latitude": 0,
-    "timezone": "string",
-    "longitude": 0,
-    "real_region_name": "string",
-    "postal_code": "string",
-    "city_name": "string",
-    "country_code2": "string",
-    "country_name": "string"
-  },
-  "ip_address": "string",
-  "status": 0,
-  "time": "2018-01-19T21:37:03Z",
-  "headers": {},
-  "instance_id": "string"
-}
-```
-
-
-#### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|body|object|false|No description|
-|geo_ip|EventGeoIp](eventgeoip)|false|No description|
-|ip_address|string|false|No description|
-|status|integer(int32)|true|No description|
-|time|string(date-time)|true|No description|
-|headers|object|true|No description|
-|instance_id|string|false|No description|
-
-
-<h3 id="tocSurl">Url</h3>
-
-
-<a id="schemaurl"></a>
-
-
-```yaml
-{
-  "url": "string"
-}
-```
-
-
-#### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|url|string|true|No description|
-
-
-<h3 id="tocSeventgeoip">EventGeoIp</h3>
-
-
-<a id="schemaeventgeoip"></a>
-
-
-```yaml
-{
-  "region_name": "string",
-  "latitude": 0,
-  "timezone": "string",
-  "longitude": 0,
-  "real_region_name": "string",
-  "postal_code": "string",
-  "city_name": "string",
-  "country_code2": "string",
-  "country_name": "string"
-}
-```
-
-
-#### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|region_name|string|false|No description|
-|latitude|number(double)|false|No description|
-|timezone|string|false|No description|
-|longitude|number(double)|false|No description|
-|real_region_name|string|false|No description|
-|postal_code|string|false|No description|
-|city_name|string|false|No description|
-|country_code2|string|false|No description|
-|country_name|string|false|No description|
-
-
-<h3 id="tocSsignatureedge">SignatureEdge</h3>
-
-
-<a id="schemasignatureedge"></a>
-
-
-```yaml
-{
-  "from_vertex": {
-    "signature_id": "string",
-    "host": "string",
-    "response": {
-      "status_code": 0
-    },
-    "verb": "string",
-    "route": "string",
-    "created": "2018-01-19T21:37:03Z"
-  },
-  "to_vertex": {
-    "signature_id": "string",
-    "host": "string",
-    "response": {
-      "status_code": 0
-    },
-    "verb": "string",
-    "route": "string",
-    "created": "2018-01-19T21:37:03Z"
-  },
-  "value": 0,
-  "time_span_ms": 0
-}
-```
-
-
-#### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|from_vertex|SignatureVertex](signaturevertex)|true|No description|
-|to_vertex|SignatureVertex](signaturevertex)|true|No description|
-|value|number(double)|true|No description|
-|time_span_ms|integer(int32)|true|No description|
-
-
-<h3 id="tocSdashmetrics">DashMetrics</h3>
-
-
-<a id="schemadashmetrics"></a>
-
-
-```yaml
-{
-  "average_duration_ms_ts": null,
-  "error_count": 0,
-  "error_count_ts": null,
-  "user_count_ts": null,
-  "user_count": 0,
-  "error_user_count": 0,
-  "average_duration_ms": 0,
-  "error_user_count_ts": null
-}
-```
-
-
-#### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|average_duration_ms_ts|seq[(datetime, long)]|true|No description|
-|error_count|integer(int64)|true|No description|
-|error_count_ts|seq[(datetime, long)]|true|No description|
-|user_count_ts|seq[(datetime, long)]|true|No description|
-|user_count|integer(int64)|true|No description|
-|error_user_count|integer(int64)|true|No description|
-|average_duration_ms|integer(int64)|true|No description|
-|error_user_count_ts|seq[(datetime, long)]|true|No description|
-
-
-<h3 id="tocSevent">Event</h3>
-
-
-<a id="schemaevent"></a>
-
-
-```yaml
-{
-  "request": {
-    "body": {},
-    "uri": "string",
-    "user_agent": {
-      "name": "string",
-      "os": "string",
-      "os_name": "string",
-      "major": "string",
-      "device": "string",
-      "minor": "string"
-    },
-    "api_version": "string",
-    "geo_ip": {
-      "region_name": "string",
-      "latitude": 0,
-      "timezone": "string",
-      "longitude": 0,
-      "real_region_name": "string",
-      "postal_code": "string",
-      "city_name": "string",
-      "country_code2": "string",
-      "country_name": "string"
-    },
-    "ip_address": "string",
-    "verb": "string",
-    "route": "string",
-    "time": "2018-01-19T21:37:03Z",
-    "headers": {},
-    "instance_id": "string"
-  },
-  "trace_id": "string",
-  "triage_bucket_id": "string",
-  "user_id": "string",
-  "response": {
-    "body": {},
-    "geo_ip": {
-      "region_name": "string",
-      "latitude": 0,
-      "timezone": "string",
-      "longitude": 0,
-      "real_region_name": "string",
-      "postal_code": "string",
-      "city_name": "string",
-      "country_code2": "string",
-      "country_name": "string"
-    },
-    "ip_address": "string",
-    "status": 0,
-    "time": "2018-01-19T21:37:03Z",
-    "headers": {},
-    "instance_id": "string"
-  },
-  "id": "string",
-  "session_token": "string",
-  "metadata": {},
-  "user": {}
-}
-```
-
-
-#### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|request|EventRequest](eventrequest)|true|No description|
-|trace_id|string|false|No description|
-|triage_bucket_id|string|false|No description|
-|user_id|string|false|No description|
-|response|EventResponse](eventresponse)|true|No description|
-|id|string|true|No description|
-|session_token|string|false|No description|
-|metadata|object|false|No description|
-|user|object|false|No description|
-
-
-<h3 id="tocSstatus">Status</h3>
-
-
-<a id="schemastatus"></a>
-
-
-```yaml
-{
-  "status": true,
-  "region": "string"
-}
-```
-
-
-#### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|status|boolean|true|No description|
-|region|string|true|No description|
-
-
-<h3 id="tocSjiraaccountupdate">JiraAccountUpdate</h3>
-
-
-<a id="schemajiraaccountupdate"></a>
-
-
-```yaml
-{
-  "instance_url": "string",
-  "username": "string",
-  "password": "string",
-  "default_project_id": "string"
-}
-```
-
-
-#### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|instance_url|string|false|No description|
-|username|string|false|No description|
-|password|string|false|No description|
-|default_project_id|string|false|No description|
-
-
-<h3 id="tocSsignaturegraphresponse">SignatureGraphResponse</h3>
-
-
-<a id="schemasignaturegraphresponse"></a>
-
-
-```yaml
-{
-  "triage_bucket_id": "string",
-  "error_signature_id": "string",
-  "edges": [
-    {
-      "from_vertex": {
-        "signature_id": "string",
-        "host": "string",
-        "response": {
-          "status_code": 0
-        },
-        "verb": "string",
-        "route": "string",
-        "created": "2018-01-19T21:37:03Z"
-      },
-      "to_vertex": {
-        "signature_id": "string",
-        "host": "string",
-        "response": {
-          "status_code": 0
-        },
-        "verb": "string",
-        "route": "string",
-        "created": "2018-01-19T21:37:03Z"
-      },
-      "value": 0,
-      "time_span_ms": 0
-    }
-  ],
-  "triage_bucket": {
-    "state": 0,
-    "host": "string",
-    "session_count": 0,
-    "last_modified": "2018-01-19T21:37:03Z",
-    "api_version": "string",
-    "id": "string",
-    "user_count": 0,
-    "status": 0,
-    "verb": "string",
-    "event_count": 0,
-    "route": "string"
-  }
-}
-```
-
-
-#### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|triage_bucket_id|string|true|No description|
-|error_signature_id|string|true|No description|
-|edges|[SignatureEdge](signatureedge)]|false|No description|
-|triage_bucket|TriageBucketResponse](triagebucketresponse)|false|No description|
