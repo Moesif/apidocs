@@ -169,7 +169,7 @@ Gets a list of organization for authenticated in user
     "name": "string",
     "service_level": "string",
     "id": "string",
-    "created": "2018-01-20T03:03:53Z",
+    "created": "2018-01-20T03:08:06Z",
     "apps": [
       {
         "id": "string",
@@ -1677,7 +1677,7 @@ System.out.println(response.toString());
       "state": 0,
       "host": "string",
       "session_count": 0,
-      "last_modified": "2018-01-20T03:03:53Z",
+      "last_modified": "2018-01-20T03:08:06Z",
       "api_version": "string",
       "id": "string",
       "user_count": 0,
@@ -1688,7 +1688,7 @@ System.out.println(response.toString());
     },
     "id": "string",
     "session_token": "string",
-    "created": "2018-01-20T03:03:53Z"
+    "created": "2018-01-20T03:08:06Z"
   }
 ]
 ```
@@ -1863,7 +1863,7 @@ System.out.println(response.toString());
     "state": 0,
     "host": "string",
     "session_count": 0,
-    "last_modified": "2018-01-20T03:03:53Z",
+    "last_modified": "2018-01-20T03:08:06Z",
     "api_version": "string",
     "id": "string",
     "user_count": 0,
@@ -1874,7 +1874,7 @@ System.out.println(response.toString());
   },
   "id": "string",
   "session_token": "string",
-  "created": "2018-01-20T03:03:53Z"
+  "created": "2018-01-20T03:08:06Z"
 }
 ```
 
@@ -2076,7 +2076,7 @@ Get a list of events belonging to a single trace
       "ip_address": "string",
       "verb": "string",
       "route": "string",
-      "time": "2018-01-20T03:03:53Z",
+      "time": "2018-01-20T03:08:06Z",
       "headers": {},
       "instance_id": "string"
     },
@@ -2098,7 +2098,7 @@ Get a list of events belonging to a single trace
       },
       "ip_address": "string",
       "status": 0,
-      "time": "2018-01-20T03:03:53Z",
+      "time": "2018-01-20T03:08:06Z",
       "headers": {},
       "instance_id": "string"
     },
@@ -2188,7 +2188,7 @@ managementAPIToken ( Scopes: read:traces )
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-01-20T03:03:53Z \
+curl -X GET https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-01-20T03:08:06Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
@@ -2208,7 +2208,7 @@ const headers = {
 };
 
 
-fetch('https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-01-20T03:03:53Z',
+fetch('https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-01-20T03:08:06Z',
 {
   method: 'GET',
 
@@ -2234,7 +2234,7 @@ headers = {
 
 
 r = requests.get('https://api.moesif.com/v1/{orgId}/dash/metrics', params={
-  'from': '2018-01-20T03:03:53Z'
+  'from': '2018-01-20T03:08:06Z'
 }, headers = headers)
 
 
@@ -2268,7 +2268,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-01-20T03:03:53Z");
+URL obj = new URL("https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-01-20T03:08:06Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -2765,7 +2765,7 @@ Encodes the URL to be used with Moesif Collector/Proxy Server
 |body|body|[Url](#url)|false|No description|
 
 
-> Example requests
+> Example request
 
 
 <h4 id="encodeUrl-requestschema">Request Schema</h4>
@@ -2807,7 +2807,7 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?error_event.duration_ms[lte]=0?error_event.duration_ms[gte]=0?error_event.request.time[lte]=2018-01-20T03:03:53Z?error_event.request.time[gte]=2018-01-20T03:03:53Z?error_event.request.ip_address=string?error_event.request.user_agent.os=string?error_event.request.user_agent.device=string?error_event.response.ip_address=string?error_event.session_token=string?error_event.user_id=string \
+curl -X GET https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?error_event.duration_ms[lte]=0?error_event.duration_ms[gte]=0?error_event.request.time[lte]=2018-01-20T03:08:06Z?error_event.request.time[gte]=2018-01-20T03:08:06Z?error_event.request.ip_address=string?error_event.request.user_agent.os=string?error_event.request.user_agent.device=string?error_event.response.ip_address=string?error_event.session_token=string?error_event.user_id=string \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
@@ -2827,7 +2827,7 @@ const headers = {
 };
 
 
-fetch('https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?error_event.duration_ms[lte]=0?error_event.duration_ms[gte]=0?error_event.request.time[lte]=2018-01-20T03:03:53Z?error_event.request.time[gte]=2018-01-20T03:03:53Z?error_event.request.ip_address=string?error_event.request.user_agent.os=string?error_event.request.user_agent.device=string?error_event.response.ip_address=string?error_event.session_token=string?error_event.user_id=string',
+fetch('https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?error_event.duration_ms[lte]=0?error_event.duration_ms[gte]=0?error_event.request.time[lte]=2018-01-20T03:08:06Z?error_event.request.time[gte]=2018-01-20T03:08:06Z?error_event.request.ip_address=string?error_event.request.user_agent.os=string?error_event.request.user_agent.device=string?error_event.response.ip_address=string?error_event.session_token=string?error_event.user_id=string',
 {
   method: 'GET',
 
@@ -2858,9 +2858,9 @@ r = requests.get('https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph', 
 ],  'error_event.duration_ms[gte]': [
   0
 ],  'error_event.request.time[lte]': [
-  "2018-01-20T03:03:53Z"
+  "2018-01-20T03:08:06Z"
 ],  'error_event.request.time[gte]': [
-  "2018-01-20T03:03:53Z"
+  "2018-01-20T03:08:06Z"
 ],  'error_event.request.ip_address': [
   "string"
 ],  'error_event.request.user_agent.os': [
@@ -2917,7 +2917,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?error_event.duration_ms[lte]=0?error_event.duration_ms[gte]=0?error_event.request.time[lte]=2018-01-20T03:03:53Z?error_event.request.time[gte]=2018-01-20T03:03:53Z?error_event.request.ip_address=string?error_event.request.user_agent.os=string?error_event.request.user_agent.device=string?error_event.response.ip_address=string?error_event.session_token=string?error_event.user_id=string");
+URL obj = new URL("https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?error_event.duration_ms[lte]=0?error_event.duration_ms[gte]=0?error_event.request.time[lte]=2018-01-20T03:08:06Z?error_event.request.time[gte]=2018-01-20T03:08:06Z?error_event.request.ip_address=string?error_event.request.user_agent.os=string?error_event.request.user_agent.device=string?error_event.response.ip_address=string?error_event.session_token=string?error_event.user_id=string");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -2978,7 +2978,7 @@ Get a graph of event signatures by triage bucket id
         },
         "verb": "string",
         "route": "string",
-        "created": "2018-01-20T03:03:53Z"
+        "created": "2018-01-20T03:08:06Z"
       },
       "to_vertex": {
         "signature_id": "string",
@@ -2988,7 +2988,7 @@ Get a graph of event signatures by triage bucket id
         },
         "verb": "string",
         "route": "string",
-        "created": "2018-01-20T03:03:53Z"
+        "created": "2018-01-20T03:08:06Z"
       },
       "value": 0,
       "time_span_ms": 0
@@ -2998,7 +2998,7 @@ Get a graph of event signatures by triage bucket id
     "state": 0,
     "host": "string",
     "session_count": 0,
-    "last_modified": "2018-01-20T03:03:53Z",
+    "last_modified": "2018-01-20T03:08:06Z",
     "api_version": "string",
     "id": "string",
     "user_count": 0,
@@ -3214,7 +3214,7 @@ Gets a list of triage buckets for authenticated in user under the given organiza
     "state": 0,
     "host": "string",
     "session_count": 0,
-    "last_modified": "2018-01-20T03:03:53Z",
+    "last_modified": "2018-01-20T03:08:06Z",
     "api_version": "string",
     "id": "string",
     "user_count": 0,
@@ -3393,7 +3393,7 @@ Updates a Triage Bucket (Null fields ignored)
   "state": 0,
   "host": "string",
   "session_count": 0,
-  "last_modified": "2018-01-20T03:03:53Z",
+  "last_modified": "2018-01-20T03:08:06Z",
   "api_version": "string",
   "id": "string",
   "user_count": 0,
@@ -3599,7 +3599,7 @@ Get a list of events that matched a particular signature
       "ip_address": "string",
       "verb": "string",
       "route": "string",
-      "time": "2018-01-20T03:03:53Z",
+      "time": "2018-01-20T03:08:06Z",
       "headers": {},
       "instance_id": "string"
     },
@@ -3621,7 +3621,7 @@ Get a list of events that matched a particular signature
       },
       "ip_address": "string",
       "status": 0,
-      "time": "2018-01-20T03:03:53Z",
+      "time": "2018-01-20T03:08:06Z",
       "headers": {},
       "instance_id": "string"
     },
@@ -3835,7 +3835,7 @@ Get a list of traces that matched a particular signature
       "state": 0,
       "host": "string",
       "session_count": 0,
-      "last_modified": "2018-01-20T03:03:53Z",
+      "last_modified": "2018-01-20T03:08:06Z",
       "api_version": "string",
       "id": "string",
       "user_count": 0,
@@ -3846,7 +3846,7 @@ Get a list of traces that matched a particular signature
     },
     "id": "string",
     "session_token": "string",
-    "created": "2018-01-20T03:03:53Z"
+    "created": "2018-01-20T03:08:06Z"
   }
 ]
 ```
@@ -4625,7 +4625,7 @@ managementAPIToken ( Scopes: read:users )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/{orgId}/count/events?from=2018-01-20T03:03:53Z?to=2018-01-20T03:03:53Z \
+curl -X POST https://api.moesif.com/v1/{orgId}/count/events?from=2018-01-20T03:08:06Z?to=2018-01-20T03:08:06Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
@@ -4645,7 +4645,7 @@ const headers = {
 };
 
 
-fetch('https://api.moesif.com/v1/{orgId}/count/events?from=2018-01-20T03:03:53Z?to=2018-01-20T03:03:53Z',
+fetch('https://api.moesif.com/v1/{orgId}/count/events?from=2018-01-20T03:08:06Z?to=2018-01-20T03:08:06Z',
 {
   method: 'POST',
 
@@ -4671,7 +4671,7 @@ headers = {
 
 
 r = requests.post('https://api.moesif.com/v1/{orgId}/count/events', params={
-  'from': '2018-01-20T03:03:53Z',  'to': '2018-01-20T03:03:53Z'
+  'from': '2018-01-20T03:08:06Z',  'to': '2018-01-20T03:08:06Z'
 }, headers = headers)
 
 
@@ -4706,7 +4706,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/count/events?from=2018-01-20T03:03:53Z?to=2018-01-20T03:03:53Z");
+URL obj = new URL("https://api.moesif.com/v1/{orgId}/count/events?from=2018-01-20T03:08:06Z?to=2018-01-20T03:08:06Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -4774,7 +4774,7 @@ managementAPIToken ( Scopes: read:events )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/{orgId}/search/events?from=2018-01-20T03:03:53Z?to=2018-01-20T03:03:53Z \
+curl -X POST https://api.moesif.com/v1/{orgId}/search/events?from=2018-01-20T03:08:06Z?to=2018-01-20T03:08:06Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
@@ -4794,7 +4794,7 @@ const headers = {
 };
 
 
-fetch('https://api.moesif.com/v1/{orgId}/search/events?from=2018-01-20T03:03:53Z?to=2018-01-20T03:03:53Z',
+fetch('https://api.moesif.com/v1/{orgId}/search/events?from=2018-01-20T03:08:06Z?to=2018-01-20T03:08:06Z',
 {
   method: 'POST',
 
@@ -4820,7 +4820,7 @@ headers = {
 
 
 r = requests.post('https://api.moesif.com/v1/{orgId}/search/events', params={
-  'from': '2018-01-20T03:03:53Z',  'to': '2018-01-20T03:03:53Z'
+  'from': '2018-01-20T03:08:06Z',  'to': '2018-01-20T03:08:06Z'
 }, headers = headers)
 
 
@@ -4855,7 +4855,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/search/events?from=2018-01-20T03:03:53Z?to=2018-01-20T03:03:53Z");
+URL obj = new URL("https://api.moesif.com/v1/{orgId}/search/events?from=2018-01-20T03:08:06Z?to=2018-01-20T03:08:06Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -4923,7 +4923,7 @@ managementAPIToken ( Scopes: read:events )
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-01-20T03:03:53Z \
+curl -X GET https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-01-20T03:08:06Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
@@ -4943,7 +4943,7 @@ const headers = {
 };
 
 
-fetch('https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-01-20T03:03:53Z',
+fetch('https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-01-20T03:08:06Z',
 {
   method: 'GET',
 
@@ -4969,7 +4969,7 @@ headers = {
 
 
 r = requests.get('https://api.moesif.com/v1/{orgId}/events/{id}', params={
-  'event_time': '2018-01-20T03:03:53Z'
+  'event_time': '2018-01-20T03:08:06Z'
 }, headers = headers)
 
 
@@ -5003,7 +5003,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-01-20T03:03:53Z");
+URL obj = new URL("https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-01-20T03:08:06Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
