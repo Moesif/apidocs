@@ -344,7 +344,7 @@ select the respective language tab.</p>
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized &ndash; Your <code class="prettyprint">X-Moesif-Application-Id</code> header is incorrect</td>
+<td>Unauthorized &ndash; Your <code class="prettyprint">X-Moesif-Application-Id</code> or <code class="prettyprint">Authorization</code> header is incorrect</td>
 </tr>
 <tr>
 <td>403</td>
@@ -524,11 +524,11 @@ Replace <i>my_application_id</i> with your real Application Id
 
 <blockquote class="lang-specific yaml">
 <code><b>POST</b> https://api.moesif.net/v1/events</code>
-<br><br><i>Example Request Body:</i><br>
+<br><br><i>Example Request</i><br>
 </blockquote>
 <pre class="highlight yaml tab-yaml"><code>  <span class="pi">{</span>
     <span class="s2">"</span><span class="s">request"</span><span class="pi">:</span> <span class="pi">{</span>
-      <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2017-10-22T04:45:42.914"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-20T04:45:42.914"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">uri"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://api.acmeinc.com/items/12345/reviews/"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">verb"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">POST"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">api_version"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.1.0"</span><span class="pi">,</span>
@@ -558,7 +558,7 @@ Replace <i>my_application_id</i> with your real Application Id
       <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
     <span class="pi">},</span>
     <span class="s2">"</span><span class="s">response"</span><span class="pi">:</span> <span class="pi">{</span>
-      <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2017-10-22T04:45:42.914"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-20T04:45:42.914"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">status"</span><span class="pi">:</span> <span class="nv">500</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">headers"</span><span class="pi">:</span> <span class="pi">{</span>
         <span class="s2">"</span><span class="s">Vary"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Accept-Encoding"</span><span class="pi">,</span>
@@ -583,6 +583,12 @@ Replace <i>my_application_id</i> with your real Application Id
         <span class="pi">}</span>
     <span class="pi">}</span>
   <span class="pi">}</span>
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
+curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'</span>
+
+
 </code></pre><pre class="highlight java tab-java"><code><span class="c1">// Import the Library</span>
 <span class="n">MoesifAPIClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MoesifAPIClient</span><span class="o">(</span><span class="s">"my_application_id"</span><span class="o">);</span>
 <span class="n">APIController</span> <span class="n">api</span> <span class="o">=</span> <span class="n">getClient</span><span class="o">().</span><span class="na">getAPI</span><span class="o">();</span>
@@ -780,7 +786,7 @@ Replace <i>my_application_id</i> with your real Application Id
 }"""</span><span class="p">)</span>
 
 <span class="n">rsp_headers</span> <span class="o">=</span> <span class="n">APIHelper</span><span class="o">.</span><span class="n">json_deserialize</span><span class="p">(</span><span class="s">"""  {
-    "Date": "Tue, 23 Oct 2017 23:46:49 GMT",
+    "Date": "Tue, 20 Jan 2018 23:46:49 GMT",
     "Vary": "Accept-Encoding",
     "Pragma": "no-cache",
     "Expires": "-1",
@@ -844,7 +850,7 @@ Replace <i>my_application_id</i> with your real Application Id
 <span class="s1">'}'</span><span class="p">)</span>
 
 <span class="n">rsp_headers</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s1">'{'</span><span class="p">\</span>
-  <span class="s1">'"Date": "Tue, 23 Oct 2017 23:46:49 GMT",'</span><span class="p">\</span>
+  <span class="s1">'"Date": "Tue, 20 Jan 2018 23:46:49 GMT",'</span><span class="p">\</span>
                 <span class="s1">'"Vary": "Accept-Encoding",'</span><span class="p">\</span>
   <span class="s1">'"Pragma": "no-cache",'</span><span class="p">\</span>
   <span class="s1">'"Expires": "-1",'</span><span class="p">\</span>
@@ -859,7 +865,7 @@ Replace <i>my_application_id</i> with your real Application Id
 
 
 <span class="n">event_req</span> <span class="o">=</span> <span class="no">EventRequestModel</span><span class="p">.</span><span class="nf">new</span><span class="p">()</span>
-<span class="n">event_req</span><span class="p">.</span><span class="nf">time</span> <span class="o">=</span> <span class="s2">"2017-10-22T04:45:42.914"</span>
+<span class="n">event_req</span><span class="p">.</span><span class="nf">time</span> <span class="o">=</span> <span class="s2">"2018-01-20T04:45:42.914"</span>
 <span class="n">event_req</span><span class="p">.</span><span class="nf">uri</span> <span class="o">=</span> <span class="s2">"https://api.acmeinc.com/items/reviews/"</span>
 <span class="n">event_req</span><span class="p">.</span><span class="nf">verb</span> <span class="o">=</span> <span class="s2">"PATCH"</span>
 <span class="n">event_req</span><span class="p">.</span><span class="nf">api_version</span> <span class="o">=</span> <span class="s2">"1.1.0"</span>
@@ -868,7 +874,7 @@ Replace <i>my_application_id</i> with your real Application Id
 <span class="n">event_req</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="n">req_body</span>
 
 <span class="n">event_rsp</span> <span class="o">=</span> <span class="no">EventResponseModel</span><span class="p">.</span><span class="nf">new</span><span class="p">()</span>
-<span class="n">event_rsp</span><span class="p">.</span><span class="nf">time</span> <span class="o">=</span> <span class="s2">"2017-10-22T04:45:42.914"</span>
+<span class="n">event_rsp</span><span class="p">.</span><span class="nf">time</span> <span class="o">=</span> <span class="s2">"2018-01-20T04:45:42.914"</span>
 <span class="n">event_rsp</span><span class="p">.</span><span class="nf">status</span> <span class="o">=</span> <span class="mi">500</span>
 <span class="n">event_rsp</span><span class="p">.</span><span class="nf">headers</span> <span class="o">=</span> <span class="n">rsp_headers</span>
 <span class="n">event_rsp</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="n">rsp_body</span>
@@ -914,7 +920,7 @@ Replace <i>my_application_id</i> with your real Application Id
     <span class="p">}</span><span class="s">");
 </span>
 <span class="kt">var</span> <span class="n">rspHeaders</span> <span class="p">=</span> <span class="n">APIHelper</span><span class="p">.</span><span class="n">JsonDeserialize</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="err">@</span><span class="s">" {
-</span>        <span class="s">""</span><span class="n">Date</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Tue</span><span class="p">,</span> <span class="m">23</span> <span class="n">Oct</span> <span class="m">2017</span> <span class="m">23</span><span class="p">:</span><span class="m">46</span><span class="p">:</span><span class="m">49</span> <span class="n">GMT</span><span class="s">""</span><span class="p">,</span>
+</span>        <span class="s">""</span><span class="n">Date</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Tue</span><span class="p">,</span> <span class="m">20</span> <span class="n">Jan</span> <span class="m">2018</span> <span class="m">23</span><span class="p">:</span><span class="m">46</span><span class="p">:</span><span class="m">49</span> <span class="n">GMT</span><span class="s">""</span><span class="p">,</span>
         <span class="s">""</span><span class="n">Vary</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Accept</span><span class="p">-</span><span class="n">Encoding</span><span class="s">""</span><span class="p">,</span>
         <span class="s">""</span><span class="n">Pragma</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">no</span><span class="p">-</span><span class="n">cache</span><span class="s">""</span><span class="p">,</span>
         <span class="s">""</span><span class="n">Expires</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="p">-</span><span class="m">1</span><span class="s">""</span><span class="p">,</span>
@@ -930,7 +936,7 @@ Replace <i>my_application_id</i> with your real Application Id
 
 <span class="kt">var</span> <span class="n">eventReq</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventRequestModel</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2017-10-22T04:45:42.914"</span><span class="p">),</span>
+    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2018-01-20T04:45:42.914"</span><span class="p">),</span>
     <span class="n">Uri</span> <span class="p">=</span> <span class="s">"https://api.acmeinc.com/items/reviews/"</span><span class="p">,</span>
     <span class="n">Verb</span> <span class="p">=</span> <span class="s">"PATCH"</span><span class="p">,</span>
     <span class="n">ApiVersion</span> <span class="p">=</span> <span class="s">"1.1.0"</span><span class="p">,</span>
@@ -941,7 +947,7 @@ Replace <i>my_application_id</i> with your real Application Id
 
 <span class="kt">var</span> <span class="n">eventRsp</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventResponseModel</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2017-10-22T04:45:42.914"</span><span class="p">),</span>
+    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2018-01-20T04:45:42.914"</span><span class="p">),</span>
     <span class="n">Status</span> <span class="p">=</span> <span class="m">500</span><span class="p">,</span>
     <span class="n">Headers</span> <span class="p">=</span> <span class="n">rspHeaders</span><span class="p">,</span>
     <span class="n">Body</span> <span class="p">=</span> <span class="n">rspBody</span>
@@ -1068,54 +1074,54 @@ Replace <i>my_application_id</i> with your real Application Id
 </code></pre>
 <table><thead>
 <tr>
-<th>Fields</th>
-<th>Required?</th>
+<th>Name</th>
+<th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>request</td>
-<td><strong>Required</strong></td>
+<td><strong>true</strong></td>
 <td>The object that specifies the request message</td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">request.time</p></td>
-<td><strong>Required</strong></td>
+<td><strong>true</strong></td>
 <td>Timestamp for the request in ISO 8601 format</td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">request.uri</p></td>
-<td><strong>Required</strong></td>
+<td><strong>true</strong></td>
 <td>Full uri such as <em>https://api.com/?query=string</em> including host, query string, etc</td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">request.verb</p></td>
-<td><strong>Required</strong></td>
+<td><strong>true</strong></td>
 <td>HTTP method used, i.e. <code class="prettyprint">GET</code>, <code class="prettyprint">POST</code></td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">request.api_version</p></td>
-<td>Optional</td>
+<td>false</td>
 <td>API Version you want to tag this request with such as <em>1.0.0</em></td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">request.ip_address</p></td>
-<td>Optional</td>
+<td>false</td>
 <td>IP address of the requester, If not set, we use the IP address of your logging API calls.</td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">request.headers</p></td>
-<td><strong>Required</strong></td>
+<td><strong>true</strong></td>
 <td>Headers of the  request as a <code class="prettyprint">Map&lt;string, string&gt;</code>.. Multiple headers with the same key name should be combined together such that the values are joined by a comma. <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2">HTTP Header Protocol on w3.org</a></td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">request.body</p></td>
-<td>Optional</td>
+<td>false</td>
 <td>Body of the request in JSON format or Base64 encoded binary data (see <em>transfer_encoding</em>)</td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">request.transfer_encoding</p></td>
-<td>Optional</td>
+<td>false</td>
 <td>A string that specifies the transfer encoding of Body being sent to Moesif. If field nonexistent, body assumed to be JSON or text. Only possible value is <em>base64</em> for sending binary data like protobuf</td>
 </tr>
 <tr>
@@ -1125,37 +1131,37 @@ Replace <i>my_application_id</i> with your real Application Id
 </tr>
 <tr>
 <td>response</td>
-<td>Optional</td>
+<td>false</td>
 <td>The object that specifies the response message, not set implies no response received such as a timeout.</td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">response.time</p></td>
-<td><strong>Required</strong></td>
+<td><strong>true</strong></td>
 <td>Timestamp for the response in ISO 8601 format</td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">response.status</p></td>
-<td><strong>Required</strong></td>
+<td><strong>true</strong></td>
 <td>HTTP status code as number such as <em>200</em> or <em>500</em></td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">request.ip_address</p></td>
-<td>Optional</td>
+<td>false</td>
 <td>IP address of the responding server</td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">response.headers</p></td>
-<td><strong>Required</strong></td>
+<td><strong>true</strong></td>
 <td>Headers of the response as a <code class="prettyprint">Map&lt;string, string&gt;</code>. Multiple headers with the same key name should be combined together such that the values are joined by a comma. <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2">HTTP Header Protocol on w3.org</a></td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">response.body</p></td>
-<td>Optional</td>
+<td>false</td>
 <td>Body of the response in JSON format or Base64 encoded binary data (see <em>transfer_encoding</em>)</td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">response.transfer_encoding</p></td>
-<td>Optional</td>
+<td>false</td>
 <td>A string that specifies the transfer encoding of Body being sent to Moesif. If field nonexistent, body assumed to be JSON or text. Only possible value is <em>base64</em> for sending binary data like protobuf</td>
 </tr>
 <tr>
@@ -1175,7 +1181,7 @@ Replace <i>my_application_id</i> with your real Application Id
 </tr>
 <tr>
 <td>metadata</td>
-<td>Optional</td>
+<td>false</td>
 <td>A JSON Object consisting of any custom metadata to be stored with this event.</td>
 </tr>
 </tbody></table>
@@ -1199,12 +1205,12 @@ Replace <i>my_application_id</i> with your real Application Id
 
 <blockquote class="lang-specific yaml">
 <code><b>POST</b> https://api.moesif.net/v1/events/batch</code>
-<br><br><i>Example Request Body:</i><br>
+<br><br><i>Example Request</i><br>
 </blockquote>
 <pre class="highlight yaml tab-yaml"><code>  <span class="pi">[</span>
     <span class="pi">{</span>
         <span class="s2">"</span><span class="s">request"</span><span class="pi">:</span> <span class="pi">{</span>
-          <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2017-10-22T04:45:42.914"</span><span class="pi">,</span>
+          <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-20T04:45:42.914"</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">uri"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://api.acmeinc.com/items/83738/reviews/"</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">verb"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">POST"</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">api_version"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.1.0"</span><span class="pi">,</span>
@@ -1234,7 +1240,7 @@ Replace <i>my_application_id</i> with your real Application Id
           <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span><span class="pi">,</span>
         <span class="pi">},</span>
         <span class="s2">"</span><span class="s">response"</span><span class="pi">:</span> <span class="pi">{</span>
-          <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2017-10-22T04:45:42.914"</span><span class="pi">,</span>
+          <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-20T04:45:42.914"</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">status"</span><span class="pi">:</span> <span class="nv">500</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">headers"</span><span class="pi">:</span> <span class="pi">{</span>
             <span class="s2">"</span><span class="s">Vary"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Accept-Encoding"</span><span class="pi">,</span>
@@ -1260,6 +1266,12 @@ Replace <i>my_application_id</i> with your real Application Id
         <span class="pi">}</span>
     <span class="pi">}</span>
   <span class="pi">]</span>
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
+curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'</span>
+
+
 </code></pre><pre class="highlight java tab-java"><code><span class="c1">// Import the Library</span>
 <span class="n">MoesifAPIClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MoesifAPIClient</span><span class="o">(</span><span class="s">"my_application_id"</span><span class="o">);</span>
 <span class="n">APIController</span> <span class="n">api</span> <span class="o">=</span> <span class="n">getClient</span><span class="o">().</span><span class="na">getAPI</span><span class="o">();</span>
@@ -1288,7 +1300,7 @@ Replace <i>my_application_id</i> with your real Application Id
   <span class="s">"}"</span><span class="o">);</span>
 
 <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">rspHeaders</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;();</span>
-<span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Date"</span><span class="o">,</span> <span class="s">"Tue, 23 Oct 2017 23:46:49 GMT"</span><span class="o">);</span>
+<span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Date"</span><span class="o">,</span> <span class="s">"Tue, 20 Jan 2018 23:46:49 GMT"</span><span class="o">);</span>
 <span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Vary"</span><span class="o">,</span> <span class="s">"Accept-Encoding"</span><span class="o">);</span>
 <span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Pragma"</span><span class="o">,</span> <span class="s">"no-cache"</span><span class="o">);</span>
 <span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Expires"</span><span class="o">,</span> <span class="s">"-1"</span><span class="o">);</span>
@@ -1464,7 +1476,7 @@ Replace <i>my_application_id</i> with your real Application Id
 }"""</span><span class="p">)</span>
 
 <span class="n">rsp_headers</span> <span class="o">=</span> <span class="n">APIHelper</span><span class="o">.</span><span class="n">json_deserialize</span><span class="p">(</span><span class="s">"""  {
-    "Date": "Tue, 23 Oct 2017 23:46:49 GMT",
+    "Date": "Tue, 20 Jan 2018 23:46:49 GMT",
     "Vary": "Accept-Encoding",
     "Pragma": "no-cache",
     "Expires": "-1",
@@ -1547,7 +1559,7 @@ Replace <i>my_application_id</i> with your real Application Id
     <span class="p">}</span><span class="s">");
 </span>
 <span class="kt">var</span> <span class="n">rspHeaders</span> <span class="p">=</span> <span class="n">APIHelper</span><span class="p">.</span><span class="n">JsonDeserialize</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="err">@</span><span class="s">" {
-</span>        <span class="s">""</span><span class="n">Date</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Tue</span><span class="p">,</span> <span class="m">23</span> <span class="n">Oct</span> <span class="m">2017</span> <span class="m">23</span><span class="p">:</span><span class="m">46</span><span class="p">:</span><span class="m">49</span> <span class="n">GMT</span><span class="s">""</span><span class="p">,</span>
+</span>        <span class="s">""</span><span class="n">Date</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Tue</span><span class="p">,</span> <span class="m">20</span> <span class="n">Jan</span> <span class="m">2018</span> <span class="m">23</span><span class="p">:</span><span class="m">46</span><span class="p">:</span><span class="m">49</span> <span class="n">GMT</span><span class="s">""</span><span class="p">,</span>
         <span class="s">""</span><span class="n">Vary</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Accept</span><span class="p">-</span><span class="n">Encoding</span><span class="s">""</span><span class="p">,</span>
         <span class="s">""</span><span class="n">Pragma</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">no</span><span class="p">-</span><span class="n">cache</span><span class="s">""</span><span class="p">,</span>
         <span class="s">""</span><span class="n">Expires</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="p">-</span><span class="m">1</span><span class="s">""</span><span class="p">,</span>
@@ -1563,7 +1575,7 @@ Replace <i>my_application_id</i> with your real Application Id
 <span class="kt">var</span> <span class="n">reqDate</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Date</span><span class="p">();</span>
 <span class="kt">var</span> <span class="n">eventReq</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventRequestModel</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2017-10-22T04:45:42.914"</span><span class="p">),</span>
+    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2018-01-20T04:45:42.914"</span><span class="p">),</span>
     <span class="n">Uri</span> <span class="p">=</span> <span class="s">"https://api.acmeinc.com/items/reviews/"</span><span class="p">,</span>
     <span class="n">Verb</span> <span class="p">=</span> <span class="s">"PATCH"</span><span class="p">,</span>
     <span class="n">ApiVersion</span> <span class="p">=</span> <span class="s">"1.1.0"</span><span class="p">,</span>
@@ -1574,7 +1586,7 @@ Replace <i>my_application_id</i> with your real Application Id
 
 <span class="kt">var</span> <span class="n">eventRsp</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventResponseModel</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2017-10-22T04:45:42.914"</span><span class="p">),</span>
+    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2018-01-20T04:45:42.914"</span><span class="p">),</span>
     <span class="n">Status</span> <span class="p">=</span> <span class="m">500</span><span class="p">,</span>
     <span class="n">Headers</span> <span class="p">=</span> <span class="n">rspHeaders</span><span class="p">,</span>
     <span class="n">Body</span> <span class="p">=</span> <span class="n">rspBody</span>
@@ -1698,54 +1710,54 @@ Replace <i>my_application_id</i> with your real Application Id
 </code></pre>
 <table><thead>
 <tr>
-<th>Fields</th>
-<th>Required?</th>
+<th>Name</th>
+<th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>request</td>
-<td><strong>Required</strong></td>
+<td><strong>true</strong></td>
 <td>The object that specifies the request message</td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">request.time</p></td>
-<td><strong>Required</strong></td>
+<td><strong>true</strong></td>
 <td>Timestamp for the request in ISO 8601 format</td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">request.uri</p></td>
-<td><strong>Required</strong></td>
+<td><strong>true</strong></td>
 <td>Full uri such as <em>https://api.com/?query=string</em> including host, query string, etc</td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">request.verb</p></td>
-<td><strong>Required</strong></td>
+<td><strong>true</strong></td>
 <td>HTTP method used, i.e. <code class="prettyprint">GET</code>, <code class="prettyprint">POST</code></td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">request.api_version</p></td>
-<td>Optional</td>
+<td>false</td>
 <td>API Version you want to tag this request with such as <em>1.0.0</em></td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">request.ip_address</p></td>
-<td>Optional</td>
+<td>false</td>
 <td>IP address of the requester, If not set, we use the IP address of your logging API calls.</td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">request.headers</p></td>
-<td><strong>Required</strong></td>
+<td><strong>true</strong></td>
 <td>Headers of the  request as a <code class="prettyprint">Map&lt;string, string&gt;</code>. Multiple headers with the same key name should be combined together such that the values are joined by a comma. <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2">HTTP Header Protocol on w3.org</a></td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">request.body</p></td>
-<td>Optional</td>
+<td>false</td>
 <td>Body of the request in JSON format or Base64 encoded binary data (see <em>transfer_encoding</em>)</td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">request.transfer_encoding</p></td>
-<td>Optional</td>
+<td>false</td>
 <td>A string that specifies the transfer encoding of Body being sent to Moesif. If field nonexistent, body assumed to be JSON or text. Only possible value is <em>base64</em> for sending binary data like protobuf</td>
 </tr>
 <tr>
@@ -1755,37 +1767,37 @@ Replace <i>my_application_id</i> with your real Application Id
 </tr>
 <tr>
 <td>response</td>
-<td>Optional</td>
+<td>false</td>
 <td>The object that specifies the response message, not set implies no response received such as a timeout.</td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">response.time</p></td>
-<td><strong>Required</strong></td>
+<td><strong>true</strong></td>
 <td>Timestamp for the response in ISO 8601 format</td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">response.status</p></td>
-<td><strong>Required</strong></td>
+<td><strong>true</strong></td>
 <td>HTTP status code as number such as <em>200</em> or <em>500</em></td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">request.ip_address</p></td>
-<td>Optional</td>
+<td>false</td>
 <td>IP address of the responding server</td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">response.headers</p></td>
-<td><strong>Required</strong></td>
+<td><strong>true</strong></td>
 <td>Headers of the response as a <code class="prettyprint">Map&lt;string, string&gt;</code>. Multiple headers with the same key name should be combined together such that the values are joined by a comma. <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2">HTTP Header Protocol on w3.org</a></td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">response.body</p></td>
-<td>Optional</td>
+<td>false</td>
 <td>Body of the response in JSON format or Base64 encoded binary data (see <em>transfer_encoding</em>)</td>
 </tr>
 <tr>
 <td><p style="margin-left:1.5em">response.transfer_encoding</p></td>
-<td>Optional</td>
+<td>false</td>
 <td>A string that specifies the transfer encoding of Body being sent to Moesif. If field nonexistent, body assumed to be JSON or text. Only possible value is <em>base64</em> for sending binary data like protobuf</td>
 </tr>
 <tr>
@@ -1805,7 +1817,7 @@ Replace <i>my_application_id</i> with your real Application Id
 </tr>
 <tr>
 <td>metadata</td>
-<td>Optional</td>
+<td>false</td>
 <td>A JSON Object consisting of any custom metadata to be stored with this event.</td>
 </tr>
 </tbody></table>
@@ -1844,10 +1856,10 @@ Replace <i>my_application_id</i> with your real Application Id
 
 <blockquote class="lang-specific yaml">
 <code><b>POST</b> https://api.moesif.net/v1/users</code>
-<br><br><i>Example Request Body:</i><br>
+<br><br><i>Example Request</i><br>
 </blockquote>
 <pre class="highlight yaml tab-yaml"><code>  <span class="pi">{</span>
-    <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2017-02-22T04:45:42.914"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-20T04:45:42.914"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">61.48.220.123"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">df32dkj32opxzfdmji4hf4fs98y18cx98q3yhwmnhcfx43f"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">123456"</span><span class="pi">,</span>
@@ -1865,6 +1877,12 @@ Replace <i>my_application_id</i> with your real Application Id
       <span class="pi">}</span>
     <span class="pi">}</span>
   <span class="pi">}</span>
+
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
+curl -X GET https://api.moesif.net/v1/users <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'</span>
+
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="c1">// 1. Import the module</span>
 <span class="kd">var</span> <span class="nx">moesifapi</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'moesifapi'</span><span class="p">);</span>
@@ -2007,39 +2025,39 @@ The new session_token will be appended to the alias table.</p></li>
 
 <table><thead>
 <tr>
-<th>Fields</th>
-<th>Required?</th>
+<th>Name</th>
+<th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>user_id</td>
-<td><strong>Required</strong></td>
+<td><strong>true</strong></td>
 <td>Your application&rsquo;s <code class="prettyprint">user_id</code> to identify this user.</td>
 </tr>
 <tr>
 <td>modified_time</td>
-<td>Optional</td>
+<td>false</td>
 <td>Last Modified Timestamp for the user in ISO 8601 format (Set automatically if not provided).</td>
 </tr>
 <tr>
 <td>ip_address</td>
-<td>Optional</td>
+<td>false</td>
 <td>Current IP address of the user, If not set, we use the IP address of the POST request.</td>
 </tr>
 <tr>
 <td>session_token</td>
-<td>Optional</td>
+<td>false</td>
 <td>Current end user session or API token such as a JWT. Setting this field does not remove old session tokens previously stored. Instead, Moesif will append the new value to an alias table for this user_id.</td>
 </tr>
 <tr>
 <td>user_agent_string</td>
-<td>Optional</td>
+<td>false</td>
 <td>If you want Moesif to parse a user agent string, you can do so via <code class="prettyprint">user_agent_string</code>.</td>
 </tr>
 <tr>
 <td>metadata</td>
-<td>Optional</td>
+<td>false</td>
 <td>A JSON Object consisting of any custom metadata to be stored with this user.</td>
 </tr>
 </tbody></table>
@@ -2075,11 +2093,11 @@ Replace <i>my_application_id</i> with your real Application Id
 
 <blockquote class="lang-specific yaml">
 <code><b>POST</b> https://api.moesif.net/v1/users/batch</code>
-<br><br><i>Example Request Body:</i><br>
+<br><br><i>Example Request</i><br>
 </blockquote>
 <pre class="highlight yaml tab-yaml"><code>  <span class="pi">[</span>
     <span class="pi">{</span>
-      <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2017-02-22T04:45:42.914"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-20T04:45:42.914"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">61.48.220.123"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">df32dkj32opxzfdmji4hf4fs98y18cx98q3yhwmnhcfx43f"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">12345"</span><span class="pi">,</span>
@@ -2098,7 +2116,7 @@ Replace <i>my_application_id</i> with your real Application Id
       <span class="pi">}</span>
     <span class="pi">},</span>
     <span class="pi">{</span>
-      <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2017-02-22T04:45:42.914"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-20T04:45:42.914"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">61.48.220.129"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">d2ewzcazchurvcqdevnhcuiyrgvru"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">7890"</span><span class="pi">,</span>
@@ -2117,6 +2135,12 @@ Replace <i>my_application_id</i> with your real Application Id
       <span class="pi">}</span>
     <span class="pi">}</span>
   <span class="pi">]</span>
+
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
+curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'</span>
+
 
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kd">var</span> <span class="nx">moesifapi</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'moesifapi'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">moesifapi</span><span class="p">.</span><span class="nx">ApiController</span><span class="p">;</span>
@@ -2234,39 +2258,39 @@ The new session_token will be appended to the alias table.</p></li>
 
 <table><thead>
 <tr>
-<th>Fields</th>
-<th>Required?</th>
+<th>Name</th>
+<th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>user_id</td>
-<td><strong>Required</strong></td>
+<td><strong>true</strong></td>
 <td>Your application&rsquo;s <code class="prettyprint">user_id</code> to identify this user.</td>
 </tr>
 <tr>
 <td>modified_time</td>
-<td>Optional</td>
+<td>false</td>
 <td>Last Modified Timestamp for the user in ISO 8601 format (Set automatically if not provided).</td>
 </tr>
 <tr>
 <td>ip_address</td>
-<td>Optional</td>
+<td>false</td>
 <td>Current IP address of the user, If not set, we use the IP address of the POST request.</td>
 </tr>
 <tr>
 <td>session_token</td>
-<td>Optional</td>
+<td>false</td>
 <td>Current end user session or API token such as a JWT. Setting this field does not remove old session tokens previously stored. Instead, Moesif will append the new value to an alias table for this user_id.</td>
 </tr>
 <tr>
 <td>user_agent_string</td>
-<td>Optional</td>
+<td>false</td>
 <td>If you want Moesif to parse a user agent string, you can do so via <code class="prettyprint">user_agent_string</code>.</td>
 </tr>
 <tr>
 <td>metadata</td>
-<td>Optional</td>
+<td>false</td>
 <td>A JSON Object consisting of any custom metadata to be stored with this user.</td>
 </tr>
 </tbody></table>
