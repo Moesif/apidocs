@@ -30,11 +30,11 @@ Replace <i>my_application_id</i> with your real Application Id
 
 <blockquote class="lang-specific yaml">
 <code><b>POST</b> https://api.moesif.net/v1/users</code>
-<br><br><i>Example Request Body:</i><br>
+<br><br><i>Example Request</i><br>
 </blockquote>
 ```yaml
   {
-    "modified_time": "2017-02-22T04:45:42.914",
+    "modified_time": "2018-01-20T04:45:42.914",
     "ip_address": "61.48.220.123",
     "session_token": "df32dkj32opxzfdmji4hf4fs98y18cx98q3yhwmnhcfx43f",
     "user_id": "123456",
@@ -52,6 +52,15 @@ Replace <i>my_application_id</i> with your real Application Id
       }
     }
   }
+
+```
+
+```shell
+# You can also use wget
+curl -X GET https://api.moesif.net/v1/users \
+  -H 'Accept: application/json' \
+  -H 'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'
+
 
 ```
 
@@ -212,14 +221,14 @@ Moesif can _alias_ multiple session_token's to the same user_id. To create a new
 call the update user API with at least the user_id and session_token set.
 The new session_token will be appended to the alias table.
 
-Fields | Required? | Description
+Name | Required | Description
 --------- | -------- | -----------
-user_id | __Required__ | Your application's `user_id` to identify this user.
-modified_time | Optional | Last Modified Timestamp for the user in ISO 8601 format (Set automatically if not provided).
-ip_address | Optional | Current IP address of the user, If not set, we use the IP address of the POST request.
-session_token | Optional | Current end user session or API token such as a JWT. Setting this field does not remove old session tokens previously stored. Instead, Moesif will append the new value to an alias table for this user_id.
-user_agent_string | Optional | If you want Moesif to parse a user agent string, you can do so via `user_agent_string`.
-metadata | Optional | A JSON Object consisting of any custom metadata to be stored with this user.
+user_id | __true__ | Your application's `user_id` to identify this user.
+modified_time | false | Last Modified Timestamp for the user in ISO 8601 format (Set automatically if not provided).
+ip_address | false | Current IP address of the user, If not set, we use the IP address of the POST request.
+session_token | false | Current end user session or API token such as a JWT. Setting this field does not remove old session tokens previously stored. Instead, Moesif will append the new value to an alias table for this user_id.
+user_agent_string | false | If you want Moesif to parse a user agent string, you can do so via `user_agent_string`.
+metadata | false | A JSON Object consisting of any custom metadata to be stored with this user.
 
 ### Update Users in Batch
 
@@ -250,12 +259,12 @@ Replace <i>my_application_id</i> with your real Application Id
 
 <blockquote class="lang-specific yaml">
 <code><b>POST</b> https://api.moesif.net/v1/users/batch</code>
-<br><br><i>Example Request Body:</i><br>
+<br><br><i>Example Request</i><br>
 </blockquote>
 ```yaml
   [
     {
-      "modified_time": "2017-02-22T04:45:42.914",
+      "modified_time": "2018-01-20T04:45:42.914",
       "ip_address": "61.48.220.123",
       "session_token": "df32dkj32opxzfdmji4hf4fs98y18cx98q3yhwmnhcfx43f",
       "user_id": "12345",
@@ -274,7 +283,7 @@ Replace <i>my_application_id</i> with your real Application Id
       }
     },
     {
-      "modified_time": "2017-02-22T04:45:42.914",
+      "modified_time": "2018-01-20T04:45:42.914",
       "ip_address": "61.48.220.129",
       "session_token": "d2ewzcazchurvcqdevnhcuiyrgvru",
       "user_id": "7890",
@@ -293,6 +302,15 @@ Replace <i>my_application_id</i> with your real Application Id
       }
     }
   ]
+
+```
+
+```shell
+# You can also use wget
+curl -X GET https://api.moesif.net/v1/events/batch \
+  -H 'Accept: application/json' \
+  -H 'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'
+
 
 ```
 
@@ -413,11 +431,11 @@ Moesif can _alias_ multiple session_token's to the same user_id. To create a new
 call the update user API with at least the user_id and session_token set.
 The new session_token will be appended to the alias table.
 
-Fields | Required? | Description
+Name | Required | Description
 --------- | -------- | -----------
-user_id | __Required__ | Your application's `user_id` to identify this user.
-modified_time | Optional | Last Modified Timestamp for the user in ISO 8601 format (Set automatically if not provided).
-ip_address | Optional | Current IP address of the user, If not set, we use the IP address of the POST request.
-session_token | Optional | Current end user session or API token such as a JWT. Setting this field does not remove old session tokens previously stored. Instead, Moesif will append the new value to an alias table for this user_id.
-user_agent_string | Optional | If you want Moesif to parse a user agent string, you can do so via `user_agent_string`.
-metadata | Optional | A JSON Object consisting of any custom metadata to be stored with this user.
+user_id | __true__ | Your application's `user_id` to identify this user.
+modified_time | false | Last Modified Timestamp for the user in ISO 8601 format (Set automatically if not provided).
+ip_address | false | Current IP address of the user, If not set, we use the IP address of the POST request.
+session_token | false | Current end user session or API token such as a JWT. Setting this field does not remove old session tokens previously stored. Instead, Moesif will append the new value to an alias table for this user_id.
+user_agent_string | false | If you want Moesif to parse a user agent string, you can do so via `user_agent_string`.
+metadata | false | A JSON Object consisting of any custom metadata to be stored with this user.

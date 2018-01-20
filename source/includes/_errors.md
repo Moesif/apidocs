@@ -3,7 +3,7 @@
 Error Code | Meaning
 ---------- | -------
 400 | Bad Request -- Your request has an incorrect parameter
-401 | Unauthorized -- Your `X-Moesif-Application-Id` header is incorrect
+401 | Unauthorized -- Your `X-Moesif-Application-Id` or `Authorization` header is incorrect
 403 | Forbidden -- You accessed a resource not allowed with your key
 404 | Not Found -- The specified resource could not be found
 405 | Method Not Allowed -- You tried to access a resource with an invalid HTTP method
