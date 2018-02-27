@@ -1,25 +1,3 @@
----
-title: Management API v1
-language_tabs:
-  - shell: Shell
-  - javascript--nodejs: Javascript
-  - python: Python
-  - ruby: Ruby
-  - php: PHP
-  - go: Go
-  - csharp: 'C#'
-  - java: Java
-toc_footers:
-  - '<a href="https://moesif.com/docs">Developer Docs</a>'
-includes: []
-search: true
-highlight_theme: darkula
-headingLevel: 2
-
-
----
-
-
 <h1 id="Management-API">Management API v1</h1>
 
 
@@ -2787,7 +2765,7 @@ Encodes the URL to be used with Moesif Collector/Proxy Server
 |body|body|[Url](#url)|false|No description|
 
 
-> Example request 
+> Example request
 
 
 <h4 id="encodeUrl-requestschema">Request Schema</h4>
@@ -6208,5 +6186,3 @@ Status Code **200**
 To perform this operation, you must be authenticated by means of one of the following methods:
 managementAPIToken ( Scopes: read:users )
 </aside>
-
-
