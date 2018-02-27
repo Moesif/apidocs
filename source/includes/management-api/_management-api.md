@@ -1,3 +1,25 @@
+---
+title: Management API v1
+language_tabs:
+  - shell: Shell
+  - javascript--nodejs: Javascript
+  - python: Python
+  - ruby: Ruby
+  - php: PHP
+  - go: Go
+  - csharp: 'C#'
+  - java: Java
+toc_footers:
+  - '<a href="https://moesif.com/docs">Developer Docs</a>'
+includes: []
+search: true
+highlight_theme: darkula
+headingLevel: 2
+
+
+---
+
+
 <h1 id="Management-API">Management API v1</h1>
 
 
@@ -25,7 +47,7 @@ Base URL:
  `Authorization: Bearer MY_API_TOKEN`
 
 
-    - Token URL = [https://api.moesif.com/:orgId/oauth/access_tokens](https://api.moesif.com/:orgId/oauth/access_tokens)
+    - Token URL = [https://api.moesif.com/v1/:orgId/oauth/access_tokens](https://api.moesif.com/v1/:orgId/oauth/access_tokens)
 
 
 |Scope|Scope Description|
@@ -169,7 +191,7 @@ Gets a list of organization for authenticated in user
     "name": "string",
     "service_level": "string",
     "id": "string",
-    "created": "2018-01-20T03:08:06Z",
+    "created": "2018-02-27T23:33:26Z",
     "apps": [
       {
         "id": "string",
@@ -1677,7 +1699,7 @@ System.out.println(response.toString());
       "state": 0,
       "host": "string",
       "session_count": 0,
-      "last_modified": "2018-01-20T03:08:06Z",
+      "last_modified": "2018-02-27T23:33:26Z",
       "api_version": "string",
       "id": "string",
       "user_count": 0,
@@ -1688,7 +1710,7 @@ System.out.println(response.toString());
     },
     "id": "string",
     "session_token": "string",
-    "created": "2018-01-20T03:08:06Z"
+    "created": "2018-02-27T23:33:26Z"
   }
 ]
 ```
@@ -1863,7 +1885,7 @@ System.out.println(response.toString());
     "state": 0,
     "host": "string",
     "session_count": 0,
-    "last_modified": "2018-01-20T03:08:06Z",
+    "last_modified": "2018-02-27T23:33:26Z",
     "api_version": "string",
     "id": "string",
     "user_count": 0,
@@ -1874,7 +1896,7 @@ System.out.println(response.toString());
   },
   "id": "string",
   "session_token": "string",
-  "created": "2018-01-20T03:08:06Z"
+  "created": "2018-02-27T23:33:26Z"
 }
 ```
 
@@ -2076,7 +2098,7 @@ Get a list of events belonging to a single trace
       "ip_address": "string",
       "verb": "string",
       "route": "string",
-      "time": "2018-01-20T03:08:06Z",
+      "time": "2018-02-27T23:33:26Z",
       "headers": {},
       "instance_id": "string"
     },
@@ -2098,7 +2120,7 @@ Get a list of events belonging to a single trace
       },
       "ip_address": "string",
       "status": 0,
-      "time": "2018-01-20T03:08:06Z",
+      "time": "2018-02-27T23:33:26Z",
       "headers": {},
       "instance_id": "string"
     },
@@ -2188,7 +2210,7 @@ managementAPIToken ( Scopes: read:traces )
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-01-20T03:08:06Z \
+curl -X GET https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-02-27T23:33:26Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
@@ -2208,7 +2230,7 @@ const headers = {
 };
 
 
-fetch('https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-01-20T03:08:06Z',
+fetch('https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-02-27T23:33:26Z',
 {
   method: 'GET',
 
@@ -2234,7 +2256,7 @@ headers = {
 
 
 r = requests.get('https://api.moesif.com/v1/{orgId}/dash/metrics', params={
-  'from': '2018-01-20T03:08:06Z'
+  'from': '2018-02-27T23:33:26Z'
 }, headers = headers)
 
 
@@ -2268,7 +2290,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-01-20T03:08:06Z");
+URL obj = new URL("https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-02-27T23:33:26Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -2765,7 +2787,7 @@ Encodes the URL to be used with Moesif Collector/Proxy Server
 |body|body|[Url](#url)|false|No description|
 
 
-> Example request
+> Example request 
 
 
 <h4 id="encodeUrl-requestschema">Request Schema</h4>
@@ -2807,7 +2829,7 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?error_event.duration_ms[lte]=0?error_event.duration_ms[gte]=0?error_event.request.time[lte]=2018-01-20T03:08:06Z?error_event.request.time[gte]=2018-01-20T03:08:06Z?error_event.request.ip_address=string?error_event.request.user_agent.os=string?error_event.request.user_agent.device=string?error_event.response.ip_address=string?error_event.session_token=string?error_event.user_id=string \
+curl -X GET https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?error_event.duration_ms[lte]=0?error_event.duration_ms[gte]=0?error_event.request.time[lte]=2018-02-27T23:33:26Z?error_event.request.time[gte]=2018-02-27T23:33:26Z?error_event.request.ip_address=string?error_event.request.user_agent.os=string?error_event.request.user_agent.device=string?error_event.response.ip_address=string?error_event.session_token=string?error_event.user_id=string \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
@@ -2827,7 +2849,7 @@ const headers = {
 };
 
 
-fetch('https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?error_event.duration_ms[lte]=0?error_event.duration_ms[gte]=0?error_event.request.time[lte]=2018-01-20T03:08:06Z?error_event.request.time[gte]=2018-01-20T03:08:06Z?error_event.request.ip_address=string?error_event.request.user_agent.os=string?error_event.request.user_agent.device=string?error_event.response.ip_address=string?error_event.session_token=string?error_event.user_id=string',
+fetch('https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?error_event.duration_ms[lte]=0?error_event.duration_ms[gte]=0?error_event.request.time[lte]=2018-02-27T23:33:26Z?error_event.request.time[gte]=2018-02-27T23:33:26Z?error_event.request.ip_address=string?error_event.request.user_agent.os=string?error_event.request.user_agent.device=string?error_event.response.ip_address=string?error_event.session_token=string?error_event.user_id=string',
 {
   method: 'GET',
 
@@ -2858,9 +2880,9 @@ r = requests.get('https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph', 
 ],  'error_event.duration_ms[gte]': [
   0
 ],  'error_event.request.time[lte]': [
-  "2018-01-20T03:08:06Z"
+  "2018-02-27T23:33:26Z"
 ],  'error_event.request.time[gte]': [
-  "2018-01-20T03:08:06Z"
+  "2018-02-27T23:33:26Z"
 ],  'error_event.request.ip_address': [
   "string"
 ],  'error_event.request.user_agent.os': [
@@ -2917,7 +2939,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?error_event.duration_ms[lte]=0?error_event.duration_ms[gte]=0?error_event.request.time[lte]=2018-01-20T03:08:06Z?error_event.request.time[gte]=2018-01-20T03:08:06Z?error_event.request.ip_address=string?error_event.request.user_agent.os=string?error_event.request.user_agent.device=string?error_event.response.ip_address=string?error_event.session_token=string?error_event.user_id=string");
+URL obj = new URL("https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?error_event.duration_ms[lte]=0?error_event.duration_ms[gte]=0?error_event.request.time[lte]=2018-02-27T23:33:26Z?error_event.request.time[gte]=2018-02-27T23:33:26Z?error_event.request.ip_address=string?error_event.request.user_agent.os=string?error_event.request.user_agent.device=string?error_event.response.ip_address=string?error_event.session_token=string?error_event.user_id=string");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -2978,7 +3000,7 @@ Get a graph of event signatures by triage bucket id
         },
         "verb": "string",
         "route": "string",
-        "created": "2018-01-20T03:08:06Z"
+        "created": "2018-02-27T23:33:26Z"
       },
       "to_vertex": {
         "signature_id": "string",
@@ -2988,7 +3010,7 @@ Get a graph of event signatures by triage bucket id
         },
         "verb": "string",
         "route": "string",
-        "created": "2018-01-20T03:08:06Z"
+        "created": "2018-02-27T23:33:26Z"
       },
       "value": 0,
       "time_span_ms": 0
@@ -2998,7 +3020,7 @@ Get a graph of event signatures by triage bucket id
     "state": 0,
     "host": "string",
     "session_count": 0,
-    "last_modified": "2018-01-20T03:08:06Z",
+    "last_modified": "2018-02-27T23:33:26Z",
     "api_version": "string",
     "id": "string",
     "user_count": 0,
@@ -3214,7 +3236,7 @@ Gets a list of triage buckets for authenticated in user under the given organiza
     "state": 0,
     "host": "string",
     "session_count": 0,
-    "last_modified": "2018-01-20T03:08:06Z",
+    "last_modified": "2018-02-27T23:33:26Z",
     "api_version": "string",
     "id": "string",
     "user_count": 0,
@@ -3393,7 +3415,7 @@ Updates a Triage Bucket (Null fields ignored)
   "state": 0,
   "host": "string",
   "session_count": 0,
-  "last_modified": "2018-01-20T03:08:06Z",
+  "last_modified": "2018-02-27T23:33:26Z",
   "api_version": "string",
   "id": "string",
   "user_count": 0,
@@ -3599,7 +3621,7 @@ Get a list of events that matched a particular signature
       "ip_address": "string",
       "verb": "string",
       "route": "string",
-      "time": "2018-01-20T03:08:06Z",
+      "time": "2018-02-27T23:33:26Z",
       "headers": {},
       "instance_id": "string"
     },
@@ -3621,7 +3643,7 @@ Get a list of events that matched a particular signature
       },
       "ip_address": "string",
       "status": 0,
-      "time": "2018-01-20T03:08:06Z",
+      "time": "2018-02-27T23:33:26Z",
       "headers": {},
       "instance_id": "string"
     },
@@ -3835,7 +3857,7 @@ Get a list of traces that matched a particular signature
       "state": 0,
       "host": "string",
       "session_count": 0,
-      "last_modified": "2018-01-20T03:08:06Z",
+      "last_modified": "2018-02-27T23:33:26Z",
       "api_version": "string",
       "id": "string",
       "user_count": 0,
@@ -3846,7 +3868,7 @@ Get a list of traces that matched a particular signature
     },
     "id": "string",
     "session_token": "string",
-    "created": "2018-01-20T03:08:06Z"
+    "created": "2018-02-27T23:33:26Z"
   }
 ]
 ```
@@ -4617,155 +4639,6 @@ managementAPIToken ( Scopes: read:users )
 <h2 id="Management-API-Events">Events</h2>
 
 
-### Count Events
-
-
-<a id="opIdcountEvents"></a>
-
-
-```shell
-# You can also use wget
-curl -X POST https://api.moesif.com/v1/{orgId}/count/events?from=2018-01-20T03:08:06Z?to=2018-01-20T03:08:06Z \
-  -H 'Accept: application/json' \
-  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
-
-
-```
-
-
-```javascript--nodejs
-const request = require('node-fetch');
-
-
-const headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
-
-
-};
-
-
-fetch('https://api.moesif.com/v1/{orgId}/count/events?from=2018-01-20T03:08:06Z?to=2018-01-20T03:08:06Z',
-{
-  method: 'POST',
-
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-
-```
-
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
-}
-
-
-r = requests.post('https://api.moesif.com/v1/{orgId}/count/events', params={
-  'from': '2018-01-20T03:08:06Z',  'to': '2018-01-20T03:08:06Z'
-}, headers = headers)
-
-
-print r.json()
-
-
-```
-
-
-```ruby
-require 'rest-client'
-require 'json'
-
-
-headers = {
-  'Accept' => 'application/json',
-  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
-}
-
-
-result = RestClient.post 'https://api.moesif.com/v1/{orgId}/count/events',
-  params: {
-  'from' => 'string(date-time)',
-'to' => 'string(date-time)'
-}, headers: headers
-
-
-p JSON.parse(result)
-
-
-```
-
-
-```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/count/events?from=2018-01-20T03:08:06Z?to=2018-01-20T03:08:06Z");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-
-```
-
-
-`POST /{orgId}/count/events`
-
-
-<h4 id="countEvents-parameters">Parameters</h4>
-
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|orgId|path|string|true|No description|
-|app_id|query|string|false|No description|
-|from|query|string(date-time)|true|No description|
-|to|query|string(date-time)|true|No description|
-|body|body|_See Below_|false|No description|
-
-
-> Example response
-
-
-<h4 id="countEvents-responses">Responses</h4>
-
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
-
-
-<h4 id="countEvents-responseschema">Response Schema</h4>
-
-
-Status Code **200**
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-managementAPIToken ( Scopes: read:events )
-</aside>
-
-
 ### Search Events
 
 
@@ -4774,7 +4647,7 @@ managementAPIToken ( Scopes: read:events )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/{orgId}/search/events?from=2018-01-20T03:08:06Z?to=2018-01-20T03:08:06Z \
+curl -X POST https://api.moesif.com/v1/{orgId}/search/events?from=2018-02-27T23:33:26Z?to=2018-02-27T23:33:26Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
@@ -4794,7 +4667,7 @@ const headers = {
 };
 
 
-fetch('https://api.moesif.com/v1/{orgId}/search/events?from=2018-01-20T03:08:06Z?to=2018-01-20T03:08:06Z',
+fetch('https://api.moesif.com/v1/{orgId}/search/events?from=2018-02-27T23:33:26Z?to=2018-02-27T23:33:26Z',
 {
   method: 'POST',
 
@@ -4820,7 +4693,7 @@ headers = {
 
 
 r = requests.post('https://api.moesif.com/v1/{orgId}/search/events', params={
-  'from': '2018-01-20T03:08:06Z',  'to': '2018-01-20T03:08:06Z'
+  'from': '2018-02-27T23:33:26Z',  'to': '2018-02-27T23:33:26Z'
 }, headers = headers)
 
 
@@ -4855,7 +4728,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/search/events?from=2018-01-20T03:08:06Z?to=2018-01-20T03:08:06Z");
+URL obj = new URL("https://api.moesif.com/v1/{orgId}/search/events?from=2018-02-27T23:33:26Z?to=2018-02-27T23:33:26Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -4885,10 +4758,97 @@ System.out.println(response.toString());
 |app_id|query|string|false|No description|
 |from|query|string(date-time)|true|No description|
 |to|query|string(date-time)|true|No description|
-|body|body|_See Below_|false|No description|
+|body|body|_See Below_|false|The search definition using the Elasticsearch Query DSL|
 
 
 > Example response
+
+
+```yaml
+{
+  "took": 0,
+  "timed_out": false,
+  "hits": {
+    "total": 0,
+    "hits": [
+      {
+        "_id": "",
+        "_source": {
+          "duration_ms": 0,
+          "request": {
+            "body": {},
+            "uri": "",
+            "user_agent": {
+              "patch": "",
+              "major": "",
+              "minor": "",
+              "name": ""
+            },
+            "geo_ip": {
+              "ip": "",
+              "region_name": "",
+              "continent_code": "",
+              "location": [
+                0
+              ],
+              "latitude": 0,
+              "timezone": "",
+              "area_code": 0,
+              "longitude": 0,
+              "real_region_name": "",
+              "dma_code": 0,
+              "postal_code": "",
+              "city_name": "",
+              "country_code2": "",
+              "country_code3": "",
+              "country_name": ""
+            },
+            "ip_address": "",
+            "verb": "",
+            "route": "",
+            "time": "",
+            "headers": {
+              "_accept-_encoding": "",
+              "_connection": "",
+              "_cache-_control": "",
+              "_user-_agent": "",
+              "_host": "",
+              "_accept": ""
+            }
+          },
+          "user_id": "",
+          "response": {
+            "headers": {
+              "_date": "",
+              "_vary": "",
+              "_cache-_control": "",
+              "_strict-_transport-_security": "",
+              "_access-_control-_expose-_headers": "",
+              "_content-_security-_policy": "",
+              "_transfer-_encoding": "",
+              "_e_tag": "",
+              "_content-_type": "",
+              "_access-_control-_allow-_origin": ""
+            },
+            "time": "",
+            "body": {},
+            "status": 0
+          },
+          "id": "",
+          "session_token": "",
+          "metadata": {},
+          "app_id": "",
+          "org_id": "",
+          "user": {}
+        },
+        "sort": [
+          0
+        ]
+      }
+    ]
+  }
+}
+```
 
 
 <h4 id="searchEvents-responses">Responses</h4>
@@ -4896,17 +4856,83 @@ System.out.println(response.toString());
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|[searchEventsResponse](#schemasearcheventsresponse)|
 
 
 <h4 id="searchEvents-responseschema">Response Schema</h4>
 
 
-Status Code **200**
+Status Code **201**
 
 
 |Name|Type|Required|Description|
 |---|---|---|---|
+|» took|integer|false|No description|
+|» timed_out|boolean|false|No description|
+|» hits|object|false|No description|
+|»» total|integer|false|No description|
+|»» hits|[[eventResponse](#schemaeventresponse)]|false|No description|
+|»»» _id|string|false|No description|
+|»»» _source|object|false|No description|
+|»»»» duration_ms|integer|false|No description|
+|»»»» request|object|false|No description|
+|»»»»» body|object|false|No description|
+|»»»»» uri|string|false|No description|
+|»»»»» user_agent|object|false|No description|
+|»»»»»» patch|string|false|No description|
+|»»»»»» major|string|false|No description|
+|»»»»»» minor|string|false|No description|
+|»»»»»» name|string|false|No description|
+|»»»»» geo_ip|object|false|No description|
+|»»»»»» ip|string|false|No description|
+|»»»»»» region_name|string|false|No description|
+|»»»»»» continent_code|string|false|No description|
+|»»»»»» location|[double]|false|No description|
+|»»»»»» latitude|double|false|No description|
+|»»»»»» timezone|string|false|No description|
+|»»»»»» area_code|integer|false|No description|
+|»»»»»» longitude|double|false|No description|
+|»»»»»» real_region_name|string|false|No description|
+|»»»»»» dma_code|integer|false|No description|
+|»»»»»» postal_code|string|false|No description|
+|»»»»»» city_name|string|false|No description|
+|»»»»»» country_code2|string|false|No description|
+|»»»»»» country_code3|string|false|No description|
+|»»»»»» country_name|string|false|No description|
+|»»»»» ip_address|string|false|No description|
+|»»»»» verb|string|false|No description|
+|»»»»» route|string|false|No description|
+|»»»»» time|string|false|No description|
+|»»»»» headers|object|false|No description|
+|»»»»»» _accept-_encoding|string|false|No description|
+|»»»»»» _connection|string|false|No description|
+|»»»»»» _cache-_control|string|false|No description|
+|»»»»»» _user-_agent|string|false|No description|
+|»»»»»» _host|string|false|No description|
+|»»»»»» _accept|string|false|No description|
+|»»»»» user_id|string|false|No description|
+|»»»»» response|object|false|No description|
+|»»»»»» headers|object|false|No description|
+|»»»»»»» _date|string|false|No description|
+|»»»»»»» _vary|string|false|No description|
+|»»»»»»» _cache-_control|string|false|No description|
+|»»»»»»» _strict-_transport-_security|string|false|No description|
+|»»»»»»» _access-_control-_expose-_headers|string|false|No description|
+|»»»»»»» _content-_security-_policy|string|false|No description|
+|»»»»»»» _transfer-_encoding|string|false|No description|
+|»»»»»»» _e_tag|string|false|No description|
+|»»»»»»» _content-_type|string|false|No description|
+|»»»»»»» _access-_control-_allow-_origin|string|false|No description|
+|»»»»»» time|string|false|No description|
+|»»»»»» body|object|false|No description|
+|»»»»»» status|integer|false|No description|
+|»»»»» id|string|false|No description|
+|»»»»» session_token|string|false|No description|
+|»»»»» metadata|object|false|No description|
+|»»»»» app_id|string|false|No description|
+|»»»»» org_id|string|false|No description|
+|»»»»» user|object|false|No description|
+|»»»» sort|[integer]|false|No description|
 
 
 <aside class="warning">
@@ -4923,7 +4949,7 @@ managementAPIToken ( Scopes: read:events )
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-01-20T03:08:06Z \
+curl -X GET https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-02-27T23:33:26Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
@@ -4943,7 +4969,7 @@ const headers = {
 };
 
 
-fetch('https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-01-20T03:08:06Z',
+fetch('https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-02-27T23:33:26Z',
 {
   method: 'GET',
 
@@ -4969,7 +4995,7 @@ headers = {
 
 
 r = requests.get('https://api.moesif.com/v1/{orgId}/events/{id}', params={
-  'event_time': '2018-01-20T03:08:06Z'
+  'event_time': '2018-02-27T23:33:26Z'
 }, headers = headers)
 
 
@@ -5003,7 +5029,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-01-20T03:08:06Z");
+URL obj = new URL("https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-02-27T23:33:26Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -5037,12 +5063,90 @@ System.out.println(response.toString());
 > Example response
 
 
+```yaml
+{
+  "_id": "",
+  "_source": {
+    "duration_ms": 0,
+    "request": {
+      "body": {},
+      "uri": "",
+      "user_agent": {
+        "patch": "",
+        "major": "",
+        "minor": "",
+        "name": ""
+      },
+      "geo_ip": {
+        "ip": "",
+        "region_name": "",
+        "continent_code": "",
+        "location": [
+          0
+        ],
+        "latitude": 0,
+        "timezone": "",
+        "area_code": 0,
+        "longitude": 0,
+        "real_region_name": "",
+        "dma_code": 0,
+        "postal_code": "",
+        "city_name": "",
+        "country_code2": "",
+        "country_code3": "",
+        "country_name": ""
+      },
+      "ip_address": "",
+      "verb": "",
+      "route": "",
+      "time": "",
+      "headers": {
+        "_accept-_encoding": "",
+        "_connection": "",
+        "_cache-_control": "",
+        "_user-_agent": "",
+        "_host": "",
+        "_accept": ""
+      }
+    },
+    "user_id": "",
+    "response": {
+      "headers": {
+        "_date": "",
+        "_vary": "",
+        "_cache-_control": "",
+        "_strict-_transport-_security": "",
+        "_access-_control-_expose-_headers": "",
+        "_content-_security-_policy": "",
+        "_transfer-_encoding": "",
+        "_e_tag": "",
+        "_content-_type": "",
+        "_access-_control-_allow-_origin": ""
+      },
+      "time": "",
+      "body": {},
+      "status": 0
+    },
+    "id": "",
+    "session_token": "",
+    "metadata": {},
+    "app_id": "",
+    "org_id": "",
+    "user": {}
+  },
+  "sort": [
+    0
+  ]
+}
+```
+
+
 <h4 id="getEvent-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[eventResponse](#schemaeventresponse)|
 
 
 <h4 id="getEvent-responseschema">Response Schema</h4>
@@ -5053,6 +5157,67 @@ Status Code **200**
 
 |Name|Type|Required|Description|
 |---|---|---|---|
+|» _id|string|false|No description|
+|» _source|object|false|No description|
+|»» duration_ms|integer|false|No description|
+|»» request|object|false|No description|
+|»»» body|object|false|No description|
+|»»» uri|string|false|No description|
+|»»» user_agent|object|false|No description|
+|»»»» patch|string|false|No description|
+|»»»» major|string|false|No description|
+|»»»» minor|string|false|No description|
+|»»»» name|string|false|No description|
+|»»» geo_ip|object|false|No description|
+|»»»» ip|string|false|No description|
+|»»»» region_name|string|false|No description|
+|»»»» continent_code|string|false|No description|
+|»»»» location|[double]|false|No description|
+|»»»» latitude|double|false|No description|
+|»»»» timezone|string|false|No description|
+|»»»» area_code|integer|false|No description|
+|»»»» longitude|double|false|No description|
+|»»»» real_region_name|string|false|No description|
+|»»»» dma_code|integer|false|No description|
+|»»»» postal_code|string|false|No description|
+|»»»» city_name|string|false|No description|
+|»»»» country_code2|string|false|No description|
+|»»»» country_code3|string|false|No description|
+|»»»» country_name|string|false|No description|
+|»»» ip_address|string|false|No description|
+|»»» verb|string|false|No description|
+|»»» route|string|false|No description|
+|»»» time|string|false|No description|
+|»»» headers|object|false|No description|
+|»»»» _accept-_encoding|string|false|No description|
+|»»»» _connection|string|false|No description|
+|»»»» _cache-_control|string|false|No description|
+|»»»» _user-_agent|string|false|No description|
+|»»»» _host|string|false|No description|
+|»»»» _accept|string|false|No description|
+|»»» user_id|string|false|No description|
+|»»» response|object|false|No description|
+|»»»» headers|object|false|No description|
+|»»»»» _date|string|false|No description|
+|»»»»» _vary|string|false|No description|
+|»»»»» _cache-_control|string|false|No description|
+|»»»»» _strict-_transport-_security|string|false|No description|
+|»»»»» _access-_control-_expose-_headers|string|false|No description|
+|»»»»» _content-_security-_policy|string|false|No description|
+|»»»»» _transfer-_encoding|string|false|No description|
+|»»»»» _e_tag|string|false|No description|
+|»»»»» _content-_type|string|false|No description|
+|»»»»» _access-_control-_allow-_origin|string|false|No description|
+|»»»» time|string|false|No description|
+|»»»» body|object|false|No description|
+|»»»» status|integer|false|No description|
+|»»» id|string|false|No description|
+|»»» session_token|string|false|No description|
+|»»» metadata|object|false|No description|
+|»»» app_id|string|false|No description|
+|»»» org_id|string|false|No description|
+|»»» user|object|false|No description|
+|»» sort|[integer]|false|No description|
 
 
 <aside class="warning">
@@ -5062,152 +5227,6 @@ managementAPIToken ( Scopes: read:events )
 
 
 <h2 id="Management-API-Users">Users</h2>
-
-
-### Count Users
-
-
-<a id="opIdcountUsers"></a>
-
-
-```shell
-# You can also use wget
-curl -X POST https://api.moesif.com/v1/{orgId}/count/users \
-  -H 'Accept: application/json' \
-  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
-
-
-```
-
-
-```javascript--nodejs
-const request = require('node-fetch');
-
-
-const headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
-
-
-};
-
-
-fetch('https://api.moesif.com/v1/{orgId}/count/users',
-{
-  method: 'POST',
-
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-
-```
-
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
-}
-
-
-r = requests.post('https://api.moesif.com/v1/{orgId}/count/users', params={
-
-
-}, headers = headers)
-
-
-print r.json()
-
-
-```
-
-
-```ruby
-require 'rest-client'
-require 'json'
-
-
-headers = {
-  'Accept' => 'application/json',
-  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
-}
-
-
-result = RestClient.post 'https://api.moesif.com/v1/{orgId}/count/users',
-  params: {
-  }, headers: headers
-
-
-p JSON.parse(result)
-
-
-```
-
-
-```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/count/users");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-
-```
-
-
-`POST /{orgId}/count/users`
-
-
-<h4 id="countUsers-parameters">Parameters</h4>
-
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|orgId|path|string|true|No description|
-|app_id|query|string|false|No description|
-|body|body|_See Below_|false|No description|
-
-
-> Example response
-
-
-<h4 id="countUsers-responses">Responses</h4>
-
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
-
-
-<h4 id="countUsers-responseschema">Response Schema</h4>
-
-
-Status Code **200**
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-managementAPIToken ( Scopes: read:users )
-</aside>
 
 
 ### Update a User
@@ -5332,12 +5351,67 @@ System.out.println(response.toString());
 > Example response
 
 
+```yaml
+{
+  "_id": "",
+  "_source": {
+    "first_name": "",
+    "body": {},
+    "name": "",
+    "email": "",
+    "first_seen_time": "",
+    "user_agent": {
+      "name": "",
+      "os_major": "",
+      "os": "",
+      "os_name": "",
+      "os_minor": "",
+      "major": "",
+      "device": "",
+      "minor": ""
+    },
+    "geo_ip": {
+      "ip": "",
+      "region_name": "",
+      "continent_code": "",
+      "location": {
+        "lon": 0,
+        "lat": 0
+      },
+      "latitude": 0,
+      "timezone": "",
+      "longitude": 0,
+      "dma_code": 0,
+      "postal_code": "",
+      "region_code": "",
+      "city_name": "",
+      "country_code2": "",
+      "country_code3": "",
+      "country_name": ""
+    },
+    "modified_time": "",
+    "last_name": "",
+    "ip_address": "",
+    "session_token": [
+      ""
+    ],
+    "last_seen_time": "",
+    "app_id": "",
+    "org_id": ""
+  },
+  "sort": [
+    0
+  ]
+}
+```
+
+
 <h4 id="updateUsers-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[userResponse](#schemauserresponse)|
 
 
 <h4 id="updateUsers-responseschema">Response Schema</h4>
@@ -5348,6 +5422,47 @@ Status Code **200**
 
 |Name|Type|Required|Description|
 |---|---|---|---|
+|» _id|string|false|No description|
+|» _source|object|false|No description|
+|»» first_name|string|false|No description|
+|»» body|object|false|No description|
+|»» name|string|false|No description|
+|»» email|string|false|No description|
+|»» first_seen_time|string|false|No description|
+|»» user_agent|object|false|No description|
+|»»» name|string|false|No description|
+|»»» os_major|string|false|No description|
+|»»» os|string|false|No description|
+|»»» os_name|string|false|No description|
+|»»» os_minor|string|false|No description|
+|»»» major|string|false|No description|
+|»»» device|string|false|No description|
+|»»» minor|string|false|No description|
+|»» geo_ip|object|false|No description|
+|»»» ip|string|false|No description|
+|»»» region_name|string|false|No description|
+|»»» continent_code|string|false|No description|
+|»»» location|object|false|No description|
+|»»»» lon|double|false|No description|
+|»»»» lat|double|false|No description|
+|»»» latitude|double|false|No description|
+|»»» timezone|string|false|No description|
+|»»» longitude|double|false|No description|
+|»»» dma_code|integer|false|No description|
+|»»» postal_code|string|false|No description|
+|»»» region_code|string|false|No description|
+|»»» city_name|string|false|No description|
+|»»» country_code2|string|false|No description|
+|»»» country_code3|string|false|No description|
+|»»» country_name|string|false|No description|
+|»» modified_time|string|false|No description|
+|»» last_name|string|false|No description|
+|»» ip_address|string|false|No description|
+|»» session_token|[string]|false|No description|
+|»» last_seen_time|string|false|No description|
+|»» app_id|string|false|No description|
+|»» org_id|string|false|No description|
+|» sort|[integer]|false|No description|
 
 
 <aside class="warning">
@@ -5472,10 +5587,74 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|body|body|_See Below_|false|No description|
+|body|body|_See Below_|false|The search definition using the Elasticsearch Query DSL|
 
 
 > Example response
+
+
+```yaml
+{
+  "took": 0,
+  "timed_out": false,
+  "hits": {
+    "total": 0,
+    "hits": [
+      {
+        "_id": "",
+        "_source": {
+          "first_name": "",
+          "body": {},
+          "name": "",
+          "email": "",
+          "first_seen_time": "",
+          "user_agent": {
+            "name": "",
+            "os_major": "",
+            "os": "",
+            "os_name": "",
+            "os_minor": "",
+            "major": "",
+            "device": "",
+            "minor": ""
+          },
+          "geo_ip": {
+            "ip": "",
+            "region_name": "",
+            "continent_code": "",
+            "location": {
+              "lon": 0,
+              "lat": 0
+            },
+            "latitude": 0,
+            "timezone": "",
+            "longitude": 0,
+            "dma_code": 0,
+            "postal_code": "",
+            "region_code": "",
+            "city_name": "",
+            "country_code2": "",
+            "country_code3": "",
+            "country_name": ""
+          },
+          "modified_time": "",
+          "last_name": "",
+          "ip_address": "",
+          "session_token": [
+            ""
+          ],
+          "last_seen_time": "",
+          "app_id": "",
+          "org_id": ""
+        },
+        "sort": [
+          0
+        ]
+      }
+    ]
+  }
+}
+```
 
 
 <h4 id="searchUsers-responses">Responses</h4>
@@ -5483,17 +5662,63 @@ System.out.println(response.toString());
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|[searchUsersResponse](#schemasearchusersresponse)|
 
 
 <h4 id="searchUsers-responseschema">Response Schema</h4>
 
 
-Status Code **200**
+Status Code **201**
 
 
 |Name|Type|Required|Description|
 |---|---|---|---|
+|» took|integer|false|No description|
+|» timed_out|boolean|false|No description|
+|» hits|object|false|No description|
+|»» total|integer|false|No description|
+|»» hits|[[userResponse](#schemauserresponse)]|false|No description|
+|»»» _id|string|false|No description|
+|»»» _source|object|false|No description|
+|»»»» first_name|string|false|No description|
+|»»»» body|object|false|No description|
+|»»»» name|string|false|No description|
+|»»»» email|string|false|No description|
+|»»»» first_seen_time|string|false|No description|
+|»»»» user_agent|object|false|No description|
+|»»»»» name|string|false|No description|
+|»»»»» os_major|string|false|No description|
+|»»»»» os|string|false|No description|
+|»»»»» os_name|string|false|No description|
+|»»»»» os_minor|string|false|No description|
+|»»»»» major|string|false|No description|
+|»»»»» device|string|false|No description|
+|»»»»» minor|string|false|No description|
+|»»»» geo_ip|object|false|No description|
+|»»»»» ip|string|false|No description|
+|»»»»» region_name|string|false|No description|
+|»»»»» continent_code|string|false|No description|
+|»»»»» location|object|false|No description|
+|»»»»»» lon|double|false|No description|
+|»»»»»» lat|double|false|No description|
+|»»»»» latitude|double|false|No description|
+|»»»»» timezone|string|false|No description|
+|»»»»» longitude|double|false|No description|
+|»»»»» dma_code|integer|false|No description|
+|»»»»» postal_code|string|false|No description|
+|»»»»» region_code|string|false|No description|
+|»»»»» city_name|string|false|No description|
+|»»»»» country_code2|string|false|No description|
+|»»»»» country_code3|string|false|No description|
+|»»»»» country_name|string|false|No description|
+|»»»» modified_time|string|false|No description|
+|»»»» last_name|string|false|No description|
+|»»»» ip_address|string|false|No description|
+|»»»» session_token|[string]|false|No description|
+|»»»» last_seen_time|string|false|No description|
+|»»»» app_id|string|false|No description|
+|»»»» org_id|string|false|No description|
+|»»» sort|[integer]|false|No description|
 
 
 <aside class="warning">
@@ -5624,12 +5849,67 @@ System.out.println(response.toString());
 > Example response
 
 
+```yaml
+{
+  "_id": "",
+  "_source": {
+    "first_name": "",
+    "body": {},
+    "name": "",
+    "email": "",
+    "first_seen_time": "",
+    "user_agent": {
+      "name": "",
+      "os_major": "",
+      "os": "",
+      "os_name": "",
+      "os_minor": "",
+      "major": "",
+      "device": "",
+      "minor": ""
+    },
+    "geo_ip": {
+      "ip": "",
+      "region_name": "",
+      "continent_code": "",
+      "location": {
+        "lon": 0,
+        "lat": 0
+      },
+      "latitude": 0,
+      "timezone": "",
+      "longitude": 0,
+      "dma_code": 0,
+      "postal_code": "",
+      "region_code": "",
+      "city_name": "",
+      "country_code2": "",
+      "country_code3": "",
+      "country_name": ""
+    },
+    "modified_time": "",
+    "last_name": "",
+    "ip_address": "",
+    "session_token": [
+      ""
+    ],
+    "last_seen_time": "",
+    "app_id": "",
+    "org_id": ""
+  },
+  "sort": [
+    0
+  ]
+}
+```
+
+
 <h4 id="batchUpdateUsers-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[userResponse](#schemauserresponse)|
 
 
 <h4 id="batchUpdateUsers-responseschema">Response Schema</h4>
@@ -5640,6 +5920,47 @@ Status Code **200**
 
 |Name|Type|Required|Description|
 |---|---|---|---|
+|» _id|string|false|No description|
+|» _source|object|false|No description|
+|»» first_name|string|false|No description|
+|»» body|object|false|No description|
+|»» name|string|false|No description|
+|»» email|string|false|No description|
+|»» first_seen_time|string|false|No description|
+|»» user_agent|object|false|No description|
+|»»» name|string|false|No description|
+|»»» os_major|string|false|No description|
+|»»» os|string|false|No description|
+|»»» os_name|string|false|No description|
+|»»» os_minor|string|false|No description|
+|»»» major|string|false|No description|
+|»»» device|string|false|No description|
+|»»» minor|string|false|No description|
+|»» geo_ip|object|false|No description|
+|»»» ip|string|false|No description|
+|»»» region_name|string|false|No description|
+|»»» continent_code|string|false|No description|
+|»»» location|object|false|No description|
+|»»»» lon|double|false|No description|
+|»»»» lat|double|false|No description|
+|»»» latitude|double|false|No description|
+|»»» timezone|string|false|No description|
+|»»» longitude|double|false|No description|
+|»»» dma_code|integer|false|No description|
+|»»» postal_code|string|false|No description|
+|»»» region_code|string|false|No description|
+|»»» city_name|string|false|No description|
+|»»» country_code2|string|false|No description|
+|»»» country_code3|string|false|No description|
+|»»» country_name|string|false|No description|
+|»» modified_time|string|false|No description|
+|»» last_name|string|false|No description|
+|»» ip_address|string|false|No description|
+|»» session_token|[string]|false|No description|
+|»» last_seen_time|string|false|No description|
+|»» app_id|string|false|No description|
+|»» org_id|string|false|No description|
+|» sort|[integer]|false|No description|
 
 
 <aside class="warning">
@@ -5769,12 +6090,67 @@ System.out.println(response.toString());
 > Example response
 
 
+```yaml
+{
+  "_id": "",
+  "_source": {
+    "first_name": "",
+    "body": {},
+    "name": "",
+    "email": "",
+    "first_seen_time": "",
+    "user_agent": {
+      "name": "",
+      "os_major": "",
+      "os": "",
+      "os_name": "",
+      "os_minor": "",
+      "major": "",
+      "device": "",
+      "minor": ""
+    },
+    "geo_ip": {
+      "ip": "",
+      "region_name": "",
+      "continent_code": "",
+      "location": {
+        "lon": 0,
+        "lat": 0
+      },
+      "latitude": 0,
+      "timezone": "",
+      "longitude": 0,
+      "dma_code": 0,
+      "postal_code": "",
+      "region_code": "",
+      "city_name": "",
+      "country_code2": "",
+      "country_code3": "",
+      "country_name": ""
+    },
+    "modified_time": "",
+    "last_name": "",
+    "ip_address": "",
+    "session_token": [
+      ""
+    ],
+    "last_seen_time": "",
+    "app_id": "",
+    "org_id": ""
+  },
+  "sort": [
+    0
+  ]
+}
+```
+
+
 <h4 id="getUser-responses">Responses</h4>
 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[userResponse](#schemauserresponse)|
 
 
 <h4 id="getUser-responseschema">Response Schema</h4>
@@ -5785,9 +6161,52 @@ Status Code **200**
 
 |Name|Type|Required|Description|
 |---|---|---|---|
+|» _id|string|false|No description|
+|» _source|object|false|No description|
+|»» first_name|string|false|No description|
+|»» body|object|false|No description|
+|»» name|string|false|No description|
+|»» email|string|false|No description|
+|»» first_seen_time|string|false|No description|
+|»» user_agent|object|false|No description|
+|»»» name|string|false|No description|
+|»»» os_major|string|false|No description|
+|»»» os|string|false|No description|
+|»»» os_name|string|false|No description|
+|»»» os_minor|string|false|No description|
+|»»» major|string|false|No description|
+|»»» device|string|false|No description|
+|»»» minor|string|false|No description|
+|»» geo_ip|object|false|No description|
+|»»» ip|string|false|No description|
+|»»» region_name|string|false|No description|
+|»»» continent_code|string|false|No description|
+|»»» location|object|false|No description|
+|»»»» lon|double|false|No description|
+|»»»» lat|double|false|No description|
+|»»» latitude|double|false|No description|
+|»»» timezone|string|false|No description|
+|»»» longitude|double|false|No description|
+|»»» dma_code|integer|false|No description|
+|»»» postal_code|string|false|No description|
+|»»» region_code|string|false|No description|
+|»»» city_name|string|false|No description|
+|»»» country_code2|string|false|No description|
+|»»» country_code3|string|false|No description|
+|»»» country_name|string|false|No description|
+|»» modified_time|string|false|No description|
+|»» last_name|string|false|No description|
+|»» ip_address|string|false|No description|
+|»» session_token|[string]|false|No description|
+|»» last_seen_time|string|false|No description|
+|»» app_id|string|false|No description|
+|»» org_id|string|false|No description|
+|» sort|[integer]|false|No description|
 
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 managementAPIToken ( Scopes: read:users )
 </aside>
+
+
