@@ -106,11 +106,11 @@ api = client.api
 metadata = APIHelper.json_deserialize("""  {
         "email": "pythonapiuser@email.com",
         "name": "pythonapiuser",
-        "custom": "testdata"
+        "custom_field": "testdata"
     } """)
 
-user_model = EventRequestModel(
-    user_id = 'pythonapiuser1',
+user_model = UserModel(
+    user_id = 'ihjdewhdiew',
     modified_time = datetime.utcnow(),
     metadata = metadata)
 
