@@ -1922,11 +1922,11 @@ curl -X GET https://api.moesif.net/v1/users <span class="se">\</span>
 <span class="n">metadata</span> <span class="o">=</span> <span class="n">APIHelper</span><span class="o">.</span><span class="n">json_deserialize</span><span class="p">(</span><span class="s">"""  {
         "email": "pythonapiuser@email.com",
         "name": "pythonapiuser",
-        "custom": "testdata"
+        "custom_field": "testdata"
     } """</span><span class="p">)</span>
 
-<span class="n">user_model</span> <span class="o">=</span> <span class="n">EventRequestModel</span><span class="p">(</span>
-    <span class="n">user_id</span> <span class="o">=</span> <span class="s">'pythonapiuser1'</span><span class="p">,</span>
+<span class="n">user_model</span> <span class="o">=</span> <span class="n">UserModel</span><span class="p">(</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="s">'ihjdewhdiew'</span><span class="p">,</span>
     <span class="n">modified_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">(),</span>
     <span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">)</span>
 
