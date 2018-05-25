@@ -157,7 +157,7 @@ System.out.println(response.toString());
 `GET /organizations`
 
 
-Gets a list of organization for authenticated in user
+Gets a list of organization for authenticated user/customer
 
 
 > Example response
@@ -169,7 +169,7 @@ Gets a list of organization for authenticated in user
     "name": "string",
     "service_level": "string",
     "id": "string",
-    "created": "2018-02-27T23:33:26Z",
+    "created": "2018-05-25T06:50:19Z",
     "apps": [
       {
         "id": "string",
@@ -616,155 +616,6 @@ System.out.println(response.toString());
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 managementAPIToken ( Scopes: delete:workspaces )
-</aside>
-
-
-### Get new Workspace Token
-
-
-<a id="opIdgetWorkspaceToken"></a>
-
-
-```shell
-# You can also use wget
-curl -X GET https://api.moesif.com/v1/replay/workspaces/access_token \
-  -H 'Accept: application/json' \
-  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
-
-
-```
-
-
-```javascript--nodejs
-const request = require('node-fetch');
-
-
-const headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
-
-
-};
-
-
-fetch('https://api.moesif.com/v1/replay/workspaces/access_token',
-{
-  method: 'GET',
-
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-
-```
-
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
-}
-
-
-r = requests.get('https://api.moesif.com/v1/replay/workspaces/access_token', params={
-
-
-}, headers = headers)
-
-
-print r.json()
-
-
-```
-
-
-```ruby
-require 'rest-client'
-require 'json'
-
-
-headers = {
-  'Accept' => 'application/json',
-  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
-}
-
-
-result = RestClient.get 'https://api.moesif.com/v1/replay/workspaces/access_token',
-  params: {
-  }, headers: headers
-
-
-p JSON.parse(result)
-
-
-```
-
-
-```java
-URL obj = new URL("https://api.moesif.com/v1/replay/workspaces/access_token");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-
-```
-
-
-`GET /replay/workspaces/access_token`
-
-
-Get a new Workspace Access Token
-
-
-> Example response
-
-
-```yaml
-{
-  "_id": "string",
-  "token": "string"
-}
-```
-
-
-<h4 id="getWorkspaceToken-responses">Responses</h4>
-
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[Signeken](#signeken)|
-
-
-<h4 id="getWorkspaceToken-responseschema">Response Schema</h4>
-
-
-Status Code **200**
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|» _id|string|true|No description|
-|» token|string|true|No description|
-
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-managementAPIToken ( Scopes: read:workspaces )
 </aside>
 
 
@@ -1529,7 +1380,7 @@ managementAPIToken ( Scopes: update:workspaces )
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/{orgId}/traces?session_token=string?triage_bucket.state=0?triage_bucket.verb=string?triage_bucket.status=0?triage_bucket.api_version=string \
+curl -X GET https://api.moesif.com/v1/{orgId}/traces \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
@@ -1549,7 +1400,7 @@ const headers = {
 };
 
 
-fetch('https://api.moesif.com/v1/{orgId}/traces?session_token=string?triage_bucket.state=0?triage_bucket.verb=string?triage_bucket.status=0?triage_bucket.api_version=string',
+fetch('https://api.moesif.com/v1/{orgId}/traces',
 {
   method: 'GET',
 
@@ -1576,15 +1427,19 @@ headers = {
 
 r = requests.get('https://api.moesif.com/v1/{orgId}/traces', params={
   'session_token': [
-  "string"
+  null
 ],  'triage_bucket.state': [
-  0
+  null
+],  'triage_bucket.route': [
+  null
 ],  'triage_bucket.verb': [
-  "string"
+  null
 ],  'triage_bucket.status': [
-  0
+  null
 ],  'triage_bucket.api_version': [
-  "string"
+  null
+],  'created': [
+  null
 ]
 }, headers = headers)
 
@@ -1609,10 +1464,12 @@ headers = {
 result = RestClient.get 'https://api.moesif.com/v1/{orgId}/traces',
   params: {
   'session_token' => 'array[string]',
-'triage_bucket.state' => 'array[integer]',
+'triage_bucket.state' => 'array[int]',
+'triage_bucket.route' => 'array[string]',
 'triage_bucket.verb' => 'array[string]',
-'triage_bucket.status' => 'array[integer]',
-'triage_bucket.api_version' => 'array[string]'
+'triage_bucket.status' => 'array[int]',
+'triage_bucket.api_version' => 'array[string]',
+'created' => 'array[datetime]'
 }, headers: headers
 
 
@@ -1623,7 +1480,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/traces?session_token=string?triage_bucket.state=0?triage_bucket.verb=string?triage_bucket.status=0?triage_bucket.api_version=string");
+URL obj = new URL("https://api.moesif.com/v1/{orgId}/traces");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -1655,14 +1512,13 @@ System.out.println(response.toString());
 |take|query|integer(int32)|false|No description|
 |before_id|query|string|false|No description|
 |after_id|query|string|false|No description|
-|session_token|query|array[string]|true|No description|
-|triage_bucket.state|query|array[integer]|true|No description|
-|triage_bucket.route|query|string|false|No description|
-|triage_bucket.verb|query|array[string]|true|No description|
-|triage_bucket.status|query|array[integer]|true|No description|
-|triage_bucket.api_version|query|array[string]|true|No description|
-|created[gte]|query|string(date-time)|false|No description|
-|created[lte]|query|string(date-time)|false|No description|
+|session_token|query|array[fifilterparamsstring]|true|No description|
+|triage_bucket.state|query|array[fifilterparamsint]|true|No description|
+|triage_bucket.route|query|array[fifilterparamsstring]|true|No description|
+|triage_bucket.verb|query|array[fifilterparamsstring]|true|No description|
+|triage_bucket.status|query|array[fifilterparamsint]|true|No description|
+|triage_bucket.api_version|query|array[fifilterparamsstring]|true|No description|
+|created|query|array[fifilterparamsdatetime]|true|No description|
 |sort|query|string|false|No description|
 
 
@@ -1677,18 +1533,32 @@ System.out.println(response.toString());
       "state": 0,
       "host": "string",
       "session_count": 0,
-      "last_modified": "2018-02-27T23:33:26Z",
+      "last_modified": "2018-05-25T06:50:19Z",
       "api_version": "string",
       "id": "string",
       "user_count": 0,
       "status": 0,
+      "jsonrpc": {
+        "method": "string",
+        "code": 0
+      },
       "verb": "string",
+      "metadata": {},
       "event_count": 0,
-      "route": "string"
+      "route": "string",
+      "graphql": {
+        "operation_name": "string",
+        "definitions": [
+          {
+            "operation_type": "string",
+            "name": "string"
+          }
+        ]
+      }
     },
     "id": "string",
     "session_token": "string",
-    "created": "2018-02-27T23:33:26Z"
+    "created": "2018-05-25T06:50:19Z"
   }
 ]
 ```
@@ -1720,12 +1590,21 @@ Status Code **200**
 |»» id|string|true|No description|
 |»» user_count|integer(int64)|false|No description|
 |»» status|integer(int32)|true|No description|
+|»» jsonrpc|object|false|No description|
+|»»» method|string|false|No description|
+|»»» code|integer(int32)|false|No description|
 |»» verb|string|true|No description|
+|»» metadata|object|false|No description|
 |»» event_count|integer(int64)|false|No description|
 |»» route|string|true|No description|
-|» id|string|true|No description|
-|» session_token|string|false|No description|
-|» created|string(date-time)|true|No description|
+|»» graphql|object|false|No description|
+|»»» operation_name|string|false|No description|
+|»»» definitions|[[SignatureGraphQlDefinition](#signaturegraphqldefinition)]|true|No description|
+|»»»» operation_type|string|false|No description|
+|»»»» name|string|false|No description|
+|»»» id|string|true|No description|
+|»»» session_token|string|false|No description|
+|»»» created|string(date-time)|true|No description|
 
 
 <aside class="warning">
@@ -1863,18 +1742,32 @@ System.out.println(response.toString());
     "state": 0,
     "host": "string",
     "session_count": 0,
-    "last_modified": "2018-02-27T23:33:26Z",
+    "last_modified": "2018-05-25T06:50:19Z",
     "api_version": "string",
     "id": "string",
     "user_count": 0,
     "status": 0,
+    "jsonrpc": {
+      "method": "string",
+      "code": 0
+    },
     "verb": "string",
+    "metadata": {},
     "event_count": 0,
-    "route": "string"
+    "route": "string",
+    "graphql": {
+      "operation_name": "string",
+      "definitions": [
+        {
+          "operation_type": "string",
+          "name": "string"
+        }
+      ]
+    }
   },
   "id": "string",
   "session_token": "string",
-  "created": "2018-02-27T23:33:26Z"
+  "created": "2018-05-25T06:50:19Z"
 }
 ```
 
@@ -1905,12 +1798,21 @@ Status Code **200**
 |»» id|string|true|No description|
 |»» user_count|integer(int64)|false|No description|
 |»» status|integer(int32)|true|No description|
+|»» jsonrpc|object|false|No description|
+|»»» method|string|false|No description|
+|»»» code|integer(int32)|false|No description|
 |»» verb|string|true|No description|
+|»» metadata|object|false|No description|
 |»» event_count|integer(int64)|false|No description|
 |»» route|string|true|No description|
-|» id|string|true|No description|
-|» session_token|string|false|No description|
-|» created|string(date-time)|true|No description|
+|»» graphql|object|false|No description|
+|»»» operation_name|string|false|No description|
+|»»» definitions|[[SignatureGraphQlDefinition](#signaturegraphqldefinition)]|true|No description|
+|»»»» operation_type|string|false|No description|
+|»»»» name|string|false|No description|
+|»»» id|string|true|No description|
+|»»» session_token|string|false|No description|
+|»»» created|string(date-time)|true|No description|
 
 
 <aside class="warning">
@@ -2076,9 +1978,28 @@ Get a list of events belonging to a single trace
       "ip_address": "string",
       "verb": "string",
       "route": "string",
-      "time": "2018-02-27T23:33:26Z",
+      "time": "2018-05-25T06:50:19Z",
       "headers": {},
-      "instance_id": "string"
+      "instance_id": "string",
+      "graphql": {
+        "operation_name": "string",
+        "definitions": [
+          {
+            "name": "string",
+            "directives": [
+              {}
+            ],
+            "operation_type": "string",
+            "selections": [
+              {}
+            ],
+            "variables": [
+              {}
+            ]
+          }
+        ],
+        "variables": {}
+      }
     },
     "trace_id": "string",
     "triage_bucket_id": "string",
@@ -2098,12 +2019,25 @@ Get a list of events belonging to a single trace
       },
       "ip_address": "string",
       "status": 0,
-      "time": "2018-02-27T23:33:26Z",
+      "time": "2018-05-25T06:50:19Z",
       "headers": {},
       "instance_id": "string"
     },
     "id": "string",
     "session_token": "string",
+    "jsonrpc": {
+      "request": {
+        "jsonrpc": "string",
+        "id": "string",
+        "method": "string",
+        "params": {}
+      },
+      "response": {
+        "jsonrpc": "string",
+        "id": "string",
+        "error": {}
+      }
+    },
     "metadata": {},
     "user": {}
   }
@@ -2154,21 +2088,40 @@ Status Code **200**
 |»» time|string(date-time)|true|No description|
 |»» headers|object|true|No description|
 |»» instance_id|string|false|No description|
-|» trace_id|string|false|No description|
-|» triage_bucket_id|string|false|No description|
-|» user_id|string|false|No description|
-|» response|object|true|No description|
-|»» body|object|false|No description|
-|»» geo_ip|object|false|No description|
-|»» ip_address|string|false|No description|
-|»» status|integer(int32)|true|No description|
-|»» time|string(date-time)|true|No description|
-|»» headers|object|true|No description|
-|»» instance_id|string|false|No description|
-|» id|string|true|No description|
-|» session_token|string|false|No description|
-|» metadata|object|false|No description|
-|» user|object|false|No description|
+|»» graphql|object|false|No description|
+|»»» operation_name|string|false|No description|
+|»»» definitions|[[EventGraphQlDefinition](#eventgraphqldefinition)]|true|No description|
+|»»»» name|string|false|No description|
+|»»»» directives|[object]|false|No description|
+|»»»» operation_type|string|false|No description|
+|»»»» selections|[object]|false|No description|
+|»»»» variables|[object]|false|No description|
+|»»» variables|object|false|No description|
+|»» trace_id|string|false|No description|
+|»» triage_bucket_id|string|false|No description|
+|»» user_id|string|false|No description|
+|»» response|object|true|No description|
+|»»» body|object|false|No description|
+|»»» geo_ip|object|false|No description|
+|»»» ip_address|string|false|No description|
+|»»» status|integer(int32)|true|No description|
+|»»» time|string(date-time)|true|No description|
+|»»» headers|object|true|No description|
+|»»» instance_id|string|false|No description|
+|»» id|string|true|No description|
+|»» session_token|string|false|No description|
+|»» jsonrpc|object|false|No description|
+|»»» request|object|true|No description|
+|»»»» jsonrpc|string|true|No description|
+|»»»» id|string|false|No description|
+|»»»» method|string|false|No description|
+|»»»» params|object|false|No description|
+|»»» response|object|false|No description|
+|»»»» jsonrpc|string|true|No description|
+|»»»» id|string|false|No description|
+|»»»» error|object|false|No description|
+|»»» metadata|object|false|No description|
+|»»» user|object|false|No description|
 
 
 <aside class="warning">
@@ -2188,7 +2141,7 @@ managementAPIToken ( Scopes: read:traces )
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-02-27T23:33:26Z \
+curl -X GET https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-05-25T06:50:19Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
@@ -2208,7 +2161,7 @@ const headers = {
 };
 
 
-fetch('https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-02-27T23:33:26Z',
+fetch('https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-05-25T06:50:19Z',
 {
   method: 'GET',
 
@@ -2234,7 +2187,7 @@ headers = {
 
 
 r = requests.get('https://api.moesif.com/v1/{orgId}/dash/metrics', params={
-  'from': '2018-02-27T23:33:26Z'
+  'from': '2018-05-25T06:50:19Z'
 }, headers = headers)
 
 
@@ -2268,7 +2221,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-02-27T23:33:26Z");
+URL obj = new URL("https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-05-25T06:50:19Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -2807,7 +2760,7 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?error_event.duration_ms[lte]=0?error_event.duration_ms[gte]=0?error_event.request.time[lte]=2018-02-27T23:33:26Z?error_event.request.time[gte]=2018-02-27T23:33:26Z?error_event.request.ip_address=string?error_event.request.user_agent.os=string?error_event.request.user_agent.device=string?error_event.response.ip_address=string?error_event.session_token=string?error_event.user_id=string \
+curl -X GET https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0 \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
@@ -2827,7 +2780,7 @@ const headers = {
 };
 
 
-fetch('https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?error_event.duration_ms[lte]=0?error_event.duration_ms[gte]=0?error_event.request.time[lte]=2018-02-27T23:33:26Z?error_event.request.time[gte]=2018-02-27T23:33:26Z?error_event.request.ip_address=string?error_event.request.user_agent.os=string?error_event.request.user_agent.device=string?error_event.response.ip_address=string?error_event.session_token=string?error_event.user_id=string',
+fetch('https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0',
 {
   method: 'GET',
 
@@ -2853,26 +2806,26 @@ headers = {
 
 
 r = requests.get('https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph', params={
-  'depth': '0',  'error_event.duration_ms[lte]': [
-  0
-],  'error_event.duration_ms[gte]': [
-  0
-],  'error_event.request.time[lte]': [
-  "2018-02-27T23:33:26Z"
-],  'error_event.request.time[gte]': [
-  "2018-02-27T23:33:26Z"
+  'depth': '0',  'error_event.event_id': [
+  null
+],  'error_event.duration_ms': [
+  null
+],  'error_event.request.time': [
+  null
+],  'error_event.request.verb': [
+  null
 ],  'error_event.request.ip_address': [
-  "string"
-],  'error_event.request.user_agent.os': [
-  "string"
-],  'error_event.request.user_agent.device': [
-  "string"
+  null
+],  'error_event.request.route': [
+  null
 ],  'error_event.response.ip_address': [
-  "string"
+  null
+],  'error_event.response.status': [
+  null
 ],  'error_event.session_token': [
-  "string"
+  null
 ],  'error_event.user_id': [
-  "string"
+  null
 ]
 }, headers = headers)
 
@@ -2897,14 +2850,14 @@ headers = {
 result = RestClient.get 'https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph',
   params: {
   'depth' => 'integer(int32)',
-'error_event.duration_ms[lte]' => 'array[integer]',
-'error_event.duration_ms[gte]' => 'array[integer]',
-'error_event.request.time[lte]' => 'array[string]',
-'error_event.request.time[gte]' => 'array[string]',
+'error_event.event_id' => 'array[string]',
+'error_event.duration_ms' => 'array[int]',
+'error_event.request.time' => 'array[datetime]',
+'error_event.request.verb' => 'array[string]',
 'error_event.request.ip_address' => 'array[string]',
-'error_event.request.user_agent.os' => 'array[string]',
-'error_event.request.user_agent.device' => 'array[string]',
+'error_event.request.route' => 'array[string]',
 'error_event.response.ip_address' => 'array[string]',
+'error_event.response.status' => 'array[int]',
 'error_event.session_token' => 'array[string]',
 'error_event.user_id' => 'array[string]'
 }, headers: headers
@@ -2917,7 +2870,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0?error_event.duration_ms[lte]=0?error_event.duration_ms[gte]=0?error_event.request.time[lte]=2018-02-27T23:33:26Z?error_event.request.time[gte]=2018-02-27T23:33:26Z?error_event.request.ip_address=string?error_event.request.user_agent.os=string?error_event.request.user_agent.device=string?error_event.response.ip_address=string?error_event.session_token=string?error_event.user_id=string");
+URL obj = new URL("https://api.moesif.com/v1/{orgId}/triage_buckets/{id}/graph?depth=0");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -2949,16 +2902,16 @@ Get a graph of event signatures by triage bucket id
 |orgId|path|string|true|No description|
 |id|path|string|true|No description|
 |depth|query|integer(int32)|true|No description|
-|error_event.duration_ms[lte]|query|array[integer]|true|No description|
-|error_event.duration_ms[gte]|query|array[integer]|true|No description|
-|error_event.request.time[lte]|query|array[string]|true|No description|
-|error_event.request.time[gte]|query|array[string]|true|No description|
-|error_event.request.ip_address|query|array[string]|true|No description|
-|error_event.request.user_agent.os|query|array[string]|true|No description|
-|error_event.request.user_agent.device|query|array[string]|true|No description|
-|error_event.response.ip_address|query|array[string]|true|No description|
-|error_event.session_token|query|array[string]|true|No description|
-|error_event.user_id|query|array[string]|true|No description|
+|error_event.event_id|query|array[fifilterparamsstring]|true|No description|
+|error_event.duration_ms|query|array[fifilterparamsint]|true|No description|
+|error_event.request.time|query|array[fifilterparamsdatetime]|true|No description|
+|error_event.request.verb|query|array[fifilterparamsstring]|true|No description|
+|error_event.request.ip_address|query|array[fifilterparamsstring]|true|No description|
+|error_event.request.route|query|array[fifilterparamsstring]|true|No description|
+|error_event.response.ip_address|query|array[fifilterparamsstring]|true|No description|
+|error_event.response.status|query|array[fifilterparamsint]|true|No description|
+|error_event.session_token|query|array[fifilterparamsstring]|true|No description|
+|error_event.user_id|query|array[fifilterparamsstring]|true|No description|
 
 
 > Example response
@@ -2973,39 +2926,84 @@ Get a graph of event signatures by triage bucket id
       "from_vertex": {
         "signature_id": "string",
         "host": "string",
+        "session_count": 0,
         "response": {
           "status_code": 0
         },
+        "user_count": 0,
+        "jsonrpc": {
+          "method": "string",
+          "code": 0
+        },
         "verb": "string",
+        "event_count": 0,
         "route": "string",
-        "created": "2018-02-27T23:33:26Z"
+        "created": "2018-05-25T06:50:19Z",
+        "graphql": {
+          "operation_name": "string",
+          "definitions": [
+            {
+              "operation_type": "string",
+              "name": "string"
+            }
+          ]
+        }
       },
       "to_vertex": {
         "signature_id": "string",
         "host": "string",
+        "session_count": 0,
         "response": {
           "status_code": 0
         },
+        "user_count": 0,
+        "jsonrpc": {
+          "method": "string",
+          "code": 0
+        },
         "verb": "string",
+        "event_count": 0,
         "route": "string",
-        "created": "2018-02-27T23:33:26Z"
+        "created": "2018-05-25T06:50:19Z",
+        "graphql": {
+          "operation_name": "string",
+          "definitions": [
+            {
+              "operation_type": "string",
+              "name": "string"
+            }
+          ]
+        }
       },
-      "value": 0,
-      "time_span_ms": 0
+      "value": 0
     }
   ],
   "triage_bucket": {
     "state": 0,
     "host": "string",
     "session_count": 0,
-    "last_modified": "2018-02-27T23:33:26Z",
+    "last_modified": "2018-05-25T06:50:19Z",
     "api_version": "string",
     "id": "string",
     "user_count": 0,
     "status": 0,
+    "jsonrpc": {
+      "method": "string",
+      "code": 0
+    },
     "verb": "string",
+    "metadata": {},
     "event_count": 0,
-    "route": "string"
+    "route": "string",
+    "graphql": {
+      "operation_name": "string",
+      "definitions": [
+        {
+          "operation_type": "string",
+          "name": "string"
+        }
+      ]
+    }
   }
 }
 ```
@@ -3033,26 +3031,39 @@ Status Code **200**
 |»» from_vertex|object|true|No description|
 |»»» signature_id|string|true|No description|
 |»»» host|string|false|No description|
+|»»» session_count|integer(int64)|false|No description|
 |»»» response|object|false|No description|
 |»»»» status_code|integer(int32)|true|No description|
+|»»» user_count|integer(int64)|false|No description|
+|»»» jsonrpc|object|false|No description|
+|»»»» method|string|false|No description|
+|»»»» code|integer(int32)|false|No description|
 |»»» verb|string|true|No description|
+|»»» event_count|integer(int64)|false|No description|
 |»»» route|string|true|No description|
 |»»» created|string(date-time)|true|No description|
-|»» to_vertex|object|true|No description|
-|»» value|number(double)|true|No description|
-|»» time_span_ms|integer(int32)|true|No description|
-|» triage_bucket|object|false|No description|
-|»» state|integer(int32)|true|No description|
-|»» host|string|true|No description|
-|»» session_count|integer(int64)|false|No description|
-|»» last_modified|string(date-time)|true|No description|
-|»» api_version|string|false|No description|
-|»» id|string|true|No description|
-|»» user_count|integer(int64)|false|No description|
-|»» status|integer(int32)|true|No description|
-|»» verb|string|true|No description|
-|»» event_count|integer(int64)|false|No description|
-|»» route|string|true|No description|
+|»»» graphql|object|false|No description|
+|»»»» operation_name|string|false|No description|
+|»»»» definitions|[[SignatureGraphQlDefinition](#signaturegraphqldefinition)]|true|No description|
+|»»»»» operation_type|string|false|No description|
+|»»»»» name|string|false|No description|
+|»»»» to_vertex|object|true|No description|
+|»»»» value|number(double)|true|No description|
+|»»» triage_bucket|object|false|No description|
+|»»»» state|integer(int32)|true|No description|
+|»»»» host|string|true|No description|
+|»»»» session_count|integer(int64)|false|No description|
+|»»»» last_modified|string(date-time)|true|No description|
+|»»»» api_version|string|false|No description|
+|»»»» id|string|true|No description|
+|»»»» user_count|integer(int64)|false|No description|
+|»»»» status|integer(int32)|true|No description|
+|»»»» jsonrpc|object|false|No description|
+|»»»» verb|string|true|No description|
+|»»»» metadata|object|false|No description|
+|»»»» event_count|integer(int64)|false|No description|
+|»»»» route|string|true|No description|
+|»»»» graphql|object|false|No description|
 
 
 <aside class="warning">
@@ -3069,7 +3080,7 @@ managementAPIToken ( Scopes: read:triage_buckets )
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/{orgId}/triage_buckets?take=0?state=0?verb=string?status=0?api_version=string \
+curl -X GET https://api.moesif.com/v1/{orgId}/triage_buckets?take=0 \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
@@ -3089,7 +3100,7 @@ const headers = {
 };
 
 
-fetch('https://api.moesif.com/v1/{orgId}/triage_buckets?take=0?state=0?verb=string?status=0?api_version=string',
+fetch('https://api.moesif.com/v1/{orgId}/triage_buckets?take=0',
 {
   method: 'GET',
 
@@ -3116,13 +3127,17 @@ headers = {
 
 r = requests.get('https://api.moesif.com/v1/{orgId}/triage_buckets', params={
   'take': '0',  'state': [
-  0
+  null
+],  'last_modified': [
+  null
+],  'route': [
+  null
 ],  'verb': [
-  "string"
+  null
 ],  'status': [
-  0
+  null
 ],  'api_version': [
-  "string"
+  null
 ]
 }, headers = headers)
 
@@ -3147,9 +3162,11 @@ headers = {
 result = RestClient.get 'https://api.moesif.com/v1/{orgId}/triage_buckets',
   params: {
   'take' => 'integer(int32)',
-'state' => 'array[integer]',
+'state' => 'array[int]',
+'last_modified' => 'array[datetime]',
+'route' => 'array[string]',
 'verb' => 'array[string]',
-'status' => 'array[integer]',
+'status' => 'array[int]',
 'api_version' => 'array[string]'
 }, headers: headers
 
@@ -3161,7 +3178,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/triage_buckets?take=0?state=0?verb=string?status=0?api_version=string");
+URL obj = new URL("https://api.moesif.com/v1/{orgId}/triage_buckets?take=0");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -3195,13 +3212,12 @@ Gets a list of triage buckets for authenticated in user under the given organiza
 |take|query|integer(int32)|true|No description|
 |before_id|query|string|false|No description|
 |after_id|query|string|false|No description|
-|state|query|array[integer]|true|No description|
-|last_modified[gte]|query|string(date-time)|false|No description|
-|last_modified[lte]|query|string(date-time)|false|No description|
-|route|query|string|false|No description|
-|verb|query|array[string]|true|No description|
-|status|query|array[integer]|true|No description|
-|api_version|query|array[string]|true|No description|
+|state|query|array[fifilterparamsint]|true|No description|
+|last_modified|query|array[fifilterparamsdatetime]|true|No description|
+|route|query|array[fifilterparamsstring]|true|No description|
+|verb|query|array[fifilterparamsstring]|true|No description|
+|status|query|array[fifilterparamsint]|true|No description|
+|api_version|query|array[fifilterparamsstring]|true|No description|
 |sort|query|string|false|No description|
 
 
@@ -3214,14 +3230,28 @@ Gets a list of triage buckets for authenticated in user under the given organiza
     "state": 0,
     "host": "string",
     "session_count": 0,
-    "last_modified": "2018-02-27T23:33:26Z",
+    "last_modified": "2018-05-25T06:50:19Z",
     "api_version": "string",
     "id": "string",
     "user_count": 0,
     "status": 0,
+    "jsonrpc": {
+      "method": "string",
+      "code": 0
+    },
     "verb": "string",
+    "metadata": {},
     "event_count": 0,
-    "route": "string"
+    "route": "string",
+    "graphql": {
+      "operation_name": "string",
+      "definitions": [
+        {
+          "operation_type": "string",
+          "name": "string"
+        }
+      ]
+    }
   }
 ]
 ```
@@ -3251,9 +3281,18 @@ Status Code **200**
 |» id|string|true|No description|
 |» user_count|integer(int64)|false|No description|
 |» status|integer(int32)|true|No description|
+|» jsonrpc|object|false|No description|
+|»» method|string|false|No description|
+|»» code|integer(int32)|false|No description|
 |» verb|string|true|No description|
+|» metadata|object|false|No description|
 |» event_count|integer(int64)|false|No description|
 |» route|string|true|No description|
+|» graphql|object|false|No description|
+|»» operation_name|string|false|No description|
+|»» definitions|[[SignatureGraphQlDefinition](#signaturegraphqldefinition)]|true|No description|
+|»»» operation_type|string|false|No description|
+|»»» name|string|false|No description|
 
 
 <aside class="warning">
@@ -3393,14 +3432,28 @@ Updates a Triage Bucket (Null fields ignored)
   "state": 0,
   "host": "string",
   "session_count": 0,
-  "last_modified": "2018-02-27T23:33:26Z",
+  "last_modified": "2018-05-25T06:50:19Z",
   "api_version": "string",
   "id": "string",
   "user_count": 0,
   "status": 0,
+  "jsonrpc": {
+    "method": "string",
+    "code": 0
+  },
   "verb": "string",
+  "metadata": {},
   "event_count": 0,
-  "route": "string"
+  "route": "string",
+  "graphql": {
+    "operation_name": "string",
+    "definitions": [
+      {
+        "operation_type": "string",
+        "name": "string"
+      }
+    ]
+  }
 }
 ```
 
@@ -3429,9 +3482,18 @@ Status Code **200**
 |» id|string|true|No description|
 |» user_count|integer(int64)|false|No description|
 |» status|integer(int32)|true|No description|
+|» jsonrpc|object|false|No description|
+|»» method|string|false|No description|
+|»» code|integer(int32)|false|No description|
 |» verb|string|true|No description|
+|» metadata|object|false|No description|
 |» event_count|integer(int64)|false|No description|
 |» route|string|true|No description|
+|» graphql|object|false|No description|
+|»» operation_name|string|false|No description|
+|»» definitions|[[SignatureGraphQlDefinition](#signaturegraphqldefinition)]|true|No description|
+|»»» operation_type|string|false|No description|
+|»»» name|string|false|No description|
 
 
 <aside class="warning">
@@ -3497,7 +3559,27 @@ headers = {
 
 
 r = requests.get('https://api.moesif.com/v1/{orgId}/signatures/{id}/events', params={
-  'take': '0'
+  'take': '0',  'event_id': [
+  null
+],  'duration_ms': [
+  null
+],  'request.time': [
+  null
+],  'request.verb': [
+  null
+],  'request.ip_address': [
+  null
+],  'request.route': [
+  null
+],  'response.ip_address': [
+  null
+],  'response.status': [
+  null
+],  'session_token': [
+  null
+],  'user_id': [
+  null
+]
 }, headers = headers)
 
 
@@ -3520,7 +3602,17 @@ headers = {
 
 result = RestClient.get 'https://api.moesif.com/v1/{orgId}/signatures/{id}/events',
   params: {
-  'take' => 'integer(int32)'
+  'take' => 'integer(int32)',
+'event_id' => 'array[string]',
+'duration_ms' => 'array[int]',
+'request.time' => 'array[datetime]',
+'request.verb' => 'array[string]',
+'request.ip_address' => 'array[string]',
+'request.route' => 'array[string]',
+'response.ip_address' => 'array[string]',
+'response.status' => 'array[int]',
+'session_token' => 'array[string]',
+'user_id' => 'array[string]'
 }, headers: headers
 
 
@@ -3565,6 +3657,16 @@ Get a list of events that matched a particular signature
 |take|query|integer(int32)|true|No description|
 |after_id|query|string|false|No description|
 |before_id|query|string|false|No description|
+|event_id|query|array[fifilterparamsstring]|true|No description|
+|duration_ms|query|array[fifilterparamsint]|true|No description|
+|request.time|query|array[fifilterparamsdatetime]|true|No description|
+|request.verb|query|array[fifilterparamsstring]|true|No description|
+|request.ip_address|query|array[fifilterparamsstring]|true|No description|
+|request.route|query|array[fifilterparamsstring]|true|No description|
+|response.ip_address|query|array[fifilterparamsstring]|true|No description|
+|response.status|query|array[fifilterparamsint]|true|No description|
+|session_token|query|array[fifilterparamsstring]|true|No description|
+|user_id|query|array[fifilterparamsstring]|true|No description|
 
 
 > Example response
@@ -3599,9 +3701,28 @@ Get a list of events that matched a particular signature
       "ip_address": "string",
       "verb": "string",
       "route": "string",
-      "time": "2018-02-27T23:33:26Z",
+      "time": "2018-05-25T06:50:19Z",
       "headers": {},
-      "instance_id": "string"
+      "instance_id": "string",
+      "graphql": {
+        "operation_name": "string",
+        "definitions": [
+          {
+            "name": "string",
+            "directives": [
+              {}
+            ],
+            "operation_type": "string",
+            "selections": [
+              {}
+            ],
+            "variables": [
+              {}
+            ]
+          }
+        ],
+        "variables": {}
+      }
     },
     "trace_id": "string",
     "triage_bucket_id": "string",
@@ -3621,12 +3742,25 @@ Get a list of events that matched a particular signature
       },
       "ip_address": "string",
       "status": 0,
-      "time": "2018-02-27T23:33:26Z",
+      "time": "2018-05-25T06:50:19Z",
       "headers": {},
       "instance_id": "string"
     },
     "id": "string",
     "session_token": "string",
+    "jsonrpc": {
+      "request": {
+        "jsonrpc": "string",
+        "id": "string",
+        "method": "string",
+        "params": {}
+      },
+      "response": {
+        "jsonrpc": "string",
+        "id": "string",
+        "error": {}
+      }
+    },
     "metadata": {},
     "user": {}
   }
@@ -3677,21 +3811,386 @@ Status Code **200**
 |»» time|string(date-time)|true|No description|
 |»» headers|object|true|No description|
 |»» instance_id|string|false|No description|
-|» trace_id|string|false|No description|
-|» triage_bucket_id|string|false|No description|
-|» user_id|string|false|No description|
-|» response|object|true|No description|
+|»» graphql|object|false|No description|
+|»»» operation_name|string|false|No description|
+|»»» definitions|[[EventGraphQlDefinition](#eventgraphqldefinition)]|true|No description|
+|»»»» name|string|false|No description|
+|»»»» directives|[object]|false|No description|
+|»»»» operation_type|string|false|No description|
+|»»»» selections|[object]|false|No description|
+|»»»» variables|[object]|false|No description|
+|»»» variables|object|false|No description|
+|»» trace_id|string|false|No description|
+|»» triage_bucket_id|string|false|No description|
+|»» user_id|string|false|No description|
+|»» response|object|true|No description|
+|»»» body|object|false|No description|
+|»»» geo_ip|object|false|No description|
+|»»» ip_address|string|false|No description|
+|»»» status|integer(int32)|true|No description|
+|»»» time|string(date-time)|true|No description|
+|»»» headers|object|true|No description|
+|»»» instance_id|string|false|No description|
+|»» id|string|true|No description|
+|»» session_token|string|false|No description|
+|»» jsonrpc|object|false|No description|
+|»»» request|object|true|No description|
+|»»»» jsonrpc|string|true|No description|
+|»»»» id|string|false|No description|
+|»»»» method|string|false|No description|
+|»»»» params|object|false|No description|
+|»»» response|object|false|No description|
+|»»»» jsonrpc|string|true|No description|
+|»»»» id|string|false|No description|
+|»»»» error|object|false|No description|
+|»»» metadata|object|false|No description|
+|»»» user|object|false|No description|
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: read:signatures )
+</aside>
+
+
+### Get Aggregations
+
+
+<a id="opIdgetSignatureAggs"></a>
+
+
+```shell
+# You can also use wget
+curl -X POST https://api.moesif.com/v1/{orgId}/signatures/{id}/aggs \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+```
+
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
+fetch('https://api.moesif.com/v1/{orgId}/signatures/{id}/aggs',
+{
+  method: 'POST',
+
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+
+```
+
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
+r = requests.post('https://api.moesif.com/v1/{orgId}/signatures/{id}/aggs', params={
+  'event_id': [
+  null
+],  'duration_ms': [
+  null
+],  'request.time': [
+  null
+],  'request.verb': [
+  null
+],  'request.ip_address': [
+  null
+],  'request.route': [
+  null
+],  'response.ip_address': [
+  null
+],  'response.status': [
+  null
+],  'session_token': [
+  null
+],  'user_id': [
+  null
+]
+}, headers = headers)
+
+
+print r.json()
+
+
+```
+
+
+```ruby
+require 'rest-client'
+require 'json'
+
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
+result = RestClient.post 'https://api.moesif.com/v1/{orgId}/signatures/{id}/aggs',
+  params: {
+  'event_id' => 'array[string]',
+'duration_ms' => 'array[int]',
+'request.time' => 'array[datetime]',
+'request.verb' => 'array[string]',
+'request.ip_address' => 'array[string]',
+'request.route' => 'array[string]',
+'response.ip_address' => 'array[string]',
+'response.status' => 'array[int]',
+'session_token' => 'array[string]',
+'user_id' => 'array[string]'
+}, headers: headers
+
+
+p JSON.parse(result)
+
+
+```
+
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/{orgId}/signatures/{id}/aggs");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+
+```
+
+
+`POST /{orgId}/signatures/{id}/aggs`
+
+
+Get an aggregation of a fields for a particular signature
+
+
+<h4 id="getSignatureAggs-parameters">Parameters</h4>
+
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|orgId|path|string|true|No description|
+|id|path|string|true|No description|
+|after_id|query|string|false|No description|
+|before_id|query|string|false|No description|
+|event_id|query|array[fifilterparamsstring]|true|No description|
+|duration_ms|query|array[fifilterparamsint]|true|No description|
+|request.time|query|array[fifilterparamsdatetime]|true|No description|
+|request.verb|query|array[fifilterparamsstring]|true|No description|
+|request.ip_address|query|array[fifilterparamsstring]|true|No description|
+|request.route|query|array[fifilterparamsstring]|true|No description|
+|response.ip_address|query|array[fifilterparamsstring]|true|No description|
+|response.status|query|array[fifilterparamsint]|true|No description|
+|session_token|query|array[fifilterparamsstring]|true|No description|
+|user_id|query|array[fifilterparamsstring]|true|No description|
+
+
+> Example response
+
+
+```yaml
+[
+  {
+    "request": {
+      "body": {},
+      "uri": "string",
+      "user_agent": {
+        "name": "string",
+        "os": "string",
+        "os_name": "string",
+        "major": "string",
+        "device": "string",
+        "minor": "string"
+      },
+      "api_version": "string",
+      "geo_ip": {
+        "region_name": "string",
+        "latitude": 0,
+        "timezone": "string",
+        "longitude": 0,
+        "real_region_name": "string",
+        "postal_code": "string",
+        "city_name": "string",
+        "country_code2": "string",
+        "country_name": "string"
+      },
+      "ip_address": "string",
+      "verb": "string",
+      "route": "string",
+      "time": "2018-05-25T06:50:19Z",
+      "headers": {},
+      "instance_id": "string",
+      "graphql": {
+        "operation_name": "string",
+        "definitions": [
+          {
+            "name": "string",
+            "directives": [
+              {}
+            ],
+            "operation_type": "string",
+            "selections": [
+              {}
+            ],
+            "variables": [
+              {}
+            ]
+          }
+        ],
+        "variables": {}
+      }
+    },
+    "trace_id": "string",
+    "triage_bucket_id": "string",
+    "user_id": "string",
+    "response": {
+      "body": {},
+      "geo_ip": {
+        "region_name": "string",
+        "latitude": 0,
+        "timezone": "string",
+        "longitude": 0,
+        "real_region_name": "string",
+        "postal_code": "string",
+        "city_name": "string",
+        "country_code2": "string",
+        "country_name": "string"
+      },
+      "ip_address": "string",
+      "status": 0,
+      "time": "2018-05-25T06:50:19Z",
+      "headers": {},
+      "instance_id": "string"
+    },
+    "id": "string",
+    "session_token": "string",
+    "jsonrpc": {
+      "request": {
+        "jsonrpc": "string",
+        "id": "string",
+        "method": "string",
+        "params": {}
+      },
+      "response": {
+        "jsonrpc": "string",
+        "id": "string",
+        "error": {}
+      }
+    },
+    "metadata": {},
+    "user": {}
+  }
+]
+```
+
+
+<h4 id="getSignatureAggs-responses">Responses</h4>
+
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+
+<h4 id="getSignatureAggs-responseschema">Response Schema</h4>
+
+
+Status Code **200**
+
+
+|Name|Type|Required|Description|
+|---|---|---|---|
+|» request|object|true|No description|
 |»» body|object|false|No description|
+|»» uri|string|true|No description|
+|»» user_agent|object|false|No description|
+|»»» name|string|false|No description|
+|»»» os|string|false|No description|
+|»»» os_name|string|false|No description|
+|»»» major|string|false|No description|
+|»»» device|string|false|No description|
+|»»» minor|string|false|No description|
+|»» api_version|string|false|No description|
 |»» geo_ip|object|false|No description|
-|»» ip_address|string|false|No description|
-|»» status|integer(int32)|true|No description|
+|»»» region_name|string|false|No description|
+|»»» latitude|number(double)|false|No description|
+|»»» timezone|string|false|No description|
+|»»» longitude|number(double)|false|No description|
+|»»» real_region_name|string|false|No description|
+|»»» postal_code|string|false|No description|
+|»»» city_name|string|false|No description|
+|»»» country_code2|string|false|No description|
+|»»» country_name|string|false|No description|
+|»» ip_address|string|true|No description|
+|»» verb|string|true|No description|
+|»» route|string|true|No description|
 |»» time|string(date-time)|true|No description|
 |»» headers|object|true|No description|
 |»» instance_id|string|false|No description|
-|» id|string|true|No description|
-|» session_token|string|false|No description|
-|» metadata|object|false|No description|
-|» user|object|false|No description|
+|»» graphql|object|false|No description|
+|»»» operation_name|string|false|No description|
+|»»» definitions|[[EventGraphQlDefinition](#eventgraphqldefinition)]|true|No description|
+|»»»» name|string|false|No description|
+|»»»» directives|[object]|false|No description|
+|»»»» operation_type|string|false|No description|
+|»»»» selections|[object]|false|No description|
+|»»»» variables|[object]|false|No description|
+|»»» variables|object|false|No description|
+|»» trace_id|string|false|No description|
+|»» triage_bucket_id|string|false|No description|
+|»» user_id|string|false|No description|
+|»» response|object|true|No description|
+|»»» body|object|false|No description|
+|»»» geo_ip|object|false|No description|
+|»»» ip_address|string|false|No description|
+|»»» status|integer(int32)|true|No description|
+|»»» time|string(date-time)|true|No description|
+|»»» headers|object|true|No description|
+|»»» instance_id|string|false|No description|
+|»» id|string|true|No description|
+|»» session_token|string|false|No description|
+|»» jsonrpc|object|false|No description|
+|»»» request|object|true|No description|
+|»»»» jsonrpc|string|true|No description|
+|»»»» id|string|false|No description|
+|»»»» method|string|false|No description|
+|»»»» params|object|false|No description|
+|»»» response|object|false|No description|
+|»»»» jsonrpc|string|true|No description|
+|»»»» id|string|false|No description|
+|»»»» error|object|false|No description|
+|»»» metadata|object|false|No description|
+|»»» user|object|false|No description|
 
 
 <aside class="warning">
@@ -3835,18 +4334,32 @@ Get a list of traces that matched a particular signature
       "state": 0,
       "host": "string",
       "session_count": 0,
-      "last_modified": "2018-02-27T23:33:26Z",
+      "last_modified": "2018-05-25T06:50:19Z",
       "api_version": "string",
       "id": "string",
       "user_count": 0,
       "status": 0,
+      "jsonrpc": {
+        "method": "string",
+        "code": 0
+      },
       "verb": "string",
+      "metadata": {},
       "event_count": 0,
-      "route": "string"
+      "route": "string",
+      "graphql": {
+        "operation_name": "string",
+        "definitions": [
+          {
+            "operation_type": "string",
+            "name": "string"
+          }
+        ]
+      }
     },
     "id": "string",
     "session_token": "string",
-    "created": "2018-02-27T23:33:26Z"
+    "created": "2018-05-25T06:50:19Z"
   }
 ]
 ```
@@ -3878,12 +4391,21 @@ Status Code **200**
 |»» id|string|true|No description|
 |»» user_count|integer(int64)|false|No description|
 |»» status|integer(int32)|true|No description|
+|»» jsonrpc|object|false|No description|
+|»»» method|string|false|No description|
+|»»» code|integer(int32)|false|No description|
 |»» verb|string|true|No description|
+|»» metadata|object|false|No description|
 |»» event_count|integer(int64)|false|No description|
 |»» route|string|true|No description|
-|» id|string|true|No description|
-|» session_token|string|false|No description|
-|» created|string(date-time)|true|No description|
+|»» graphql|object|false|No description|
+|»»» operation_name|string|false|No description|
+|»»» definitions|[[SignatureGraphQlDefinition](#signaturegraphqldefinition)]|true|No description|
+|»»»» operation_type|string|false|No description|
+|»»»» name|string|false|No description|
+|»»» id|string|true|No description|
+|»»» session_token|string|false|No description|
+|»»» created|string(date-time)|true|No description|
 
 
 <aside class="warning">
@@ -4625,7 +5147,7 @@ managementAPIToken ( Scopes: read:users )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/{orgId}/search/events?from=2018-02-27T23:33:26Z?to=2018-02-27T23:33:26Z \
+curl -X POST https://api.moesif.com/v1/{orgId}/search/events?from=2018-05-25T06:50:19Z?to=2018-05-25T06:50:19Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
@@ -4645,7 +5167,7 @@ const headers = {
 };
 
 
-fetch('https://api.moesif.com/v1/{orgId}/search/events?from=2018-02-27T23:33:26Z?to=2018-02-27T23:33:26Z',
+fetch('https://api.moesif.com/v1/{orgId}/search/events?from=2018-05-25T06:50:19Z?to=2018-05-25T06:50:19Z',
 {
   method: 'POST',
 
@@ -4671,7 +5193,7 @@ headers = {
 
 
 r = requests.post('https://api.moesif.com/v1/{orgId}/search/events', params={
-  'from': '2018-02-27T23:33:26Z',  'to': '2018-02-27T23:33:26Z'
+  'from': '2018-05-25T06:50:19Z',  'to': '2018-05-25T06:50:19Z'
 }, headers = headers)
 
 
@@ -4706,7 +5228,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/search/events?from=2018-02-27T23:33:26Z?to=2018-02-27T23:33:26Z");
+URL obj = new URL("https://api.moesif.com/v1/{orgId}/search/events?from=2018-05-25T06:50:19Z?to=2018-05-25T06:50:19Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -4927,7 +5449,7 @@ managementAPIToken ( Scopes: read:events )
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-02-27T23:33:26Z \
+curl -X GET https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-05-25T06:50:19Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
@@ -4947,7 +5469,7 @@ const headers = {
 };
 
 
-fetch('https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-02-27T23:33:26Z',
+fetch('https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-05-25T06:50:19Z',
 {
   method: 'GET',
 
@@ -4973,7 +5495,7 @@ headers = {
 
 
 r = requests.get('https://api.moesif.com/v1/{orgId}/events/{id}', params={
-  'event_time': '2018-02-27T23:33:26Z'
+  'event_time': '2018-05-25T06:50:19Z'
 }, headers = headers)
 
 
@@ -5007,7 +5529,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-02-27T23:33:26Z");
+URL obj = new URL("https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-05-25T06:50:19Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -6185,4 +6707,133 @@ Status Code **200**
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 managementAPIToken ( Scopes: read:users )
+</aside>
+
+
+### Delete a User
+
+
+<a id="opIddeleteUser"></a>
+
+
+```shell
+# You can also use wget
+curl -X DELETE https://api.moesif.com/v1/{orgId}/users/{id} \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+```
+
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+
+const headers = {
+  'Authorization':'Bearer YOUR_MANAGEMENT_APITOKEN'
+
+
+};
+
+
+fetch('https://api.moesif.com/v1/{orgId}/users/{id}',
+{
+  method: 'DELETE',
+
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+
+```
+
+
+```python
+import requests
+headers = {
+  'Authorization': 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
+r = requests.delete('https://api.moesif.com/v1/{orgId}/users/{id}', params={
+
+
+}, headers = headers)
+
+
+print r.json()
+
+
+```
+
+
+```ruby
+require 'rest-client'
+require 'json'
+
+
+headers = {
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_APITOKEN'
+}
+
+
+result = RestClient.delete 'https://api.moesif.com/v1/{orgId}/users/{id}',
+  params: {
+  }, headers: headers
+
+
+p JSON.parse(result)
+
+
+```
+
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/{orgId}/users/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("DELETE");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+
+```
+
+
+`DELETE /{orgId}/users/{id}`
+
+
+<h4 id="deleteUser-parameters">Parameters</h4>
+
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|orgId|path|string|true|No description|
+|app_id|query|string|false|No description|
+|id|path|string|true|No description|
+
+
+<h4 id="deleteUser-responses">Responses</h4>
+
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: delete:users )
 </aside>
