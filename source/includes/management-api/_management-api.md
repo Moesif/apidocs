@@ -43,6 +43,7 @@ Base URL:
 |read:users|Read/query users and associated user metadata|
 |update:users|Update existing users and associated user metadata|
 |read:triage_buckets|Read triaged errors|
+|delete:users|Delete existing users and associated user metadata|
 
 
 <h2 id="Management-API-Organizations">Organizations</h2>
@@ -169,7 +170,7 @@ Gets a list of organization for authenticated user/customer
     "name": "string",
     "service_level": "string",
     "id": "string",
-    "created": "2018-05-25T06:50:19Z",
+    "created": "2018-05-26T05:35:01Z",
     "apps": [
       {
         "id": "string",
@@ -1533,7 +1534,7 @@ System.out.println(response.toString());
       "state": 0,
       "host": "string",
       "session_count": 0,
-      "last_modified": "2018-05-25T06:50:19Z",
+      "last_modified": "2018-05-26T05:35:01Z",
       "api_version": "string",
       "id": "string",
       "user_count": 0,
@@ -1558,7 +1559,7 @@ System.out.println(response.toString());
     },
     "id": "string",
     "session_token": "string",
-    "created": "2018-05-25T06:50:19Z"
+    "created": "2018-05-26T05:35:01Z"
   }
 ]
 ```
@@ -1742,7 +1743,7 @@ System.out.println(response.toString());
     "state": 0,
     "host": "string",
     "session_count": 0,
-    "last_modified": "2018-05-25T06:50:19Z",
+    "last_modified": "2018-05-26T05:35:01Z",
     "api_version": "string",
     "id": "string",
     "user_count": 0,
@@ -1767,7 +1768,7 @@ System.out.println(response.toString());
   },
   "id": "string",
   "session_token": "string",
-  "created": "2018-05-25T06:50:19Z"
+  "created": "2018-05-26T05:35:01Z"
 }
 ```
 
@@ -1978,7 +1979,7 @@ Get a list of events belonging to a single trace
       "ip_address": "string",
       "verb": "string",
       "route": "string",
-      "time": "2018-05-25T06:50:19Z",
+      "time": "2018-05-26T05:35:01Z",
       "headers": {},
       "instance_id": "string",
       "graphql": {
@@ -2019,7 +2020,7 @@ Get a list of events belonging to a single trace
       },
       "ip_address": "string",
       "status": 0,
-      "time": "2018-05-25T06:50:19Z",
+      "time": "2018-05-26T05:35:01Z",
       "headers": {},
       "instance_id": "string"
     },
@@ -2141,7 +2142,7 @@ managementAPIToken ( Scopes: read:traces )
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-05-25T06:50:19Z \
+curl -X GET https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-05-26T05:35:01Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
@@ -2161,7 +2162,7 @@ const headers = {
 };
 
 
-fetch('https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-05-25T06:50:19Z',
+fetch('https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-05-26T05:35:01Z',
 {
   method: 'GET',
 
@@ -2187,7 +2188,7 @@ headers = {
 
 
 r = requests.get('https://api.moesif.com/v1/{orgId}/dash/metrics', params={
-  'from': '2018-05-25T06:50:19Z'
+  'from': '2018-05-26T05:35:01Z'
 }, headers = headers)
 
 
@@ -2221,7 +2222,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-05-25T06:50:19Z");
+URL obj = new URL("https://api.moesif.com/v1/{orgId}/dash/metrics?from=2018-05-26T05:35:01Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -2718,7 +2719,7 @@ Encodes the URL to be used with Moesif Collector/Proxy Server
 |body|body|[Url](#url)|false|No description|
 
 
-> Example request
+> Example request 
 
 
 <h4 id="encodeUrl-requestschema">Request Schema</h4>
@@ -2938,7 +2939,7 @@ Get a graph of event signatures by triage bucket id
         "verb": "string",
         "event_count": 0,
         "route": "string",
-        "created": "2018-05-25T06:50:19Z",
+        "created": "2018-05-26T05:35:01Z",
         "graphql": {
           "operation_name": "string",
           "definitions": [
@@ -2964,7 +2965,7 @@ Get a graph of event signatures by triage bucket id
         "verb": "string",
         "event_count": 0,
         "route": "string",
-        "created": "2018-05-25T06:50:19Z",
+        "created": "2018-05-26T05:35:01Z",
         "graphql": {
           "operation_name": "string",
           "definitions": [
@@ -2982,7 +2983,7 @@ Get a graph of event signatures by triage bucket id
     "state": 0,
     "host": "string",
     "session_count": 0,
-    "last_modified": "2018-05-25T06:50:19Z",
+    "last_modified": "2018-05-26T05:35:01Z",
     "api_version": "string",
     "id": "string",
     "user_count": 0,
@@ -3230,7 +3231,7 @@ Gets a list of triage buckets for authenticated in user under the given organiza
     "state": 0,
     "host": "string",
     "session_count": 0,
-    "last_modified": "2018-05-25T06:50:19Z",
+    "last_modified": "2018-05-26T05:35:01Z",
     "api_version": "string",
     "id": "string",
     "user_count": 0,
@@ -3432,7 +3433,7 @@ Updates a Triage Bucket (Null fields ignored)
   "state": 0,
   "host": "string",
   "session_count": 0,
-  "last_modified": "2018-05-25T06:50:19Z",
+  "last_modified": "2018-05-26T05:35:01Z",
   "api_version": "string",
   "id": "string",
   "user_count": 0,
@@ -3701,7 +3702,7 @@ Get a list of events that matched a particular signature
       "ip_address": "string",
       "verb": "string",
       "route": "string",
-      "time": "2018-05-25T06:50:19Z",
+      "time": "2018-05-26T05:35:01Z",
       "headers": {},
       "instance_id": "string",
       "graphql": {
@@ -3742,7 +3743,7 @@ Get a list of events that matched a particular signature
       },
       "ip_address": "string",
       "status": 0,
-      "time": "2018-05-25T06:50:19Z",
+      "time": "2018-05-26T05:35:01Z",
       "headers": {},
       "instance_id": "string"
     },
@@ -4047,7 +4048,7 @@ Get an aggregation of a fields for a particular signature
       "ip_address": "string",
       "verb": "string",
       "route": "string",
-      "time": "2018-05-25T06:50:19Z",
+      "time": "2018-05-26T05:35:01Z",
       "headers": {},
       "instance_id": "string",
       "graphql": {
@@ -4088,7 +4089,7 @@ Get an aggregation of a fields for a particular signature
       },
       "ip_address": "string",
       "status": 0,
-      "time": "2018-05-25T06:50:19Z",
+      "time": "2018-05-26T05:35:01Z",
       "headers": {},
       "instance_id": "string"
     },
@@ -4334,7 +4335,7 @@ Get a list of traces that matched a particular signature
       "state": 0,
       "host": "string",
       "session_count": 0,
-      "last_modified": "2018-05-25T06:50:19Z",
+      "last_modified": "2018-05-26T05:35:01Z",
       "api_version": "string",
       "id": "string",
       "user_count": 0,
@@ -4359,7 +4360,7 @@ Get a list of traces that matched a particular signature
     },
     "id": "string",
     "session_token": "string",
-    "created": "2018-05-25T06:50:19Z"
+    "created": "2018-05-26T05:35:01Z"
   }
 ]
 ```
@@ -5000,7 +5001,7 @@ managementAPIToken ( Scopes: delete:jira_accounts )
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/{orgId}/mappings/users/properties \
+curl -X GET https://api.moesif.com/v1/search/{orgId}/mappings/users/properties \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
@@ -5020,7 +5021,7 @@ const headers = {
 };
 
 
-fetch('https://api.moesif.com/v1/{orgId}/mappings/users/properties',
+fetch('https://api.moesif.com/v1/search/{orgId}/mappings/users/properties',
 {
   method: 'GET',
 
@@ -5045,7 +5046,7 @@ headers = {
 }
 
 
-r = requests.get('https://api.moesif.com/v1/{orgId}/mappings/users/properties', params={
+r = requests.get('https://api.moesif.com/v1/search/{orgId}/mappings/users/properties', params={
 
 
 }, headers = headers)
@@ -5068,7 +5069,7 @@ headers = {
 }
 
 
-result = RestClient.get 'https://api.moesif.com/v1/{orgId}/mappings/users/properties',
+result = RestClient.get 'https://api.moesif.com/v1/search/{orgId}/mappings/users/properties',
   params: {
   }, headers: headers
 
@@ -5080,7 +5081,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/mappings/users/properties");
+URL obj = new URL("https://api.moesif.com/v1/search/{orgId}/mappings/users/properties");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -5098,7 +5099,7 @@ System.out.println(response.toString());
 ```
 
 
-`GET /{orgId}/mappings/users/properties`
+`GET /search/{orgId}/mappings/users/properties`
 
 
 <h4 id="getProperties-parameters">Parameters</h4>
@@ -5147,7 +5148,7 @@ managementAPIToken ( Scopes: read:users )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/{orgId}/search/events?from=2018-05-25T06:50:19Z?to=2018-05-25T06:50:19Z \
+curl -X POST https://api.moesif.com/v1/search/{orgId}/search/events?from=2018-05-26T05:35:01Z?to=2018-05-26T05:35:01Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
@@ -5167,7 +5168,7 @@ const headers = {
 };
 
 
-fetch('https://api.moesif.com/v1/{orgId}/search/events?from=2018-05-25T06:50:19Z?to=2018-05-25T06:50:19Z',
+fetch('https://api.moesif.com/v1/search/{orgId}/search/events?from=2018-05-26T05:35:01Z?to=2018-05-26T05:35:01Z',
 {
   method: 'POST',
 
@@ -5192,8 +5193,8 @@ headers = {
 }
 
 
-r = requests.post('https://api.moesif.com/v1/{orgId}/search/events', params={
-  'from': '2018-05-25T06:50:19Z',  'to': '2018-05-25T06:50:19Z'
+r = requests.post('https://api.moesif.com/v1/search/{orgId}/search/events', params={
+  'from': '2018-05-26T05:35:01Z',  'to': '2018-05-26T05:35:01Z'
 }, headers = headers)
 
 
@@ -5214,7 +5215,7 @@ headers = {
 }
 
 
-result = RestClient.post 'https://api.moesif.com/v1/{orgId}/search/events',
+result = RestClient.post 'https://api.moesif.com/v1/search/{orgId}/search/events',
   params: {
   'from' => 'string(date-time)',
 'to' => 'string(date-time)'
@@ -5228,7 +5229,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/search/events?from=2018-05-25T06:50:19Z?to=2018-05-25T06:50:19Z");
+URL obj = new URL("https://api.moesif.com/v1/search/{orgId}/search/events?from=2018-05-26T05:35:01Z?to=2018-05-26T05:35:01Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -5246,7 +5247,7 @@ System.out.println(response.toString());
 ```
 
 
-`POST /{orgId}/search/events`
+`POST /search/{orgId}/search/events`
 
 
 <h4 id="searchEvents-parameters">Parameters</h4>
@@ -5449,7 +5450,7 @@ managementAPIToken ( Scopes: read:events )
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-05-25T06:50:19Z \
+curl -X GET https://api.moesif.com/v1/search/{orgId}/events/{id}?event_time=2018-05-26T05:35:01Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
@@ -5469,7 +5470,7 @@ const headers = {
 };
 
 
-fetch('https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-05-25T06:50:19Z',
+fetch('https://api.moesif.com/v1/search/{orgId}/events/{id}?event_time=2018-05-26T05:35:01Z',
 {
   method: 'GET',
 
@@ -5494,8 +5495,8 @@ headers = {
 }
 
 
-r = requests.get('https://api.moesif.com/v1/{orgId}/events/{id}', params={
-  'event_time': '2018-05-25T06:50:19Z'
+r = requests.get('https://api.moesif.com/v1/search/{orgId}/events/{id}', params={
+  'event_time': '2018-05-26T05:35:01Z'
 }, headers = headers)
 
 
@@ -5516,7 +5517,7 @@ headers = {
 }
 
 
-result = RestClient.get 'https://api.moesif.com/v1/{orgId}/events/{id}',
+result = RestClient.get 'https://api.moesif.com/v1/search/{orgId}/events/{id}',
   params: {
   'event_time' => 'string(date-time)'
 }, headers: headers
@@ -5529,7 +5530,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/events/{id}?event_time=2018-05-25T06:50:19Z");
+URL obj = new URL("https://api.moesif.com/v1/search/{orgId}/events/{id}?event_time=2018-05-26T05:35:01Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -5547,7 +5548,7 @@ System.out.println(response.toString());
 ```
 
 
-`GET /{orgId}/events/{id}`
+`GET /search/{orgId}/events/{id}`
 
 
 <h4 id="getEvent-parameters">Parameters</h4>
@@ -5737,7 +5738,7 @@ managementAPIToken ( Scopes: read:events )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/{orgId}/users \
+curl -X POST https://api.moesif.com/v1/search/{orgId}/users \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
@@ -5757,7 +5758,7 @@ const headers = {
 };
 
 
-fetch('https://api.moesif.com/v1/{orgId}/users',
+fetch('https://api.moesif.com/v1/search/{orgId}/users',
 {
   method: 'POST',
 
@@ -5782,7 +5783,7 @@ headers = {
 }
 
 
-r = requests.post('https://api.moesif.com/v1/{orgId}/users', params={
+r = requests.post('https://api.moesif.com/v1/search/{orgId}/users', params={
 
 
 }, headers = headers)
@@ -5805,7 +5806,7 @@ headers = {
 }
 
 
-result = RestClient.post 'https://api.moesif.com/v1/{orgId}/users',
+result = RestClient.post 'https://api.moesif.com/v1/search/{orgId}/users',
   params: {
   }, headers: headers
 
@@ -5817,7 +5818,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/users");
+URL obj = new URL("https://api.moesif.com/v1/search/{orgId}/users");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -5835,7 +5836,7 @@ System.out.println(response.toString());
 ```
 
 
-`POST /{orgId}/users`
+`POST /search/{orgId}/users`
 
 
 <h4 id="updateUsers-parameters">Parameters</h4>
@@ -5979,7 +5980,7 @@ managementAPIToken ( Scopes: create:users update:users )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/{orgId}/search/users \
+curl -X POST https://api.moesif.com/v1/search/{orgId}/search/users \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
@@ -5999,7 +6000,7 @@ const headers = {
 };
 
 
-fetch('https://api.moesif.com/v1/{orgId}/search/users',
+fetch('https://api.moesif.com/v1/search/{orgId}/search/users',
 {
   method: 'POST',
 
@@ -6024,7 +6025,7 @@ headers = {
 }
 
 
-r = requests.post('https://api.moesif.com/v1/{orgId}/search/users', params={
+r = requests.post('https://api.moesif.com/v1/search/{orgId}/search/users', params={
 
 
 }, headers = headers)
@@ -6047,7 +6048,7 @@ headers = {
 }
 
 
-result = RestClient.post 'https://api.moesif.com/v1/{orgId}/search/users',
+result = RestClient.post 'https://api.moesif.com/v1/search/{orgId}/search/users',
   params: {
   }, headers: headers
 
@@ -6059,7 +6060,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/search/users");
+URL obj = new URL("https://api.moesif.com/v1/search/{orgId}/search/users");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -6077,7 +6078,7 @@ System.out.println(response.toString());
 ```
 
 
-`POST /{orgId}/search/users`
+`POST /search/{orgId}/search/users`
 
 
 <h4 id="searchUsers-parameters">Parameters</h4>
@@ -6235,7 +6236,7 @@ managementAPIToken ( Scopes: read:users )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/{orgId}/users/batch \
+curl -X POST https://api.moesif.com/v1/search/{orgId}/users/batch \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
@@ -6255,7 +6256,7 @@ const headers = {
 };
 
 
-fetch('https://api.moesif.com/v1/{orgId}/users/batch',
+fetch('https://api.moesif.com/v1/search/{orgId}/users/batch',
 {
   method: 'POST',
 
@@ -6280,7 +6281,7 @@ headers = {
 }
 
 
-r = requests.post('https://api.moesif.com/v1/{orgId}/users/batch', params={
+r = requests.post('https://api.moesif.com/v1/search/{orgId}/users/batch', params={
 
 
 }, headers = headers)
@@ -6303,7 +6304,7 @@ headers = {
 }
 
 
-result = RestClient.post 'https://api.moesif.com/v1/{orgId}/users/batch',
+result = RestClient.post 'https://api.moesif.com/v1/search/{orgId}/users/batch',
   params: {
   }, headers: headers
 
@@ -6315,7 +6316,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/users/batch");
+URL obj = new URL("https://api.moesif.com/v1/search/{orgId}/users/batch");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -6333,7 +6334,7 @@ System.out.println(response.toString());
 ```
 
 
-`POST /{orgId}/users/batch`
+`POST /search/{orgId}/users/batch`
 
 
 <h4 id="batchUpdateUsers-parameters">Parameters</h4>
@@ -6477,7 +6478,7 @@ managementAPIToken ( Scopes: create:users update:users )
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/{orgId}/users/{id} \
+curl -X GET https://api.moesif.com/v1/search/{orgId}/users/{id} \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
@@ -6497,7 +6498,7 @@ const headers = {
 };
 
 
-fetch('https://api.moesif.com/v1/{orgId}/users/{id}',
+fetch('https://api.moesif.com/v1/search/{orgId}/users/{id}',
 {
   method: 'GET',
 
@@ -6522,7 +6523,7 @@ headers = {
 }
 
 
-r = requests.get('https://api.moesif.com/v1/{orgId}/users/{id}', params={
+r = requests.get('https://api.moesif.com/v1/search/{orgId}/users/{id}', params={
 
 
 }, headers = headers)
@@ -6545,7 +6546,7 @@ headers = {
 }
 
 
-result = RestClient.get 'https://api.moesif.com/v1/{orgId}/users/{id}',
+result = RestClient.get 'https://api.moesif.com/v1/search/{orgId}/users/{id}',
   params: {
   }, headers: headers
 
@@ -6557,7 +6558,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/users/{id}");
+URL obj = new URL("https://api.moesif.com/v1/search/{orgId}/users/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -6575,7 +6576,7 @@ System.out.println(response.toString());
 ```
 
 
-`GET /{orgId}/users/{id}`
+`GET /search/{orgId}/users/{id}`
 
 
 <h4 id="getUser-parameters">Parameters</h4>
@@ -6718,7 +6719,7 @@ managementAPIToken ( Scopes: read:users )
 
 ```shell
 # You can also use wget
-curl -X DELETE https://api.moesif.com/v1/{orgId}/users/{id} \
+curl -X DELETE https://api.moesif.com/v1/search/{orgId}/users/{id} \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_APITOKEN'
 
 
@@ -6736,7 +6737,7 @@ const headers = {
 };
 
 
-fetch('https://api.moesif.com/v1/{orgId}/users/{id}',
+fetch('https://api.moesif.com/v1/search/{orgId}/users/{id}',
 {
   method: 'DELETE',
 
@@ -6760,7 +6761,7 @@ headers = {
 }
 
 
-r = requests.delete('https://api.moesif.com/v1/{orgId}/users/{id}', params={
+r = requests.delete('https://api.moesif.com/v1/search/{orgId}/users/{id}', params={
 
 
 }, headers = headers)
@@ -6782,7 +6783,7 @@ headers = {
 }
 
 
-result = RestClient.delete 'https://api.moesif.com/v1/{orgId}/users/{id}',
+result = RestClient.delete 'https://api.moesif.com/v1/search/{orgId}/users/{id}',
   params: {
   }, headers: headers
 
@@ -6794,7 +6795,7 @@ p JSON.parse(result)
 
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/{orgId}/users/{id}");
+URL obj = new URL("https://api.moesif.com/v1/search/{orgId}/users/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("DELETE");
 int responseCode = con.getResponseCode();
@@ -6812,7 +6813,7 @@ System.out.println(response.toString());
 ```
 
 
-`DELETE /{orgId}/users/{id}`
+`DELETE /search/{orgId}/users/{id}`
 
 
 <h4 id="deleteUser-parameters">Parameters</h4>
@@ -6837,3 +6838,5 @@ System.out.println(response.toString());
 To perform this operation, you must be authenticated by means of one of the following methods:
 managementAPIToken ( Scopes: delete:users )
 </aside>
+
+
