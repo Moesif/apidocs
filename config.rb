@@ -83,7 +83,7 @@ configure :build do
   activate :minify_javascript
   # activate :relative_assets
   activate :asset_hash
-  activate :asset_host, :host => '//moesif.github.io/apidocs'
+  activate :asset_host, :host => '//apidocs.moesif.com'
   # activate :gzip
 end
 
