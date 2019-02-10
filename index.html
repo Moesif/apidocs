@@ -528,7 +528,7 @@ Replace <i>my_application_id</i> with your real Application Id
 </blockquote>
 <pre class="highlight yaml tab-yaml"><code>  <span class="pi">{</span>
     <span class="s2">"</span><span class="s">request"</span><span class="pi">:</span> <span class="pi">{</span>
-      <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-20T04:45:42.914"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2019-01-20T04:45:42.914"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">uri"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://api.acmeinc.com/items/12345/reviews/"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">verb"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">POST"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">api_version"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.1.0"</span><span class="pi">,</span>
@@ -558,7 +558,7 @@ Replace <i>my_application_id</i> with your real Application Id
       <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
     <span class="pi">},</span>
     <span class="s2">"</span><span class="s">response"</span><span class="pi">:</span> <span class="pi">{</span>
-      <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-20T04:45:42.914"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2019-01-20T04:45:42.914"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">status"</span><span class="pi">:</span> <span class="nv">500</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">headers"</span><span class="pi">:</span> <span class="pi">{</span>
         <span class="s2">"</span><span class="s">Vary"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Accept-Encoding"</span><span class="pi">,</span>
@@ -786,7 +786,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
 }"""</span><span class="p">)</span>
 
 <span class="n">rsp_headers</span> <span class="o">=</span> <span class="n">APIHelper</span><span class="o">.</span><span class="n">json_deserialize</span><span class="p">(</span><span class="s">"""  {
-    "Date": "Tue, 20 Jan 2018 23:46:49 GMT",
+    "Date": "Tue, 20 Jan 2019 23:46:49 GMT",
     "Vary": "Accept-Encoding",
     "Pragma": "no-cache",
     "Expires": "-1",
@@ -850,7 +850,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
 <span class="s1">'}'</span><span class="p">)</span>
 
 <span class="n">rsp_headers</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s1">'{'</span><span class="p">\</span>
-  <span class="s1">'"Date": "Tue, 20 Jan 2018 23:46:49 GMT",'</span><span class="p">\</span>
+  <span class="s1">'"Date": "Tue, 20 Jan 2019 23:46:49 GMT",'</span><span class="p">\</span>
                 <span class="s1">'"Vary": "Accept-Encoding",'</span><span class="p">\</span>
   <span class="s1">'"Pragma": "no-cache",'</span><span class="p">\</span>
   <span class="s1">'"Expires": "-1",'</span><span class="p">\</span>
@@ -865,7 +865,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
 
 
 <span class="n">event_req</span> <span class="o">=</span> <span class="no">EventRequestModel</span><span class="p">.</span><span class="nf">new</span><span class="p">()</span>
-<span class="n">event_req</span><span class="p">.</span><span class="nf">time</span> <span class="o">=</span> <span class="s2">"2018-01-20T04:45:42.914"</span>
+<span class="n">event_req</span><span class="p">.</span><span class="nf">time</span> <span class="o">=</span> <span class="s2">"2019-01-20T04:45:42.914"</span>
 <span class="n">event_req</span><span class="p">.</span><span class="nf">uri</span> <span class="o">=</span> <span class="s2">"https://api.acmeinc.com/items/reviews/"</span>
 <span class="n">event_req</span><span class="p">.</span><span class="nf">verb</span> <span class="o">=</span> <span class="s2">"PATCH"</span>
 <span class="n">event_req</span><span class="p">.</span><span class="nf">api_version</span> <span class="o">=</span> <span class="s2">"1.1.0"</span>
@@ -874,7 +874,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
 <span class="n">event_req</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="n">req_body</span>
 
 <span class="n">event_rsp</span> <span class="o">=</span> <span class="no">EventResponseModel</span><span class="p">.</span><span class="nf">new</span><span class="p">()</span>
-<span class="n">event_rsp</span><span class="p">.</span><span class="nf">time</span> <span class="o">=</span> <span class="s2">"2018-01-20T04:45:42.914"</span>
+<span class="n">event_rsp</span><span class="p">.</span><span class="nf">time</span> <span class="o">=</span> <span class="s2">"2019-01-20T04:45:42.914"</span>
 <span class="n">event_rsp</span><span class="p">.</span><span class="nf">status</span> <span class="o">=</span> <span class="mi">500</span>
 <span class="n">event_rsp</span><span class="p">.</span><span class="nf">headers</span> <span class="o">=</span> <span class="n">rsp_headers</span>
 <span class="n">event_rsp</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="n">rsp_body</span>
@@ -892,7 +892,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
 <span class="k">using</span> <span class="nn">Moesif.Api.Helpers</span><span class="p">;</span>
 
 <span class="c1">// Create client instance using your ApplicationId</span>
-<span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">MoesifAPIClient</span><span class="p">(</span><span class="s">"my_application_id"</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">MoesifApiClient</span><span class="p">(</span><span class="s">"my_application_id"</span><span class="p">);</span>
 <span class="kt">var</span> <span class="n">apiClient</span> <span class="p">=</span> <span class="nf">GetClient</span><span class="p">().</span><span class="n">Api</span><span class="p">;</span>
 
 <span class="c1">// Parameters for the API call</span>
@@ -920,7 +920,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
     <span class="p">}</span><span class="s">");
 </span>
 <span class="kt">var</span> <span class="n">rspHeaders</span> <span class="p">=</span> <span class="n">APIHelper</span><span class="p">.</span><span class="n">JsonDeserialize</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="err">@</span><span class="s">" {
-</span>        <span class="s">""</span><span class="n">Date</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Tue</span><span class="p">,</span> <span class="m">20</span> <span class="n">Jan</span> <span class="m">2018</span> <span class="m">23</span><span class="p">:</span><span class="m">46</span><span class="p">:</span><span class="m">49</span> <span class="n">GMT</span><span class="s">""</span><span class="p">,</span>
+</span>        <span class="s">""</span><span class="n">Date</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Tue</span><span class="p">,</span> <span class="m">20</span> <span class="n">Jan</span> <span class="m">2019</span> <span class="m">23</span><span class="p">:</span><span class="m">46</span><span class="p">:</span><span class="m">49</span> <span class="n">GMT</span><span class="s">""</span><span class="p">,</span>
         <span class="s">""</span><span class="n">Vary</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Accept</span><span class="p">-</span><span class="n">Encoding</span><span class="s">""</span><span class="p">,</span>
         <span class="s">""</span><span class="n">Pragma</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">no</span><span class="p">-</span><span class="n">cache</span><span class="s">""</span><span class="p">,</span>
         <span class="s">""</span><span class="n">Expires</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="p">-</span><span class="m">1</span><span class="s">""</span><span class="p">,</span>
@@ -936,7 +936,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
 
 <span class="kt">var</span> <span class="n">eventReq</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventRequestModel</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2018-01-20T04:45:42.914"</span><span class="p">),</span>
+    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2019-01-20T04:45:42.914"</span><span class="p">),</span>
     <span class="n">Uri</span> <span class="p">=</span> <span class="s">"https://api.acmeinc.com/items/reviews/"</span><span class="p">,</span>
     <span class="n">Verb</span> <span class="p">=</span> <span class="s">"PATCH"</span><span class="p">,</span>
     <span class="n">ApiVersion</span> <span class="p">=</span> <span class="s">"1.1.0"</span><span class="p">,</span>
@@ -947,7 +947,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
 
 <span class="kt">var</span> <span class="n">eventRsp</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventResponseModel</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2018-01-20T04:45:42.914"</span><span class="p">),</span>
+    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2019-01-20T04:45:42.914"</span><span class="p">),</span>
     <span class="n">Status</span> <span class="p">=</span> <span class="m">500</span><span class="p">,</span>
     <span class="n">Headers</span> <span class="p">=</span> <span class="n">rspHeaders</span><span class="p">,</span>
     <span class="n">Body</span> <span class="p">=</span> <span class="n">rspBody</span>
@@ -1145,7 +1145,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
 <td>HTTP status code as number such as <em>200</em> or <em>500</em></td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">request.ip_address</p></td>
+<td><p style="margin-left:1.5em">response.ip_address</p></td>
 <td>false</td>
 <td>IP address of the responding server</td>
 </tr>
@@ -1210,7 +1210,7 @@ Replace <i>my_application_id</i> with your real Application Id
 <pre class="highlight yaml tab-yaml"><code>  <span class="pi">[</span>
     <span class="pi">{</span>
         <span class="s2">"</span><span class="s">request"</span><span class="pi">:</span> <span class="pi">{</span>
-          <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-20T04:45:42.914"</span><span class="pi">,</span>
+          <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2019-01-20T04:45:42.914"</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">uri"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://api.acmeinc.com/items/83738/reviews/"</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">verb"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">POST"</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">api_version"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.1.0"</span><span class="pi">,</span>
@@ -1240,7 +1240,7 @@ Replace <i>my_application_id</i> with your real Application Id
           <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span><span class="pi">,</span>
         <span class="pi">},</span>
         <span class="s2">"</span><span class="s">response"</span><span class="pi">:</span> <span class="pi">{</span>
-          <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-20T04:45:42.914"</span><span class="pi">,</span>
+          <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2019-01-20T04:45:42.914"</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">status"</span><span class="pi">:</span> <span class="nv">500</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">headers"</span><span class="pi">:</span> <span class="pi">{</span>
             <span class="s2">"</span><span class="s">Vary"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Accept-Encoding"</span><span class="pi">,</span>
@@ -1300,7 +1300,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
   <span class="s">"}"</span><span class="o">);</span>
 
 <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">rspHeaders</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;();</span>
-<span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Date"</span><span class="o">,</span> <span class="s">"Tue, 20 Jan 2018 23:46:49 GMT"</span><span class="o">);</span>
+<span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Date"</span><span class="o">,</span> <span class="s">"Tue, 20 Jan 2019 23:46:49 GMT"</span><span class="o">);</span>
 <span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Vary"</span><span class="o">,</span> <span class="s">"Accept-Encoding"</span><span class="o">);</span>
 <span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Pragma"</span><span class="o">,</span> <span class="s">"no-cache"</span><span class="o">);</span>
 <span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Expires"</span><span class="o">,</span> <span class="s">"-1"</span><span class="o">);</span>
@@ -1476,7 +1476,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 }"""</span><span class="p">)</span>
 
 <span class="n">rsp_headers</span> <span class="o">=</span> <span class="n">APIHelper</span><span class="o">.</span><span class="n">json_deserialize</span><span class="p">(</span><span class="s">"""  {
-    "Date": "Tue, 20 Jan 2018 23:46:49 GMT",
+    "Date": "Tue, 20 Jan 2019 23:46:49 GMT",
     "Vary": "Accept-Encoding",
     "Pragma": "no-cache",
     "Expires": "-1",
@@ -1531,7 +1531,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 <span class="k">using</span> <span class="nn">Moesif.Api.Helpers</span><span class="p">;</span>
 
 <span class="c1">// Create client instance using your ApplicationId</span>
-<span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">MoesifAPIClient</span><span class="p">(</span><span class="s">"my_application_id"</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">MoesifApiClient</span><span class="p">(</span><span class="s">"my_application_id"</span><span class="p">);</span>
 <span class="kt">var</span> <span class="n">apiClient</span> <span class="p">=</span> <span class="nf">GetClient</span><span class="p">().</span><span class="n">Api</span><span class="p">;</span>
 
 <span class="c1">// Parameters for the API call</span>
@@ -1559,7 +1559,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
     <span class="p">}</span><span class="s">");
 </span>
 <span class="kt">var</span> <span class="n">rspHeaders</span> <span class="p">=</span> <span class="n">APIHelper</span><span class="p">.</span><span class="n">JsonDeserialize</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="err">@</span><span class="s">" {
-</span>        <span class="s">""</span><span class="n">Date</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Tue</span><span class="p">,</span> <span class="m">20</span> <span class="n">Jan</span> <span class="m">2018</span> <span class="m">23</span><span class="p">:</span><span class="m">46</span><span class="p">:</span><span class="m">49</span> <span class="n">GMT</span><span class="s">""</span><span class="p">,</span>
+</span>        <span class="s">""</span><span class="n">Date</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Tue</span><span class="p">,</span> <span class="m">20</span> <span class="n">Jan</span> <span class="m">2019</span> <span class="m">23</span><span class="p">:</span><span class="m">46</span><span class="p">:</span><span class="m">49</span> <span class="n">GMT</span><span class="s">""</span><span class="p">,</span>
         <span class="s">""</span><span class="n">Vary</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Accept</span><span class="p">-</span><span class="n">Encoding</span><span class="s">""</span><span class="p">,</span>
         <span class="s">""</span><span class="n">Pragma</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">no</span><span class="p">-</span><span class="n">cache</span><span class="s">""</span><span class="p">,</span>
         <span class="s">""</span><span class="n">Expires</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="p">-</span><span class="m">1</span><span class="s">""</span><span class="p">,</span>
@@ -1575,7 +1575,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 <span class="kt">var</span> <span class="n">reqDate</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Date</span><span class="p">();</span>
 <span class="kt">var</span> <span class="n">eventReq</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventRequestModel</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2018-01-20T04:45:42.914"</span><span class="p">),</span>
+    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2019-01-20T04:45:42.914"</span><span class="p">),</span>
     <span class="n">Uri</span> <span class="p">=</span> <span class="s">"https://api.acmeinc.com/items/reviews/"</span><span class="p">,</span>
     <span class="n">Verb</span> <span class="p">=</span> <span class="s">"PATCH"</span><span class="p">,</span>
     <span class="n">ApiVersion</span> <span class="p">=</span> <span class="s">"1.1.0"</span><span class="p">,</span>
@@ -1586,7 +1586,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 
 <span class="kt">var</span> <span class="n">eventRsp</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventResponseModel</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2018-01-20T04:45:42.914"</span><span class="p">),</span>
+    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2019-01-20T04:45:42.914"</span><span class="p">),</span>
     <span class="n">Status</span> <span class="p">=</span> <span class="m">500</span><span class="p">,</span>
     <span class="n">Headers</span> <span class="p">=</span> <span class="n">rspHeaders</span><span class="p">,</span>
     <span class="n">Body</span> <span class="p">=</span> <span class="n">rspBody</span>
@@ -1781,7 +1781,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 <td>HTTP status code as number such as <em>200</em> or <em>500</em></td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">request.ip_address</p></td>
+<td><p style="margin-left:1.5em">response.ip_address</p></td>
 <td>false</td>
 <td>IP address of the responding server</td>
 </tr>
