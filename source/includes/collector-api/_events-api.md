@@ -18,7 +18,7 @@ Replace <i>my_application_id</i> with your real Application Id
 ```yaml
   {
     "request": {
-      "time": "2018-01-20T04:45:42.914",
+      "time": "2019-01-20T04:45:42.914",
       "uri": "https://api.acmeinc.com/items/12345/reviews/",
       "verb": "POST",
       "api_version": "1.1.0",
@@ -48,7 +48,7 @@ Replace <i>my_application_id</i> with your real Application Id
       "transfer_encoding": ""
     },
     "response": {
-      "time": "2018-01-20T04:45:42.914",
+      "time": "2019-01-20T04:45:42.914",
       "status": 500,
       "headers": {
         "Vary": "Accept-Encoding",
@@ -288,7 +288,7 @@ req_body = APIHelper.json_deserialize( """{
 }""")
 
 rsp_headers = APIHelper.json_deserialize("""  {
-    "Date": "Tue, 20 Jan 2018 23:46:49 GMT",
+    "Date": "Tue, 20 Jan 2019 23:46:49 GMT",
     "Vary": "Accept-Encoding",
     "Pragma": "no-cache",
     "Expires": "-1",
@@ -355,7 +355,7 @@ req_body = JSON.parse( '{'\
 '}')
 
 rsp_headers = JSON.parse('{'\
-  '"Date": "Tue, 20 Jan 2018 23:46:49 GMT",'\
+  '"Date": "Tue, 20 Jan 2019 23:46:49 GMT",'\
                 '"Vary": "Accept-Encoding",'\
   '"Pragma": "no-cache",'\
   '"Expires": "-1",'\
@@ -370,7 +370,7 @@ rsp_body = JSON.parse('{'\
 
 
 event_req = EventRequestModel.new()
-event_req.time = "2018-01-20T04:45:42.914"
+event_req.time = "2019-01-20T04:45:42.914"
 event_req.uri = "https://api.acmeinc.com/items/reviews/"
 event_req.verb = "PATCH"
 event_req.api_version = "1.1.0"
@@ -379,7 +379,7 @@ event_req.headers = req_headers
 event_req.body = req_body
 
 event_rsp = EventResponseModel.new()
-event_rsp.time = "2018-01-20T04:45:42.914"
+event_rsp.time = "2019-01-20T04:45:42.914"
 event_rsp.status = 500
 event_rsp.headers = rsp_headers
 event_rsp.body = rsp_body
@@ -400,7 +400,7 @@ using Moesif.Api;
 using Moesif.Api.Helpers;
 
 // Create client instance using your ApplicationId
-var client = new MoesifAPIClient("my_application_id");
+var client = new MoesifApiClient("my_application_id");
 var apiClient = GetClient().Api;
 
 // Parameters for the API call
@@ -428,7 +428,7 @@ var reqBody = APIHelper.JsonDeserialize<object>(@" {
     }");
 
 var rspHeaders = APIHelper.JsonDeserialize<object>(@" {
-        ""Date"": ""Tue, 20 Jan 2018 23:46:49 GMT"",
+        ""Date"": ""Tue, 20 Jan 2019 23:46:49 GMT"",
         ""Vary"": ""Accept-Encoding"",
         ""Pragma"": ""no-cache"",
         ""Expires"": ""-1"",
@@ -444,7 +444,7 @@ var rspBody = APIHelper.JsonDeserialize<object>(@" {
 
 var eventReq = new EventRequestModel()
 {
-    Time = DateTime.Parse("2018-01-20T04:45:42.914"),
+    Time = DateTime.Parse("2019-01-20T04:45:42.914"),
     Uri = "https://api.acmeinc.com/items/reviews/",
     Verb = "PATCH",
     ApiVersion = "1.1.0",
@@ -455,7 +455,7 @@ var eventReq = new EventRequestModel()
 
 var eventRsp = new EventResponseModel()
 {
-    Time = DateTime.Parse("2018-01-20T04:45:42.914"),
+    Time = DateTime.Parse("2019-01-20T04:45:42.914"),
     Status = 500,
     Headers = rspHeaders,
     Body = rspBody
@@ -602,7 +602,7 @@ request | __true__ | The object that specifies the request message
 response | false | The object that specifies the response message, not set implies no response received such as a timeout.
 <p style="margin-left:1.5em">response.time</p> | __true__ | Timestamp for the response in ISO 8601 format
 <p style="margin-left:1.5em">response.status</p> | __true__ | HTTP status code as number such as _200_ or _500_
-<p style="margin-left:1.5em">request.ip_address</p> | false | IP address of the responding server
+<p style="margin-left:1.5em">response.ip_address</p> | false | IP address of the responding server
 <p style="margin-left:1.5em">response.headers</p> | __true__ | Headers of the response as a `Map<string, string>`. Multiple headers with the same key name should be combined together such that the values are joined by a comma. [HTTP Header Protocol on w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2)
 <p style="margin-left:1.5em">response.body</p> | false | Body of the response in JSON format or Base64 encoded binary data (see _transfer_encoding_)
 <p style="margin-left:1.5em">response.transfer_encoding</p> | false | A string that specifies the transfer encoding of Body being sent to Moesif. If field nonexistent, body assumed to be JSON or text. Only possible value is _base64_ for sending binary data like protobuf
@@ -638,7 +638,7 @@ Replace <i>my_application_id</i> with your real Application Id
   [
     {
         "request": {
-          "time": "2018-01-20T04:45:42.914",
+          "time": "2019-01-20T04:45:42.914",
           "uri": "https://api.acmeinc.com/items/83738/reviews/",
           "verb": "POST",
           "api_version": "1.1.0",
@@ -668,7 +668,7 @@ Replace <i>my_application_id</i> with your real Application Id
           "transfer_encoding": "",
         },
         "response": {
-          "time": "2018-01-20T04:45:42.914",
+          "time": "2019-01-20T04:45:42.914",
           "status": 500,
           "headers": {
             "Vary": "Accept-Encoding",
@@ -734,7 +734,7 @@ Object reqBody = APIHelper.deserialize("{" +
   "}");
 
 Map<String, String> rspHeaders = new HashMap<String, String>();
-rspHeaders.put("Date", "Tue, 20 Jan 2018 23:46:49 GMT");
+rspHeaders.put("Date", "Tue, 20 Jan 2019 23:46:49 GMT");
 rspHeaders.put("Vary", "Accept-Encoding");
 rspHeaders.put("Pragma", "no-cache");
 rspHeaders.put("Expires", "-1");
@@ -916,7 +916,7 @@ req_body = APIHelper.json_deserialize( """{
 }""")
 
 rsp_headers = APIHelper.json_deserialize("""  {
-    "Date": "Tue, 20 Jan 2018 23:46:49 GMT",
+    "Date": "Tue, 20 Jan 2019 23:46:49 GMT",
     "Vary": "Accept-Encoding",
     "Pragma": "no-cache",
     "Expires": "-1",
@@ -977,7 +977,7 @@ using Moesif.Api;
 using Moesif.Api.Helpers;
 
 // Create client instance using your ApplicationId
-var client = new MoesifAPIClient("my_application_id");
+var client = new MoesifApiClient("my_application_id");
 var apiClient = GetClient().Api;
 
 // Parameters for the API call
@@ -1005,7 +1005,7 @@ var reqBody = APIHelper.JsonDeserialize<object>(@" {
     }");
 
 var rspHeaders = APIHelper.JsonDeserialize<object>(@" {
-        ""Date"": ""Tue, 20 Jan 2018 23:46:49 GMT"",
+        ""Date"": ""Tue, 20 Jan 2019 23:46:49 GMT"",
         ""Vary"": ""Accept-Encoding"",
         ""Pragma"": ""no-cache"",
         ""Expires"": ""-1"",
@@ -1021,7 +1021,7 @@ var rspBody = APIHelper.JsonDeserialize<object>(@" {
 var reqDate = new Date();
 var eventReq = new EventRequestModel()
 {
-    Time = DateTime.Parse("2018-01-20T04:45:42.914"),
+    Time = DateTime.Parse("2019-01-20T04:45:42.914"),
     Uri = "https://api.acmeinc.com/items/reviews/",
     Verb = "PATCH",
     ApiVersion = "1.1.0",
@@ -1032,7 +1032,7 @@ var eventReq = new EventRequestModel()
 
 var eventRsp = new EventResponseModel()
 {
-    Time = DateTime.Parse("2018-01-20T04:45:42.914"),
+    Time = DateTime.Parse("2019-01-20T04:45:42.914"),
     Status = 500,
     Headers = rspHeaders,
     Body = rspBody
@@ -1176,7 +1176,7 @@ request | __true__ | The object that specifies the request message
 response | false | The object that specifies the response message, not set implies no response received such as a timeout.
 <p style="margin-left:1.5em">response.time</p> | __true__ | Timestamp for the response in ISO 8601 format
 <p style="margin-left:1.5em">response.status</p> | __true__ | HTTP status code as number such as _200_ or _500_
-<p style="margin-left:1.5em">request.ip_address</p> | false | IP address of the responding server
+<p style="margin-left:1.5em">response.ip_address</p> | false | IP address of the responding server
 <p style="margin-left:1.5em">response.headers</p> | __true__ | Headers of the response as a `Map<string, string>`. Multiple headers with the same key name should be combined together such that the values are joined by a comma. [HTTP Header Protocol on w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2)
 <p style="margin-left:1.5em">response.body</p> | false | Body of the response in JSON format or Base64 encoded binary data (see _transfer_encoding_)
 <p style="margin-left:1.5em">response.transfer_encoding</p> | false | A string that specifies the transfer encoding of Body being sent to Moesif. If field nonexistent, body assumed to be JSON or text. Only possible value is _base64_ for sending binary data like protobuf
