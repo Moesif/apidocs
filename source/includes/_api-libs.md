@@ -104,7 +104,7 @@ Source Code:<br><br>
 ```php
 // Install via Composer
 
-composer require moesif/moesifapi
+composer require moesif/moesifapi-php
 ```
 
 Select your language on the right:
