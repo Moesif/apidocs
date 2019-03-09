@@ -119,6 +119,7 @@ main() {
   fi
 
   restore_head
+  clear_cache
 }
 
 initial_deploy() {
@@ -199,6 +200,10 @@ filter() {
 
 sanitize() {
   "$@" 2> >(filter 1>&2) | filter
+}
+
+clear_cache() {
+  curl https://www.moesif.com?debug=true > /dev/null
 }
 
 [[ $1 = --source-only ]] || main "$@"
