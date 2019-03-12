@@ -203,7 +203,11 @@ sanitize() {
 }
 
 clear_cache() {
-  curl https://www.moesif.com?debug=true > /dev/null
+  for i in `seq 1 10`;
+  do
+    curl https://web-westus.moesif.com?debug=true > /dev/null
+    curl https://web-eastus.moesif.com?debug=true > /dev/null  
+  done
 }
 
 [[ $1 = --source-only ]] || main "$@"
