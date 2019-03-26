@@ -68,6 +68,7 @@ curl -X GET https://api.moesif.net/v1/users \
 // 1. Import the module
 var moesifapi = require('moesifapi');
 var api = moesifapi.ApiController;
+var UserModel = moesifapi.UserModel;
 
 // 2. Configure the ApplicationId
 var config = moesifapi.configuration;
@@ -316,6 +317,7 @@ curl -X GET https://api.moesif.net/v1/events/batch \
 
 ```javascript--nodejs
 var moesifapi = require('moesifapi');
+var UserModel = moesifapi.UserModel;
 var api = moesifapi.ApiController;
 
 // 2. Configure the ApplicationId

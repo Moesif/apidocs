@@ -173,6 +173,7 @@ api.createEventsBatch(eventsList, callBack);
 ```javascript--nodejs
 // 1. Import the module
 var moesifapi = require('moesifapi');
+var EventModel = moesifapi.UserModel;
 var api = moesifapi.ApiController;
 
 // 2. Configure the ApplicationId
