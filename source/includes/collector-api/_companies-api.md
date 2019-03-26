@@ -1,26 +1,19 @@
-## Users
+## Companies
 
-### Update a User
+### Update a Company
 
-**`POST https://api.moesif.net/v1/users`**
+**`POST https://api.moesif.net/v1/companies`**
 
-Updates an end user profile in Moesif.
+Updates a company profile in Moesif.
 
 A custom JSON object can be placed in the `metadata` object which
-will be stored as part of the user profile.
+will be stored as part of the company profile.
 
-If present, Moesif will detect special metadata fields like:
+If present, Moesif will detect the company_domain field.
 
-  - email
-  - name
-  - first_name
-  - last_name
-  - phone
-  - photo_url
-
-Updating an end user will create one if it does not exist,
+Updating a company will create one if it does not exist,
 also know as [upsert](https://en.wikipedia.org/wiki/Merge_(SQL))
-If a user exists, it will be merged on top of existing fields.
+If a company exists, it will be merged on top of existing fields.
 Any new field set will override the existing fields.
 This is done via recursive merge which merges inner objects.
 
@@ -29,7 +22,7 @@ Replace <i>my_application_id</i> with your real Application Id
 </aside>
 
 <blockquote class="lang-specific yaml">
-<code><b>POST</b> https://api.moesif.net/v1/users</code>
+<code><b>POST</b> https://api.moesif.net/v1/companies</code>
 <br><br><i>Example Request</i><br>
 </blockquote>
 ```yaml
@@ -37,13 +30,9 @@ Replace <i>my_application_id</i> with your real Application Id
     "modified_time": "2018-01-20T04:45:42.914",
     "ip_address": "61.48.220.123",
     "session_token": "df32dkj32opxzfdmji4hf4fs98y18cx98q3yhwmnhcfx43f",
-    "user_id": "123456",
-    "user_agent_string": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
+    "company_id": "123456",
     "metadata": {
-      "first_name": "John",
-      "last_name": "Doe",
-      "email": "john@gmail.com",
-      "phone": "123-456-7890",
+      "company_domain": "my-service.com",
       "custom_string_field": "some_value",
       "custom_int_field": 55,
       "custom_obj_field": {
@@ -57,7 +46,7 @@ Replace <i>my_application_id</i> with your real Application Id
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.net/v1/users \
+curl -X GET https://api.moesif.net/v1/companies \
   -H 'Accept: application/json' \
   -H 'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'
 
@@ -68,18 +57,18 @@ curl -X GET https://api.moesif.net/v1/users \
 // 1. Import the module
 var moesifapi = require('moesifapi');
 var api = moesifapi.ApiController;
-var UserModel = moesifapi.UserModel;
+var CompanyModel = moesifapi.CompanyModel;
 
 // 2. Configure the ApplicationId
 var config = moesifapi.configuration;
 config.ApplicationId = "my_application_id";
 
-// 3. Generate a User Model
-var user = {
-    userId: "my_user_id",
+// 3. Generate a Company Model
+var company = {
+    companyId: "my_company_id",
     sessionToken: "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f",
     metadata: {
-      email: "johndoe@acmeinc.com",
+      company_domain: "my-service.com",
       string_field: "value_1",
       number_field: 0,
       object_field: {
@@ -89,8 +78,8 @@ var user = {
     }
 };
 
-// 4. Create a single user
-api.updateUser(new UserModel(user), function(error, response, context) {
+// 4. Create a single company
+api.updateCompany(new CompanyModel(company), function(error, response, context) {
   // Do Something
 });
 ```
@@ -105,18 +94,16 @@ client = MoesifAPIClient(my_application_id)
 api = client.api
 
 metadata = APIHelper.json_deserialize("""  {
-        "email": "pythonapiuser@email.com",
-        "name": "pythonapiuser",
-        "custom_field": "testdata"
+        "company_domain": "my-service.com"
     } """)
 
-user_model = UserModel(
-    user_id = 'ihjdewhdiew',
+company_model = CompanyModel(
+    company_id = 'ihjdewhdiew',
     modified_time = datetime.utcnow(),
     metadata = metadata)
 
 # Perform the API call through the SDK function
-api.update_user(user_model)
+api.update_company(company_model)
 ```
 
 ```ruby
@@ -124,17 +111,15 @@ client = MoesifApi::MoesifAPIClient.new(my_application_id)
 api = client.api
 
 metadata = JSON.parse('{'\
-  '"email": "testrubyapi@user.com",'\
-  '"name": "ruby api user",'\
-  '"custom": "testdata"'\
+  '"company_domain": "my-service.com"'\
 '}')
 
-user_model = UserModel.new()
-user_model.modified_time = Time.now.utc.iso8601  # option, default now.
-user_model.user_id = "testrubyapiuser"  #only required field.
-user_model.metadata = metadata
+company_model = CompanyModel.new()
+company_model.modified_time = Time.now.utc.iso8601  # option, default now.
+company_model.company_id = "testrubyapicompany"  #only required field.
+company_model.metadata = metadata
 
-response = api.update_user(user_model)
+response = api.update_company(company_model)
 ```
 
 ```php
@@ -154,16 +139,15 @@ use MoesifApi\MoesifApiClient;
 $client = new MoesifApiClient("Your application Id");
 $api = $client->getApi();
 
-$user = new Models\UserModel();
+$company = new Models\CompanyModel();
 
-$user->userId = "moesifphpuser";
-$user->metadata = [
-  "email" => "moesifphp@email.com",
-  "name" => "moesif php",
+$company->companyId = "moesifphpcompany";
+$company->metadata = [
+  "company_domain": "my-service.com",
   "custom" => "randomdata"
 ];
 
-$api->updateUser($user);
+$api->updateCompany($company);
 ```
 
 ```go
@@ -176,14 +160,13 @@ $api->updateUser($user);
 MoesifAPIClient client = new MoesifAPIClient("my_application_id");
 APIController api = getClient().getAPI();
 
-UserModel user = new UserBuilder()
-    .userId("12345")
+CompanyModel company = new CompanyBuilder()
+    .companyId("12345")
     .modifiedTime(new Date())
     .ipAddress("29.80.250.240")
     .sessionToken("di3hd982h3fubv3yfd94egf")
-    .userAgentString("Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36")
     .metadata(APIHelper.deserialize("{" +
-        "\"email\": \"johndoe@acmeinc.com\"," +
+        "\"company_domain\": \"my-service.com\"," +
         "\"string_field\": \"value_1\"," +
         "\"number_field\": 0," +
         "\"object_field\": {" +
@@ -193,7 +176,7 @@ UserModel user = new UserBuilder()
       "}"))
      .build();
 
-// Asynchronous Call to update user
+// Asynchronous Call to update Company
 APICallBack<Object> callBack = new APICallBack<Object>() {
     public void onSuccess(HttpContext context, Object response) {
       // Do something
@@ -204,53 +187,45 @@ APICallBack<Object> callBack = new APICallBack<Object>() {
     }
 };
 
-api.updateUserAsync(user, callBack);
+api.updateCompanyAsync(company, callBack);
 
-// Synchronous Call to update user
-api.updateUser(user, callBack);
+// Synchronous Call to update company
+api.updateCompany(company, callBack);
 ```
 
-#### _user_id_ vs. _session_token_
-Users in Moesif are identified by two attributes: _user_id_ and _session_token_.
+#### _company_id_ vs. _session_token_
+Companies in Moesif are identified by two attributes: _company_id_ and _session_token_.
 
-- A `user_id` is a __permanent__ and unique identifier to track a user across platforms and services.
-It is recommended to set the Moesif user_id field with the id used in your own databases and services.
+- A `company_id` is a __permanent__ and unique identifier to track a company across platforms and services.
+It is recommended to set the Moesif company_id field with the id used in your own databases and services.
 
-- A `session_token` may be __temporary__ or can expire unlike a user_id.
+- A `session_token` may be __temporary__ or can expire unlike a company_id.
 Examples include [JSON Web Tokens's](https://jwt.io/introduction/) (JWT), API keys, and session ids.
-Moesif can _alias_ multiple session_token's to the same user_id. To create a new alias,
-call the update user API with at least the user_id and session_token set.
+Moesif can _alias_ multiple session_token's to the same company_id. To create a new alias,
+call the update company API with at least the company_id and session_token set.
 The new session_token will be appended to the alias table.
 
 Name | Required | Description
 --------- | -------- | -----------
-user_id | __true__ | Your application's `user_id` to identify this user.
-modified_time | false | Last Modified Timestamp for the user in ISO 8601 format (Set automatically if not provided).
-ip_address | false | Current IP address of the user, If not set, we use the IP address of the POST request.
-session_token | false | Current end user session or API token such as a JWT. Setting this field does not remove old session tokens previously stored. Instead, Moesif will append the new value to an alias table for this user_id.
-user_agent_string | false | If you want Moesif to parse a user agent string, you can do so via `user_agent_string`.
-metadata | false | A JSON Object consisting of any custom metadata to be stored with this user.
+company_id | __true__ | Your application's `company_id` to identify this company.
+modified_time | false | Last Modified Timestamp for the company in ISO 8601 format (Set automatically if not provided).
+ip_address | false | Current IP address of the company, If not set, we use the IP address of the POST request.
+session_token | false | Current end company session or API token such as a JWT. Setting this field does not remove old session tokens previously stored. Instead, Moesif will append the new value to an alias table for this company_id.
+metadata | false | A JSON Object consisting of any custom metadata to be stored with this company.
 
-### Update Users in Batch
+### Update Companies in Batch
 
-**`POST https://api.moesif.net/v1/users/batch`**
+**`POST https://api.moesif.net/v1/companies/batch`**
 
-Updates a list of end user profile in Moesif.
+Updates a list of companies profile in Moesif.
 
-A custom JSON object can be placed in the `metadata` object of each user
-which will be stored as part of the user profile.
+A custom JSON object can be placed in the `metadata` object of each company
+which will be stored as part of the company profile.
 
-If present, Moesif will detect special metadata fields like:
+If present, Moesif will detect the company_domain field.
 
-  - email
-  - name
-  - first_name
-  - last_name
-  - phone
-  - photo_url
-
-If user does not exist, a new one will be created.
-If a user exists, it will be merged on top of existing fields.
+If company does not exist, a new one will be created.
+If a company exists, it will be merged on top of existing fields.
 Any new field set will override the existing fields.
 This is done via recursive merge which merges inner objects.
 
@@ -259,7 +234,7 @@ Replace <i>my_application_id</i> with your real Application Id
 </aside>
 
 <blockquote class="lang-specific yaml">
-<code><b>POST</b> https://api.moesif.net/v1/users/batch</code>
+<code><b>POST</b> https://api.moesif.net/v1/companies/batch</code>
 <br><br><i>Example Request</i><br>
 </blockquote>
 ```yaml
@@ -268,13 +243,9 @@ Replace <i>my_application_id</i> with your real Application Id
       "modified_time": "2018-01-20T04:45:42.914",
       "ip_address": "61.48.220.123",
       "session_token": "df32dkj32opxzfdmji4hf4fs98y18cx98q3yhwmnhcfx43f",
-      "user_id": "12345",
-      "user_agent_string": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
+      "company_id": "12345",
       "metadata": {
-        "first_name": "John",
-        "last_name": "Doe",
-        "email": "john@gmail.com",
-        "phone": "123-456-7890",
+        "company_domain": "my-service.com",
         "custom_string_field": "some_value",
         "custom_int_field": 55,
         "custom_obj_field": {
@@ -287,13 +258,9 @@ Replace <i>my_application_id</i> with your real Application Id
       "modified_time": "2018-01-20T04:45:42.914",
       "ip_address": "61.48.220.129",
       "session_token": "d2ewzcazchurvcqdevnhcuiyrgvru",
-      "user_id": "7890",
-      "user_agent_string": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
+      "company_id": "7890",
       "metadata": {
-        "first_name": "Mary",
-        "last_name": "Doe",
-        "email": "mary@gmail.com",
-        "phone": "123-456-7890",
+        "company_domain": "other-service.com",
         "custom_string_field": "some_value",
         "custom_int_field": 55,
         "custom_obj_field": {
@@ -317,7 +284,6 @@ curl -X GET https://api.moesif.net/v1/events/batch \
 
 ```javascript--nodejs
 var moesifapi = require('moesifapi');
-var UserModel = moesifapi.UserModel;
 var api = moesifapi.ApiController;
 
 // 2. Configure the ApplicationId
@@ -325,11 +291,11 @@ var config = moesifapi.configuration;
 config.ApplicationId = "my_application_id";
 
 // 3. Generate an API Event Model
-var userA = {
-    userId: "12345",
+var companyA = {
+    companyId: "12345",
     sessionToken: "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f",
     metadata: {
-      email: "johndoe@acmeinc.com",
+      company_domain: "my-service.com",
       string_field: "value_1",
       number_field: 0,
       object_field: {
@@ -339,11 +305,11 @@ var userA = {
     }
 };
 
-var userB = {
-    userId: "6789",
+var companyB = {
+    companyId: "6789",
     sessionToken: "23jdf0oszfexfqe[lwjfiefovprewv4d8ayrcdx8nu2ng]zfeeadedefx43f",
     metadata: {
-      email: "maryjane@acmeinc.com",
+      company_domain: "other-service.com",
       string_field: "value_1",
       number_field: 1,
       object_field: {
@@ -353,10 +319,10 @@ var userB = {
     }
 };
 
-var users = [new UserModel(userA), new UserModel(userB)];
+var companies = [new CompanyModel(companyA), new CompanyModel(companyB)];
 
 // 4. Send batch of events
-api.updateUsersBatch(users, function(error, response, context) {
+api.updateCompaniesBatch(companies, function(error, response, context) {
   // Do Something
 });
 ```
@@ -365,16 +331,15 @@ api.updateUsersBatch(users, function(error, response, context) {
 MoesifAPIClient client = new MoesifAPIClient("my_application_id");
 APIController api = getClient().getAPI();
 
-List<UserModel> users = new ArrayList<UserModel>();
+List<CompanyModel> companies = new ArrayList<CompanyModel>();
 
-UserModel userA = new UserBuilder()
-    .userId("12345")
+CompanyModel companyA = new CompanyBuilder()
+    .companyId("12345")
     .modifiedTime(new Date())
     .ipAddress("29.80.250.240")
     .sessionToken("di3hd982h3fubv3yfd94egf")
-    .userAgentString("Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36")
     .metadata(APIHelper.deserialize("{" +
-        "\"email\": \"johndoe@acmeinc.com\"," +
+        "\"company_domain\": \"my-service.com\"," +
         "\"string_field\": \"value_1\"," +
         "\"number_field\": 0," +
         "\"object_field\": {" +
@@ -383,16 +348,15 @@ UserModel userA = new UserBuilder()
         "}" +
       "}"))
     .build();
-users.add(userA);
+companies.add(companyA);
 
-UserModel userB = new UserBuilder()
-    .userId("56789")
+CompanyModel companyB = new CompanyBuilder()
+    .companyId("56789")
     .modifiedTime(new Date())
     .ipAddress("21.80.11.242")
     .sessionToken("zceadckekvsfgfpsakvnbfouavsdvds")
-    .userAgentString("Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36")
     .metadata(APIHelper.deserialize("{" +
-        "\"email\": \"maryjane@acmeinc.com\"," +
+        "\"company_domain\": \"other-service.com\"," +
         "\"string_field\": \"value_1\"," +
         "\"number_field\": 1," +
         "\"object_field\": {" +
@@ -401,9 +365,9 @@ UserModel userB = new UserBuilder()
         "}" +
       "}"))
     .build();
-users.add(userB);
+companies.add(companyB);
 
-// Asynchronous call to update users
+// Asynchronous call to update companies
 APICallBack<Object> callBack = new APICallBack<Object>() {
     public void onSuccess(HttpContext context, Object response) {
       // Do something
@@ -414,30 +378,28 @@ APICallBack<Object> callBack = new APICallBack<Object>() {
     }
 };
 
-api.updateUsersBatchAsync(users, callBack);
+api.updateCompaniesBatchAsync(companies, callBack);
 
 
-//Synchronous call to update users
-api.updateUsersBatch(users, callBack);
+//Synchronous call to update companies
+api.updateCompaniesBatch(companies, callBack);
 ```
 
-#### _user_id_ vs. _session_token_
-Users in Moesif are identified by two attributes: _user_id_ and _session_token_.
+#### _company_id_ vs. _session_token_
+Companies in Moesif are identified by two attributes: _company_id_ and _session_token_.
 
-- A `user_id` is a __permanent__ and unique identifier to track a user across platforms and services.
-It is recommended to set the Moesif user_id field with the id used in your own databases and services.
+- A `company_id` is a __permanent__ and unique identifier to track a company across platforms and services.
+It is recommended to set the Moesif company_id field with the id used in your own databases and services.
 
-- A `session_token` may be __temporary__ or can expire unlike a user_id.
+- A `session_token` may be __temporary__ or can expire unlike a company_id.
 Examples include [JSON Web Tokens's](https://jwt.io/introduction/) (JWT), API keys, and session ids.
-Moesif can _alias_ multiple session_token's to the same user_id. To create a new alias,
-call the update user API with at least the user_id and session_token set.
+Moesif can _alias_ multiple session_token's to the same company_id. To create a new alias,
+call the update company API with at least the company_id and session_token set.
 The new session_token will be appended to the alias table.
 
 Name | Required | Description
 --------- | -------- | -----------
-user_id | __true__ | Your application's `user_id` to identify this user.
-modified_time | false | Last Modified Timestamp for the user in ISO 8601 format (Set automatically if not provided).
-ip_address | false | Current IP address of the user, If not set, we use the IP address of the POST request.
-session_token | false | Current end user session or API token such as a JWT. Setting this field does not remove old session tokens previously stored. Instead, Moesif will append the new value to an alias table for this user_id.
-user_agent_string | false | If you want Moesif to parse a user agent string, you can do so via `user_agent_string`.
-metadata | false | A JSON Object consisting of any custom metadata to be stored with this user.
+company_id | __true__ | Your application's `company_id` to identify this company.
+modified_time | false | Last Modified Timestamp for the company in ISO 8601 format (Set automatically if not provided).
+ip_address | false | Current IP address of the company, If not set, we use the IP address of the POST request.
+metadata | false | A JSON Object consisting of any custom metadata to be stored with this company.

@@ -24,6 +24,7 @@ includes:
   - collector-api/overview
   - collector-api/events-api
   - collector-api/users-api
+  - collector-api/companies-api
   - management-api/management-api
 
 search: true
