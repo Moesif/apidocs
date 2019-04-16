@@ -15,7 +15,7 @@ language_tabs:
 toc_footers:
   - <a href='/docs'>Back to Docs</a>
   - <a href='/wrap'>My Dashboard</a>
-  - <a href='http://status.moesif.com'>API Status</a>
+  - <a href='https://status.moesif.com'>API Status</a>
 
 includes:
   - overview
