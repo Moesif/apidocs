@@ -25,7 +25,7 @@ Base URL:
  `Authorization: Bearer MY_API_TOKEN`
 
 
-    - Token URL = [https://api.moesif.com/v1/:orgId/oauth/access_tokens](https://api.moesif.com/v1/:orgId/oauth/access_tokens)
+    - Token URL = `https://api.moesif.com/v1/:orgId/oauth/access_tokens`
 
 
 |Scope|Scope Description|
