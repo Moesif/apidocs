@@ -35,7 +35,7 @@ set :seo, {
   :email => "support@moesif.com",
   :contact_point => { # if contact_point is set, all subfields required
     :email => "support@moesif.com",
-    :telephone => "+1-415-851-0943"
+    :telephone => "+1-415-851-9835"
   },
   :address => { # if address is set, all subfields required
     :street_address => "77 Van Ness Ave STE 101-1513",
