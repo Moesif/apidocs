@@ -30,7 +30,7 @@ Source Code:<br><br>
 <dependency>
 	<groupId>com.moesif.api</groupId>
 	<artifactId>moesifapi</artifactId>
-	<version>1.4.0</version>
+	<version>1.6.2</version>
 </dependency>
 
 ```
