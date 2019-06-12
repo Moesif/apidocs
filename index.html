@@ -174,7 +174,7 @@
     </style>
     <link href="//apidocs.moesif.com/stylesheets/screen-85924653.css" rel="stylesheet" media="screen" />
     <link href="//apidocs.moesif.com/stylesheets/print-b1632cf2.css" rel="stylesheet" media="print" />
-      <script src="//apidocs.moesif.com/javascripts/all-fa1bf96a.js"></script>
+      <script src="//apidocs.moesif.com/javascripts/all-cf4bce92.js"></script>
 
     <!-- begin SEO -->
       <meta name="description" content="API Reference Documentation">
@@ -528,7 +528,7 @@ Replace <i>my_application_id</i> with your real Application Id
 </blockquote>
 <pre class="highlight yaml tab-yaml"><code>  <span class="pi">{</span>
     <span class="s2">"</span><span class="s">request"</span><span class="pi">:</span> <span class="pi">{</span>
-      <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2019-01-20T04:45:42.914"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2019-06-20T04:45:42.914"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">uri"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://api.acmeinc.com/items/12345/reviews/"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">verb"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">POST"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">api_version"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.1.0"</span><span class="pi">,</span>
@@ -558,7 +558,7 @@ Replace <i>my_application_id</i> with your real Application Id
       <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
     <span class="pi">},</span>
     <span class="s2">"</span><span class="s">response"</span><span class="pi">:</span> <span class="pi">{</span>
-      <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2019-01-20T04:45:42.914"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2019-06-20T04:45:42.914"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">status"</span><span class="pi">:</span> <span class="nv">500</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">headers"</span><span class="pi">:</span> <span class="pi">{</span>
         <span class="s2">"</span><span class="s">Vary"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Accept-Encoding"</span><span class="pi">,</span>
@@ -866,7 +866,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
 
 
 <span class="n">event_req</span> <span class="o">=</span> <span class="no">EventRequestModel</span><span class="p">.</span><span class="nf">new</span><span class="p">()</span>
-<span class="n">event_req</span><span class="p">.</span><span class="nf">time</span> <span class="o">=</span> <span class="s2">"2019-01-20T04:45:42.914"</span>
+<span class="n">event_req</span><span class="p">.</span><span class="nf">time</span> <span class="o">=</span> <span class="s2">"2019-06-20T04:45:42.914"</span>
 <span class="n">event_req</span><span class="p">.</span><span class="nf">uri</span> <span class="o">=</span> <span class="s2">"https://api.acmeinc.com/items/reviews/"</span>
 <span class="n">event_req</span><span class="p">.</span><span class="nf">verb</span> <span class="o">=</span> <span class="s2">"PATCH"</span>
 <span class="n">event_req</span><span class="p">.</span><span class="nf">api_version</span> <span class="o">=</span> <span class="s2">"1.1.0"</span>
@@ -875,7 +875,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
 <span class="n">event_req</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="n">req_body</span>
 
 <span class="n">event_rsp</span> <span class="o">=</span> <span class="no">EventResponseModel</span><span class="p">.</span><span class="nf">new</span><span class="p">()</span>
-<span class="n">event_rsp</span><span class="p">.</span><span class="nf">time</span> <span class="o">=</span> <span class="s2">"2019-01-20T04:45:42.914"</span>
+<span class="n">event_rsp</span><span class="p">.</span><span class="nf">time</span> <span class="o">=</span> <span class="s2">"2019-06-20T04:45:42.914"</span>
 <span class="n">event_rsp</span><span class="p">.</span><span class="nf">status</span> <span class="o">=</span> <span class="mi">500</span>
 <span class="n">event_rsp</span><span class="p">.</span><span class="nf">headers</span> <span class="o">=</span> <span class="n">rsp_headers</span>
 <span class="n">event_rsp</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="n">rsp_body</span>
@@ -937,7 +937,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
 
 <span class="kt">var</span> <span class="n">eventReq</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventRequestModel</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2019-01-20T04:45:42.914"</span><span class="p">),</span>
+    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2019-06-20T04:45:42.914"</span><span class="p">),</span>
     <span class="n">Uri</span> <span class="p">=</span> <span class="s">"https://api.acmeinc.com/items/reviews/"</span><span class="p">,</span>
     <span class="n">Verb</span> <span class="p">=</span> <span class="s">"PATCH"</span><span class="p">,</span>
     <span class="n">ApiVersion</span> <span class="p">=</span> <span class="s">"1.1.0"</span><span class="p">,</span>
@@ -948,7 +948,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
 
 <span class="kt">var</span> <span class="n">eventRsp</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventResponseModel</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2019-01-20T04:45:42.914"</span><span class="p">),</span>
+    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2019-06-20T04:45:42.914"</span><span class="p">),</span>
     <span class="n">Status</span> <span class="p">=</span> <span class="m">500</span><span class="p">,</span>
     <span class="n">Headers</span> <span class="p">=</span> <span class="n">rspHeaders</span><span class="p">,</span>
     <span class="n">Body</span> <span class="p">=</span> <span class="n">rspBody</span>
@@ -1062,7 +1062,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
 <span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoesifApiClient</span><span class="p">(</span><span class="s2">"Your application Id"</span><span class="p">);</span>
 <span class="nv">$api</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">getApi</span><span class="p">();</span>
 
-<span class="nv">$event</span> <span class="o">=</span> <span class="nx">APIHelper</span><span class="o">::</span><span class="na">deserialize</span><span class="p">(</span><span class="s1">'{ "request": { "time": "2016-09-09T04:45:42.914", "uri": "&lt;https://api.acmeinc.com/items/reviews/&gt;", "verb": "PATCH", "api_version": "1.1.0", "ip_address": "61.48.220.123", "headers": { "Host": "api.acmeinc.com", "Accept": "_/_", "Connection": "Keep-Alive", "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)", "Content-Type": "application/json", "Content-Length": "126", "Accept-Encoding": "gzip" }, "body": { "items": [ { "direction_type": 1, "discovery_id": "fwfrf", "liked": false }, { "direction_type": 2, "discovery_id": "d43d3f", "liked": true } ] } }, "response": { "time": "2016-09-09T04:45:42.914", "status": 500, "headers": { "Date": "Tue, 23 Aug 2016 23:46:49 GMT", "Vary": "Accept-Encoding", "Pragma": "no-cache", "Expires": "-1", "Content-Type": "application/json; charset=utf-8", "X-Powered-By": "ARR/3.0", "Cache-Control": "no-cache", "Arr-Disable-Session-Affinity": "true" }, "body": { "Error": "InvalidArgumentException", "Message": "Missing field field_a" } }, "user_id": "mndug437f43", "session_token": "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f", "metadata": { "foo": "bar" } }'</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Models\EventModel</span><span class="p">());</span>
+<span class="nv">$event</span> <span class="o">=</span> <span class="nx">APIHelper</span><span class="o">::</span><span class="na">deserialize</span><span class="p">(</span><span class="s1">'{ "request": { "time": "2019-06-09T04:45:42.914", "uri": "&lt;https://api.acmeinc.com/items/reviews/&gt;", "verb": "PATCH", "api_version": "1.1.0", "ip_address": "61.48.220.123", "headers": { "Host": "api.acmeinc.com", "Accept": "_/_", "Connection": "Keep-Alive", "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)", "Content-Type": "application/json", "Content-Length": "126", "Accept-Encoding": "gzip" }, "body": { "items": [ { "direction_type": 1, "discovery_id": "fwfrf", "liked": false }, { "direction_type": 2, "discovery_id": "d43d3f", "liked": true } ] } }, "response": { "time": "2019-06-09T04:45:42.914", "status": 500, "headers": { "Date": "Tue, 23 Aug 2019 23:46:49 GMT", "Vary": "Accept-Encoding", "Pragma": "no-cache", "Expires": "-1", "Content-Type": "application/json; charset=utf-8", "X-Powered-By": "ARR/3.0", "Cache-Control": "no-cache", "Arr-Disable-Session-Affinity": "true" }, "body": { "Error": "InvalidArgumentException", "Message": "Missing field field_a" } }, "user_id": "mndug437f43", "session_token": "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f", "metadata": { "foo": "bar" } }'</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Models\EventModel</span><span class="p">());</span>
 
 <span class="c1">// Note: If the request.time is in the past, it can only be backdated up to 7 days.
 </span>
@@ -1211,7 +1211,7 @@ Replace <i>my_application_id</i> with your real Application Id
 <pre class="highlight yaml tab-yaml"><code>  <span class="pi">[</span>
     <span class="pi">{</span>
         <span class="s2">"</span><span class="s">request"</span><span class="pi">:</span> <span class="pi">{</span>
-          <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2019-01-20T04:45:42.914"</span><span class="pi">,</span>
+          <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2019-06-20T04:45:42.914"</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">uri"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://api.acmeinc.com/items/83738/reviews/"</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">verb"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">POST"</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">api_version"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.1.0"</span><span class="pi">,</span>
@@ -1241,7 +1241,7 @@ Replace <i>my_application_id</i> with your real Application Id
           <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span><span class="pi">,</span>
         <span class="pi">},</span>
         <span class="s2">"</span><span class="s">response"</span><span class="pi">:</span> <span class="pi">{</span>
-          <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2019-01-20T04:45:42.914"</span><span class="pi">,</span>
+          <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2019-06-20T04:45:42.914"</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">status"</span><span class="pi">:</span> <span class="nv">500</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">headers"</span><span class="pi">:</span> <span class="pi">{</span>
             <span class="s2">"</span><span class="s">Vary"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Accept-Encoding"</span><span class="pi">,</span>
@@ -1576,7 +1576,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 <span class="kt">var</span> <span class="n">reqDate</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Date</span><span class="p">();</span>
 <span class="kt">var</span> <span class="n">eventReq</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventRequestModel</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2019-01-20T04:45:42.914"</span><span class="p">),</span>
+    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2019-06-20T04:45:42.914"</span><span class="p">),</span>
     <span class="n">Uri</span> <span class="p">=</span> <span class="s">"https://api.acmeinc.com/items/reviews/"</span><span class="p">,</span>
     <span class="n">Verb</span> <span class="p">=</span> <span class="s">"PATCH"</span><span class="p">,</span>
     <span class="n">ApiVersion</span> <span class="p">=</span> <span class="s">"1.1.0"</span><span class="p">,</span>
@@ -1587,7 +1587,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 
 <span class="kt">var</span> <span class="n">eventRsp</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventResponseModel</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2019-01-20T04:45:42.914"</span><span class="p">),</span>
+    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2019-06-20T04:45:42.914"</span><span class="p">),</span>
     <span class="n">Status</span> <span class="p">=</span> <span class="m">500</span><span class="p">,</span>
     <span class="n">Headers</span> <span class="p">=</span> <span class="n">rspHeaders</span><span class="p">,</span>
     <span class="n">Body</span> <span class="p">=</span> <span class="n">rspBody</span>
@@ -1860,7 +1860,7 @@ Replace <i>my_application_id</i> with your real Application Id
 <br><br><i>Example Request</i><br>
 </blockquote>
 <pre class="highlight yaml tab-yaml"><code>  <span class="pi">{</span>
-    <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-20T04:45:42.914"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2019-06-20T04:45:42.914"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">61.48.220.123"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">df32dkj32opxzfdmji4hf4fs98y18cx98q3yhwmnhcfx43f"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">123456"</span><span class="pi">,</span>
@@ -2099,7 +2099,7 @@ Replace <i>my_application_id</i> with your real Application Id
 </blockquote>
 <pre class="highlight yaml tab-yaml"><code>  <span class="pi">[</span>
     <span class="pi">{</span>
-      <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-20T04:45:42.914"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2019-06-20T04:45:42.914"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">61.48.220.123"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">df32dkj32opxzfdmji4hf4fs98y18cx98q3yhwmnhcfx43f"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">12345"</span><span class="pi">,</span>
@@ -2118,7 +2118,7 @@ Replace <i>my_application_id</i> with your real Application Id
       <span class="pi">}</span>
     <span class="pi">},</span>
     <span class="pi">{</span>
-      <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-20T04:45:42.914"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2019-06-20T04:45:42.914"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">61.48.220.129"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">d2ewzcazchurvcqdevnhcuiyrgvru"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">7890"</span><span class="pi">,</span>
@@ -2326,7 +2326,7 @@ Replace <i>my_application_id</i> with your real Application Id
 <br><br><i>Example Request</i><br>
 </blockquote>
 <pre class="highlight yaml tab-yaml"><code>  <span class="pi">{</span>
-    <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-20T04:45:42.914"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2019-06-20T04:45:42.914"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">61.48.220.123"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">df32dkj32opxzfdmji4hf4fs98y18cx98q3yhwmnhcfx43f"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">company_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">123456"</span><span class="pi">,</span>
@@ -2541,7 +2541,7 @@ Replace <i>my_application_id</i> with your real Application Id
 </blockquote>
 <pre class="highlight yaml tab-yaml"><code>  <span class="pi">[</span>
     <span class="pi">{</span>
-      <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-20T04:45:42.914"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2019-06-20T04:45:42.914"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">61.48.220.123"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">df32dkj32opxzfdmji4hf4fs98y18cx98q3yhwmnhcfx43f"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">company_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">12345"</span><span class="pi">,</span>
@@ -2556,7 +2556,7 @@ Replace <i>my_application_id</i> with your real Application Id
       <span class="pi">}</span>
     <span class="pi">},</span>
     <span class="pi">{</span>
-      <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2018-01-20T04:45:42.914"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2019-06-20T04:45:42.914"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">61.48.220.129"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">d2ewzcazchurvcqdevnhcuiyrgvru"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">company_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">7890"</span><span class="pi">,</span>
