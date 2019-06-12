@@ -1062,15 +1062,12 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
 <span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoesifApiClient</span><span class="p">(</span><span class="s2">"Your application Id"</span><span class="p">);</span>
 <span class="nv">$api</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">getApi</span><span class="p">();</span>
 
-
+<span class="nv">$event</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Models\EventModel</span><span class="p">()</span>
 <span class="nv">$reqdate</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DateTime</span><span class="p">();</span>
-<span class="nv">$event</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">time</span> <span class="o">=</span> <span class="nv">$reqdate</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="nx">DateTime</span><span class="o">::</span><span class="na">ISO8601</span><span class="p">);</span>
 <span class="nv">$rspdate</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DateTime</span><span class="p">();</span>
-<span class="nv">$event</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">time</span> <span class="o">=</span> <span class="nv">$rspdate</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="nx">DateTime</span><span class="o">::</span><span class="na">ISO8601</span><span class="p">);</span>
 
-<span class="nv">$event</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> 
-    <span class="s2">"request"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-       <span class="s2">"time"</span> <span class="o">=&gt;</span> <span class="nv">$reqdate</span><span class="p">,</span> 
+<span class="nv">$event</span><span class="o">-&gt;</span><span class="na">request</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+       <span class="s2">"time"</span> <span class="o">=&gt;</span> <span class="nv">$reqdate</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="nx">DateTime</span><span class="o">::</span><span class="na">ISO8601</span><span class="p">),</span> 
        <span class="s2">"uri"</span> <span class="o">=&gt;</span> <span class="s2">"https://api.acmeinc.com/items/reviews/"</span><span class="p">,</span> 
        <span class="s2">"verb"</span> <span class="o">=&gt;</span> <span class="s2">"PATCH"</span><span class="p">,</span> 
        <span class="s2">"api_version"</span> <span class="o">=&gt;</span> <span class="s2">"1.1.0"</span><span class="p">,</span> 
@@ -1087,9 +1084,10 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
           <span class="s2">"review_id"</span> <span class="o">=&gt;</span> <span class="mi">132232</span><span class="p">,</span> 
           <span class="s2">"item_id"</span> <span class="o">=&gt;</span> <span class="s2">"ewdcpoijc0"</span><span class="p">,</span> 
           <span class="s2">"liked"</span> <span class="o">=&gt;</span> <span class="kc">false</span><span class="p">)</span>
-        <span class="p">),</span> 
-        <span class="s2">"response"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-           <span class="s2">"time"</span> <span class="o">=&gt;</span> <span class="nv">$rspdate</span><span class="p">,</span> 
+        <span class="p">);</span>
+
+ <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">response</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+           <span class="s2">"time"</span> <span class="o">=&gt;</span> <span class="nv">$rspdate</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="nx">DateTime</span><span class="o">::</span><span class="na">ISO8601</span><span class="p">),</span> 
            <span class="s2">"status"</span> <span class="o">=&gt;</span> <span class="mi">500</span><span class="p">,</span> 
            <span class="s2">"headers"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
              <span class="s2">"Date"</span> <span class="o">=&gt;</span> <span class="s2">"Tue, 23 Aug 2019 23:46:49 GMT"</span><span class="p">,</span> 
@@ -1108,16 +1106,14 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
              <span class="p">),</span> 
              <span class="s2">"user_id"</span> <span class="o">=&gt;</span> <span class="s2">"mndug437f43"</span><span class="p">,</span> 
              <span class="s2">"session_token"</span> <span class="o">=&gt;</span> <span class="s2">"23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ngs98y18cx98q3yhwmnhcfx43f"</span>
-        <span class="p">),</span>
-        <span class="s2">"metadata"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="p">);</span>
+<span class="nv">$event</span><span class="o">-&gt;</span><span class="na">metadata</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
           <span class="s2">"foo"</span> <span class="o">=&gt;</span> <span class="s2">"bar"</span> 
-        <span class="p">)</span>
-  <span class="p">)</span>
+        <span class="p">);</span>
 
-<span class="nv">$reqdate</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DateTime</span><span class="p">();</span>
-<span class="nv">$event</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">time</span> <span class="o">=</span> <span class="nv">$reqdate</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="nx">DateTime</span><span class="o">::</span><span class="na">ISO8601</span><span class="p">);</span>
-<span class="nv">$rspdate</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DateTime</span><span class="p">();</span>
-<span class="nv">$event</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">time</span> <span class="o">=</span> <span class="nv">$rspdate</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="nx">DateTime</span><span class="o">::</span><span class="na">ISO8601</span><span class="p">);</span>
+<span class="nv">$event</span><span class="o">-&gt;</span><span class="na">user_id</span> <span class="o">=</span> <span class="s2">"12345"</span><span class="p">;</span>
+<span class="nv">$event</span><span class="o">-&gt;</span><span class="na">company_id</span> <span class="o">=</span> <span class="s2">"67890"</span><span class="p">;</span>
+<span class="nv">$event</span><span class="o">-&gt;</span><span class="na">session_token</span> <span class="o">=</span> <span class="s2">"23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ngs98y18cx98q3yhwmnhcfx43f"</span><span class="p">;</span>
 
 <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">createEvent</span><span class="p">(</span><span class="nv">$event</span><span class="p">);</span>
 </code></pre>
