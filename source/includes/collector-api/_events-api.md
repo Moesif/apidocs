@@ -576,15 +576,12 @@ use MoesifApi\MoesifApiClient;
 $client = new MoesifApiClient("Your application Id");
 $api = $client->getApi();
 
-
+$event = new Models\EventModel()
 $reqdate = new DateTime();
-$event->request->time = $reqdate->format(DateTime::ISO8601);
 $rspdate = new DateTime();
-$event->response->time = $rspdate->format(DateTime::ISO8601);
 
-$event = array( 
-    "request" => array(
-       "time" => $reqdate, 
+$event->request = array(
+       "time" => $reqdate->format(DateTime::ISO8601), 
        "uri" => "https://api.acmeinc.com/items/reviews/", 
        "verb" => "PATCH", 
        "api_version" => "1.1.0", 
@@ -601,9 +598,10 @@ $event = array(
           "review_id" => 132232, 
           "item_id" => "ewdcpoijc0", 
           "liked" => false)
-        ), 
-        "response" => array(
-           "time" => $rspdate, 
+        );
+
+ $event->response = array(
+           "time" => $rspdate->format(DateTime::ISO8601), 
            "status" => 500, 
            "headers" => array(
              "Date" => "Tue, 23 Aug 2019 23:46:49 GMT", 
@@ -622,16 +620,14 @@ $event = array(
              ), 
              "user_id" => "mndug437f43", 
              "session_token" => "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ngs98y18cx98q3yhwmnhcfx43f"
-        ),
-        "metadata" => array(
+        );
+$event->metadata = array(
           "foo" => "bar" 
-        )
-  )
+        );
 
-$reqdate = new DateTime();
-$event->request->time = $reqdate->format(DateTime::ISO8601);
-$rspdate = new DateTime();
-$event->response->time = $rspdate->format(DateTime::ISO8601);
+$event->user_id = "12345";
+$event->company_id = "67890";
+$event->session_token = "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ngs98y18cx98q3yhwmnhcfx43f";
 
 $api->createEvent($event);
 ```
