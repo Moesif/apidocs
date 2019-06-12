@@ -576,9 +576,57 @@ use MoesifApi\MoesifApiClient;
 $client = new MoesifApiClient("Your application Id");
 $api = $client->getApi();
 
-$event = APIHelper::deserialize('{ "request": { "time": "2019-06-09T04:45:42.914", "uri": "<https://api.acmeinc.com/items/reviews/>", "verb": "PATCH", "api_version": "1.1.0", "ip_address": "61.48.220.123", "headers": { "Host": "api.acmeinc.com", "Accept": "_/_", "Connection": "Keep-Alive", "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)", "Content-Type": "application/json", "Content-Length": "126", "Accept-Encoding": "gzip" }, "body": { "items": [ { "direction_type": 1, "discovery_id": "fwfrf", "liked": false }, { "direction_type": 2, "discovery_id": "d43d3f", "liked": true } ] } }, "response": { "time": "2019-06-09T04:45:42.914", "status": 500, "headers": { "Date": "Tue, 23 Aug 2019 23:46:49 GMT", "Vary": "Accept-Encoding", "Pragma": "no-cache", "Expires": "-1", "Content-Type": "application/json; charset=utf-8", "X-Powered-By": "ARR/3.0", "Cache-Control": "no-cache", "Arr-Disable-Session-Affinity": "true" }, "body": { "Error": "InvalidArgumentException", "Message": "Missing field field_a" } }, "user_id": "mndug437f43", "session_token": "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f", "metadata": { "foo": "bar" } }', new Models\EventModel());
 
-// Note: If the request.time is in the past, it can only be backdated up to 7 days.
+$reqdate = new DateTime();
+$event->request->time = $reqdate->format(DateTime::ISO8601);
+$rspdate = new DateTime();
+$event->response->time = $rspdate->format(DateTime::ISO8601);
+
+$event = array( 
+    "request" => array(
+       "time" => $reqdate, 
+       "uri" => "https://api.acmeinc.com/items/reviews/", 
+       "verb" => "PATCH", 
+       "api_version" => "1.1.0", 
+       "ip_address" => "61.48.220.123", 
+       "headers" => array(
+         "Host" => "api.acmeinc.com", 
+         "Accept" => "_/_", 
+         "Connection" => "Keep-Alive", 
+         "User-Agent" => "Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)", 
+         "Content-Type" => "application/json", 
+         "Content-Length" => "126", 
+         "Accept-Encoding" => "gzip"), 
+        "body" => array(
+          "review_id" => 132232, 
+          "item_id" => "ewdcpoijc0", 
+          "liked" => false)
+        ), 
+        "response" => array(
+           "time" => $rspdate, 
+           "status" => 500, 
+           "headers" => array(
+             "Date" => "Tue, 23 Aug 2019 23:46:49 GMT", 
+             "Vary" => "Accept-Encoding", 
+             "Pragma" => "no-cache", 
+             "Expires" => "-1", 
+             "Content-Type" => "application/json; charset=utf-8", 
+             "X-Powered-By" => "ARR/3.0", 
+             "Cache-Control" => "no-cache", 
+             "Arr-Disable-Session-Affinity" => "true"), 
+             "body" => array(
+               "item_id" => "13221", 
+               "title" => "Red Brown Chair",
+               "description" => "Red brown chair for sale",
+               "price" => 22.23
+             ), 
+             "user_id" => "mndug437f43", 
+             "session_token" => "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ngs98y18cx98q3yhwmnhcfx43f"
+        ),
+        "metadata" => array(
+          "foo" => "bar" 
+        )
+  )
 
 $reqdate = new DateTime();
 $event->request->time = $reqdate->format(DateTime::ISO8601);
