@@ -34,7 +34,7 @@ Replace <i>my_application_id</i> with your real Application Id
 </blockquote>
 ```yaml
   {
-    "modified_time": "2018-01-20T04:45:42.914",
+    "modified_time": "2019-06-20T04:45:42.914",
     "ip_address": "61.48.220.123",
     "session_token": "df32dkj32opxzfdmji4hf4fs98y18cx98q3yhwmnhcfx43f",
     "user_id": "123456",
@@ -265,7 +265,7 @@ Replace <i>my_application_id</i> with your real Application Id
 ```yaml
   [
     {
-      "modified_time": "2018-01-20T04:45:42.914",
+      "modified_time": "2019-06-20T04:45:42.914",
       "ip_address": "61.48.220.123",
       "session_token": "df32dkj32opxzfdmji4hf4fs98y18cx98q3yhwmnhcfx43f",
       "user_id": "12345",
@@ -284,7 +284,7 @@ Replace <i>my_application_id</i> with your real Application Id
       }
     },
     {
-      "modified_time": "2018-01-20T04:45:42.914",
+      "modified_time": "2019-06-20T04:45:42.914",
       "ip_address": "61.48.220.129",
       "session_token": "d2ewzcazchurvcqdevnhcuiyrgvru",
       "user_id": "7890",
