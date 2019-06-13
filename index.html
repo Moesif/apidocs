@@ -1059,10 +1059,10 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
 <span class="c1">// Instantiate the client. After this, you can now access the Moesif API
 // and call the respective methods:
 </span>
-<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoesifApiClient</span><span class="p">(</span><span class="s2">"Your application Id"</span><span class="p">);</span>
+<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoesifApiClient</span><span class="p">(</span><span class="s2">"Your Moesif Application Id"</span><span class="p">);</span>
 <span class="nv">$api</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">getApi</span><span class="p">();</span>
 
-<span class="nv">$event</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Models\EventModel</span><span class="p">()</span>
+<span class="nv">$event</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Models\EventModel</span><span class="p">();</span>
 <span class="nv">$reqdate</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DateTime</span><span class="p">();</span>
 <span class="nv">$rspdate</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DateTime</span><span class="p">();</span>
 
@@ -1076,7 +1076,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
          <span class="s2">"Host"</span> <span class="o">=&gt;</span> <span class="s2">"api.acmeinc.com"</span><span class="p">,</span> 
          <span class="s2">"Accept"</span> <span class="o">=&gt;</span> <span class="s2">"_/_"</span><span class="p">,</span> 
          <span class="s2">"Connection"</span> <span class="o">=&gt;</span> <span class="s2">"Keep-Alive"</span><span class="p">,</span> 
-         <span class="s2">"User-Agent"</span> <span class="o">=&gt;</span> <span class="s2">"Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)"</span><span class="p">,</span> 
+         <span class="s2">"User-Agent"</span> <span class="o">=&gt;</span> <span class="s2">"moesifapi-php/1.1.5"</span><span class="p">,</span>
          <span class="s2">"Content-Type"</span> <span class="o">=&gt;</span> <span class="s2">"application/json"</span><span class="p">,</span> 
          <span class="s2">"Content-Length"</span> <span class="o">=&gt;</span> <span class="s2">"126"</span><span class="p">,</span> 
          <span class="s2">"Accept-Encoding"</span> <span class="o">=&gt;</span> <span class="s2">"gzip"</span><span class="p">),</span> 
@@ -1090,7 +1090,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
            <span class="s2">"time"</span> <span class="o">=&gt;</span> <span class="nv">$rspdate</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="nx">DateTime</span><span class="o">::</span><span class="na">ISO8601</span><span class="p">),</span> 
            <span class="s2">"status"</span> <span class="o">=&gt;</span> <span class="mi">500</span><span class="p">,</span> 
            <span class="s2">"headers"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-             <span class="s2">"Date"</span> <span class="o">=&gt;</span> <span class="s2">"Tue, 23 Aug 2019 23:46:49 GMT"</span><span class="p">,</span> 
+             <span class="s2">"Date"</span> <span class="o">=&gt;</span> <span class="s2">"Tue, 12 June 2019 23:46:49 GMT"</span><span class="p">,</span> 
              <span class="s2">"Vary"</span> <span class="o">=&gt;</span> <span class="s2">"Accept-Encoding"</span><span class="p">,</span> 
              <span class="s2">"Pragma"</span> <span class="o">=&gt;</span> <span class="s2">"no-cache"</span><span class="p">,</span> 
              <span class="s2">"Expires"</span> <span class="o">=&gt;</span> <span class="s2">"-1"</span><span class="p">,</span> 
@@ -1112,7 +1112,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
         <span class="p">);</span>
 
 <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">user_id</span> <span class="o">=</span> <span class="s2">"12345"</span><span class="p">;</span>
-<span class="nv">$event</span><span class="o">-&gt;</span><span class="na">company_id</span> <span class="o">=</span> <span class="s2">"67890"</span><span class="p">;</span>
+<span class="nv">$event</span><span class="o">-&gt;</span><span class="na">company_id</span> <span class="o">=</span> <span class="s2">"5678"</span><span class="p">;</span>
 <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">session_token</span> <span class="o">=</span> <span class="s2">"23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ngs98y18cx98q3yhwmnhcfx43f"</span><span class="p">;</span>
 
 <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">createEvent</span><span class="p">(</span><span class="nv">$event</span><span class="p">);</span>
