@@ -573,10 +573,10 @@ use MoesifApi\MoesifApiClient;
 // Instantiate the client. After this, you can now access the Moesif API
 // and call the respective methods:
 
-$client = new MoesifApiClient("Your application Id");
+$client = new MoesifApiClient("Your Moesif Application Id");
 $api = $client->getApi();
 
-$event = new Models\EventModel()
+$event = new Models\EventModel();
 $reqdate = new DateTime();
 $rspdate = new DateTime();
 
@@ -590,7 +590,7 @@ $event->request = array(
          "Host" => "api.acmeinc.com", 
          "Accept" => "_/_", 
          "Connection" => "Keep-Alive", 
-         "User-Agent" => "Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)", 
+         "User-Agent" => "moesifapi-php/1.1.5",
          "Content-Type" => "application/json", 
          "Content-Length" => "126", 
          "Accept-Encoding" => "gzip"), 
@@ -604,7 +604,7 @@ $event->request = array(
            "time" => $rspdate->format(DateTime::ISO8601), 
            "status" => 500, 
            "headers" => array(
-             "Date" => "Tue, 23 Aug 2019 23:46:49 GMT", 
+             "Date" => "Tue, 12 June 2019 23:46:49 GMT", 
              "Vary" => "Accept-Encoding", 
              "Pragma" => "no-cache", 
              "Expires" => "-1", 
@@ -626,7 +626,7 @@ $event->metadata = array(
         );
 
 $event->user_id = "12345";
-$event->company_id = "67890";
+$event->company_id = "5678";
 $event->session_token = "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ngs98y18cx98q3yhwmnhcfx43f";
 
 $api->createEvent($event);
