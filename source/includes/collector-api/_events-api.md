@@ -617,9 +617,7 @@ $event->request = array(
                "title" => "Red Brown Chair",
                "description" => "Red brown chair for sale",
                "price" => 22.23
-             ), 
-             "user_id" => "mndug437f43", 
-             "session_token" => "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ngs98y18cx98q3yhwmnhcfx43f"
+             )
         );
 $event->metadata = array(
           "foo" => "bar" 
