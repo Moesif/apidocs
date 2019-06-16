@@ -37,7 +37,7 @@ Replace <i>my_application_id</i> with your real Application Id
     "modified_time": "2019-06-20T04:45:42.914",
     "ip_address": "61.48.220.123",
     "session_token": "df32dkj32opxzfdmji4hf4fs98y18cx98q3yhwmnhcfx43f",
-    "user_id": "123456",
+    "user_id": "12345",
     "user_agent_string": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
     "metadata": {
       "first_name": "John",
@@ -76,7 +76,7 @@ config.ApplicationId = "my_application_id";
 
 // 3. Generate a User Model
 var user = {
-    userId: "my_user_id",
+    userId: "12345",
     sessionToken: "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f",
     metadata: {
       email: "johndoe@acmeinc.com",
@@ -111,7 +111,7 @@ metadata = APIHelper.json_deserialize("""  {
     } """)
 
 user_model = UserModel(
-    user_id = 'ihjdewhdiew',
+    user_id = '12345',
     modified_time = datetime.utcnow(),
     metadata = metadata)
 
@@ -131,7 +131,7 @@ metadata = JSON.parse('{'\
 
 user_model = UserModel.new()
 user_model.modified_time = Time.now.utc.iso8601  # option, default now.
-user_model.user_id = "testrubyapiuser"  #only required field.
+user_model.user_id = "12345"  #only required field.
 user_model.metadata = metadata
 
 response = api.update_user(user_model)
@@ -156,7 +156,7 @@ $api = $client->getApi();
 
 $user = new Models\UserModel();
 
-$user->userId = "moesifphpuser";
+$user->userId = "12345";
 $user->metadata = [
   "email" => "moesifphp@email.com",
   "name" => "moesif php",
@@ -287,7 +287,7 @@ Replace <i>my_application_id</i> with your real Application Id
       "modified_time": "2019-06-20T04:45:42.914",
       "ip_address": "61.48.220.129",
       "session_token": "d2ewzcazchurvcqdevnhcuiyrgvru",
-      "user_id": "7890",
+      "user_id": "67890",
       "user_agent_string": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
       "metadata": {
         "first_name": "Mary",
@@ -340,7 +340,7 @@ var userA = {
 };
 
 var userB = {
-    userId: "6789",
+    userId: "67890",
     sessionToken: "23jdf0oszfexfqe[lwjfiefovprewv4d8ayrcdx8nu2ng]zfeeadedefx43f",
     metadata: {
       email: "maryjane@acmeinc.com",
@@ -386,7 +386,7 @@ UserModel userA = new UserBuilder()
 users.add(userA);
 
 UserModel userB = new UserBuilder()
-    .userId("56789")
+    .userId("67890")
     .modifiedTime(new Date())
     .ipAddress("21.80.11.242")
     .sessionToken("zceadckekvsfgfpsakvnbfouavsdvds")

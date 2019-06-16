@@ -9,7 +9,8 @@ Updates a company profile in Moesif.
 A custom JSON object can be placed in the `metadata` object which
 will be stored as part of the company profile.
 
-If present, Moesif will detect the company_domain field.
+While optional, you can set the `company_domain` field which enables Moesif
+to enrich your company profiles with stuff like company logo.
 
 Updating a company will create one if it does not exist,
 also know as [upsert](https://en.wikipedia.org/wiki/Merge_(SQL))
@@ -30,11 +31,11 @@ Replace <i>my_application_id</i> with your real Application Id
     "modified_time": "2019-06-20T04:45:42.914",
     "ip_address": "61.48.220.123",
     "session_token": "df32dkj32opxzfdmji4hf4fs98y18cx98q3yhwmnhcfx43f",
-    "company_id": "123456",
+    "company_id": "12345",
+    "company_domain": "acmeinc.com",
     "metadata": {
-      "company_domain": "my-service.com",
-      "custom_string_field": "some_value",
-      "custom_int_field": 55,
+      "plan": "free",
+      "mrr": 0,
       "custom_obj_field": {
           "sub_a": "value_a",
           "sub_b": "value_b"
@@ -65,15 +66,15 @@ config.ApplicationId = "my_application_id";
 
 // 3. Generate a Company Model
 var company = {
-    companyId: "my_company_id",
+    companyId: "12345",
     sessionToken: "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f",
+    company_domain: "acmeinc.com",
     metadata: {
-      company_domain: "my-service.com",
-      string_field: "value_1",
-      number_field: 0,
-      object_field: {
-        field_a: "value_a",
-        field_b: "value_b"
+      plan: "free",
+      mrr: 0,
+      custom_obj_field: {
+          sub_a: "value_a",
+          sub_b: "value_b"
       }
     }
 };
@@ -94,11 +95,13 @@ client = MoesifAPIClient(my_application_id)
 api = client.api
 
 metadata = APIHelper.json_deserialize("""  {
-        "company_domain": "my-service.com"
+        "plan": "free"
+        "mrr": 0
     } """)
 
 company_model = CompanyModel(
-    company_id = 'ihjdewhdiew',
+    company_id = '12345',
+    company_domain = 'acmeinc.com',
     modified_time = datetime.utcnow(),
     metadata = metadata)
 
@@ -111,12 +114,14 @@ client = MoesifApi::MoesifAPIClient.new(my_application_id)
 api = client.api
 
 metadata = JSON.parse('{'\
-  '"company_domain": "my-service.com"'\
+  '"plan": "free"'\
+  '"mrr": 0'\
 '}')
 
 company_model = CompanyModel.new()
 company_model.modified_time = Time.now.utc.iso8601  # option, default now.
-company_model.company_id = "testrubyapicompany"  #only required field.
+company_model.company_id = "12345"  #only required field.
+company_model.company_domain = "acmeinc.com"
 company_model.metadata = metadata
 
 response = api.update_company(company_model)
@@ -141,10 +146,15 @@ $api = $client->getApi();
 
 $company = new Models\CompanyModel();
 
-$company->companyId = "moesifphpcompany";
+$company->companyId = "12345";
+$company->companyDomain = "acmeinc.com";
 $company->metadata = [
-  "company_domain": "my-service.com",
-  "custom" => "randomdata"
+      "plan" => "free",
+      "mrr" => 0,
+      "custom_obj_field" => {
+          "sub_a" => "value_a",
+          "sub_b" => "value_b"
+      }
 ];
 
 $api->updateCompany($company);
@@ -165,16 +175,16 @@ CompanyModel company = new CompanyBuilder()
     .modifiedTime(new Date())
     .ipAddress("29.80.250.240")
     .sessionToken("di3hd982h3fubv3yfd94egf")
+    .companyDomain("acmeinc.com")
     .metadata(APIHelper.deserialize("{" +
-        "\"company_domain\": \"my-service.com\"," +
-        "\"string_field\": \"value_1\"," +
-        "\"number_field\": 0," +
+        "\"plan\": \"free\"," +
+        "\"mrr\": 0," +
         "\"object_field\": {" +
           "\"field_1\": \"value_1\"," +
           "\"field_2\": \"value_2\"" +
         "}" +
       "}"))
-     .build();
+    .build();
 
 // Asynchronous Call to update Company
 APICallBack<Object> callBack = new APICallBack<Object>() {
@@ -222,7 +232,8 @@ Updates a list of companies profile in Moesif.
 A custom JSON object can be placed in the `metadata` object of each company
 which will be stored as part of the company profile.
 
-If present, Moesif will detect the company_domain field.
+While optional, you can set the `company_domain` field which enables Moesif
+to enrich your company profiles with stuff like company logo.
 
 If company does not exist, a new one will be created.
 If a company exists, it will be merged on top of existing fields.
@@ -244,10 +255,10 @@ Replace <i>my_application_id</i> with your real Application Id
       "ip_address": "61.48.220.123",
       "session_token": "df32dkj32opxzfdmji4hf4fs98y18cx98q3yhwmnhcfx43f",
       "company_id": "12345",
+      "company_domain": "acmeinc.com",
       "metadata": {
-        "company_domain": "my-service.com",
-        "custom_string_field": "some_value",
-        "custom_int_field": 55,
+        "plan": "free",
+        "mrr": 0,
         "custom_obj_field": {
             "sub_a": "value_a",
             "sub_b": "value_b"
@@ -257,12 +268,12 @@ Replace <i>my_application_id</i> with your real Application Id
     {
       "modified_time": "2019-06-20T04:45:42.914",
       "ip_address": "61.48.220.129",
-      "session_token": "d2ewzcazchurvcqdevnhcuiyrgvru",
-      "company_id": "7890",
+      "session_token": "e3red3odf43uf4ifrh80",
+      "company_id": "67890",
+      "company_domain": "example.com",
       "metadata": {
-        "company_domain": "other-service.com",
-        "custom_string_field": "some_value",
-        "custom_int_field": 55,
+\       "plan": "pro",
+        "mrr": 5000,
         "custom_obj_field": {
             "sub_a": "value_a",
             "sub_b": "value_b"
@@ -294,27 +305,27 @@ config.ApplicationId = "my_application_id";
 var companyA = {
     companyId: "12345",
     sessionToken: "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f",
+    company_domain: "acmeinc.com",
     metadata: {
-      company_domain: "my-service.com",
-      string_field: "value_1",
-      number_field: 0,
-      object_field: {
-        field_a: "value_a",
-        field_b: "value_b"
+      plan: "free",
+      mrr: 0,
+      custom_obj_field: {
+          sub_a: "value_a",
+          sub_b: "value_b"
       }
     }
 };
 
 var companyB = {
-    companyId: "6789",
+    companyId: "67890",
     sessionToken: "23jdf0oszfexfqe[lwjfiefovprewv4d8ayrcdx8nu2ng]zfeeadedefx43f",
+    company_domain: "example.com",
     metadata: {
-      company_domain: "other-service.com",
-      string_field: "value_1",
-      number_field: 1,
-      object_field: {
-        field_a: "value_a",
-        field_b: "value_b"
+      plan: "pro",
+      mrr: 5000,
+      custom_obj_field: {
+          sub_a: "value_a",
+          sub_b: "value_b"
       }
     }
 };
@@ -338,10 +349,10 @@ CompanyModel companyA = new CompanyBuilder()
     .modifiedTime(new Date())
     .ipAddress("29.80.250.240")
     .sessionToken("di3hd982h3fubv3yfd94egf")
+    .companyDomain("acmeinc.com")
     .metadata(APIHelper.deserialize("{" +
-        "\"company_domain\": \"my-service.com\"," +
-        "\"string_field\": \"value_1\"," +
-        "\"number_field\": 0," +
+        "\"plan\": \"free\"," +
+        "\"mrr\": 0," +
         "\"object_field\": {" +
           "\"field_1\": \"value_1\"," +
           "\"field_2\": \"value_2\"" +
@@ -351,14 +362,14 @@ CompanyModel companyA = new CompanyBuilder()
 companies.add(companyA);
 
 CompanyModel companyB = new CompanyBuilder()
-    .companyId("56789")
+    .companyId("67890")
     .modifiedTime(new Date())
     .ipAddress("21.80.11.242")
     .sessionToken("zceadckekvsfgfpsakvnbfouavsdvds")
+    .companyDomain("example.com")
     .metadata(APIHelper.deserialize("{" +
-        "\"company_domain\": \"other-service.com\"," +
-        "\"string_field\": \"value_1\"," +
-        "\"number_field\": 1," +
+        "\"plan\": \"pro\"," +
+        "\"mrr\": 5000," +
         "\"object_field\": {" +
           "\"field_1\": \"value_1\"," +
           "\"field_2\": \"value_2\"" +
