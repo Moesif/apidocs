@@ -1905,7 +1905,7 @@ Replace <i>my_application_id</i> with your real Application Id
     <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2019-06-20T04:45:42.914"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">61.48.220.123"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">df32dkj32opxzfdmji4hf4fs98y18cx98q3yhwmnhcfx43f"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">123456"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">12345"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">user_agent_string"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Mozilla/5.0</span><span class="nv"> </span><span class="s">(Macintosh;</span><span class="nv"> </span><span class="s">Intel</span><span class="nv"> </span><span class="s">Mac</span><span class="nv"> </span><span class="s">OS</span><span class="nv"> </span><span class="s">X</span><span class="nv"> </span><span class="s">10_12_3)</span><span class="nv"> </span><span class="s">AppleWebKit/537.36</span><span class="nv"> </span><span class="s">(KHTML,</span><span class="nv"> </span><span class="s">like</span><span class="nv"> </span><span class="s">Gecko)</span><span class="nv"> </span><span class="s">Chrome/56.0.2924.87</span><span class="nv"> </span><span class="s">Safari/537.36"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">metadata"</span><span class="pi">:</span> <span class="pi">{</span>
       <span class="s2">"</span><span class="s">first_name"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">John"</span><span class="pi">,</span>
@@ -1938,7 +1938,7 @@ curl -X GET https://api.moesif.net/v1/users <span class="se">\</span>
 
 <span class="c1">// 3. Generate a User Model</span>
 <span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">userId</span><span class="p">:</span> <span class="s2">"my_user_id"</span><span class="p">,</span>
+    <span class="na">userId</span><span class="p">:</span> <span class="s2">"12345"</span><span class="p">,</span>
     <span class="na">sessionToken</span><span class="p">:</span> <span class="s2">"23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"</span><span class="p">,</span>
     <span class="na">metadata</span><span class="p">:</span> <span class="p">{</span>
       <span class="na">email</span><span class="p">:</span> <span class="s2">"johndoe@acmeinc.com"</span><span class="p">,</span>
@@ -1970,7 +1970,7 @@ curl -X GET https://api.moesif.net/v1/users <span class="se">\</span>
     } """</span><span class="p">)</span>
 
 <span class="n">user_model</span> <span class="o">=</span> <span class="n">UserModel</span><span class="p">(</span>
-    <span class="n">user_id</span> <span class="o">=</span> <span class="s">'ihjdewhdiew'</span><span class="p">,</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="s">'12345'</span><span class="p">,</span>
     <span class="n">modified_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">(),</span>
     <span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">)</span>
 
@@ -1987,7 +1987,7 @@ curl -X GET https://api.moesif.net/v1/users <span class="se">\</span>
 
 <span class="n">user_model</span> <span class="o">=</span> <span class="no">UserModel</span><span class="p">.</span><span class="nf">new</span><span class="p">()</span>
 <span class="n">user_model</span><span class="p">.</span><span class="nf">modified_time</span> <span class="o">=</span> <span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">utc</span><span class="p">.</span><span class="nf">iso8601</span>  <span class="c1"># option, default now.</span>
-<span class="n">user_model</span><span class="p">.</span><span class="nf">user_id</span> <span class="o">=</span> <span class="s2">"testrubyapiuser"</span>  <span class="c1">#only required field.</span>
+<span class="n">user_model</span><span class="p">.</span><span class="nf">user_id</span> <span class="o">=</span> <span class="s2">"12345"</span>  <span class="c1">#only required field.</span>
 <span class="n">user_model</span><span class="p">.</span><span class="nf">metadata</span> <span class="o">=</span> <span class="n">metadata</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">api</span><span class="p">.</span><span class="nf">update_user</span><span class="p">(</span><span class="n">user_model</span><span class="p">)</span>
@@ -2009,7 +2009,7 @@ curl -X GET https://api.moesif.net/v1/users <span class="se">\</span>
 
 <span class="nv">$user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Models\UserModel</span><span class="p">();</span>
 
-<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">userId</span> <span class="o">=</span> <span class="s2">"moesifphpuser"</span><span class="p">;</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">userId</span> <span class="o">=</span> <span class="s2">"12345"</span><span class="p">;</span>
 <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">metadata</span> <span class="o">=</span> <span class="p">[</span>
   <span class="s2">"email"</span> <span class="o">=&gt;</span> <span class="s2">"moesifphp@email.com"</span><span class="p">,</span>
   <span class="s2">"name"</span> <span class="o">=&gt;</span> <span class="s2">"moesif php"</span><span class="p">,</span>
@@ -2163,7 +2163,7 @@ Replace <i>my_application_id</i> with your real Application Id
       <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2019-06-20T04:45:42.914"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">61.48.220.129"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">d2ewzcazchurvcqdevnhcuiyrgvru"</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">7890"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">67890"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">user_agent_string"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Mozilla/5.0</span><span class="nv"> </span><span class="s">(Macintosh;</span><span class="nv"> </span><span class="s">Intel</span><span class="nv"> </span><span class="s">Mac</span><span class="nv"> </span><span class="s">OS</span><span class="nv"> </span><span class="s">X</span><span class="nv"> </span><span class="s">10_12_3)</span><span class="nv"> </span><span class="s">AppleWebKit/537.36</span><span class="nv"> </span><span class="s">(KHTML,</span><span class="nv"> </span><span class="s">like</span><span class="nv"> </span><span class="s">Gecko)</span><span class="nv"> </span><span class="s">Chrome/56.0.2924.87</span><span class="nv"> </span><span class="s">Safari/537.36"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">metadata"</span><span class="pi">:</span> <span class="pi">{</span>
         <span class="s2">"</span><span class="s">first_name"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Mary"</span><span class="pi">,</span>
@@ -2210,7 +2210,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 <span class="p">};</span>
 
 <span class="kd">var</span> <span class="nx">userB</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">userId</span><span class="p">:</span> <span class="s2">"6789"</span><span class="p">,</span>
+    <span class="na">userId</span><span class="p">:</span> <span class="s2">"67890"</span><span class="p">,</span>
     <span class="na">sessionToken</span><span class="p">:</span> <span class="s2">"23jdf0oszfexfqe[lwjfiefovprewv4d8ayrcdx8nu2ng]zfeeadedefx43f"</span><span class="p">,</span>
     <span class="na">metadata</span><span class="p">:</span> <span class="p">{</span>
       <span class="na">email</span><span class="p">:</span> <span class="s2">"maryjane@acmeinc.com"</span><span class="p">,</span>
@@ -2253,7 +2253,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 <span class="n">users</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">userA</span><span class="o">);</span>
 
 <span class="n">UserModel</span> <span class="n">userB</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UserBuilder</span><span class="o">()</span>
-    <span class="o">.</span><span class="na">userId</span><span class="o">(</span><span class="s">"56789"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">userId</span><span class="o">(</span><span class="s">"67890"</span><span class="o">)</span>
     <span class="o">.</span><span class="na">modifiedTime</span><span class="o">(</span><span class="k">new</span> <span class="n">Date</span><span class="o">())</span>
     <span class="o">.</span><span class="na">ipAddress</span><span class="o">(</span><span class="s">"21.80.11.242"</span><span class="o">)</span>
     <span class="o">.</span><span class="na">sessionToken</span><span class="o">(</span><span class="s">"zceadckekvsfgfpsakvnbfouavsdvds"</span><span class="o">)</span>
@@ -2351,7 +2351,8 @@ The new session_token will be appended to the alias table.</p></li>
 <p>A custom JSON object can be placed in the <code class="prettyprint">metadata</code> object which
 will be stored as part of the company profile.</p>
 
-<p>If present, Moesif will detect the company_domain field.</p>
+<p>While optional, you can set the <code class="prettyprint">company_domain</code> field which enables Moesif
+to enrich your company profiles with stuff like company logo.</p>
 
 <p>Updating a company will create one if it does not exist,
 also know as <a href="https://en.wikipedia.org/wiki/Merge_(SQL)">upsert</a>
@@ -2371,11 +2372,11 @@ Replace <i>my_application_id</i> with your real Application Id
     <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2019-06-20T04:45:42.914"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">61.48.220.123"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">df32dkj32opxzfdmji4hf4fs98y18cx98q3yhwmnhcfx43f"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">company_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">123456"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">company_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">12345"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">company_domain"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">acmeinc.com"</span><span class="pi">,</span>
     <span class="s2">"</span><span class="s">metadata"</span><span class="pi">:</span> <span class="pi">{</span>
-      <span class="s2">"</span><span class="s">company_domain"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">my-service.com"</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">custom_string_field"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">some_value"</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">custom_int_field"</span><span class="pi">:</span> <span class="nv">55</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">plan"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">free"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">mrr"</span><span class="pi">:</span> <span class="nv">0</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">custom_obj_field"</span><span class="pi">:</span> <span class="pi">{</span>
           <span class="s2">"</span><span class="s">sub_a"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">value_a"</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">sub_b"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">value_b"</span>
@@ -2400,15 +2401,15 @@ curl -X GET https://api.moesif.net/v1/companies <span class="se">\</span>
 
 <span class="c1">// 3. Generate a Company Model</span>
 <span class="kd">var</span> <span class="nx">company</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">companyId</span><span class="p">:</span> <span class="s2">"my_company_id"</span><span class="p">,</span>
+    <span class="na">companyId</span><span class="p">:</span> <span class="s2">"12345"</span><span class="p">,</span>
     <span class="na">sessionToken</span><span class="p">:</span> <span class="s2">"23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"</span><span class="p">,</span>
+    <span class="na">company_domain</span><span class="p">:</span> <span class="s2">"acmeinc.com"</span><span class="p">,</span>
     <span class="na">metadata</span><span class="p">:</span> <span class="p">{</span>
-      <span class="na">company_domain</span><span class="p">:</span> <span class="s2">"my-service.com"</span><span class="p">,</span>
-      <span class="na">string_field</span><span class="p">:</span> <span class="s2">"value_1"</span><span class="p">,</span>
-      <span class="na">number_field</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-      <span class="na">object_field</span><span class="p">:</span> <span class="p">{</span>
-        <span class="na">field_a</span><span class="p">:</span> <span class="s2">"value_a"</span><span class="p">,</span>
-        <span class="na">field_b</span><span class="p">:</span> <span class="s2">"value_b"</span>
+      <span class="na">plan</span><span class="p">:</span> <span class="s2">"free"</span><span class="p">,</span>
+      <span class="na">mrr</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="na">custom_obj_field</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">sub_a</span><span class="p">:</span> <span class="s2">"value_a"</span><span class="p">,</span>
+          <span class="na">sub_b</span><span class="p">:</span> <span class="s2">"value_b"</span>
       <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">};</span>
@@ -2426,11 +2427,13 @@ curl -X GET https://api.moesif.net/v1/companies <span class="se">\</span>
 <span class="n">api</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">api</span>
 
 <span class="n">metadata</span> <span class="o">=</span> <span class="n">APIHelper</span><span class="o">.</span><span class="n">json_deserialize</span><span class="p">(</span><span class="s">"""  {
-        "company_domain": "my-service.com"
+        "plan": "free"
+        "mrr": 0
     } """</span><span class="p">)</span>
 
 <span class="n">company_model</span> <span class="o">=</span> <span class="n">CompanyModel</span><span class="p">(</span>
-    <span class="n">company_id</span> <span class="o">=</span> <span class="s">'ihjdewhdiew'</span><span class="p">,</span>
+    <span class="n">company_id</span> <span class="o">=</span> <span class="s">'12345'</span><span class="p">,</span>
+    <span class="n">company_domain</span> <span class="o">=</span> <span class="s">'acmeinc.com'</span><span class="p">,</span>
     <span class="n">modified_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">(),</span>
     <span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">)</span>
 
@@ -2440,12 +2443,14 @@ curl -X GET https://api.moesif.net/v1/companies <span class="se">\</span>
 <span class="n">api</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">api</span>
 
 <span class="n">metadata</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s1">'{'</span><span class="p">\</span>
-  <span class="s1">'"company_domain": "my-service.com"'</span><span class="p">\</span>
+  <span class="s1">'"plan": "free"'</span><span class="p">\</span>
+  <span class="s1">'"mrr": 0'</span><span class="p">\</span>
 <span class="s1">'}'</span><span class="p">)</span>
 
 <span class="n">company_model</span> <span class="o">=</span> <span class="no">CompanyModel</span><span class="p">.</span><span class="nf">new</span><span class="p">()</span>
 <span class="n">company_model</span><span class="p">.</span><span class="nf">modified_time</span> <span class="o">=</span> <span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">utc</span><span class="p">.</span><span class="nf">iso8601</span>  <span class="c1"># option, default now.</span>
-<span class="n">company_model</span><span class="p">.</span><span class="nf">company_id</span> <span class="o">=</span> <span class="s2">"testrubyapicompany"</span>  <span class="c1">#only required field.</span>
+<span class="n">company_model</span><span class="p">.</span><span class="nf">company_id</span> <span class="o">=</span> <span class="s2">"12345"</span>  <span class="c1">#only required field.</span>
+<span class="n">company_model</span><span class="p">.</span><span class="nf">company_domain</span> <span class="o">=</span> <span class="s2">"acmeinc.com"</span>
 <span class="n">company_model</span><span class="p">.</span><span class="nf">metadata</span> <span class="o">=</span> <span class="n">metadata</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">api</span><span class="p">.</span><span class="nf">update_company</span><span class="p">(</span><span class="n">company_model</span><span class="p">)</span>
@@ -2467,10 +2472,15 @@ curl -X GET https://api.moesif.net/v1/companies <span class="se">\</span>
 
 <span class="nv">$company</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Models\CompanyModel</span><span class="p">();</span>
 
-<span class="nv">$company</span><span class="o">-&gt;</span><span class="na">companyId</span> <span class="o">=</span> <span class="s2">"moesifphpcompany"</span><span class="p">;</span>
+<span class="nv">$company</span><span class="o">-&gt;</span><span class="na">companyId</span> <span class="o">=</span> <span class="s2">"12345"</span><span class="p">;</span>
+<span class="nv">$company</span><span class="o">-&gt;</span><span class="na">companyDomain</span> <span class="o">=</span> <span class="s2">"acmeinc.com"</span><span class="p">;</span>
 <span class="nv">$company</span><span class="o">-&gt;</span><span class="na">metadata</span> <span class="o">=</span> <span class="p">[</span>
-  <span class="s2">"company_domain"</span><span class="o">:</span> <span class="s2">"my-service.com"</span><span class="p">,</span>
-  <span class="s2">"custom"</span> <span class="o">=&gt;</span> <span class="s2">"randomdata"</span>
+      <span class="s2">"plan"</span> <span class="o">=&gt;</span> <span class="s2">"free"</span><span class="p">,</span>
+      <span class="s2">"mrr"</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">"custom_obj_field"</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="s2">"sub_a"</span> <span class="o">=&gt;</span> <span class="s2">"value_a"</span><span class="p">,</span>
+          <span class="s2">"sub_b"</span> <span class="o">=&gt;</span> <span class="s2">"value_b"</span>
+      <span class="p">}</span>
 <span class="p">];</span>
 
 <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">updateCompany</span><span class="p">(</span><span class="nv">$company</span><span class="p">);</span>
@@ -2482,16 +2492,16 @@ curl -X GET https://api.moesif.net/v1/companies <span class="se">\</span>
     <span class="o">.</span><span class="na">modifiedTime</span><span class="o">(</span><span class="k">new</span> <span class="n">Date</span><span class="o">())</span>
     <span class="o">.</span><span class="na">ipAddress</span><span class="o">(</span><span class="s">"29.80.250.240"</span><span class="o">)</span>
     <span class="o">.</span><span class="na">sessionToken</span><span class="o">(</span><span class="s">"di3hd982h3fubv3yfd94egf"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">companyDomain</span><span class="o">(</span><span class="s">"acmeinc.com"</span><span class="o">)</span>
     <span class="o">.</span><span class="na">metadata</span><span class="o">(</span><span class="n">APIHelper</span><span class="o">.</span><span class="na">deserialize</span><span class="o">(</span><span class="s">"{"</span> <span class="o">+</span>
-        <span class="s">"\"company_domain\": \"my-service.com\","</span> <span class="o">+</span>
-        <span class="s">"\"string_field\": \"value_1\","</span> <span class="o">+</span>
-        <span class="s">"\"number_field\": 0,"</span> <span class="o">+</span>
+        <span class="s">"\"plan\": \"free\","</span> <span class="o">+</span>
+        <span class="s">"\"mrr\": 0,"</span> <span class="o">+</span>
         <span class="s">"\"object_field\": {"</span> <span class="o">+</span>
           <span class="s">"\"field_1\": \"value_1\","</span> <span class="o">+</span>
           <span class="s">"\"field_2\": \"value_2\""</span> <span class="o">+</span>
         <span class="s">"}"</span> <span class="o">+</span>
       <span class="s">"}"</span><span class="o">))</span>
-     <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+    <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
 <span class="c1">// Asynchronous Call to update Company</span>
 <span class="n">APICallBack</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">callBack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">APICallBack</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{</span>
@@ -2566,7 +2576,8 @@ The new session_token will be appended to the alias table.</p></li>
 <p>A custom JSON object can be placed in the <code class="prettyprint">metadata</code> object of each company
 which will be stored as part of the company profile.</p>
 
-<p>If present, Moesif will detect the company_domain field.</p>
+<p>While optional, you can set the <code class="prettyprint">company_domain</code> field which enables Moesif
+to enrich your company profiles with stuff like company logo.</p>
 
 <p>If company does not exist, a new one will be created.
 If a company exists, it will be merged on top of existing fields.
@@ -2587,10 +2598,10 @@ Replace <i>my_application_id</i> with your real Application Id
       <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">61.48.220.123"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">df32dkj32opxzfdmji4hf4fs98y18cx98q3yhwmnhcfx43f"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">company_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">12345"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">company_domain"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">acmeinc.com"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">metadata"</span><span class="pi">:</span> <span class="pi">{</span>
-        <span class="s2">"</span><span class="s">company_domain"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">my-service.com"</span><span class="pi">,</span>
-        <span class="s2">"</span><span class="s">custom_string_field"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">some_value"</span><span class="pi">,</span>
-        <span class="s2">"</span><span class="s">custom_int_field"</span><span class="pi">:</span> <span class="nv">55</span><span class="pi">,</span>
+        <span class="s2">"</span><span class="s">plan"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">free"</span><span class="pi">,</span>
+        <span class="s2">"</span><span class="s">mrr"</span><span class="pi">:</span> <span class="nv">0</span><span class="pi">,</span>
         <span class="s2">"</span><span class="s">custom_obj_field"</span><span class="pi">:</span> <span class="pi">{</span>
             <span class="s2">"</span><span class="s">sub_a"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">value_a"</span><span class="pi">,</span>
             <span class="s2">"</span><span class="s">sub_b"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">value_b"</span>
@@ -2600,12 +2611,12 @@ Replace <i>my_application_id</i> with your real Application Id
     <span class="pi">{</span>
       <span class="s2">"</span><span class="s">modified_time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2019-06-20T04:45:42.914"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">ip_address"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">61.48.220.129"</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">d2ewzcazchurvcqdevnhcuiyrgvru"</span><span class="pi">,</span>
-      <span class="s2">"</span><span class="s">company_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">7890"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">e3red3odf43uf4ifrh80"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">company_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">67890"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">company_domain"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">example.com"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">metadata"</span><span class="pi">:</span> <span class="pi">{</span>
-        <span class="s2">"</span><span class="s">company_domain"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">other-service.com"</span><span class="pi">,</span>
-        <span class="s2">"</span><span class="s">custom_string_field"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">some_value"</span><span class="pi">,</span>
-        <span class="s2">"</span><span class="s">custom_int_field"</span><span class="pi">:</span> <span class="nv">55</span><span class="pi">,</span>
+<span class="nv">\       "plan"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">pro"</span><span class="pi">,</span>
+        <span class="s2">"</span><span class="s">mrr"</span><span class="pi">:</span> <span class="nv">5000</span><span class="pi">,</span>
         <span class="s2">"</span><span class="s">custom_obj_field"</span><span class="pi">:</span> <span class="pi">{</span>
             <span class="s2">"</span><span class="s">sub_a"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">value_a"</span><span class="pi">,</span>
             <span class="s2">"</span><span class="s">sub_b"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">value_b"</span>
@@ -2631,27 +2642,27 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 <span class="kd">var</span> <span class="nx">companyA</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">companyId</span><span class="p">:</span> <span class="s2">"12345"</span><span class="p">,</span>
     <span class="na">sessionToken</span><span class="p">:</span> <span class="s2">"23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"</span><span class="p">,</span>
+    <span class="na">company_domain</span><span class="p">:</span> <span class="s2">"acmeinc.com"</span><span class="p">,</span>
     <span class="na">metadata</span><span class="p">:</span> <span class="p">{</span>
-      <span class="na">company_domain</span><span class="p">:</span> <span class="s2">"my-service.com"</span><span class="p">,</span>
-      <span class="na">string_field</span><span class="p">:</span> <span class="s2">"value_1"</span><span class="p">,</span>
-      <span class="na">number_field</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-      <span class="na">object_field</span><span class="p">:</span> <span class="p">{</span>
-        <span class="na">field_a</span><span class="p">:</span> <span class="s2">"value_a"</span><span class="p">,</span>
-        <span class="na">field_b</span><span class="p">:</span> <span class="s2">"value_b"</span>
+      <span class="na">plan</span><span class="p">:</span> <span class="s2">"free"</span><span class="p">,</span>
+      <span class="na">mrr</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="na">custom_obj_field</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">sub_a</span><span class="p">:</span> <span class="s2">"value_a"</span><span class="p">,</span>
+          <span class="na">sub_b</span><span class="p">:</span> <span class="s2">"value_b"</span>
       <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">};</span>
 
 <span class="kd">var</span> <span class="nx">companyB</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">companyId</span><span class="p">:</span> <span class="s2">"6789"</span><span class="p">,</span>
+    <span class="na">companyId</span><span class="p">:</span> <span class="s2">"67890"</span><span class="p">,</span>
     <span class="na">sessionToken</span><span class="p">:</span> <span class="s2">"23jdf0oszfexfqe[lwjfiefovprewv4d8ayrcdx8nu2ng]zfeeadedefx43f"</span><span class="p">,</span>
+    <span class="na">company_domain</span><span class="p">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
     <span class="na">metadata</span><span class="p">:</span> <span class="p">{</span>
-      <span class="na">company_domain</span><span class="p">:</span> <span class="s2">"other-service.com"</span><span class="p">,</span>
-      <span class="na">string_field</span><span class="p">:</span> <span class="s2">"value_1"</span><span class="p">,</span>
-      <span class="na">number_field</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="na">object_field</span><span class="p">:</span> <span class="p">{</span>
-        <span class="na">field_a</span><span class="p">:</span> <span class="s2">"value_a"</span><span class="p">,</span>
-        <span class="na">field_b</span><span class="p">:</span> <span class="s2">"value_b"</span>
+      <span class="na">plan</span><span class="p">:</span> <span class="s2">"pro"</span><span class="p">,</span>
+      <span class="na">mrr</span><span class="p">:</span> <span class="mi">5000</span><span class="p">,</span>
+      <span class="na">custom_obj_field</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">sub_a</span><span class="p">:</span> <span class="s2">"value_a"</span><span class="p">,</span>
+          <span class="na">sub_b</span><span class="p">:</span> <span class="s2">"value_b"</span>
       <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">};</span>
@@ -2672,10 +2683,10 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
     <span class="o">.</span><span class="na">modifiedTime</span><span class="o">(</span><span class="k">new</span> <span class="n">Date</span><span class="o">())</span>
     <span class="o">.</span><span class="na">ipAddress</span><span class="o">(</span><span class="s">"29.80.250.240"</span><span class="o">)</span>
     <span class="o">.</span><span class="na">sessionToken</span><span class="o">(</span><span class="s">"di3hd982h3fubv3yfd94egf"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">companyDomain</span><span class="o">(</span><span class="s">"acmeinc.com"</span><span class="o">)</span>
     <span class="o">.</span><span class="na">metadata</span><span class="o">(</span><span class="n">APIHelper</span><span class="o">.</span><span class="na">deserialize</span><span class="o">(</span><span class="s">"{"</span> <span class="o">+</span>
-        <span class="s">"\"company_domain\": \"my-service.com\","</span> <span class="o">+</span>
-        <span class="s">"\"string_field\": \"value_1\","</span> <span class="o">+</span>
-        <span class="s">"\"number_field\": 0,"</span> <span class="o">+</span>
+        <span class="s">"\"plan\": \"free\","</span> <span class="o">+</span>
+        <span class="s">"\"mrr\": 0,"</span> <span class="o">+</span>
         <span class="s">"\"object_field\": {"</span> <span class="o">+</span>
           <span class="s">"\"field_1\": \"value_1\","</span> <span class="o">+</span>
           <span class="s">"\"field_2\": \"value_2\""</span> <span class="o">+</span>
@@ -2685,14 +2696,14 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 <span class="n">companies</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">companyA</span><span class="o">);</span>
 
 <span class="n">CompanyModel</span> <span class="n">companyB</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CompanyBuilder</span><span class="o">()</span>
-    <span class="o">.</span><span class="na">companyId</span><span class="o">(</span><span class="s">"56789"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">companyId</span><span class="o">(</span><span class="s">"67890"</span><span class="o">)</span>
     <span class="o">.</span><span class="na">modifiedTime</span><span class="o">(</span><span class="k">new</span> <span class="n">Date</span><span class="o">())</span>
     <span class="o">.</span><span class="na">ipAddress</span><span class="o">(</span><span class="s">"21.80.11.242"</span><span class="o">)</span>
     <span class="o">.</span><span class="na">sessionToken</span><span class="o">(</span><span class="s">"zceadckekvsfgfpsakvnbfouavsdvds"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">companyDomain</span><span class="o">(</span><span class="s">"example.com"</span><span class="o">)</span>
     <span class="o">.</span><span class="na">metadata</span><span class="o">(</span><span class="n">APIHelper</span><span class="o">.</span><span class="na">deserialize</span><span class="o">(</span><span class="s">"{"</span> <span class="o">+</span>
-        <span class="s">"\"company_domain\": \"other-service.com\","</span> <span class="o">+</span>
-        <span class="s">"\"string_field\": \"value_1\","</span> <span class="o">+</span>
-        <span class="s">"\"number_field\": 1,"</span> <span class="o">+</span>
+        <span class="s">"\"plan\": \"pro\","</span> <span class="o">+</span>
+        <span class="s">"\"mrr\": 5000,"</span> <span class="o">+</span>
         <span class="s">"\"object_field\": {"</span> <span class="o">+</span>
           <span class="s">"\"field_1\": \"value_1\","</span> <span class="o">+</span>
           <span class="s">"\"field_2\": \"value_2\""</span> <span class="o">+</span>
