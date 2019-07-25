@@ -1,5 +1,111 @@
 # Overview
 
+## Pagination and Filtering
+
+### Dates
+In the search endpoints, you must provide a timerange for data to look at. This is done via the `from` and the `to` 
+URL parameters.
+
+Relative dates support the following units:
+
+|symbol|unit|
+|------|----|
+|s|seconds|
+|m|minutes|
+|h|hours|
+|d|days|
+|w|weeks|
+|M|months|
+|now|current UTC time|
+
+Dates can optionally be prepended with a `-` or a `+`
+
+Some examples:
+
+|From Date|To Date|Description|
+|---------|-------|-----------|
+|-24h|now|from 24 hours ago to now|
+|-1d|now|from 1 day ago to now|
+|-1w|now|from 1 week ago to now|
+|-2w|-1w|frm 2 weeks ago to 1 week ago|
+|-1M|1M|from 1 month ago to 1 month in the future|
+
+### Search DSL
+
+For certain search endpoints, Moesif supports querying and filtering using [Elasticsearch DSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-body.html). Simply pass the DSL as the request body.
+While majority of DSL for Elasticsearch's Request Body Search is supported by Moesif, other administrative APIs are unavailable. For help building a query for your business requirements, [contact us](mailto:support@moesif.com).
+
+### Example: Getting most recent 500 errors
+
+If you wanted to get the most recent API errors, you can filter by API calls with response status 500 and sort by 
+request time in descending order. 
+
+<blockquote class="lang-specific yaml">
+<code><b>POST</b> https://api.moesif.com/search/~/search/events?from=-1d&to=now</code>
+<br><br><i>Example Request</i><br>
+</blockquote>
+
+```yaml
+{
+  "post_filter": {
+    "bool": {
+      "should": {
+        "term": {
+          "response.status": "500"
+        }
+      }
+    }
+  },
+  "size": 50,
+  "sort": [
+    {
+      "request.time": "desc"
+    }
+  ]
+}
+```
+
+```shell
+curl -XPOST \
+    -d '{"post_filter":{"bool":{"should":{"term":{"response.status":"500"}}}},"size":50,"sort":[{"request.time":"desc"}]}' \
+    -H 'Accept: application/json' \
+    -H 'Authorization: Bearer {access-token}' \
+    "https://api.moesif.com/search/~/search/events?from=-1d&to=now"
+```
+
+### Example: Getting API usage per customer
+
+Another popular use case is to get the monthly API usage for a specific customer so you can 
+display current usage vs. plan quota in your customer facing portal. 
+This can be done easily by looking at past month and getting a count for the user_id
+
+<blockquote class="lang-specific yaml">
+<code><b>POST</b> https://api.moesif.com/search/~/search/count?from=-1M&to=now</code>
+<br><br><i>Example Request</i><br>
+</blockquote>
+
+```yaml
+{
+  "post_filter": {
+    "bool": {
+      "should": {
+        "term": {
+          "user_id.raw": "123456"
+        }
+      }
+    }
+  }
+}
+```
+
+```shell
+curl -XPOST \
+    -d '{"post_filter":{"bool":{"should":{"term":{"user_id.raw":"123456"}}}}}' \
+    -H 'Accept: application/json' \
+    -H 'Authorization: Bearer {access-token}' \
+    "https://api.moesif.com/search/~/count/events?from=-1M&to=now"
+```
+
 ## Request Format
 For POST, PUT, and PATCH requests, the request body should be JSON. The `Content-Type` header
 should be set to `application/json`

@@ -1,13 +1,13 @@
 # <a id="collector-api"></a> Collector API v1
 
-The Collector API is a high-volume, write-only distributed data collector.
-Think of it as a reverse CDN.
+The Collector API is a high-volume distributed data collection network.
+It's like a reverse CDN.
 
-The Moesif middleware SDKs and agents such as _moesif-express_ use the Collector API for
-sending event data to Moesif.
+The Moesif Middleware SDKs and agents such as _moesif-express_ sit in your code and send raw API data to 
+the Collector API for processing.
 
-For API operations that are not API collection such as querying the data that's
-accessible in the Moesif portal, look at the [Management API.](#Management-API)
+Moesif also has a [Management API](#Management-API) to query data out of Moesif and is the same 
+API the Moesif web portal uses. 
 
 Base URLs:
 
@@ -17,8 +17,8 @@ Base URLs:
 
 <a href="https://www.moesif.com/terms">Terms of service</a>
 
-Prepend all endpoints below with this base url. Both HTTPS and HTTP requests are supported.
-Calls to our API are routed to the nearest datacenter.
+Prepend all endpoints below with this base url. Both HTTPS and HTTP requests are supported. 
+However, Moesif's API libs enforce HTTPS only. Calls to our API are routed to the nearest datacenter.
 
 ## Authentication
 Authentication is done via HTTP Headers.
