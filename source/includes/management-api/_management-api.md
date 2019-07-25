@@ -16,7 +16,7 @@ Base URL:
 
  `Authorization: Bearer MY_API_TOKEN`
 
-    - Token URL = `https://api.moesif.com/v1/:orgId/oauth/access_tokens`
+    - Token URL = [https://api.moesif.com/v1/:orgId/oauth/access_tokens](https://api.moesif.com/v1/:orgId/oauth/access_tokens)
 
 |Scope|Scope Description|
 |---|---|
@@ -49,11 +49,6 @@ Base URL:
 |read:apps|Read the organization's applications|
 |read:triage_buckets|Read triaged errors|
 |create:eth_abi|Create/upload new Ethereum ABI Entries|
-
-
-<aside class="success">
-This operation does not require authentication
-</aside>
 
 <h2 id="management-api-Workspaces">Workspaces</h2>
 
@@ -2672,7 +2667,7 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/metrics?app_id=string&from=2019-07-25T04:28:30Z&to=2019-07-25T04:28:30Z \
+curl -X POST https://api.moesif.com/v1/~/search/usermetrics/metrics?app_id=string&from=2019-07-25T19:21:17Z&to=2019-07-25T19:21:17Z \
   -H 'Accept: 0' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -2687,7 +2682,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/search/usermetrics/metrics?app_id=string&from=2019-07-25T04:28:30Z&to=2019-07-25T04:28:30Z',
+fetch('https://api.moesif.com/v1/~/search/usermetrics/metrics?app_id=string&from=2019-07-25T19:21:17Z&to=2019-07-25T19:21:17Z',
 {
   method: 'POST',
 
@@ -2708,8 +2703,8 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.post('https://api.moesif.com/v1/search/~/search/usermetrics/metrics', params={
-  'app_id': 'string',  'from': '2019-07-25T04:28:30Z',  'to': '2019-07-25T04:28:30Z'
+r = requests.post('https://api.moesif.com/v1/~/search/usermetrics/metrics', params={
+  'app_id': 'string',  'from': '2019-07-25T19:21:17Z',  'to': '2019-07-25T19:21:17Z'
 }, headers = headers)
 
 print r.json()
@@ -2725,7 +2720,7 @@ headers = {
   'Authorization' => 'Bearer {access-token}'
 }
 
-result = RestClient.post 'https://api.moesif.com/v1/search/~/search/usermetrics/metrics',
+result = RestClient.post 'https://api.moesif.com/v1/~/search/usermetrics/metrics',
   params: {
   'app_id' => 'string',
 'from' => 'string(date-time)',
@@ -2753,7 +2748,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('POST','https://api.moesif.com/v1/search/~/search/usermetrics/metrics', array(
+    $response = $client->request('POST','https://api.moesif.com/v1/~/search/usermetrics/metrics', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -2786,7 +2781,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/search/usermetrics/metrics", data)
+    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/~/search/usermetrics/metrics", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -2797,7 +2792,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/search/usermetrics/metrics?app_id=string&from=2019-07-25T04:28:30Z&to=2019-07-25T04:28:30Z");
+URL obj = new URL("https://api.moesif.com/v1/~/search/usermetrics/metrics?app_id=string&from=2019-07-25T19:21:17Z&to=2019-07-25T19:21:17Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -2813,7 +2808,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /search/~/search/usermetrics/metrics`
+`POST /~/search/usermetrics/metrics`
 
 <h4 id="searchUserMetricsChild-parameters">Parameters</h4>
 
@@ -2851,7 +2846,7 @@ managementAPIToken ( Scopes: read:users )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/users?app_id=string&from=2019-07-25T04:28:30Z&to=2019-07-25T04:28:30Z \
+curl -X POST https://api.moesif.com/v1/~/search/usermetrics/users?app_id=string&from=2019-07-25T19:21:17Z&to=2019-07-25T19:21:17Z \
   -H 'Accept: 0' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -2866,7 +2861,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/search/usermetrics/users?app_id=string&from=2019-07-25T04:28:30Z&to=2019-07-25T04:28:30Z',
+fetch('https://api.moesif.com/v1/~/search/usermetrics/users?app_id=string&from=2019-07-25T19:21:17Z&to=2019-07-25T19:21:17Z',
 {
   method: 'POST',
 
@@ -2887,8 +2882,8 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.post('https://api.moesif.com/v1/search/~/search/usermetrics/users', params={
-  'app_id': 'string',  'from': '2019-07-25T04:28:30Z',  'to': '2019-07-25T04:28:30Z'
+r = requests.post('https://api.moesif.com/v1/~/search/usermetrics/users', params={
+  'app_id': 'string',  'from': '2019-07-25T19:21:17Z',  'to': '2019-07-25T19:21:17Z'
 }, headers = headers)
 
 print r.json()
@@ -2904,7 +2899,7 @@ headers = {
   'Authorization' => 'Bearer {access-token}'
 }
 
-result = RestClient.post 'https://api.moesif.com/v1/search/~/search/usermetrics/users',
+result = RestClient.post 'https://api.moesif.com/v1/~/search/usermetrics/users',
   params: {
   'app_id' => 'string',
 'from' => 'string(date-time)',
@@ -2932,7 +2927,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('POST','https://api.moesif.com/v1/search/~/search/usermetrics/users', array(
+    $response = $client->request('POST','https://api.moesif.com/v1/~/search/usermetrics/users', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -2965,7 +2960,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/search/usermetrics/users", data)
+    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/~/search/usermetrics/users", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -2976,7 +2971,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/search/usermetrics/users?app_id=string&from=2019-07-25T04:28:30Z&to=2019-07-25T04:28:30Z");
+URL obj = new URL("https://api.moesif.com/v1/~/search/usermetrics/users?app_id=string&from=2019-07-25T19:21:17Z&to=2019-07-25T19:21:17Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -2992,7 +2987,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /search/~/search/usermetrics/users`
+`POST /~/search/usermetrics/users`
 
 <h4 id="searchUserMetricsParent-parameters">Parameters</h4>
 
@@ -3032,7 +3027,7 @@ managementAPIToken ( Scopes: read:users )
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/search/~/mappings/users/properties?app_id=string \
+curl -X GET https://api.moesif.com/v1/~/mappings/users/properties?app_id=string \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -3047,7 +3042,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/mappings/users/properties?app_id=string',
+fetch('https://api.moesif.com/v1/~/mappings/users/properties?app_id=string',
 {
   method: 'GET',
 
@@ -3068,7 +3063,7 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.get('https://api.moesif.com/v1/search/~/mappings/users/properties', params={
+r = requests.get('https://api.moesif.com/v1/~/mappings/users/properties', params={
   'app_id': 'string'
 }, headers = headers)
 
@@ -3085,7 +3080,7 @@ headers = {
   'Authorization' => 'Bearer {access-token}'
 }
 
-result = RestClient.get 'https://api.moesif.com/v1/search/~/mappings/users/properties',
+result = RestClient.get 'https://api.moesif.com/v1/~/mappings/users/properties',
   params: {
   'app_id' => 'string'
 }, headers: headers
@@ -3111,7 +3106,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('GET','https://api.moesif.com/v1/search/~/mappings/users/properties', array(
+    $response = $client->request('GET','https://api.moesif.com/v1/~/mappings/users/properties', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -3144,7 +3139,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/search/~/mappings/users/properties", data)
+    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/~/mappings/users/properties", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -3155,7 +3150,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/mappings/users/properties?app_id=string");
+URL obj = new URL("https://api.moesif.com/v1/~/mappings/users/properties?app_id=string");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -3171,7 +3166,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET /search/~/mappings/users/properties`
+`GET /~/mappings/users/properties`
 
 <h4 id="getProperties-parameters">Parameters</h4>
 
@@ -3208,7 +3203,7 @@ managementAPIToken ( Scopes: read:users )
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/search/~/companies/{id}?app_id=string \
+curl -X GET https://api.moesif.com/v1/~/companies/{id}?app_id=string \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -3223,7 +3218,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/companies/{id}?app_id=string',
+fetch('https://api.moesif.com/v1/~/companies/{id}?app_id=string',
 {
   method: 'GET',
 
@@ -3244,7 +3239,7 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.get('https://api.moesif.com/v1/search/~/companies/{id}', params={
+r = requests.get('https://api.moesif.com/v1/~/companies/{id}', params={
   'app_id': 'string'
 }, headers = headers)
 
@@ -3261,7 +3256,7 @@ headers = {
   'Authorization' => 'Bearer {access-token}'
 }
 
-result = RestClient.get 'https://api.moesif.com/v1/search/~/companies/{id}',
+result = RestClient.get 'https://api.moesif.com/v1/~/companies/{id}',
   params: {
   'app_id' => 'string'
 }, headers: headers
@@ -3287,7 +3282,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('GET','https://api.moesif.com/v1/search/~/companies/{id}', array(
+    $response = $client->request('GET','https://api.moesif.com/v1/~/companies/{id}', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -3320,7 +3315,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/search/~/companies/{id}", data)
+    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/~/companies/{id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -3331,7 +3326,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/companies/{id}?app_id=string");
+URL obj = new URL("https://api.moesif.com/v1/~/companies/{id}?app_id=string");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -3347,7 +3342,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET /search/~/companies/{id}`
+`GET /~/companies/{id}`
 
 <h4 id="getCompany-parameters">Parameters</h4>
 
@@ -3383,7 +3378,7 @@ managementAPIToken ( Scopes: read:companies )
 
 ```shell
 # You can also use wget
-curl -X DELETE https://api.moesif.com/v1/search/~/companies/{id} \
+curl -X DELETE https://api.moesif.com/v1/~/companies/{id} \
   -H 'Authorization: Bearer {access-token}'
 
 ```
@@ -3396,7 +3391,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/companies/{id}',
+fetch('https://api.moesif.com/v1/~/companies/{id}',
 {
   method: 'DELETE',
 
@@ -3416,7 +3411,7 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.delete('https://api.moesif.com/v1/search/~/companies/{id}', params={
+r = requests.delete('https://api.moesif.com/v1/~/companies/{id}', params={
 
 }, headers = headers)
 
@@ -3432,7 +3427,7 @@ headers = {
   'Authorization' => 'Bearer {access-token}'
 }
 
-result = RestClient.delete 'https://api.moesif.com/v1/search/~/companies/{id}',
+result = RestClient.delete 'https://api.moesif.com/v1/~/companies/{id}',
   params: {
   }, headers: headers
 
@@ -3456,7 +3451,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('DELETE','https://api.moesif.com/v1/search/~/companies/{id}', array(
+    $response = $client->request('DELETE','https://api.moesif.com/v1/~/companies/{id}', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -3488,7 +3483,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "https://api.moesif.com/v1/search/~/companies/{id}", data)
+    req, err := http.NewRequest("DELETE", "https://api.moesif.com/v1/~/companies/{id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -3499,7 +3494,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/companies/{id}");
+URL obj = new URL("https://api.moesif.com/v1/~/companies/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("DELETE");
 int responseCode = con.getResponseCode();
@@ -3515,7 +3510,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE /search/~/companies/{id}`
+`DELETE /~/companies/{id}`
 
 <h4 id="deleteCompany-parameters">Parameters</h4>
 
@@ -3536,13 +3531,13 @@ To perform this operation, you must be authenticated by means of one of the foll
 managementAPIToken ( Scopes: delete:companies )
 </aside>
 
-### Update a Company
+### Search Companies
 
-<a id="opIdupdateCompanies"></a>
+<a id="opIdsearchCompanies"></a>
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/companies \
+curl -X POST https://api.moesif.com/v1/~/search/companies?app_id=string \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -3557,7 +3552,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/companies',
+fetch('https://api.moesif.com/v1/~/search/companies?app_id=string',
 {
   method: 'POST',
 
@@ -3578,8 +3573,8 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.post('https://api.moesif.com/v1/search/~/companies', params={
-
+r = requests.post('https://api.moesif.com/v1/~/search/companies', params={
+  'app_id': 'string'
 }, headers = headers)
 
 print r.json()
@@ -3595,9 +3590,10 @@ headers = {
   'Authorization' => 'Bearer {access-token}'
 }
 
-result = RestClient.post 'https://api.moesif.com/v1/search/~/companies',
+result = RestClient.post 'https://api.moesif.com/v1/~/search/companies',
   params: {
-  }, headers: headers
+  'app_id' => 'string'
+}, headers: headers
 
 p JSON.parse(result)
 
@@ -3620,7 +3616,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('POST','https://api.moesif.com/v1/search/~/companies', array(
+    $response = $client->request('POST','https://api.moesif.com/v1/~/search/companies', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -3653,7 +3649,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/companies", data)
+    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/~/search/companies", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -3664,7 +3660,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/companies");
+URL obj = new URL("https://api.moesif.com/v1/~/search/companies?app_id=string");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -3680,7 +3676,181 @@ System.out.println(response.toString());
 
 ```
 
-`POST /search/~/companies`
+`POST /~/search/companies`
+
+<h4 id="searchCompanies-parameters">Parameters</h4>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|orgId|path|string|true|No description|
+|app_id|query|string|true|No description|
+|body|body|_See Below_|false|The search definition using the Elasticsearch Query DSL|
+
+> Example response
+
+<h4 id="searchCompanies-responses">Responses</h4>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|None|
+
+<h4 id="searchCompanies-responseschema">Response Schema</h4>
+
+Status Code **201**
+
+|Name|Type|Required|Description|
+|---|---|---|---|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: read:companies )
+</aside>
+
+### Update a Company
+
+<a id="opIdupdateCompanies"></a>
+
+```shell
+# You can also use wget
+curl -X POST https://api.moesif.com/v1/~/companies \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer {access-token}'
+
+```
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer {access-token}'
+
+};
+
+fetch('https://api.moesif.com/v1/~/companies',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {access-token}'
+}
+
+r = requests.post('https://api.moesif.com/v1/~/companies', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer {access-token}'
+}
+
+result = RestClient.post 'https://api.moesif.com/v1/~/companies',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+    'Authorization' => 'Bearer {access-token}',
+    
+    );
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','https://api.moesif.com/v1/~/companies', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer {access-token}"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/~/companies", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/~/companies");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`POST /~/companies`
 
 <h4 id="updateCompanies-parameters">Parameters</h4>
 
@@ -3716,7 +3886,7 @@ managementAPIToken ( Scopes: create:companies update:companies )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/companies/batch \
+curl -X POST https://api.moesif.com/v1/~/companies/batch \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -3731,7 +3901,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/companies/batch',
+fetch('https://api.moesif.com/v1/~/companies/batch',
 {
   method: 'POST',
 
@@ -3752,7 +3922,7 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.post('https://api.moesif.com/v1/search/~/companies/batch', params={
+r = requests.post('https://api.moesif.com/v1/~/companies/batch', params={
 
 }, headers = headers)
 
@@ -3769,7 +3939,7 @@ headers = {
   'Authorization' => 'Bearer {access-token}'
 }
 
-result = RestClient.post 'https://api.moesif.com/v1/search/~/companies/batch',
+result = RestClient.post 'https://api.moesif.com/v1/~/companies/batch',
   params: {
   }, headers: headers
 
@@ -3794,7 +3964,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('POST','https://api.moesif.com/v1/search/~/companies/batch', array(
+    $response = $client->request('POST','https://api.moesif.com/v1/~/companies/batch', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -3827,7 +3997,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/companies/batch", data)
+    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/~/companies/batch", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -3838,7 +4008,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/companies/batch");
+URL obj = new URL("https://api.moesif.com/v1/~/companies/batch");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -3854,7 +4024,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /search/~/companies/batch`
+`POST /~/companies/batch`
 
 <h4 id="batchUpdateCompanies-parameters">Parameters</h4>
 
@@ -4029,7 +4199,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /search/~/count/companies`
+`POST /~/count/companies`
 
 <h4 id="countCompanies-parameters">Parameters</h4>
 
@@ -4059,138 +4229,6 @@ To perform this operation, you must be authenticated by means of one of the foll
 managementAPIToken ( Scopes: read:companies )
 </aside>
 
-<a id="opIdsearchCompanies"></a>
-
-```shell
-# You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/search/companies?app_id=string
-
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
-
-fetch('https://api.moesif.com/v1/search/~/search/companies?app_id=string',
-{
-  method: 'POST'
-
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-
-r = requests.post('https://api.moesif.com/v1/search/~/search/companies', params={
-  'app_id': 'string'
-)
-
-print r.json()
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-result = RestClient.post 'https://api.moesif.com/v1/search/~/search/companies',
-  params: {
-  'app_id' => 'string'
-}
-
-p JSON.parse(result)
-
-```
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-$client = new \GuzzleHttp\Client();
-
-// Define array of request body.
-$request_body = array();
-
-try {
-    $response = $client->request('POST','https://api.moesif.com/v1/search/~/search/companies', array(
-        'headers' => $headers,
-        'json' => $request_body,
-       )
-    );
-    print_r($response->getBody()->getContents());
- }
- catch (\GuzzleHttp\Exception\BadResponseException $e) {
-    // handle exception or api errors.
-    print_r($e->getMessage());
- }
-
- // ...
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/search/companies", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/search/companies?app_id=string");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`POST /search/~/search/companies`
-
-<h4 id="searchCompanies-parameters">Parameters</h4>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|orgId|path|string|true|No description|
-|app_id|query|string|true|No description|
-
-<h4 id="searchCompanies-responses">Responses</h4>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-managementAPIToken ( Scopes: read:companies )
-</aside>
-
 <h2 id="management-api-Events">Events</h2>
 
 ### Search Events in Saved Workspace
@@ -4199,7 +4237,7 @@ managementAPIToken ( Scopes: read:companies )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/~/workspaces/{workspaceId}/search/events?app_id=string&from=2019-07-25T04:28:30Z&to=2019-07-25T04:28:30Z \
+curl -X POST https://api.moesif.com/v1/~/workspaces/{workspaceId}/search/events?app_id=string&from=2019-07-25T19:21:17Z&to=2019-07-25T19:21:17Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -4214,7 +4252,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/~/workspaces/{workspaceId}/search/events?app_id=string&from=2019-07-25T04:28:30Z&to=2019-07-25T04:28:30Z',
+fetch('https://api.moesif.com/v1/~/workspaces/{workspaceId}/search/events?app_id=string&from=2019-07-25T19:21:17Z&to=2019-07-25T19:21:17Z',
 {
   method: 'POST',
 
@@ -4236,7 +4274,7 @@ headers = {
 }
 
 r = requests.post('https://api.moesif.com/v1/~/workspaces/{workspaceId}/search/events', params={
-  'app_id': 'string',  'from': '2019-07-25T04:28:30Z',  'to': '2019-07-25T04:28:30Z'
+  'app_id': 'string',  'from': '2019-07-25T19:21:17Z',  'to': '2019-07-25T19:21:17Z'
 }, headers = headers)
 
 print r.json()
@@ -4324,7 +4362,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/~/workspaces/{workspaceId}/search/events?app_id=string&from=2019-07-25T04:28:30Z&to=2019-07-25T04:28:30Z");
+URL obj = new URL("https://api.moesif.com/v1/~/workspaces/{workspaceId}/search/events?app_id=string&from=2019-07-25T19:21:17Z&to=2019-07-25T19:21:17Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -4399,15 +4437,6 @@ System.out.println(response.toString());
             "ip_address": "",
             "verb": "",
             "route": "",
-            "graphql": {
-              "operation_name": "string",
-              "definitions": [
-                {
-                  "operation_type": "string",
-                  "name": "string"
-                }
-              ]
-            },
             "time": "",
             "headers": {
               "_accept-_encoding": "",
@@ -4433,7 +4462,7 @@ System.out.println(response.toString());
             },
             "time": "",
             "body": {},
-            "status": 200
+            "status": 0
           },
           "id": "",
           "session_token": "",
@@ -4540,7 +4569,7 @@ managementAPIToken ( Scopes: read:events )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/~/count/events?from=2019-07-25T04:28:30Z&to=2019-07-25T04:28:30Z \
+curl -X POST https://api.moesif.com/v1/~/count/events?from=2019-07-25T19:21:17Z&to=2019-07-25T19:21:17Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -4555,7 +4584,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/~/count/events?from=2019-07-25T04:28:30Z&to=2019-07-25T04:28:30Z',
+fetch('https://api.moesif.com/v1/~/count/events?from=2019-07-25T19:21:17Z&to=2019-07-25T19:21:17Z',
 {
   method: 'POST',
 
@@ -4577,7 +4606,7 @@ headers = {
 }
 
 r = requests.post('https://api.moesif.com/v1/~/count/events', params={
-  'from': '2019-07-25T04:28:30Z',  'to': '2019-07-25T04:28:30Z'
+  'from': '2019-07-25T19:21:17Z',  'to': '2019-07-25T19:21:17Z'
 }, headers = headers)
 
 print r.json()
@@ -4664,7 +4693,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/~/count/events?from=2019-07-25T04:28:30Z&to=2019-07-25T04:28:30Z");
+URL obj = new URL("https://api.moesif.com/v1/~/count/events?from=2019-07-25T19:21:17Z&to=2019-07-25T19:21:17Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -4680,7 +4709,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /search/~/count/events`
+`POST /~/count/events`
 
 <h4 id="countEvents-parameters">Parameters</h4>
 
@@ -4718,7 +4747,7 @@ managementAPIToken ( Scopes: read:events )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/search/events?from=2019-07-25T04:28:30Z&to=2019-07-25T04:28:30Z \
+curl -X POST https://api.moesif.com/v1/~/search/events?from=2019-07-25T19:21:17Z&to=2019-07-25T19:21:17Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -4733,7 +4762,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/search/events?from=2019-07-25T04:28:30Z&to=2019-07-25T04:28:30Z',
+fetch('https://api.moesif.com/v1/~/search/events?from=2019-07-25T19:21:17Z&to=2019-07-25T19:21:17Z',
 {
   method: 'POST',
 
@@ -4754,8 +4783,8 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.post('https://api.moesif.com/v1/search/~/search/events', params={
-  'from': '2019-07-25T04:28:30Z',  'to': '2019-07-25T04:28:30Z'
+r = requests.post('https://api.moesif.com/v1/~/search/events', params={
+  'from': '2019-07-25T19:21:17Z',  'to': '2019-07-25T19:21:17Z'
 }, headers = headers)
 
 print r.json()
@@ -4771,7 +4800,7 @@ headers = {
   'Authorization' => 'Bearer {access-token}'
 }
 
-result = RestClient.post 'https://api.moesif.com/v1/search/~/search/events',
+result = RestClient.post 'https://api.moesif.com/v1/~/search/events',
   params: {
   'from' => 'string(date-time)',
 'to' => 'string(date-time)'
@@ -4798,7 +4827,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('POST','https://api.moesif.com/v1/search/~/search/events', array(
+    $response = $client->request('POST','https://api.moesif.com/v1/~/search/events', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -4831,7 +4860,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/search/events", data)
+    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/~/search/events", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -4842,7 +4871,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/search/events?from=2019-07-25T04:28:30Z&to=2019-07-25T04:28:30Z");
+URL obj = new URL("https://api.moesif.com/v1/~/search/events?from=2019-07-25T19:21:17Z&to=2019-07-25T19:21:17Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -4858,7 +4887,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /search/~/search/events`
+`POST /~/search/events`
 
 <h4 id="searchEvents-parameters">Parameters</h4>
 
@@ -4916,15 +4945,6 @@ System.out.println(response.toString());
             "ip_address": "",
             "verb": "",
             "route": "",
-            "graphql": {
-              "operation_name": "string",
-              "definitions": [
-                {
-                  "operation_type": "string",
-                  "name": "string"
-                }
-              ]
-            },
             "time": "",
             "headers": {
               "_accept-_encoding": "",
@@ -4950,7 +4970,7 @@ System.out.println(response.toString());
             },
             "time": "",
             "body": {},
-            "status": 200
+            "status": 0
           },
           "id": "",
           "session_token": "",
@@ -5057,7 +5077,7 @@ managementAPIToken ( Scopes: read:events )
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/~/events/{id}?event_time=2019-07-25T04:28:30Z \
+curl -X GET https://api.moesif.com/v1/~/events/{id}?event_time=2019-07-25T19:21:17Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -5072,7 +5092,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/~/events/{id}?event_time=2019-07-25T04:28:30Z',
+fetch('https://api.moesif.com/v1/~/events/{id}?event_time=2019-07-25T19:21:17Z',
 {
   method: 'GET',
 
@@ -5094,7 +5114,7 @@ headers = {
 }
 
 r = requests.get('https://api.moesif.com/v1/~/events/{id}', params={
-  'event_time': '2019-07-25T04:28:30Z'
+  'event_time': '2019-07-25T19:21:17Z'
 }, headers = headers)
 
 print r.json()
@@ -5180,7 +5200,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/~/events/{id}?event_time=2019-07-25T04:28:30Z");
+URL obj = new URL("https://api.moesif.com/v1/~/events/{id}?event_time=2019-07-25T19:21:17Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -5247,15 +5267,6 @@ System.out.println(response.toString());
       "ip_address": "",
       "verb": "",
       "route": "",
-      "graphql": {
-        "operation_name": "string",
-        "definitions": [
-          {
-            "operation_type": "string",
-            "name": "string"
-          }
-        ]
-      },
       "time": "",
       "headers": {
         "_accept-_encoding": "",
@@ -5281,7 +5292,7 @@ System.out.println(response.toString());
       },
       "time": "",
       "body": {},
-      "status": 200
+      "status": 0
     },
     "id": "",
     "session_token": "",
@@ -5521,7 +5532,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /search/~/count/users`
+`POST /~/count/users`
 
 <h4 id="countUsers-parameters">Parameters</h4>
 
@@ -5557,7 +5568,7 @@ managementAPIToken ( Scopes: read:users )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/users \
+curl -X POST https://api.moesif.com/v1/~/users \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -5572,7 +5583,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/users',
+fetch('https://api.moesif.com/v1/~/users',
 {
   method: 'POST',
 
@@ -5593,7 +5604,7 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.post('https://api.moesif.com/v1/search/~/users', params={
+r = requests.post('https://api.moesif.com/v1/~/users', params={
 
 }, headers = headers)
 
@@ -5610,7 +5621,7 @@ headers = {
   'Authorization' => 'Bearer {access-token}'
 }
 
-result = RestClient.post 'https://api.moesif.com/v1/search/~/users',
+result = RestClient.post 'https://api.moesif.com/v1/~/users',
   params: {
   }, headers: headers
 
@@ -5635,7 +5646,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('POST','https://api.moesif.com/v1/search/~/users', array(
+    $response = $client->request('POST','https://api.moesif.com/v1/~/users', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -5668,7 +5679,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/users", data)
+    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/~/users", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -5679,7 +5690,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/users");
+URL obj = new URL("https://api.moesif.com/v1/~/users");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -5695,7 +5706,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /search/~/users`
+`POST /~/users`
 
 <h4 id="updateUsers-parameters">Parameters</h4>
 
@@ -5828,7 +5839,7 @@ managementAPIToken ( Scopes: create:users update:users )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/search/users?app_id=string \
+curl -X POST https://api.moesif.com/v1/~/search/users?app_id=string \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -5843,7 +5854,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/search/users?app_id=string',
+fetch('https://api.moesif.com/v1/~/search/users?app_id=string',
 {
   method: 'POST',
 
@@ -5864,7 +5875,7 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.post('https://api.moesif.com/v1/search/~/search/users', params={
+r = requests.post('https://api.moesif.com/v1/~/search/users', params={
   'app_id': 'string'
 }, headers = headers)
 
@@ -5881,7 +5892,7 @@ headers = {
   'Authorization' => 'Bearer {access-token}'
 }
 
-result = RestClient.post 'https://api.moesif.com/v1/search/~/search/users',
+result = RestClient.post 'https://api.moesif.com/v1/~/search/users',
   params: {
   'app_id' => 'string'
 }, headers: headers
@@ -5907,7 +5918,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('POST','https://api.moesif.com/v1/search/~/search/users', array(
+    $response = $client->request('POST','https://api.moesif.com/v1/~/search/users', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -5940,7 +5951,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/search/users", data)
+    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/~/search/users", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -5951,7 +5962,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/search/users?app_id=string");
+URL obj = new URL("https://api.moesif.com/v1/~/search/users?app_id=string");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -5967,7 +5978,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /search/~/search/users`
+`POST /~/search/users`
 
 <h4 id="searchUsers-parameters">Parameters</h4>
 
@@ -6114,7 +6125,7 @@ managementAPIToken ( Scopes: read:users )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/users/batch \
+curl -X POST https://api.moesif.com/v1/~/users/batch \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -6129,7 +6140,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/users/batch',
+fetch('https://api.moesif.com/v1/~/users/batch',
 {
   method: 'POST',
 
@@ -6150,7 +6161,7 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.post('https://api.moesif.com/v1/search/~/users/batch', params={
+r = requests.post('https://api.moesif.com/v1/~/users/batch', params={
 
 }, headers = headers)
 
@@ -6167,7 +6178,7 @@ headers = {
   'Authorization' => 'Bearer {access-token}'
 }
 
-result = RestClient.post 'https://api.moesif.com/v1/search/~/users/batch',
+result = RestClient.post 'https://api.moesif.com/v1/~/users/batch',
   params: {
   }, headers: headers
 
@@ -6192,7 +6203,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('POST','https://api.moesif.com/v1/search/~/users/batch', array(
+    $response = $client->request('POST','https://api.moesif.com/v1/~/users/batch', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -6225,7 +6236,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/users/batch", data)
+    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/~/users/batch", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -6236,7 +6247,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/users/batch");
+URL obj = new URL("https://api.moesif.com/v1/~/users/batch");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -6252,7 +6263,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /search/~/users/batch`
+`POST /~/users/batch`
 
 <h4 id="batchUpdateUsers-parameters">Parameters</h4>
 
@@ -6385,7 +6396,7 @@ managementAPIToken ( Scopes: create:users update:users )
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/search/~/users/{id}?app_id=string \
+curl -X GET https://api.moesif.com/v1/~/users/{id}?app_id=string \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -6400,7 +6411,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/users/{id}?app_id=string',
+fetch('https://api.moesif.com/v1/~/users/{id}?app_id=string',
 {
   method: 'GET',
 
@@ -6421,7 +6432,7 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.get('https://api.moesif.com/v1/search/~/users/{id}', params={
+r = requests.get('https://api.moesif.com/v1/~/users/{id}', params={
   'app_id': 'string'
 }, headers = headers)
 
@@ -6438,7 +6449,7 @@ headers = {
   'Authorization' => 'Bearer {access-token}'
 }
 
-result = RestClient.get 'https://api.moesif.com/v1/search/~/users/{id}',
+result = RestClient.get 'https://api.moesif.com/v1/~/users/{id}',
   params: {
   'app_id' => 'string'
 }, headers: headers
@@ -6464,7 +6475,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('GET','https://api.moesif.com/v1/search/~/users/{id}', array(
+    $response = $client->request('GET','https://api.moesif.com/v1/~/users/{id}', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -6497,7 +6508,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/search/~/users/{id}", data)
+    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/~/users/{id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -6508,7 +6519,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/users/{id}?app_id=string");
+URL obj = new URL("https://api.moesif.com/v1/~/users/{id}?app_id=string");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -6524,7 +6535,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET /search/~/users/{id}`
+`GET /~/users/{id}`
 
 <h4 id="getUser-parameters">Parameters</h4>
 
@@ -6657,7 +6668,7 @@ managementAPIToken ( Scopes: read:users )
 
 ```shell
 # You can also use wget
-curl -X DELETE https://api.moesif.com/v1/search/~/users/{id} \
+curl -X DELETE https://api.moesif.com/v1/~/users/{id} \
   -H 'Authorization: Bearer {access-token}'
 
 ```
@@ -6670,7 +6681,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/users/{id}',
+fetch('https://api.moesif.com/v1/~/users/{id}',
 {
   method: 'DELETE',
 
@@ -6690,7 +6701,7 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.delete('https://api.moesif.com/v1/search/~/users/{id}', params={
+r = requests.delete('https://api.moesif.com/v1/~/users/{id}', params={
 
 }, headers = headers)
 
@@ -6706,7 +6717,7 @@ headers = {
   'Authorization' => 'Bearer {access-token}'
 }
 
-result = RestClient.delete 'https://api.moesif.com/v1/search/~/users/{id}',
+result = RestClient.delete 'https://api.moesif.com/v1/~/users/{id}',
   params: {
   }, headers: headers
 
@@ -6730,7 +6741,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('DELETE','https://api.moesif.com/v1/search/~/users/{id}', array(
+    $response = $client->request('DELETE','https://api.moesif.com/v1/~/users/{id}', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -6762,7 +6773,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "https://api.moesif.com/v1/search/~/users/{id}", data)
+    req, err := http.NewRequest("DELETE", "https://api.moesif.com/v1/~/users/{id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -6773,7 +6784,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/users/{id}");
+URL obj = new URL("https://api.moesif.com/v1/~/users/{id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("DELETE");
 int responseCode = con.getResponseCode();
@@ -6789,7 +6800,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE /search/~/users/{id}`
+`DELETE /~/users/{id}`
 
 <h4 id="deleteUser-parameters">Parameters</h4>
 
