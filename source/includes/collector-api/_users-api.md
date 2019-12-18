@@ -23,6 +23,7 @@ Reserved metadata fields include:
   - phone
   - photo_url
 
+#### Create vs update
 If the user does not exist, Moesif will create a new one. 
 
 If a user exists, the new user properties will be merged with the existing properties
@@ -73,13 +74,10 @@ curl -X POST https://api.moesif.net/v1/users \
 ```
 
 ```javascript--nodejs
-// 1. Import the module
 var moesifapi = require('moesifapi');
-var api = moesifapi.ApiController;
+var apiClient = moesifapi.ApiController;
 
-// 2. Configure the ApplicationId
-var config = moesifapi.configuration;
-config.ApplicationId = "my_application_id";
+moesifapi.configuration.ApplicationId = "YOUR_COLLECTOR_APPLICATION_ID";
 
 // Only userId is required.
 // metadata can be any custom object
@@ -106,7 +104,7 @@ var user = {
   }
 };
 // 4. Create a single user
-api.updateUser(new moesifapi.UserModel(user), function(error, response, context) {
+apiClient.updateUser(new moesifapi.UserModel(user), function(error, response, context) {
   // Do Something
 });
 ```
@@ -190,8 +188,7 @@ require_once "vendor/autoload.php";
 
 // Import the SDK client in your project:
 use MoesifApi\MoesifApiClient;
-$client = new MoesifApiClient("YOUR_COLLECTOR_APPLICATION_ID");
-$api = $client->getApi();
+$apiClient = new MoesifApiClient("YOUR_COLLECTOR_APPLICATION_ID")->getApi();;
 
 // Campaign object is optional, but useful if you want to track ROI of acquisition channels
 // See https://www.moesif.com/docs/api#update-a-user for campaign schema
@@ -221,7 +218,7 @@ $user->metadata = array(
         )
     );
 
-$api->updateUser($user);
+$apiClient->updateUser($user);
 ```
 
 ```go
@@ -261,8 +258,11 @@ user := models.UserModel{
   Metadata:  &metadata,
 }
 
-// Update the user asynchronously
+// Queue the user asynchronously
 err := apiClient.QueueUser(&user)
+
+// Update the user synchronously
+err := apiClient.UpdateUser(&user)
 ```
 
 ```csharp
@@ -307,7 +307,7 @@ moesifMiddleware.UpdateUser(user);
 ```
 
 ```java
-MoesifAPIClient client = new MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID");
+MoesifAPIClient apiClient = new MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID");
 
 // Campaign object is optional, but useful if you want to track ROI of acquisition channels
 // See https://www.moesif.com/docs/api#users for campaign schema
@@ -339,10 +339,10 @@ UserModel user = new UserBuilder()
     .build();
 
 // Synchronous Call to update user
-client.updateUser(user);
+apiClient.updateUser(user);
 
 // Asynchronous Call to update user
-client.updateUserAsync(user, callBack);
+apiClient.updateUserAsync(user, callBack);
 ```
 
 <blockquote class="lang-specific javascript--browser">
@@ -425,6 +425,7 @@ Reserved metadata fields include:
   - phone
   - photo_url
 
+#### Create vs update
 If the user does not exist, Moesif will create a new one. 
 
 If a user exists, the new user properties will be merged with the existing properties
@@ -502,13 +503,10 @@ curl -X GET https://api.moesif.net/v1/events/batch \
 ```
 
 ```javascript--nodejs
-// 1. Import the module
 var moesifapi = require('moesifapi');
-var api = moesifapi.ApiController;
+var apiClient = moesifapi.ApiController;
 
-// 2. Configure the ApplicationId
-var config = moesifapi.configuration;
-config.ApplicationId = "my_application_id";
+moesifapi.configuration.ApplicationId = "YOUR_COLLECTOR_APPLICATION_ID";
 
 // 3. Generate a User Model
 var userA = {
@@ -564,7 +562,7 @@ var users = [
 ];
 
 // 4. Send batch of users
-api.updateUsersBatch(users, function(error, response, context) {
+apiClient.updateUsersBatch(users, function(error, response, context) {
   // Do Something
 });
 ```
@@ -656,8 +654,7 @@ api_client = api_controller.update_users_batch(user_model)
 require_once "vendor/autoload.php";
 
 use MoesifApi\MoesifApiClient;
-$client = new MoesifApiClient("YOUR_COLLECTOR_APPLICATION_ID");
-$api = $client->getApi();
+$apiClient = new MoesifApiClient("YOUR_COLLECTOR_APPLICATION_ID")->getApi();
 
 $userA = new Models\UserModel();
 $userA->userId = "12345";
@@ -678,21 +675,14 @@ $userA->metadata = array(
     );
 
 $users = array($userA)
-$api->updateUsersBatch($user);
+$apiClient->updateUsersBatch($user);
 ```
+
 ```go
 import "github.com/moesif/moesifapi-go"
 import "github.com/moesif/moesifapi-go/models"
 
 apiClient := moesifapi.NewAPI("YOUR_COLLECTOR_APPLICATION_ID")
-
-import (
-	moesifmiddleware "github.com/moesif/moesifmiddleware-go"
-)
-
-var moesifOptions = map[string]interface{} {
-	"Application_Id": "YOUR_COLLECTOR_APPLICATION_ID",
-}
 
 // List of Users
 var users []*models.UserModel
@@ -737,7 +727,7 @@ apiClient.UpdateUsersBatch(users, moesifOption)
 ```csharp
 var client = new MoesifApiClient("YOUR_COLLECTOR_APPLICATION_ID").Api;
 
-var usersBatch = new List<UserModel>();
+var users = new List<UserModel>();
 
 Dictionary<string, object> metadataA = new Dictionary<string, object>
 {
@@ -782,13 +772,19 @@ var userB = new UserModel()
 };
 
 
-usersBatch.Add(userA);
-usersBatch.Add(userB);
+users.Add(userA);
+users.Add(userB);
 
-apiClient.UpdateUsersBatchAsync(userModel);
+// Queue the users asynchronously
+err := apiClient.QueueUsers(users)
+
+// Update the users synchronously
+err := apiClient.UpdateUsersBatch(users)
 ```
 
 ```java
+MoesifAPIClient apiClient = new MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID");
+
 List<UserModel> users = new ArrayList<UserModel>();
 
 UserModel userA = new UserBuilder()
@@ -838,11 +834,12 @@ APICallBack<Object> callBack = new APICallBack<Object>() {
     }
 };
 
-api.updateUsersBatchAsync(users, callBack);
+// Asynchronous call to update users
+apiClient.updateUsersBatchAsync(users, callBack);
 
 
-//Synchronous call to update users
-api.updateUsersBatch(users, callBack);
+// Synchronous call to update users
+apiClient.updateUsersBatch(users, callBack);
 ```
 
 <blockquote class="lang-specific javascript--browser">
