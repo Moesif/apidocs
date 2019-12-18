@@ -2607,31 +2607,87 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 <span class="n">users</span> <span class="o">&lt;&lt;</span> <span class="n">user</span>
 
 <span class="n">api_client</span> <span class="o">=</span> <span class="n">api_controller</span><span class="p">.</span><span class="nf">update_users_batch</span><span class="p">(</span><span class="n">user_model</span><span class="p">)</span>
-</code></pre><pre class="highlight php tab-php"><code>use MoesifApi\MoesifApiClient;
-$client = new MoesifApiClient("Your Moesif Application Id");
-$api = $client-&gt;getApi();
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="c1">// Depending on your project setup, you might need to include composer's
+// autoloader in your PHP code to enable autoloading of classes.
+</span><span class="k">require_once</span> <span class="s2">"vendor/autoload.php"</span><span class="p">;</span>
 
-$userA = new Models\UserModel();
-$userA-&gt;userId = "12345";
-$userA-&gt;companyId = "67890"; // If set, associate user with a company object
-$userA-&gt;campaign = $campaign;
+<span class="k">use</span> <span class="nx">MoesifApi\MoesifApiClient</span><span class="p">;</span>
+<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoesifApiClient</span><span class="p">(</span><span class="s2">"Your Moesif Application Id"</span><span class="p">);</span>
+<span class="nv">$api</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">getApi</span><span class="p">();</span>
 
-// metadata can be any custom object
-$userA-&gt;metadata = array(
-        "email" =&gt; "john@acmeinc.com",
-        "first_name" =&gt; "John",
-        "last_name" =&gt; "Doe",
-        "title" =&gt; "Software Engineer",
-        "sales_info" =&gt; array(
-            "stage" =&gt; "Customer",
-            "lifetime_value" =&gt; 24000,
-            "account_owner" =&gt; "mary@contoso.com"
-        )
-    );
+<span class="nv">$userA</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Models\UserModel</span><span class="p">();</span>
+<span class="nv">$userA</span><span class="o">-&gt;</span><span class="na">userId</span> <span class="o">=</span> <span class="s2">"12345"</span><span class="p">;</span>
+<span class="nv">$userA</span><span class="o">-&gt;</span><span class="na">companyId</span> <span class="o">=</span> <span class="s2">"67890"</span><span class="p">;</span> <span class="c1">// If set, associate user with a company object
+</span><span class="nv">$userA</span><span class="o">-&gt;</span><span class="na">campaign</span> <span class="o">=</span> <span class="nv">$campaign</span><span class="p">;</span>
 
-$users = array($userA)
-$api-&gt;updateUsersBatch($user);
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">MoesifApiClient</span><span class="p">(</span><span class="s">"Your Moesif Application Id"</span><span class="p">).</span><span class="n">Api</span><span class="p">;</span>
+<span class="c1">// metadata can be any custom object
+</span><span class="nv">$userA</span><span class="o">-&gt;</span><span class="na">metadata</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s2">"email"</span> <span class="o">=&gt;</span> <span class="s2">"john@acmeinc.com"</span><span class="p">,</span>
+        <span class="s2">"first_name"</span> <span class="o">=&gt;</span> <span class="s2">"John"</span><span class="p">,</span>
+        <span class="s2">"last_name"</span> <span class="o">=&gt;</span> <span class="s2">"Doe"</span><span class="p">,</span>
+        <span class="s2">"title"</span> <span class="o">=&gt;</span> <span class="s2">"Software Engineer"</span><span class="p">,</span>
+        <span class="s2">"sales_info"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s2">"stage"</span> <span class="o">=&gt;</span> <span class="s2">"Customer"</span><span class="p">,</span>
+            <span class="s2">"lifetime_value"</span> <span class="o">=&gt;</span> <span class="mi">24000</span><span class="p">,</span>
+            <span class="s2">"account_owner"</span> <span class="o">=&gt;</span> <span class="s2">"mary@contoso.com"</span>
+        <span class="p">)</span>
+    <span class="p">);</span>
+
+<span class="nv">$users</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="nv">$userA</span><span class="p">)</span>
+<span class="nv">$api</span><span class="o">-&gt;</span><span class="na">updateUsersBatch</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
+</code></pre><pre class="highlight go tab-go"><code><span class="k">import</span><span class="x"> </span><span class="s">"github.com/moesif/moesifapi-go"</span><span class="x">
+</span><span class="k">import</span><span class="x"> </span><span class="s">"github.com/moesif/moesifapi-go/models"</span><span class="x">
+
+</span><span class="n">apiClient</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">moesifapi</span><span class="o">.</span><span class="n">NewAPI</span><span class="p">(</span><span class="s">"Your Moesif Application Id"</span><span class="p">)</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+    </span><span class="n">moesifmiddleware</span><span class="x"> </span><span class="s">"github.com/moesif/moesifmiddleware-go"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="k">var</span><span class="x"> </span><span class="n">moesifOptions</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}</span><span class="x"> </span><span class="p">{</span><span class="x">
+    </span><span class="s">"Application_Id"</span><span class="o">:</span><span class="x"> </span><span class="s">"Your Moesif Application Id"</span><span class="p">,</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span><span class="c">// List of Users</span><span class="x">
+</span><span class="k">var</span><span class="x"> </span><span class="n">users</span><span class="x"> </span><span class="p">[]</span><span class="o">*</span><span class="n">models</span><span class="o">.</span><span class="n">UserModel</span><span class="x">
+
+</span><span class="c">// Campaign object is optional, but useful if you want to track ROI of acquisition channels</span><span class="x">
+</span><span class="c">// See https://www.moesif.com/docs/api#users for campaign schema</span><span class="x">
+</span><span class="n">campaign</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">models</span><span class="o">.</span><span class="n">CampaignModel</span><span class="x"> </span><span class="p">{</span><span class="x">
+  </span><span class="n">UtmSource</span><span class="o">:</span><span class="x"> </span><span class="s">"google"</span><span class="p">,</span><span class="x">
+  </span><span class="n">UtmMedium</span><span class="o">:</span><span class="x"> </span><span class="s">"cpc"</span><span class="p">,</span><span class="x"> 
+  </span><span class="n">UtmCampaign</span><span class="o">:</span><span class="x"> </span><span class="s">"adwords"</span><span class="p">,</span><span class="x">
+  </span><span class="n">UtmTerm</span><span class="o">:</span><span class="x"> </span><span class="s">"api+tooling"</span><span class="p">,</span><span class="x">
+  </span><span class="n">UtmContent</span><span class="o">:</span><span class="x"> </span><span class="s">"landing"</span><span class="p">,</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span><span class="c">// metadata can be any custom dictionary</span><span class="x">
+</span><span class="n">metadata</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span><span class="x">
+  </span><span class="s">"email"</span><span class="p">,</span><span class="x"> </span><span class="s">"john@acmeinc.com"</span><span class="p">,</span><span class="x">
+  </span><span class="s">"first_name"</span><span class="p">,</span><span class="x"> </span><span class="s">"John"</span><span class="p">,</span><span class="x">
+  </span><span class="s">"last_name"</span><span class="p">,</span><span class="x"> </span><span class="s">"Doe"</span><span class="p">,</span><span class="x">
+  </span><span class="s">"title"</span><span class="p">,</span><span class="x"> </span><span class="s">"Software Engineer"</span><span class="p">,</span><span class="x">
+  </span><span class="s">"sales_info"</span><span class="p">,</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span><span class="x">
+      </span><span class="s">"stage"</span><span class="p">,</span><span class="x"> </span><span class="s">"Customer"</span><span class="p">,</span><span class="x">
+      </span><span class="s">"lifetime_value"</span><span class="p">,</span><span class="x"> </span><span class="m">24000</span><span class="p">,</span><span class="x">
+      </span><span class="s">"account_owner"</span><span class="p">,</span><span class="x"> </span><span class="s">"mary@contoso.com"</span><span class="p">,</span><span class="x">
+  </span><span class="p">},</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span><span class="c">// Only UserId is required</span><span class="x">
+</span><span class="n">userA</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">models</span><span class="o">.</span><span class="n">UserModel</span><span class="p">{</span><span class="x">
+  </span><span class="n">UserId</span><span class="o">:</span><span class="x">  </span><span class="s">"12345"</span><span class="p">,</span><span class="x">
+  </span><span class="n">CompanyId</span><span class="o">:</span><span class="x">  </span><span class="s">"67890"</span><span class="p">,</span><span class="x"> </span><span class="c">// If set, associate user with a company object</span><span class="x">
+  </span><span class="n">Campaign</span><span class="o">:</span><span class="x">  </span><span class="o">&amp;</span><span class="n">campaign</span><span class="p">,</span><span class="x">
+  </span><span class="n">Metadata</span><span class="o">:</span><span class="x">  </span><span class="o">&amp;</span><span class="n">metadata</span><span class="p">,</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span><span class="n">users</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="nb">append</span><span class="p">(</span><span class="n">users</span><span class="p">,</span><span class="x"> </span><span class="o">&amp;</span><span class="n">userA</span><span class="p">)</span><span class="x">
+
+</span><span class="c">// Update User</span><span class="x">
+</span><span class="n">apiClient</span><span class="o">.</span><span class="n">UpdateUsersBatch</span><span class="p">(</span><span class="n">users</span><span class="p">,</span><span class="x"> </span><span class="n">moesifOption</span><span class="p">)</span><span class="x">
+</span></code></pre><pre class="highlight csharp tab-csharp"><code><span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">MoesifApiClient</span><span class="p">(</span><span class="s">"Your Moesif Application Id"</span><span class="p">).</span><span class="n">Api</span><span class="p">;</span>
 
 <span class="kt">var</span> <span class="n">usersBatch</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">UserModel</span><span class="p">&gt;();</span>
 
