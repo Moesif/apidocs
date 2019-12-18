@@ -11,7 +11,7 @@ Checkout Moesif's <a href="https://www.moesif.com/docs/server-integration/">Serv
 
 ## How to Install
 
-```jsom
+```java
 Pick a language at the top
 ```
 
@@ -30,9 +30,8 @@ Source Code:<br><br>
 <dependency>
 	<groupId>com.moesif.api</groupId>
 	<artifactId>moesifapi</artifactId>
-	<version>1.6.2</version>
+	<version>1.6.9</version>
 </dependency>
-
 ```
 <blockquote class="lang-specific javascript--nodejs">
 Source Code:<br><br>
@@ -107,15 +106,42 @@ Source Code:<br><br>
 composer require moesif/moesifapi-php
 ```
 
+<blockquote class="lang-specific javascript--browser">
+Install via NPM
+</blockquote>
+
+```javascript--browser
+var moesif = require('moesif-browser-js');
+
+moesif.init({
+  applicationId: 'YOUR_COLLECTOR_APPLICATION_ID'
+  // add other option here.
+});
+```
+
+<blockquote class="lang-specific javascript--browser">
+Install via embedded code
+</blockquote>
+
+```javascript--browser
+<script src="//unpkg.com/moesif-browser-js@^1/moesif.min.js"></script>
+<script type="text/javascript">
+moesif.init({
+  applicationId: 'YOUR_COLLECTOR_APPLICATION_ID'
+});
+</script>
+```
+
 Select your language on the right:
 
-* Javascript
+* Node.js
 * Python
 * Ruby
 * PHP
 * Go
 * C#
 * Java
+* Browser
 
 The SDKs are open-source and available on GitHub.
 

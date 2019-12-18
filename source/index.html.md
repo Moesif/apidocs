@@ -4,13 +4,14 @@ title: Moesif API Documentation
 language_tabs:
   - yaml: JSON
   - shell: Shell
-  - javascript--nodejs: Javascript
+  - javascript--nodejs: Node.js
   - python: Python
   - ruby: Ruby
   - php: PHP
   - go: Go
   - csharp: C#
   - java: Java
+  - javascript--browser: Browser
 
 toc_footers:
   - <a href='/docs'>Back to Docs</a>

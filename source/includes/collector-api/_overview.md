@@ -28,5 +28,6 @@ The same Application Id token can be used for the cloud proxy server, the client
 
 
 <aside class="notice">
-Replace <i>my_application_id</i> with your real Application Id. You can find your Application Id under <i>Menu -> App Setup Details</i>
+Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found by logging into Moesif 
+and selecting API keys from top right menu.
 </aside>

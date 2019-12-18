@@ -4,29 +4,34 @@
 
 **`POST https://api.moesif.net/v1/users`**
 
-Updates an end user profile in Moesif.
+Updates a user profile in Moesif. A user can be a customer or end user accessing the API.
+Adding user metadata enables you to understand API usage across different cohorts, 
+user demographics, acquisition channels, etc.
 
-Custom user properties such as user demographic info can be stored via the `metadata` object.
+Any custom user properties can be stored via the `metadata` object.
 
-We’ve reserved some fields names that have semantic meanings for users, and we handle them in special ways. 
-For example, we expect email to be a string containing the user’s email address. Moesif uses this field
-to look up the user's Gravatar or enrich with company info if it's a work email. 
+We’ve reserved some fields names in the `metadata` object that have semantic meanings for users, and we handle them in special ways. 
+For example, we expect email to be a string containing the user’s email address which is used to sync with 
+external CRMs and to look up a user's Gravatar and demographics.
 
-Reserved fields include:
+Reserved metadata fields include:
+
   - email
-  - name
+  - name (Which can contain both first and last name)
   - first_name
   - last_name
   - phone
   - photo_url
 
 If the user does not exist, Moesif will create a new one. 
-If a user exists, it will be merged with the existing fields
-recursively. This means you don't need to resend the entire user object if just 
+
+If a user exists, the new user properties will be merged with the existing properties
+recursively. This means you don't need to resend the entire user object if you are only 
 updating a single field.
 
-<aside class="info">
-Replace <i>my_application_id</i> with your real Application Id
+<aside class="notice">
+Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found by logging into Moesif 
+and selecting API keys from top right menu.
 </aside>
 
 <blockquote class="lang-specific yaml">
@@ -110,7 +115,7 @@ api.updateUser(new moesifapi.UserModel(user), function(error, response, context)
 from moesifapi.moesif_api_client import *
 from moesifapi.models import *
 
-api_client = MoesifAPIClient("Your Moesif Application Id").api
+api_client = MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID").api
 
 # Only user_id is required.
 # Campaign object is optional, but useful if you want to track ROI of acquisition channels
@@ -143,7 +148,7 @@ update_user = api_client.update_user(user)
 ```
 
 ```ruby
-api_client = MoesifApi::MoesifAPIClient.new('Your Moesif Application Id').api
+api_client = MoesifApi::MoesifAPIClient.new('YOUR_COLLECTOR_APPLICATION_ID').api
 
 metadata => {
   :email => 'john@acmeinc.com',
@@ -185,7 +190,7 @@ require_once "vendor/autoload.php";
 
 // Import the SDK client in your project:
 use MoesifApi\MoesifApiClient;
-$client = new MoesifApiClient("Your Moesif Application Id");
+$client = new MoesifApiClient("YOUR_COLLECTOR_APPLICATION_ID");
 $api = $client->getApi();
 
 // Campaign object is optional, but useful if you want to track ROI of acquisition channels
@@ -223,7 +228,7 @@ $api->updateUser($user);
 import "github.com/moesif/moesifapi-go"
 import "github.com/moesif/moesifapi-go/models"
 
-apiClient := moesifapi.NewAPI("Your Moesif Application Id")
+apiClient := moesifapi.NewAPI("YOUR_COLLECTOR_APPLICATION_ID")
 
 // Campaign object is optional, but useful if you want to track ROI of acquisition channels
 // See https://www.moesif.com/docs/api#users for campaign schema
@@ -302,7 +307,7 @@ moesifMiddleware.UpdateUser(user);
 ```
 
 ```java
-MoesifAPIClient client = new MoesifAPIClient("Your Moesif Application Id");
+MoesifAPIClient client = new MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID");
 
 // Campaign object is optional, but useful if you want to track ROI of acquisition channels
 // See https://www.moesif.com/docs/api#users for campaign schema
@@ -340,54 +345,95 @@ client.updateUser(user);
 client.updateUserAsync(user, callBack);
 ```
 
-#### _user_id_ vs. _session_token_
+<blockquote class="lang-specific javascript--browser">
+<b>Only the user id and metadata object need to be set. All other fields like 
+the user's IP address and converting campaign are captured from browser context automatically.</b>
+</blockquote>
+
+```javascript--browser
+var moesif = require('moesif-browser-js');
+
+moesif.init({
+  applicationId: 'YOUR_COLLECTOR_APPLICATION_ID'
+  // add other option here.
+});
+
+// The second argument containing user metatdata is optional, but useful to store customer info like email and name.
+moesif.identifyUser('12345', {
+  email: 'john@acmeinc.com',
+  firstName: 'John',
+  lastName: 'Doe',
+  title: 'Software Engineer',
+  salesInfo: {
+      stage: 'Customer',
+      lifetimeValue: 24000,
+      accountOwner: 'mary@contoso.com',
+  },
+});
+```
+
+#### User id vs. session token
 Users in Moesif are identified by two attributes: _user_id_ and _session_token_.
 
-- A `user_id` is a __permanent__ and unique identifier to track a user across platforms and services.
-It is recommended to set the Moesif user_id field with the id used in your own databases and services.
+- A `user_id` is a unique identifier for the user performing the activity.
+User Ids are a __permanent__ and robust identifier, like a database id or permanent [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier).
+We recommend using database ids instead of simple email addresses or usernames, because database ids never change.
 
-- A `session_token` may be __temporary__ or can expire unlike a user_id.
-Examples include [JSON Web Tokens's](https://jwt.io/introduction/) (JWT), API keys, and session ids.
-Moesif can _alias_ multiple session_token's to the same user_id. To create a new alias,
-call the update user API with at least the user_id and session_token set.
-The new session_token will be appended to the alias table.
+- A `session_token` is an API key or [JSON Web Tokens's](https://jwt.io/introduction/) (JWT) that expires after a short duration.
+Unlike user ids, session tokens, are __transient__. Thus the same user can be associated with many API keys and tokens over
+the lifetime of the user. 
 
-Name | Required | Description
---------- | -------- | -----------
-user_id | __true__ | Your application's `user_id` to identify this user.
-modified_time | false | Last Modified Timestamp for the user in ISO 8601 format (Set automatically if not provided).
-ip_address | false | Current IP address of the user, If not set, we use the IP address of the POST request.
-session_token | false | Current end user session or API token such as a JWT. Setting this field does not remove old session tokens previously stored. Instead, Moesif will append the new value to an alias table for this user_id.
-user_agent_string | false | If you want Moesif to parse a user agent string, you can do so via `user_agent_string`.
-metadata | false | A JSON Object consisting of any custom metadata to be stored with this user.
+|Name|Type|Required|Description|
+|-----------|-----------|-----------|-----------|
+|user_id |string| __true__ | The unique identifier for this user.|
+|company_id |string| false | Associate the user with a [company](#companies) (Helpful for B2B companies)|
+|session_token |string| false | Associate this user with a new API key/session token. This field is _append only_ meaning when you set this field, previously set tokens are not removed.|
+|modified_time |string(date-time)| false | Last modified time of user profile. Set automatically by Moesif if not provided.|
+|ip_address |string| false | Set the user's last known ip address. Moesif sets this automatically from the user's most recent API activity if not provided.|
+|user_agent_string |string| false | Set the user's last known user agent. Moesif sets this automatically from the user's most recent API activity if not provided.|
+|campaign |object| false | [Referrer](https://en.wikipedia.org/wiki/HTTP_referer) and [UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters) to track effectiveness of your acquisition channels. Set automatically by moesif-browser-js, but not with server side SDKs|
+|<p style="margin-left:1.5em">utm_source</p>|string|false|UTM parameter that identifies which site sent the traffic|
+|<p style="margin-left:1.5em">utm_medium</p>|string|false|UTM parameter that identifies what type of link was used, such as cost per click or email.|
+|<p style="margin-left:1.5em">utm_campaign</p>|string|false|UTM parameter that identifies a specific product promotion or strategic campaign.|
+|<p style="margin-left:1.5em">utm_term</p>|string|false|UTM parameter that identifies search terms.|
+|<p style="margin-left:1.5em">utm_content</p>|string|false|UTM parameter that identifies what specifically was clicked to bring the user to the site, such as a banner ad or a text link.|
+|<p style="margin-left:1.5em">referrer</p>|string|false|The referring URI before your domain.|
+|<p style="margin-left:1.5em">referring_domain</p>|string|false|The referring domain of the page that linked to your domain.|
+|<p style="margin-left:1.5em">gclid</p>|string|false|Google click Identifier to track Google Ads|
+|metadata |object| false | An object containing user demographics or other properties you want to store with this profile.|
 
 ### Update Users in Batch
 
 **`POST https://api.moesif.net/v1/users/batch`**
 
-Updates a list of end user profile in Moesif.
+Updates a list of user profiles in a single batch. Users can be customers or end users accessing the API.
+Adding user metadata enables you to understand API usage across different cohorts, 
+user demographics, acquisition channels, etc.
 
-Custom user properties such as user demographic info can be stored via the `metadata` object.
+Any custom user properties can be stored via the `metadata` object.
 
-We’ve reserved some fields names that have semantic meanings for users, and we handle them in special ways. 
-For example, we expect email to be a string containing the user’s email address. Moesif uses this field
-to look up the user's Gravatar or enrich with company info if it's a work email. 
+We’ve reserved some fields names in the `metadata` object that have semantic meanings for users, and we handle them in special ways. 
+For example, we expect email to be a string containing the user’s email address which is used to sync with 
+external CRMs and to look up a user's Gravatar and demographics.
 
-Reserved fields include:
+Reserved metadata fields include:
+
   - email
-  - name
+  - name (Which can contain both first and last name)
   - first_name
   - last_name
   - phone
   - photo_url
 
 If the user does not exist, Moesif will create a new one. 
-If a user exists, it will be merged with the existing fields
-recursively. This means you don't need to resend the entire user object if just 
+
+If a user exists, the new user properties will be merged with the existing properties
+recursively. This means you don't need to resend the entire user object if you are only 
 updating a single field.
 
-<aside class="info">
-Replace <i>my_application_id</i> with your real Application Id
+<aside class="notice">
+Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found by logging into Moesif 
+and selecting API keys from top right menu.
 </aside>
 
 <blockquote class="lang-specific yaml">
@@ -528,7 +574,7 @@ api.updateUsersBatch(users, function(error, response, context) {
 from moesifapi.moesif_api_client import *
 from moesifapi.models import *
 
-api_client = MoesifAPIClient("Your Moesif Application Id").api
+api_client = MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID").api
 
 userA = {
   'user_id': '12345',
@@ -565,7 +611,7 @@ update_users = api_client.update_users_batch([userA, userB])
 ```
 
 ```ruby
-api_client = MoesifApi::MoesifAPIClient.new('Your Moesif Application Id').api
+api_client = MoesifApi::MoesifAPIClient.new('YOUR_COLLECTOR_APPLICATION_ID').api
 
 users = []
 
@@ -610,7 +656,7 @@ api_client = api_controller.update_users_batch(user_model)
 require_once "vendor/autoload.php";
 
 use MoesifApi\MoesifApiClient;
-$client = new MoesifApiClient("Your Moesif Application Id");
+$client = new MoesifApiClient("YOUR_COLLECTOR_APPLICATION_ID");
 $api = $client->getApi();
 
 $userA = new Models\UserModel();
@@ -638,14 +684,14 @@ $api->updateUsersBatch($user);
 import "github.com/moesif/moesifapi-go"
 import "github.com/moesif/moesifapi-go/models"
 
-apiClient := moesifapi.NewAPI("Your Moesif Application Id")
+apiClient := moesifapi.NewAPI("YOUR_COLLECTOR_APPLICATION_ID")
 
 import (
 	moesifmiddleware "github.com/moesif/moesifmiddleware-go"
 )
 
 var moesifOptions = map[string]interface{} {
-	"Application_Id": "Your Moesif Application Id",
+	"Application_Id": "YOUR_COLLECTOR_APPLICATION_ID",
 }
 
 // List of Users
@@ -689,7 +735,7 @@ apiClient.UpdateUsersBatch(users, moesifOption)
 ```
 
 ```csharp
-var client = new MoesifApiClient("Your Moesif Application Id").Api;
+var client = new MoesifApiClient("YOUR_COLLECTOR_APPLICATION_ID").Api;
 
 var usersBatch = new List<UserModel>();
 
@@ -799,23 +845,37 @@ api.updateUsersBatchAsync(users, callBack);
 api.updateUsersBatch(users, callBack);
 ```
 
-#### _user_id_ vs. _session_token_
+<blockquote class="lang-specific javascript--browser">
+<b>Since this is a client side SDK, you cannot save a batch of users with moesif-browser-js.</b>
+</blockquote>
+
+
+#### User id vs. session token
 Users in Moesif are identified by two attributes: _user_id_ and _session_token_.
 
-- A `user_id` is a __permanent__ and unique identifier to track a user across platforms and services.
-It is recommended to set the Moesif user_id field with the id used in your own databases and services.
+- A `user_id` is a unique identifier for the user performing the activity.
+User Ids are a __permanent__ and robust identifier, like a database id or permanent [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier).
+We recommend using database ids instead of simple email addresses or usernames, because database ids never change.
 
-- A `session_token` may be __temporary__ or can expire unlike a user_id.
-Examples include [JSON Web Tokens's](https://jwt.io/introduction/) (JWT), API keys, and session ids.
-Moesif can _alias_ multiple session_token's to the same user_id. To create a new alias,
-call the update user API with at least the user_id and session_token set.
-The new session_token will be appended to the alias table.
+- A `session_token` is an API key or [JSON Web Tokens's](https://jwt.io/introduction/) (JWT) that expires after a short duration.
+Unlike user ids, session tokens, are __transient__. Thus the same user can be associated with many API keys and tokens over
+the lifetime of the user. 
 
-Name | Required | Description
---------- | -------- | -----------
-user_id | __true__ | Your application's `user_id` to identify this user.
-modified_time | false | Last Modified Timestamp for the user in ISO 8601 format (Set automatically if not provided).
-ip_address | false | Current IP address of the user, If not set, we use the IP address of the POST request.
-session_token | false | Current end user session or API token such as a JWT. Setting this field does not remove old session tokens previously stored. Instead, Moesif will append the new value to an alias table for this user_id.
-user_agent_string | false | If you want Moesif to parse a user agent string, you can do so via `user_agent_string`.
-metadata | false | A JSON Object consisting of any custom metadata to be stored with this user.
+|Name|Type|Required|Description|
+|-----------|-----------|-----------|-----------|
+|user_id |string| __true__ | The unique identifier for this user.|
+|company_id |string| false | Associate the user with a [company](#companies) (Helpful for B2B companies).|
+|session_token |string| false | Associate this user with a new API key/session token. This field is _append only_ meaning when you set this field, previously set tokens are not removed.|
+|modified_time |string(date-time)| false | Last modified time of user profile. Set automatically by Moesif if not provided.|
+|ip_address |string| false | Set the user's last known ip address. Moesif sets this automatically from the user's most recent API activity if not provided.|
+|user_agent_string |string| false | Set the user's last known user agent. Moesif sets this automatically from the user's most recent API activity if not provided.|
+|campaign |object| false | [Referrer](https://en.wikipedia.org/wiki/HTTP_referer) and [UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters) to track effectiveness of your acquisition channels. Set automatically by moesif-browser-js, but not with server side SDKs.|
+|<p style="margin-left:1.5em">utm_source</p>|string|false|UTM parameter that identifies which site sent the traffic.|
+|<p style="margin-left:1.5em">utm_medium</p>|string|false|UTM parameter that identifies what type of link was used, such as cost per click or email.|
+|<p style="margin-left:1.5em">utm_campaign</p>|string|false|UTM parameter that identifies a specific product promotion or strategic campaign.|
+|<p style="margin-left:1.5em">utm_term</p>|string|false|UTM parameter that identifies search terms.|
+|<p style="margin-left:1.5em">utm_content</p>|string|false|UTM parameter that identifies what specifically was clicked to bring the user to the site, such as a banner ad or a text link.|
+|<p style="margin-left:1.5em">referrer</p>|string|false|The referring URI before your domain.|
+|<p style="margin-left:1.5em">referring_domain</p>|string|false|The referring domain of the page that linked to your domain.|
+|<p style="margin-left:1.5em">gclid</p>|string|false|Google click Identifier to track Google Ads.|
+|metadata |object| false | An object containing user demographics or other properties you want to store with this profile.|
