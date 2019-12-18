@@ -236,7 +236,7 @@
       <!-- end Google Universal Analytics-->
   </head>
 
-  <body class="index" data-languages="[&quot;yaml&quot;,&quot;shell&quot;,&quot;javascript--nodejs&quot;,&quot;python&quot;,&quot;ruby&quot;,&quot;php&quot;,&quot;go&quot;,&quot;csharp&quot;,&quot;java&quot;]">
+  <body class="index" data-languages="[&quot;yaml&quot;,&quot;shell&quot;,&quot;javascript--nodejs&quot;,&quot;python&quot;,&quot;ruby&quot;,&quot;php&quot;,&quot;go&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;javascript--browser&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -248,13 +248,14 @@
 </a>        <div class="lang-selector">
               <a href="#" data-language-name="yaml">JSON</a>
               <a href="#" data-language-name="shell">Shell</a>
-              <a href="#" data-language-name="javascript--nodejs">Javascript</a>
+              <a href="#" data-language-name="javascript--nodejs">Node.js</a>
               <a href="#" data-language-name="python">Python</a>
               <a href="#" data-language-name="ruby">Ruby</a>
               <a href="#" data-language-name="php">PHP</a>
               <a href="#" data-language-name="go">Go</a>
               <a href="#" data-language-name="csharp">C#</a>
               <a href="#" data-language-name="java">Java</a>
+              <a href="#" data-language-name="javascript--browser">Browser</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -531,7 +532,7 @@ Checkout Moesif&rsquo;s <a href="https://www.moesif.com/docs/server-integration/
 </aside>
 
 <h2 id="how-to-install">How to Install</h2>
-<pre class="highlight plaintext"><code>Pick a language at the top
+<pre class="highlight java tab-java"><code><span class="n">Pick</span> <span class="n">a</span> <span class="n">language</span> <span class="n">at</span> <span class="n">the</span> <span class="n">top</span>
 </code></pre>
 <blockquote class="lang-specific java">
 <a href="https://bintray.com/moesif/maven/moesifapi/_latestVersion">
@@ -546,9 +547,8 @@ Source Code:<br><br>
 <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">com</span><span class="o">.</span><span class="na">moesif</span><span class="o">.</span><span class="na">api</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">moesifapi</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">1.6</span><span class="o">.</span><span class="mi">2</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">1.6</span><span class="o">.</span><span class="mi">9</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
-
 </code></pre>
 <blockquote class="lang-specific javascript--nodejs">
 Source Code:<br><br>
@@ -605,16 +605,37 @@ Source Code:<br><br>
 
 composer require moesif/moesifapi-php
 </code></pre>
+<blockquote class="lang-specific javascript--browser">
+Install via NPM
+</blockquote>
+<pre class="highlight javascript tab-javascript--browser"><code><span class="kd">var</span> <span class="nx">moesif</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'moesif-browser-js'</span><span class="p">);</span>
+
+<span class="nx">moesif</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+  <span class="na">applicationId</span><span class="p">:</span> <span class="s1">'YOUR_COLLECTOR_APPLICATION_ID'</span>
+  <span class="c1">// add other option here.</span>
+<span class="p">});</span>
+</code></pre>
+<blockquote class="lang-specific javascript--browser">
+Install via embedded code
+</blockquote>
+<pre class="highlight javascript tab-javascript--browser"><code><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">"//unpkg.com/moesif-browser-js@^1/moesif.min.js"</span><span class="o">&gt;&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text/javascript"</span><span class="o">&gt;</span>
+<span class="nx">moesif</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+  <span class="na">applicationId</span><span class="p">:</span> <span class="s1">'YOUR_COLLECTOR_APPLICATION_ID'</span>
+<span class="p">});</span>
+<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span></code></pre>
 <p>Select your language on the right:</p>
 
 <ul>
-<li>Javascript</li>
+<li>Node.js</li>
 <li>Python</li>
 <li>Ruby</li>
 <li>PHP</li>
 <li>Go</li>
 <li>C#</li>
 <li>Java</li>
+<li>Browser</li>
 </ul>
 
 <p>The SDKs are open-source and available on GitHub.</p>
@@ -653,7 +674,8 @@ The same Application Id token can be used for the cloud proxy server, the client
 <p><code class="prettyprint">X-Moesif-Application-Id: my_application_id</code></p>
 
 <aside class="notice">
-Replace <i>my_application_id</i> with your real Application Id. You can find your Application Id under <i>Menu -> App Setup Details</i>
+Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found by logging into Moesif 
+and selecting API keys from top right menu.
 </aside>
 
           <h2 id="events">Events</h2>
@@ -2018,29 +2040,36 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 
 <p><strong><code class="prettyprint">POST https://api.moesif.net/v1/users</code></strong></p>
 
-<p>Updates an end user profile in Moesif.</p>
+<p>Updates a user profile in Moesif. A user can be a customer or end user accessing the API.
+Adding user metadata enables you to understand API usage across different cohorts, 
+user demographics, acquisition channels, etc.</p>
 
-<p>Custom user properties such as user demographic info can be stored via the <code class="prettyprint">metadata</code> object.</p>
+<p>Any custom user properties can be stored via the <code class="prettyprint">metadata</code> object.</p>
 
-<p>We’ve reserved some fields names that have semantic meanings for users, and we handle them in special ways. 
-For example, we expect email to be a string containing the user’s email address. Moesif uses this field
-to look up the user&rsquo;s Gravatar or enrich with company info if it&rsquo;s a work email. </p>
+<p>We’ve reserved some fields names in the <code class="prettyprint">metadata</code> object that have semantic meanings for users, and we handle them in special ways. 
+For example, we expect email to be a string containing the user’s email address which is used to sync with 
+external CRMs and to look up a user&rsquo;s Gravatar and demographics.</p>
 
-<p>Reserved fields include:
-  - email
-  - name
-  - first_name
-  - last_name
-  - phone
-  - photo_url</p>
+<p>Reserved metadata fields include:</p>
 
-<p>If the user does not exist, Moesif will create a new one. 
-If a user exists, it will be merged with the existing fields
-recursively. This means you don&rsquo;t need to resend the entire user object if just 
+<ul>
+<li>email</li>
+<li>name (Which can contain both first and last name)</li>
+<li>first_name</li>
+<li>last_name</li>
+<li>phone</li>
+<li>photo_url</li>
+</ul>
+
+<p>If the user does not exist, Moesif will create a new one. </p>
+
+<p>If a user exists, the new user properties will be merged with the existing properties
+recursively. This means you don&rsquo;t need to resend the entire user object if you are only 
 updating a single field.</p>
 
-<aside class="info">
-Replace <i>my_application_id</i> with your real Application Id
+<aside class="notice">
+Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found by logging into Moesif 
+and selecting API keys from top right menu.
 </aside>
 
 <blockquote class="lang-specific yaml">
@@ -2114,7 +2143,7 @@ curl -X POST https://api.moesif.net/v1/users <span class="se">\</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">moesifapi.moesif_api_client</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">moesifapi.models</span> <span class="kn">import</span> <span class="o">*</span>
 
-<span class="n">api_client</span> <span class="o">=</span> <span class="n">MoesifAPIClient</span><span class="p">(</span><span class="s">"Your Moesif Application Id"</span><span class="p">)</span><span class="o">.</span><span class="n">api</span>
+<span class="n">api_client</span> <span class="o">=</span> <span class="n">MoesifAPIClient</span><span class="p">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="p">)</span><span class="o">.</span><span class="n">api</span>
 
 <span class="c"># Only user_id is required.</span>
 <span class="c"># Campaign object is optional, but useful if you want to track ROI of acquisition channels</span>
@@ -2144,7 +2173,7 @@ curl -X POST https://api.moesif.net/v1/users <span class="se">\</span>
 <span class="p">}</span>
 
 <span class="n">update_user</span> <span class="o">=</span> <span class="n">api_client</span><span class="o">.</span><span class="n">update_user</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
-</code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">api_client</span> <span class="o">=</span> <span class="no">MoesifApi</span><span class="o">::</span><span class="no">MoesifAPIClient</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'Your Moesif Application Id'</span><span class="p">).</span><span class="nf">api</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">api_client</span> <span class="o">=</span> <span class="no">MoesifApi</span><span class="o">::</span><span class="no">MoesifAPIClient</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'YOUR_COLLECTOR_APPLICATION_ID'</span><span class="p">).</span><span class="nf">api</span>
 
 <span class="n">metadata</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="ss">:email</span> <span class="o">=&gt;</span> <span class="s1">'john@acmeinc.com'</span><span class="p">,</span>
@@ -2183,7 +2212,7 @@ curl -X POST https://api.moesif.net/v1/users <span class="se">\</span>
 
 <span class="c1">// Import the SDK client in your project:
 </span><span class="k">use</span> <span class="nx">MoesifApi\MoesifApiClient</span><span class="p">;</span>
-<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoesifApiClient</span><span class="p">(</span><span class="s2">"Your Moesif Application Id"</span><span class="p">);</span>
+<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoesifApiClient</span><span class="p">(</span><span class="s2">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="p">);</span>
 <span class="nv">$api</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">getApi</span><span class="p">();</span>
 
 <span class="c1">// Campaign object is optional, but useful if you want to track ROI of acquisition channels
@@ -2218,7 +2247,7 @@ curl -X POST https://api.moesif.net/v1/users <span class="se">\</span>
 </code></pre><pre class="highlight go tab-go"><code><span class="k">import</span><span class="x"> </span><span class="s">"github.com/moesif/moesifapi-go"</span><span class="x">
 </span><span class="k">import</span><span class="x"> </span><span class="s">"github.com/moesif/moesifapi-go/models"</span><span class="x">
 
-</span><span class="n">apiClient</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">moesifapi</span><span class="o">.</span><span class="n">NewAPI</span><span class="p">(</span><span class="s">"Your Moesif Application Id"</span><span class="p">)</span><span class="x">
+</span><span class="n">apiClient</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">moesifapi</span><span class="o">.</span><span class="n">NewAPI</span><span class="p">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="p">)</span><span class="x">
 
 </span><span class="c">// Campaign object is optional, but useful if you want to track ROI of acquisition channels</span><span class="x">
 </span><span class="c">// See https://www.moesif.com/docs/api#users for campaign schema</span><span class="x">
@@ -2291,7 +2320,7 @@ curl -X POST https://api.moesif.net/v1/users <span class="se">\</span>
 
 <span class="c1">// Update the user asynchronously</span>
 <span class="n">moesifMiddleware</span><span class="p">.</span><span class="nf">UpdateUser</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
-</code></pre><pre class="highlight java tab-java"><code><span class="n">MoesifAPIClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MoesifAPIClient</span><span class="o">(</span><span class="s">"Your Moesif Application Id"</span><span class="o">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">MoesifAPIClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MoesifAPIClient</span><span class="o">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="o">);</span>
 
 <span class="c1">// Campaign object is optional, but useful if you want to track ROI of acquisition channels</span>
 <span class="c1">// See https://www.moesif.com/docs/api#users for campaign schema</span>
@@ -2328,56 +2357,146 @@ curl -X POST https://api.moesif.net/v1/users <span class="se">\</span>
 <span class="c1">// Asynchronous Call to update user</span>
 <span class="n">client</span><span class="o">.</span><span class="na">updateUserAsync</span><span class="o">(</span><span class="n">user</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
 </code></pre>
-<h4 id="user_id-vs-session_token"><em>user_id</em> vs. <em>session_token</em></h4>
+<blockquote class="lang-specific javascript--browser">
+<b>Only the user id and metadata object need to be set. All other fields like 
+the user&rsquo;s IP address and converting campaign are captured from browser context automatically.</b>
+</blockquote>
+<pre class="highlight javascript tab-javascript--browser"><code><span class="kd">var</span> <span class="nx">moesif</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'moesif-browser-js'</span><span class="p">);</span>
+
+<span class="nx">moesif</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+  <span class="na">applicationId</span><span class="p">:</span> <span class="s1">'YOUR_COLLECTOR_APPLICATION_ID'</span>
+  <span class="c1">// add other option here.</span>
+<span class="p">});</span>
+
+<span class="c1">// The second argument containing user metatdata is optional, but useful to store customer info like email and name.</span>
+<span class="nx">moesif</span><span class="p">.</span><span class="nx">identifyUser</span><span class="p">(</span><span class="s1">'12345'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">email</span><span class="p">:</span> <span class="s1">'john@acmeinc.com'</span><span class="p">,</span>
+  <span class="na">firstName</span><span class="p">:</span> <span class="s1">'John'</span><span class="p">,</span>
+  <span class="na">lastName</span><span class="p">:</span> <span class="s1">'Doe'</span><span class="p">,</span>
+  <span class="na">title</span><span class="p">:</span> <span class="s1">'Software Engineer'</span><span class="p">,</span>
+  <span class="na">salesInfo</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">stage</span><span class="p">:</span> <span class="s1">'Customer'</span><span class="p">,</span>
+      <span class="na">lifetimeValue</span><span class="p">:</span> <span class="mi">24000</span><span class="p">,</span>
+      <span class="na">accountOwner</span><span class="p">:</span> <span class="s1">'mary@contoso.com'</span><span class="p">,</span>
+  <span class="p">},</span>
+<span class="p">});</span>
+</code></pre>
+<h4 id="user-id-vs-session-token">User id vs. session token</h4>
 
 <p>Users in Moesif are identified by two attributes: <em>user_id</em> and <em>session_token</em>.</p>
 
 <ul>
-<li><p>A <code class="prettyprint">user_id</code> is a <strong>permanent</strong> and unique identifier to track a user across platforms and services.
-It is recommended to set the Moesif user_id field with the id used in your own databases and services.</p></li>
-<li><p>A <code class="prettyprint">session_token</code> may be <strong>temporary</strong> or can expire unlike a user_id.
-Examples include <a href="https://jwt.io/introduction/">JSON Web Tokens&rsquo;s</a> (JWT), API keys, and session ids.
-Moesif can <em>alias</em> multiple session_token&rsquo;s to the same user_id. To create a new alias,
-call the update user API with at least the user_id and session_token set.
-The new session_token will be appended to the alias table.</p></li>
+<li><p>A <code class="prettyprint">user_id</code> is a unique identifier for the user performing the activity.
+User Ids are a <strong>permanent</strong> and robust identifier, like a database id or permanent <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a>.
+We recommend using database ids instead of simple email addresses or usernames, because database ids never change.</p></li>
+<li><p>A <code class="prettyprint">session_token</code> is an API key or <a href="https://jwt.io/introduction/">JSON Web Tokens&rsquo;s</a> (JWT) that expires after a short duration.
+Unlike user ids, session tokens, are <strong>transient</strong>. Thus the same user can be associated with many API keys and tokens over
+the lifetime of the user. </p></li>
 </ul>
 
 <table><thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>user_id</td>
+<td>string</td>
 <td><strong>true</strong></td>
-<td>Your application&rsquo;s <code class="prettyprint">user_id</code> to identify this user.</td>
+<td>The unique identifier for this user.</td>
 </tr>
 <tr>
-<td>modified_time</td>
+<td>company_id</td>
+<td>string</td>
 <td>false</td>
-<td>Last Modified Timestamp for the user in ISO 8601 format (Set automatically if not provided).</td>
-</tr>
-<tr>
-<td>ip_address</td>
-<td>false</td>
-<td>Current IP address of the user, If not set, we use the IP address of the POST request.</td>
+<td>Associate the user with a <a href="#companies">company</a> (Helpful for B2B companies)</td>
 </tr>
 <tr>
 <td>session_token</td>
+<td>string</td>
 <td>false</td>
-<td>Current end user session or API token such as a JWT. Setting this field does not remove old session tokens previously stored. Instead, Moesif will append the new value to an alias table for this user_id.</td>
+<td>Associate this user with a new API key/session token. This field is <em>append only</em> meaning when you set this field, previously set tokens are not removed.</td>
+</tr>
+<tr>
+<td>modified_time</td>
+<td>string(date-time)</td>
+<td>false</td>
+<td>Last modified time of user profile. Set automatically by Moesif if not provided.</td>
+</tr>
+<tr>
+<td>ip_address</td>
+<td>string</td>
+<td>false</td>
+<td>Set the user&rsquo;s last known ip address. Moesif sets this automatically from the user&rsquo;s most recent API activity if not provided.</td>
 </tr>
 <tr>
 <td>user_agent_string</td>
+<td>string</td>
 <td>false</td>
-<td>If you want Moesif to parse a user agent string, you can do so via <code class="prettyprint">user_agent_string</code>.</td>
+<td>Set the user&rsquo;s last known user agent. Moesif sets this automatically from the user&rsquo;s most recent API activity if not provided.</td>
+</tr>
+<tr>
+<td>campaign</td>
+<td>object</td>
+<td>false</td>
+<td><a href="https://en.wikipedia.org/wiki/HTTP_referer">Referrer</a> and <a href="https://en.wikipedia.org/wiki/UTM_parameters">UTM parameters</a> to track effectiveness of your acquisition channels. Set automatically by moesif-browser-js, but not with server side SDKs</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">utm_source</p></td>
+<td>string</td>
+<td>false</td>
+<td>UTM parameter that identifies which site sent the traffic</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">utm_medium</p></td>
+<td>string</td>
+<td>false</td>
+<td>UTM parameter that identifies what type of link was used, such as cost per click or email.</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">utm_campaign</p></td>
+<td>string</td>
+<td>false</td>
+<td>UTM parameter that identifies a specific product promotion or strategic campaign.</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">utm_term</p></td>
+<td>string</td>
+<td>false</td>
+<td>UTM parameter that identifies search terms.</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">utm_content</p></td>
+<td>string</td>
+<td>false</td>
+<td>UTM parameter that identifies what specifically was clicked to bring the user to the site, such as a banner ad or a text link.</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">referrer</p></td>
+<td>string</td>
+<td>false</td>
+<td>The referring URI before your domain.</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">referring_domain</p></td>
+<td>string</td>
+<td>false</td>
+<td>The referring domain of the page that linked to your domain.</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">gclid</p></td>
+<td>string</td>
+<td>false</td>
+<td>Google click Identifier to track Google Ads</td>
 </tr>
 <tr>
 <td>metadata</td>
+<td>object</td>
 <td>false</td>
-<td>A JSON Object consisting of any custom metadata to be stored with this user.</td>
+<td>An object containing user demographics or other properties you want to store with this profile.</td>
 </tr>
 </tbody></table>
 
@@ -2385,29 +2504,36 @@ The new session_token will be appended to the alias table.</p></li>
 
 <p><strong><code class="prettyprint">POST https://api.moesif.net/v1/users/batch</code></strong></p>
 
-<p>Updates a list of end user profile in Moesif.</p>
+<p>Updates a list of user profiles in a single batch. Users can be customers or end users accessing the API.
+Adding user metadata enables you to understand API usage across different cohorts, 
+user demographics, acquisition channels, etc.</p>
 
-<p>Custom user properties such as user demographic info can be stored via the <code class="prettyprint">metadata</code> object.</p>
+<p>Any custom user properties can be stored via the <code class="prettyprint">metadata</code> object.</p>
 
-<p>We’ve reserved some fields names that have semantic meanings for users, and we handle them in special ways. 
-For example, we expect email to be a string containing the user’s email address. Moesif uses this field
-to look up the user&rsquo;s Gravatar or enrich with company info if it&rsquo;s a work email. </p>
+<p>We’ve reserved some fields names in the <code class="prettyprint">metadata</code> object that have semantic meanings for users, and we handle them in special ways. 
+For example, we expect email to be a string containing the user’s email address which is used to sync with 
+external CRMs and to look up a user&rsquo;s Gravatar and demographics.</p>
 
-<p>Reserved fields include:
-  - email
-  - name
-  - first_name
-  - last_name
-  - phone
-  - photo_url</p>
+<p>Reserved metadata fields include:</p>
 
-<p>If the user does not exist, Moesif will create a new one. 
-If a user exists, it will be merged with the existing fields
-recursively. This means you don&rsquo;t need to resend the entire user object if just 
+<ul>
+<li>email</li>
+<li>name (Which can contain both first and last name)</li>
+<li>first_name</li>
+<li>last_name</li>
+<li>phone</li>
+<li>photo_url</li>
+</ul>
+
+<p>If the user does not exist, Moesif will create a new one. </p>
+
+<p>If a user exists, the new user properties will be merged with the existing properties
+recursively. This means you don&rsquo;t need to resend the entire user object if you are only 
 updating a single field.</p>
 
-<aside class="info">
-Replace <i>my_application_id</i> with your real Application Id
+<aside class="notice">
+Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found by logging into Moesif 
+and selecting API keys from top right menu.
 </aside>
 
 <blockquote class="lang-specific yaml">
@@ -2537,7 +2663,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">moesifapi.moesif_api_client</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">moesifapi.models</span> <span class="kn">import</span> <span class="o">*</span>
 
-<span class="n">api_client</span> <span class="o">=</span> <span class="n">MoesifAPIClient</span><span class="p">(</span><span class="s">"Your Moesif Application Id"</span><span class="p">)</span><span class="o">.</span><span class="n">api</span>
+<span class="n">api_client</span> <span class="o">=</span> <span class="n">MoesifAPIClient</span><span class="p">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="p">)</span><span class="o">.</span><span class="n">api</span>
 
 <span class="n">userA</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s">'user_id'</span><span class="p">:</span> <span class="s">'12345'</span><span class="p">,</span>
@@ -2571,7 +2697,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
   <span class="p">}</span>
 <span class="p">}</span>
 <span class="n">update_users</span> <span class="o">=</span> <span class="n">api_client</span><span class="o">.</span><span class="n">update_users_batch</span><span class="p">([</span><span class="n">userA</span><span class="p">,</span> <span class="n">userB</span><span class="p">])</span>
-</code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">api_client</span> <span class="o">=</span> <span class="no">MoesifApi</span><span class="o">::</span><span class="no">MoesifAPIClient</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'Your Moesif Application Id'</span><span class="p">).</span><span class="nf">api</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">api_client</span> <span class="o">=</span> <span class="no">MoesifApi</span><span class="o">::</span><span class="no">MoesifAPIClient</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'YOUR_COLLECTOR_APPLICATION_ID'</span><span class="p">).</span><span class="nf">api</span>
 
 <span class="n">users</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -2613,7 +2739,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 </span><span class="k">require_once</span> <span class="s2">"vendor/autoload.php"</span><span class="p">;</span>
 
 <span class="k">use</span> <span class="nx">MoesifApi\MoesifApiClient</span><span class="p">;</span>
-<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoesifApiClient</span><span class="p">(</span><span class="s2">"Your Moesif Application Id"</span><span class="p">);</span>
+<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoesifApiClient</span><span class="p">(</span><span class="s2">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="p">);</span>
 <span class="nv">$api</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">getApi</span><span class="p">();</span>
 
 <span class="nv">$userA</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Models\UserModel</span><span class="p">();</span>
@@ -2639,14 +2765,14 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 </code></pre><pre class="highlight go tab-go"><code><span class="k">import</span><span class="x"> </span><span class="s">"github.com/moesif/moesifapi-go"</span><span class="x">
 </span><span class="k">import</span><span class="x"> </span><span class="s">"github.com/moesif/moesifapi-go/models"</span><span class="x">
 
-</span><span class="n">apiClient</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">moesifapi</span><span class="o">.</span><span class="n">NewAPI</span><span class="p">(</span><span class="s">"Your Moesif Application Id"</span><span class="p">)</span><span class="x">
+</span><span class="n">apiClient</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">moesifapi</span><span class="o">.</span><span class="n">NewAPI</span><span class="p">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="p">)</span><span class="x">
 
 </span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
     </span><span class="n">moesifmiddleware</span><span class="x"> </span><span class="s">"github.com/moesif/moesifmiddleware-go"</span><span class="x">
 </span><span class="p">)</span><span class="x">
 
 </span><span class="k">var</span><span class="x"> </span><span class="n">moesifOptions</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}</span><span class="x"> </span><span class="p">{</span><span class="x">
-    </span><span class="s">"Application_Id"</span><span class="o">:</span><span class="x"> </span><span class="s">"Your Moesif Application Id"</span><span class="p">,</span><span class="x">
+    </span><span class="s">"Application_Id"</span><span class="o">:</span><span class="x"> </span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="p">,</span><span class="x">
 </span><span class="p">}</span><span class="x">
 
 </span><span class="c">// List of Users</span><span class="x">
@@ -2687,7 +2813,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 
 </span><span class="c">// Update User</span><span class="x">
 </span><span class="n">apiClient</span><span class="o">.</span><span class="n">UpdateUsersBatch</span><span class="p">(</span><span class="n">users</span><span class="p">,</span><span class="x"> </span><span class="n">moesifOption</span><span class="p">)</span><span class="x">
-</span></code></pre><pre class="highlight csharp tab-csharp"><code><span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">MoesifApiClient</span><span class="p">(</span><span class="s">"Your Moesif Application Id"</span><span class="p">).</span><span class="n">Api</span><span class="p">;</span>
+</span></code></pre><pre class="highlight csharp tab-csharp"><code><span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">MoesifApiClient</span><span class="p">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="p">).</span><span class="n">Api</span><span class="p">;</span>
 
 <span class="kt">var</span> <span class="n">usersBatch</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">UserModel</span><span class="p">&gt;();</span>
 
@@ -2793,56 +2919,126 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 <span class="c1">//Synchronous call to update users</span>
 <span class="n">api</span><span class="o">.</span><span class="na">updateUsersBatch</span><span class="o">(</span><span class="n">users</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
 </code></pre>
-<h4 id="user_id-vs-session_token"><em>user_id</em> vs. <em>session_token</em></h4>
+<blockquote class="lang-specific javascript--browser">
+<b>Since this is a client side SDK, you cannot save a batch of users with moesif-browser-js.</b>
+</blockquote>
+
+<h4 id="user-id-vs-session-token">User id vs. session token</h4>
 
 <p>Users in Moesif are identified by two attributes: <em>user_id</em> and <em>session_token</em>.</p>
 
 <ul>
-<li><p>A <code class="prettyprint">user_id</code> is a <strong>permanent</strong> and unique identifier to track a user across platforms and services.
-It is recommended to set the Moesif user_id field with the id used in your own databases and services.</p></li>
-<li><p>A <code class="prettyprint">session_token</code> may be <strong>temporary</strong> or can expire unlike a user_id.
-Examples include <a href="https://jwt.io/introduction/">JSON Web Tokens&rsquo;s</a> (JWT), API keys, and session ids.
-Moesif can <em>alias</em> multiple session_token&rsquo;s to the same user_id. To create a new alias,
-call the update user API with at least the user_id and session_token set.
-The new session_token will be appended to the alias table.</p></li>
+<li><p>A <code class="prettyprint">user_id</code> is a unique identifier for the user performing the activity.
+User Ids are a <strong>permanent</strong> and robust identifier, like a database id or permanent <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a>.
+We recommend using database ids instead of simple email addresses or usernames, because database ids never change.</p></li>
+<li><p>A <code class="prettyprint">session_token</code> is an API key or <a href="https://jwt.io/introduction/">JSON Web Tokens&rsquo;s</a> (JWT) that expires after a short duration.
+Unlike user ids, session tokens, are <strong>transient</strong>. Thus the same user can be associated with many API keys and tokens over
+the lifetime of the user. </p></li>
 </ul>
 
 <table><thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>user_id</td>
+<td>string</td>
 <td><strong>true</strong></td>
-<td>Your application&rsquo;s <code class="prettyprint">user_id</code> to identify this user.</td>
+<td>The unique identifier for this user.</td>
 </tr>
 <tr>
-<td>modified_time</td>
+<td>company_id</td>
+<td>string</td>
 <td>false</td>
-<td>Last Modified Timestamp for the user in ISO 8601 format (Set automatically if not provided).</td>
-</tr>
-<tr>
-<td>ip_address</td>
-<td>false</td>
-<td>Current IP address of the user, If not set, we use the IP address of the POST request.</td>
+<td>Associate the user with a <a href="#companies">company</a> (Helpful for B2B companies).</td>
 </tr>
 <tr>
 <td>session_token</td>
+<td>string</td>
 <td>false</td>
-<td>Current end user session or API token such as a JWT. Setting this field does not remove old session tokens previously stored. Instead, Moesif will append the new value to an alias table for this user_id.</td>
+<td>Associate this user with a new API key/session token. This field is <em>append only</em> meaning when you set this field, previously set tokens are not removed.</td>
+</tr>
+<tr>
+<td>modified_time</td>
+<td>string(date-time)</td>
+<td>false</td>
+<td>Last modified time of user profile. Set automatically by Moesif if not provided.</td>
+</tr>
+<tr>
+<td>ip_address</td>
+<td>string</td>
+<td>false</td>
+<td>Set the user&rsquo;s last known ip address. Moesif sets this automatically from the user&rsquo;s most recent API activity if not provided.</td>
 </tr>
 <tr>
 <td>user_agent_string</td>
+<td>string</td>
 <td>false</td>
-<td>If you want Moesif to parse a user agent string, you can do so via <code class="prettyprint">user_agent_string</code>.</td>
+<td>Set the user&rsquo;s last known user agent. Moesif sets this automatically from the user&rsquo;s most recent API activity if not provided.</td>
+</tr>
+<tr>
+<td>campaign</td>
+<td>object</td>
+<td>false</td>
+<td><a href="https://en.wikipedia.org/wiki/HTTP_referer">Referrer</a> and <a href="https://en.wikipedia.org/wiki/UTM_parameters">UTM parameters</a> to track effectiveness of your acquisition channels. Set automatically by moesif-browser-js, but not with server side SDKs.</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">utm_source</p></td>
+<td>string</td>
+<td>false</td>
+<td>UTM parameter that identifies which site sent the traffic.</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">utm_medium</p></td>
+<td>string</td>
+<td>false</td>
+<td>UTM parameter that identifies what type of link was used, such as cost per click or email.</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">utm_campaign</p></td>
+<td>string</td>
+<td>false</td>
+<td>UTM parameter that identifies a specific product promotion or strategic campaign.</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">utm_term</p></td>
+<td>string</td>
+<td>false</td>
+<td>UTM parameter that identifies search terms.</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">utm_content</p></td>
+<td>string</td>
+<td>false</td>
+<td>UTM parameter that identifies what specifically was clicked to bring the user to the site, such as a banner ad or a text link.</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">referrer</p></td>
+<td>string</td>
+<td>false</td>
+<td>The referring URI before your domain.</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">referring_domain</p></td>
+<td>string</td>
+<td>false</td>
+<td>The referring domain of the page that linked to your domain.</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">gclid</p></td>
+<td>string</td>
+<td>false</td>
+<td>Google click Identifier to track Google Ads.</td>
 </tr>
 <tr>
 <td>metadata</td>
+<td>object</td>
 <td>false</td>
-<td>A JSON Object consisting of any custom metadata to be stored with this user.</td>
+<td>An object containing user demographics or other properties you want to store with this profile.</td>
 </tr>
 </tbody></table>
 
@@ -13428,13 +13624,14 @@ managementAPIToken ( Scopes: delete:users )
           <div class="lang-selector">
                 <a href="#" data-language-name="yaml">JSON</a>
                 <a href="#" data-language-name="shell">Shell</a>
-                <a href="#" data-language-name="javascript--nodejs">Javascript</a>
+                <a href="#" data-language-name="javascript--nodejs">Node.js</a>
                 <a href="#" data-language-name="python">Python</a>
                 <a href="#" data-language-name="ruby">Ruby</a>
                 <a href="#" data-language-name="php">PHP</a>
                 <a href="#" data-language-name="go">Go</a>
                 <a href="#" data-language-name="csharp">C#</a>
                 <a href="#" data-language-name="java">Java</a>
+                <a href="#" data-language-name="javascript--browser">Browser</a>
           </div>
       </div>
     </div>
