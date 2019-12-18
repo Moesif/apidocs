@@ -604,6 +604,11 @@ api_client = api_controller.update_users_batch(user_model)
 ```
 
 ```php
+<?php
+// Depending on your project setup, you might need to include composer's
+// autoloader in your PHP code to enable autoloading of classes.
+require_once "vendor/autoload.php";
+
 use MoesifApi\MoesifApiClient;
 $client = new MoesifApiClient("Your Moesif Application Id");
 $api = $client->getApi();
@@ -628,6 +633,59 @@ $userA->metadata = array(
 
 $users = array($userA)
 $api->updateUsersBatch($user);
+```
+```go
+import "github.com/moesif/moesifapi-go"
+import "github.com/moesif/moesifapi-go/models"
+
+apiClient := moesifapi.NewAPI("Your Moesif Application Id")
+
+import (
+	moesifmiddleware "github.com/moesif/moesifmiddleware-go"
+)
+
+var moesifOptions = map[string]interface{} {
+	"Application_Id": "Your Moesif Application Id",
+}
+
+// List of Users
+var users []*models.UserModel
+
+// Campaign object is optional, but useful if you want to track ROI of acquisition channels
+// See https://www.moesif.com/docs/api#users for campaign schema
+campaign := models.CampaignModel {
+  UtmSource: "google",
+  UtmMedium: "cpc", 
+  UtmCampaign: "adwords",
+  UtmTerm: "api+tooling",
+  UtmContent: "landing",
+}
+  
+// metadata can be any custom dictionary
+metadata := map[string]interface{}{
+  "email", "john@acmeinc.com",
+  "first_name", "John",
+  "last_name", "Doe",
+  "title", "Software Engineer",
+  "sales_info", map[string]interface{}{
+      "stage", "Customer",
+      "lifetime_value", 24000,
+      "account_owner", "mary@contoso.com",
+  },
+}
+
+// Only UserId is required
+userA := models.UserModel{
+  UserId:  "12345",
+  CompanyId:  "67890", // If set, associate user with a company object
+  Campaign:  &campaign,
+  Metadata:  &metadata,
+}
+
+users = append(users, &userA)
+
+// Update User
+apiClient.UpdateUsersBatch(users, moesifOption)
 ```
 
 ```csharp
