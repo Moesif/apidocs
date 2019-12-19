@@ -293,7 +293,7 @@ var company = new CompanyModel()
 await apiClient.UpdateCompanyAsync(company);
 
 // Update the company synchronously
-moesifMiddleware.UpdateCompany(company);
+apiClient.UpdateCompany(company);
 ```
 
 ```java
