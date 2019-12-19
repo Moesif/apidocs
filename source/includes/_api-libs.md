@@ -1,13 +1,12 @@
 # API Libs
-
-These open-source libs are advanced wrappers for the Moesif REST API and are the building blocks for the higher level server and mobile SDKs.  These libs can be used similarly to other analytics event libs with a `sendEvent()` call which sends event data to api.moesif.net. These libraries support both sync and async operations.
+These open-source libs are convenient libs for the Moesif REST API and are used in the higher level [middleware SDKs](https://www.moesif.com/implementation).  These libs can be used like other web analytics libs with a `sendEvent()` method. There are also methods available to add metadata to user and company profiles.
+These libraries support both sync and async operations.
 
 ## Important
 <aside class="warning">
 Moesif has Middleware SDKs designed for common Web API frameworks which are easier to integrate for common environments.
-Checkout Moesif's <a href="https://www.moesif.com/docs/server-integration/">Server Middleware SDK Docs</a> for more info.
+Checkout <a href="https://www.moesif.com/implementation">implementation overview</a> for more info.
 </aside>
-
 
 ## How to Install
 
@@ -107,7 +106,7 @@ composer require moesif/moesifapi-php
 ```
 
 <blockquote class="lang-specific javascript--browser">
-Install via NPM
+Install via NPM:
 </blockquote>
 
 ```javascript--browser
@@ -134,6 +133,7 @@ moesif.init({
 
 Select your language on the right:
 
+* Shell
 * Node.js
 * Python
 * Ruby
@@ -146,5 +146,6 @@ Select your language on the right:
 The SDKs are open-source and available on GitHub.
 
 <aside class="notice">
-You can find your Application Id under <i>Menu -> App Setup Details</i>
+You can find your Application Id by logging into Moesif 
+and selecting API keys from top right menu.
 </aside>

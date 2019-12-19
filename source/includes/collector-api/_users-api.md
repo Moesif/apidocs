@@ -199,12 +199,6 @@ $campaign->utmMedium = "adwords";
 $campaign->utmContent = "api+tooling";
 $campaign->utmTerm = "landing";
 
-
-$user = new Models\UserModel();
-$user->userId = "12345";
-$user->companyId = "67890"; // If set, associate user with a company object
-$user->campaign = $campaign;
-
 // metadata can be any custom object
 $user->metadata = array(
         "email" => "john@acmeinc.com",
@@ -217,6 +211,12 @@ $user->metadata = array(
             "account_owner" => "mary@contoso.com"
         )
     );
+
+$user = new Models\UserModel();
+$user->userId = "12345";
+$user->companyId = "67890"; // If set, associate user with a company object
+$user->campaign = $campaign;
+$user->metadata = $metadata;
 
 $apiClient->updateUser($user);
 ```
@@ -266,19 +266,21 @@ err := apiClient.UpdateUser(&user)
 ```
 
 ```csharp
+var apiClient = new MoesifApiClient("YOUR_COLLECTOR_APPLICATION_ID").Api;;
+
 // Campaign object is optional, but useful if you want to track ROI of acquisition channels
 // See https://www.moesif.com/docs/api#users for campaign schema
-Dictionary<string, object> campaign = new Dictionary<string, object>
+var campaign = new CampaignModel()
 {
-    {"utm_source", "google"},
-    {"utm_medium", "cpc"},
-    {"utm_campaign", "adwords"},
-    {"utm_term", "api+tooling"},
-    {"utm_content", "landing"}
+	UtmSource = "google",
+	UtmMedium = "cpc"
+  UtmCampaign = "adwords"
+	UtmTerm = "api+tooling"
+	UtmContent = "landing"
 };
 
 // metadata can be any custom dictionary
-Dictionary<string, object> metadata = new Dictionary<string, object>
+var metadata = new Dictionary<string, object>
 {
     {"email", "john@acmeinc.com"},
     {"first_name", "John"},
@@ -292,18 +294,19 @@ Dictionary<string, object> metadata = new Dictionary<string, object>
 };
 
 // Only user_id is required
-Dictionary<string, object> user = new Dictionary<string, object>
+var user = new UserModel()
 {
-    {"user_id", "12345"},
-    {"company_id", "67890"}, // If set, associate user with a company object
-    {"campaign", campaign},
-    {"metadata", metadata},
+	UserId = "12345",
+  CompanyId = "67890",
+  Campaign = campaign,
+	Metadata = metadata
 };
 
-MoesifMiddleware moesifMiddleware = new MoesifMiddleware(RequestDelegate next, Dictionary<string, object> moesifOptions)
-
 // Update the user asynchronously
-moesifMiddleware.UpdateUser(user);
+await apiClient.UpdateUserAsync(user);
+
+// Update the user synchronously
+apiClient.UpdateUser(user);
 ```
 
 ```java
@@ -656,11 +659,6 @@ require_once "vendor/autoload.php";
 use MoesifApi\MoesifApiClient;
 $apiClient = new MoesifApiClient("YOUR_COLLECTOR_APPLICATION_ID")->getApi();
 
-$userA = new Models\UserModel();
-$userA->userId = "12345";
-$userA->companyId = "67890"; // If set, associate user with a company object
-$userA->campaign = $campaign;
-
 // metadata can be any custom object
 $userA->metadata = array(
         "email" => "john@acmeinc.com",
@@ -674,7 +672,32 @@ $userA->metadata = array(
         )
     );
 
-$users = array($userA)
+$userA = new Models\UserModel();
+$userA->userId = "12345";
+$userA->companyId = "67890"; // If set, associate user with a company object
+$userA->campaign = $campaign;
+$userA->metadata = $metadata;
+
+// metadata can be any custom object
+$userB->metadata = array(
+        "email" => "mary@acmeinc.com",
+        "first_name" => "Mary",
+        "last_name" => "Jane",
+        "title" => "Software Engineer",
+        "sales_info" => array(
+            "stage" => "Customer",
+            "lifetime_value" => 24000,
+            "account_owner" => "mary@contoso.com"
+        )
+    );
+
+$userB = new Models\UserModel();
+$userB->userId = "12345";
+$userB->companyId = "67890"; // If set, associate user with a company object
+$userB->campaign = $campaign;
+$userB->metadata = $metadata;
+
+$users = array($userA, $userB)
 $apiClient->updateUsersBatch($user);
 ```
 
@@ -720,16 +743,19 @@ userA := models.UserModel{
 
 users = append(users, &userA)
 
-// Update User
-apiClient.UpdateUsersBatch(users, moesifOption)
+// Queue the user asynchronously
+err := apiClient.QueueUsers(&users)
+
+// Update the user synchronously
+err := apiClient.UpdateUsersBatch(&users)
 ```
 
 ```csharp
-var client = new MoesifApiClient("YOUR_COLLECTOR_APPLICATION_ID").Api;
+var apiClient = new MoesifApiClient("YOUR_COLLECTOR_APPLICATION_ID").Api;;
 
 var users = new List<UserModel>();
 
-Dictionary<string, object> metadataA = new Dictionary<string, object>
+var metadataA = new Dictionary<string, object>
 {
     {"email", "john@acmeinc.com"},
     {"first_name", "John"},
@@ -746,11 +772,11 @@ Dictionary<string, object> metadataA = new Dictionary<string, object>
 var userA = new UserModel()
 {
 	UserId = "12345",
-  CampaignId = "67890", // If set, associate user with a company object
+  CompanyId = "67890", // If set, associate user with a company object
 	Metadata = metadataA
 };
 
-Dictionary<string, object> metadataB = new Dictionary<string, object>
+var metadataB = new Dictionary<string, object>
 {
     {"email", "mary@acmeinc.com"},
     {"first_name", "Mary"},
@@ -767,7 +793,7 @@ Dictionary<string, object> metadataB = new Dictionary<string, object>
 var userB = new UserModel()
 {
 	UserId = "54321",
-  CampaignId = "67890",
+  CompanyId = "67890",
 	Metadata = metadataA
 };
 
@@ -775,11 +801,11 @@ var userB = new UserModel()
 users.Add(userA);
 users.Add(userB);
 
-// Queue the users asynchronously
-err := apiClient.QueueUsers(users)
+// Update the users asynchronously
+await apiClient.UpdateUsersBatchAsync(users);
 
 // Update the users synchronously
-err := apiClient.UpdateUsersBatch(users)
+apiClient.UpdateUsersBatch(users);
 ```
 
 ```java
