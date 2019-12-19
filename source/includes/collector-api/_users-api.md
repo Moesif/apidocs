@@ -383,7 +383,7 @@ User Ids are a __permanent__ and robust identifier, like a database id or perman
 We recommend using database ids instead of simple email addresses or usernames, because database ids never change.
 
 - A `session_token` is an API key or [JSON Web Tokens's](https://jwt.io/introduction/) (JWT) that expires after a short duration.
-Unlike user ids, session tokens, are __transient__. Thus the same user can be associated with many API keys and tokens over
+Unlike user ids, session tokens, are __transient__. Thus, the same user can be associated with many API keys and tokens over
 the lifetime of the user. 
 
 |Name|Type|Required|Description|
@@ -881,7 +881,7 @@ User Ids are a __permanent__ and robust identifier, like a database id or perman
 We recommend using database ids instead of simple email addresses or usernames, because database ids never change.
 
 - A `session_token` is an API key or [JSON Web Tokens's](https://jwt.io/introduction/) (JWT) that expires after a short duration.
-Unlike user ids, session tokens, are __transient__. Thus the same user can be associated with many API keys and tokens over
+Unlike user ids, session tokens, are __transient__. Thus, the same user can be associated with many API keys and tokens over
 the lifetime of the user. 
 
 |Name|Type|Required|Description|

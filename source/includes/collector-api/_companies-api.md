@@ -372,7 +372,7 @@ Company Ids are a __permanent__ and robust identifier, like a database id or per
 We recommend using database ids instead of the company's name or website domain, because database ids never change.
 
 - A `session_token` is an API key or [JSON Web Tokens's](https://jwt.io/introduction/) (JWT) that expires after a short duration.
-Unlike company ids, session tokens, are __transient__. Thus the same company can be associated with many API keys and tokens over
+Unlike company ids, session tokens, are __transient__. Thus, the same company can be associated with many API keys and tokens over
 the lifetime of the company. 
 
 |Name|Type|Required|Description|
@@ -473,7 +473,7 @@ curl -X GET https://api.moesif.net/v1/events/batch \
 
 ```
 
-``javascript--nodejs
+```javascript--nodejs
 var moesifapi = require('moesifapi');
 var apiClient = moesifapi.ApiController;
 
@@ -850,7 +850,7 @@ Company Ids are a __permanent__ and robust identifier, like a database id or per
 We recommend using database ids instead of the company's name or website domain, because database ids never change.
 
 - A `session_token` is an API key or [JSON Web Tokens's](https://jwt.io/introduction/) (JWT) that expires after a short duration.
-Unlike company ids, session tokens, are __transient__. Thus the same company can be associated with many API keys and tokens over
+Unlike company ids, session tokens, are __transient__. Thus, the same company can be associated with many API keys and tokens over
 the lifetime of the company. 
 
 |Name|Type|Required|Description|
