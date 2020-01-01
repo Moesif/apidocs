@@ -2306,7 +2306,7 @@ curl -X POST https://api.moesif.net/v1/users <span class="se">\</span>
     <span class="p">{</span><span class="s">"first_name"</span><span class="p">,</span> <span class="s">"John"</span><span class="p">},</span>
     <span class="p">{</span><span class="s">"last_name"</span><span class="p">,</span> <span class="s">"Doe"</span><span class="p">},</span>
     <span class="p">{</span><span class="s">"title"</span><span class="p">,</span> <span class="s">"Software Engineer"</span><span class="p">},</span>
-    <span class="p">{</span><span class="s">"sales_info"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="p">{</span><span class="s">"sales_info"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">object</span><span class="p">&gt;</span> <span class="p">{</span>
         <span class="p">{</span><span class="s">"stage"</span><span class="p">,</span> <span class="s">"Customer"</span><span class="p">},</span>
         <span class="p">{</span><span class="s">"lifetime_value"</span><span class="p">,</span> <span class="m">24000</span><span class="p">},</span>
         <span class="p">{</span><span class="s">"account_owner"</span><span class="p">,</span> <span class="s">"mary@contoso.com"</span><span class="p">}</span>
@@ -2843,7 +2843,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
     <span class="p">{</span><span class="s">"first_name"</span><span class="p">,</span> <span class="s">"John"</span><span class="p">},</span>
     <span class="p">{</span><span class="s">"last_name"</span><span class="p">,</span> <span class="s">"Doe"</span><span class="p">},</span>
     <span class="p">{</span><span class="s">"title"</span><span class="p">,</span> <span class="s">"Software Engineer"</span><span class="p">},</span>
-    <span class="p">{</span><span class="s">"sales_info"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="p">{</span><span class="s">"sales_info"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">object</span><span class="p">&gt;</span> <span class="p">{</span>
         <span class="p">{</span><span class="s">"stage"</span><span class="p">,</span> <span class="s">"Customer"</span><span class="p">},</span>
         <span class="p">{</span><span class="s">"lifetime_value"</span><span class="p">,</span> <span class="m">24000</span><span class="p">},</span>
         <span class="p">{</span><span class="s">"account_owner"</span><span class="p">,</span> <span class="s">"mary@contoso.com"</span><span class="p">}</span>
@@ -2864,7 +2864,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
     <span class="p">{</span><span class="s">"first_name"</span><span class="p">,</span> <span class="s">"Mary"</span><span class="p">},</span>
     <span class="p">{</span><span class="s">"last_name"</span><span class="p">,</span> <span class="s">"Jane"</span><span class="p">},</span>
     <span class="p">{</span><span class="s">"title"</span><span class="p">,</span> <span class="s">"Software Engineer"</span><span class="p">},</span>
-    <span class="p">{</span><span class="s">"sales_info"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="p">{</span><span class="s">"sales_info"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">object</span><span class="p">&gt;</span> <span class="p">{</span>
         <span class="p">{</span><span class="s">"stage"</span><span class="p">,</span> <span class="s">"Customer"</span><span class="p">},</span>
         <span class="p">{</span><span class="s">"lifetime_value"</span><span class="p">,</span> <span class="m">24000</span><span class="p">},</span>
         <span class="p">{</span><span class="s">"account_owner"</span><span class="p">,</span> <span class="s">"mary@contoso.com"</span><span class="p">}</span>
@@ -3324,7 +3324,7 @@ curl -X GET https://api.moesif.net/v1/companies <span class="se">\</span>
     <span class="p">{</span><span class="s">"plan_name"</span><span class="p">,</span> <span class="s">"Free"</span><span class="p">},</span>
     <span class="p">{</span><span class="s">"deal_stage"</span><span class="p">,</span> <span class="s">"Lead"</span><span class="p">},</span>
     <span class="p">{</span><span class="s">"mrr"</span><span class="p">,</span> <span class="m">24000</span><span class="p">},</span>
-    <span class="p">{</span><span class="s">"demographics"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="p">{</span><span class="s">"demographics"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">object</span><span class="p">&gt;</span> <span class="p">{</span>
         <span class="p">{</span><span class="s">"alexa_ranking"</span><span class="p">,</span> <span class="m">500000</span><span class="p">},</span>
         <span class="p">{</span><span class="s">"employee_count"</span><span class="p">,</span> <span class="m">47</span><span class="p">}</span>
     <span class="p">}</span>
@@ -3857,7 +3857,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
     <span class="p">{</span><span class="s">"plan_name"</span><span class="p">,</span> <span class="s">"Free"</span><span class="p">},</span>
     <span class="p">{</span><span class="s">"deal_stage"</span><span class="p">,</span> <span class="s">"Lead"</span><span class="p">},</span>
     <span class="p">{</span><span class="s">"mrr"</span><span class="p">,</span> <span class="m">24000</span><span class="p">},</span>
-    <span class="p">{</span><span class="s">"demographics"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="p">{</span><span class="s">"demographics"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">object</span><span class="p">&gt;</span> <span class="p">{</span>
         <span class="p">{</span><span class="s">"alexa_ranking"</span><span class="p">,</span> <span class="m">500000</span><span class="p">},</span>
         <span class="p">{</span><span class="s">"employee_count"</span><span class="p">,</span> <span class="m">47</span><span class="p">}</span>
     <span class="p">}</span>
@@ -3879,7 +3879,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
     <span class="p">{</span><span class="s">"plan_name"</span><span class="p">,</span> <span class="s">"Paid"</span><span class="p">},</span>
     <span class="p">{</span><span class="s">"deal_stage"</span><span class="p">,</span> <span class="s">"Lead"</span><span class="p">},</span>
     <span class="p">{</span><span class="s">"mrr"</span><span class="p">,</span> <span class="m">48000</span><span class="p">},</span>
-    <span class="p">{</span><span class="s">"demographics"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="p">{</span><span class="s">"demographics"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">object</span><span class="p">&gt;</span> <span class="p">{</span>
         <span class="p">{</span><span class="s">"alexa_ranking"</span><span class="p">,</span> <span class="m">500000</span><span class="p">},</span>
         <span class="p">{</span><span class="s">"employee_count"</span><span class="p">,</span> <span class="m">53</span><span class="p">}</span>
     <span class="p">}</span>
