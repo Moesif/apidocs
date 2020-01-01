@@ -286,7 +286,7 @@ var metadata = new Dictionary<string, object>
     {"first_name", "John"},
     {"last_name", "Doe"},
     {"title", "Software Engineer"},
-    {"sales_info", new Dictionary<string, string> {
+    {"sales_info", new Dictionary<string, object> {
         {"stage", "Customer"},
         {"lifetime_value", 24000},
         {"account_owner", "mary@contoso.com"}
@@ -761,7 +761,7 @@ var metadataA = new Dictionary<string, object>
     {"first_name", "John"},
     {"last_name", "Doe"},
     {"title", "Software Engineer"},
-    {"sales_info", new Dictionary<string, string> {
+    {"sales_info", new Dictionary<string, object> {
         {"stage", "Customer"},
         {"lifetime_value", 24000},
         {"account_owner", "mary@contoso.com"}
@@ -782,7 +782,7 @@ var metadataB = new Dictionary<string, object>
     {"first_name", "Mary"},
     {"last_name", "Jane"},
     {"title", "Software Engineer"},
-    {"sales_info", new Dictionary<string, string> {
+    {"sales_info", new Dictionary<string, object> {
         {"stage", "Customer"},
         {"lifetime_value", 24000},
         {"account_owner", "mary@contoso.com"}
