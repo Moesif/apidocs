@@ -55,12 +55,10 @@ and selecting API keys from top right menu.
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.net/v1/companies \
+curl -X POST https://api.moesif.net/v1/companies \
   -d '{"company_id":"12345","company_domain":"acmeinc.com","campaign":{"utm_source":"google","utm_medium":"cpc","utm_campaign":"adwords","utm_term":"api+tooling","utm_content":"landing"},"metadata":{"org_name":"Acme, Inc","plan_name":"Free","deal_stage":"Lead","mrr":24000,"demographics":{"alexa_ranking":500000,"employee_count":47}}}' \
   -H 'Accept: application/json' \
   -H 'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'
-
-
 ```
 
 ```javascript--nodejs
@@ -465,12 +463,10 @@ Replace <i>my_application_id</i> with your real Application Id
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.net/v1/events/batch \
+curl -X POST https://api.moesif.net/v1/companies/batch \
   -d '[{"company_id":"12345","company_domain":"acmeinc.com","campaign":{"utm_source":"google","utm_medium":"cpc","utm_campaign":"adwords","utm_term":"api+tooling","utm_content":"landing"},"metadata":{"org_name":"Acme, Inc","plan_name":"Free","deal_stage":"Lead","mrr":24000,"demographics":{"alexa_ranking":500000,"employee_count":47}}},{"company_id":"54321","company_domain":"contoso.com","campaign":{"utm_source":"facebook","utm_medium":"dislay","utm_campaign":"retargeting"},"metadata":{"org_name":"Contoso, Inc","plan_name":"Paid","deal_stage":"Lead","mrr":48000,"demographics":{"alexa_ranking":500000,"employee_count":47}}}]' \
   -H 'Accept: application/json' \
   -H 'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'
-
-
 ```
 
 ```javascript--nodejs

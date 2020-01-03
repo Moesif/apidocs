@@ -4,11 +4,11 @@
 
 **`POST https://api.moesif.net/v1/events`**
 
-Log a single API event to Moesif.
-The request body itself is a single API Call object consisting of both the HTTP request and HTTP response.
+Log a single API call to Moesif.
+The request body itself is a single API Call object consisting of both the API request and API response.
 
 <aside class="info">
-Replace <i>my_application_id</i> with your real Application Id
+Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 </aside>
 
 <blockquote class="lang-specific yaml">
@@ -18,7 +18,7 @@ Replace <i>my_application_id</i> with your real Application Id
 ```yaml
   {
     "request": {
-      "time": "2019-06-20T04:45:42.914",
+      "time": "2020-01-01T04:45:42.914",
       "uri": "https://api.acmeinc.com/items/12345/reviews/",
       "verb": "POST",
       "api_version": "1.1.0",
@@ -35,12 +35,12 @@ Replace <i>my_application_id</i> with your real Application Id
         "items": [
           {
             "direction_type": 1,
-            "item_id": "fwdsfrf",
+            "item_id": "hello",
             "liked": false
           },
           {
             "direction_type": 2,
-            "item_id": "d43d3f",
+            "item_id": "world",
             "liked": true
           }
         ]
@@ -48,7 +48,7 @@ Replace <i>my_application_id</i> with your real Application Id
       "transfer_encoding": ""
     },
     "response": {
-      "time": "2019-06-20T04:45:42.914",
+      "time": "2020-01-01T04:45:42.914",
       "status": 500,
       "headers": {
         "Vary": "Accept-Encoding",
@@ -63,8 +63,9 @@ Replace <i>my_application_id</i> with your real Application Id
       },
       "transfer_encoding": ""
     },
-    "user_id": "mndug437f43",
-    "session_token": "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f",
+    "user_id": "12345",
+    "company_id": "67890",
+    "session_token": "XXXXXXXXX",
     "metadata": {
         "some_string": "I am a string",
         "some_int": 77,
@@ -86,7 +87,7 @@ curl -X GET https://api.moesif.net/v1/events \
 
 ```java
 // Import the Library
-MoesifAPIClient client = new MoesifAPIClient("my_application_id");
+MoesifAPIClient client = new MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID");
 APIController api = getClient().getAPI();
 
 // Generate the event
@@ -94,7 +95,7 @@ Map<String, String> reqHeaders = new HashMap<String, String>();
 reqHeaders.put("Host", "api.acmeinc.com");
 reqHeaders.put("Accept", "*/*");
 reqHeaders.put("Connection", "Keep-Alive");
-reqHeaders.put("User-Agent", "Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)");
+reqHeaders.put("User-Agent", "Apache-HttpClient");
 reqHeaders.put("Content-Type", "application/json");
 reqHeaders.put("Content-Length", "126");
 reqHeaders.put("Accept-Encoding", "gzip");
@@ -103,11 +104,11 @@ Object reqBody = APIHelper.deserialize("{" +
   "\"items\": [" +
     "{" +
       "\"type\": 1," +
-      "\"id\": \"fwfrf\"" +,
+      "\"id\": \"hello\"" +,
     "}," +
     "{" +
       "\"type\": 2," +
-       "\"id\": \"d43d3f\"" +
+       "\"id\": \"world\"" +
      "}" +
   "]" +
   "}");
@@ -146,12 +147,13 @@ EventResponseModel eventRsp = new EventResponseBuilder()
 EventModel eventModel = new EventBuilder()
         .request(eventReq)
         .response(eventRsp)
-        .userId("my_user_id")
-        .sessionToken("23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f")
+        .userId("12345")
+        .companyId("67890")
+        .sessionToken("XXXXXXXXX")
         .build();
 
 // Asynchronous Call to Create Event
-MoesifAPIClient client = new MoesifAPIClient("my_application_id");
+MoesifAPIClient client = new MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID");
 APIController api = getClient().getAPI();
 
 APICallBack<Object> callBack = new APICallBack<Object>() {
@@ -178,14 +180,14 @@ var api = moesifapi.ApiController;
 
 // 2. Configure the ApplicationId
 var config = moesifapi.configuration;
-config.ApplicationId = "my_application_id";
+config.ApplicationId = "YOUR_COLLECTOR_APPLICATION_ID";
 
 // 3. Generate an API Event Model
 var reqHeaders = JSON.parse('{' +
         '"Host": "api.acmeinc.com",' +
         '"Accept": "*/*",' +
         '"Connection": "Keep-Alive",' +
-        '"User-Agent": "Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)",' +
+        '"User-Agent": "Apache-HttpClient",' +
         '"Content-Type": "application/json",' +
         '"Content-Length": "126",' +
         '"Accept-Encoding": "gzip"' +
@@ -195,11 +197,11 @@ var reqBody = JSON.parse( '{' +
         '"items": [' +
             '{' +
                 '"type": 1,' +
-                '"id": "fwfrf"' +
+                '"id": "hello"' +
             '},' +
             '{' +
                 '"type": 2,' +
-                '"id": "d43d3f"' +
+                '"id": "world"' +
             '}' +
         ']' +
     '}');
@@ -238,8 +240,9 @@ var eventRsp = {
 var eventModel = {
     request: eventReq,
     response: eventRsp,
-    userId: "my_user_id",
-    sessionToken: "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"
+    userId: "12345",
+    companyId: "67890",
+    sessionToken: "XXXXXXXXX"
 };
 
 var events = [new EventModel(eventModel),
@@ -260,16 +263,16 @@ from moesifapi.moesif_api_client import *
 from moesifapi.models import *
 from datetime import *
 
-client = MoesifAPIClient(my_application_id)
+client = MoesifAPIClient(YOUR_COLLECTOR_APPLICATION_ID)
 api = client.api
 
-# Note: we recommend sending all API Calls via MVC framework middleware.
+# Note: we recommend sending all API calls via MVC framework middleware.
 
 req_headers = APIHelper.json_deserialize("""  {
   "Host": "api.acmeinc.com",
   "Accept": "*/*",
   "Connection": "Keep-Alive",
-  "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)",
+  "User-Agent": "Apache-HttpClient",
   "Content-Type": "application/json",
   "Content-Length": "126",
   "Accept-Encoding": "gzip"
@@ -279,17 +282,17 @@ req_body = APIHelper.json_deserialize( """{
   "items": [
     {
       "type": 1,
-      "id": "fwfrf"
+      "id": "hello"
     },
     {
       "type": 2,
-      "id": "d43d3f"
+      "id": "world"
     }
   ]
 }""")
 
 rsp_headers = APIHelper.json_deserialize("""  {
-    "Date": "Tue, 20 Jan 2019 23:46:49 GMT",
+    "Date": "Wed, 01 Jan 2019 23:46:49 GMT",
     "Vary": "Accept-Encoding",
     "Pragma": "no-cache",
     "Expires": "-1",
@@ -318,8 +321,9 @@ event_rsp = EventResponseModel(time = datetime.utcnow(),
 
 event_model = EventModel(request = event_req,
     response = event_rsp,
-    user_id = "my_user_id",
-    session_token = "my_application_id")
+    user_id = "12345",
+    company_id = "67890",
+    session_token = "XXXXXXXXX")
 
 
 # Perform the API call through the SDK function
@@ -329,14 +333,14 @@ api.create_event(event_model)
 ```ruby
 require 'moesif_api'
 
-client = MoesifApi::MoesifAPIClient.new(my_application_id)
+client = MoesifApi::MoesifAPIClient.new(YOUR_COLLECTOR_APPLICATION_ID)
 api = client.api_controller
 
 req_headers = JSON.parse('{'\
   '"Host": "api.acmeinc.com",'\
   '"Accept": "*/*",'\
   '"Connection": "Keep-Alive",'\
-  '"User-Agent": "Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)",'\
+  '"User-Agent": "Apache-HttpClient",'\
   '"Content-Type": "application/json",'\
   '"Content-Length": "126",'\
   '"Accept-Encoding": "gzip"'\
@@ -346,17 +350,17 @@ req_body = JSON.parse( '{'\
   '"items": ['\
     '{'\
       '"type": 1,'\
-      '"id": "fwfrf"'\
+      '"id": "hello"'\
     '},'\
     '{'\
       '"type": 2,'\
-      '"id": "d43d3f"'\
+      '"id": "world"'\
     '}'\
   ']'\
 '}')
 
 rsp_headers = JSON.parse('{'\
-  '"Date": "Tue, 20 Jan 2019 23:46:49 GMT",'\
+  '"Date": "Wed, 01 Jan 2019 23:46:49 GMT",'\
                 '"Vary": "Accept-Encoding",'\
   '"Pragma": "no-cache",'\
   '"Expires": "-1",'\
@@ -371,7 +375,7 @@ rsp_body = JSON.parse('{'\
 
 
 event_req = EventRequestModel.new()
-event_req.time = "2019-06-20T04:45:42.914"
+event_req.time = "2020-01-01T04:45:42.914"
 event_req.uri = "https://api.acmeinc.com/items/reviews/"
 event_req.verb = "PATCH"
 event_req.api_version = "1.1.0"
@@ -380,7 +384,7 @@ event_req.headers = req_headers
 event_req.body = req_body
 
 event_rsp = EventResponseModel.new()
-event_rsp.time = "2019-06-20T04:45:42.914"
+event_rsp.time = "2020-01-01T04:45:42.914"
 event_rsp.status = 500
 event_rsp.headers = rsp_headers
 event_rsp.body = rsp_body
@@ -388,8 +392,9 @@ event_rsp.body = rsp_body
 event_model = EventModel.new()
 event_model.request = event_req
 event_model.response = event_rsp
-event_model.user_id ="my_user_id"
-event_model.session_token = "my_application_id"
+event_model.user_id ="12345"
+event_model.company_id ="67890"
+event_model.session_token = "XXXXXXXXX"
 
 # Perform the API call through the SDK function
 response = api.create_event(event_model)
@@ -401,7 +406,7 @@ using Moesif.Api;
 using Moesif.Api.Helpers;
 
 // Create client instance using your ApplicationId
-var client = new MoesifApiClient("my_application_id");
+var client = new MoesifApiClient("YOUR_COLLECTOR_APPLICATION_ID");
 var apiClient = GetClient().Api;
 
 // Parameters for the API call
@@ -409,7 +414,7 @@ var reqHeaders = APIHelper.JsonDeserialize<object>(@" {
         ""Host"": ""api.acmeinc.com"",
         ""Accept"": ""*/*"",
         ""Connection"": ""Keep-Alive"",
-        ""User-Agent"": ""Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)"",
+        ""User-Agent"": ""Apache-HttpClient"",
         ""Content-Type"": ""application/json"",
         ""Content-Length"": ""126"",
         ""Accept-Encoding"": ""gzip""
@@ -419,17 +424,17 @@ var reqBody = APIHelper.JsonDeserialize<object>(@" {
         ""items"": [
             {
                 ""type"": 1,
-                ""id"": ""fwfrf""
+                ""id"": ""hello""
             },
             {
                 ""type"": 2,
-                ""id"": ""d43d3f""
+                ""id"": ""world""
             }
         ]
     }");
 
 var rspHeaders = APIHelper.JsonDeserialize<object>(@" {
-        ""Date"": ""Tue, 20 Jan 2019 23:46:49 GMT"",
+        ""Date"": ""Wed, 01 Jan 2019 23:46:49 GMT"",
         ""Vary"": ""Accept-Encoding"",
         ""Pragma"": ""no-cache"",
         ""Expires"": ""-1"",
@@ -445,7 +450,7 @@ var rspBody = APIHelper.JsonDeserialize<object>(@" {
 
 var eventReq = new EventRequestModel()
 {
-    Time = DateTime.Parse("2019-06-20T04:45:42.914"),
+    Time = DateTime.Parse("2020-01-01T04:45:42.914"),
     Uri = "https://api.acmeinc.com/items/reviews/",
     Verb = "PATCH",
     ApiVersion = "1.1.0",
@@ -456,7 +461,7 @@ var eventReq = new EventRequestModel()
 
 var eventRsp = new EventResponseModel()
 {
-    Time = DateTime.Parse("2019-06-20T04:45:42.914"),
+    Time = DateTime.Parse("2020-01-01T04:45:42.914"),
     Status = 500,
     Headers = rspHeaders,
     Body = rspBody
@@ -466,8 +471,9 @@ var eventModel = new EventModel()
 {
     Request = eventReq,
     Response = eventRsp,
-    UserId = "my_user_id",
-    SessionToken = "my_application_id"
+    UserId = "12345",
+    CompanyId = "67890",
+    SessionToken = "XXXXXXXXX"
 };
 
 //////////////////////////////////////
@@ -501,7 +507,7 @@ import "github.com/moesif/moesifapi-go"
 import "github.com/moesif/moesifapi-go/models"
 import "time"
 
-apiClient := moesifapi.NewAPI("your_moesif_application_id")
+apiClient := moesifapi.NewAPI("YOUR_COLLECTOR_APPLICATION_ID")
 
 reqTime := time.Now().UTC()
 apiVersion := "1.0"
@@ -539,8 +545,9 @@ rsp := models.EventResponseModel{
   },
 }
 
-sessionToken := "end user's API or Session Token"
-userId := "end user_id"
+sessionToken := "XXXXXXXXX"
+userId := "12345"
+companyId: := "67890"
 
 event := models.EventModel{
   Request:      req,
@@ -548,6 +555,7 @@ event := models.EventModel{
   SessionToken: &sessionToken,
   Tags:         nil,
   UserId:       &userId,
+  CompanyId:    &companyId,
 }
 
 
@@ -573,7 +581,7 @@ use MoesifApi\MoesifApiClient;
 // Instantiate the client. After this, you can now access the Moesif API
 // and call the respective methods:
 
-$client = new MoesifApiClient("Your Moesif Application Id");
+$client = new MoesifApiClient("YOUR_COLLECTOR_APPLICATION_ID");
 $api = $client->getApi();
 
 $event = new Models\EventModel();
@@ -624,53 +632,52 @@ $event->metadata = array(
         );
 
 $event->user_id = "12345";
-$event->company_id = "5678";
-$event->session_token = "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ngs98y18cx98q3yhwmnhcfx43f";
+$event->company_id = "67890";
+$event->session_token = "XXXXXXXXX";
 
 $api->createEvent($event);
 ```
 
-Name | Required | Description
---------- | -------- | -----------
-request | __true__ | The object that specifies the request message
-<p style="margin-left:1.5em">request.time</p> | __true__ | Timestamp for the request in ISO 8601 format
-<p style="margin-left:1.5em">request.uri</p> | __true__ | Full uri such as _https://api.com/?query=string_ including host, query string, etc
-<p style="margin-left:1.5em">request.verb</p> | __true__ | HTTP method used, i.e. `GET`, `POST`
-<p style="margin-left:1.5em">request.api_version</p> | false | API Version you want to tag this request with such as _1.0.0_
-<p style="margin-left:1.5em">request.ip_address</p> | false | IP address of the requester, If not set, we use the IP address of your logging API calls.
-<p style="margin-left:1.5em">request.headers</p> | __true__ | Headers of the  request as a `Map<string, string>`.. Multiple headers with the same key name should be combined together such that the values are joined by a comma. [HTTP Header Protocol on w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2)
-<p style="margin-left:1.5em">request.body</p> | false | Body of the request in JSON format or Base64 encoded binary data (see _transfer_encoding_)
-<p style="margin-left:1.5em">request.transfer_encoding</p> | false | A string that specifies the transfer encoding of Body being sent to Moesif. If field nonexistent, body assumed to be JSON or text. Only possible value is _base64_ for sending binary data like protobuf
+|Name|Type|Required|Description|
+|-----------|-----------|-----------|-----------|
+request |object | __true__ | The object that specifies the API request.
+<p style="margin-left:1.5em">request.time</p> |string(date-time) | __true__ | Timestamp for the request in ISO 8601 format.
+<p style="margin-left:1.5em">request.uri</p> | string| __true__ | Full uri such as _https://api.acmeinc.com/?query=string_ including protocol, host, and query string.
+<p style="margin-left:1.5em">request.verb</p> | string| __true__ | HTTP method used such as `GET` or `POST`.
+<p style="margin-left:1.5em">request.api_version</p> | string| false | API Version you want to tag this request with such as _1.0.0_.
+<p style="margin-left:1.5em">request.ip_address</p> | string| false | IP address of the requester, If not set, we extract the remote IP address.
+<p style="margin-left:1.5em">request.headers</p> |object | __true__ | Headers of the  request as a `Map<string, string>`. Multiple headers with the same key name should be combined together such that the values are joined by a comma. [HTTP Header Protocol on w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2).
+<p style="margin-left:1.5em">request.body</p> |object | false | Payload of the request in either JSON or a base64 encoded string.
+<p style="margin-left:1.5em">request.transfer_encoding</p> | string | false | Specifies the transfer encoding of _request.body_ field. If set to _json_ then the response.body must be a JSON object. If set to _base64_, then _request.body_ must be a base64 encoded string. Helpful for binary payloads. If not set, the body is assumed to be _json_.
 ||
-response | false | The object that specifies the response message, not set implies no response received such as a timeout.
-<p style="margin-left:1.5em">response.time</p> | __true__ | Timestamp for the response in ISO 8601 format
-<p style="margin-left:1.5em">response.status</p> | __true__ | HTTP status code as number such as _200_ or _500_
-<p style="margin-left:1.5em">response.ip_address</p> | false | IP address of the responding server
-<p style="margin-left:1.5em">response.headers</p> | __true__ | Headers of the response as a `Map<string, string>`. Multiple headers with the same key name should be combined together such that the values are joined by a comma. [HTTP Header Protocol on w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2)
-<p style="margin-left:1.5em">response.body</p> | false | Body of the response in JSON format or Base64 encoded binary data (see _transfer_encoding_)
-<p style="margin-left:1.5em">response.transfer_encoding</p> | false | A string that specifies the transfer encoding of Body being sent to Moesif. If field nonexistent, body assumed to be JSON or text. Only possible value is _base64_ for sending binary data like protobuf
+response |object | false | The object that specifies the API response. The response object can be undefined such as a request timeouts.
+<p style="margin-left:1.5em">response.time</p> |string(date-time) | __true__ | Timestamp for the response in ISO 8601 format.
+<p style="margin-left:1.5em">response.status</p> | integer | __true__ | HTTP status code as number such as _200_ or _500_.
+<p style="margin-left:1.5em">response.ip_address</p> | string | false | IP address of the responding server.
+<p style="margin-left:1.5em">response.headers</p> |object | __true__ | Headers of the response as a `Map<string, string>`. Multiple headers with the same key name should be combined together such that the values are joined by a comma. [HTTP Header Protocol on w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2)
+<p style="margin-left:1.5em">response.body</p> |object | false | Payload of the response in either JSON or a base64 encoded string.
+<p style="margin-left:1.5em">response.transfer_encoding</p> | string | false | Specifies the transfer encoding of _response.body_ field. If set to _json_ then the response.body must be a JSON object. If set to _base64_, then _response.body_ must be a base64 encoded string. Helpful for binary payloads. If not set, the body is assumed to be _json_.
 ||
-session_token | _Recommend_ | The end user session token such as a JWT or API key, which may or may not be temporary. Moesif will auto-detect the session token automatically if not set.
-user_id | _Recommend_ | Identifies this API call to a permanent user_id
-metadata | false | A JSON Object consisting of any custom metadata to be stored with this event.
+session_token | string | false | Set the API key/session token used for this API call. Moesif will auto-detect API sessions if not set.
+user_id | string | false | Associate this API call to a [user](#users).
+company_id | string | false | Associate this API call to a [company](#companies) (Helpful for B2B companies).
+direction | string | false | The direction of this API call which can be _Incoming_ or _Outgoing_.
+metadata | object | false | An object containing any custom properties you want to store with this event.
 
 
 ### Create an Events Batch
 
 **`POST https://api.moesif.net/v1/events/batch`**
 
-Creates and logs a batch of API Calls to Moesif.
-The request body itself is an array API Calls object consisting of both the HTTP request and HTTP response.
+Creates and logs a batch of API calls to Moesif.
+The request body itself is an array API calls object consisting of both the API request and API response.
 
 This API takes a list form of the same model defined in create single event.
 
 The maximum batch size is **12MB**. Break up larger batches.
 
-API Calls from multiple end users can be added in a single batch. Each Event in the list has independent `session_token` and `user_id` fields.
-
-
 <aside class="info">
-Replace <i>my_application_id</i> with your real Application Id
+Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 </aside>
 
 <blockquote class="lang-specific yaml">
@@ -681,7 +688,7 @@ Replace <i>my_application_id</i> with your real Application Id
   [
     {
         "request": {
-          "time": "2019-06-20T04:45:42.914",
+          "time": "2020-01-01T04:45:42.914",
           "uri": "https://api.acmeinc.com/items/83738/reviews/",
           "verb": "POST",
           "api_version": "1.1.0",
@@ -698,12 +705,12 @@ Replace <i>my_application_id</i> with your real Application Id
             "items": [
               {
                 "direction_type": 1,
-                "item_id": "fwdsfrf",
+                "item_id": "hello",
                 "liked": false
               },
               {
                 "direction_type": 2,
-                "item_id": "d43d3f",
+                "item_id": "world",
                 "liked": true
               }
             ]
@@ -711,7 +718,7 @@ Replace <i>my_application_id</i> with your real Application Id
           "transfer_encoding": "",
         },
         "response": {
-          "time": "2019-06-20T04:45:42.914",
+          "time": "2020-01-01T04:45:42.914",
           "status": 500,
           "headers": {
             "Vary": "Accept-Encoding",
@@ -726,8 +733,9 @@ Replace <i>my_application_id</i> with your real Application Id
           },
           "transfer_encoding": "",
         },
-        "user_id": "mndug437f43",
-        "session_token": "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f",
+        "user_id": "12345",
+        "company_id": "67890",
+        "session_token": "XXXXXXXXX",
         "metadata": {
             "some_string": "I am a string",
             "some_int": 77,
@@ -750,7 +758,7 @@ curl -X GET https://api.moesif.net/v1/events/batch \
 
 ```java
 // Import the Library
-MoesifAPIClient client = new MoesifAPIClient("my_application_id");
+MoesifAPIClient client = new MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID");
 APIController api = getClient().getAPI();
 
 // Generate the events
@@ -758,7 +766,7 @@ Map<String, String> reqHeaders = new HashMap<String, String>();
 reqHeaders.put("Host", "api.acmeinc.com");
 reqHeaders.put("Accept", "*/*");
 reqHeaders.put("Connection", "Keep-Alive");
-reqHeaders.put("User-Agent", "Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)");
+reqHeaders.put("User-Agent", "Apache-HttpClient");
 reqHeaders.put("Content-Type", "application/json");
 reqHeaders.put("Content-Length", "126");
 reqHeaders.put("Accept-Encoding", "gzip");
@@ -767,17 +775,17 @@ Object reqBody = APIHelper.deserialize("{" +
   "\"items\": [" +
     "{" +
       "\"type\": 1," +
-      "\"id\": \"fwfrf\"" +
+      "\"id\": \"hello\"" +
     "}," +
     "{" +
       "\"type\": 2," +
-      "\"id\": \"d43d3f\"" +
+      "\"id\": \"world\"" +
     "}" +
   "]" +
   "}");
 
 Map<String, String> rspHeaders = new HashMap<String, String>();
-rspHeaders.put("Date", "Tue, 20 Jan 2019 23:46:49 GMT");
+rspHeaders.put("Date", "Wed, 01 Jan 2019 23:46:49 GMT");
 rspHeaders.put("Vary", "Accept-Encoding");
 rspHeaders.put("Pragma", "no-cache");
 rspHeaders.put("Expires", "-1");
@@ -811,8 +819,9 @@ EventResponseModel eventRsp = new EventResponseBuilder()
 EventModel eventModel = new EventBuilder()
         .request(eventReq)
         .response(eventRsp)
-        .userId("my_user_id")
-        .sessionToken("23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f")
+        .userId("12345")
+        .companyId("67890")
+        .sessionToken("XXXXXXXXX")
         .build();
 
 List<EventModel> events = new ArrayList<EventModel>();
@@ -822,7 +831,7 @@ events.add(eventModel);
 events.add(eventModel);
 
 // Asynchronous Call to create new event
-MoesifAPIClient client = new MoesifAPIClient("my_application_id");
+MoesifAPIClient client = new MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID");
 APIController api = getClient().getAPI();
 
 APICallBack<Object> callBack = new APICallBack<Object>() {
@@ -847,14 +856,14 @@ var moesifapi = require('moesifapi');
 
 // Set your application id
 var config = moesifapi.configuration;
-config.ApplicationId = 'my_application_id';
+config.ApplicationId = 'YOUR_COLLECTOR_APPLICATION_ID';
 
 // Create API Event Models and set fields
 var reqHeaders = JSON.parse('{' +
         '"Host": "api.acmeinc.com",' +
         '"Accept": "*/*",' +
         '"Connection": "Keep-Alive",' +
-        '"User-Agent": "Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)",' +
+        '"User-Agent": "Apache-HttpClient",' +
         '"Content-Type": "application/json",' +
         '"Content-Length": "126",' +
         '"Accept-Encoding": "gzip"' +
@@ -864,11 +873,11 @@ var reqBody = JSON.parse( '{' +
         '"items": [' +
             '{' +
                 '"type": 1,' +
-                '"id": "fwfrf"' +
+                '"id": "hello"' +
             '},' +
             '{' +
                 '"type": 2,' +
-                '"id": "d43d3f"' +
+                '"id": "world"' +
             '}' +
         ']' +
     '}');
@@ -907,8 +916,9 @@ var eventRsp = {
 var eventA = {
     request: eventReq,
     response: eventRsp,
-    userId: "my_user_id",
-    sessionToken: "23jdf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f"
+    userId: "12345",
+    companyId: "67890",
+    sessionToken: "XXXXXXXXX"
 };
 
 var myEventModels = [ eventA ]
@@ -930,7 +940,7 @@ from moesifapi.models import *
 from datetime import *
 
 # Setup API Client
-client = MoesifAPIClient(my_application_id)
+client = MoesifAPIClient(YOUR_COLLECTOR_APPLICATION_ID)
 api = client.api_controller
 
 
@@ -939,7 +949,7 @@ req_headers = APIHelper.json_deserialize("""  {
   "Host": "api.acmeinc.com",
   "Accept": "*/*",
   "Connection": "Keep-Alive",
-  "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)",
+  "User-Agent": "Apache-HttpClient",
   "Content-Type": "application/json",
   "Content-Length": "126",
   "Accept-Encoding": "gzip"
@@ -949,17 +959,17 @@ req_body = APIHelper.json_deserialize( """{
   "items": [
     {
       "type": 1,
-      "id": "fwfrf"
+      "id": "hello"
     },
     {
       "type": 2,
-      "id": "d43d3f"
+      "id": "world"
     }
   ]
 }""")
 
 rsp_headers = APIHelper.json_deserialize("""  {
-    "Date": "Tue, 20 Jan 2019 23:46:49 GMT",
+    "Date": "Wed, 01 Jan 2019 23:46:49 GMT",
     "Vary": "Accept-Encoding",
     "Pragma": "no-cache",
     "Expires": "-1",
@@ -988,8 +998,9 @@ event_rsp = EventResponseModel(time = datetime.utcnow(),
 
 event_a = EventModel(request = event_req,
     response = event_rsp,
-    user_id = "my_user_id",
-    session_token = "my_application_id")
+    user_id = "12345",
+    company_id = "67890",
+    session_token = "XXXXXXXXX")
 
 my_events = [ event_a ]
 
@@ -1002,12 +1013,13 @@ api.create_events_batch(my_events)
 require 'moesif_api'
 
 # Setup API Client
-client = MoesifApi::MoesifAPIClient.new(my_application_id)
+client = MoesifApi::MoesifAPIClient.new(YOUR_COLLECTOR_APPLICATION_ID)
 api = client.api_controller
 
 # Create API Event Models and set fields
 event_a = EventModel.new()
-event_a.user_id = "my user id" #  ...
+event_a.user_id = "12345"
+event_a.company_id = "67890"
 my_event_models = [ event_a ]
 
 # Send the actual events
@@ -1020,7 +1032,7 @@ using Moesif.Api;
 using Moesif.Api.Helpers;
 
 // Create client instance using your ApplicationId
-var client = new MoesifApiClient("my_application_id");
+var client = new MoesifApiClient("YOUR_COLLECTOR_APPLICATION_ID");
 var apiClient = GetClient().Api;
 
 // Parameters for the API call
@@ -1028,7 +1040,7 @@ var reqHeaders = APIHelper.JsonDeserialize<object>(@" {
         ""Host"": ""api.acmeinc.com"",
         ""Accept"": ""*/*"",
         ""Connection"": ""Keep-Alive"",
-        ""User-Agent"": ""Dalvik/2.1.0 (Linux; U; Android 5.0.2; C6906 Build/14.5.A.0.242)"",
+        ""User-Agent"": ""Apache-HttpClient"",
         ""Content-Type"": ""application/json"",
         ""Content-Length"": ""126"",
         ""Accept-Encoding"": ""gzip""
@@ -1038,17 +1050,17 @@ var reqBody = APIHelper.JsonDeserialize<object>(@" {
         ""items"": [
             {
                 ""type"": 1,
-                ""id"": ""fwfrf""
+                ""id"": ""hello""
             },
             {
                 ""type"": 2,
-                ""id"": ""d43d3f""
+                ""id"": ""world""
             }
         ]
     }");
 
 var rspHeaders = APIHelper.JsonDeserialize<object>(@" {
-        ""Date"": ""Tue, 20 Jan 2019 23:46:49 GMT"",
+        ""Date"": ""Wed, 01 Jan 2019 23:46:49 GMT"",
         ""Vary"": ""Accept-Encoding"",
         ""Pragma"": ""no-cache"",
         ""Expires"": ""-1"",
@@ -1064,7 +1076,7 @@ var rspBody = APIHelper.JsonDeserialize<object>(@" {
 var reqDate = new Date();
 var eventReq = new EventRequestModel()
 {
-    Time = DateTime.Parse("2019-06-20T04:45:42.914"),
+    Time = DateTime.Parse("2020-01-01T04:45:42.914"),
     Uri = "https://api.acmeinc.com/items/reviews/",
     Verb = "PATCH",
     ApiVersion = "1.1.0",
@@ -1075,7 +1087,7 @@ var eventReq = new EventRequestModel()
 
 var eventRsp = new EventResponseModel()
 {
-    Time = DateTime.Parse("2019-06-20T04:45:42.914"),
+    Time = DateTime.Parse("2020-01-01T04:45:42.914"),
     Status = 500,
     Headers = rspHeaders,
     Body = rspBody
@@ -1085,8 +1097,9 @@ var eventModel = new EventModel()
 {
     Request = eventReq,
     Response = eventRsp,
-    UserId = "my_user_id",
-    SessionToken = "my_application_id"
+    UserId = "12345",
+    CompanyId = "67890",
+    SessionToken = "XXXXXXXXX"
 };
 
 // Create a List
@@ -1126,7 +1139,7 @@ import "github.com/moesif/moesifapi-go"
 import "github.com/moesif/moesifapi-go/models"
 import "time"
 
-apiClient := moesifapi.NewAPI("my_application_id")
+apiClient := moesifapi.NewAPI("YOUR_COLLECTOR_APPLICATION_ID")
 
 reqTime := time.Now().UTC()
 apiVersion := "1.0"
@@ -1162,8 +1175,9 @@ rsp := models.EventResponseModel{
   },
 }
 
-sessionToken := "end user API or session token"
-userId := "end user_id"
+sessionToken := "XXXXXXXXX"
+userId := "12345"
+companyId := "6789"
 
 event := models.EventModel{
   Request:      req,
@@ -1171,6 +1185,7 @@ event := models.EventModel{
   SessionToken: &sessionToken,
   Tags:         nil,
   UserId:       &userId,
+  CompanyId:    &companyId,
 }
 
 events := make([]*models.EventModel, 20)
@@ -1204,26 +1219,28 @@ $client = new MoesifApiClient("Your application Id");
 $api = $client->getApi();
 ```
 
-Name | Required | Description
---------- | -------- | -----------
-request | __true__ | The object that specifies the request message
-<p style="margin-left:1.5em">request.time</p> | __true__ | Timestamp for the request in ISO 8601 format
-<p style="margin-left:1.5em">request.uri</p> | __true__ | Full uri such as _https://api.com/?query=string_ including host, query string, etc
-<p style="margin-left:1.5em">request.verb</p> | __true__ | HTTP method used, i.e. `GET`, `POST`
-<p style="margin-left:1.5em">request.api_version</p> | false | API Version you want to tag this request with such as _1.0.0_
-<p style="margin-left:1.5em">request.ip_address</p> | false | IP address of the requester, If not set, we use the IP address of your logging API calls.
-<p style="margin-left:1.5em">request.headers</p> | __true__ | Headers of the  request as a `Map<string, string>`. Multiple headers with the same key name should be combined together such that the values are joined by a comma. [HTTP Header Protocol on w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2)
-<p style="margin-left:1.5em">request.body</p> | false | Body of the request in JSON format or Base64 encoded binary data (see _transfer_encoding_)
-<p style="margin-left:1.5em">request.transfer_encoding</p> | false | A string that specifies the transfer encoding of Body being sent to Moesif. If field nonexistent, body assumed to be JSON or text. Only possible value is _base64_ for sending binary data like protobuf
+|Name|Type|Required|Description|
+|-----------|-----------|-----------|-----------|
+request |object | __true__ | The object that specifies the API request.
+<p style="margin-left:1.5em">request.time</p> |string(date-time) | __true__ | Timestamp for the request in ISO 8601 format.
+<p style="margin-left:1.5em">request.uri</p> | string| __true__ | Full uri such as _https://api.acmeinc.com/?query=string_ including protocol, host, and query string.
+<p style="margin-left:1.5em">request.verb</p> | string| __true__ | HTTP method used such as `GET` or `POST`.
+<p style="margin-left:1.5em">request.api_version</p> | string| false | API Version you want to tag this request with such as _1.0.0_.
+<p style="margin-left:1.5em">request.ip_address</p> | string| false | IP address of the requester, If not set, we extract the remote IP address.
+<p style="margin-left:1.5em">request.headers</p> |object | __true__ | Headers of the  request as a `Map<string, string>`. Multiple headers with the same key name should be combined together such that the values are joined by a comma. [HTTP Header Protocol on w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2).
+<p style="margin-left:1.5em">request.body</p> |object | false | Payload of the request in either JSON or a base64 encoded string.
+<p style="margin-left:1.5em">request.transfer_encoding</p> | string | false | Specifies the transfer encoding of _request.body_ field. If set to _json_ then the response.body must be a JSON object. If set to _base64_, then _request.body_ must be a base64 encoded string. Helpful for binary payloads. If not set, the body is assumed to be _json_.
 ||
-response | false | The object that specifies the response message, not set implies no response received such as a timeout.
-<p style="margin-left:1.5em">response.time</p> | __true__ | Timestamp for the response in ISO 8601 format
-<p style="margin-left:1.5em">response.status</p> | __true__ | HTTP status code as number such as _200_ or _500_
-<p style="margin-left:1.5em">response.ip_address</p> | false | IP address of the responding server
-<p style="margin-left:1.5em">response.headers</p> | __true__ | Headers of the response as a `Map<string, string>`. Multiple headers with the same key name should be combined together such that the values are joined by a comma. [HTTP Header Protocol on w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2)
-<p style="margin-left:1.5em">response.body</p> | false | Body of the response in JSON format or Base64 encoded binary data (see _transfer_encoding_)
-<p style="margin-left:1.5em">response.transfer_encoding</p> | false | A string that specifies the transfer encoding of Body being sent to Moesif. If field nonexistent, body assumed to be JSON or text. Only possible value is _base64_ for sending binary data like protobuf
+response |object | false | The object that specifies the API response. The response object can be undefined such as a request timeouts.
+<p style="margin-left:1.5em">response.time</p> |string(date-time) | __true__ | Timestamp for the response in ISO 8601 format.
+<p style="margin-left:1.5em">response.status</p> | integer | __true__ | HTTP status code as number such as _200_ or _500_.
+<p style="margin-left:1.5em">response.ip_address</p> | string | false | IP address of the responding server.
+<p style="margin-left:1.5em">response.headers</p> |object | __true__ | Headers of the response as a `Map<string, string>`. Multiple headers with the same key name should be combined together such that the values are joined by a comma. [HTTP Header Protocol on w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2)
+<p style="margin-left:1.5em">response.body</p> |object | false | Payload of the response in either JSON or a base64 encoded string.
+<p style="margin-left:1.5em">response.transfer_encoding</p> | string | false | Specifies the transfer encoding of _response.body_ field. If set to _json_ then the response.body must be a JSON object. If set to _base64_, then _response.body_ must be a base64 encoded string. Helpful for binary payloads. If not set, the body is assumed to be _json_.
 ||
-session_token | _Recommend_ | The end user session token such as a JWT or API key, which may or may not be temporary. Moesif will auto-detect the session token automatically if not set.
-user_id | _Recommend_ | Identifies this API call to a permanent user_id
-metadata | false | A JSON Object consisting of any custom metadata to be stored with this event.
+session_token | string | false | Set the API key/session token used for this API call. Moesif will auto-detect API sessions if not set.
+user_id | string | false | Associate this API call to a [user](#users).
+company_id | string | false | Associate this API call to a [company](#companies) (Helpful for B2B companies).
+direction | string | false | The direction of this API call which can be _Incoming_ or _Outgoing_.
+metadata | object | false | An object containing any custom properties you want to store with this event.

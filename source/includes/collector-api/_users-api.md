@@ -497,7 +497,7 @@ and selecting API keys from top right menu.
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.net/v1/events/batch \
+curl -X POST https://api.moesif.net/v1/users/batch \
   -d '[{"user_id":"12345","company_id":"67890","session_token":"XXXXXXXXXX","campaign":{"utm_source":"google","utm_medium":"cpc","utm_campaign":"adwords","utm_term":"api+tooling","utm_content":"landing"},"metadata":{"email":"john@acmeinc.com","first_name":"John","last_name":"Doe","title":"Software Engineer","sales_info":{"stage":"Customer","lifetime_value":24000,"account_owner":"mary@contoso.com"}}},{"user_id":"54321","company_id":"67890","session_token":"XXXXXXXXXX","campaign":{"utm_source":"google","utm_medium":"cpc","utm_campaign":"adwords","utm_term":"api+tooling","utm_content":"landing"},"metadata":{"email":"mary@acmeinc.com","first_name":"Mary","last_name":"Jane","title":"Software Engineer","sales_info":{"stage":"Customer","lifetime_value":24000,"account_owner":"mary@contoso.com"}}}]' \
   -H 'Accept: application/json' \
   -H 'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'
