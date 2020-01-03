@@ -274,14 +274,10 @@
       <div class="content">
         <h1 id="moesif-api-reference">Moesif API Reference</h1>
 
-<p><em>Debugging RESTful APIs Made Easier.</em></p>
+<p><em>User-Centric API Analytics</em></p>
 
-<p>This API reference centers around v1 of the Moesif REST APIs and API Client Libs for common languages.
-For an overview on Moesif and higher level SDKs for common frameworks, please checkout the <a href="/docs">Developer Docs</a></p>
-
-<p>This RESTful API is open for developers who want to build new extensions and clients. Apps can integrate with Moesif as long as it can send HTTP requests.</p>
-
-<p><a href="http://www.programmableweb.com/api/moesif"><img src="//apidocs.moesif.com/images/programmable-web-722cea20.png" alt="Moesif on Programmable Web" /></a></p>
+<p>This API reference centers around v1 of the Moesif REST APIs and API Client Libs.
+For an overview on the Moesif platform and integration, checkout the <a href="/docs">Developer Documentation</a></p>
 
 <p>There are two distinct APIs:</p>
 
@@ -295,22 +291,20 @@ For an overview on Moesif and higher level SDKs for common frameworks, please ch
 <tr>
 <td><a href="#collector-api">Collector API</a></td>
 <td><a href="https://api.moesif.net">api.moesif.net</a></td>
-<td>Retrieve your Collection Application Id from the Moesif portal under <em>Installation</em> menu and place in the request <code class="prettyprint">X-Moesif-Application-Id</code> header. <a href="#collector-api">More info</a></td>
+<td>Retrieve your Collector Application Id by logging into Moesif and going to <em>API keys</em> from top right menu. Place in the request <code class="prettyprint">X-Moesif-Application-Id</code> header. <a href="#collector-api">More info</a></td>
 </tr>
 <tr>
 <td><a href="#Management-API">Management API</a></td>
 <td><a href="https://api.moesif.com">api.moesif.com</a></td>
-<td>Generate a Management API token under in the Moesif portal under <em>Management API</em> menu with the necessary <em>resource scopes</em> . Add it as a <a href="https://swagger.io/docs/specification/authentication/bearer-authentication/">Bearer token</a> to the request <code class="prettyprint">Authorization</code> header. <a href="#Management-API">More info</a></td>
+<td>Generate a Management API key by logging into Moesif and going to <em>API keys</em> from top right menu. Add it as a <a href="https://swagger.io/docs/specification/authentication/bearer-authentication/">Bearer token</a> to the request <code class="prettyprint">Authorization</code> header. <a href="#Management-API">More info</a></td>
 </tr>
 </tbody></table>
 
-<h2 id="which-should-i-use">Which should I use?</h2>
+<h2 id="api-definitions">API definitions</h2>
 
-<p>The <em>Collector API</em> is a write-only API and used for high-volume data ingestion from middleware SDKs and agents
-Think of it as a reverse CDN and used only for importing data into Moesif.</p>
+<p>The <em>Collector API</em> is a write-only API for high-volume data ingestion from the Moesif SDKs and API libs. When storing raw data into Moesif like API event data, updating users and companies, use the collector API. </p>
 
-<p>The <em>Management API</em> is for operations on the data stored already in Moesif. You can use it to query data for custom reports,
-build custom dashboards, integrate with other apps like bug tracking tools, etc.</p>
+<p>The <em>Management API</em> is for advanced used cases to directly query data residing in Moesif. You can use this API to develop custom dashboards and reports.</p>
 
           <h1 id="overview">Overview</h1>
 
@@ -318,8 +312,9 @@ build custom dashboards, integrate with other apps like bug tracking tools, etc.
 
 <h3 id="dates">Dates</h3>
 
-<p>In the search endpoints, you must provide a timerange for data to look at. This is done via the <code class="prettyprint">from</code> and the <code class="prettyprint">to</code> 
-URL parameters.</p>
+<p>Some endpoints require a date range for data to look at. This is done via the <code class="prettyprint">from</code> and the <code class="prettyprint">to</code>
+query parameters. There is also an optional <code class="prettyprint">time_zone</code> query parameter if you want the calendar dates aligned to your local time zone. 
+Time zone is <code class="prettyprint">UTC</code> by default and must be a <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">TZ Database Name</a> such as <code class="prettyprint">America/Los_Angeles</code></p>
 
 <p>Relative dates support the following units:</p>
 
@@ -396,6 +391,10 @@ URL parameters.</p>
 <td>from 1 month ago to 1 month in the future</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">
+Dates are aligned to calendar dates. For example, if the current time is 2:30pm on a Wednesday and you specify `from=-2d`, the start of the time period will be 12:00am of the previous Monday based on `time_zone`.
+</aside>
 
 <h3 id="search-dsl">Search DSL</h3>
 
@@ -650,15 +649,12 @@ and selecting API keys from top right menu.
           <h1 id="collector-api-v1"><a id="collector-api"></a> Collector API v1</h1>
 
 <p>The Collector API is a high-volume distributed data collection network.
-It&rsquo;s like a reverse CDN.</p>
+It&rsquo;s like a reverse CDN and has points of presence across the globe to log API data from the <a href="https://www.moesif.com/implementation">Moesif SDKs</a>
+and <a href="#api-libs">API libs</a>.</p>
 
-<p>The Moesif Middleware SDKs and agents such as <em>moesif-express</em> sit in your code and send raw API data to 
-the Collector API for processing.</p>
+<p>Moesif also has a <a href="#Management-API">Management API</a> to directly query data in Moesif. You can use this API to develop custom dashboards and reports.</p>
 
-<p>Moesif also has a <a href="#Management-API">Management API</a> to query data out of Moesif and is the same 
-API the Moesif web portal uses. </p>
-
-<p>Base URLs:</p>
+<p>Base URL:</p>
 
 <ul>
 <li><a href="https://api.moesif.net/v1">https://api.moesif.net/v1</a></li>
@@ -666,15 +662,15 @@ API the Moesif web portal uses. </p>
 
 <p><a href="https://www.moesif.com/terms">Terms of service</a></p>
 
-<p>Prepend all endpoints below with this base url. Both HTTPS and HTTP requests are supported. 
-However, Moesif&rsquo;s API libs enforce HTTPS only. Calls to our API are routed to the nearest datacenter.</p>
+<p>Prepend all endpoints below with this base url. While, both HTTPS and HTTP requests are supported on the HTTP API, 
+Moesif&rsquo;s API libs and SDKs only use HTTPS.</p>
 
 <h2 id="authentication">Authentication</h2>
 
-<p>Authentication is done via HTTP Headers.
-The same Application Id token can be used for the cloud proxy server, the client libs, and the REST API. Add the following header to all API Calls.</p>
+<p>Authentication is done via the <code class="prettyprint">X-Moesif-Application-Id</code> request header.
+The same Application Id token can be used across multiple SDKs, API libs, and the Collector HTTP API. Add the following header to all API Calls.</p>
 
-<p><code class="prettyprint">X-Moesif-Application-Id: my_application_id</code></p>
+<p><code class="prettyprint">X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID</code></p>
 
 <aside class="notice">
 Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found by logging into Moesif 
