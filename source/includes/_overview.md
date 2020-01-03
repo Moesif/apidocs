@@ -3,8 +3,9 @@
 ## Pagination and Filtering
 
 ### Dates
-In the search endpoints, you must provide a timerange for data to look at. This is done via the `from` and the `to` 
-URL parameters.
+Some endpoints require a date range for data to look at. This is done via the `from` and the `to`
+query parameters. There is also an optional `time_zone` query parameter if you want the calendar dates aligned to your local time zone. 
+Time zone is `UTC` by default and must be a [TZ Database Name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) such as `America/Los_Angeles`
 
 Relative dates support the following units:
 
@@ -29,6 +30,11 @@ Some examples:
 |-1w|now|from 1 week ago to now|
 |-2w|-1w|frm 2 weeks ago to 1 week ago|
 |-1M|1M|from 1 month ago to 1 month in the future|
+
+<aside class="notice">
+Dates are aligned to calendar dates. For example, if the current time is 2:30pm on a Wednesday and you specify `from=-2d`, the start of the time period will be 12:00am of the previous Monday based on `time_zone`.
+</aside>
+
 
 ### Search DSL
 
