@@ -2,7 +2,7 @@
 
 The Collector API is a high-volume distributed data collection network.
 It's like a reverse CDN and has points of presence across the globe to log API data from the [Moesif SDKs](https://www.moesif.com/implementation)
-and [API libs](#api-libs).
+and [API libs](#api-libs). For more info, check out [and overview of Moesif's infrastructure](https://www.moesif.com/enterprise/api-analytics-infrastructure).
 
 Moesif also has a [Management API](#Management-API) to directly query data in Moesif. You can use this API to develop custom dashboards and reports.
 
