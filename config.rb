@@ -56,6 +56,7 @@ set :github_username, 'Moesif'
 
 # When set, enables Google Analytics tracking script
 set :google_analytics_id, 'UA-78525975-1'
+set :google_optimize_id, 'GTM-MRVV632'
 
 # Activate the syntax highlighter
 activate :syntax
