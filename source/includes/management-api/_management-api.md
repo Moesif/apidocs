@@ -191,7 +191,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /replay/~/workspaces/{id}/policy/acl`
+`POST https://api.moesif.com/v1/replay/~/workspaces/{id}/policy/acl`
 
 <h4 id="addACLPermissions-parameters">Parameters</h4>
 
@@ -354,7 +354,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE /replay/~/workspaces/{id}/policy/acl`
+`DELETE https://api.moesif.com/v1/replay/~/workspaces/{id}/policy/acl`
 
 <h4 id="deleteACLPermissions-parameters">Parameters</h4>
 
@@ -515,7 +515,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /replay/~/workspaces/{id}/comments`
+`POST https://api.moesif.com/v1/replay/~/workspaces/{id}/comments`
 
 <h4 id="createComment-parameters">Parameters</h4>
 
@@ -675,7 +675,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /replay/~/workspaces/{id}`
+`POST https://api.moesif.com/v1/replay/~/workspaces/{id}`
 
 <h4 id="updateWorkspace-parameters">Parameters</h4>
 
@@ -841,7 +841,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET /replay/~/workspaces/{id}`
+`GET https://api.moesif.com/v1/replay/~/workspaces/{id}`
 
 <h4 id="getWorkspace-parameters">Parameters</h4>
 
@@ -1010,7 +1010,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE /replay/~/workspaces/{id}`
+`DELETE https://api.moesif.com/v1/replay/~/workspaces/{id}`
 
 <h4 id="deleteWorkspace-parameters">Parameters</h4>
 
@@ -1175,7 +1175,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET /replay/workspaces/access_token`
+`GET https://api.moesif.com/v1/replay/workspaces/access_token`
 
 Get a new Workspace Access Token
 
@@ -1355,7 +1355,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /replay/~/workspaces`
+`POST https://api.moesif.com/v1/replay/~/workspaces`
 
 <h4 id="createWorkspace-parameters">Parameters</h4>
 
@@ -1534,7 +1534,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET /replay/~/workspaces`
+`GET https://api.moesif.com/v1/replay/~/workspaces`
 
 <h4 id="getWorkspaces-parameters">Parameters</h4>
 
@@ -1718,7 +1718,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /replay/~/workspaces/default`
+`POST https://api.moesif.com/v1/replay/~/workspaces/default`
 
 <h4 id="createDefaultWorkspaces-parameters">Parameters</h4>
 
@@ -1894,7 +1894,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET /~/oauth/tokeninfo`
+`GET https://api.moesif.com/v1/~/oauth/tokeninfo`
 
 Get info for user's token
 
@@ -2070,7 +2070,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET /~/oauth/access_tokens`
+`GET https://api.moesif.com/v1/~/oauth/access_tokens`
 
 Get a new access_token using logged in user's token
 
@@ -2229,7 +2229,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /url_encoder`
+`POST https://api.moesif.com/v1/url_encoder`
 
 Encodes the URL to be used with Moesif Collector/Proxy Server
 
@@ -2409,7 +2409,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /~/apps`
+`POST https://api.moesif.com/v1/~/apps`
 
 Create a new app under the selected organization
 
@@ -2596,7 +2596,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET /~/apps`
+`GET https://api.moesif.com/v1/~/apps`
 
 Gets a list of apps for the selected organization
 
@@ -2785,7 +2785,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /~/apps/{id}`
+`POST https://api.moesif.com/v1/~/apps/{id}`
 
 Update the name of the app for the selected organization
 
@@ -2969,7 +2969,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE /~/apps/{id}`
+`DELETE https://api.moesif.com/v1/~/apps/{id}`
 
 Delete the app for the selected organization
 
@@ -3140,7 +3140,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET /health/probe`
+`GET https://api.moesif.com/v1/health/probe`
 
 > Example response
 
@@ -3180,7 +3180,7 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from=2019-11-27T01:02:01Z&to=2019-11-27T01:02:01Z \
+curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from=2020-03-25T03:11:42Z&to=2020-03-25T03:11:42Z \
   -H 'Accept: 0' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -3195,7 +3195,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from=2019-11-27T01:02:01Z&to=2019-11-27T01:02:01Z',
+fetch('https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from=2020-03-25T03:11:42Z&to=2020-03-25T03:11:42Z',
 {
   method: 'POST',
 
@@ -3217,7 +3217,7 @@ headers = {
 }
 
 r = requests.post('https://api.moesif.com/v1/search/~/search/usermetrics/metrics', params={
-  'from': '2019-11-27T01:02:01Z',  'to': '2019-11-27T01:02:01Z'
+  'from': '2020-03-25T03:11:42Z',  'to': '2020-03-25T03:11:42Z'
 }, headers = headers)
 
 print r.json()
@@ -3304,7 +3304,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from=2019-11-27T01:02:01Z&to=2019-11-27T01:02:01Z");
+URL obj = new URL("https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from=2020-03-25T03:11:42Z&to=2020-03-25T03:11:42Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -3320,7 +3320,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /search/~/search/usermetrics/metrics`
+`POST https://api.moesif.com/v1/search/~/search/usermetrics/metrics`
 
 <h4 id="searchUserMetricsChild-parameters">Parameters</h4>
 
@@ -3358,7 +3358,7 @@ managementAPIToken ( Scopes: read:users )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/users?from=2019-11-27T01:02:01Z&to=2019-11-27T01:02:01Z \
+curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/users?from=2020-03-25T03:11:42Z&to=2020-03-25T03:11:42Z \
   -H 'Accept: 0' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -3373,7 +3373,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/search/usermetrics/users?from=2019-11-27T01:02:01Z&to=2019-11-27T01:02:01Z',
+fetch('https://api.moesif.com/v1/search/~/search/usermetrics/users?from=2020-03-25T03:11:42Z&to=2020-03-25T03:11:42Z',
 {
   method: 'POST',
 
@@ -3395,7 +3395,7 @@ headers = {
 }
 
 r = requests.post('https://api.moesif.com/v1/search/~/search/usermetrics/users', params={
-  'from': '2019-11-27T01:02:01Z',  'to': '2019-11-27T01:02:01Z'
+  'from': '2020-03-25T03:11:42Z',  'to': '2020-03-25T03:11:42Z'
 }, headers = headers)
 
 print r.json()
@@ -3482,7 +3482,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/search/usermetrics/users?from=2019-11-27T01:02:01Z&to=2019-11-27T01:02:01Z");
+URL obj = new URL("https://api.moesif.com/v1/search/~/search/usermetrics/users?from=2020-03-25T03:11:42Z&to=2020-03-25T03:11:42Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -3498,7 +3498,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /search/~/search/usermetrics/users`
+`POST https://api.moesif.com/v1/search/~/search/usermetrics/users`
 
 <h4 id="searchUserMetricsParent-parameters">Parameters</h4>
 
@@ -3677,7 +3677,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET /search/~/mappings/users/properties`
+`GET https://api.moesif.com/v1/search/~/mappings/users/properties`
 
 <h4 id="getProperties-parameters">Parameters</h4>
 
@@ -3852,7 +3852,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET /search/~/companies/{id}`
+`GET https://api.moesif.com/v1/search/~/companies/{id}`
 
 <h4 id="getCompany-parameters">Parameters</h4>
 
@@ -4020,7 +4020,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE /search/~/companies/{id}`
+`DELETE https://api.moesif.com/v1/search/~/companies/{id}`
 
 <h4 id="deleteCompany-parameters">Parameters</h4>
 
@@ -4185,7 +4185,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /search/~/search/companies`
+`POST https://api.moesif.com/v1/search/~/search/companies`
 
 <h4 id="searchCompanies-parameters">Parameters</h4>
 
@@ -4359,7 +4359,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /search/~/companies`
+`POST https://api.moesif.com/v1/search/~/companies`
 
 <h4 id="updateCompanies-parameters">Parameters</h4>
 
@@ -4533,7 +4533,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /search/~/companies/batch`
+`POST https://api.moesif.com/v1/search/~/companies/batch`
 
 <h4 id="batchUpdateCompanies-parameters">Parameters</h4>
 
@@ -4708,7 +4708,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /search/~/count/companies`
+`POST https://api.moesif.com/v1/search/~/count/companies`
 
 <h4 id="countCompanies-parameters">Parameters</h4>
 
@@ -4746,7 +4746,7 @@ managementAPIToken ( Scopes: read:companies )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search/events?from=2019-11-27T01:02:01Z&to=2019-11-27T01:02:01Z \
+curl -X POST https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search/events?from=2020-03-25T03:11:42Z&to=2020-03-25T03:11:42Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -4761,7 +4761,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search/events?from=2019-11-27T01:02:01Z&to=2019-11-27T01:02:01Z',
+fetch('https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search/events?from=2020-03-25T03:11:42Z&to=2020-03-25T03:11:42Z',
 {
   method: 'POST',
 
@@ -4783,7 +4783,7 @@ headers = {
 }
 
 r = requests.post('https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search/events', params={
-  'from': '2019-11-27T01:02:01Z',  'to': '2019-11-27T01:02:01Z'
+  'from': '2020-03-25T03:11:42Z',  'to': '2020-03-25T03:11:42Z'
 }, headers = headers)
 
 print r.json()
@@ -4870,7 +4870,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search/events?from=2019-11-27T01:02:01Z&to=2019-11-27T01:02:01Z");
+URL obj = new URL("https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search/events?from=2020-03-25T03:11:42Z&to=2020-03-25T03:11:42Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -4886,7 +4886,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /search/~/workspaces/{workspaceId}/search/events`
+`POST https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search/events`
 
 <h4 id="searchWorkspaceEvents-parameters">Parameters</h4>
 
@@ -5077,7 +5077,7 @@ managementAPIToken ( Scopes: read:events )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/count/events?from=2019-11-27T01:02:01Z&to=2019-11-27T01:02:01Z \
+curl -X POST https://api.moesif.com/v1/search/~/count/events?from=2020-03-25T03:11:42Z&to=2020-03-25T03:11:42Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -5092,7 +5092,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/count/events?from=2019-11-27T01:02:01Z&to=2019-11-27T01:02:01Z',
+fetch('https://api.moesif.com/v1/search/~/count/events?from=2020-03-25T03:11:42Z&to=2020-03-25T03:11:42Z',
 {
   method: 'POST',
 
@@ -5114,7 +5114,7 @@ headers = {
 }
 
 r = requests.post('https://api.moesif.com/v1/search/~/count/events', params={
-  'from': '2019-11-27T01:02:01Z',  'to': '2019-11-27T01:02:01Z'
+  'from': '2020-03-25T03:11:42Z',  'to': '2020-03-25T03:11:42Z'
 }, headers = headers)
 
 print r.json()
@@ -5201,7 +5201,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/count/events?from=2019-11-27T01:02:01Z&to=2019-11-27T01:02:01Z");
+URL obj = new URL("https://api.moesif.com/v1/search/~/count/events?from=2020-03-25T03:11:42Z&to=2020-03-25T03:11:42Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -5217,7 +5217,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /search/~/count/events`
+`POST https://api.moesif.com/v1/search/~/count/events`
 
 <h4 id="countEvents-parameters">Parameters</h4>
 
@@ -5255,7 +5255,7 @@ managementAPIToken ( Scopes: read:events )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/search/events?from=2019-11-27T01:02:01Z&to=2019-11-27T01:02:01Z \
+curl -X POST https://api.moesif.com/v1/search/~/search/events?from=2020-03-25T03:11:42Z&to=2020-03-25T03:11:42Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -5270,7 +5270,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/search/events?from=2019-11-27T01:02:01Z&to=2019-11-27T01:02:01Z',
+fetch('https://api.moesif.com/v1/search/~/search/events?from=2020-03-25T03:11:42Z&to=2020-03-25T03:11:42Z',
 {
   method: 'POST',
 
@@ -5292,7 +5292,7 @@ headers = {
 }
 
 r = requests.post('https://api.moesif.com/v1/search/~/search/events', params={
-  'from': '2019-11-27T01:02:01Z',  'to': '2019-11-27T01:02:01Z'
+  'from': '2020-03-25T03:11:42Z',  'to': '2020-03-25T03:11:42Z'
 }, headers = headers)
 
 print r.json()
@@ -5379,7 +5379,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/search/events?from=2019-11-27T01:02:01Z&to=2019-11-27T01:02:01Z");
+URL obj = new URL("https://api.moesif.com/v1/search/~/search/events?from=2020-03-25T03:11:42Z&to=2020-03-25T03:11:42Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -5395,7 +5395,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /search/~/search/events`
+`POST https://api.moesif.com/v1/search/~/search/events`
 
 <h4 id="searchEvents-parameters">Parameters</h4>
 
@@ -5585,7 +5585,7 @@ managementAPIToken ( Scopes: read:events )
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/search/~/events/{id}?event_time=2019-11-27T01:02:01Z \
+curl -X GET https://api.moesif.com/v1/search/~/events/{id}?event_time=2020-03-25T03:11:42Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -5600,7 +5600,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/events/{id}?event_time=2019-11-27T01:02:01Z',
+fetch('https://api.moesif.com/v1/search/~/events/{id}?event_time=2020-03-25T03:11:42Z',
 {
   method: 'GET',
 
@@ -5622,7 +5622,7 @@ headers = {
 }
 
 r = requests.get('https://api.moesif.com/v1/search/~/events/{id}', params={
-  'event_time': '2019-11-27T01:02:01Z'
+  'event_time': '2020-03-25T03:11:42Z'
 }, headers = headers)
 
 print r.json()
@@ -5708,7 +5708,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/events/{id}?event_time=2019-11-27T01:02:01Z");
+URL obj = new URL("https://api.moesif.com/v1/search/~/events/{id}?event_time=2020-03-25T03:11:42Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -5724,7 +5724,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET /search/~/events/{id}`
+`GET https://api.moesif.com/v1/search/~/events/{id}`
 
 <h4 id="getEvent-parameters">Parameters</h4>
 
@@ -6040,7 +6040,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /search/~/count/users`
+`POST https://api.moesif.com/v1/search/~/count/users`
 
 <h4 id="countUsers-parameters">Parameters</h4>
 
@@ -6214,7 +6214,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /search/~/users`
+`POST https://api.moesif.com/v1/search/~/users`
 
 <h4 id="updateUsers-parameters">Parameters</h4>
 
@@ -6485,7 +6485,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /search/~/search/users`
+`POST https://api.moesif.com/v1/search/~/search/users`
 
 <h4 id="searchUsers-parameters">Parameters</h4>
 
@@ -6770,7 +6770,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST /search/~/users/batch`
+`POST https://api.moesif.com/v1/search/~/users/batch`
 
 <h4 id="batchUpdateUsers-parameters">Parameters</h4>
 
@@ -7041,7 +7041,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET /search/~/users/{id}`
+`GET https://api.moesif.com/v1/search/~/users/{id}`
 
 <h4 id="getUser-parameters">Parameters</h4>
 
@@ -7306,7 +7306,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE /search/~/users/{id}`
+`DELETE https://api.moesif.com/v1/search/~/users/{id}`
 
 <h4 id="deleteUser-parameters">Parameters</h4>
 
