@@ -4408,7 +4408,7 @@ curl -X POST https://api.moesif.com/v1/replay/~/workspaces/<span class="o">{</sp
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">POST /replay/~/workspaces/{id}/policy/acl</code></p>
+<p><code class="prettyprint">POST https://api.moesif.com/v1/replay/~/workspaces/{id}/policy/acl</code></p>
 
 <h4 id="addACLPermissions-parameters">Parameters</h4>
 
@@ -4600,7 +4600,7 @@ curl -X DELETE https://api.moesif.com/v1/replay/~/workspaces/<span class="o">{</
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">DELETE /replay/~/workspaces/{id}/policy/acl</code></p>
+<p><code class="prettyprint">DELETE https://api.moesif.com/v1/replay/~/workspaces/{id}/policy/acl</code></p>
 
 <h4 id="deleteACLPermissions-parameters">Parameters</h4>
 
@@ -4784,7 +4784,7 @@ curl -X POST https://api.moesif.com/v1/replay/~/workspaces/<span class="o">{</sp
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">POST /replay/~/workspaces/{id}/comments</code></p>
+<p><code class="prettyprint">POST https://api.moesif.com/v1/replay/~/workspaces/{id}/comments</code></p>
 
 <h4 id="createComment-parameters">Parameters</h4>
 
@@ -4961,7 +4961,7 @@ curl -X POST https://api.moesif.com/v1/replay/~/workspaces/<span class="o">{</sp
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">POST /replay/~/workspaces/{id}</code></p>
+<p><code class="prettyprint">POST https://api.moesif.com/v1/replay/~/workspaces/{id}</code></p>
 
 <h4 id="updateWorkspace-parameters">Parameters</h4>
 
@@ -5144,7 +5144,7 @@ curl -X GET https://api.moesif.com/v1/replay/~/workspaces/<span class="o">{</spa
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">GET /replay/~/workspaces/{id}</code></p>
+<p><code class="prettyprint">GET https://api.moesif.com/v1/replay/~/workspaces/{id}</code></p>
 
 <h4 id="getWorkspace-parameters">Parameters</h4>
 
@@ -5339,7 +5339,7 @@ curl -X DELETE https://api.moesif.com/v1/replay/~/workspaces/<span class="o">{</
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">DELETE /replay/~/workspaces/{id}</code></p>
+<p><code class="prettyprint">DELETE https://api.moesif.com/v1/replay/~/workspaces/{id}</code></p>
 
 <h4 id="deleteWorkspace-parameters">Parameters</h4>
 
@@ -5521,7 +5521,7 @@ curl -X GET https://api.moesif.com/v1/replay/workspaces/access_token <span class
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">GET /replay/workspaces/access_token</code></p>
+<p><code class="prettyprint">GET https://api.moesif.com/v1/replay/workspaces/access_token</code></p>
 
 <p>Get a new Workspace Access Token</p>
 
@@ -5708,7 +5708,7 @@ curl -X POST https://api.moesif.com/v1/replay/~/workspaces?app_id<span class="o"
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">POST /replay/~/workspaces</code></p>
+<p><code class="prettyprint">POST https://api.moesif.com/v1/replay/~/workspaces</code></p>
 
 <h4 id="createWorkspace-parameters">Parameters</h4>
 
@@ -5913,7 +5913,7 @@ curl -X GET https://api.moesif.com/v1/replay/~/workspaces?app_id<span class="o">
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">GET /replay/~/workspaces</code></p>
+<p><code class="prettyprint">GET https://api.moesif.com/v1/replay/~/workspaces</code></p>
 
 <h4 id="getWorkspaces-parameters">Parameters</h4>
 
@@ -6138,7 +6138,7 @@ curl -X POST https://api.moesif.com/v1/replay/~/workspaces/default?app_id<span c
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">POST /replay/~/workspaces/default</code></p>
+<p><code class="prettyprint">POST https://api.moesif.com/v1/replay/~/workspaces/default</code></p>
 
 <h4 id="createDefaultWorkspaces-parameters">Parameters</h4>
 
@@ -6334,7 +6334,7 @@ curl -X GET https://api.moesif.com/v1/~/oauth/tokeninfo?scope<span class="o">=</
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">GET /~/oauth/tokeninfo</code></p>
+<p><code class="prettyprint">GET https://api.moesif.com/v1/~/oauth/tokeninfo</code></p>
 
 <p>Get info for user&rsquo;s token</p>
 
@@ -6524,7 +6524,7 @@ curl -X GET https://api.moesif.com/v1/~/oauth/access_tokens?target<span class="o
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">GET /~/oauth/access_tokens</code></p>
+<p><code class="prettyprint">GET https://api.moesif.com/v1/~/oauth/access_tokens</code></p>
 
 <p>Get a new access_token using logged in user&rsquo;s token</p>
 
@@ -6723,7 +6723,7 @@ curl -X POST https://api.moesif.com/v1/url_encoder
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">POST /url_encoder</code></p>
+<p><code class="prettyprint">POST https://api.moesif.com/v1/url_encoder</code></p>
 
 <p>Encodes the URL to be used with Moesif Collector/Proxy Server</p>
 
@@ -6919,7 +6919,7 @@ curl -X POST https://api.moesif.com/v1/~/apps <span class="se">\</span>
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">POST /~/apps</code></p>
+<p><code class="prettyprint">POST https://api.moesif.com/v1/~/apps</code></p>
 
 <p>Create a new app under the selected organization</p>
 
@@ -7133,7 +7133,7 @@ curl -X GET https://api.moesif.com/v1/~/apps?take<span class="o">=</span>0 <span
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">GET /~/apps</code></p>
+<p><code class="prettyprint">GET https://api.moesif.com/v1/~/apps</code></p>
 
 <p>Gets a list of apps for the selected organization</p>
 
@@ -7355,7 +7355,7 @@ curl -X POST https://api.moesif.com/v1/~/apps/<span class="o">{</span>id<span cl
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">POST /~/apps/{id}</code></p>
+<p><code class="prettyprint">POST https://api.moesif.com/v1/~/apps/{id}</code></p>
 
 <p>Update the name of the app for the selected organization</p>
 
@@ -7561,7 +7561,7 @@ curl -X DELETE https://api.moesif.com/v1/~/apps/<span class="o">{</span>id<span 
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">DELETE /~/apps/{id}</code></p>
+<p><code class="prettyprint">DELETE https://api.moesif.com/v1/~/apps/{id}</code></p>
 
 <p>Delete the app for the selected organization</p>
 
@@ -7752,7 +7752,7 @@ curl -X GET https://api.moesif.com/v1/health/probe <span class="se">\</span>
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">GET /health/probe</code></p>
+<p><code class="prettyprint">GET https://api.moesif.com/v1/health/probe</code></p>
 
 <blockquote>
 <p>Example response</p>
@@ -7818,7 +7818,7 @@ This operation does not require authentication
 
 <p><a id="opIdsearchUserMetricsChild"></a></p>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from<span class="o">=</span>2019-11-27T01:02:01Z&amp;to<span class="o">=</span>2019-11-27T01:02:01Z <span class="se">\</span>
+curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from<span class="o">=</span>2020-03-25T03:11:42Z&amp;to<span class="o">=</span>2020-03-25T03:11:42Z <span class="se">\</span>
   -H <span class="s1">'Accept: 0'</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer {access-token}'</span>
 
@@ -7830,7 +7830,7 @@ curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from<
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from=2019-11-27T01:02:01Z&amp;to=2019-11-27T01:02:01Z'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from=2020-03-25T03:11:42Z&amp;to=2020-03-25T03:11:42Z'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
 
@@ -7849,7 +7849,7 @@ curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from<
 <span class="p">}</span>
 
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/search/usermetrics/metrics'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
-  <span class="s">'from'</span><span class="p">:</span> <span class="s">'2019-11-27T01:02:01Z'</span><span class="p">,</span>  <span class="s">'to'</span><span class="p">:</span> <span class="s">'2019-11-27T01:02:01Z'</span>
+  <span class="s">'from'</span><span class="p">:</span> <span class="s">'2020-03-25T03:11:42Z'</span><span class="p">,</span>  <span class="s">'to'</span><span class="p">:</span> <span class="s">'2020-03-25T03:11:42Z'</span>
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
 <span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
@@ -7924,7 +7924,7 @@ curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from<
     </span><span class="c">// ...</span><span class="x">
 </span><span class="p">}</span><span class="x">
 
-</span></code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from=2019-11-27T01:02:01Z&amp;to=2019-11-27T01:02:01Z"</span><span class="o">);</span>
+</span></code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from=2020-03-25T03:11:42Z&amp;to=2020-03-25T03:11:42Z"</span><span class="o">);</span>
 <span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
 <span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"POST"</span><span class="o">);</span>
 <span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
@@ -7939,7 +7939,7 @@ curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from<
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">POST /search/~/search/usermetrics/metrics</code></p>
+<p><code class="prettyprint">POST https://api.moesif.com/v1/search/~/search/usermetrics/metrics</code></p>
 
 <h4 id="searchUserMetricsChild-parameters">Parameters</h4>
 
@@ -8034,7 +8034,7 @@ managementAPIToken ( Scopes: read:users )
 
 <p><a id="opIdsearchUserMetricsParent"></a></p>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/users?from<span class="o">=</span>2019-11-27T01:02:01Z&amp;to<span class="o">=</span>2019-11-27T01:02:01Z <span class="se">\</span>
+curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/users?from<span class="o">=</span>2020-03-25T03:11:42Z&amp;to<span class="o">=</span>2020-03-25T03:11:42Z <span class="se">\</span>
   -H <span class="s1">'Accept: 0'</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer {access-token}'</span>
 
@@ -8046,7 +8046,7 @@ curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/users?from<sp
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/search/~/search/usermetrics/users?from=2019-11-27T01:02:01Z&amp;to=2019-11-27T01:02:01Z'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/search/~/search/usermetrics/users?from=2020-03-25T03:11:42Z&amp;to=2020-03-25T03:11:42Z'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
 
@@ -8065,7 +8065,7 @@ curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/users?from<sp
 <span class="p">}</span>
 
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/search/usermetrics/users'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
-  <span class="s">'from'</span><span class="p">:</span> <span class="s">'2019-11-27T01:02:01Z'</span><span class="p">,</span>  <span class="s">'to'</span><span class="p">:</span> <span class="s">'2019-11-27T01:02:01Z'</span>
+  <span class="s">'from'</span><span class="p">:</span> <span class="s">'2020-03-25T03:11:42Z'</span><span class="p">,</span>  <span class="s">'to'</span><span class="p">:</span> <span class="s">'2020-03-25T03:11:42Z'</span>
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
 <span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
@@ -8140,7 +8140,7 @@ curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/users?from<sp
     </span><span class="c">// ...</span><span class="x">
 </span><span class="p">}</span><span class="x">
 
-</span></code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/search/~/search/usermetrics/users?from=2019-11-27T01:02:01Z&amp;to=2019-11-27T01:02:01Z"</span><span class="o">);</span>
+</span></code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/search/~/search/usermetrics/users?from=2020-03-25T03:11:42Z&amp;to=2020-03-25T03:11:42Z"</span><span class="o">);</span>
 <span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
 <span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"POST"</span><span class="o">);</span>
 <span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
@@ -8155,7 +8155,7 @@ curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/users?from<sp
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">POST /search/~/search/usermetrics/users</code></p>
+<p><code class="prettyprint">POST https://api.moesif.com/v1/search/~/search/usermetrics/users</code></p>
 
 <h4 id="searchUserMetricsParent-parameters">Parameters</h4>
 
@@ -8372,7 +8372,7 @@ curl -X GET https://api.moesif.com/v1/search/~/mappings/users/properties?app_id<
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">GET /search/~/mappings/users/properties</code></p>
+<p><code class="prettyprint">GET https://api.moesif.com/v1/search/~/mappings/users/properties</code></p>
 
 <h4 id="getProperties-parameters">Parameters</h4>
 
@@ -8567,7 +8567,7 @@ curl -X GET https://api.moesif.com/v1/search/~/companies/<span class="o">{</span
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">GET /search/~/companies/{id}</code></p>
+<p><code class="prettyprint">GET https://api.moesif.com/v1/search/~/companies/{id}</code></p>
 
 <h4 id="getCompany-parameters">Parameters</h4>
 
@@ -8761,7 +8761,7 @@ curl -X DELETE https://api.moesif.com/v1/search/~/companies/<span class="o">{</s
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">DELETE /search/~/companies/{id}</code></p>
+<p><code class="prettyprint">DELETE https://api.moesif.com/v1/search/~/companies/{id}</code></p>
 
 <h4 id="deleteCompany-parameters">Parameters</h4>
 
@@ -8943,7 +8943,7 @@ curl -X POST https://api.moesif.com/v1/search/~/search/companies <span class="se
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">POST /search/~/search/companies</code></p>
+<p><code class="prettyprint">POST https://api.moesif.com/v1/search/~/search/companies</code></p>
 
 <h4 id="searchCompanies-parameters">Parameters</h4>
 
@@ -9143,7 +9143,7 @@ curl -X POST https://api.moesif.com/v1/search/~/companies <span class="se">\</sp
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">POST /search/~/companies</code></p>
+<p><code class="prettyprint">POST https://api.moesif.com/v1/search/~/companies</code></p>
 
 <h4 id="updateCompanies-parameters">Parameters</h4>
 
@@ -9343,7 +9343,7 @@ curl -X POST https://api.moesif.com/v1/search/~/companies/batch <span class="se"
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">POST /search/~/companies/batch</code></p>
+<p><code class="prettyprint">POST https://api.moesif.com/v1/search/~/companies/batch</code></p>
 
 <h4 id="batchUpdateCompanies-parameters">Parameters</h4>
 
@@ -9544,7 +9544,7 @@ curl -X POST https://api.moesif.com/v1/search/~/count/companies?app_id<span clas
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">POST /search/~/count/companies</code></p>
+<p><code class="prettyprint">POST https://api.moesif.com/v1/search/~/count/companies</code></p>
 
 <h4 id="countCompanies-parameters">Parameters</h4>
 
@@ -9627,7 +9627,7 @@ managementAPIToken ( Scopes: read:companies )
 
 <p><a id="opIdsearchWorkspaceEvents"></a></p>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.moesif.com/v1/search/~/workspaces/<span class="o">{</span>workspaceId<span class="o">}</span>/search/events?from<span class="o">=</span>2019-11-27T01:02:01Z&amp;to<span class="o">=</span>2019-11-27T01:02:01Z <span class="se">\</span>
+curl -X POST https://api.moesif.com/v1/search/~/workspaces/<span class="o">{</span>workspaceId<span class="o">}</span>/search/events?from<span class="o">=</span>2020-03-25T03:11:42Z&amp;to<span class="o">=</span>2020-03-25T03:11:42Z <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer {access-token}'</span>
 
@@ -9639,7 +9639,7 @@ curl -X POST https://api.moesif.com/v1/search/~/workspaces/<span class="o">{</sp
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search/events?from=2019-11-27T01:02:01Z&amp;to=2019-11-27T01:02:01Z'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search/events?from=2020-03-25T03:11:42Z&amp;to=2020-03-25T03:11:42Z'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
 
@@ -9658,7 +9658,7 @@ curl -X POST https://api.moesif.com/v1/search/~/workspaces/<span class="o">{</sp
 <span class="p">}</span>
 
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search/events'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
-  <span class="s">'from'</span><span class="p">:</span> <span class="s">'2019-11-27T01:02:01Z'</span><span class="p">,</span>  <span class="s">'to'</span><span class="p">:</span> <span class="s">'2019-11-27T01:02:01Z'</span>
+  <span class="s">'from'</span><span class="p">:</span> <span class="s">'2020-03-25T03:11:42Z'</span><span class="p">,</span>  <span class="s">'to'</span><span class="p">:</span> <span class="s">'2020-03-25T03:11:42Z'</span>
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
 <span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
@@ -9733,7 +9733,7 @@ curl -X POST https://api.moesif.com/v1/search/~/workspaces/<span class="o">{</sp
     </span><span class="c">// ...</span><span class="x">
 </span><span class="p">}</span><span class="x">
 
-</span></code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search/events?from=2019-11-27T01:02:01Z&amp;to=2019-11-27T01:02:01Z"</span><span class="o">);</span>
+</span></code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search/events?from=2020-03-25T03:11:42Z&amp;to=2020-03-25T03:11:42Z"</span><span class="o">);</span>
 <span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
 <span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"POST"</span><span class="o">);</span>
 <span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
@@ -9748,7 +9748,7 @@ curl -X POST https://api.moesif.com/v1/search/~/workspaces/<span class="o">{</sp
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">POST /search/~/workspaces/{workspaceId}/search/events</code></p>
+<p><code class="prettyprint">POST https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search/events</code></p>
 
 <h4 id="searchWorkspaceEvents-parameters">Parameters</h4>
 
@@ -10324,7 +10324,7 @@ managementAPIToken ( Scopes: read:events )
 
 <p><a id="opIdcountEvents"></a></p>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.moesif.com/v1/search/~/count/events?from<span class="o">=</span>2019-11-27T01:02:01Z&amp;to<span class="o">=</span>2019-11-27T01:02:01Z <span class="se">\</span>
+curl -X POST https://api.moesif.com/v1/search/~/count/events?from<span class="o">=</span>2020-03-25T03:11:42Z&amp;to<span class="o">=</span>2020-03-25T03:11:42Z <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer {access-token}'</span>
 
@@ -10336,7 +10336,7 @@ curl -X POST https://api.moesif.com/v1/search/~/count/events?from<span class="o"
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/search/~/count/events?from=2019-11-27T01:02:01Z&amp;to=2019-11-27T01:02:01Z'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/search/~/count/events?from=2020-03-25T03:11:42Z&amp;to=2020-03-25T03:11:42Z'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
 
@@ -10355,7 +10355,7 @@ curl -X POST https://api.moesif.com/v1/search/~/count/events?from<span class="o"
 <span class="p">}</span>
 
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/count/events'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
-  <span class="s">'from'</span><span class="p">:</span> <span class="s">'2019-11-27T01:02:01Z'</span><span class="p">,</span>  <span class="s">'to'</span><span class="p">:</span> <span class="s">'2019-11-27T01:02:01Z'</span>
+  <span class="s">'from'</span><span class="p">:</span> <span class="s">'2020-03-25T03:11:42Z'</span><span class="p">,</span>  <span class="s">'to'</span><span class="p">:</span> <span class="s">'2020-03-25T03:11:42Z'</span>
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
 <span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
@@ -10430,7 +10430,7 @@ curl -X POST https://api.moesif.com/v1/search/~/count/events?from<span class="o"
     </span><span class="c">// ...</span><span class="x">
 </span><span class="p">}</span><span class="x">
 
-</span></code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/search/~/count/events?from=2019-11-27T01:02:01Z&amp;to=2019-11-27T01:02:01Z"</span><span class="o">);</span>
+</span></code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/search/~/count/events?from=2020-03-25T03:11:42Z&amp;to=2020-03-25T03:11:42Z"</span><span class="o">);</span>
 <span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
 <span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"POST"</span><span class="o">);</span>
 <span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
@@ -10445,7 +10445,7 @@ curl -X POST https://api.moesif.com/v1/search/~/count/events?from<span class="o"
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">POST /search/~/count/events</code></p>
+<p><code class="prettyprint">POST https://api.moesif.com/v1/search/~/count/events</code></p>
 
 <h4 id="countEvents-parameters">Parameters</h4>
 
@@ -10540,7 +10540,7 @@ managementAPIToken ( Scopes: read:events )
 
 <p><a id="opIdsearchEvents"></a></p>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.moesif.com/v1/search/~/search/events?from<span class="o">=</span>2019-11-27T01:02:01Z&amp;to<span class="o">=</span>2019-11-27T01:02:01Z <span class="se">\</span>
+curl -X POST https://api.moesif.com/v1/search/~/search/events?from<span class="o">=</span>2020-03-25T03:11:42Z&amp;to<span class="o">=</span>2020-03-25T03:11:42Z <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer {access-token}'</span>
 
@@ -10552,7 +10552,7 @@ curl -X POST https://api.moesif.com/v1/search/~/search/events?from<span class="o
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/search/~/search/events?from=2019-11-27T01:02:01Z&amp;to=2019-11-27T01:02:01Z'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/search/~/search/events?from=2020-03-25T03:11:42Z&amp;to=2020-03-25T03:11:42Z'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
 
@@ -10571,7 +10571,7 @@ curl -X POST https://api.moesif.com/v1/search/~/search/events?from<span class="o
 <span class="p">}</span>
 
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/search/events'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
-  <span class="s">'from'</span><span class="p">:</span> <span class="s">'2019-11-27T01:02:01Z'</span><span class="p">,</span>  <span class="s">'to'</span><span class="p">:</span> <span class="s">'2019-11-27T01:02:01Z'</span>
+  <span class="s">'from'</span><span class="p">:</span> <span class="s">'2020-03-25T03:11:42Z'</span><span class="p">,</span>  <span class="s">'to'</span><span class="p">:</span> <span class="s">'2020-03-25T03:11:42Z'</span>
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
 <span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
@@ -10646,7 +10646,7 @@ curl -X POST https://api.moesif.com/v1/search/~/search/events?from<span class="o
     </span><span class="c">// ...</span><span class="x">
 </span><span class="p">}</span><span class="x">
 
-</span></code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/search/~/search/events?from=2019-11-27T01:02:01Z&amp;to=2019-11-27T01:02:01Z"</span><span class="o">);</span>
+</span></code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/search/~/search/events?from=2020-03-25T03:11:42Z&amp;to=2020-03-25T03:11:42Z"</span><span class="o">);</span>
 <span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
 <span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"POST"</span><span class="o">);</span>
 <span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
@@ -10661,7 +10661,7 @@ curl -X POST https://api.moesif.com/v1/search/~/search/events?from<span class="o
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">POST /search/~/search/events</code></p>
+<p><code class="prettyprint">POST https://api.moesif.com/v1/search/~/search/events</code></p>
 
 <h4 id="searchEvents-parameters">Parameters</h4>
 
@@ -11230,7 +11230,7 @@ managementAPIToken ( Scopes: read:events )
 
 <p><a id="opIdgetEvent"></a></p>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X GET https://api.moesif.com/v1/search/~/events/<span class="o">{</span>id<span class="o">}</span>?event_time<span class="o">=</span>2019-11-27T01:02:01Z <span class="se">\</span>
+curl -X GET https://api.moesif.com/v1/search/~/events/<span class="o">{</span>id<span class="o">}</span>?event_time<span class="o">=</span>2020-03-25T03:11:42Z <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer {access-token}'</span>
 
@@ -11242,7 +11242,7 @@ curl -X GET https://api.moesif.com/v1/search/~/events/<span class="o">{</span>id
 
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/search/~/events/{id}?event_time=2019-11-27T01:02:01Z'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/search/~/events/{id}?event_time=2020-03-25T03:11:42Z'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
 
@@ -11261,7 +11261,7 @@ curl -X GET https://api.moesif.com/v1/search/~/events/<span class="o">{</span>id
 <span class="p">}</span>
 
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/events/{id}'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
-  <span class="s">'event_time'</span><span class="p">:</span> <span class="s">'2019-11-27T01:02:01Z'</span>
+  <span class="s">'event_time'</span><span class="p">:</span> <span class="s">'2020-03-25T03:11:42Z'</span>
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
 <span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
@@ -11335,7 +11335,7 @@ curl -X GET https://api.moesif.com/v1/search/~/events/<span class="o">{</span>id
     </span><span class="c">// ...</span><span class="x">
 </span><span class="p">}</span><span class="x">
 
-</span></code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/search/~/events/{id}?event_time=2019-11-27T01:02:01Z"</span><span class="o">);</span>
+</span></code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/search/~/events/{id}?event_time=2020-03-25T03:11:42Z"</span><span class="o">);</span>
 <span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
 <span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"GET"</span><span class="o">);</span>
 <span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
@@ -11350,7 +11350,7 @@ curl -X GET https://api.moesif.com/v1/search/~/events/<span class="o">{</span>id
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">GET /search/~/events/{id}</code></p>
+<p><code class="prettyprint">GET https://api.moesif.com/v1/search/~/events/{id}</code></p>
 
 <h4 id="getEvent-parameters">Parameters</h4>
 
@@ -11995,7 +11995,7 @@ curl -X POST https://api.moesif.com/v1/search/~/count/users?app_id<span class="o
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">POST /search/~/count/users</code></p>
+<p><code class="prettyprint">POST https://api.moesif.com/v1/search/~/count/users</code></p>
 
 <h4 id="countUsers-parameters">Parameters</h4>
 
@@ -12195,7 +12195,7 @@ curl -X POST https://api.moesif.com/v1/search/~/users <span class="se">\</span>
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">POST /search/~/users</code></p>
+<p><code class="prettyprint">POST https://api.moesif.com/v1/search/~/users</code></p>
 
 <h4 id="updateUsers-parameters">Parameters</h4>
 
@@ -12694,7 +12694,7 @@ curl -X POST https://api.moesif.com/v1/search/~/search/users <span class="se">\<
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">POST /search/~/search/users</code></p>
+<p><code class="prettyprint">POST https://api.moesif.com/v1/search/~/search/users</code></p>
 
 <h4 id="searchUsers-parameters">Parameters</h4>
 
@@ -13232,7 +13232,7 @@ curl -X POST https://api.moesif.com/v1/search/~/users/batch <span class="se">\</
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">POST /search/~/users/batch</code></p>
+<p><code class="prettyprint">POST https://api.moesif.com/v1/search/~/users/batch</code></p>
 
 <h4 id="batchUpdateUsers-parameters">Parameters</h4>
 
@@ -13731,7 +13731,7 @@ curl -X GET https://api.moesif.com/v1/search/~/users/<span class="o">{</span>id<
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">GET /search/~/users/{id}</code></p>
+<p><code class="prettyprint">GET https://api.moesif.com/v1/search/~/users/{id}</code></p>
 
 <h4 id="getUser-parameters">Parameters</h4>
 
@@ -14224,7 +14224,7 @@ curl -X DELETE https://api.moesif.com/v1/search/~/users/<span class="o">{</span>
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
 </code></pre>
-<p><code class="prettyprint">DELETE /search/~/users/{id}</code></p>
+<p><code class="prettyprint">DELETE https://api.moesif.com/v1/search/~/users/{id}</code></p>
 
 <h4 id="deleteUser-parameters">Parameters</h4>
 
