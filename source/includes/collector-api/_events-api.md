@@ -1,11 +1,15 @@
-## Events
+## API Calls
 
-### Create an Event
+### Log an API Call
 
 **`POST https://api.moesif.net/v1/events`**
 
 Log a single API call to Moesif.
-The request body itself is a single API Call object consisting of both the API request and API response.
+The request payload is a single API call consisting of the API request, the API response, and any custom event metadata.
+
+<aside class="warning">
+For logging API data, Moesif recommends most customers integrate with a <a href="https://www.moesif.com/implementation">server SDK or gateway plugin</a> as these handle the data manipulation and batching automatically for common environments.
+</aside>
 
 <aside class="info">
 Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
@@ -18,7 +22,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 ```yaml
   {
     "request": {
-      "time": "2020-01-01T04:45:42.914",
+      "time": "2020-04-01T04:45:42.914",
       "uri": "https://api.acmeinc.com/items/12345/reviews/",
       "verb": "POST",
       "api_version": "1.1.0",
@@ -48,7 +52,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
       "transfer_encoding": ""
     },
     "response": {
-      "time": "2020-01-01T04:45:42.914",
+      "time": "2020-04-01T04:45:42.914",
       "status": 500,
       "headers": {
         "Vary": "Accept-Encoding",
@@ -79,10 +83,9 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 ```shell
 # You can also use wget
 curl -X GET https://api.moesif.net/v1/events \
-  -H 'Accept: application/json' \
+  -H 'Content-Type: application/json' \
   -H 'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'
-
-
+  -d '{"request":{"time":"2020-04-01T04:45:42.914","uri":"https://api.acmeinc.com/items/12345/reviews/","verb":"POST","api_version":"1.1.0","ip_address":"61.48.220.123","headers":{"Host":"api.acmeinc.com","Accept":"*/*","Connection":"Keep-Alive","Content-Type":"application/json","Content-Length":"126","Accept-Encoding":"gzip"},"body":{"items":[{"direction_type":1,"item_id":"hello","liked":false},{"direction_type":2,"item_id":"world","liked":true}]},"transfer_encoding":""},"response":{"time":"2020-04-01T04:45:42.914","status":500,"headers":{"Vary":"Accept-Encoding","Pragma":"no-cache","Expires":"-1","Content-Type":"application/json; charset=utf-8","Cache-Control":"no-cache"},"body":{"Error":"InvalidArgumentException","Message":"Missing field location"},"transfer_encoding":""},"user_id":"12345","company_id":"67890","session_token":"XXXXXXXXX","metadata":{"some_string":"I am a string","some_int":77,"some_object":{"some_sub_field":"some_value"}}}'
 ```
 
 ```java
@@ -292,7 +295,7 @@ req_body = APIHelper.json_deserialize( """{
 }""")
 
 rsp_headers = APIHelper.json_deserialize("""  {
-    "Date": "Wed, 01 Jan 2019 23:46:49 GMT",
+    "Date": "Wed, 01 April 2020 23:46:49 GMT",
     "Vary": "Accept-Encoding",
     "Pragma": "no-cache",
     "Expires": "-1",
@@ -360,7 +363,7 @@ req_body = JSON.parse( '{'\
 '}')
 
 rsp_headers = JSON.parse('{'\
-  '"Date": "Wed, 01 Jan 2019 23:46:49 GMT",'\
+  '"Date": "Wed, 01 April 2020 23:46:49 GMT",'\
                 '"Vary": "Accept-Encoding",'\
   '"Pragma": "no-cache",'\
   '"Expires": "-1",'\
@@ -375,7 +378,7 @@ rsp_body = JSON.parse('{'\
 
 
 event_req = EventRequestModel.new()
-event_req.time = "2020-01-01T04:45:42.914"
+event_req.time = "2020-04-01T04:45:42.914"
 event_req.uri = "https://api.acmeinc.com/items/reviews/"
 event_req.verb = "PATCH"
 event_req.api_version = "1.1.0"
@@ -384,7 +387,7 @@ event_req.headers = req_headers
 event_req.body = req_body
 
 event_rsp = EventResponseModel.new()
-event_rsp.time = "2020-01-01T04:45:42.914"
+event_rsp.time = "2020-04-01T04:45:42.914"
 event_rsp.status = 500
 event_rsp.headers = rsp_headers
 event_rsp.body = rsp_body
@@ -434,7 +437,7 @@ var reqBody = APIHelper.JsonDeserialize<object>(@" {
     }");
 
 var rspHeaders = APIHelper.JsonDeserialize<object>(@" {
-        ""Date"": ""Wed, 01 Jan 2019 23:46:49 GMT"",
+        ""Date"": ""Wed, 01 April 2020 23:46:49 GMT"",
         ""Vary"": ""Accept-Encoding"",
         ""Pragma"": ""no-cache"",
         ""Expires"": ""-1"",
@@ -450,7 +453,7 @@ var rspBody = APIHelper.JsonDeserialize<object>(@" {
 
 var eventReq = new EventRequestModel()
 {
-    Time = DateTime.Parse("2020-01-01T04:45:42.914"),
+    Time = DateTime.Parse("2020-04-01T04:45:42.914"),
     Uri = "https://api.acmeinc.com/items/reviews/",
     Verb = "PATCH",
     ApiVersion = "1.1.0",
@@ -461,7 +464,7 @@ var eventReq = new EventRequestModel()
 
 var eventRsp = new EventResponseModel()
 {
-    Time = DateTime.Parse("2020-01-01T04:45:42.914"),
+    Time = DateTime.Parse("2020-04-01T04:45:42.914"),
     Status = 500,
     Headers = rspHeaders,
     Body = rspBody
@@ -612,7 +615,7 @@ $event->request = array(
            "time" => $rspdate->format(DateTime::ISO8601), 
            "status" => 500, 
            "headers" => array(
-             "Date" => "Tue, 12 July 2019 23:46:49 GMT", 
+             "Date" => "Tue, 1 April 2020 23:46:49 GMT", 
              "Vary" => "Accept-Encoding", 
              "Pragma" => "no-cache", 
              "Expires" => "-1", 
@@ -641,36 +644,36 @@ $api->createEvent($event);
 |Name|Type|Required|Description|
 |-----------|-----------|-----------|-----------|
 request |object | __true__ | The object that specifies the API request.
-<p style="margin-left:1.5em">request.time</p> |string(date-time) | __true__ | Timestamp for the request in ISO 8601 format.
-<p style="margin-left:1.5em">request.uri</p> | string| __true__ | Full uri such as _https://api.acmeinc.com/?query=string_ including protocol, host, and query string.
-<p style="margin-left:1.5em">request.verb</p> | string| __true__ | HTTP method used such as `GET` or `POST`.
-<p style="margin-left:1.5em">request.api_version</p> | string| false | API Version you want to tag this request with such as _1.0.0_.
-<p style="margin-left:1.5em">request.ip_address</p> | string| false | IP address of the requester, If not set, we extract the remote IP address.
-<p style="margin-left:1.5em">request.headers</p> |object | __true__ | Headers of the  request as a `Map<string, string>`. Multiple headers with the same key name should be combined together such that the values are joined by a comma. [HTTP Header Protocol on w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2).
-<p style="margin-left:1.5em">request.body</p> |object | false | Payload of the request in either JSON or a base64 encoded string.
-<p style="margin-left:1.5em">request.transfer_encoding</p> | string | false | Specifies the transfer encoding of _request.body_ field. If set to _json_ then the response.body must be a JSON object. If set to _base64_, then _request.body_ must be a base64 encoded string. Helpful for binary payloads. If not set, the body is assumed to be _json_.
+<p style="margin-left:1.5em">time</p> |string(date-time) | __true__ | Timestamp for the request in ISO 8601 format.
+<p style="margin-left:1.5em">uri</p> | string| __true__ | Full uri such as _https://api.acmeinc.com/?query=string_ including protocol, host, and query string.
+<p style="margin-left:1.5em">verb</p> | string| __true__ | HTTP method used such as `GET` or `POST`.
+<p style="margin-left:1.5em">api_version</p> | string| false | API Version you want to tag this request with such as _1.0.0_.
+<p style="margin-left:1.5em">ip_address</p> | string| false | IP address of the requester, If not set, we extract the remote IP address.
+<p style="margin-left:1.5em">headers</p> |object | __true__ | Headers of the  request as a `Map<string, string>`. Multiple headers with the same key name should be combined together such that the values are joined by a comma. [HTTP Header Protocol on w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2).
+<p style="margin-left:1.5em">body</p> |object | false | Payload of the request in either JSON or a base64 encoded string.
+<p style="margin-left:1.5em">transfer_encoding</p> | string | false | Specifies the transfer encoding of _request.body_ field. If set to _json_ then the response.body must be a JSON object. If set to _base64_, then _request.body_ must be a base64 encoded string. Helpful for binary payloads. If not set, the body is assumed to be _json_.
 ||
 response |object | false | The object that specifies the API response. The response object can be undefined such as a request timeouts.
-<p style="margin-left:1.5em">response.time</p> |string(date-time) | __true__ | Timestamp for the response in ISO 8601 format.
-<p style="margin-left:1.5em">response.status</p> | integer | __true__ | HTTP status code as number such as _200_ or _500_.
-<p style="margin-left:1.5em">response.ip_address</p> | string | false | IP address of the responding server.
-<p style="margin-left:1.5em">response.headers</p> |object | __true__ | Headers of the response as a `Map<string, string>`. Multiple headers with the same key name should be combined together such that the values are joined by a comma. [HTTP Header Protocol on w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2)
-<p style="margin-left:1.5em">response.body</p> |object | false | Payload of the response in either JSON or a base64 encoded string.
-<p style="margin-left:1.5em">response.transfer_encoding</p> | string | false | Specifies the transfer encoding of _response.body_ field. If set to _json_ then the response.body must be a JSON object. If set to _base64_, then _response.body_ must be a base64 encoded string. Helpful for binary payloads. If not set, the body is assumed to be _json_.
+<p style="margin-left:1.5em">time</p> |string(date-time) | __true__ | Timestamp for the response in ISO 8601 format.
+<p style="margin-left:1.5em">status</p> | integer | __true__ | HTTP status code as number such as _200_ or _500_.
+<p style="margin-left:1.5em">ip_address</p> | string | false | IP address of the responding server.
+<p style="margin-left:1.5em">headers</p> |object | __true__ | Headers of the response as a `Map<string, string>`. Multiple headers with the same key name should be combined together such that the values are joined by a comma. [HTTP Header Protocol on w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2)
+<p style="margin-left:1.5em">body</p> |object | false | Payload of the response in either JSON or a base64 encoded string.
+<p style="margin-left:1.5em">transfer_encoding</p> | string | false | Specifies the transfer encoding of _response.body_ field. If set to _json_ then the response.body must be a JSON object. If set to _base64_, then _response.body_ must be a base64 encoded string. Helpful for binary payloads. If not set, the body is assumed to be _json_.
 ||
 session_token | string | false | Set the API key/session token used for this API call. Moesif will auto-detect API sessions if not set.
 user_id | string | false | Associate this API call to a [user](#users).
 company_id | string | false | Associate this API call to a [company](#companies) (Helpful for B2B companies).
 direction | string | false | The direction of this API call which can be _Incoming_ or _Outgoing_.
-metadata | object | false | An object containing any custom properties you want to store with this event.
+metadata | object | false | An object containing any custom event metadata you want to store with this event.
 
 
-### Create an Events Batch
+### Log API Calls in Batch
 
 **`POST https://api.moesif.net/v1/events/batch`**
 
 Creates and logs a batch of API calls to Moesif.
-The request body itself is an array API calls object consisting of both the API request and API response.
+The request payload is an array API calls entities, each consisting of the API request, the API response, and any custom event metadata.
 
 This API takes a list form of the same model defined in create single event.
 
@@ -688,7 +691,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
   [
     {
         "request": {
-          "time": "2020-01-01T04:45:42.914",
+          "time": "2020-04-01T04:45:42.914",
           "uri": "https://api.acmeinc.com/items/83738/reviews/",
           "verb": "POST",
           "api_version": "1.1.0",
@@ -715,10 +718,10 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
               }
             ]
           },
-          "transfer_encoding": "",
+          "transfer_encoding": ""
         },
         "response": {
-          "time": "2020-01-01T04:45:42.914",
+          "time": "2020-04-01T04:45:42.914",
           "status": 500,
           "headers": {
             "Vary": "Accept-Encoding",
@@ -731,7 +734,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
             "Error": "InvalidArgumentException",
             "Message": "Missing field location"
           },
-          "transfer_encoding": "",
+          "transfer_encoding": ""
         },
         "user_id": "12345",
         "company_id": "67890",
@@ -750,10 +753,9 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 ```shell
 # You can also use wget
 curl -X GET https://api.moesif.net/v1/events/batch \
-  -H 'Accept: application/json' \
+  -H 'Content-Type: application/json' \
   -H 'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'
-
-
+  -d '[{"request":{"time":"2020-04-01T04:45:42.914","uri":"https://api.acmeinc.com/items/83738/reviews/","verb":"POST","api_version":"1.1.0","ip_address":"61.48.220.123","headers":{"Host":"api.acmeinc.com","Accept":"*/*","Connection":"Keep-Alive","Content-Type":"application/json","Content-Length":"126","Accept-Encoding":"gzip"},"body":{"items":[{"direction_type":1,"item_id":"hello","liked":false},{"direction_type":2,"item_id":"world","liked":true}]},"transfer_encoding":""},"response":{"time":"2020-04-01T04:45:42.914","status":500,"headers":{"Vary":"Accept-Encoding","Pragma":"no-cache","Expires":"-1","Content-Type":"application/json; charset=utf-8","Cache-Control":"no-cache"},"body":{"Error":"InvalidArgumentException","Message":"Missing field location"},"transfer_encoding":""},"user_id":"12345","company_id":"67890","session_token":"XXXXXXXXX","metadata":{"some_string":"I am a string","some_int":77,"some_object":{"some_sub_field":"some_value"}}}]'
 ```
 
 ```java
@@ -785,7 +787,7 @@ Object reqBody = APIHelper.deserialize("{" +
   "}");
 
 Map<String, String> rspHeaders = new HashMap<String, String>();
-rspHeaders.put("Date", "Wed, 01 Jan 2019 23:46:49 GMT");
+rspHeaders.put("Date", "Wed, 01 April 2020 23:46:49 GMT");
 rspHeaders.put("Vary", "Accept-Encoding");
 rspHeaders.put("Pragma", "no-cache");
 rspHeaders.put("Expires", "-1");
@@ -969,7 +971,7 @@ req_body = APIHelper.json_deserialize( """{
 }""")
 
 rsp_headers = APIHelper.json_deserialize("""  {
-    "Date": "Wed, 01 Jan 2019 23:46:49 GMT",
+    "Date": "Wed, 01 April 2020 23:46:49 GMT",
     "Vary": "Accept-Encoding",
     "Pragma": "no-cache",
     "Expires": "-1",
@@ -1060,7 +1062,7 @@ var reqBody = APIHelper.JsonDeserialize<object>(@" {
     }");
 
 var rspHeaders = APIHelper.JsonDeserialize<object>(@" {
-        ""Date"": ""Wed, 01 Jan 2019 23:46:49 GMT"",
+        ""Date"": ""Wed, 01 April 2020 23:46:49 GMT"",
         ""Vary"": ""Accept-Encoding"",
         ""Pragma"": ""no-cache"",
         ""Expires"": ""-1"",
@@ -1076,7 +1078,7 @@ var rspBody = APIHelper.JsonDeserialize<object>(@" {
 var reqDate = new Date();
 var eventReq = new EventRequestModel()
 {
-    Time = DateTime.Parse("2020-01-01T04:45:42.914"),
+    Time = DateTime.Parse("2020-04-01T04:45:42.914"),
     Uri = "https://api.acmeinc.com/items/reviews/",
     Verb = "PATCH",
     ApiVersion = "1.1.0",
@@ -1087,7 +1089,7 @@ var eventReq = new EventRequestModel()
 
 var eventRsp = new EventResponseModel()
 {
-    Time = DateTime.Parse("2020-01-01T04:45:42.914"),
+    Time = DateTime.Parse("2020-04-01T04:45:42.914"),
     Status = 500,
     Headers = rspHeaders,
     Body = rspBody
@@ -1222,25 +1224,25 @@ $api = $client->getApi();
 |Name|Type|Required|Description|
 |-----------|-----------|-----------|-----------|
 request |object | __true__ | The object that specifies the API request.
-<p style="margin-left:1.5em">request.time</p> |string(date-time) | __true__ | Timestamp for the request in ISO 8601 format.
-<p style="margin-left:1.5em">request.uri</p> | string| __true__ | Full uri such as _https://api.acmeinc.com/?query=string_ including protocol, host, and query string.
-<p style="margin-left:1.5em">request.verb</p> | string| __true__ | HTTP method used such as `GET` or `POST`.
-<p style="margin-left:1.5em">request.api_version</p> | string| false | API Version you want to tag this request with such as _1.0.0_.
-<p style="margin-left:1.5em">request.ip_address</p> | string| false | IP address of the requester, If not set, we extract the remote IP address.
-<p style="margin-left:1.5em">request.headers</p> |object | __true__ | Headers of the  request as a `Map<string, string>`. Multiple headers with the same key name should be combined together such that the values are joined by a comma. [HTTP Header Protocol on w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2).
-<p style="margin-left:1.5em">request.body</p> |object | false | Payload of the request in either JSON or a base64 encoded string.
-<p style="margin-left:1.5em">request.transfer_encoding</p> | string | false | Specifies the transfer encoding of _request.body_ field. If set to _json_ then the response.body must be a JSON object. If set to _base64_, then _request.body_ must be a base64 encoded string. Helpful for binary payloads. If not set, the body is assumed to be _json_.
+<p style="margin-left:1.5em">time</p> |string(date-time) | __true__ | Timestamp for the request in ISO 8601 format.
+<p style="margin-left:1.5em">uri</p> | string| __true__ | Full uri such as _https://api.acmeinc.com/?query=string_ including protocol, host, and query string.
+<p style="margin-left:1.5em">verb</p> | string| __true__ | HTTP method used such as `GET` or `POST`.
+<p style="margin-left:1.5em">api_version</p> | string| false | API Version you want to tag this request with such as _1.0.0_.
+<p style="margin-left:1.5em">ip_address</p> | string| false | IP address of the requester, If not set, we extract the remote IP address.
+<p style="margin-left:1.5em">headers</p> |object | __true__ | Headers of the  request as a `Map<string, string>`. Multiple headers with the same key name should be combined together such that the values are joined by a comma. [HTTP Header Protocol on w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2).
+<p style="margin-left:1.5em">body</p> |object | false | Payload of the request in either JSON or a base64 encoded string.
+<p style="margin-left:1.5em">transfer_encoding</p> | string | false | Specifies the transfer encoding of _request.body_ field. If set to _json_ then the response.body must be a JSON object. If set to _base64_, then _request.body_ must be a base64 encoded string. Helpful for binary payloads. If not set, the body is assumed to be _json_.
 ||
 response |object | false | The object that specifies the API response. The response object can be undefined such as a request timeouts.
-<p style="margin-left:1.5em">response.time</p> |string(date-time) | __true__ | Timestamp for the response in ISO 8601 format.
-<p style="margin-left:1.5em">response.status</p> | integer | __true__ | HTTP status code as number such as _200_ or _500_.
-<p style="margin-left:1.5em">response.ip_address</p> | string | false | IP address of the responding server.
-<p style="margin-left:1.5em">response.headers</p> |object | __true__ | Headers of the response as a `Map<string, string>`. Multiple headers with the same key name should be combined together such that the values are joined by a comma. [HTTP Header Protocol on w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2)
-<p style="margin-left:1.5em">response.body</p> |object | false | Payload of the response in either JSON or a base64 encoded string.
-<p style="margin-left:1.5em">response.transfer_encoding</p> | string | false | Specifies the transfer encoding of _response.body_ field. If set to _json_ then the response.body must be a JSON object. If set to _base64_, then _response.body_ must be a base64 encoded string. Helpful for binary payloads. If not set, the body is assumed to be _json_.
+<p style="margin-left:1.5em">time</p> |string(date-time) | __true__ | Timestamp for the response in ISO 8601 format.
+<p style="margin-left:1.5em">status</p> | integer | __true__ | HTTP status code as number such as _200_ or _500_.
+<p style="margin-left:1.5em">ip_address</p> | string | false | IP address of the responding server.
+<p style="margin-left:1.5em">headers</p> |object | __true__ | Headers of the response as a `Map<string, string>`. Multiple headers with the same key name should be combined together such that the values are joined by a comma. [HTTP Header Protocol on w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2)
+<p style="margin-left:1.5em">body</p> |object | false | Payload of the response in either JSON or a base64 encoded string.
+<p style="margin-left:1.5em">transfer_encoding</p> | string | false | Specifies the transfer encoding of _response.body_ field. If set to _json_ then the response.body must be a JSON object. If set to _base64_, then _response.body_ must be a base64 encoded string. Helpful for binary payloads. If not set, the body is assumed to be _json_.
 ||
 session_token | string | false | Set the API key/session token used for this API call. Moesif will auto-detect API sessions if not set.
 user_id | string | false | Associate this API call to a [user](#users).
 company_id | string | false | Associate this API call to a [company](#companies) (Helpful for B2B companies).
 direction | string | false | The direction of this API call which can be _Incoming_ or _Outgoing_.
-metadata | object | false | An object containing any custom properties you want to store with this event.
+metadata | object | false | An object containing any custom event metadata you want to store with this event.

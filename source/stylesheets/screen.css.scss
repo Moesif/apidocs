@@ -505,6 +505,18 @@ html, body {
   }
 }
 
+// This code will show up in center column rather than the right half
+.content {
+  .center-column + pre {    
+    position: static;
+    float: none;
+    clear: none;
+    margin: 0;
+    left: 0;
+  }
+}
+
+
 ////////////////////////////////////////////////////////////////////////////////
 // CODE SAMPLE STYLES
 ////////////////////////////////////////////////////////////////////////////////

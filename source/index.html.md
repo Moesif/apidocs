@@ -14,9 +14,10 @@ language_tabs:
   - javascript--browser: Browser
 
 toc_footers:
-  - <a href='/docs'>Back to Docs</a>
-  - <a href='/wrap'>My Dashboard</a>
+  - <a href='/docs'>Developer Docs</a>
+  - <a href='/blog/changelog'>Changelog</a>
   - <a href='https://status.moesif.com'>API Status</a>
+  - <a href='/wrap'>My Account</a>
 
 includes:
   - overview
@@ -24,6 +25,7 @@ includes:
   - api-libs
   - collector-api/overview
   - collector-api/events-api
+  - collector-api/actions-api
   - collector-api/users-api
   - collector-api/companies-api
   - management-api/management-api
@@ -36,7 +38,7 @@ search: true
 *User-Centric API Analytics*
 
 This API reference centers around v1 of the Moesif REST APIs and API Client Libs.
-For an overview on the Moesif platform and integration, checkout the [Developer Documentation](/docs)
+For an overview on the Moesif platform, checkout [integration guides](https://www.moesif.com/implementation), or the [developer documentation](/docs) or an 
 
 There are two distinct APIs:
 
@@ -47,7 +49,7 @@ There are two distinct APIs:
 
 ## API definitions
 
-The _Collector API_ is a write-only API for high-volume data ingestion from the Moesif SDKs and API libs. When storing raw data into Moesif like API event data, updating users and companies, use the collector API. 
+The _Collector API_ is a write-only, high-volume data ingestion network used by Moesif SDKs and plugins. Use the collector API to log API calls and user actions along with updating user and company profiles. 
 
-The _Management API_ is for advanced used cases to directly query data residing in Moesif. You can use this API to develop custom dashboards and reports.
+The _Management API_ is enables access to your data in Moesif such as to build embedded charts and custom reports. Many of the integrations such as Salesforce and Zapier use this API.
 

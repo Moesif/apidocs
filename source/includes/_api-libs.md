@@ -1,17 +1,13 @@
 # API Libs
-These open-source libs are convenient libs for the Moesif REST API and are used in the higher level [middleware SDKs](https://www.moesif.com/implementation).  These libs can be used like other web analytics libs with a `sendEvent()` method. There are also methods available to add metadata to user and company profiles.
-These libraries support both sync and async operations.
-
-## Important
-<aside class="warning">
-Moesif has Middleware SDKs designed for common Web API frameworks which are easier to integrate for common environments.
-Checkout <a href="https://www.moesif.com/implementation">implementation overview</a> for more info.
-</aside>
+THese are low-level libraries to access the Moesif REST API and are used like other web analytics libs with a `sendEvent()` and
+`identifyUser()` methods and support both sync and async operations. Moesif also has high-level 
+[server SDKs and API gateway plugin](https://www.moesif.com/implementation) to monitor APIs for popular environments and frameworks 
+which handle data manipulation and batching automatically.
 
 ## How to Install
 
 ```java
-Pick a language at the top
+Pick a language at the top right
 ```
 
 <blockquote class="lang-specific java">
@@ -119,7 +115,7 @@ moesif.init({
 ```
 
 <blockquote class="lang-specific javascript--browser">
-Install via embedded code
+Install via CDN
 </blockquote>
 
 ```javascript--browser
