@@ -172,7 +172,7 @@
   font-weight: bold;
 }
     </style>
-    <link href="//apidocs.moesif.com/stylesheets/screen-85924653.css" rel="stylesheet" media="screen" />
+    <link href="//apidocs.moesif.com/stylesheets/screen-511528cf.css" rel="stylesheet" media="screen" />
     <link href="//apidocs.moesif.com/stylesheets/print-b1632cf2.css" rel="stylesheet" media="print" />
       <script src="//apidocs.moesif.com/javascripts/all-f994bd8f.js"></script>
 
@@ -272,9 +272,10 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='/docs'>Back to Docs</a></li>
-            <li><a href='/wrap'>My Dashboard</a></li>
+            <li><a href='/docs'>Developer Docs</a></li>
+            <li><a href='/blog/changelog'>Changelog</a></li>
             <li><a href='https://status.moesif.com'>API Status</a></li>
+            <li><a href='/wrap'>My Account</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -285,7 +286,7 @@
 <p><em>User-Centric API Analytics</em></p>
 
 <p>This API reference centers around v1 of the Moesif REST APIs and API Client Libs.
-For an overview on the Moesif platform and integration, checkout the <a href="/docs">Developer Documentation</a></p>
+For an overview on the Moesif platform, checkout <a href="https://www.moesif.com/implementation">integration guides</a>, or the <a href="/docs">developer documentation</a> or an </p>
 
 <p>There are two distinct APIs:</p>
 
@@ -310,9 +311,9 @@ For an overview on the Moesif platform and integration, checkout the <a href="/d
 
 <h2 id="api-definitions">API definitions</h2>
 
-<p>The <em>Collector API</em> is a write-only API for high-volume data ingestion from the Moesif SDKs and API libs. When storing raw data into Moesif like API event data, updating users and companies, use the collector API. </p>
+<p>The <em>Collector API</em> is a write-only, high-volume data ingestion network used by Moesif SDKs and plugins. Use the collector API to log API calls and user actions along with updating user and company profiles. </p>
 
-<p>The <em>Management API</em> is for advanced used cases to directly query data residing in Moesif. You can use this API to develop custom dashboards and reports.</p>
+<p>The <em>Management API</em> is enables access to your data in Moesif such as to build embedded charts and custom reports. Many of the integrations such as Salesforce and Zapier use this API.</p>
 
           <h1 id="overview">Overview</h1>
 
@@ -499,15 +500,15 @@ select the respective language tab.</p>
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized &ndash; Your <code class="prettyprint">X-Moesif-Application-Id</code> or <code class="prettyprint">Authorization</code> header is incorrect</td>
+<td>Unauthorized &ndash; Your <code class="prettyprint">X-Moesif-Application-Id</code> or <code class="prettyprint">Authorization</code> header is incorrect or missing required scopes</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden &ndash; You accessed a resource not allowed with your key</td>
+<td>402</td>
+<td>Payment Required &ndash; Your subscription is not active or has been cancelled</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found &ndash; The specified resource could not be found</td>
+<td>Not Found &ndash; The specified endpoint could not be found</td>
 </tr>
 <tr>
 <td>405</td>
@@ -525,22 +526,25 @@ select the respective language tab.</p>
 <td>500</td>
 <td>Internal Server Error &ndash; We had a problem with our server. Please <a href="mailto:support@moesif.com">contact us</a></td>
 </tr>
+<tr>
+<td>502</td>
+<td>Bad Gateway &ndash; A transient error when no server is available to handle your request, retry again or <a href="mailto:support@moesif.com">contact us</a> if problem persists.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable &ndash; A transient error when no server is available to handle your request, retry again or <a href="mailto:support@moesif.com">contact us</a> if problem persists.</td>
+</tr>
 </tbody></table>
 
           <h1 id="api-libs">API Libs</h1>
 
-<p>These open-source libs are convenient libs for the Moesif REST API and are used in the higher level <a href="https://www.moesif.com/implementation">middleware SDKs</a>.  These libs can be used like other web analytics libs with a <code class="prettyprint">sendEvent()</code> method. There are also methods available to add metadata to user and company profiles.
-These libraries support both sync and async operations.</p>
-
-<h2 id="important">Important</h2>
-
-<aside class="warning">
-Moesif has Middleware SDKs designed for common Web API frameworks which are easier to integrate for common environments.
-Checkout <a href="https://www.moesif.com/implementation">implementation overview</a> for more info.
-</aside>
+<p>THese are low-level libraries to access the Moesif REST API and are used like other web analytics libs with a <code class="prettyprint">sendEvent()</code> and
+<code class="prettyprint">identifyUser()</code> methods and support both sync and async operations. Moesif also has high-level 
+<a href="https://www.moesif.com/implementation">server SDKs and API gateway plugin</a> to monitor APIs for popular environments and frameworks 
+which handle data manipulation and batching automatically.</p>
 
 <h2 id="how-to-install">How to Install</h2>
-<pre class="highlight java tab-java"><code><span class="n">Pick</span> <span class="n">a</span> <span class="n">language</span> <span class="n">at</span> <span class="n">the</span> <span class="n">top</span>
+<pre class="highlight java tab-java"><code><span class="n">Pick</span> <span class="n">a</span> <span class="n">language</span> <span class="n">at</span> <span class="n">the</span> <span class="n">top</span> <span class="n">right</span>
 </code></pre>
 <blockquote class="lang-specific java">
 <a href="https://bintray.com/moesif/maven/moesifapi/_latestVersion">
@@ -624,7 +628,7 @@ Install via NPM:
 <span class="p">});</span>
 </code></pre>
 <blockquote class="lang-specific javascript--browser">
-Install via embedded code
+Install via CDN
 </blockquote>
 <pre class="highlight javascript tab-javascript--browser"><code><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">"//unpkg.com/moesif-browser-js@^1/moesif.min.js"</span><span class="o">&gt;&lt;</span><span class="sr">/script</span><span class="err">&gt;
 </span><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text/javascript"</span><span class="o">&gt;</span>
@@ -656,11 +660,12 @@ and selecting API keys from top right menu.
 
           <h1 id="collector-api-v1"><a id="collector-api"></a> Collector API v1</h1>
 
-<p>The Collector API is a high-volume distributed data collection network.
-It&rsquo;s like a reverse CDN and has points of presence across the globe to log API data from the <a href="https://www.moesif.com/implementation">Moesif SDKs</a>
-and <a href="#api-libs">API libs</a>. For more info, check out <a href="https://www.moesif.com/enterprise/api-analytics-infrastructure">and overview of Moesif&rsquo;s infrastructure</a>.</p>
+<p>The Collector API is a high-volume, write-only distributed data collection network.
+It&rsquo;s like a reverse CDN and has points of presence across the globe to log event data from the <a href="https://www.moesif.com/implementation">Moesif SDKs</a>,
+<a href="#api-libs">API libs</a>, and API Gateway Plugins. For more info, check out <a href="https://www.moesif.com/enterprise/api-analytics-infrastructure">and overview of Moesif&rsquo;s infrastructure</a>.</p>
 
-<p>Moesif also has a <a href="#Management-API">Management API</a> to directly query data in Moesif. You can use this API to develop custom dashboards and reports.</p>
+<p>Moesif also has a separate <a href="#Management-API">Management API</a> which can be used to access data in the Moesif platform such as to 
+generate embedded dashboards and custom reports</p>
 
 <p>Base URL:</p>
 
@@ -670,13 +675,14 @@ and <a href="#api-libs">API libs</a>. For more info, check out <a href="https://
 
 <p><a href="https://www.moesif.com/terms">Terms of service</a></p>
 
-<p>Prepend all endpoints below with this base url. While, both HTTPS and HTTP requests are supported on the HTTP API, 
-Moesif&rsquo;s API libs and SDKs only use HTTPS.</p>
+<p>Moesif&rsquo;s official SDKs and plugins only use HTTPS, but the API does support both HTTPS and HTTP. 
+It&rsquo;s highly recommended to ensure all communication is HTTPS, as HTTP is a last resort option for limited use cases like IoT and embedded devices. </p>
 
 <h2 id="authentication">Authentication</h2>
 
-<p>Authentication is done via the <code class="prettyprint">X-Moesif-Application-Id</code> request header.
-The same Application Id token can be used across multiple SDKs, API libs, and the Collector HTTP API. Add the following header to all API Calls.</p>
+<p>Authentication is handled by adding the HTTP header <code class="prettyprint">X-Moesif-Application-Id</code> to all requests. 
+Moesif recommends using the same Application Id for all integrations within the same application environment (i.e. product, staging, etc) so your analytics data 
+is unified. </p>
 
 <p><code class="prettyprint">X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID</code></p>
 
@@ -685,14 +691,18 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found
 and selecting API keys from top right menu.
 </aside>
 
-          <h2 id="events">Events</h2>
+          <h2 id="api-calls">API Calls</h2>
 
-<h3 id="create-an-event">Create an Event</h3>
+<h3 id="log-an-api-call">Log an API Call</h3>
 
 <p><strong><code class="prettyprint">POST https://api.moesif.net/v1/events</code></strong></p>
 
 <p>Log a single API call to Moesif.
-The request body itself is a single API Call object consisting of both the API request and API response.</p>
+The request payload is a single API call consisting of the API request, the API response, and any custom event metadata.</p>
+
+<aside class="warning">
+For logging API data, Moesif recommends most customers integrate with a <a href="https://www.moesif.com/implementation">server SDK or gateway plugin</a> as these handle the data manipulation and batching automatically for common environments.
+</aside>
 
 <aside class="info">
 Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
@@ -704,7 +714,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 </blockquote>
 <pre class="highlight yaml tab-yaml"><code>  <span class="pi">{</span>
     <span class="s2">"</span><span class="s">request"</span><span class="pi">:</span> <span class="pi">{</span>
-      <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2020-01-01T04:45:42.914"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2020-04-01T04:45:42.914"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">uri"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://api.acmeinc.com/items/12345/reviews/"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">verb"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">POST"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">api_version"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.1.0"</span><span class="pi">,</span>
@@ -734,7 +744,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
       <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
     <span class="pi">},</span>
     <span class="s2">"</span><span class="s">response"</span><span class="pi">:</span> <span class="pi">{</span>
-      <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2020-01-01T04:45:42.914"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2020-04-01T04:45:42.914"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">status"</span><span class="pi">:</span> <span class="nv">500</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">headers"</span><span class="pi">:</span> <span class="pi">{</span>
         <span class="s2">"</span><span class="s">Vary"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Accept-Encoding"</span><span class="pi">,</span>
@@ -762,10 +772,9 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
   <span class="pi">}</span>
 </code></pre><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
 curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
-  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'</span>
-
-
+  -d <span class="s1">'{"request":{"time":"2020-04-01T04:45:42.914","uri":"https://api.acmeinc.com/items/12345/reviews/","verb":"POST","api_version":"1.1.0","ip_address":"61.48.220.123","headers":{"Host":"api.acmeinc.com","Accept":"*/*","Connection":"Keep-Alive","Content-Type":"application/json","Content-Length":"126","Accept-Encoding":"gzip"},"body":{"items":[{"direction_type":1,"item_id":"hello","liked":false},{"direction_type":2,"item_id":"world","liked":true}]},"transfer_encoding":""},"response":{"time":"2020-04-01T04:45:42.914","status":500,"headers":{"Vary":"Accept-Encoding","Pragma":"no-cache","Expires":"-1","Content-Type":"application/json; charset=utf-8","Cache-Control":"no-cache"},"body":{"Error":"InvalidArgumentException","Message":"Missing field location"},"transfer_encoding":""},"user_id":"12345","company_id":"67890","session_token":"XXXXXXXXX","metadata":{"some_string":"I am a string","some_int":77,"some_object":{"some_sub_field":"some_value"}}}'</span>
 </code></pre><pre class="highlight java tab-java"><code><span class="c1">// Import the Library</span>
 <span class="n">MoesifAPIClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MoesifAPIClient</span><span class="o">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="o">);</span>
 <span class="n">APIController</span> <span class="n">api</span> <span class="o">=</span> <span class="n">getClient</span><span class="o">().</span><span class="na">getAPI</span><span class="o">();</span>
@@ -966,7 +975,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
 }"""</span><span class="p">)</span>
 
 <span class="n">rsp_headers</span> <span class="o">=</span> <span class="n">APIHelper</span><span class="o">.</span><span class="n">json_deserialize</span><span class="p">(</span><span class="s">"""  {
-    "Date": "Wed, 01 Jan 2019 23:46:49 GMT",
+    "Date": "Wed, 01 April 2020 23:46:49 GMT",
     "Vary": "Accept-Encoding",
     "Pragma": "no-cache",
     "Expires": "-1",
@@ -1031,7 +1040,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
 <span class="s1">'}'</span><span class="p">)</span>
 
 <span class="n">rsp_headers</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s1">'{'</span><span class="p">\</span>
-  <span class="s1">'"Date": "Wed, 01 Jan 2019 23:46:49 GMT",'</span><span class="p">\</span>
+  <span class="s1">'"Date": "Wed, 01 April 2020 23:46:49 GMT",'</span><span class="p">\</span>
                 <span class="s1">'"Vary": "Accept-Encoding",'</span><span class="p">\</span>
   <span class="s1">'"Pragma": "no-cache",'</span><span class="p">\</span>
   <span class="s1">'"Expires": "-1",'</span><span class="p">\</span>
@@ -1046,7 +1055,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
 
 
 <span class="n">event_req</span> <span class="o">=</span> <span class="no">EventRequestModel</span><span class="p">.</span><span class="nf">new</span><span class="p">()</span>
-<span class="n">event_req</span><span class="p">.</span><span class="nf">time</span> <span class="o">=</span> <span class="s2">"2020-01-01T04:45:42.914"</span>
+<span class="n">event_req</span><span class="p">.</span><span class="nf">time</span> <span class="o">=</span> <span class="s2">"2020-04-01T04:45:42.914"</span>
 <span class="n">event_req</span><span class="p">.</span><span class="nf">uri</span> <span class="o">=</span> <span class="s2">"https://api.acmeinc.com/items/reviews/"</span>
 <span class="n">event_req</span><span class="p">.</span><span class="nf">verb</span> <span class="o">=</span> <span class="s2">"PATCH"</span>
 <span class="n">event_req</span><span class="p">.</span><span class="nf">api_version</span> <span class="o">=</span> <span class="s2">"1.1.0"</span>
@@ -1055,7 +1064,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
 <span class="n">event_req</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="n">req_body</span>
 
 <span class="n">event_rsp</span> <span class="o">=</span> <span class="no">EventResponseModel</span><span class="p">.</span><span class="nf">new</span><span class="p">()</span>
-<span class="n">event_rsp</span><span class="p">.</span><span class="nf">time</span> <span class="o">=</span> <span class="s2">"2020-01-01T04:45:42.914"</span>
+<span class="n">event_rsp</span><span class="p">.</span><span class="nf">time</span> <span class="o">=</span> <span class="s2">"2020-04-01T04:45:42.914"</span>
 <span class="n">event_rsp</span><span class="p">.</span><span class="nf">status</span> <span class="o">=</span> <span class="mi">500</span>
 <span class="n">event_rsp</span><span class="p">.</span><span class="nf">headers</span> <span class="o">=</span> <span class="n">rsp_headers</span>
 <span class="n">event_rsp</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="n">rsp_body</span>
@@ -1102,7 +1111,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
     <span class="p">}</span><span class="s">");
 </span>
 <span class="kt">var</span> <span class="n">rspHeaders</span> <span class="p">=</span> <span class="n">APIHelper</span><span class="p">.</span><span class="n">JsonDeserialize</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="err">@</span><span class="s">" {
-</span>        <span class="s">""</span><span class="n">Date</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Wed</span><span class="p">,</span> <span class="m">01</span> <span class="n">Jan</span> <span class="m">2019</span> <span class="m">23</span><span class="p">:</span><span class="m">46</span><span class="p">:</span><span class="m">49</span> <span class="n">GMT</span><span class="s">""</span><span class="p">,</span>
+</span>        <span class="s">""</span><span class="n">Date</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Wed</span><span class="p">,</span> <span class="m">01</span> <span class="n">April</span> <span class="m">2020</span> <span class="m">23</span><span class="p">:</span><span class="m">46</span><span class="p">:</span><span class="m">49</span> <span class="n">GMT</span><span class="s">""</span><span class="p">,</span>
         <span class="s">""</span><span class="n">Vary</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Accept</span><span class="p">-</span><span class="n">Encoding</span><span class="s">""</span><span class="p">,</span>
         <span class="s">""</span><span class="n">Pragma</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">no</span><span class="p">-</span><span class="n">cache</span><span class="s">""</span><span class="p">,</span>
         <span class="s">""</span><span class="n">Expires</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="p">-</span><span class="m">1</span><span class="s">""</span><span class="p">,</span>
@@ -1118,7 +1127,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
 
 <span class="kt">var</span> <span class="n">eventReq</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventRequestModel</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2020-01-01T04:45:42.914"</span><span class="p">),</span>
+    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2020-04-01T04:45:42.914"</span><span class="p">),</span>
     <span class="n">Uri</span> <span class="p">=</span> <span class="s">"https://api.acmeinc.com/items/reviews/"</span><span class="p">,</span>
     <span class="n">Verb</span> <span class="p">=</span> <span class="s">"PATCH"</span><span class="p">,</span>
     <span class="n">ApiVersion</span> <span class="p">=</span> <span class="s">"1.1.0"</span><span class="p">,</span>
@@ -1129,7 +1138,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
 
 <span class="kt">var</span> <span class="n">eventRsp</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventResponseModel</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2020-01-01T04:45:42.914"</span><span class="p">),</span>
+    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2020-04-01T04:45:42.914"</span><span class="p">),</span>
     <span class="n">Status</span> <span class="p">=</span> <span class="m">500</span><span class="p">,</span>
     <span class="n">Headers</span> <span class="p">=</span> <span class="n">rspHeaders</span><span class="p">,</span>
     <span class="n">Body</span> <span class="p">=</span> <span class="n">rspBody</span>
@@ -1274,7 +1283,7 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
            <span class="s2">"time"</span> <span class="o">=&gt;</span> <span class="nv">$rspdate</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="nx">DateTime</span><span class="o">::</span><span class="na">ISO8601</span><span class="p">),</span> 
            <span class="s2">"status"</span> <span class="o">=&gt;</span> <span class="mi">500</span><span class="p">,</span> 
            <span class="s2">"headers"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-             <span class="s2">"Date"</span> <span class="o">=&gt;</span> <span class="s2">"Tue, 12 July 2019 23:46:49 GMT"</span><span class="p">,</span> 
+             <span class="s2">"Date"</span> <span class="o">=&gt;</span> <span class="s2">"Tue, 1 April 2020 23:46:49 GMT"</span><span class="p">,</span> 
              <span class="s2">"Vary"</span> <span class="o">=&gt;</span> <span class="s2">"Accept-Encoding"</span><span class="p">,</span> 
              <span class="s2">"Pragma"</span> <span class="o">=&gt;</span> <span class="s2">"no-cache"</span><span class="p">,</span> 
              <span class="s2">"Expires"</span> <span class="o">=&gt;</span> <span class="s2">"-1"</span><span class="p">,</span> 
@@ -1314,49 +1323,49 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
 <td>The object that specifies the API request.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">request.time</p></td>
+<td><p style="margin-left:1.5em">time</p></td>
 <td>string(date-time)</td>
 <td><strong>true</strong></td>
 <td>Timestamp for the request in ISO 8601 format.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">request.uri</p></td>
+<td><p style="margin-left:1.5em">uri</p></td>
 <td>string</td>
 <td><strong>true</strong></td>
 <td>Full uri such as <em>https://api.acmeinc.com/?query=string</em> including protocol, host, and query string.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">request.verb</p></td>
+<td><p style="margin-left:1.5em">verb</p></td>
 <td>string</td>
 <td><strong>true</strong></td>
 <td>HTTP method used such as <code class="prettyprint">GET</code> or <code class="prettyprint">POST</code>.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">request.api_version</p></td>
+<td><p style="margin-left:1.5em">api_version</p></td>
 <td>string</td>
 <td>false</td>
 <td>API Version you want to tag this request with such as <em>1.0.0</em>.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">request.ip_address</p></td>
+<td><p style="margin-left:1.5em">ip_address</p></td>
 <td>string</td>
 <td>false</td>
 <td>IP address of the requester, If not set, we extract the remote IP address.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">request.headers</p></td>
+<td><p style="margin-left:1.5em">headers</p></td>
 <td>object</td>
 <td><strong>true</strong></td>
 <td>Headers of the  request as a <code class="prettyprint">Map&lt;string, string&gt;</code>. Multiple headers with the same key name should be combined together such that the values are joined by a comma. <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2">HTTP Header Protocol on w3.org</a>.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">request.body</p></td>
+<td><p style="margin-left:1.5em">body</p></td>
 <td>object</td>
 <td>false</td>
 <td>Payload of the request in either JSON or a base64 encoded string.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">request.transfer_encoding</p></td>
+<td><p style="margin-left:1.5em">transfer_encoding</p></td>
 <td>string</td>
 <td>false</td>
 <td>Specifies the transfer encoding of <em>request.body</em> field. If set to <em>json</em> then the response.body must be a JSON object. If set to <em>base64</em>, then <em>request.body</em> must be a base64 encoded string. Helpful for binary payloads. If not set, the body is assumed to be <em>json</em>.</td>
@@ -1374,37 +1383,37 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
 <td>The object that specifies the API response. The response object can be undefined such as a request timeouts.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">response.time</p></td>
+<td><p style="margin-left:1.5em">time</p></td>
 <td>string(date-time)</td>
 <td><strong>true</strong></td>
 <td>Timestamp for the response in ISO 8601 format.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">response.status</p></td>
+<td><p style="margin-left:1.5em">status</p></td>
 <td>integer</td>
 <td><strong>true</strong></td>
 <td>HTTP status code as number such as <em>200</em> or <em>500</em>.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">response.ip_address</p></td>
+<td><p style="margin-left:1.5em">ip_address</p></td>
 <td>string</td>
 <td>false</td>
 <td>IP address of the responding server.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">response.headers</p></td>
+<td><p style="margin-left:1.5em">headers</p></td>
 <td>object</td>
 <td><strong>true</strong></td>
 <td>Headers of the response as a <code class="prettyprint">Map&lt;string, string&gt;</code>. Multiple headers with the same key name should be combined together such that the values are joined by a comma. <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2">HTTP Header Protocol on w3.org</a></td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">response.body</p></td>
+<td><p style="margin-left:1.5em">body</p></td>
 <td>object</td>
 <td>false</td>
 <td>Payload of the response in either JSON or a base64 encoded string.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">response.transfer_encoding</p></td>
+<td><p style="margin-left:1.5em">transfer_encoding</p></td>
 <td>string</td>
 <td>false</td>
 <td>Specifies the transfer encoding of <em>response.body</em> field. If set to <em>json</em> then the response.body must be a JSON object. If set to <em>base64</em>, then <em>response.body</em> must be a base64 encoded string. Helpful for binary payloads. If not set, the body is assumed to be <em>json</em>.</td>
@@ -1443,16 +1452,16 @@ curl -X GET https://api.moesif.net/v1/events <span class="se">\</span>
 <td>metadata</td>
 <td>object</td>
 <td>false</td>
-<td>An object containing any custom properties you want to store with this event.</td>
+<td>An object containing any custom event metadata you want to store with this event.</td>
 </tr>
 </tbody></table>
 
-<h3 id="create-an-events-batch">Create an Events Batch</h3>
+<h3 id="log-api-calls-in-batch">Log API Calls in Batch</h3>
 
 <p><strong><code class="prettyprint">POST https://api.moesif.net/v1/events/batch</code></strong></p>
 
 <p>Creates and logs a batch of API calls to Moesif.
-The request body itself is an array API calls object consisting of both the API request and API response.</p>
+The request payload is an array API calls entities, each consisting of the API request, the API response, and any custom event metadata.</p>
 
 <p>This API takes a list form of the same model defined in create single event.</p>
 
@@ -1469,7 +1478,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 <pre class="highlight yaml tab-yaml"><code>  <span class="pi">[</span>
     <span class="pi">{</span>
         <span class="s2">"</span><span class="s">request"</span><span class="pi">:</span> <span class="pi">{</span>
-          <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2020-01-01T04:45:42.914"</span><span class="pi">,</span>
+          <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2020-04-01T04:45:42.914"</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">uri"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://api.acmeinc.com/items/83738/reviews/"</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">verb"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">POST"</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">api_version"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.1.0"</span><span class="pi">,</span>
@@ -1496,10 +1505,10 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
               <span class="pi">}</span>
             <span class="pi">]</span>
           <span class="pi">},</span>
-          <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span><span class="pi">,</span>
+          <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
         <span class="pi">},</span>
         <span class="s2">"</span><span class="s">response"</span><span class="pi">:</span> <span class="pi">{</span>
-          <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2020-01-01T04:45:42.914"</span><span class="pi">,</span>
+          <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2020-04-01T04:45:42.914"</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">status"</span><span class="pi">:</span> <span class="nv">500</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">headers"</span><span class="pi">:</span> <span class="pi">{</span>
             <span class="s2">"</span><span class="s">Vary"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Accept-Encoding"</span><span class="pi">,</span>
@@ -1512,7 +1521,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
             <span class="s2">"</span><span class="s">Error"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">InvalidArgumentException"</span><span class="pi">,</span>
             <span class="s2">"</span><span class="s">Message"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Missing</span><span class="nv"> </span><span class="s">field</span><span class="nv"> </span><span class="s">location"</span>
           <span class="pi">},</span>
-          <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span><span class="pi">,</span>
+          <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
         <span class="pi">},</span>
         <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">12345"</span><span class="pi">,</span>
         <span class="s2">"</span><span class="s">company_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">67890"</span><span class="pi">,</span>
@@ -1528,10 +1537,9 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
   <span class="pi">]</span>
 </code></pre><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
 curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
-  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'</span>
-
-
+  -d <span class="s1">'[{"request":{"time":"2020-04-01T04:45:42.914","uri":"https://api.acmeinc.com/items/83738/reviews/","verb":"POST","api_version":"1.1.0","ip_address":"61.48.220.123","headers":{"Host":"api.acmeinc.com","Accept":"*/*","Connection":"Keep-Alive","Content-Type":"application/json","Content-Length":"126","Accept-Encoding":"gzip"},"body":{"items":[{"direction_type":1,"item_id":"hello","liked":false},{"direction_type":2,"item_id":"world","liked":true}]},"transfer_encoding":""},"response":{"time":"2020-04-01T04:45:42.914","status":500,"headers":{"Vary":"Accept-Encoding","Pragma":"no-cache","Expires":"-1","Content-Type":"application/json; charset=utf-8","Cache-Control":"no-cache"},"body":{"Error":"InvalidArgumentException","Message":"Missing field location"},"transfer_encoding":""},"user_id":"12345","company_id":"67890","session_token":"XXXXXXXXX","metadata":{"some_string":"I am a string","some_int":77,"some_object":{"some_sub_field":"some_value"}}}]'</span>
 </code></pre><pre class="highlight java tab-java"><code><span class="c1">// Import the Library</span>
 <span class="n">MoesifAPIClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MoesifAPIClient</span><span class="o">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="o">);</span>
 <span class="n">APIController</span> <span class="n">api</span> <span class="o">=</span> <span class="n">getClient</span><span class="o">().</span><span class="na">getAPI</span><span class="o">();</span>
@@ -1560,7 +1568,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
   <span class="s">"}"</span><span class="o">);</span>
 
 <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">rspHeaders</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;();</span>
-<span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Date"</span><span class="o">,</span> <span class="s">"Wed, 01 Jan 2019 23:46:49 GMT"</span><span class="o">);</span>
+<span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Date"</span><span class="o">,</span> <span class="s">"Wed, 01 April 2020 23:46:49 GMT"</span><span class="o">);</span>
 <span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Vary"</span><span class="o">,</span> <span class="s">"Accept-Encoding"</span><span class="o">);</span>
 <span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Pragma"</span><span class="o">,</span> <span class="s">"no-cache"</span><span class="o">);</span>
 <span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Expires"</span><span class="o">,</span> <span class="s">"-1"</span><span class="o">);</span>
@@ -1738,7 +1746,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 }"""</span><span class="p">)</span>
 
 <span class="n">rsp_headers</span> <span class="o">=</span> <span class="n">APIHelper</span><span class="o">.</span><span class="n">json_deserialize</span><span class="p">(</span><span class="s">"""  {
-    "Date": "Wed, 01 Jan 2019 23:46:49 GMT",
+    "Date": "Wed, 01 April 2020 23:46:49 GMT",
     "Vary": "Accept-Encoding",
     "Pragma": "no-cache",
     "Expires": "-1",
@@ -1823,7 +1831,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
     <span class="p">}</span><span class="s">");
 </span>
 <span class="kt">var</span> <span class="n">rspHeaders</span> <span class="p">=</span> <span class="n">APIHelper</span><span class="p">.</span><span class="n">JsonDeserialize</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="err">@</span><span class="s">" {
-</span>        <span class="s">""</span><span class="n">Date</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Wed</span><span class="p">,</span> <span class="m">01</span> <span class="n">Jan</span> <span class="m">2019</span> <span class="m">23</span><span class="p">:</span><span class="m">46</span><span class="p">:</span><span class="m">49</span> <span class="n">GMT</span><span class="s">""</span><span class="p">,</span>
+</span>        <span class="s">""</span><span class="n">Date</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Wed</span><span class="p">,</span> <span class="m">01</span> <span class="n">April</span> <span class="m">2020</span> <span class="m">23</span><span class="p">:</span><span class="m">46</span><span class="p">:</span><span class="m">49</span> <span class="n">GMT</span><span class="s">""</span><span class="p">,</span>
         <span class="s">""</span><span class="n">Vary</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Accept</span><span class="p">-</span><span class="n">Encoding</span><span class="s">""</span><span class="p">,</span>
         <span class="s">""</span><span class="n">Pragma</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">no</span><span class="p">-</span><span class="n">cache</span><span class="s">""</span><span class="p">,</span>
         <span class="s">""</span><span class="n">Expires</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="p">-</span><span class="m">1</span><span class="s">""</span><span class="p">,</span>
@@ -1839,7 +1847,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 <span class="kt">var</span> <span class="n">reqDate</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Date</span><span class="p">();</span>
 <span class="kt">var</span> <span class="n">eventReq</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventRequestModel</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2020-01-01T04:45:42.914"</span><span class="p">),</span>
+    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2020-04-01T04:45:42.914"</span><span class="p">),</span>
     <span class="n">Uri</span> <span class="p">=</span> <span class="s">"https://api.acmeinc.com/items/reviews/"</span><span class="p">,</span>
     <span class="n">Verb</span> <span class="p">=</span> <span class="s">"PATCH"</span><span class="p">,</span>
     <span class="n">ApiVersion</span> <span class="p">=</span> <span class="s">"1.1.0"</span><span class="p">,</span>
@@ -1850,7 +1858,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 
 <span class="kt">var</span> <span class="n">eventRsp</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventResponseModel</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2020-01-01T04:45:42.914"</span><span class="p">),</span>
+    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2020-04-01T04:45:42.914"</span><span class="p">),</span>
     <span class="n">Status</span> <span class="p">=</span> <span class="m">500</span><span class="p">,</span>
     <span class="n">Headers</span> <span class="p">=</span> <span class="n">rspHeaders</span><span class="p">,</span>
     <span class="n">Body</span> <span class="p">=</span> <span class="n">rspBody</span>
@@ -1990,49 +1998,49 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 <td>The object that specifies the API request.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">request.time</p></td>
+<td><p style="margin-left:1.5em">time</p></td>
 <td>string(date-time)</td>
 <td><strong>true</strong></td>
 <td>Timestamp for the request in ISO 8601 format.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">request.uri</p></td>
+<td><p style="margin-left:1.5em">uri</p></td>
 <td>string</td>
 <td><strong>true</strong></td>
 <td>Full uri such as <em>https://api.acmeinc.com/?query=string</em> including protocol, host, and query string.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">request.verb</p></td>
+<td><p style="margin-left:1.5em">verb</p></td>
 <td>string</td>
 <td><strong>true</strong></td>
 <td>HTTP method used such as <code class="prettyprint">GET</code> or <code class="prettyprint">POST</code>.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">request.api_version</p></td>
+<td><p style="margin-left:1.5em">api_version</p></td>
 <td>string</td>
 <td>false</td>
 <td>API Version you want to tag this request with such as <em>1.0.0</em>.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">request.ip_address</p></td>
+<td><p style="margin-left:1.5em">ip_address</p></td>
 <td>string</td>
 <td>false</td>
 <td>IP address of the requester, If not set, we extract the remote IP address.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">request.headers</p></td>
+<td><p style="margin-left:1.5em">headers</p></td>
 <td>object</td>
 <td><strong>true</strong></td>
 <td>Headers of the  request as a <code class="prettyprint">Map&lt;string, string&gt;</code>. Multiple headers with the same key name should be combined together such that the values are joined by a comma. <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2">HTTP Header Protocol on w3.org</a>.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">request.body</p></td>
+<td><p style="margin-left:1.5em">body</p></td>
 <td>object</td>
 <td>false</td>
 <td>Payload of the request in either JSON or a base64 encoded string.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">request.transfer_encoding</p></td>
+<td><p style="margin-left:1.5em">transfer_encoding</p></td>
 <td>string</td>
 <td>false</td>
 <td>Specifies the transfer encoding of <em>request.body</em> field. If set to <em>json</em> then the response.body must be a JSON object. If set to <em>base64</em>, then <em>request.body</em> must be a base64 encoded string. Helpful for binary payloads. If not set, the body is assumed to be <em>json</em>.</td>
@@ -2050,37 +2058,37 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 <td>The object that specifies the API response. The response object can be undefined such as a request timeouts.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">response.time</p></td>
+<td><p style="margin-left:1.5em">time</p></td>
 <td>string(date-time)</td>
 <td><strong>true</strong></td>
 <td>Timestamp for the response in ISO 8601 format.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">response.status</p></td>
+<td><p style="margin-left:1.5em">status</p></td>
 <td>integer</td>
 <td><strong>true</strong></td>
 <td>HTTP status code as number such as <em>200</em> or <em>500</em>.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">response.ip_address</p></td>
+<td><p style="margin-left:1.5em">ip_address</p></td>
 <td>string</td>
 <td>false</td>
 <td>IP address of the responding server.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">response.headers</p></td>
+<td><p style="margin-left:1.5em">headers</p></td>
 <td>object</td>
 <td><strong>true</strong></td>
 <td>Headers of the response as a <code class="prettyprint">Map&lt;string, string&gt;</code>. Multiple headers with the same key name should be combined together such that the values are joined by a comma. <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2">HTTP Header Protocol on w3.org</a></td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">response.body</p></td>
+<td><p style="margin-left:1.5em">body</p></td>
 <td>object</td>
 <td>false</td>
 <td>Payload of the response in either JSON or a base64 encoded string.</td>
 </tr>
 <tr>
-<td><p style="margin-left:1.5em">response.transfer_encoding</p></td>
+<td><p style="margin-left:1.5em">transfer_encoding</p></td>
 <td>string</td>
 <td>false</td>
 <td>Specifies the transfer encoding of <em>response.body</em> field. If set to <em>json</em> then the response.body must be a JSON object. If set to <em>base64</em>, then <em>response.body</em> must be a base64 encoded string. Helpful for binary payloads. If not set, the body is assumed to be <em>json</em>.</td>
@@ -2119,7 +2127,306 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 <td>metadata</td>
 <td>object</td>
 <td>false</td>
-<td>An object containing any custom properties you want to store with this event.</td>
+<td>An object containing any custom event metadata you want to store with this event.</td>
+</tr>
+</tbody></table>
+
+          <h2 id="actions">Actions</h2>
+
+<h3 id="track-a-user-action">Track a User Action</h3>
+
+<p><strong><code class="prettyprint">POST https://api.moesif.net/v1/actions</code></strong></p>
+
+<p>Log a single user action to Moesif. An action represents something a customer performed on your website
+such as <em>Sign In</em> or <em>Purchased Subscription</em>. Each action consists of an <em>Action Name</em> and optional <em>Metadata</em>.</p>
+
+<aside class="warning">
+Currently only the moesif-browser-js SDK supports tracking actions. if you need to track actions server-side, use the HTTP API directly.
+</aside>
+
+<p><strong>An example tracking actions using moesif-browser-js:</strong></p>
+
+<div class="center-column"></div>
+<pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">moesif</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'moesif-browser-js'</span><span class="p">);</span>
+
+<span class="nx">moesif</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+  <span class="na">applicationId</span><span class="p">:</span> <span class="s1">'YOUR_COLLECTOR_APPLICATION_ID'</span>
+<span class="p">});</span>
+
+<span class="c1">// The first argument (required) contains the action name string. </span>
+<span class="c1">// The second argument (optional) contains event metadata.</span>
+<span class="nx">moesif</span><span class="p">.</span><span class="nx">track</span><span class="p">(</span><span class="s1">'Clicked Sign Up'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">button_label</span><span class="p">:</span> <span class="s1">'Get Started'</span><span class="p">,</span>
+  <span class="na">sign_up_method</span><span class="p">:</span> <span class="s1">'Google SSO'</span>
+<span class="p">});</span>
+</code></pre>
+<p></pre></p>
+
+<aside class="info">
+Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
+</aside>
+
+<blockquote class="lang-specific yaml">
+<code><b>POST</b> https://api.moesif.net/v1/actions</code>
+<br><br><i>Example Request</i><br>
+</blockquote>
+<pre class="highlight yaml tab-yaml"><code><span class="pi">{</span>
+  <span class="s2">"</span><span class="s">action_name"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Clicked</span><span class="nv"> </span><span class="s">Sign</span><span class="nv"> </span><span class="s">Up"</span><span class="pi">,</span>
+  <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">12345"</span><span class="pi">,</span>
+  <span class="s2">"</span><span class="s">company_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">67890"</span><span class="pi">,</span>
+  <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">XXXXX"</span><span class="pi">,</span>
+  <span class="s2">"</span><span class="s">request"</span><span class="pi">:</span> <span class="pi">{</span>
+    <span class="s2">"</span><span class="s">url"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://acmeinc.com/pricing"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">user_agent_string"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Mozilla/5.0</span><span class="nv"> </span><span class="s">(Windows</span><span class="nv"> </span><span class="s">NT</span><span class="nv"> </span><span class="s">10.0;</span><span class="nv"> </span><span class="s">Win64;</span><span class="nv"> </span><span class="s">x64)</span><span class="nv"> </span><span class="s">AppleWebKit/537.36</span><span class="nv"> </span><span class="s">(KHTML,</span><span class="nv"> </span><span class="s">like</span><span class="nv"> </span><span class="s">Gecko)</span><span class="nv"> </span><span class="s">Chrome/70.0.3538.77</span><span class="nv"> </span><span class="s">Safari/537.36"</span>
+  <span class="pi">},</span>
+  <span class="s2">"</span><span class="s">metadata"</span><span class="pi">:</span> <span class="pi">{</span>
+    <span class="s2">"</span><span class="s">button_label"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Get</span><span class="nv"> </span><span class="s">Started"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">sign_up_method"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Google</span><span class="nv"> </span><span class="s">SSO"</span>
+  <span class="pi">}</span>
+<span class="pi">}</span>
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
+curl -X POST https://api.moesif.net/v1/actions <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'</span> <span class="se">\</span>
+  -d <span class="s1">'{"action_name":"Clicked Sign Up","user_id":"12345","company_id":"67890","session_token":"XXXXX","request":{"url":"https://acmeinc.com/pricing","user_agent_string":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"},"metadata":{"button_label":"Get Started","sign_up_method":"Google SSO"}}'</span>
+</code></pre><pre class="highlight javascript tab-javascript--browser"><code><span class="kd">var</span> <span class="nx">moesif</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'moesif-browser-js'</span><span class="p">);</span>
+
+<span class="nx">moesif</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+  <span class="na">applicationId</span><span class="p">:</span> <span class="s1">'YOUR_COLLECTOR_APPLICATION_ID'</span>
+<span class="p">});</span>
+
+<span class="c1">// The first argument (required) contains the action name string. </span>
+<span class="c1">// The second argument (optional) contains event metadata.</span>
+<span class="nx">moesif</span><span class="p">.</span><span class="nx">track</span><span class="p">(</span><span class="s1">'Clicked Sign Up'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">button_label</span><span class="p">:</span> <span class="s1">'Get Started'</span><span class="p">,</span>
+  <span class="na">sign_up_method</span><span class="p">:</span> <span class="s1">'Google SSO'</span>
+<span class="p">});</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>action_name</td>
+<td>string</td>
+<td><strong>true</strong></td>
+<td>A recognizable name such as <i>Clicked Sign Up</i> or <i>Purchased Subscription<i></td>
+</tr>
+<tr>
+<td>session_token</td>
+<td>string</td>
+<td>false</td>
+<td>The customer&rsquo;s current session token as a string.</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>false</td>
+<td>The <a href="#users">user</a> identifier to associate this action with.</td>
+</tr>
+<tr>
+<td>company_id</td>
+<td>string</td>
+<td>false</td>
+<td>The <a href="#companies">company</a> identifier to associate this action with (Helpful for B2B companies).</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>object</td>
+<td>false</td>
+<td>An object containing any custom event metadata you want to store with this event.</td>
+</tr>
+<tr>
+<td>request</td>
+<td>object</td>
+<td><strong>true</strong></td>
+<td>The object containing the action&rsquo;s request context.</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">time</p></td>
+<td>string(date-time)</td>
+<td>false</td>
+<td>Timestamp for the action in ISO 8601 format. Set by server automatically if not set.</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">uri</p></td>
+<td>string</td>
+<td><strong>true</strong></td>
+<td>Full uri customer is on such as <em>https://wwww.acmeinc.com/pricing?utm_source=adwords</em> including protocol, host, and query string.</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">ip_address</p></td>
+<td>string</td>
+<td>false</td>
+<td>IP address of the customer, If not set, we extract the remote IP address.</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">user_agent_string</p></td>
+<td>string</td>
+<td>false</td>
+<td>The customer&rsquo;s browser agent string for device context.</td>
+</tr>
+</tbody></table>
+
+<h3 id="track-user-actions-in-batch">Track User Actions in Batch</h3>
+
+<p><strong><code class="prettyprint">POST https://api.moesif.net/v1/actions/batch</code></strong></p>
+
+<p>Log a batch of user action to Moesif. An action represents something a customer performed on your website
+such as <em>Sign In</em> or <em>Purchased Subscription</em>. Each action consists of an <em>Action Name</em> and optional <em>Metadata</em>.</p>
+
+<p>This API takes an array form of the same model defined for track single action.
+The maximum batch size is <strong>12MB</strong>. Break up larger batches.</p>
+
+<aside class="warning">
+Currently only the moesif-browser-js SDK supports tracking actions. if you need to track actions server-side, use the HTTP API directly.
+</aside>
+
+<p><strong>An example tracking actions using moesif-browser-js:</strong></p>
+
+<div class="center-column"></div>
+<pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">moesif</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'moesif-browser-js'</span><span class="p">);</span>
+
+<span class="nx">moesif</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+  <span class="na">applicationId</span><span class="p">:</span> <span class="s1">'YOUR_COLLECTOR_APPLICATION_ID'</span>
+<span class="p">});</span>
+
+<span class="c1">// The first argument (required) contains the action name string. </span>
+<span class="c1">// The second argument (optional) contains event metadata.</span>
+<span class="nx">moesif</span><span class="p">.</span><span class="nx">track</span><span class="p">(</span><span class="s1">'Clicked Sign Up'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">button_label</span><span class="p">:</span> <span class="s1">'Get Started'</span><span class="p">,</span>
+  <span class="na">sign_up_method</span><span class="p">:</span> <span class="s1">'Google SSO'</span>
+<span class="p">});</span>
+</code></pre>
+<p></pre></p>
+
+<aside class="info">
+Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
+</aside>
+
+<blockquote class="lang-specific yaml">
+<code><b>POST</b> https://api.moesif.net/v1/actions/batch</code>
+<br><br><i>Example Request</i><br>
+</blockquote>
+<pre class="highlight yaml tab-yaml"><code><span class="pi">[</span>
+  <span class="pi">{</span>
+    <span class="s2">"</span><span class="s">action_name"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Clicked</span><span class="nv"> </span><span class="s">Sign</span><span class="nv"> </span><span class="s">Up"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">12345"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">company_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">67890"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">XXXXX"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">request"</span><span class="pi">:</span> <span class="pi">{</span>
+      <span class="s2">"</span><span class="s">url"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://acmeinc.com/pricing"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">user_agent_string"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Mozilla/5.0</span><span class="nv"> </span><span class="s">(Windows</span><span class="nv"> </span><span class="s">NT</span><span class="nv"> </span><span class="s">10.0;</span><span class="nv"> </span><span class="s">Win64;</span><span class="nv"> </span><span class="s">x64)</span><span class="nv"> </span><span class="s">AppleWebKit/537.36</span><span class="nv"> </span><span class="s">(KHTML,</span><span class="nv"> </span><span class="s">like</span><span class="nv"> </span><span class="s">Gecko)</span><span class="nv"> </span><span class="s">Chrome/70.0.3538.77</span><span class="nv"> </span><span class="s">Safari/537.36"</span>
+    <span class="pi">},</span>
+    <span class="s2">"</span><span class="s">metadata"</span><span class="pi">:</span> <span class="pi">{</span>
+      <span class="s2">"</span><span class="s">button_label"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Get</span><span class="nv"> </span><span class="s">Started"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">sign_up_method"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Google</span><span class="nv"> </span><span class="s">SSO"</span>
+    <span class="pi">}</span>
+  <span class="pi">},</span>
+  <span class="pi">{</span>
+    <span class="s2">"</span><span class="s">action_name"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Purchased</span><span class="nv"> </span><span class="s">Subscription"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">user_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">12345"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">company_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">67890"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">session_token"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">XXXXX"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">request"</span><span class="pi">:</span> <span class="pi">{</span>
+      <span class="s2">"</span><span class="s">url"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://acmeinc.com/pricing"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">user_agent_string"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Mozilla/5.0</span><span class="nv"> </span><span class="s">(Windows</span><span class="nv"> </span><span class="s">NT</span><span class="nv"> </span><span class="s">10.0;</span><span class="nv"> </span><span class="s">Win64;</span><span class="nv"> </span><span class="s">x64)</span><span class="nv"> </span><span class="s">AppleWebKit/537.36</span><span class="nv"> </span><span class="s">(KHTML,</span><span class="nv"> </span><span class="s">like</span><span class="nv"> </span><span class="s">Gecko)</span><span class="nv"> </span><span class="s">Chrome/70.0.3538.77</span><span class="nv"> </span><span class="s">Safari/537.36"</span>
+    <span class="pi">},</span>
+    <span class="s2">"</span><span class="s">metadata"</span><span class="pi">:</span> <span class="pi">{</span>
+      <span class="s2">"</span><span class="s">plan_name"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Pay</span><span class="nv"> </span><span class="s">As</span><span class="nv"> </span><span class="s">You</span><span class="nv"> </span><span class="s">Go"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">plan_revenue"</span><span class="pi">:</span> <span class="nv">5000</span>
+    <span class="pi">}</span>
+  <span class="pi">}</span>
+<span class="pi">]</span>
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
+curl -X POST https://api.moesif.net/v1/actions/batch <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'</span> <span class="se">\</span>
+  -d <span class="s1">'[{"action_name":"Clicked Sign Up","user_id":"12345","company_id":"67890","session_token":"XXXXX","request":{"url":"https://acmeinc.com/pricing","user_agent_string":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"},"metadata":{"button_label":"Get Started","sign_up_method":"Google SSO"}},{"action_name":"Purchased Subscription","user_id":"12345","company_id":"67890","session_token":"XXXXX","request":{"url":"https://acmeinc.com/pricing","user_agent_string":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"},"metadata":{"plan_name":"Pay As You Go","plan_revenue":5000}}]'</span>
+</code></pre><pre class="highlight javascript tab-javascript--browser"><code><span class="kd">var</span> <span class="nx">moesif</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'moesif-browser-js'</span><span class="p">);</span>
+
+<span class="nx">moesif</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+  <span class="na">applicationId</span><span class="p">:</span> <span class="s1">'YOUR_COLLECTOR_APPLICATION_ID'</span>
+<span class="p">});</span>
+
+<span class="c1">// The first argument (required) contains the action name string. </span>
+<span class="c1">// The second argument (optional) contains event metadata.</span>
+<span class="nx">moesif</span><span class="p">.</span><span class="nx">track</span><span class="p">(</span><span class="s1">'Clicked Sign Up'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">button_label</span><span class="p">:</span> <span class="s1">'Get Started'</span><span class="p">,</span>
+  <span class="na">sign_up_method</span><span class="p">:</span> <span class="s1">'Google SSO'</span>
+<span class="p">});</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>action_name</td>
+<td>string</td>
+<td><strong>true</strong></td>
+<td>A recognizable name such as <i>Clicked Sign Up</i> or <i>Purchased Subscription<i></td>
+</tr>
+<tr>
+<td>session_token</td>
+<td>string</td>
+<td>false</td>
+<td>The customer&rsquo;s current session token as a string.</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>false</td>
+<td>The <a href="#users">user</a> identifier to associate this action with.</td>
+</tr>
+<tr>
+<td>company_id</td>
+<td>string</td>
+<td>false</td>
+<td>The <a href="#companies">company</a> identifier to associate this action with (Helpful for B2B companies).</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>object</td>
+<td>false</td>
+<td>An object containing any custom event metadata you want to store with this event.</td>
+</tr>
+<tr>
+<td>request</td>
+<td>object</td>
+<td><strong>true</strong></td>
+<td>The object containing the action&rsquo;s request context.</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">time</p></td>
+<td>string(date-time)</td>
+<td>false</td>
+<td>Timestamp for the action in ISO 8601 format. Set by server automatically if not set.</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">uri</p></td>
+<td>string</td>
+<td><strong>true</strong></td>
+<td>Full uri customer is on such as <em>https://wwww.acmeinc.com/pricing?utm_source=adwords</em> including protocol, host, and query string.</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">ip_address</p></td>
+<td>string</td>
+<td>false</td>
+<td>IP address of the customer, If not set, we extract the remote IP address.</td>
+</tr>
+<tr>
+<td><p style="margin-left:1.5em">user_agent_string</p></td>
+<td>string</td>
+<td>false</td>
+<td>The customer&rsquo;s browser agent string for device context.</td>
 </tr>
 </tbody></table>
 
