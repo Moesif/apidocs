@@ -1,8 +1,6 @@
 # API Libs
-THese are low-level libraries to access the Moesif REST API and are used like other web analytics libs with a `sendEvent()` and
-`identifyUser()` methods and support both sync and async operations. Moesif also has high-level 
-[server SDKs and API gateway plugin](https://www.moesif.com/implementation) to monitor APIs for popular environments and frameworks 
-which handle data manipulation and batching automatically.
+THese are low-level libraries to access the Moesif Collector API directly. For logging API calls at scale, most 
+customers should integrate with one of Moesif's <a href="https://www.moesif.com/implementation">API monitoring agents</a> which instrument your API automatically and handle batching. Likewise, Moesif has [client integrations](https://www.moesif.com/implementation/track-user-behaviors-with-browser?platform=browser) for tracking users and their actions in your UI.
 
 ## How to Install
 
@@ -130,6 +128,7 @@ moesif.init({
 Select your language on the right:
 
 * Shell
+* Browser
 * Node.js
 * Python
 * Ruby
@@ -137,7 +136,6 @@ Select your language on the right:
 * Go
 * C#
 * Java
-* Browser
 
 The SDKs are open-source and available on GitHub.
 

@@ -4,6 +4,7 @@ title: Moesif API Documentation
 language_tabs:
   - yaml: JSON
   - shell: Shell
+  - javascript--browser: Browser
   - javascript--nodejs: Node.js
   - python: Python
   - ruby: Ruby
@@ -11,7 +12,6 @@ language_tabs:
   - go: Go
   - csharp: C#
   - java: Java
-  - javascript--browser: Browser
 
 toc_footers:
   - <a href='/docs'>Developer Docs</a>
@@ -35,12 +35,12 @@ search: true
 
 # Moesif API Reference
 
-*User-Centric API Analytics*
+Moesif is a user behavior API analytics and monitoring service. You can leverage Moesif to answer questions around customer API usage in real-time.
 
 This API reference centers around v1 of the Moesif REST APIs and API Client Libs.
-For an overview on the Moesif platform, checkout [integration guides](https://www.moesif.com/implementation), or the [developer documentation](/docs) or an 
+For an overview on the Moesif platform, see the [developer docs](/docs) or [implementation guides](https://www.moesif.com/implementation)  
 
-There are two distinct APIs:
+There are two APIs:
 
 |Name|Host|Authentication|
 |----|----|--------------|
@@ -49,7 +49,7 @@ There are two distinct APIs:
 
 ## API definitions
 
-The _Collector API_ is a write-only, high-volume data ingestion network used by Moesif SDKs and plugins. Use the collector API to log API calls and user actions along with updating user and company profiles. 
+The _Collector API_ is a write-only, high-volume data collection network used by Moesif SDKs and plugins. Use the collector API to log API calls and user actions to Moesif at scale along with updating user/company profiles. 
 
-The _Management API_ is enables access to your data in Moesif such as to build embedded charts and custom reports. Many of the integrations such as Salesforce and Zapier use this API.
+The _Management API_ is enables you to query and manage your data in Moesif such as to build embedded charts and custom reports. Many of the extensions such as Salesforce also use this API.
 

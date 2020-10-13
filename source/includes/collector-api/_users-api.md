@@ -4,15 +4,17 @@
 
 **`POST https://api.moesif.net/v1/users`**
 
-Updates a user profile in Moesif. A user can be a customer or end user accessing the API.
+Updates a user profile in Moesif, which can be a customer or API consumer.
 Adding user metadata enables you to understand API usage across different cohorts, 
-user demographics, acquisition channels, etc.
+user demographics, acquisition channels, etc. 
 
-Any custom user properties can be stored via the `metadata` object.
+Moesif has client integrations like [moesif-browser-js](https://www.moesif.com/implementation/track-user-behaviors-with-browser?platform=browser) or Segment to make this easy.
 
-We’ve reserved some fields names in the `metadata` object that have semantic meanings for users, and we handle them in special ways. 
-For example, we expect email to be a string containing the user’s email address which is used to sync with 
-external CRMs and to look up a user's Gravatar and demographics.
+User properties can be stored via the `metadata` object.
+
+We’ve reserved some `metadata` fields that have semantic meanings for users, and we handle them in special ways. 
+For example, we expect email to be a string containing the user’s email address which is used to look up a user's demographics from Clearbit
+and send [behavioral emails](https://www.moesif.com/features/user-behavioral-emails).
 
 Reserved metadata fields include:
 
@@ -34,6 +36,10 @@ updating a single field.
 Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found by logging into Moesif 
 and selecting API keys from top right menu.
 </aside>
+
+<blockquote class="lang-specific javascript--browser">
+<b>Do not call identifyUser for anonymous visitors. The SDK automatically tracks these via a generated anonymousId in localStorage. Once you call identifyUser, Moesif automatically merges multiple user profiles if needed.</b>
+</blockquote>
 
 <blockquote class="lang-specific yaml">
 <code><b>POST</b> https://api.moesif.net/v1/users</code>
@@ -348,11 +354,6 @@ apiClient.updateUser(user);
 apiClient.updateUserAsync(user, callBack);
 ```
 
-<blockquote class="lang-specific javascript--browser">
-<b>Only the user id and metadata object need to be set. All other fields like 
-the user's IP address and converting campaign are captured from browser context automatically.</b>
-</blockquote>
-
 ```javascript--browser
 var moesif = require('moesif-browser-js');
 
@@ -361,7 +362,8 @@ moesif.init({
   // add other option here.
 });
 
-// The second argument containing user metatdata is optional, but useful to store customer info like email and name.
+// The second argument containing user metatdata is optional,
+// but useful to store customer properties like email and name.
 moesif.identifyUser('12345', {
   email: 'john@acmeinc.com',
   firstName: 'John',
@@ -375,16 +377,13 @@ moesif.identifyUser('12345', {
 });
 ```
 
-#### User id vs. session token
-Users in Moesif are identified by two attributes: _user_id_ and _session_token_.
+#### User id
+Users in Moesif are identified via a `user_id` and should be a __permanent__ and robust identifier, like a database id. 
+We recommend not using values that can change like email addresses or usernames.
+The user_id matches the identifyUser hook in your [API monitoring agent.](https://www.moesif.com/implementation)
 
-- A `user_id` is a unique identifier for the user performing the activity.
-User Ids are a __permanent__ and robust identifier, like a database id or permanent [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier).
-We recommend using database ids instead of simple email addresses or usernames, because database ids never change.
-
-- A `session_token` is an API key or [JSON Web Tokens's](https://jwt.io/introduction/) (JWT) that expires after a short duration.
-Unlike user ids, session tokens, are __transient__. Thus, the same user can be associated with many API keys and tokens over
-the lifetime of the user. 
+Users can also be associated to a company by setting the `company_id` field when you update a user. This enables tracking API usage for 
+individual users along with account-level usage. 
 
 |Name|Type|Required|Description|
 |-----------|-----------|-----------|-----------|
@@ -873,16 +872,13 @@ apiClient.updateUsersBatch(users, callBack);
 </blockquote>
 
 
-#### User id vs. session token
-Users in Moesif are identified by two attributes: _user_id_ and _session_token_.
+#### User id
+Users in Moesif are identified via a `user_id` and should be a __permanent__ and robust identifier, like a database id. 
+We recommend not using values that can change like email addresses or usernames.
+The user_id matches the identifyUser hook in your [API monitoring agent.](https://www.moesif.com/implementation)
 
-- A `user_id` is a unique identifier for the user performing the activity.
-User Ids are a __permanent__ and robust identifier, like a database id or permanent [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier).
-We recommend using database ids instead of simple email addresses or usernames, because database ids never change.
-
-- A `session_token` is an API key or [JSON Web Tokens's](https://jwt.io/introduction/) (JWT) that expires after a short duration.
-Unlike user ids, session tokens, are __transient__. Thus, the same user can be associated with many API keys and tokens over
-the lifetime of the user. 
+Users can also be associated to a company by setting the `company_id` field when you update a user. This enables tracking API usage for 
+individual users along with account-level usage. 
 
 |Name|Type|Required|Description|
 |-----------|-----------|-----------|-----------|
