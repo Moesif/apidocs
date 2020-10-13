@@ -8,7 +8,7 @@ Log a single user action to Moesif. An action represents something a customer pe
 such as _Sign In_ or _Purchased Subscription_. Each action consists of an _Action Name_ and optional _Metadata_.
 
 <aside class="warning">
-Currently only the moesif-browser-js SDK supports tracking actions. if you need to track actions server-side, use the HTTP API directly.
+Currently only the moesif-browser-js SDK supports tracking actions. If you need to track user actions from your server, use the HTTP API directly.
 </aside>
 
 **An example tracking actions using moesif-browser-js:**

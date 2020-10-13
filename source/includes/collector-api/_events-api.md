@@ -5,10 +5,10 @@
 **`POST https://api.moesif.net/v1/events`**
 
 Log a single API call to Moesif.
-The request payload is a single API call consisting of the API request, the API response, and any custom event metadata.
+The request payload is a single API event model containing the API request, the API response, and any custom event metadata.
 
 <aside class="warning">
-For logging API data, Moesif recommends most customers integrate with a <a href="https://www.moesif.com/implementation">server SDK or gateway plugin</a> as these handle the data manipulation and batching automatically for common environments.
+For logging API calls at scale, most customers should integrate with one of Moesif's <a href="https://www.moesif.com/implementation">API monitoring agents</a> which instrument your API automatically and handle batching.
 </aside>
 
 <aside class="info">

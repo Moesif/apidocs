@@ -1,10 +1,8 @@
 # <a id="collector-api"></a> Collector API v1
 
-The Collector API is a high-volume, write-only distributed data collection network.
-It's like a reverse CDN and has points of presence across the globe to log event data from the [Moesif SDKs](https://www.moesif.com/implementation),
-[API libs](#api-libs), and API Gateway Plugins. For more info, check out [and overview of Moesif's infrastructure](https://www.moesif.com/enterprise/api-analytics-infrastructure).
+The Collector API is a high-volume, write-only distributed data collection network to log data at high volume from [Moesif API monitoring agents](https://www.moesif.com/implementation). For more info, check out [an overview of our analytics infrastructure](https://www.moesif.com/enterprise/api-analytics-infrastructure).
 
-Moesif also has a separate [Management API](#Management-API) which can be used to access data in the Moesif platform such as to 
+Moesif has a separate [Management API](#Management-API) which can be used to query and manage data stored in the Moesif platform such as to 
 generate embedded dashboards and custom reports
 
 Base URL:
@@ -15,7 +13,6 @@ Base URL:
 
 Moesif's official SDKs and plugins only use HTTPS, but the API does support both HTTPS and HTTP. 
 It's highly recommended to ensure all communication is HTTPS, as HTTP is a last resort option for limited use cases like IoT and embedded devices. 
-
 
 ## Authentication
 Authentication is handled by adding the HTTP header `X-Moesif-Application-Id` to all requests. 

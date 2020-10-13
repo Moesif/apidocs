@@ -24,6 +24,12 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found
 and selecting API keys from top right menu.
 </aside>
 
+<blockquote class="lang-specific javascript--browser">
+<b>If you call both identifyUser() and identifyCompany() in the same session, then Moesif 
+will automatically associate the user with the company.
+</b>
+</blockquote>
+
 <blockquote class="lang-specific yaml">
 <code><b>POST</b> https://api.moesif.net/v1/companies</code>
 <br><br><i>Example Request</i><br>
@@ -332,11 +338,6 @@ apiClient.updateCompanyAsync(company, callBack);
 apiClient.updateCompany(company, callBack);
 ```
 
-<blockquote class="lang-specific javascript--browser">
-<b>Only the company id and metadata object need to be set. All other fields like 
-the company's IP address and converting campaign are captured from browser context automatically.</b>
-</blockquote>
-
 ```javascript--browser
 var moesif = require('moesif-browser-js');
 
@@ -345,9 +346,14 @@ moesif.init({
   // add other option here.
 });
 
-// Only the first argument is a string containing the company id. This is the only required field. 
-// The second argument is a object used to store a company info like plan, MRR, and company demographics.
-// The third argument is a string containing company website or email domain. If set, Moesif will enrich your profiles with publicly available info.  
+// Only the first argument is a string containing the company id. 
+// This is the only required field. 
+//
+// The second argument is a object used to store a company info like plan, 
+// MRR, and company demographics.
+// 
+// The third argument is a string containing company website or email domain. 
+// If set, Moesif will enrich your profiles with publicly available info.  
 metadata = {
   orgName: 'Acme, Inc',
   planName: 'Free Plan',
@@ -362,16 +368,13 @@ metadata = {
 moesif.identifyCompany('67890', metadata, 'acmeinc.com');
 ```
 
-#### Company id vs. session token
-Companies in Moesif are identified by two attributes: _company_id_ and _session_token_.
+#### Company ids
+Users in Moesif are identified via a `company_id` and should be a __permanent__ and robust identifier, like a database id. 
+We recommend not using values that can change like website domain or company name.
+The company_id matches the identifyCompany hook in your [API monitoring agent.](https://www.moesif.com/implementation)
 
-- A `company_id` is a unique identifier for the company or enterprise account performing the activity.
-Company Ids are a __permanent__ and robust identifier, like a database id or permanent [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier).
-We recommend using database ids instead of the company's name or website domain, because database ids never change.
-
-- A `session_token` is an API key or [JSON Web Tokens's](https://jwt.io/introduction/) (JWT) that expires after a short duration.
-Unlike company ids, session tokens, are __transient__. Thus, the same company can be associated with many API keys and tokens over
-the lifetime of the company. 
+Users can also be associated to a company by setting the `company_id` field when you update a user. This enables tracking API usage for 
+individual users along with account-level usage. 
 
 |Name|Type|Required|Description|
 |-----------|-----------|-----------|-----------|
@@ -838,16 +841,13 @@ apiClient.updateCompany(company, callBack);
 <b>Since this is a client side SDK, you cannot save a batch of companies with moesif-browser-js.</b>
 </blockquote>
 
-#### Company id vs. session token
-Companies in Moesif are identified by two attributes: _company_id_ and _session_token_.
+#### Company ids
+Users in Moesif are identified via a `company_id` and should be a __permanent__ and robust identifier, like a database id. 
+We recommend not using values that can change like website domain or company name.
+The company_id matches the identifyCompany hook in your [API monitoring agent.](https://www.moesif.com/implementation)
 
-- A `company_id` is a unique identifier for the company or enterprise account performing the activity.
-Company Ids are a __permanent__ and robust identifier, like a database id or permanent [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier).
-We recommend using database ids instead of the company's name or website domain, because database ids never change.
-
-- A `session_token` is an API key or [JSON Web Tokens's](https://jwt.io/introduction/) (JWT) that expires after a short duration.
-Unlike company ids, session tokens, are __transient__. Thus, the same company can be associated with many API keys and tokens over
-the lifetime of the company. 
+Users can also be associated to a company by setting the `company_id` field when you update a user. This enables tracking API usage for 
+individual users along with account-level usage. 
 
 |Name|Type|Required|Description|
 |-----------|-----------|-----------|-----------|
