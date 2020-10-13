@@ -244,7 +244,7 @@
       <!-- end Google Universal Analytics-->
   </head>
 
-  <body class="index" data-languages="[&quot;yaml&quot;,&quot;shell&quot;,&quot;javascript--nodejs&quot;,&quot;python&quot;,&quot;ruby&quot;,&quot;php&quot;,&quot;go&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;javascript--browser&quot;]">
+  <body class="index" data-languages="[&quot;yaml&quot;,&quot;shell&quot;,&quot;javascript--browser&quot;,&quot;javascript--nodejs&quot;,&quot;python&quot;,&quot;ruby&quot;,&quot;php&quot;,&quot;go&quot;,&quot;csharp&quot;,&quot;java&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -256,6 +256,7 @@
 </a>        <div class="lang-selector">
               <a href="#" data-language-name="yaml">JSON</a>
               <a href="#" data-language-name="shell">Shell</a>
+              <a href="#" data-language-name="javascript--browser">Browser</a>
               <a href="#" data-language-name="javascript--nodejs">Node.js</a>
               <a href="#" data-language-name="python">Python</a>
               <a href="#" data-language-name="ruby">Ruby</a>
@@ -263,7 +264,6 @@
               <a href="#" data-language-name="go">Go</a>
               <a href="#" data-language-name="csharp">C#</a>
               <a href="#" data-language-name="java">Java</a>
-              <a href="#" data-language-name="javascript--browser">Browser</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -283,12 +283,12 @@
       <div class="content">
         <h1 id="moesif-api-reference">Moesif API Reference</h1>
 
-<p><em>User-Centric API Analytics</em></p>
+<p>Moesif is a user behavior API analytics and monitoring service. You can leverage Moesif to answer questions around customer API usage in real-time.</p>
 
 <p>This API reference centers around v1 of the Moesif REST APIs and API Client Libs.
-For an overview on the Moesif platform, checkout <a href="https://www.moesif.com/implementation">integration guides</a>, or the <a href="/docs">developer documentation</a> or an </p>
+For an overview on the Moesif platform, see the <a href="/docs">developer docs</a> or <a href="https://www.moesif.com/implementation">implementation guides</a>  </p>
 
-<p>There are two distinct APIs:</p>
+<p>There are two APIs:</p>
 
 <table><thead>
 <tr>
@@ -311,9 +311,9 @@ For an overview on the Moesif platform, checkout <a href="https://www.moesif.com
 
 <h2 id="api-definitions">API definitions</h2>
 
-<p>The <em>Collector API</em> is a write-only, high-volume data ingestion network used by Moesif SDKs and plugins. Use the collector API to log API calls and user actions along with updating user and company profiles. </p>
+<p>The <em>Collector API</em> is a write-only, high-volume data collection network used by Moesif SDKs and plugins. Use the collector API to log API calls and user actions to Moesif at scale along with updating user/company profiles. </p>
 
-<p>The <em>Management API</em> is enables access to your data in Moesif such as to build embedded charts and custom reports. Many of the integrations such as Salesforce and Zapier use this API.</p>
+<p>The <em>Management API</em> is enables you to query and manage your data in Moesif such as to build embedded charts and custom reports. Many of the extensions such as Salesforce also use this API.</p>
 
           <h1 id="overview">Overview</h1>
 
@@ -538,10 +538,8 @@ select the respective language tab.</p>
 
           <h1 id="api-libs">API Libs</h1>
 
-<p>THese are low-level libraries to access the Moesif REST API and are used like other web analytics libs with a <code class="prettyprint">sendEvent()</code> and
-<code class="prettyprint">identifyUser()</code> methods and support both sync and async operations. Moesif also has high-level 
-<a href="https://www.moesif.com/implementation">server SDKs and API gateway plugin</a> to monitor APIs for popular environments and frameworks 
-which handle data manipulation and batching automatically.</p>
+<p>THese are low-level libraries to access the Moesif Collector API directly. For logging API calls at scale, most 
+customers should integrate with one of Moesif&rsquo;s <a href="https://www.moesif.com/implementation">API monitoring agents</a> which instrument your API automatically and handle batching. Likewise, Moesif has <a href="https://www.moesif.com/implementation/track-user-behaviors-with-browser?platform=browser">client integrations</a> for tracking users and their actions in your UI.</p>
 
 <h2 id="how-to-install">How to Install</h2>
 <pre class="highlight java tab-java"><code><span class="n">Pick</span> <span class="n">a</span> <span class="n">language</span> <span class="n">at</span> <span class="n">the</span> <span class="n">top</span> <span class="n">right</span>
@@ -641,6 +639,7 @@ Install via CDN
 
 <ul>
 <li>Shell</li>
+<li>Browser</li>
 <li>Node.js</li>
 <li>Python</li>
 <li>Ruby</li>
@@ -648,7 +647,6 @@ Install via CDN
 <li>Go</li>
 <li>C#</li>
 <li>Java</li>
-<li>Browser</li>
 </ul>
 
 <p>The SDKs are open-source and available on GitHub.</p>
@@ -660,11 +658,9 @@ and selecting API keys from top right menu.
 
           <h1 id="collector-api-v1"><a id="collector-api"></a> Collector API v1</h1>
 
-<p>The Collector API is a high-volume, write-only distributed data collection network.
-It&rsquo;s like a reverse CDN and has points of presence across the globe to log event data from the <a href="https://www.moesif.com/implementation">Moesif SDKs</a>,
-<a href="#api-libs">API libs</a>, and API Gateway Plugins. For more info, check out <a href="https://www.moesif.com/enterprise/api-analytics-infrastructure">and overview of Moesif&rsquo;s infrastructure</a>.</p>
+<p>The Collector API is a high-volume, write-only distributed data collection network to log data at high volume from <a href="https://www.moesif.com/implementation">Moesif API monitoring agents</a>. For more info, check out <a href="https://www.moesif.com/enterprise/api-analytics-infrastructure">an overview of our analytics infrastructure</a>.</p>
 
-<p>Moesif also has a separate <a href="#Management-API">Management API</a> which can be used to access data in the Moesif platform such as to 
+<p>Moesif has a separate <a href="#Management-API">Management API</a> which can be used to query and manage data stored in the Moesif platform such as to 
 generate embedded dashboards and custom reports</p>
 
 <p>Base URL:</p>
@@ -698,10 +694,10 @@ and selecting API keys from top right menu.
 <p><strong><code class="prettyprint">POST https://api.moesif.net/v1/events</code></strong></p>
 
 <p>Log a single API call to Moesif.
-The request payload is a single API call consisting of the API request, the API response, and any custom event metadata.</p>
+The request payload is a single API event model containing the API request, the API response, and any custom event metadata.</p>
 
 <aside class="warning">
-For logging API data, Moesif recommends most customers integrate with a <a href="https://www.moesif.com/implementation">server SDK or gateway plugin</a> as these handle the data manipulation and batching automatically for common environments.
+For logging API calls at scale, most customers should integrate with one of Moesif&rsquo;s <a href="https://www.moesif.com/implementation">API monitoring agents</a> which instrument your API automatically and handle batching.
 </aside>
 
 <aside class="info">
@@ -2141,7 +2137,7 @@ curl -X GET https://api.moesif.net/v1/events/batch <span class="se">\</span>
 such as <em>Sign In</em> or <em>Purchased Subscription</em>. Each action consists of an <em>Action Name</em> and optional <em>Metadata</em>.</p>
 
 <aside class="warning">
-Currently only the moesif-browser-js SDK supports tracking actions. if you need to track actions server-side, use the HTTP API directly.
+Currently only the moesif-browser-js SDK supports tracking actions. If you need to track user actions from your server, use the HTTP API directly.
 </aside>
 
 <p><strong>An example tracking actions using moesif-browser-js:</strong></p>
@@ -2436,15 +2432,17 @@ curl -X POST https://api.moesif.net/v1/actions/batch <span class="se">\</span>
 
 <p><strong><code class="prettyprint">POST https://api.moesif.net/v1/users</code></strong></p>
 
-<p>Updates a user profile in Moesif. A user can be a customer or end user accessing the API.
+<p>Updates a user profile in Moesif, which can be a customer or API consumer.
 Adding user metadata enables you to understand API usage across different cohorts, 
-user demographics, acquisition channels, etc.</p>
+user demographics, acquisition channels, etc. </p>
 
-<p>Any custom user properties can be stored via the <code class="prettyprint">metadata</code> object.</p>
+<p>Moesif has client integrations like <a href="https://www.moesif.com/implementation/track-user-behaviors-with-browser?platform=browser">moesif-browser-js</a> or Segment to make this easy.</p>
 
-<p>We’ve reserved some fields names in the <code class="prettyprint">metadata</code> object that have semantic meanings for users, and we handle them in special ways. 
-For example, we expect email to be a string containing the user’s email address which is used to sync with 
-external CRMs and to look up a user&rsquo;s Gravatar and demographics.</p>
+<p>User properties can be stored via the <code class="prettyprint">metadata</code> object.</p>
+
+<p>We’ve reserved some <code class="prettyprint">metadata</code> fields that have semantic meanings for users, and we handle them in special ways. 
+For example, we expect email to be a string containing the user’s email address which is used to look up a user&rsquo;s demographics from Clearbit
+and send <a href="https://www.moesif.com/features/user-behavioral-emails">behavioral emails</a>.</p>
 
 <p>Reserved metadata fields include:</p>
 
@@ -2469,6 +2467,10 @@ updating a single field.</p>
 Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found by logging into Moesif 
 and selecting API keys from top right menu.
 </aside>
+
+<blockquote class="lang-specific javascript--browser">
+<b>Do not call identifyUser for anonymous visitors. The SDK automatically tracks these via a generated anonymousId in localStorage. Once you call identifyUser, Moesif automatically merges multiple user profiles if needed.</b>
+</blockquote>
 
 <blockquote class="lang-specific yaml">
 <code><b>POST</b> https://api.moesif.net/v1/users</code>
@@ -2756,19 +2758,15 @@ curl -X POST https://api.moesif.net/v1/users <span class="se">\</span>
 
 <span class="c1">// Asynchronous Call to update user</span>
 <span class="n">apiClient</span><span class="o">.</span><span class="na">updateUserAsync</span><span class="o">(</span><span class="n">user</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
-</code></pre>
-<blockquote class="lang-specific javascript--browser">
-<b>Only the user id and metadata object need to be set. All other fields like 
-the user&rsquo;s IP address and converting campaign are captured from browser context automatically.</b>
-</blockquote>
-<pre class="highlight javascript tab-javascript--browser"><code><span class="kd">var</span> <span class="nx">moesif</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'moesif-browser-js'</span><span class="p">);</span>
+</code></pre><pre class="highlight javascript tab-javascript--browser"><code><span class="kd">var</span> <span class="nx">moesif</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'moesif-browser-js'</span><span class="p">);</span>
 
 <span class="nx">moesif</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
   <span class="na">applicationId</span><span class="p">:</span> <span class="s1">'YOUR_COLLECTOR_APPLICATION_ID'</span>
   <span class="c1">// add other option here.</span>
 <span class="p">});</span>
 
-<span class="c1">// The second argument containing user metatdata is optional, but useful to store customer info like email and name.</span>
+<span class="c1">// The second argument containing user metatdata is optional,</span>
+<span class="c1">// but useful to store customer properties like email and name.</span>
 <span class="nx">moesif</span><span class="p">.</span><span class="nx">identifyUser</span><span class="p">(</span><span class="s1">'12345'</span><span class="p">,</span> <span class="p">{</span>
   <span class="na">email</span><span class="p">:</span> <span class="s1">'john@acmeinc.com'</span><span class="p">,</span>
   <span class="na">firstName</span><span class="p">:</span> <span class="s1">'John'</span><span class="p">,</span>
@@ -2781,18 +2779,14 @@ the user&rsquo;s IP address and converting campaign are captured from browser co
   <span class="p">},</span>
 <span class="p">});</span>
 </code></pre>
-<h4 id="user-id-vs-session-token">User id vs. session token</h4>
+<h4 id="user-id">User id</h4>
 
-<p>Users in Moesif are identified by two attributes: <em>user_id</em> and <em>session_token</em>.</p>
+<p>Users in Moesif are identified via a <code class="prettyprint">user_id</code> and should be a <strong>permanent</strong> and robust identifier, like a database id. 
+We recommend not using values that can change like email addresses or usernames.
+The user_id matches the identifyUser hook in your <a href="https://www.moesif.com/implementation">API monitoring agent.</a></p>
 
-<ul>
-<li><p>A <code class="prettyprint">user_id</code> is a unique identifier for the user performing the activity.
-User Ids are a <strong>permanent</strong> and robust identifier, like a database id or permanent <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a>.
-We recommend using database ids instead of simple email addresses or usernames, because database ids never change.</p></li>
-<li><p>A <code class="prettyprint">session_token</code> is an API key or <a href="https://jwt.io/introduction/">JSON Web Tokens&rsquo;s</a> (JWT) that expires after a short duration.
-Unlike user ids, session tokens, are <strong>transient</strong>. Thus, the same user can be associated with many API keys and tokens over
-the lifetime of the user. </p></li>
-</ul>
+<p>Users can also be associated to a company by setting the <code class="prettyprint">company_id</code> field when you update a user. This enables tracking API usage for 
+individual users along with account-level usage. </p>
 
 <table><thead>
 <tr>
@@ -3343,18 +3337,14 @@ curl -X POST https://api.moesif.net/v1/users/batch <span class="se">\</span>
 <b>Since this is a client side SDK, you cannot save a batch of users with moesif-browser-js.</b>
 </blockquote>
 
-<h4 id="user-id-vs-session-token">User id vs. session token</h4>
+<h4 id="user-id">User id</h4>
 
-<p>Users in Moesif are identified by two attributes: <em>user_id</em> and <em>session_token</em>.</p>
+<p>Users in Moesif are identified via a <code class="prettyprint">user_id</code> and should be a <strong>permanent</strong> and robust identifier, like a database id. 
+We recommend not using values that can change like email addresses or usernames.
+The user_id matches the identifyUser hook in your <a href="https://www.moesif.com/implementation">API monitoring agent.</a></p>
 
-<ul>
-<li><p>A <code class="prettyprint">user_id</code> is a unique identifier for the user performing the activity.
-User Ids are a <strong>permanent</strong> and robust identifier, like a database id or permanent <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a>.
-We recommend using database ids instead of simple email addresses or usernames, because database ids never change.</p></li>
-<li><p>A <code class="prettyprint">session_token</code> is an API key or <a href="https://jwt.io/introduction/">JSON Web Tokens&rsquo;s</a> (JWT) that expires after a short duration.
-Unlike user ids, session tokens, are <strong>transient</strong>. Thus, the same user can be associated with many API keys and tokens over
-the lifetime of the user. </p></li>
-</ul>
+<p>Users can also be associated to a company by setting the <code class="prettyprint">company_id</code> field when you update a user. This enables tracking API usage for 
+individual users along with account-level usage. </p>
 
 <table><thead>
 <tr>
@@ -3488,6 +3478,12 @@ updating a single field.</p>
 Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found by logging into Moesif 
 and selecting API keys from top right menu.
 </aside>
+
+<blockquote class="lang-specific javascript--browser">
+<b>If you call both identifyUser() and identifyCompany() in the same session, then Moesif 
+will automatically associate the user with the company.
+</b>
+</blockquote>
 
 <blockquote class="lang-specific yaml">
 <code><b>POST</b> https://api.moesif.net/v1/companies</code>
@@ -3770,21 +3766,21 @@ curl -X POST https://api.moesif.net/v1/companies <span class="se">\</span>
 
 <span class="c1">// Synchronous Call to update company</span>
 <span class="n">apiClient</span><span class="o">.</span><span class="na">updateCompany</span><span class="o">(</span><span class="n">company</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
-</code></pre>
-<blockquote class="lang-specific javascript--browser">
-<b>Only the company id and metadata object need to be set. All other fields like 
-the company&rsquo;s IP address and converting campaign are captured from browser context automatically.</b>
-</blockquote>
-<pre class="highlight javascript tab-javascript--browser"><code><span class="kd">var</span> <span class="nx">moesif</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'moesif-browser-js'</span><span class="p">);</span>
+</code></pre><pre class="highlight javascript tab-javascript--browser"><code><span class="kd">var</span> <span class="nx">moesif</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'moesif-browser-js'</span><span class="p">);</span>
 
 <span class="nx">moesif</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
   <span class="na">applicationId</span><span class="p">:</span> <span class="s1">'YOUR_COLLECTOR_APPLICATION_ID'</span>
   <span class="c1">// add other option here.</span>
 <span class="p">});</span>
 
-<span class="c1">// Only the first argument is a string containing the company id. This is the only required field. </span>
-<span class="c1">// The second argument is a object used to store a company info like plan, MRR, and company demographics.</span>
-<span class="c1">// The third argument is a string containing company website or email domain. If set, Moesif will enrich your profiles with publicly available info.  </span>
+<span class="c1">// Only the first argument is a string containing the company id. </span>
+<span class="c1">// This is the only required field. </span>
+<span class="c1">//</span>
+<span class="c1">// The second argument is a object used to store a company info like plan, </span>
+<span class="c1">// MRR, and company demographics.</span>
+<span class="c1">// </span>
+<span class="c1">// The third argument is a string containing company website or email domain. </span>
+<span class="c1">// If set, Moesif will enrich your profiles with publicly available info.  </span>
 <span class="nx">metadata</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">orgName</span><span class="p">:</span> <span class="s1">'Acme, Inc'</span><span class="p">,</span>
   <span class="na">planName</span><span class="p">:</span> <span class="s1">'Free Plan'</span><span class="p">,</span>
@@ -3798,18 +3794,14 @@ the company&rsquo;s IP address and converting campaign are captured from browser
 
 <span class="nx">moesif</span><span class="p">.</span><span class="nx">identifyCompany</span><span class="p">(</span><span class="s1">'67890'</span><span class="p">,</span> <span class="nx">metadata</span><span class="p">,</span> <span class="s1">'acmeinc.com'</span><span class="p">);</span>
 </code></pre>
-<h4 id="company-id-vs-session-token">Company id vs. session token</h4>
+<h4 id="company-ids">Company ids</h4>
 
-<p>Companies in Moesif are identified by two attributes: <em>company_id</em> and <em>session_token</em>.</p>
+<p>Users in Moesif are identified via a <code class="prettyprint">company_id</code> and should be a <strong>permanent</strong> and robust identifier, like a database id. 
+We recommend not using values that can change like website domain or company name.
+The company_id matches the identifyCompany hook in your <a href="https://www.moesif.com/implementation">API monitoring agent.</a></p>
 
-<ul>
-<li><p>A <code class="prettyprint">company_id</code> is a unique identifier for the company or enterprise account performing the activity.
-Company Ids are a <strong>permanent</strong> and robust identifier, like a database id or permanent <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a>.
-We recommend using database ids instead of the company&rsquo;s name or website domain, because database ids never change.</p></li>
-<li><p>A <code class="prettyprint">session_token</code> is an API key or <a href="https://jwt.io/introduction/">JSON Web Tokens&rsquo;s</a> (JWT) that expires after a short duration.
-Unlike company ids, session tokens, are <strong>transient</strong>. Thus, the same company can be associated with many API keys and tokens over
-the lifetime of the company. </p></li>
-</ul>
+<p>Users can also be associated to a company by setting the <code class="prettyprint">company_id</code> field when you update a user. This enables tracking API usage for 
+individual users along with account-level usage. </p>
 
 <table><thead>
 <tr>
@@ -4332,18 +4324,14 @@ curl -X POST https://api.moesif.net/v1/companies/batch <span class="se">\</span>
 <b>Since this is a client side SDK, you cannot save a batch of companies with moesif-browser-js.</b>
 </blockquote>
 
-<h4 id="company-id-vs-session-token">Company id vs. session token</h4>
+<h4 id="company-ids">Company ids</h4>
 
-<p>Companies in Moesif are identified by two attributes: <em>company_id</em> and <em>session_token</em>.</p>
+<p>Users in Moesif are identified via a <code class="prettyprint">company_id</code> and should be a <strong>permanent</strong> and robust identifier, like a database id. 
+We recommend not using values that can change like website domain or company name.
+The company_id matches the identifyCompany hook in your <a href="https://www.moesif.com/implementation">API monitoring agent.</a></p>
 
-<ul>
-<li><p>A <code class="prettyprint">company_id</code> is a unique identifier for the company or enterprise account performing the activity.
-Company Ids are a <strong>permanent</strong> and robust identifier, like a database id or permanent <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a>.
-We recommend using database ids instead of the company&rsquo;s name or website domain, because database ids never change.</p></li>
-<li><p>A <code class="prettyprint">session_token</code> is an API key or <a href="https://jwt.io/introduction/">JSON Web Tokens&rsquo;s</a> (JWT) that expires after a short duration.
-Unlike company ids, session tokens, are <strong>transient</strong>. Thus, the same company can be associated with many API keys and tokens over
-the lifetime of the company. </p></li>
-</ul>
+<p>Users can also be associated to a company by setting the <code class="prettyprint">company_id</code> field when you update a user. This enables tracking API usage for 
+individual users along with account-level usage. </p>
 
 <table><thead>
 <tr>
@@ -18545,6 +18533,7 @@ managementAPIToken ( Scopes: delete:users )
           <div class="lang-selector">
                 <a href="#" data-language-name="yaml">JSON</a>
                 <a href="#" data-language-name="shell">Shell</a>
+                <a href="#" data-language-name="javascript--browser">Browser</a>
                 <a href="#" data-language-name="javascript--nodejs">Node.js</a>
                 <a href="#" data-language-name="python">Python</a>
                 <a href="#" data-language-name="ruby">Ruby</a>
@@ -18552,7 +18541,6 @@ managementAPIToken ( Scopes: delete:users )
                 <a href="#" data-language-name="go">Go</a>
                 <a href="#" data-language-name="csharp">C#</a>
                 <a href="#" data-language-name="java">Java</a>
-                <a href="#" data-language-name="javascript--browser">Browser</a>
           </div>
       </div>
     </div>
