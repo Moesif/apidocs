@@ -6376,7 +6376,7 @@ managementAPIToken ( Scopes: read:companies )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/search/companymetrics/metrics?from=2020-05-22T01:20:49Z&to=2020-05-22T01:20:49Z \
+curl -X POST https://api.moesif.com/v1/search/~/search/companymetrics/metrics?from=2021-02-22T01:20:49Z&to=2021-02-22T01:20:49Z \
   -H 'Accept: 0' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -6391,7 +6391,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/search/companymetrics/metrics?from=2020-05-22T01:20:49Z&to=2020-05-22T01:20:49Z',
+fetch('https://api.moesif.com/v1/search/~/search/companymetrics/metrics?from=2021-02-22T01:20:49Z&to=2021-02-22T01:20:49Z',
 {
   method: 'POST',
 
@@ -6413,7 +6413,7 @@ headers = {
 }
 
 r = requests.post('https://api.moesif.com/v1/search/~/search/companymetrics/metrics', params={
-  'from': '2020-05-22T01:20:49Z',  'to': '2020-05-22T01:20:49Z'
+  'from': '2021-02-22T01:20:49Z',  'to': '2021-02-22T01:20:49Z'
 }, headers = headers)
 
 print r.json()
@@ -6500,7 +6500,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/search/companymetrics/metrics?from=2020-05-22T01:20:49Z&to=2020-05-22T01:20:49Z");
+URL obj = new URL("https://api.moesif.com/v1/search/~/search/companymetrics/metrics?from=2021-02-22T01:20:49Z&to=2021-02-22T01:20:49Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -6556,7 +6556,7 @@ managementAPIToken ( Scopes: read:companies )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from=2020-05-22T01:20:49Z&to=2020-05-22T01:20:49Z \
+curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from=2021-02-22T01:20:49Z&to=2021-02-22T01:20:49Z \
   -H 'Accept: 0' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -6571,7 +6571,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from=2020-05-22T01:20:49Z&to=2020-05-22T01:20:49Z',
+fetch('https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from=2021-02-22T01:20:49Z&to=2021-02-22T01:20:49Z',
 {
   method: 'POST',
 
@@ -6593,7 +6593,7 @@ headers = {
 }
 
 r = requests.post('https://api.moesif.com/v1/search/~/search/usermetrics/metrics', params={
-  'from': '2020-05-22T01:20:49Z',  'to': '2020-05-22T01:20:49Z'
+  'from': '2021-02-22T01:20:49Z',  'to': '2021-02-22T01:20:49Z'
 }, headers = headers)
 
 print r.json()
@@ -6680,7 +6680,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from=2020-05-22T01:20:49Z&to=2020-05-22T01:20:49Z");
+URL obj = new URL("https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from=2021-02-22T01:20:49Z&to=2021-02-22T01:20:49Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -8121,7 +8121,7 @@ managementAPIToken ( Scopes: read:companies )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/count/events?from=2020-05-22T01:20:49Z&to=2020-05-22T01:20:49Z \
+curl -X POST https://api.moesif.com/v1/search/~/count/events?from=2021-02-22T01:20:49Z&to=2021-02-22T01:20:49Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -8136,7 +8136,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/count/events?from=2020-05-22T01:20:49Z&to=2020-05-22T01:20:49Z',
+fetch('https://api.moesif.com/v1/search/~/count/events?from=2021-02-22T01:20:49Z&to=2021-02-22T01:20:49Z',
 {
   method: 'POST',
 
@@ -8158,7 +8158,7 @@ headers = {
 }
 
 r = requests.post('https://api.moesif.com/v1/search/~/count/events', params={
-  'from': '2020-05-22T01:20:49Z',  'to': '2020-05-22T01:20:49Z'
+  'from': '2021-02-22T01:20:49Z',  'to': '2021-02-22T01:20:49Z'
 }, headers = headers)
 
 print r.json()
@@ -8245,7 +8245,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/count/events?from=2020-05-22T01:20:49Z&to=2020-05-22T01:20:49Z");
+URL obj = new URL("https://api.moesif.com/v1/search/~/count/events?from=2021-02-22T01:20:49Z&to=2021-02-22T01:20:49Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -8299,7 +8299,7 @@ managementAPIToken ( Scopes: read:events )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/search/events?from=2020-05-22T01:20:49Z&to=2020-05-22T01:20:49Z \
+curl -X POST https://api.moesif.com/v1/search/~/search/events?from=2021-02-22T01:20:49Z&to=2021-02-22T01:20:49Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -8314,7 +8314,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/search/events?from=2020-05-22T01:20:49Z&to=2020-05-22T01:20:49Z',
+fetch('https://api.moesif.com/v1/search/~/search/events?from=2021-02-22T01:20:49Z&to=2021-02-22T01:20:49Z',
 {
   method: 'POST',
 
@@ -8336,7 +8336,7 @@ headers = {
 }
 
 r = requests.post('https://api.moesif.com/v1/search/~/search/events', params={
-  'from': '2020-05-22T01:20:49Z',  'to': '2020-05-22T01:20:49Z'
+  'from': '2021-02-22T01:20:49Z',  'to': '2021-02-22T01:20:49Z'
 }, headers = headers)
 
 print r.json()
@@ -8423,7 +8423,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/search/events?from=2020-05-22T01:20:49Z&to=2020-05-22T01:20:49Z");
+URL obj = new URL("https://api.moesif.com/v1/search/~/search/events?from=2021-02-22T01:20:49Z&to=2021-02-22T01:20:49Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -8629,7 +8629,7 @@ managementAPIToken ( Scopes: read:events )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search?from=2020-05-22T01:20:49Z&to=2020-05-22T01:20:49Z \
+curl -X POST https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search?from=2021-02-22T01:20:49Z&to=2021-02-22T01:20:49Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -8644,7 +8644,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search?from=2020-05-22T01:20:49Z&to=2020-05-22T01:20:49Z',
+fetch('https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search?from=2021-02-22T01:20:49Z&to=2021-02-22T01:20:49Z',
 {
   method: 'POST',
 
@@ -8666,7 +8666,7 @@ headers = {
 }
 
 r = requests.post('https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search', params={
-  'from': '2020-05-22T01:20:49Z',  'to': '2020-05-22T01:20:49Z'
+  'from': '2021-02-22T01:20:49Z',  'to': '2021-02-22T01:20:49Z'
 }, headers = headers)
 
 print r.json()
@@ -8753,7 +8753,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search?from=2020-05-22T01:20:49Z&to=2020-05-22T01:20:49Z");
+URL obj = new URL("https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search?from=2021-02-22T01:20:49Z&to=2021-02-22T01:20:49Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -8960,7 +8960,7 @@ managementAPIToken ( Scopes: read:events )
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/search/~/events/{id}?event_time=2020-05-22T01:20:49Z \
+curl -X GET https://api.moesif.com/v1/search/~/events/{id}?event_time=2021-02-22T01:20:49Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -8975,7 +8975,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/events/{id}?event_time=2020-05-22T01:20:49Z',
+fetch('https://api.moesif.com/v1/search/~/events/{id}?event_time=2021-02-22T01:20:49Z',
 {
   method: 'GET',
 
@@ -8997,7 +8997,7 @@ headers = {
 }
 
 r = requests.get('https://api.moesif.com/v1/search/~/events/{id}', params={
-  'event_time': '2020-05-22T01:20:49Z'
+  'event_time': '2021-02-22T01:20:49Z'
 }, headers = headers)
 
 print r.json()
@@ -9083,7 +9083,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/events/{id}?event_time=2020-05-22T01:20:49Z");
+URL obj = new URL("https://api.moesif.com/v1/search/~/events/{id}?event_time=2021-02-22T01:20:49Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();

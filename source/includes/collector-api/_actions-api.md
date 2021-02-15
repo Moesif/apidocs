@@ -46,7 +46,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
   "company_id": "67890",
   "session_token": "XXXXX",
   "request": {
-    "url": "https://acmeinc.com/pricing",
+    "uri": "https://acmeinc.com/pricing",
     "user_agent_string": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
   },
   "metadata": {
@@ -61,7 +61,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 curl -X POST https://api.moesif.net/v1/actions \
   -H 'Content-Type: application/json' \
   -H 'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID' \
-  -d '{"action_name":"Clicked Sign Up","user_id":"12345","company_id":"67890","session_token":"XXXXX","request":{"url":"https://acmeinc.com/pricing","user_agent_string":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"},"metadata":{"button_label":"Get Started","sign_up_method":"Google SSO"}}'
+  -d '{"action_name":"Clicked Sign Up","user_id":"12345","company_id":"67890","session_token":"XXXXX","request":{"uri":"https://acmeinc.com/pricing","user_agent_string":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"},"metadata":{"button_label":"Get Started","sign_up_method":"Google SSO"}}'
 ```
 
 ```javascript--browser
@@ -143,7 +143,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
     "company_id": "67890",
     "session_token": "XXXXX",
     "request": {
-      "url": "https://acmeinc.com/pricing",
+      "uri": "https://acmeinc.com/pricing",
       "user_agent_string": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
     },
     "metadata": {
@@ -157,7 +157,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
     "company_id": "67890",
     "session_token": "XXXXX",
     "request": {
-      "url": "https://acmeinc.com/pricing",
+      "uri": "https://acmeinc.com/pricing",
       "user_agent_string": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
     },
     "metadata": {
@@ -173,7 +173,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 curl -X POST https://api.moesif.net/v1/actions/batch \
   -H 'Content-Type: application/json' \
   -H 'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID' \
-  -d '[{"action_name":"Clicked Sign Up","user_id":"12345","company_id":"67890","session_token":"XXXXX","request":{"url":"https://acmeinc.com/pricing","user_agent_string":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"},"metadata":{"button_label":"Get Started","sign_up_method":"Google SSO"}},{"action_name":"Purchased Subscription","user_id":"12345","company_id":"67890","session_token":"XXXXX","request":{"url":"https://acmeinc.com/pricing","user_agent_string":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"},"metadata":{"plan_name":"Pay As You Go","plan_revenue":5000}}]'
+  -d '[{"action_name":"Clicked Sign Up","user_id":"12345","company_id":"67890","session_token":"XXXXX","request":{"uri":"https://acmeinc.com/pricing","user_agent_string":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"},"metadata":{"button_label":"Get Started","sign_up_method":"Google SSO"}},{"action_name":"Purchased Subscription","user_id":"12345","company_id":"67890","session_token":"XXXXX","request":{"uri":"https://acmeinc.com/pricing","user_agent_string":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"},"metadata":{"plan_name":"Pay As You Go","plan_revenue":5000}}]'
 ```
 
 ```javascript--browser
