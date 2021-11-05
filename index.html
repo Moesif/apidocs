@@ -286,7 +286,7 @@
 <p>Moesif is a user behavior API analytics and monitoring service. You can leverage Moesif to answer questions around customer API usage in real-time.</p>
 
 <p>This API reference centers around v1 of the Moesif REST APIs and API Client Libs.
-For an overview on the Moesif platform, see the <a href="/docs">developer docs</a> or <a href="https://www.moesif.com/implementation">implementation guides</a>  </p>
+For an overview on the Moesif platform, see the <a href="/docs">developer docs</a> or <a href="https://www.moesif.com/implementation">implementation guides</a></p>
 
 <p>There are two APIs:</p>
 
@@ -303,15 +303,15 @@ For an overview on the Moesif platform, see the <a href="/docs">developer docs</
 <td>Retrieve your Collector Application Id by logging into Moesif and going to <em>API keys</em> from top right menu. Place in the request <code class="prettyprint">X-Moesif-Application-Id</code> header. <a href="#collector-api">More info</a></td>
 </tr>
 <tr>
-<td><a href="#Management-API">Management API</a></td>
+<td><a href="#management-api">Management API</a></td>
 <td><a href="https://api.moesif.com">api.moesif.com</a></td>
-<td>Generate a Management API key by logging into Moesif and going to <em>API keys</em> from top right menu. Add it as a <a href="https://swagger.io/docs/specification/authentication/bearer-authentication/">Bearer token</a> to the request <code class="prettyprint">Authorization</code> header. <a href="#Management-API">More info</a></td>
+<td>Generate a Management API key by logging into Moesif and going to <em>API keys</em> from top right menu. Add it as a <a href="https://swagger.io/docs/specification/authentication/bearer-authentication/">Bearer token</a> to the request <code class="prettyprint">Authorization</code> header. <a href="#management-api">More info</a></td>
 </tr>
 </tbody></table>
 
 <h2 id="api-definitions">API definitions</h2>
 
-<p>The <em>Collector API</em> is a write-only, high-volume data collection network used by Moesif SDKs and plugins. Use the collector API to log API calls and user actions to Moesif at scale along with updating user/company profiles. </p>
+<p>The <em>Collector API</em> is a write-only, high-volume data collection network used by Moesif SDKs and plugins. Use the collector API to log API calls and user actions to Moesif at scale along with updating user/company profiles.</p>
 
 <p>The <em>Management API</em> is enables you to query and manage your data in Moesif such as to build embedded charts and custom reports. Many of the extensions such as Salesforce also use this API.</p>
 
@@ -660,7 +660,7 @@ and selecting API keys from top right menu.
 
 <p>The Collector API is a high-volume, write-only distributed data collection network to log data at high volume from <a href="https://www.moesif.com/implementation">Moesif API monitoring agents</a>. For more info, check out <a href="https://www.moesif.com/enterprise/api-analytics-infrastructure">an overview of our analytics infrastructure</a>.</p>
 
-<p>Moesif has a separate <a href="#Management-API">Management API</a> which can be used to query and manage data stored in the Moesif platform such as to 
+<p>Moesif has a separate <a href="#management-api">Management API</a> which can be used to query and manage data stored in the Moesif platform such as to
 generate embedded dashboards and custom reports</p>
 
 <p>Base URL:</p>
@@ -671,19 +671,19 @@ generate embedded dashboards and custom reports</p>
 
 <p><a href="https://www.moesif.com/terms">Terms of service</a></p>
 
-<p>Moesif&rsquo;s official SDKs and plugins only use HTTPS, but the API does support both HTTPS and HTTP. 
-It&rsquo;s highly recommended to ensure all communication is HTTPS, as HTTP is a last resort option for limited use cases like IoT and embedded devices. </p>
+<p>Moesif&rsquo;s official SDKs and plugins only use HTTPS, but the API does support both HTTPS and HTTP.
+It&rsquo;s highly recommended to ensure all communication is HTTPS, as HTTP is a last resort option for limited use cases like IoT and embedded devices.</p>
 
 <h2 id="authentication">Authentication</h2>
 
-<p>Authentication is handled by adding the HTTP header <code class="prettyprint">X-Moesif-Application-Id</code> to all requests. 
-Moesif recommends using the same Application Id for all integrations within the same application environment (i.e. product, staging, etc) so your analytics data 
-is unified. </p>
+<p>Authentication is handled by adding the HTTP header <code class="prettyprint">X-Moesif-Application-Id</code> to all requests.
+Moesif recommends using the same Application Id for all integrations within the same application environment (i.e. product, staging, etc) so your analytics data
+is unified.</p>
 
 <p><code class="prettyprint">X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID</code></p>
 
 <aside class="notice">
-Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found by logging into Moesif 
+Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found by logging into Moesif
 and selecting API keys from top right menu.
 </aside>
 
