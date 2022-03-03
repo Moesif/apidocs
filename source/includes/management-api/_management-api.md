@@ -4,9 +4,12 @@
 
 Management API to query data in Moesif. You can use the management API to export data for custom reports or to build custom dashboards.
 
-Base URL:
+|Base URL (Public)|Base URL (When using Secure Proxy)|
+|--|--|
+|`https://api.moesif.com/v1`|`http://localhost:9500/api/v1`
 
-* <a href="https://api.moesif.com/v1">https://api.moesif.com/v1</a>
+If you're using the [Moesif secure proxy](https://www.moesif.com/docs/platform/secure-proxy/), the base URL is `http://localhost:9500/api/v1` assuming it's running on port `9500`.
+
 
 <a href="https://www.moesif.com/terms">Terms of service</a>
 
@@ -6346,8 +6349,8 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|from|query|string(date-time)|false|The start date, which can be absolute such as 2022-01-01T00:00:00Z or relative such as -24h|
-|to|query|string(date-time)|false|The end date, which can be absolute such as 2022-01-02T00:00:00Z or relative such as now|
+|from|query|string(date-time)|false|The start date, which can be absolute such as 2022-03-01T00:00:00Z or relative such as -24h|
+|to|query|string(date-time)|false|The end date, which can be absolute such as 2022-03-02T00:00:00Z or relative such as now|
 |body|body|_See Below_|false|The search definition using the Elasticsearch Query DSL|
 
 > Example response
@@ -6376,7 +6379,7 @@ managementAPIToken ( Scopes: read:companies )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/search/companymetrics/metrics?from=2022-01-22T01:20:49Z&to=2022-01-22T01:20:49Z \
+curl -X POST https://api.moesif.com/v1/search/~/search/companymetrics/metrics?from=2022-03-22T01:20:49Z&to=2022-03-22T01:20:49Z \
   -H 'Accept: 0' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -6391,7 +6394,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/search/companymetrics/metrics?from=2022-01-22T01:20:49Z&to=2022-01-22T01:20:49Z',
+fetch('https://api.moesif.com/v1/search/~/search/companymetrics/metrics?from=2022-03-22T01:20:49Z&to=2022-03-22T01:20:49Z',
 {
   method: 'POST',
 
@@ -6413,7 +6416,7 @@ headers = {
 }
 
 r = requests.post('https://api.moesif.com/v1/search/~/search/companymetrics/metrics', params={
-  'from': '2022-01-22T01:20:49Z',  'to': '2022-01-22T01:20:49Z'
+  'from': '2022-03-22T01:20:49Z',  'to': '2022-03-22T01:20:49Z'
 }, headers = headers)
 
 print r.json()
@@ -6500,7 +6503,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/search/companymetrics/metrics?from=2022-01-22T01:20:49Z&to=2022-01-22T01:20:49Z");
+URL obj = new URL("https://api.moesif.com/v1/search/~/search/companymetrics/metrics?from=2022-03-22T01:20:49Z&to=2022-03-22T01:20:49Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -6524,8 +6527,8 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-01-01T00:00:00Z or relative such as -24h|
-|to|query|string(date-time)|true|The end date, which can be absolute such as 2022-01-02T00:00:00Z or relative such as now|
+|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-03-01T00:00:00Z or relative such as -24h|
+|to|query|string(date-time)|true|The end date, which can be absolute such as 2022-03-02T00:00:00Z or relative such as now|
 |body|body|_See Below_|false|The search definition using the Elasticsearch Query DSL|
 
 > Example response
@@ -6556,7 +6559,7 @@ managementAPIToken ( Scopes: read:companies )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from=2022-01-22T01:20:49Z&to=2022-01-22T01:20:49Z \
+curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from=2022-03-22T01:20:49Z&to=2022-03-22T01:20:49Z \
   -H 'Accept: 0' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -6571,7 +6574,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from=2022-01-22T01:20:49Z&to=2022-01-22T01:20:49Z',
+fetch('https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from=2022-03-22T01:20:49Z&to=2022-03-22T01:20:49Z',
 {
   method: 'POST',
 
@@ -6593,7 +6596,7 @@ headers = {
 }
 
 r = requests.post('https://api.moesif.com/v1/search/~/search/usermetrics/metrics', params={
-  'from': '2022-01-22T01:20:49Z',  'to': '2022-01-22T01:20:49Z'
+  'from': '2022-03-22T01:20:49Z',  'to': '2022-03-22T01:20:49Z'
 }, headers = headers)
 
 print r.json()
@@ -6680,7 +6683,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from=2022-01-22T01:20:49Z&to=2022-01-22T01:20:49Z");
+URL obj = new URL("https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from=2022-03-22T01:20:49Z&to=2022-03-22T01:20:49Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -6704,8 +6707,8 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-01-01T00:00:00Z or relative such as -24h|
-|to|query|string(date-time)|true|The end date, which can be absolute such as 2022-01-02T00:00:00Z or relative such as now|
+|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-03-01T00:00:00Z or relative such as -24h|
+|to|query|string(date-time)|true|The end date, which can be absolute such as 2022-03-02T00:00:00Z or relative such as now|
 |body|body|_See Below_|false|The search definition using the Elasticsearch Query DSL|
 
 > Example response
@@ -6880,8 +6883,8 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|from|query|string(date-time)|false|The start date, which can be absolute such as 2022-01-01T00:00:00Z or relative such as -24h|
-|to|query|string(date-time)|false|The end date, which can be absolute such as 2022-01-02T00:00:00Z or relative such as now|
+|from|query|string(date-time)|false|The start date, which can be absolute such as 2022-03-01T00:00:00Z or relative such as -24h|
+|to|query|string(date-time)|false|The end date, which can be absolute such as 2022-03-02T00:00:00Z or relative such as now|
 |body|body|_See Below_|false|The search definition using the Elasticsearch Query DSL|
 
 > Example response
@@ -8121,7 +8124,7 @@ managementAPIToken ( Scopes: read:companies )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/count/events?from=2022-01-22T01:20:49Z&to=2022-01-22T01:20:49Z \
+curl -X POST https://api.moesif.com/v1/search/~/count/events?from=2022-03-22T01:20:49Z&to=2022-03-22T01:20:49Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -8136,7 +8139,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/count/events?from=2022-01-22T01:20:49Z&to=2022-01-22T01:20:49Z',
+fetch('https://api.moesif.com/v1/search/~/count/events?from=2022-03-22T01:20:49Z&to=2022-03-22T01:20:49Z',
 {
   method: 'POST',
 
@@ -8158,7 +8161,7 @@ headers = {
 }
 
 r = requests.post('https://api.moesif.com/v1/search/~/count/events', params={
-  'from': '2022-01-22T01:20:49Z',  'to': '2022-01-22T01:20:49Z'
+  'from': '2022-03-22T01:20:49Z',  'to': '2022-03-22T01:20:49Z'
 }, headers = headers)
 
 print r.json()
@@ -8245,7 +8248,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/count/events?from=2022-01-22T01:20:49Z&to=2022-01-22T01:20:49Z");
+URL obj = new URL("https://api.moesif.com/v1/search/~/count/events?from=2022-03-22T01:20:49Z&to=2022-03-22T01:20:49Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -8269,8 +8272,8 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-01-01T00:00:00Z or relative such as -24h|
-|to|query|string(date-time)|true|The end date, which can be absolute such as 2022-01-02T00:00:00Z or relative such as now|
+|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-03-01T00:00:00Z or relative such as -24h|
+|to|query|string(date-time)|true|The end date, which can be absolute such as 2022-03-02T00:00:00Z or relative such as now|
 |body|body|_See Below_|false|The search definition using the Elasticsearch Query DSL|
 
 > Example response
@@ -8299,7 +8302,7 @@ managementAPIToken ( Scopes: read:events )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/search/events?from=2022-01-22T01:20:49Z&to=2022-01-22T01:20:49Z \
+curl -X POST https://api.moesif.com/v1/search/~/search/events?from=2022-03-22T01:20:49Z&to=2022-03-22T01:20:49Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -8314,7 +8317,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/search/events?from=2022-01-22T01:20:49Z&to=2022-01-22T01:20:49Z',
+fetch('https://api.moesif.com/v1/search/~/search/events?from=2022-03-22T01:20:49Z&to=2022-03-22T01:20:49Z',
 {
   method: 'POST',
 
@@ -8336,7 +8339,7 @@ headers = {
 }
 
 r = requests.post('https://api.moesif.com/v1/search/~/search/events', params={
-  'from': '2022-01-22T01:20:49Z',  'to': '2022-01-22T01:20:49Z'
+  'from': '2022-03-22T01:20:49Z',  'to': '2022-03-22T01:20:49Z'
 }, headers = headers)
 
 print r.json()
@@ -8423,7 +8426,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/search/events?from=2022-01-22T01:20:49Z&to=2022-01-22T01:20:49Z");
+URL obj = new URL("https://api.moesif.com/v1/search/~/search/events?from=2022-03-22T01:20:49Z&to=2022-03-22T01:20:49Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -8447,8 +8450,8 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-01-01T00:00:00Z or relative such as -24h|
-|to|query|string(date-time)|true|The end date, which can be absolute such as 2022-01-02T00:00:00Z or relative such as now|
+|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-03-01T00:00:00Z or relative such as -24h|
+|to|query|string(date-time)|true|The end date, which can be absolute such as 2022-03-02T00:00:00Z or relative such as now|
 |body|body|_See Below_|false|The search definition using the Elasticsearch Query DSL|
 
 > Example response
@@ -8629,7 +8632,7 @@ managementAPIToken ( Scopes: read:events )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search?from=2022-01-22T01:20:49Z&to=2022-01-22T01:20:49Z \
+curl -X POST https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search?from=2022-03-22T01:20:49Z&to=2022-03-22T01:20:49Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -8644,7 +8647,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search?from=2022-01-22T01:20:49Z&to=2022-01-22T01:20:49Z',
+fetch('https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search?from=2022-03-22T01:20:49Z&to=2022-03-22T01:20:49Z',
 {
   method: 'POST',
 
@@ -8666,7 +8669,7 @@ headers = {
 }
 
 r = requests.post('https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search', params={
-  'from': '2022-01-22T01:20:49Z',  'to': '2022-01-22T01:20:49Z'
+  'from': '2022-03-22T01:20:49Z',  'to': '2022-03-22T01:20:49Z'
 }, headers = headers)
 
 print r.json()
@@ -8753,7 +8756,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search?from=2022-01-22T01:20:49Z&to=2022-01-22T01:20:49Z");
+URL obj = new URL("https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search?from=2022-03-22T01:20:49Z&to=2022-03-22T01:20:49Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -8777,8 +8780,8 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-01-01T00:00:00Z or relative such as -24h|
-|to|query|string(date-time)|true|The end date, which can be absolute such as 2022-01-02T00:00:00Z or relative such as now|
+|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-03-01T00:00:00Z or relative such as -24h|
+|to|query|string(date-time)|true|The end date, which can be absolute such as 2022-03-02T00:00:00Z or relative such as now|
 |workspaceId|path|string|true|No description|
 |body|body|_See Below_|false|The search definition using the Elasticsearch Query DSL|
 
@@ -8960,7 +8963,7 @@ managementAPIToken ( Scopes: read:events )
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/search/~/events/{id}?event_time=2022-01-22T01:20:49Z \
+curl -X GET https://api.moesif.com/v1/search/~/events/{id}?event_time=2022-03-22T01:20:49Z \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
@@ -8975,7 +8978,7 @@ const headers = {
 
 };
 
-fetch('https://api.moesif.com/v1/search/~/events/{id}?event_time=2022-01-22T01:20:49Z',
+fetch('https://api.moesif.com/v1/search/~/events/{id}?event_time=2022-03-22T01:20:49Z',
 {
   method: 'GET',
 
@@ -8997,7 +9000,7 @@ headers = {
 }
 
 r = requests.get('https://api.moesif.com/v1/search/~/events/{id}', params={
-  'event_time': '2022-01-22T01:20:49Z'
+  'event_time': '2022-03-22T01:20:49Z'
 }, headers = headers)
 
 print r.json()
@@ -9083,7 +9086,7 @@ func main() {
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/events/{id}?event_time=2022-01-22T01:20:49Z");
+URL obj = new URL("https://api.moesif.com/v1/search/~/events/{id}?event_time=2022-03-22T01:20:49Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
