@@ -9,6 +9,13 @@ Error Code | Meaning
 405 | Method Not Allowed -- You tried to access a resource with an invalid HTTP method
 406 | Not Acceptable -- You requested a format that is not JSON format, Moesif's API supports JSON
 410 | Gone -- The resource requested has been removed from our servers
+429 | Too Many Requests -- You are hitting a rate limit such as too many queries at same time.
 500 | Internal Server Error -- We had a problem with our server. Please [contact us](mailto:support@moesif.com)
 502 | Bad Gateway -- A transient error when no server is available to handle your request, retry again or [contact us](mailto:support@moesif.com) if problem persists.
 503 | Service Unavailable -- A transient error when no server is available to handle your request, retry again or [contact us](mailto:support@moesif.com) if problem persists.
+
+## Rate Limits
+
+The Management API has a rate limit of 100 requests/minute. Certain workloads can burst up to 1,000 requests/minute. 
+
+The Management API is intended for interactive workflows and programmatically query metrics. If you need to ingest a lot of data at once, you must use the Collector API. If you need to export a lot of data, you should use the bulk export feature. 

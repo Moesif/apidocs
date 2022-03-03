@@ -1,13 +1,15 @@
 # <a id="collector-api"></a> Collector API v1
 
-The Collector API is a high-volume, write-only distributed data collection network to log data at high volume from [Moesif API monitoring agents](https://www.moesif.com/implementation). For more info, check out [an overview of our analytics infrastructure](https://www.moesif.com/enterprise/api-analytics-infrastructure).
+The Collector API enables the [Moesif integrations](https://www.moesif.com/implementation) to log data to Moesif at high volumes. You can also send API logs and actions to Moesif directly using the Collector API. For more info, check out [an overview of our analytics infrastructure](https://www.moesif.com/enterprise/api-analytics-infrastructure).
 
 Moesif has a separate [Management API](#management-api) which can be used to query and manage data stored in the Moesif platform such as to
 generate embedded dashboards and custom reports
 
-Base URL:
+|Base URL (Public)|Base URL (When using Secure Proxy)|
+|--|--|
+|`https://api.moesif.net/v1`|`http://localhost:9500/collector/v1`
 
-* <a href="https://api.moesif.net/v1">https://api.moesif.net/v1</a>
+If you're using the [Moesif secure proxy](https://www.moesif.com/docs/platform/secure-proxy/), the base URL is `http://localhost:9500/collector/v1` assuming it's running on port `9500`.
 
 <a href="https://www.moesif.com/terms">Terms of service</a>
 
