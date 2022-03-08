@@ -16,6 +16,6 @@ Error Code | Meaning
 
 ## Rate Limits
 
-The Management API has a rate limit of 100 requests/minute. Certain workloads can burst up to 1,000 requests/minute. 
+The Management API has a rate limit of 500 requests/minute. Specific traffic patterns can burst higher. The Management API will return `429 Too Many Requests` once you hit this limit. Moesif reserves the right to modify these limits to protect the reliability of the Moesif Platform. 
 
 The Management API is intended for interactive workflows and programmatically query metrics. If you need to ingest a lot of data at once, you must use the Collector API. If you need to export a lot of data, you should use the bulk export feature. 
