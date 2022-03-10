@@ -1,0 +1,21 @@
+name: Trigger APIdocs job in Jenkins
+
+on:
+  pull_request:
+    branches: [ master ]
+    types: [ closed ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs-on: self-hosted
+    if: ${{ github.event.pull_request.merged }}
+    steps:
+    - name: trigger single job
+      uses: appleboy/jenkins-action@master
+      with:
+        url: "https://jenkins.moesif.com:8443"
+        user: "moesif-ci-cd"
+        token: ${{ secrets.TOKEN }}
+        job: "Static site deployment - APIdocs"
