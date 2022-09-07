@@ -3,23 +3,23 @@
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
 Management API to query data in Moesif. You can use the management API to export data for custom reports or to build custom dashboards.
+Only SSL encrypted traffic is allowed. 
 
 |Base URL (Public)|Base URL (When using Secure Proxy)|
 |--|--|
-|`https://api.moesif.com/v1`|`http://localhost:9500/api/v1`
+|`api.moesif.com/v1`|`localhost:9500/api`
 
-If you're using the [Moesif secure proxy](https://www.moesif.com/docs/platform/secure-proxy/), the base URL is `http://localhost:9500/api/v1` assuming it's running on port `9500`.
-
+If you're using the [Moesif secure proxy](https://www.moesif.com/docs/platform/secure-proxy/), the base URL is `http://localhost:9500/api` assuming it's running on port `9500`. Do not include the /v1 path segment when using secure proxy. 
 
 <a href="https://www.moesif.com/terms">Terms of service</a>
 
 ## Authentication
 
-- Your Management API token must be added to the request _Authorization_ header using the following format:
+Your Management API token must be added to the request _Authorization_ header using the following format:
 
- `Authorization: Bearer MY_API_TOKEN`
+`curl -X POST -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY' https://api.moesif.com/v1`
 
-    - Token URL = [https://api.moesif.com/v1/:orgId/oauth/access_tokens](https://api.moesif.com/v1/:orgId/oauth/access_tokens)
+You can generate a Management API Key from the bottom left menu by logging into Moesif and clicking on "API Keys" from the bottom left menu.
 
 |Scope|Scope Description|
 |---|---|
@@ -6349,7 +6349,7 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|from|query|string(date-time)|false|The start date, which can be absolute such as 2022-03-01T00:00:00Z or relative such as -24h|
+|from|query|string(date-time)|false|The start date, which can be absolute such as 2022-09-06T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|false|The end date, which can be absolute such as 2022-03-02T00:00:00Z or relative such as now|
 |body|body|_See Below_|false|The search definition using the Elasticsearch Query DSL|
 
@@ -6527,7 +6527,7 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-03-01T00:00:00Z or relative such as -24h|
+|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-09-06T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|true|The end date, which can be absolute such as 2022-03-02T00:00:00Z or relative such as now|
 |body|body|_See Below_|false|The search definition using the Elasticsearch Query DSL|
 
@@ -6707,7 +6707,7 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-03-01T00:00:00Z or relative such as -24h|
+|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-09-06T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|true|The end date, which can be absolute such as 2022-03-02T00:00:00Z or relative such as now|
 |body|body|_See Below_|false|The search definition using the Elasticsearch Query DSL|
 
@@ -6883,7 +6883,7 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|from|query|string(date-time)|false|The start date, which can be absolute such as 2022-03-01T00:00:00Z or relative such as -24h|
+|from|query|string(date-time)|false|The start date, which can be absolute such as 2022-09-06T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|false|The end date, which can be absolute such as 2022-03-02T00:00:00Z or relative such as now|
 |body|body|_See Below_|false|The search definition using the Elasticsearch Query DSL|
 
@@ -8272,7 +8272,7 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-03-01T00:00:00Z or relative such as -24h|
+|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-09-06T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|true|The end date, which can be absolute such as 2022-03-02T00:00:00Z or relative such as now|
 |body|body|_See Below_|false|The search definition using the Elasticsearch Query DSL|
 
@@ -8450,7 +8450,7 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-03-01T00:00:00Z or relative such as -24h|
+|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-09-06T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|true|The end date, which can be absolute such as 2022-03-02T00:00:00Z or relative such as now|
 |body|body|_See Below_|false|The search definition using the Elasticsearch Query DSL|
 
@@ -8780,7 +8780,7 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-03-01T00:00:00Z or relative such as -24h|
+|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-09-06T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|true|The end date, which can be absolute such as 2022-03-02T00:00:00Z or relative such as now|
 |workspaceId|path|string|true|No description|
 |body|body|_See Below_|false|The search definition using the Elasticsearch Query DSL|

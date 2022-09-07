@@ -34,7 +34,7 @@ updating a single field.
 
 <aside class="notice">
 Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found by logging into Moesif 
-and selecting API keys from top right menu.
+and selecting API keys from bottom left menu.
 </aside>
 
 <blockquote class="lang-specific javascript--browser">
@@ -436,7 +436,7 @@ updating a single field.
 
 <aside class="notice">
 Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found by logging into Moesif 
-and selecting API keys from top right menu.
+and selecting API keys from bottom left menu.
 </aside>
 
 <blockquote class="lang-specific yaml">
