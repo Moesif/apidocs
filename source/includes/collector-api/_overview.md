@@ -3,7 +3,7 @@
 The Collector API enables you to log data to Moesif at high volumes. This is also what the [Moesif server integrations](https://www.moesif.com/implementation) use. For more info, check out [an overview of our analytics infrastructure](https://www.moesif.com/enterprise/api-analytics-infrastructure).
 
 <aside class="notice">
-Moesif has a separate [Management API](#management-api) which can be used to query and manage data stored in your Moesif account.
+Moesif has a separate <a href='#management-api'>Management API</a> which can be used to query and manage data stored in your Moesif account.
 </aside>
 
 |Base URL (Public)|Base URL (When using Secure Proxy)|
