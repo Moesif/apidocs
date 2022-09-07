@@ -5,7 +5,7 @@ customers should integrate with one of Moesif's <a href="https://www.moesif.com/
 ## How to Install
 
 ```java
-Pick a language at the top right
+Pick a language at the bottom left
 ```
 
 <blockquote class="lang-specific java">
@@ -141,5 +141,5 @@ The SDKs are open-source and available on GitHub.
 
 <aside class="notice">
 You can find your Application Id by logging into Moesif 
-and selecting API keys from top right menu.
+and selecting API keys from bottom left menu.
 </aside>

@@ -35,21 +35,19 @@ search: true
 
 # Moesif API Reference
 
-Moesif is a user behavior API analytics and monitoring service. You can leverage Moesif to answer questions around customer API usage in real-time.
-
-This API reference centers around v1 of the Moesif REST APIs and API Client Libs.
+Moesif is an analytics and monetization platform for API products. This reference is for v1 of the Moesif APIs.
 For an overview on the Moesif platform, see the [developer docs](/docs) or [implementation guides](https://www.moesif.com/implementation)
 
 There are two APIs:
 
 |Name|Host|Authentication|
 |----|----|--------------|
-|[Collector API](#collector-api)|[api.moesif.net](https://api.moesif.net)|Retrieve your Collector Application Id by logging into Moesif and going to _API keys_ from top right menu. Place in the request `X-Moesif-Application-Id` header. [More info](#collector-api)|
-|[Management API](#management-api)|[api.moesif.com](https://api.moesif.com)|Generate a Management API key by logging into Moesif and going to _API keys_ from top right menu. Add it as a [Bearer token](https://swagger.io/docs/specification/authentication/bearer-authentication/) to the request `Authorization` header. [More info](#management-api)|
+|[Collector API](#collector-api)|[api.moesif.net](https://api.moesif.net)|Retrieve your Collector Application Id by logging into Moesif and going to _API keys_ from bottom left menu. Place in the request `X-Moesif-Application-Id` header. [More info](#collector-api)|
+|[Management API](#management-api)|[api.moesif.com](https://api.moesif.com)|Generate a Management API key by logging into Moesif and going to _API keys_ from bottom left menu. Add it as a [Bearer token](https://swagger.io/docs/specification/authentication/bearer-authentication/) to the request `Authorization` header. [More info](#management-api)|
 
 ## API definitions
 
-The _Collector API_ is a write-only, high-volume data collection network used by Moesif SDKs and plugins. Use the collector API to log API calls and user actions to Moesif at scale along with updating user/company profiles.
+The _Collector API_ enables you to log raw data to Moesif at high volume such as events and user profiles. It's a write-only, high-volume data collection network and is also used by the Moesif server integrations and plugins.
 
-The _Management API_ is enables you to query and manage your data in Moesif such as to build embedded charts and custom reports. Many of the extensions such as Salesforce also use this API.
+The _Management API_ enables you to query and manage data in your Moesif account such as to embed charts in customer-facing applications.
 
