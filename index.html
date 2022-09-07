@@ -283,9 +283,7 @@
       <div class="content">
         <h1 id="moesif-api-reference">Moesif API Reference</h1>
 
-<p>Moesif is a user behavior API analytics and monitoring service. You can leverage Moesif to answer questions around customer API usage in real-time.</p>
-
-<p>This API reference centers around v1 of the Moesif REST APIs and API Client Libs.
+<p>Moesif is an analytics and monetization platform for API products. This reference is for v1 of the Moesif APIs.
 For an overview on the Moesif platform, see the <a href="/docs">developer docs</a> or <a href="https://www.moesif.com/implementation">implementation guides</a></p>
 
 <p>There are two APIs:</p>
@@ -300,20 +298,20 @@ For an overview on the Moesif platform, see the <a href="/docs">developer docs</
 <tr>
 <td><a href="#collector-api">Collector API</a></td>
 <td><a href="https://api.moesif.net">api.moesif.net</a></td>
-<td>Retrieve your Collector Application Id by logging into Moesif and going to <em>API keys</em> from top right menu. Place in the request <code class="prettyprint">X-Moesif-Application-Id</code> header. <a href="#collector-api">More info</a></td>
+<td>Retrieve your Collector Application Id by logging into Moesif and going to <em>API keys</em> from bottom left menu. Place in the request <code class="prettyprint">X-Moesif-Application-Id</code> header. <a href="#collector-api">More info</a></td>
 </tr>
 <tr>
 <td><a href="#management-api">Management API</a></td>
 <td><a href="https://api.moesif.com">api.moesif.com</a></td>
-<td>Generate a Management API key by logging into Moesif and going to <em>API keys</em> from top right menu. Add it as a <a href="https://swagger.io/docs/specification/authentication/bearer-authentication/">Bearer token</a> to the request <code class="prettyprint">Authorization</code> header. <a href="#management-api">More info</a></td>
+<td>Generate a Management API key by logging into Moesif and going to <em>API keys</em> from bottom left menu. Add it as a <a href="https://swagger.io/docs/specification/authentication/bearer-authentication/">Bearer token</a> to the request <code class="prettyprint">Authorization</code> header. <a href="#management-api">More info</a></td>
 </tr>
 </tbody></table>
 
 <h2 id="api-definitions">API definitions</h2>
 
-<p>The <em>Collector API</em> is a write-only, high-volume data collection network used by Moesif SDKs and plugins. Use the collector API to log API calls and user actions to Moesif at scale along with updating user/company profiles.</p>
+<p>The <em>Collector API</em> enables you to log raw data to Moesif at high volume such as events and user profiles. It&rsquo;s a write-only, high-volume data collection network and is also used by the Moesif server integrations and plugins.</p>
 
-<p>The <em>Management API</em> is enables you to query and manage your data in Moesif such as to build embedded charts and custom reports. Many of the extensions such as Salesforce also use this API.</p>
+<p>The <em>Management API</em> enables you to query and manage data in your Moesif account such as to embed charts in customer-facing applications.</p>
 
           <h1 id="overview">Overview</h1>
 
@@ -552,7 +550,7 @@ select the respective language tab.</p>
 customers should integrate with one of Moesif&rsquo;s <a href="https://www.moesif.com/implementation">API monitoring agents</a> which instrument your API automatically and handle batching. Likewise, Moesif has <a href="https://www.moesif.com/implementation/track-user-behaviors-with-browser?platform=browser">client integrations</a> for tracking users and their actions in your UI.</p>
 
 <h2 id="how-to-install">How to Install</h2>
-<pre class="highlight java tab-java"><code><span class="n">Pick</span> <span class="n">a</span> <span class="n">language</span> <span class="n">at</span> <span class="n">the</span> <span class="n">top</span> <span class="n">right</span>
+<pre class="highlight java tab-java"><code><span class="n">Pick</span> <span class="n">a</span> <span class="n">language</span> <span class="n">at</span> <span class="n">the</span> <span class="n">bottom</span> <span class="n">left</span>
 </code></pre>
 <blockquote class="lang-specific java">
 <a href="https://bintray.com/moesif/maven/moesifapi/_latestVersion">
@@ -663,15 +661,16 @@ Install via CDN
 
 <aside class="notice">
 You can find your Application Id by logging into Moesif 
-and selecting API keys from top right menu.
+and selecting API keys from bottom left menu.
 </aside>
 
           <h1 id="collector-api-v1"><a id="collector-api"></a> Collector API v1</h1>
 
-<p>The Collector API enables the <a href="https://www.moesif.com/implementation">Moesif integrations</a> to log data to Moesif at high volumes. You can also send API logs and actions to Moesif directly using the Collector API. For more info, check out <a href="https://www.moesif.com/enterprise/api-analytics-infrastructure">an overview of our analytics infrastructure</a>.</p>
+<p>The Collector API enables you to log data to Moesif at high volumes. This is also what the <a href="https://www.moesif.com/implementation">Moesif server integrations</a> use. For more info, check out <a href="https://www.moesif.com/enterprise/api-analytics-infrastructure">an overview of our analytics infrastructure</a>.</p>
 
-<p>Moesif has a separate <a href="#management-api">Management API</a> which can be used to query and manage data stored in the Moesif platform such as to
-generate embedded dashboards and custom reports</p>
+<aside class="notice">
+Moesif has a separate [Management API](#management-api) which can be used to query and manage data stored in your Moesif account.
+</aside>
 
 <table><thead>
 <tr>
@@ -680,29 +679,28 @@ generate embedded dashboards and custom reports</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">https://api.moesif.net/v1</code></td>
-<td><code class="prettyprint">http://localhost:9500/collector/v1</code></td>
+<td><code class="prettyprint">api.moesif.net/v1</code></td>
+<td><code class="prettyprint">localhost:9500/collector/v1</code></td>
 </tr>
 </tbody></table>
 
-<p>If you&rsquo;re using the <a href="https://www.moesif.com/docs/platform/secure-proxy/">Moesif secure proxy</a>, the base URL is <code class="prettyprint">http://localhost:9500/collector/v1</code> assuming it&rsquo;s running on port <code class="prettyprint">9500</code>.</p>
+<p>If you&rsquo;re using the <a href="https://www.moesif.com/docs/platform/secure-proxy/">Moesif secure proxy</a> for client-side encryption, the base URL is <code class="prettyprint">http://localhost:9500/collector/v1</code> assuming it&rsquo;s running on port <code class="prettyprint">9500</code>. See <a href="https://www.moesif.com/docs/platform/secure-proxy/#accessing-the-moesif-collector-api">accessing Collector API</a></p>
 
 <p><a href="https://www.moesif.com/terms">Terms of service</a></p>
 
-<p>Moesif&rsquo;s official SDKs and plugins only use HTTPS, but the API does support both HTTPS and HTTP.
-It&rsquo;s highly recommended to ensure all communication is HTTPS, as HTTP is a last resort option for limited use cases like IoT and embedded devices.</p>
+<p>Moesif&rsquo;s official SDKs and plugins only use HTTPS, but the API does support HTTP for very specific applications like legacy embedded devices (uncommon).
+It&rsquo;s strongly recommended to ensure all communication is HTTPS.</p>
 
 <h2 id="authentication">Authentication</h2>
 
 <p>Authentication is handled by adding the HTTP header <code class="prettyprint">X-Moesif-Application-Id</code> to all requests.
-Moesif recommends using the same Application Id for all integrations within the same application environment (i.e. product, staging, etc) so your analytics data
-is unified.</p>
+Moesif recommends using the same Application Id for all integrations within the same application environment (i.e. product, staging, etc) so your analytics data is unified.</p>
 
 <p><code class="prettyprint">X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID</code></p>
 
 <aside class="notice">
 Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found by logging into Moesif
-and selecting API keys from top right menu.
+and selecting API keys from bottom left menu.
 </aside>
 
           <h2 id="api-calls">API Calls</h2>
@@ -728,7 +726,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 </blockquote>
 <pre class="highlight yaml tab-yaml"><code>  <span class="pi">{</span>
     <span class="s2">"</span><span class="s">request"</span><span class="pi">:</span> <span class="pi">{</span>
-      <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2022-03-01T04:45:42.914"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2022-09-06T04:45:42.914"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">uri"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://api.acmeinc.com/items/12345/reviews/"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">verb"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">POST"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">api_version"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.1.0"</span><span class="pi">,</span>
@@ -758,7 +756,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
       <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
     <span class="pi">},</span>
     <span class="s2">"</span><span class="s">response"</span><span class="pi">:</span> <span class="pi">{</span>
-      <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2022-03-01T04:45:42.914"</span><span class="pi">,</span>
+      <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2022-09-06T04:45:42.914"</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">status"</span><span class="pi">:</span> <span class="nv">500</span><span class="pi">,</span>
       <span class="s2">"</span><span class="s">headers"</span><span class="pi">:</span> <span class="pi">{</span>
         <span class="s2">"</span><span class="s">Vary"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Accept-Encoding"</span><span class="pi">,</span>
@@ -788,7 +786,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 curl -X POST https://api.moesif.net/v1/events <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'</span>
-  -d <span class="s1">'{"request":{"time":"2022-03-01T04:45:42.914","uri":"https://api.acmeinc.com/items/12345/reviews/","verb":"POST","api_version":"1.1.0","ip_address":"61.48.220.123","headers":{"Host":"api.acmeinc.com","Accept":"*/*","Connection":"Keep-Alive","Content-Type":"application/json","Content-Length":"126","Accept-Encoding":"gzip"},"body":{"items":[{"direction_type":1,"item_id":"hello","liked":false},{"direction_type":2,"item_id":"world","liked":true}]},"transfer_encoding":""},"response":{"time":"2022-03-01T04:45:42.914","status":500,"headers":{"Vary":"Accept-Encoding","Pragma":"no-cache","Expires":"-1","Content-Type":"application/json; charset=utf-8","Cache-Control":"no-cache"},"body":{"Error":"InvalidArgumentException","Message":"Missing field location"},"transfer_encoding":""},"user_id":"12345","company_id":"67890","session_token":"XXXXXXXXX","metadata":{"some_string":"I am a string","some_int":77,"some_object":{"some_sub_field":"some_value"}}}'</span>
+  -d <span class="s1">'{"request":{"time":"2022-09-06T04:45:42.914","uri":"https://api.acmeinc.com/items/12345/reviews/","verb":"POST","api_version":"1.1.0","ip_address":"61.48.220.123","headers":{"Host":"api.acmeinc.com","Accept":"*/*","Connection":"Keep-Alive","Content-Type":"application/json","Content-Length":"126","Accept-Encoding":"gzip"},"body":{"items":[{"direction_type":1,"item_id":"hello","liked":false},{"direction_type":2,"item_id":"world","liked":true}]},"transfer_encoding":""},"response":{"time":"2022-09-06T04:45:42.914","status":500,"headers":{"Vary":"Accept-Encoding","Pragma":"no-cache","Expires":"-1","Content-Type":"application/json; charset=utf-8","Cache-Control":"no-cache"},"body":{"Error":"InvalidArgumentException","Message":"Missing field location"},"transfer_encoding":""},"user_id":"12345","company_id":"67890","session_token":"XXXXXXXXX","metadata":{"some_string":"I am a string","some_int":77,"some_object":{"some_sub_field":"some_value"}}}'</span>
 </code></pre><pre class="highlight java tab-java"><code><span class="c1">// Import the Library</span>
 <span class="n">MoesifAPIClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MoesifAPIClient</span><span class="o">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="o">);</span>
 <span class="n">APIController</span> <span class="n">api</span> <span class="o">=</span> <span class="n">getClient</span><span class="o">().</span><span class="na">getAPI</span><span class="o">();</span>
@@ -989,7 +987,7 @@ curl -X POST https://api.moesif.net/v1/events <span class="se">\</span>
 }"""</span><span class="p">)</span>
 
 <span class="n">rsp_headers</span> <span class="o">=</span> <span class="n">APIHelper</span><span class="o">.</span><span class="n">json_deserialize</span><span class="p">(</span><span class="s">"""  {
-    "Date": "Mon, 01 Mar 2022 23:46:49 GMT",
+    "Date": "Mon, 05 Sep 2022 23:46:49 GMT",
     "Vary": "Accept-Encoding",
     "Pragma": "no-cache",
     "Expires": "-1",
@@ -1054,7 +1052,7 @@ curl -X POST https://api.moesif.net/v1/events <span class="se">\</span>
 <span class="s1">'}'</span><span class="p">)</span>
 
 <span class="n">rsp_headers</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s1">'{'</span><span class="p">\</span>
-  <span class="s1">'"Date": "Mon, 01 Mar 2022 23:46:49 GMT",'</span><span class="p">\</span>
+  <span class="s1">'"Date": "Mon, 05 Sep 2022 23:46:49 GMT",'</span><span class="p">\</span>
                 <span class="s1">'"Vary": "Accept-Encoding",'</span><span class="p">\</span>
   <span class="s1">'"Pragma": "no-cache",'</span><span class="p">\</span>
   <span class="s1">'"Expires": "-1",'</span><span class="p">\</span>
@@ -1069,7 +1067,7 @@ curl -X POST https://api.moesif.net/v1/events <span class="se">\</span>
 
 
 <span class="n">event_req</span> <span class="o">=</span> <span class="no">EventRequestModel</span><span class="p">.</span><span class="nf">new</span><span class="p">()</span>
-<span class="n">event_req</span><span class="p">.</span><span class="nf">time</span> <span class="o">=</span> <span class="s2">"2022-03-01T04:45:42.914"</span>
+<span class="n">event_req</span><span class="p">.</span><span class="nf">time</span> <span class="o">=</span> <span class="s2">"2022-09-06T04:45:42.914"</span>
 <span class="n">event_req</span><span class="p">.</span><span class="nf">uri</span> <span class="o">=</span> <span class="s2">"https://api.acmeinc.com/items/reviews/"</span>
 <span class="n">event_req</span><span class="p">.</span><span class="nf">verb</span> <span class="o">=</span> <span class="s2">"PATCH"</span>
 <span class="n">event_req</span><span class="p">.</span><span class="nf">api_version</span> <span class="o">=</span> <span class="s2">"1.1.0"</span>
@@ -1078,7 +1076,7 @@ curl -X POST https://api.moesif.net/v1/events <span class="se">\</span>
 <span class="n">event_req</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="n">req_body</span>
 
 <span class="n">event_rsp</span> <span class="o">=</span> <span class="no">EventResponseModel</span><span class="p">.</span><span class="nf">new</span><span class="p">()</span>
-<span class="n">event_rsp</span><span class="p">.</span><span class="nf">time</span> <span class="o">=</span> <span class="s2">"2022-03-01T04:45:42.914"</span>
+<span class="n">event_rsp</span><span class="p">.</span><span class="nf">time</span> <span class="o">=</span> <span class="s2">"2022-09-06T04:45:42.914"</span>
 <span class="n">event_rsp</span><span class="p">.</span><span class="nf">status</span> <span class="o">=</span> <span class="mi">500</span>
 <span class="n">event_rsp</span><span class="p">.</span><span class="nf">headers</span> <span class="o">=</span> <span class="n">rsp_headers</span>
 <span class="n">event_rsp</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="n">rsp_body</span>
@@ -1125,7 +1123,7 @@ curl -X POST https://api.moesif.net/v1/events <span class="se">\</span>
     <span class="p">}</span><span class="s">");
 </span>
 <span class="kt">var</span> <span class="n">rspHeaders</span> <span class="p">=</span> <span class="n">APIHelper</span><span class="p">.</span><span class="n">JsonDeserialize</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="err">@</span><span class="s">" {
-</span>        <span class="s">""</span><span class="n">Date</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Mon</span><span class="p">,</span> <span class="m">01</span> <span class="n">Mar</span> <span class="m">2022</span> <span class="m">23</span><span class="p">:</span><span class="m">46</span><span class="p">:</span><span class="m">49</span> <span class="n">GMT</span><span class="s">""</span><span class="p">,</span>
+</span>        <span class="s">""</span><span class="n">Date</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Mon</span><span class="p">,</span> <span class="m">05</span> <span class="n">Sep</span> <span class="m">2022</span> <span class="m">23</span><span class="p">:</span><span class="m">46</span><span class="p">:</span><span class="m">49</span> <span class="n">GMT</span><span class="s">""</span><span class="p">,</span>
         <span class="s">""</span><span class="n">Vary</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Accept</span><span class="p">-</span><span class="n">Encoding</span><span class="s">""</span><span class="p">,</span>
         <span class="s">""</span><span class="n">Pragma</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">no</span><span class="p">-</span><span class="n">cache</span><span class="s">""</span><span class="p">,</span>
         <span class="s">""</span><span class="n">Expires</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="p">-</span><span class="m">1</span><span class="s">""</span><span class="p">,</span>
@@ -1141,7 +1139,7 @@ curl -X POST https://api.moesif.net/v1/events <span class="se">\</span>
 
 <span class="kt">var</span> <span class="n">eventReq</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventRequestModel</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2022-03-01T04:45:42.914"</span><span class="p">),</span>
+    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2022-09-06T04:45:42.914"</span><span class="p">),</span>
     <span class="n">Uri</span> <span class="p">=</span> <span class="s">"https://api.acmeinc.com/items/reviews/"</span><span class="p">,</span>
     <span class="n">Verb</span> <span class="p">=</span> <span class="s">"PATCH"</span><span class="p">,</span>
     <span class="n">ApiVersion</span> <span class="p">=</span> <span class="s">"1.1.0"</span><span class="p">,</span>
@@ -1152,7 +1150,7 @@ curl -X POST https://api.moesif.net/v1/events <span class="se">\</span>
 
 <span class="kt">var</span> <span class="n">eventRsp</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventResponseModel</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2022-03-01T04:45:42.914"</span><span class="p">),</span>
+    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2022-09-06T04:45:42.914"</span><span class="p">),</span>
     <span class="n">Status</span> <span class="p">=</span> <span class="m">500</span><span class="p">,</span>
     <span class="n">Headers</span> <span class="p">=</span> <span class="n">rspHeaders</span><span class="p">,</span>
     <span class="n">Body</span> <span class="p">=</span> <span class="n">rspBody</span>
@@ -1492,7 +1490,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 <pre class="highlight yaml tab-yaml"><code>  <span class="pi">[</span>
     <span class="pi">{</span>
         <span class="s2">"</span><span class="s">request"</span><span class="pi">:</span> <span class="pi">{</span>
-          <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2022-03-01T04:45:42.914"</span><span class="pi">,</span>
+          <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2022-09-06T04:45:42.914"</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">uri"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://api.acmeinc.com/items/83738/reviews/"</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">verb"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">POST"</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">api_version"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.1.0"</span><span class="pi">,</span>
@@ -1522,7 +1520,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
           <span class="s2">"</span><span class="s">transfer_encoding"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
         <span class="pi">},</span>
         <span class="s2">"</span><span class="s">response"</span><span class="pi">:</span> <span class="pi">{</span>
-          <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2022-03-01T04:45:42.914"</span><span class="pi">,</span>
+          <span class="s2">"</span><span class="s">time"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2022-09-06T04:45:42.914"</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">status"</span><span class="pi">:</span> <span class="nv">500</span><span class="pi">,</span>
           <span class="s2">"</span><span class="s">headers"</span><span class="pi">:</span> <span class="pi">{</span>
             <span class="s2">"</span><span class="s">Vary"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Accept-Encoding"</span><span class="pi">,</span>
@@ -1553,7 +1551,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 curl -X POST https://api.moesif.net/v1/events/batch <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'</span>
-  -d <span class="s1">'[{"request":{"time":"2022-03-01T04:45:42.914","uri":"https://api.acmeinc.com/items/83738/reviews/","verb":"POST","api_version":"1.1.0","ip_address":"61.48.220.123","headers":{"Host":"api.acmeinc.com","Accept":"*/*","Connection":"Keep-Alive","Content-Type":"application/json","Content-Length":"126","Accept-Encoding":"gzip"},"body":{"items":[{"direction_type":1,"item_id":"hello","liked":false},{"direction_type":2,"item_id":"world","liked":true}]},"transfer_encoding":""},"response":{"time":"2022-03-01T04:45:42.914","status":500,"headers":{"Vary":"Accept-Encoding","Pragma":"no-cache","Expires":"-1","Content-Type":"application/json; charset=utf-8","Cache-Control":"no-cache"},"body":{"Error":"InvalidArgumentException","Message":"Missing field location"},"transfer_encoding":""},"user_id":"12345","company_id":"67890","session_token":"XXXXXXXXX","metadata":{"some_string":"I am a string","some_int":77,"some_object":{"some_sub_field":"some_value"}}}]'</span>
+  -d <span class="s1">'[{"request":{"time":"2022-09-06T04:45:42.914","uri":"https://api.acmeinc.com/items/83738/reviews/","verb":"POST","api_version":"1.1.0","ip_address":"61.48.220.123","headers":{"Host":"api.acmeinc.com","Accept":"*/*","Connection":"Keep-Alive","Content-Type":"application/json","Content-Length":"126","Accept-Encoding":"gzip"},"body":{"items":[{"direction_type":1,"item_id":"hello","liked":false},{"direction_type":2,"item_id":"world","liked":true}]},"transfer_encoding":""},"response":{"time":"2022-09-06T04:45:42.914","status":500,"headers":{"Vary":"Accept-Encoding","Pragma":"no-cache","Expires":"-1","Content-Type":"application/json; charset=utf-8","Cache-Control":"no-cache"},"body":{"Error":"InvalidArgumentException","Message":"Missing field location"},"transfer_encoding":""},"user_id":"12345","company_id":"67890","session_token":"XXXXXXXXX","metadata":{"some_string":"I am a string","some_int":77,"some_object":{"some_sub_field":"some_value"}}}]'</span>
 </code></pre><pre class="highlight java tab-java"><code><span class="c1">// Import the Library</span>
 <span class="n">MoesifAPIClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MoesifAPIClient</span><span class="o">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="o">);</span>
 <span class="n">APIController</span> <span class="n">api</span> <span class="o">=</span> <span class="n">getClient</span><span class="o">().</span><span class="na">getAPI</span><span class="o">();</span>
@@ -1582,7 +1580,7 @@ curl -X POST https://api.moesif.net/v1/events/batch <span class="se">\</span>
   <span class="s">"}"</span><span class="o">);</span>
 
 <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">rspHeaders</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;();</span>
-<span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Date"</span><span class="o">,</span> <span class="s">"Mon, 01 Mar 2022 23:46:49 GMT"</span><span class="o">);</span>
+<span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Date"</span><span class="o">,</span> <span class="s">"Mon, 05 Sep 2022 23:46:49 GMT"</span><span class="o">);</span>
 <span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Vary"</span><span class="o">,</span> <span class="s">"Accept-Encoding"</span><span class="o">);</span>
 <span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Pragma"</span><span class="o">,</span> <span class="s">"no-cache"</span><span class="o">);</span>
 <span class="n">rspHeaders</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Expires"</span><span class="o">,</span> <span class="s">"-1"</span><span class="o">);</span>
@@ -1760,7 +1758,7 @@ curl -X POST https://api.moesif.net/v1/events/batch <span class="se">\</span>
 }"""</span><span class="p">)</span>
 
 <span class="n">rsp_headers</span> <span class="o">=</span> <span class="n">APIHelper</span><span class="o">.</span><span class="n">json_deserialize</span><span class="p">(</span><span class="s">"""  {
-    "Date": "Mon, 01 Mar 2022 23:46:49 GMT",
+    "Date": "Mon, 05 Sep 2022 23:46:49 GMT",
     "Vary": "Accept-Encoding",
     "Pragma": "no-cache",
     "Expires": "-1",
@@ -1845,7 +1843,7 @@ curl -X POST https://api.moesif.net/v1/events/batch <span class="se">\</span>
     <span class="p">}</span><span class="s">");
 </span>
 <span class="kt">var</span> <span class="n">rspHeaders</span> <span class="p">=</span> <span class="n">APIHelper</span><span class="p">.</span><span class="n">JsonDeserialize</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="err">@</span><span class="s">" {
-</span>        <span class="s">""</span><span class="n">Date</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Mon</span><span class="p">,</span> <span class="m">01</span> <span class="n">Mar</span> <span class="m">2022</span> <span class="m">23</span><span class="p">:</span><span class="m">46</span><span class="p">:</span><span class="m">49</span> <span class="n">GMT</span><span class="s">""</span><span class="p">,</span>
+</span>        <span class="s">""</span><span class="n">Date</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Mon</span><span class="p">,</span> <span class="m">05</span> <span class="n">Sep</span> <span class="m">2022</span> <span class="m">23</span><span class="p">:</span><span class="m">46</span><span class="p">:</span><span class="m">49</span> <span class="n">GMT</span><span class="s">""</span><span class="p">,</span>
         <span class="s">""</span><span class="n">Vary</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Accept</span><span class="p">-</span><span class="n">Encoding</span><span class="s">""</span><span class="p">,</span>
         <span class="s">""</span><span class="n">Pragma</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">no</span><span class="p">-</span><span class="n">cache</span><span class="s">""</span><span class="p">,</span>
         <span class="s">""</span><span class="n">Expires</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="p">-</span><span class="m">1</span><span class="s">""</span><span class="p">,</span>
@@ -1861,7 +1859,7 @@ curl -X POST https://api.moesif.net/v1/events/batch <span class="se">\</span>
 <span class="kt">var</span> <span class="n">reqDate</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Date</span><span class="p">();</span>
 <span class="kt">var</span> <span class="n">eventReq</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventRequestModel</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2022-03-01T04:45:42.914"</span><span class="p">),</span>
+    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2022-09-06T04:45:42.914"</span><span class="p">),</span>
     <span class="n">Uri</span> <span class="p">=</span> <span class="s">"https://api.acmeinc.com/items/reviews/"</span><span class="p">,</span>
     <span class="n">Verb</span> <span class="p">=</span> <span class="s">"PATCH"</span><span class="p">,</span>
     <span class="n">ApiVersion</span> <span class="p">=</span> <span class="s">"1.1.0"</span><span class="p">,</span>
@@ -1872,7 +1870,7 @@ curl -X POST https://api.moesif.net/v1/events/batch <span class="se">\</span>
 
 <span class="kt">var</span> <span class="n">eventRsp</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventResponseModel</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2022-03-01T04:45:42.914"</span><span class="p">),</span>
+    <span class="n">Time</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2022-09-06T04:45:42.914"</span><span class="p">),</span>
     <span class="n">Status</span> <span class="p">=</span> <span class="m">500</span><span class="p">,</span>
     <span class="n">Headers</span> <span class="p">=</span> <span class="n">rspHeaders</span><span class="p">,</span>
     <span class="n">Body</span> <span class="p">=</span> <span class="n">rspBody</span>
@@ -2483,7 +2481,7 @@ updating a single field.</p>
 
 <aside class="notice">
 Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found by logging into Moesif 
-and selecting API keys from top right menu.
+and selecting API keys from bottom left menu.
 </aside>
 
 <blockquote class="lang-specific javascript--browser">
@@ -2947,7 +2945,7 @@ updating a single field.</p>
 
 <aside class="notice">
 Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found by logging into Moesif 
-and selecting API keys from top right menu.
+and selecting API keys from bottom left menu.
 </aside>
 
 <blockquote class="lang-specific yaml">
@@ -3494,7 +3492,7 @@ updating a single field.</p>
 
 <aside class="notice">
 Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found by logging into Moesif 
-and selecting API keys from top right menu.
+and selecting API keys from bottom left menu.
 </aside>
 
 <blockquote class="lang-specific javascript--browser">
@@ -4457,7 +4455,8 @@ individual users along with account-level usage. </p>
 <p>Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.</p>
 </blockquote>
 
-<p>Management API to query data in Moesif. You can use the management API to export data for custom reports or to build custom dashboards.</p>
+<p>Management API to query data in Moesif. You can use the management API to export data for custom reports or to build custom dashboards.
+Only SSL encrypted traffic is allowed. </p>
 
 <table><thead>
 <tr>
@@ -4466,24 +4465,22 @@ individual users along with account-level usage. </p>
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">https://api.moesif.com/v1</code></td>
-<td><code class="prettyprint">http://localhost:9500/api/v1</code></td>
+<td><code class="prettyprint">api.moesif.com/v1</code></td>
+<td><code class="prettyprint">localhost:9500/api</code></td>
 </tr>
 </tbody></table>
 
-<p>If you&rsquo;re using the <a href="https://www.moesif.com/docs/platform/secure-proxy/">Moesif secure proxy</a>, the base URL is <code class="prettyprint">http://localhost:9500/api/v1</code> assuming it&rsquo;s running on port <code class="prettyprint">9500</code>.</p>
+<p>If you&rsquo;re using the <a href="https://www.moesif.com/docs/platform/secure-proxy/">Moesif secure proxy</a>, the base URL is <code class="prettyprint">http://localhost:9500/api</code> assuming it&rsquo;s running on port <code class="prettyprint">9500</code>. Do not include the /v1 path segment when using secure proxy. </p>
 
 <p><a href="https://www.moesif.com/terms">Terms of service</a></p>
 
 <h2 id="authentication">Authentication</h2>
 
-<ul>
-<li>Your Management API token must be added to the request <em>Authorization</em> header using the following format:</li>
-</ul>
+<p>Your Management API token must be added to the request <em>Authorization</em> header using the following format:</p>
 
-<p><code class="prettyprint">Authorization: Bearer MY_API_TOKEN</code></p>
+<p><code class="prettyprint">curl -X POST -H &#39;Authorization: Bearer YOUR_MANAGEMENT_API_KEY&#39; https://api.moesif.com/v1</code></p>
 
-<p>- Token URL = <a href="https://api.moesif.com/v1/:orgId/oauth/access_tokens">https://api.moesif.com/v1/:orgId/oauth/access_tokens</a></p>
+<p>You can generate a Management API Key from the bottom left menu by logging into Moesif and clicking on &ldquo;API Keys&rdquo; from the bottom left menu.</p>
 
 <table><thead>
 <tr>
@@ -11803,7 +11800,7 @@ curl -X POST https://api.moesif.com/v1/search/~/search/companymetrics/companies 
 <td>query</td>
 <td>string(date-time)</td>
 <td>false</td>
-<td>The start date, which can be absolute such as 2022-03-01T00:00:00Z or relative such as -24h</td>
+<td>The start date, which can be absolute such as 2022-09-06T00:00:00Z or relative such as -24h</td>
 </tr>
 <tr>
 <td>to</td>
@@ -12019,7 +12016,7 @@ curl -X POST https://api.moesif.com/v1/search/~/search/companymetrics/metrics?fr
 <td>query</td>
 <td>string(date-time)</td>
 <td>true</td>
-<td>The start date, which can be absolute such as 2022-03-01T00:00:00Z or relative such as -24h</td>
+<td>The start date, which can be absolute such as 2022-09-06T00:00:00Z or relative such as -24h</td>
 </tr>
 <tr>
 <td>to</td>
@@ -12237,7 +12234,7 @@ curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/metrics?from<
 <td>query</td>
 <td>string(date-time)</td>
 <td>true</td>
-<td>The start date, which can be absolute such as 2022-03-01T00:00:00Z or relative such as -24h</td>
+<td>The start date, which can be absolute such as 2022-09-06T00:00:00Z or relative such as -24h</td>
 </tr>
 <tr>
 <td>to</td>
@@ -12451,7 +12448,7 @@ curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/users <span c
 <td>query</td>
 <td>string(date-time)</td>
 <td>false</td>
-<td>The start date, which can be absolute such as 2022-03-01T00:00:00Z or relative such as -24h</td>
+<td>The start date, which can be absolute such as 2022-09-06T00:00:00Z or relative such as -24h</td>
 </tr>
 <tr>
 <td>to</td>
@@ -14051,7 +14048,7 @@ curl -X POST https://api.moesif.com/v1/search/~/count/events?from<span class="o"
 <td>query</td>
 <td>string(date-time)</td>
 <td>true</td>
-<td>The start date, which can be absolute such as 2022-03-01T00:00:00Z or relative such as -24h</td>
+<td>The start date, which can be absolute such as 2022-09-06T00:00:00Z or relative such as -24h</td>
 </tr>
 <tr>
 <td>to</td>
@@ -14267,7 +14264,7 @@ curl -X POST https://api.moesif.com/v1/search/~/search/events?from<span class="o
 <td>query</td>
 <td>string(date-time)</td>
 <td>true</td>
-<td>The start date, which can be absolute such as 2022-03-01T00:00:00Z or relative such as -24h</td>
+<td>The start date, which can be absolute such as 2022-09-06T00:00:00Z or relative such as -24h</td>
 </tr>
 <tr>
 <td>to</td>
@@ -14957,7 +14954,7 @@ curl -X POST https://api.moesif.com/v1/search/~/workspaces/<span class="o">{</sp
 <td>query</td>
 <td>string(date-time)</td>
 <td>true</td>
-<td>The start date, which can be absolute such as 2022-03-01T00:00:00Z or relative such as -24h</td>
+<td>The start date, which can be absolute such as 2022-09-06T00:00:00Z or relative such as -24h</td>
 </tr>
 <tr>
 <td>to</td>
