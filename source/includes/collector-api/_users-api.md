@@ -13,7 +13,7 @@ Moesif has client integrations like [moesif-browser-js](https://www.moesif.com/i
 User properties can be stored via the `metadata` object.
 
 We’ve reserved some `metadata` fields that have semantic meanings for users, and we handle them in special ways. 
-For example, we expect email to be a string containing the user’s email address which is used to look up a user's demographics from Clearbit
+For example, we expect email to be a string containing the user’s email address which is used to look up a user's demographic enrichment data
 and send [behavioral emails](https://www.moesif.com/features/user-behavioral-emails).
 
 Reserved metadata fields include:
