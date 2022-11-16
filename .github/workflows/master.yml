@@ -10,7 +10,7 @@ jobs:
   build:
     name: Build
     runs-on: self-hosted
-    if: ${{ github.event.pull_request.merged }}
+    if: github.event.pull_request.merged || github.event_name == 'workflow_dispatch'
     steps:
     - name: trigger single job
       uses: appleboy/jenkins-action@master
