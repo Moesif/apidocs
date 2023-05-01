@@ -6349,7 +6349,7 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|from|query|string(date-time)|false|The start date, which can be absolute such as 2022-09-06T00:00:00Z or relative such as -24h|
+|from|query|string(date-time)|false|The start date, which can be absolute such as 2023-05-06T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|false|The end date, which can be absolute such as 2022-03-02T00:00:00Z or relative such as now|
 |body|body|_See Below_|false|The search definition using the Elasticsearch Query DSL|
 
@@ -6527,7 +6527,7 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-09-06T00:00:00Z or relative such as -24h|
+|from|query|string(date-time)|true|The start date, which can be absolute such as 2023-05-06T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|true|The end date, which can be absolute such as 2022-03-02T00:00:00Z or relative such as now|
 |body|body|_See Below_|false|The search definition using the Elasticsearch Query DSL|
 
@@ -6707,7 +6707,7 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-09-06T00:00:00Z or relative such as -24h|
+|from|query|string(date-time)|true|The start date, which can be absolute such as 2023-05-06T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|true|The end date, which can be absolute such as 2022-03-02T00:00:00Z or relative such as now|
 |body|body|_See Below_|false|The search definition using the Elasticsearch Query DSL|
 
@@ -6883,7 +6883,7 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|from|query|string(date-time)|false|The start date, which can be absolute such as 2022-09-06T00:00:00Z or relative such as -24h|
+|from|query|string(date-time)|false|The start date, which can be absolute such as 2023-05-06T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|false|The end date, which can be absolute such as 2022-03-02T00:00:00Z or relative such as now|
 |body|body|_See Below_|false|The search definition using the Elasticsearch Query DSL|
 
@@ -7422,6 +7422,10 @@ managementAPIToken ( Scopes: delete:companies )
 ### Search Companies
 
 <a id="opIdsearchCompanies"></a>
+
+<aside class="info">
+The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
+</aside>
 
 ```shell
 # You can also use wget
@@ -8120,6 +8124,10 @@ managementAPIToken ( Scopes: read:companies )
 
 ### Count Events
 
+<aside class="info">
+The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
+</aside>
+
 <a id="opIdcountEvents"></a>
 
 ```shell
@@ -8272,7 +8280,7 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-09-06T00:00:00Z or relative such as -24h|
+|from|query|string(date-time)|true|The start date, which can be absolute such as 2023-05-06T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|true|The end date, which can be absolute such as 2022-03-02T00:00:00Z or relative such as now|
 |body|body|_See Below_|false|The search definition using the Elasticsearch Query DSL|
 
@@ -8299,6 +8307,11 @@ managementAPIToken ( Scopes: read:events )
 ### Search Events
 
 <a id="opIdsearchEvents"></a>
+
+<aside class="info">
+The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
+</aside>
+
 
 ```shell
 # You can also use wget
@@ -8450,7 +8463,7 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-09-06T00:00:00Z or relative such as -24h|
+|from|query|string(date-time)|true|The start date, which can be absolute such as 2023-05-06T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|true|The end date, which can be absolute such as 2022-03-02T00:00:00Z or relative such as now|
 |body|body|_See Below_|false|The search definition using the Elasticsearch Query DSL|
 
@@ -8780,7 +8793,7 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|No description|
 |app_id|query|string|false|No description|
-|from|query|string(date-time)|true|The start date, which can be absolute such as 2022-09-06T00:00:00Z or relative such as -24h|
+|from|query|string(date-time)|true|The start date, which can be absolute such as 2023-05-06T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|true|The end date, which can be absolute such as 2022-03-02T00:00:00Z or relative such as now|
 |workspaceId|path|string|true|No description|
 |body|body|_See Below_|false|The search definition using the Elasticsearch Query DSL|
@@ -9722,6 +9735,11 @@ managementAPIToken ( Scopes: create:users update:users )
 ### Search Users
 
 <a id="opIdsearchUsers"></a>
+
+<aside class="info">
+The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
+</aside>
+
 
 ```shell
 # You can also use wget
