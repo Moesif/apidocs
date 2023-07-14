@@ -28,7 +28,7 @@ includes:
   - collector-api/actions-api
   - collector-api/users-api
   - collector-api/companies-api
-  - management-api/management-api
+  - management-api/management-api-new
 
 search: true
 ---
