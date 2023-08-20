@@ -15,11 +15,11 @@ For logging API calls at scale, most customers should integrate with one of Moes
 Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 </aside>
 
-<blockquote class="lang-specific yaml">
+<blockquote class="lang-specific json">
 <code><b>POST</b> https://api.moesif.net/v1/events</code>
 <br><br><i>Example Request</i><br>
 </blockquote>
-```yaml
+```json
   {
     "request": {
       "time": "2023-05-06T04:45:42.914",
@@ -683,11 +683,11 @@ The maximum batch size is **12MB**. Break up larger batches.
 Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 </aside>
 
-<blockquote class="lang-specific yaml">
+<blockquote class="lang-specific json">
 <code><b>POST</b> https://api.moesif.net/v1/events/batch</code>
 <br><br><i>Example Request</i><br>
 </blockquote>
-```yaml
+```json
   [
     {
         "request": {

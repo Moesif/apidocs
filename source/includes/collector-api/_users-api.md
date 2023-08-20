@@ -41,11 +41,11 @@ and selecting API keys from bottom left menu.
 <b>Do not call identifyUser for anonymous visitors. The SDK automatically tracks these via a generated anonymousId in localStorage. Once you call identifyUser, Moesif automatically merges multiple user profiles if needed.</b>
 </blockquote>
 
-<blockquote class="lang-specific yaml">
+<blockquote class="lang-specific json">
 <code><b>POST</b> https://api.moesif.net/v1/users</code>
 <br><br><i>Example Request</i><br>
 </blockquote>
-```yaml
+```json
   {
     "user_id": "12345",
     "company_id": "67890",
@@ -439,11 +439,11 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found
 and selecting API keys from bottom left menu.
 </aside>
 
-<blockquote class="lang-specific yaml">
+<blockquote class="lang-specific json">
 <code><b>POST</b> https://api.moesif.net/v1/users/batch</code>
 <br><br><i>Example Request</i><br>
 </blockquote>
-```yaml
+```json
 [
   {
     "user_id": "12345",

@@ -2,7 +2,7 @@
 title: Moesif API Documentation
 
 language_tabs:
-  - yaml: JSON
+  - json: JSON
   - shell: Shell
   - javascript--browser: Browser
   - javascript--nodejs: Node.js

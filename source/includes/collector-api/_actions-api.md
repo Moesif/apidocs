@@ -35,11 +35,11 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 </aside>
 
 
-<blockquote class="lang-specific yaml">
+<blockquote class="lang-specific json">
 <code><b>POST</b> https://api.moesif.net/v1/actions</code>
 <br><br><i>Example Request</i><br>
 </blockquote>
-```yaml
+```json
 {
   "action_name": "Clicked Sign Up",
   "user_id": "12345",
@@ -131,11 +131,11 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 </aside>
 
 
-<blockquote class="lang-specific yaml">
+<blockquote class="lang-specific json">
 <code><b>POST</b> https://api.moesif.net/v1/actions/batch</code>
 <br><br><i>Example Request</i><br>
 </blockquote>
-```yaml
+```json
 [
   {
     "action_name": "Clicked Sign Up",
