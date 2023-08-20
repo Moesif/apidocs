@@ -46,12 +46,12 @@ While majority of DSL for Elasticsearch's Request Body Search is supported by Mo
 If you wanted to get the most recent API errors, you can filter by API calls with response status 500 and sort by 
 request time in descending order. 
 
-<blockquote class="lang-specific yaml">
+<blockquote class="lang-specific json">
 <code><b>POST</b> https://api.moesif.com/search/~/search/events?from=-1d&to=now</code>
 <br><br><i>Example Request</i><br>
 </blockquote>
 
-```yaml
+```json
 {
   "post_filter": {
     "bool": {
@@ -85,12 +85,12 @@ Another popular use case is to get the monthly API usage for a specific customer
 display current usage vs. plan quota in your customer facing portal. 
 This can be done easily by looking at past month and getting a count for the user_id
 
-<blockquote class="lang-specific yaml">
+<blockquote class="lang-specific json">
 <code><b>POST</b> https://api.moesif.com/search/~/search/count?from=-1M&to=now</code>
 <br><br><i>Example Request</i><br>
 </blockquote>
 
-```yaml
+```json
 {
   "post_filter": {
     "bool": {

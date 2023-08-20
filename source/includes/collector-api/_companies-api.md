@@ -30,11 +30,11 @@ will automatically associate the user with the company.
 </b>
 </blockquote>
 
-<blockquote class="lang-specific yaml">
+<blockquote class="lang-specific json">
 <code><b>POST</b> https://api.moesif.net/v1/companies</code>
 <br><br><i>Example Request</i><br>
 </blockquote>
-```yaml
+```json
 {
   "company_id": "12345",
   "company_domain": "acmeinc.com",
@@ -415,11 +415,11 @@ This is done via recursive merge which merges inner objects.
 Replace <i>my_application_id</i> with your real Application Id
 </aside>
 
-<blockquote class="lang-specific yaml">
+<blockquote class="lang-specific json">
 <code><b>POST</b> https://api.moesif.net/v1/companies/batch</code>
 <br><br><i>Example Request</i><br>
 </blockquote>
-```yaml
+```json
 [
   {
     "company_id": "12345",
