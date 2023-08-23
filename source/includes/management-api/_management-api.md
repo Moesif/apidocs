@@ -66,7 +66,7 @@ If you're using the [Moesif secure proxy](https://www.moesif.com/docs/platform/s
 |create:eth_abi|Create/upload new Ethereum ABI Entries|
 |delete:users|Delete existing users and associated user metadata|
 
-<h1 id="management-api-governancerules">GovernanceRules</h1>
+<h1 id="management-api-governance">Governance</h1>
 
 ## createGovernanceRule
 
@@ -3688,7 +3688,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 managementAPIToken ( Scopes: read:dashboards )
 </aside>
 
-<h1 id="management-api-audit">Audit</h1>
+<h1 id="management-api-billing-reports">Billing Reports</h1>
 
 ## getBillingReports
 
@@ -4180,6 +4180,10 @@ Get BillingReports' values for a given meter and time range for a single company
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|three buckets of aggregates for the given meter and time range including Metric Value, Reported Usage, and list of errors.|[BillingMetricResponse](#schemabillingmetricresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
 
 <h1 id="management-api-keystore">Keystore</h1>
 
@@ -8064,246 +8068,6 @@ To perform this operation, you must be authenticated by means of one of the foll
 managementAPIToken ( Scopes: read:workspaces )
 </aside>
 
-## createDefaultWorkspaces
-
-<a id="opIdcreateDefaultWorkspaces"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X POST https://api.moesif.com/v1/~/workspaces/default?app_id=string \
-  -H 'Accept: application/json' \
-  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
-};
-
-fetch('https://api.moesif.com/v1/~/workspaces/default?app_id=string',
-{
-  method: 'POST',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
-}
-
-r = requests.post('https://api.moesif.com/v1/~/workspaces/default', params={
-  'app_id': 'string'
-}, headers = headers)
-
-print(r.json())
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/json',
-  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
-}
-
-result = RestClient.post 'https://api.moesif.com/v1/~/workspaces/default',
-  params: {
-  'app_id' => 'string'
-}, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-$headers = array(
-    'Accept' => 'application/json',
-    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
-);
-
-$client = new \GuzzleHttp\Client();
-
-// Define array of request body.
-$request_body = array();
-
-try {
-    $response = $client->request('POST','https://api.moesif.com/v1/~/workspaces/default', array(
-        'headers' => $headers,
-        'json' => $request_body,
-       )
-    );
-    print_r($response->getBody()->getContents());
- }
- catch (\GuzzleHttp\Exception\BadResponseException $e) {
-    // handle exception or api errors.
-    print_r($e->getMessage());
- }
-
- // ...
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Accept": []string{"application/json"},
-        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/~/workspaces/default", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
-/// <<summary>>
-/// Example of Http Client
-/// <</summary>>
-public class HttpExample
-{
-    private HttpClient Client { get; set; }
-
-    /// <<summary>>
-    /// Setup http client
-    /// <</summary>>
-    public HttpExample()
-    {
-      Client = new HttpClient();
-    }
-    
-    
-    /// Make a dummy request
-    public async Task MakePostRequest()
-    {
-      string url = "https://api.moesif.com/v1/~/workspaces/default";
-      
-      
-      await PostAsync(null, url);
-      
-    }
-
-    /// Performs a POST Request
-    public async Task PostAsync(undefined content, string url)
-    {
-        //Serialize Object
-        StringContent jsonContent = SerializeObject(content);
-
-        //Execute POST request
-        HttpResponseMessage response = await Client.PostAsync(url, jsonContent);
-    }
-    
-    
-    
-    /// Serialize an object to Json
-    private StringContent SerializeObject(undefined content)
-    {
-        //Serialize Object
-        string jsonObject = JsonConvert.SerializeObject(content);
-
-        //Create Json UTF8 String Content
-        return new StringContent(jsonObject, Encoding.UTF8, "application/json");
-    }
-    
-    /// Deserialize object from request response
-    private async Task DeserializeObject(HttpResponseMessage response)
-    {
-        //Read body 
-        string responseBody = await response.Content.ReadAsStringAsync();
-
-        //Deserialize Body to object
-        var result = JsonConvert.DeserializeObject(responseBody);
-    }
-}
-
-```
-
-```java
-URL obj = new URL("https://api.moesif.com/v1/~/workspaces/default?app_id=string");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`POST https://api.moesif.com/v1/~/workspaces/default`
-
-*Create New Workspace*
-
-<h3 id="createdefaultworkspaces-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|true|none|
-
-> Example responses
-
-<h3 id="createdefaultworkspaces-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|None|
-
-<h3 id="createdefaultworkspaces-responseschema">Response Schema</h3>
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-managementAPIToken ( Scopes: create:workspaces )
-</aside>
-
 <h1 id="management-api-cohorts">Cohorts</h1>
 
 ## updateCohort
@@ -10093,482 +9857,6 @@ Delete Billing Meter by id
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 managementAPIToken ( Scopes: delete:billing_meters )
-</aside>
-
-## updateBillingPartnerAccount
-
-<a id="opIdupdateBillingPartnerAccount"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X POST https://api.moesif.com/v1/~/billing/partneraccount/{partnerName} \
-  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
-};
-
-fetch('https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}',
-{
-  method: 'POST',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
-}
-
-r = requests.post('https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}', headers = headers)
-
-print(r.json())
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
-}
-
-result = RestClient.post 'https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-$headers = array(
-    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
-);
-
-$client = new \GuzzleHttp\Client();
-
-// Define array of request body.
-$request_body = array();
-
-try {
-    $response = $client->request('POST','https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}', array(
-        'headers' => $headers,
-        'json' => $request_body,
-       )
-    );
-    print_r($response->getBody()->getContents());
- }
- catch (\GuzzleHttp\Exception\BadResponseException $e) {
-    // handle exception or api errors.
-    print_r($e->getMessage());
- }
-
- // ...
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
-/// <<summary>>
-/// Example of Http Client
-/// <</summary>>
-public class HttpExample
-{
-    private HttpClient Client { get; set; }
-
-    /// <<summary>>
-    /// Setup http client
-    /// <</summary>>
-    public HttpExample()
-    {
-      Client = new HttpClient();
-    }
-    
-    
-    /// Make a dummy request
-    public async Task MakePostRequest()
-    {
-      string url = "https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}";
-      
-      
-      await PostAsync(null, url);
-      
-    }
-
-    /// Performs a POST Request
-    public async Task PostAsync(undefined content, string url)
-    {
-        //Serialize Object
-        StringContent jsonContent = SerializeObject(content);
-
-        //Execute POST request
-        HttpResponseMessage response = await Client.PostAsync(url, jsonContent);
-    }
-    
-    
-    
-    /// Serialize an object to Json
-    private StringContent SerializeObject(undefined content)
-    {
-        //Serialize Object
-        string jsonObject = JsonConvert.SerializeObject(content);
-
-        //Create Json UTF8 String Content
-        return new StringContent(jsonObject, Encoding.UTF8, "application/json");
-    }
-    
-    /// Deserialize object from request response
-    private async Task DeserializeObject(HttpResponseMessage response)
-    {
-        //Read body 
-        string responseBody = await response.Content.ReadAsStringAsync();
-
-        //Deserialize Body to object
-        var result = JsonConvert.DeserializeObject(responseBody);
-    }
-}
-
-```
-
-```java
-URL obj = new URL("https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`POST https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}`
-
-*Create or Update partnerAccount for partner*
-
-Create or Update partnerAccount for partner
-
-<h3 id="updatebillingpartneraccount-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
-|partnerName|path|string|true|none|
-|body|body|[BillingExtensionCreateDTO](#schemabillingextensioncreatedto)|false|none|
-
-<h3 id="updatebillingpartneraccount-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-managementAPIToken ( Scopes: create:app_configs update:app_configs )
-</aside>
-
-## getBillingPartnerAccount
-
-<a id="opIdgetBillingPartnerAccount"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET https://api.moesif.com/v1/~/billing/partneraccount/{partnerName} \
-  -H 'Accept: application/json' \
-  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
-};
-
-fetch('https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
-}
-
-r = requests.get('https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}', headers = headers)
-
-print(r.json())
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/json',
-  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
-}
-
-result = RestClient.get 'https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-$headers = array(
-    'Accept' => 'application/json',
-    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
-);
-
-$client = new \GuzzleHttp\Client();
-
-// Define array of request body.
-$request_body = array();
-
-try {
-    $response = $client->request('GET','https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}', array(
-        'headers' => $headers,
-        'json' => $request_body,
-       )
-    );
-    print_r($response->getBody()->getContents());
- }
- catch (\GuzzleHttp\Exception\BadResponseException $e) {
-    // handle exception or api errors.
-    print_r($e->getMessage());
- }
-
- // ...
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Accept": []string{"application/json"},
-        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
-/// <<summary>>
-/// Example of Http Client
-/// <</summary>>
-public class HttpExample
-{
-    private HttpClient Client { get; set; }
-
-    /// <<summary>>
-    /// Setup http client
-    /// <</summary>>
-    public HttpExample()
-    {
-      Client = new HttpClient();
-    }
-    
-    /// Make a dummy request
-    public async Task MakeGetRequest()
-    {
-      string url = "https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}";
-      var result = await GetAsync(url);
-    }
-
-    /// Performs a GET Request
-    public async Task GetAsync(string url)
-    {
-        //Start the request
-        HttpResponseMessage response = await Client.GetAsync(url);
-
-        //Validate result
-        response.EnsureSuccessStatusCode();
-
-    }
-    
-    
-    
-    
-    /// Deserialize object from request response
-    private async Task DeserializeObject(HttpResponseMessage response)
-    {
-        //Read body 
-        string responseBody = await response.Content.ReadAsStringAsync();
-
-        //Deserialize Body to object
-        var result = JsonConvert.DeserializeObject(responseBody);
-    }
-}
-
-```
-
-```java
-URL obj = new URL("https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}`
-
-*Get partnerAccount for partner*
-
-Get partnerAccount for partner
-
-<h3 id="getbillingpartneraccount-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
-|partnerName|path|string|true|none|
-
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "chargebee": {
-    "user_id_field": "string",
-    "company_id_field": "string"
-  },
-  "recurly": {
-    "user_id_field": "string",
-    "company_id_field": "string"
-  },
-  "stripe": {
-    "user_id_field": "string",
-    "company_id_field": "string"
-  }
-}
-```
-
-<h3 id="getbillingpartneraccount-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[BillingProvidersConfigDTO](#schemabillingprovidersconfigdto)|
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-managementAPIToken ( Scopes: read:app_configs )
 </aside>
 
 ## updatePlan
@@ -12429,7 +11717,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 managementAPIToken ( Scopes: create:access_tokens )
 </aside>
 
-<h1 id="management-api-profileviewconfig">ProfileViewConfig</h1>
+<h1 id="management-api-profile-view">Profile View</h1>
 
 ## createProfileViewConfig
 
@@ -14378,7 +13666,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 managementAPIToken ( Scopes: delete:apps )
 </aside>
 
-<h1 id="management-api-emailtemplates">EmailTemplates</h1>
+<h1 id="management-api-emails">Emails</h1>
 
 ## createEmailTemplate
 
@@ -15496,18 +14784,18 @@ To perform this operation, you must be authenticated by means of one of the foll
 managementAPIToken ( Scopes: delete:email_templates )
 </aside>
 
-<h1 id="management-api-health">Health</h1>
+<h1 id="management-api-extensions">Extensions</h1>
 
-## probe
+## updateBillingPartnerAccount
 
-<a id="opIdprobe"></a>
+<a id="opIdupdateBillingPartnerAccount"></a>
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/health/probe \
-  -H 'Accept: application/json'
+curl -X POST https://api.moesif.com/v1/~/billing/partneraccount/{partnerName} \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
 
 ```
 
@@ -15515,10 +14803,243 @@ curl -X GET https://api.moesif.com/v1/health/probe \
 const fetch = require('node-fetch');
 
 const headers = {
-  'Accept':'application/json'
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
 };
 
-fetch('https://api.moesif.com/v1/health/probe',
+fetch('https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+r = requests.post('https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}', headers = headers)
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+result = RestClient.post 'https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    
+    /// Make a dummy request
+    public async Task MakePostRequest()
+    {
+      string url = "https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}";
+      
+      
+      await PostAsync(null, url);
+      
+    }
+
+    /// Performs a POST Request
+    public async Task PostAsync(undefined content, string url)
+    {
+        //Serialize Object
+        StringContent jsonContent = SerializeObject(content);
+
+        //Execute POST request
+        HttpResponseMessage response = await Client.PostAsync(url, jsonContent);
+    }
+    
+    
+    
+    /// Serialize an object to Json
+    private StringContent SerializeObject(undefined content)
+    {
+        //Serialize Object
+        string jsonObject = JsonConvert.SerializeObject(content);
+
+        //Create Json UTF8 String Content
+        return new StringContent(jsonObject, Encoding.UTF8, "application/json");
+    }
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`POST https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}`
+
+*Create or Update partnerAccount for partner*
+
+Create or Update partnerAccount for partner
+
+<h3 id="updatebillingpartneraccount-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|orgId|path|string|true|none|
+|app_id|query|string|false|none|
+|partnerName|path|string|true|none|
+|body|body|[BillingExtensionCreateDTO](#schemabillingextensioncreatedto)|false|none|
+
+<h3 id="updatebillingpartneraccount-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: create:app_configs update:app_configs )
+</aside>
+
+## getBillingPartnerAccount
+
+<a id="opIdgetBillingPartnerAccount"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.moesif.com/v1/~/billing/partneraccount/{partnerName} \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
+};
+
+fetch('https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}',
 {
   method: 'GET',
 
@@ -15535,10 +15056,11 @@ fetch('https://api.moesif.com/v1/health/probe',
 ```python
 import requests
 headers = {
-  'Accept': 'application/json'
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
 }
 
-r = requests.get('https://api.moesif.com/v1/health/probe', headers = headers)
+r = requests.get('https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}', headers = headers)
 
 print(r.json())
 
@@ -15549,10 +15071,11 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Accept' => 'application/json'
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
 }
 
-result = RestClient.get 'https://api.moesif.com/v1/health/probe',
+result = RestClient.get 'https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}',
   params: {
   }, headers: headers
 
@@ -15567,6 +15090,7 @@ require 'vendor/autoload.php';
 
 $headers = array(
     'Accept' => 'application/json',
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
 );
 
 $client = new \GuzzleHttp\Client();
@@ -15575,7 +15099,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('GET','https://api.moesif.com/v1/health/probe', array(
+    $response = $client->request('GET','https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -15603,10 +15127,11 @@ func main() {
 
     headers := map[string][]string{
         "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/health/probe", data)
+    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -15643,7 +15168,7 @@ public class HttpExample
     /// Make a dummy request
     public async Task MakeGetRequest()
     {
-      string url = "https://api.moesif.com/v1/health/probe";
+      string url = "https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}";
       var result = await GetAsync(url);
     }
 
@@ -15675,7 +15200,7 @@ public class HttpExample
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/health/probe");
+URL obj = new URL("https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -15691,9 +15216,19 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/health/probe`
+`GET https://api.moesif.com/v1/~/billing/partneraccount/{partnerName}`
 
-*Health Probe*
+*Get partnerAccount for partner*
+
+Get partnerAccount for partner
+
+<h3 id="getbillingpartneraccount-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|orgId|path|string|true|none|
+|app_id|query|string|false|none|
+|partnerName|path|string|true|none|
 
 > Example responses
 
@@ -15701,34 +15236,41 @@ System.out.println(response.toString());
 
 ```json
 {
-  "status": true,
-  "region": "string",
-  "build": "string",
-  "health": "string",
-  "name": "string"
+  "chargebee": {
+    "user_id_field": "string",
+    "company_id_field": "string"
+  },
+  "recurly": {
+    "user_id_field": "string",
+    "company_id_field": "string"
+  },
+  "stripe": {
+    "user_id_field": "string",
+    "company_id_field": "string"
+  }
 }
 ```
 
-<h3 id="probe-responses">Responses</h3>
+<h3 id="getbillingpartneraccount-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[StatusDTO](#schemastatusdto)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[BillingProvidersConfigDTO](#schemabillingprovidersconfigdto)|
 
-<aside class="success">
-This operation does not require authentication
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: read:app_configs )
 </aside>
 
-<h1 id="management-api-companymetrics">CompanyMetrics</h1>
+<h1 id="management-api-companies">Companies</h1>
 
-## searchCompanyMetricsParent
+## searchCompanyMetrics
 
-<a id="opIdsearchCompanyMetricsParent"></a>
+<a id="opIdsearchCompanyMetrics"></a>
 
 <aside class="info">
 The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
 </aside>
-
 
 > Code samples
 
@@ -15941,7 +15483,7 @@ System.out.println(response.toString());
 
 *Search CompanyMetrics/Companies*
 
-<h3 id="searchcompanymetricsparent-parameters">Parameters</h3>
+<h3 id="searchcompanymetrics-parameters">Parameters</h3>
 
 <aside class="info">
 The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
@@ -15951,40 +15493,35 @@ The Moesif UI has a query generator to make it easy to create the necessary quer
 |---|---|---|---|---|
 |orgId|path|string|true|none|
 |app_id|query|string|false|none|
-|from|query|string(date-time)|false|The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h|
-|to|query|string(date-time)|false|The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now|
+|from|query|string(date-time)|false|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
+|to|query|string(date-time)|false|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
 |body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
 
 > Example responses
 
-<h3 id="searchcompanymetricsparent-responses">Responses</h3>
+<h3 id="searchcompanymetrics-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
 
-<h3 id="searchcompanymetricsparent-responseschema">Response Schema</h3>
+<h3 id="searchcompanymetrics-responseschema">Response Schema</h3>
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 managementAPIToken ( Scopes: read:companies )
 </aside>
 
-## searchUserMetricsParent
+## getCompany
 
-<a id="opIdsearchUserMetricsParent"></a>
-
-<aside class="info">
-The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
-</aside>
-
+<a id="opIdgetCompany"></a>
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/users \
-  -H 'Accept: 0' \
+curl -X GET https://api.moesif.com/v1/search/~/companies/{id} \
+  -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
 
 ```
@@ -15993,13 +15530,13 @@ curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/users \
 const fetch = require('node-fetch');
 
 const headers = {
-  'Accept':'0',
+  'Accept':'application/json',
   'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
 };
 
-fetch('https://api.moesif.com/v1/search/~/search/usermetrics/users',
+fetch('https://api.moesif.com/v1/search/~/companies/{id}',
 {
-  method: 'POST',
+  method: 'GET',
 
   headers: headers
 })
@@ -16014,11 +15551,11 @@ fetch('https://api.moesif.com/v1/search/~/search/usermetrics/users',
 ```python
 import requests
 headers = {
-  'Accept': '0',
+  'Accept': 'application/json',
   'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
 }
 
-r = requests.post('https://api.moesif.com/v1/search/~/search/usermetrics/users', headers = headers)
+r = requests.get('https://api.moesif.com/v1/search/~/companies/{id}', headers = headers)
 
 print(r.json())
 
@@ -16029,11 +15566,11 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Accept' => '0',
+  'Accept' => 'application/json',
   'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
 }
 
-result = RestClient.post 'https://api.moesif.com/v1/search/~/search/usermetrics/users',
+result = RestClient.get 'https://api.moesif.com/v1/search/~/companies/{id}',
   params: {
   }, headers: headers
 
@@ -16047,7 +15584,7 @@ p JSON.parse(result)
 require 'vendor/autoload.php';
 
 $headers = array(
-    'Accept' => '0',
+    'Accept' => 'application/json',
     'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
 );
 
@@ -16057,7 +15594,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('POST','https://api.moesif.com/v1/search/~/search/usermetrics/users', array(
+    $response = $client->request('GET','https://api.moesif.com/v1/search/~/companies/{id}', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -16084,12 +15621,456 @@ import (
 func main() {
 
     headers := map[string][]string{
-        "Accept": []string{"0"},
+        "Accept": []string{"application/json"},
         "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/search/usermetrics/users", data)
+    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/search/~/companies/{id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    /// Make a dummy request
+    public async Task MakeGetRequest()
+    {
+      string url = "https://api.moesif.com/v1/search/~/companies/{id}";
+      var result = await GetAsync(url);
+    }
+
+    /// Performs a GET Request
+    public async Task GetAsync(string url)
+    {
+        //Start the request
+        HttpResponseMessage response = await Client.GetAsync(url);
+
+        //Validate result
+        response.EnsureSuccessStatusCode();
+
+    }
+    
+    
+    
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/search/~/companies/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET https://api.moesif.com/v1/search/~/companies/{id}`
+
+*Get a Company*
+
+<h3 id="getcompany-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|orgId|path|string|true|none|
+|app_id|query|string|false|none|
+|id|path|string|true|none|
+
+> Example responses
+
+<h3 id="getcompany-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+
+<h3 id="getcompany-responseschema">Response Schema</h3>
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: read:companies )
+</aside>
+
+## deleteCompany
+
+<a id="opIddeleteCompany"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X DELETE https://api.moesif.com/v1/search/~/companies/{id} \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
+};
+
+fetch('https://api.moesif.com/v1/search/~/companies/{id}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+r = requests.delete('https://api.moesif.com/v1/search/~/companies/{id}', headers = headers)
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+result = RestClient.delete 'https://api.moesif.com/v1/search/~/companies/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('DELETE','https://api.moesif.com/v1/search/~/companies/{id}', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "https://api.moesif.com/v1/search/~/companies/{id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    
+    
+    
+    /// Make a dummy request
+    public async Task MakeDeleteRequest()
+    {
+      int id = 1;
+      string url = "https://api.moesif.com/v1/search/~/companies/{id}";
+
+      await DeleteAsync(id, url);
+    }
+
+    /// Performs a DELETE Request
+    public async Task DeleteAsync(int id, string url)
+    {
+        //Execute DELETE request
+        HttpResponseMessage response = await Client.DeleteAsync(url + $"/{id}");
+
+        //Return response
+        await DeserializeObject(response);
+    }
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/search/~/companies/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("DELETE");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`DELETE https://api.moesif.com/v1/search/~/companies/{id}`
+
+*Delete a Company*
+
+<h3 id="deletecompany-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|orgId|path|string|true|none|
+|app_id|query|string|false|none|
+|id|path|string|true|none|
+|delete_events|query|boolean|false|Delete events associated with the company which can be set to true or false(default)|
+
+<h3 id="deletecompany-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: delete:companies )
+</aside>
+
+## updateCompanies
+
+<a id="opIdupdateCompanies"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://api.moesif.com/v1/search/~/companies \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
+};
+
+fetch('https://api.moesif.com/v1/search/~/companies',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+r = requests.post('https://api.moesif.com/v1/search/~/companies', headers = headers)
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+result = RestClient.post 'https://api.moesif.com/v1/search/~/companies',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','https://api.moesif.com/v1/search/~/companies', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/companies", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -16127,7 +16108,7 @@ public class HttpExample
     /// Make a dummy request
     public async Task MakePostRequest()
     {
-      string url = "https://api.moesif.com/v1/search/~/search/usermetrics/users";
+      string url = "https://api.moesif.com/v1/search/~/companies";
       
       
       await PostAsync(null, url);
@@ -16170,7 +16151,7 @@ public class HttpExample
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/search/usermetrics/users");
+URL obj = new URL("https://api.moesif.com/v1/search/~/companies");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -16186,40 +16167,513 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/search/~/search/usermetrics/users`
+`POST https://api.moesif.com/v1/search/~/companies`
 
-*Search UserMetrics/Users*
+*Update a Company*
 
-<h3 id="searchusermetricsparent-parameters">Parameters</h3>
-
-<aside class="info">
-The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
-</aside>
+<h3 id="updatecompanies-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |orgId|path|string|true|none|
 |app_id|query|string|false|none|
-|from|query|string(date-time)|false|The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h|
-|to|query|string(date-time)|false|The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now|
-|body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
+|body|body|[CompanyUpdateDTO](#schemacompanyupdatedto)|false|none|
 
 > Example responses
 
-<h3 id="searchusermetricsparent-responses">Responses</h3>
+<h3 id="updatecompanies-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
 
-<h3 id="searchusermetricsparent-responseschema">Response Schema</h3>
+<h3 id="updatecompanies-responseschema">Response Schema</h3>
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-managementAPIToken ( Scopes: read:users )
+managementAPIToken ( Scopes: create:companies update:companies )
 </aside>
 
-<h1 id="management-api-properties">Properties</h1>
+## batchUpdateCompanies
+
+<a id="opIdbatchUpdateCompanies"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://api.moesif.com/v1/search/~/companies/batch \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
+};
+
+fetch('https://api.moesif.com/v1/search/~/companies/batch',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+r = requests.post('https://api.moesif.com/v1/search/~/companies/batch', headers = headers)
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+result = RestClient.post 'https://api.moesif.com/v1/search/~/companies/batch',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','https://api.moesif.com/v1/search/~/companies/batch', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/companies/batch", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    
+    /// Make a dummy request
+    public async Task MakePostRequest()
+    {
+      string url = "https://api.moesif.com/v1/search/~/companies/batch";
+      
+      
+      await PostAsync(null, url);
+      
+    }
+
+    /// Performs a POST Request
+    public async Task PostAsync(undefined content, string url)
+    {
+        //Serialize Object
+        StringContent jsonContent = SerializeObject(content);
+
+        //Execute POST request
+        HttpResponseMessage response = await Client.PostAsync(url, jsonContent);
+    }
+    
+    
+    
+    /// Serialize an object to Json
+    private StringContent SerializeObject(undefined content)
+    {
+        //Serialize Object
+        string jsonObject = JsonConvert.SerializeObject(content);
+
+        //Create Json UTF8 String Content
+        return new StringContent(jsonObject, Encoding.UTF8, "application/json");
+    }
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/search/~/companies/batch");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`POST https://api.moesif.com/v1/search/~/companies/batch`
+
+*Update Companies in Batch*
+
+<h3 id="batchupdatecompanies-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|orgId|path|string|true|none|
+|app_id|query|string|false|none|
+|body|body|array[object]|false|none|
+
+> Example responses
+
+<h3 id="batchupdatecompanies-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+
+<h3 id="batchupdatecompanies-responseschema">Response Schema</h3>
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: create:companies update:companies )
+</aside>
+
+## countCompanies
+
+<a id="opIdcountCompanies"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://api.moesif.com/v1/search/~/count/companies?app_id=string \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
+};
+
+fetch('https://api.moesif.com/v1/search/~/count/companies?app_id=string',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+r = requests.post('https://api.moesif.com/v1/search/~/count/companies', params={
+  'app_id': 'string'
+}, headers = headers)
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+result = RestClient.post 'https://api.moesif.com/v1/search/~/count/companies',
+  params: {
+  'app_id' => 'string'
+}, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','https://api.moesif.com/v1/search/~/count/companies', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/count/companies", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    
+    /// Make a dummy request
+    public async Task MakePostRequest()
+    {
+      string url = "https://api.moesif.com/v1/search/~/count/companies";
+      
+      
+      await PostAsync(null, url);
+      
+    }
+
+    /// Performs a POST Request
+    public async Task PostAsync(undefined content, string url)
+    {
+        //Serialize Object
+        StringContent jsonContent = SerializeObject(content);
+
+        //Execute POST request
+        HttpResponseMessage response = await Client.PostAsync(url, jsonContent);
+    }
+    
+    
+    
+    /// Serialize an object to Json
+    private StringContent SerializeObject(undefined content)
+    {
+        //Serialize Object
+        string jsonObject = JsonConvert.SerializeObject(content);
+
+        //Create Json UTF8 String Content
+        return new StringContent(jsonObject, Encoding.UTF8, "application/json");
+    }
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/search/~/count/companies?app_id=string");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`POST https://api.moesif.com/v1/search/~/count/companies`
+
+*Count Companies*
+
+<h3 id="countcompanies-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|orgId|path|string|true|none|
+|app_id|query|string|true|none|
+|body|body|undefined|false|A query to restrict the results specified with the Elasticsearch Query DSL|
+
+> Example responses
+
+<h3 id="countcompanies-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+
+<h3 id="countcompanies-responseschema">Response Schema</h3>
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: read:companies )
+</aside>
+
+<h1 id="management-api-mappings">Mappings</h1>
 
 ## getProperties
 
@@ -16918,236 +17372,6 @@ To perform this operation, you must be authenticated by means of one of the foll
 managementAPIToken ( Scopes: read:response_body_properties )
 </aside>
 
-## getBodyProperties
-
-<a id="opIdgetBodyProperties"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET https://api.moesif.com/v1/search/~/mappings/{metricsType}/{subType}/body/properties?app_id=string&from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z \
-  -H 'Accept: 0'
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'Accept':'0'
-};
-
-fetch('https://api.moesif.com/v1/search/~/mappings/{metricsType}/{subType}/body/properties?app_id=string&from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': '0'
-}
-
-r = requests.get('https://api.moesif.com/v1/search/~/mappings/{metricsType}/{subType}/body/properties', params={
-  'app_id': 'string',  'from': '2019-08-24T14:15:22Z',  'to': '2019-08-24T14:15:22Z'
-}, headers = headers)
-
-print(r.json())
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => '0'
-}
-
-result = RestClient.get 'https://api.moesif.com/v1/search/~/mappings/{metricsType}/{subType}/body/properties',
-  params: {
-  'app_id' => 'string',
-'from' => 'string(date-time)',
-'to' => 'string(date-time)'
-}, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-$headers = array(
-    'Accept' => '0',
-);
-
-$client = new \GuzzleHttp\Client();
-
-// Define array of request body.
-$request_body = array();
-
-try {
-    $response = $client->request('GET','https://api.moesif.com/v1/search/~/mappings/{metricsType}/{subType}/body/properties', array(
-        'headers' => $headers,
-        'json' => $request_body,
-       )
-    );
-    print_r($response->getBody()->getContents());
- }
- catch (\GuzzleHttp\Exception\BadResponseException $e) {
-    // handle exception or api errors.
-    print_r($e->getMessage());
- }
-
- // ...
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Accept": []string{"0"},
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/search/~/mappings/{metricsType}/{subType}/body/properties", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
-/// <<summary>>
-/// Example of Http Client
-/// <</summary>>
-public class HttpExample
-{
-    private HttpClient Client { get; set; }
-
-    /// <<summary>>
-    /// Setup http client
-    /// <</summary>>
-    public HttpExample()
-    {
-      Client = new HttpClient();
-    }
-    
-    /// Make a dummy request
-    public async Task MakeGetRequest()
-    {
-      string url = "https://api.moesif.com/v1/search/~/mappings/{metricsType}/{subType}/body/properties";
-      var result = await GetAsync(url);
-    }
-
-    /// Performs a GET Request
-    public async Task GetAsync(string url)
-    {
-        //Start the request
-        HttpResponseMessage response = await Client.GetAsync(url);
-
-        //Validate result
-        response.EnsureSuccessStatusCode();
-
-    }
-    
-    
-    
-    
-    /// Deserialize object from request response
-    private async Task DeserializeObject(HttpResponseMessage response)
-    {
-        //Read body 
-        string responseBody = await response.Content.ReadAsStringAsync();
-
-        //Deserialize Body to object
-        var result = JsonConvert.DeserializeObject(responseBody);
-    }
-}
-
-```
-
-```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/mappings/{metricsType}/{subType}/body/properties?app_id=string&from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET https://api.moesif.com/v1/search/~/mappings/{metricsType}/{subType}/body/properties`
-
-*Get Property Mapping for Company and User Metrics from the request or response body*
-
-<h3 id="getbodyproperties-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|orgId|path|string|true|none|
-|metricsType|path|string|true|none|
-|subType|path|string|true|none|
-|app_id|query|string|true|none|
-|from|query|string(date-time)|true|none|
-|to|query|string(date-time)|true|none|
-|include_values|query|boolean|false|none|
-|key_path|query|string|false|none|
-
-> Example responses
-
-<h3 id="getbodyproperties-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="getbodyproperties-responseschema">Response Schema</h3>
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-None & None & None & None & None & None & None & None & None & None & None & None & None & None & None & None & None & None
-</aside>
-
 <h1 id="management-api-subscriptions">Subscriptions</h1>
 
 ## getSubscription
@@ -17374,6 +17598,232 @@ System.out.println(response.toString());
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 managementAPIToken ( Scopes: read:subscriptions )
+</aside>
+
+## getCompanySubscriptions
+
+<a id="opIdgetCompanySubscriptions"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.moesif.com/v1/search/~/companies/{id}/subscriptions \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
+};
+
+fetch('https://api.moesif.com/v1/search/~/companies/{id}/subscriptions',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+r = requests.get('https://api.moesif.com/v1/search/~/companies/{id}/subscriptions', headers = headers)
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+result = RestClient.get 'https://api.moesif.com/v1/search/~/companies/{id}/subscriptions',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','https://api.moesif.com/v1/search/~/companies/{id}/subscriptions', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/search/~/companies/{id}/subscriptions", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    /// Make a dummy request
+    public async Task MakeGetRequest()
+    {
+      string url = "https://api.moesif.com/v1/search/~/companies/{id}/subscriptions";
+      var result = await GetAsync(url);
+    }
+
+    /// Performs a GET Request
+    public async Task GetAsync(string url)
+    {
+        //Start the request
+        HttpResponseMessage response = await Client.GetAsync(url);
+
+        //Validate result
+        response.EnsureSuccessStatusCode();
+
+    }
+    
+    
+    
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/search/~/companies/{id}/subscriptions");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET https://api.moesif.com/v1/search/~/companies/{id}/subscriptions`
+
+*Get the Subscriptions of a Company*
+
+<h3 id="getcompanysubscriptions-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|orgId|path|string|true|none|
+|app_id|query|string|false|none|
+|id|path|string|true|none|
+
+> Example responses
+
+<h3 id="getcompanysubscriptions-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+
+<h3 id="getcompanysubscriptions-responseschema">Response Schema</h3>
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: read:companies )
 </aside>
 
 ## batchCreateSubscriptions
@@ -17852,1655 +18302,11 @@ To perform this operation, you must be authenticated by means of one of the foll
 managementAPIToken ( Scopes: create:subscriptions update:subscriptions )
 </aside>
 
-<h1 id="management-api-companies">Companies</h1>
-
-## getCompany
-
-<a id="opIdgetCompany"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET https://api.moesif.com/v1/search/~/companies/{id} \
-  -H 'Accept: application/json' \
-  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
-};
-
-fetch('https://api.moesif.com/v1/search/~/companies/{id}',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
-}
-
-r = requests.get('https://api.moesif.com/v1/search/~/companies/{id}', headers = headers)
-
-print(r.json())
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/json',
-  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
-}
-
-result = RestClient.get 'https://api.moesif.com/v1/search/~/companies/{id}',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-$headers = array(
-    'Accept' => 'application/json',
-    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
-);
-
-$client = new \GuzzleHttp\Client();
-
-// Define array of request body.
-$request_body = array();
-
-try {
-    $response = $client->request('GET','https://api.moesif.com/v1/search/~/companies/{id}', array(
-        'headers' => $headers,
-        'json' => $request_body,
-       )
-    );
-    print_r($response->getBody()->getContents());
- }
- catch (\GuzzleHttp\Exception\BadResponseException $e) {
-    // handle exception or api errors.
-    print_r($e->getMessage());
- }
-
- // ...
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Accept": []string{"application/json"},
-        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/search/~/companies/{id}", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
-/// <<summary>>
-/// Example of Http Client
-/// <</summary>>
-public class HttpExample
-{
-    private HttpClient Client { get; set; }
-
-    /// <<summary>>
-    /// Setup http client
-    /// <</summary>>
-    public HttpExample()
-    {
-      Client = new HttpClient();
-    }
-    
-    /// Make a dummy request
-    public async Task MakeGetRequest()
-    {
-      string url = "https://api.moesif.com/v1/search/~/companies/{id}";
-      var result = await GetAsync(url);
-    }
-
-    /// Performs a GET Request
-    public async Task GetAsync(string url)
-    {
-        //Start the request
-        HttpResponseMessage response = await Client.GetAsync(url);
-
-        //Validate result
-        response.EnsureSuccessStatusCode();
-
-    }
-    
-    
-    
-    
-    /// Deserialize object from request response
-    private async Task DeserializeObject(HttpResponseMessage response)
-    {
-        //Read body 
-        string responseBody = await response.Content.ReadAsStringAsync();
-
-        //Deserialize Body to object
-        var result = JsonConvert.DeserializeObject(responseBody);
-    }
-}
-
-```
-
-```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/companies/{id}");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET https://api.moesif.com/v1/search/~/companies/{id}`
-
-*Get a Company*
-
-<h3 id="getcompany-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
-|id|path|string|true|none|
-
-> Example responses
-
-<h3 id="getcompany-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="getcompany-responseschema">Response Schema</h3>
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-managementAPIToken ( Scopes: read:companies )
-</aside>
-
-## deleteCompany
-
-<a id="opIddeleteCompany"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X DELETE https://api.moesif.com/v1/search/~/companies/{id} \
-  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
-};
-
-fetch('https://api.moesif.com/v1/search/~/companies/{id}',
-{
-  method: 'DELETE',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
-}
-
-r = requests.delete('https://api.moesif.com/v1/search/~/companies/{id}', headers = headers)
-
-print(r.json())
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
-}
-
-result = RestClient.delete 'https://api.moesif.com/v1/search/~/companies/{id}',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-$headers = array(
-    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
-);
-
-$client = new \GuzzleHttp\Client();
-
-// Define array of request body.
-$request_body = array();
-
-try {
-    $response = $client->request('DELETE','https://api.moesif.com/v1/search/~/companies/{id}', array(
-        'headers' => $headers,
-        'json' => $request_body,
-       )
-    );
-    print_r($response->getBody()->getContents());
- }
- catch (\GuzzleHttp\Exception\BadResponseException $e) {
-    // handle exception or api errors.
-    print_r($e->getMessage());
- }
-
- // ...
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "https://api.moesif.com/v1/search/~/companies/{id}", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
-/// <<summary>>
-/// Example of Http Client
-/// <</summary>>
-public class HttpExample
-{
-    private HttpClient Client { get; set; }
-
-    /// <<summary>>
-    /// Setup http client
-    /// <</summary>>
-    public HttpExample()
-    {
-      Client = new HttpClient();
-    }
-    
-    
-    
-    
-    /// Make a dummy request
-    public async Task MakeDeleteRequest()
-    {
-      int id = 1;
-      string url = "https://api.moesif.com/v1/search/~/companies/{id}";
-
-      await DeleteAsync(id, url);
-    }
-
-    /// Performs a DELETE Request
-    public async Task DeleteAsync(int id, string url)
-    {
-        //Execute DELETE request
-        HttpResponseMessage response = await Client.DeleteAsync(url + $"/{id}");
-
-        //Return response
-        await DeserializeObject(response);
-    }
-    
-    /// Deserialize object from request response
-    private async Task DeserializeObject(HttpResponseMessage response)
-    {
-        //Read body 
-        string responseBody = await response.Content.ReadAsStringAsync();
-
-        //Deserialize Body to object
-        var result = JsonConvert.DeserializeObject(responseBody);
-    }
-}
-
-```
-
-```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/companies/{id}");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("DELETE");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`DELETE https://api.moesif.com/v1/search/~/companies/{id}`
-
-*Delete a Company*
-
-<h3 id="deletecompany-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
-|id|path|string|true|none|
-|delete_events|query|boolean|false|Delete events associated with the company which can be set to true or false(default)|
-
-<h3 id="deletecompany-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-managementAPIToken ( Scopes: delete:companies )
-</aside>
-
-## searchCompanies
-
-<a id="opIdsearchCompanies"></a>
-
-<aside class="info">
-The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
-</aside>
-
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/search/companies \
-  -H 'Accept: application/json' \
-  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
-};
-
-fetch('https://api.moesif.com/v1/search/~/search/companies',
-{
-  method: 'POST',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
-}
-
-r = requests.post('https://api.moesif.com/v1/search/~/search/companies', headers = headers)
-
-print(r.json())
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/json',
-  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
-}
-
-result = RestClient.post 'https://api.moesif.com/v1/search/~/search/companies',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-$headers = array(
-    'Accept' => 'application/json',
-    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
-);
-
-$client = new \GuzzleHttp\Client();
-
-// Define array of request body.
-$request_body = array();
-
-try {
-    $response = $client->request('POST','https://api.moesif.com/v1/search/~/search/companies', array(
-        'headers' => $headers,
-        'json' => $request_body,
-       )
-    );
-    print_r($response->getBody()->getContents());
- }
- catch (\GuzzleHttp\Exception\BadResponseException $e) {
-    // handle exception or api errors.
-    print_r($e->getMessage());
- }
-
- // ...
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Accept": []string{"application/json"},
-        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/search/companies", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
-/// <<summary>>
-/// Example of Http Client
-/// <</summary>>
-public class HttpExample
-{
-    private HttpClient Client { get; set; }
-
-    /// <<summary>>
-    /// Setup http client
-    /// <</summary>>
-    public HttpExample()
-    {
-      Client = new HttpClient();
-    }
-    
-    
-    /// Make a dummy request
-    public async Task MakePostRequest()
-    {
-      string url = "https://api.moesif.com/v1/search/~/search/companies";
-      
-      
-      await PostAsync(null, url);
-      
-    }
-
-    /// Performs a POST Request
-    public async Task PostAsync(undefined content, string url)
-    {
-        //Serialize Object
-        StringContent jsonContent = SerializeObject(content);
-
-        //Execute POST request
-        HttpResponseMessage response = await Client.PostAsync(url, jsonContent);
-    }
-    
-    
-    
-    /// Serialize an object to Json
-    private StringContent SerializeObject(undefined content)
-    {
-        //Serialize Object
-        string jsonObject = JsonConvert.SerializeObject(content);
-
-        //Create Json UTF8 String Content
-        return new StringContent(jsonObject, Encoding.UTF8, "application/json");
-    }
-    
-    /// Deserialize object from request response
-    private async Task DeserializeObject(HttpResponseMessage response)
-    {
-        //Read body 
-        string responseBody = await response.Content.ReadAsStringAsync();
-
-        //Deserialize Body to object
-        var result = JsonConvert.DeserializeObject(responseBody);
-    }
-}
-
-```
-
-```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/search/companies");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`POST https://api.moesif.com/v1/search/~/search/companies`
-
-*Search Companies*
-
-<h3 id="searchcompanies-parameters">Parameters</h3>
-
-<aside class="info">
-The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
-</aside>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
-|body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
-
-> Example responses
-
-<h3 id="searchcompanies-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|None|
-
-<h3 id="searchcompanies-responseschema">Response Schema</h3>
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-managementAPIToken ( Scopes: read:companies )
-</aside>
-
-## getCompanySubscriptions
-
-<a id="opIdgetCompanySubscriptions"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET https://api.moesif.com/v1/search/~/companies/{id}/subscriptions \
-  -H 'Accept: application/json' \
-  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
-};
-
-fetch('https://api.moesif.com/v1/search/~/companies/{id}/subscriptions',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
-}
-
-r = requests.get('https://api.moesif.com/v1/search/~/companies/{id}/subscriptions', headers = headers)
-
-print(r.json())
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/json',
-  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
-}
-
-result = RestClient.get 'https://api.moesif.com/v1/search/~/companies/{id}/subscriptions',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-$headers = array(
-    'Accept' => 'application/json',
-    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
-);
-
-$client = new \GuzzleHttp\Client();
-
-// Define array of request body.
-$request_body = array();
-
-try {
-    $response = $client->request('GET','https://api.moesif.com/v1/search/~/companies/{id}/subscriptions', array(
-        'headers' => $headers,
-        'json' => $request_body,
-       )
-    );
-    print_r($response->getBody()->getContents());
- }
- catch (\GuzzleHttp\Exception\BadResponseException $e) {
-    // handle exception or api errors.
-    print_r($e->getMessage());
- }
-
- // ...
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Accept": []string{"application/json"},
-        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/search/~/companies/{id}/subscriptions", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
-/// <<summary>>
-/// Example of Http Client
-/// <</summary>>
-public class HttpExample
-{
-    private HttpClient Client { get; set; }
-
-    /// <<summary>>
-    /// Setup http client
-    /// <</summary>>
-    public HttpExample()
-    {
-      Client = new HttpClient();
-    }
-    
-    /// Make a dummy request
-    public async Task MakeGetRequest()
-    {
-      string url = "https://api.moesif.com/v1/search/~/companies/{id}/subscriptions";
-      var result = await GetAsync(url);
-    }
-
-    /// Performs a GET Request
-    public async Task GetAsync(string url)
-    {
-        //Start the request
-        HttpResponseMessage response = await Client.GetAsync(url);
-
-        //Validate result
-        response.EnsureSuccessStatusCode();
-
-    }
-    
-    
-    
-    
-    /// Deserialize object from request response
-    private async Task DeserializeObject(HttpResponseMessage response)
-    {
-        //Read body 
-        string responseBody = await response.Content.ReadAsStringAsync();
-
-        //Deserialize Body to object
-        var result = JsonConvert.DeserializeObject(responseBody);
-    }
-}
-
-```
-
-```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/companies/{id}/subscriptions");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`GET https://api.moesif.com/v1/search/~/companies/{id}/subscriptions`
-
-*Get the Subscriptions of a Company*
-
-<h3 id="getcompanysubscriptions-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
-|id|path|string|true|none|
-
-> Example responses
-
-<h3 id="getcompanysubscriptions-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="getcompanysubscriptions-responseschema">Response Schema</h3>
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-managementAPIToken ( Scopes: read:companies )
-</aside>
-
-## updateCompanies
-
-<a id="opIdupdateCompanies"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/companies \
-  -H 'Accept: application/json' \
-  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
-};
-
-fetch('https://api.moesif.com/v1/search/~/companies',
-{
-  method: 'POST',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
-}
-
-r = requests.post('https://api.moesif.com/v1/search/~/companies', headers = headers)
-
-print(r.json())
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/json',
-  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
-}
-
-result = RestClient.post 'https://api.moesif.com/v1/search/~/companies',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-$headers = array(
-    'Accept' => 'application/json',
-    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
-);
-
-$client = new \GuzzleHttp\Client();
-
-// Define array of request body.
-$request_body = array();
-
-try {
-    $response = $client->request('POST','https://api.moesif.com/v1/search/~/companies', array(
-        'headers' => $headers,
-        'json' => $request_body,
-       )
-    );
-    print_r($response->getBody()->getContents());
- }
- catch (\GuzzleHttp\Exception\BadResponseException $e) {
-    // handle exception or api errors.
-    print_r($e->getMessage());
- }
-
- // ...
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Accept": []string{"application/json"},
-        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/companies", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
-/// <<summary>>
-/// Example of Http Client
-/// <</summary>>
-public class HttpExample
-{
-    private HttpClient Client { get; set; }
-
-    /// <<summary>>
-    /// Setup http client
-    /// <</summary>>
-    public HttpExample()
-    {
-      Client = new HttpClient();
-    }
-    
-    
-    /// Make a dummy request
-    public async Task MakePostRequest()
-    {
-      string url = "https://api.moesif.com/v1/search/~/companies";
-      
-      
-      await PostAsync(null, url);
-      
-    }
-
-    /// Performs a POST Request
-    public async Task PostAsync(undefined content, string url)
-    {
-        //Serialize Object
-        StringContent jsonContent = SerializeObject(content);
-
-        //Execute POST request
-        HttpResponseMessage response = await Client.PostAsync(url, jsonContent);
-    }
-    
-    
-    
-    /// Serialize an object to Json
-    private StringContent SerializeObject(undefined content)
-    {
-        //Serialize Object
-        string jsonObject = JsonConvert.SerializeObject(content);
-
-        //Create Json UTF8 String Content
-        return new StringContent(jsonObject, Encoding.UTF8, "application/json");
-    }
-    
-    /// Deserialize object from request response
-    private async Task DeserializeObject(HttpResponseMessage response)
-    {
-        //Read body 
-        string responseBody = await response.Content.ReadAsStringAsync();
-
-        //Deserialize Body to object
-        var result = JsonConvert.DeserializeObject(responseBody);
-    }
-}
-
-```
-
-```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/companies");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`POST https://api.moesif.com/v1/search/~/companies`
-
-*Update a Company*
-
-<h3 id="updatecompanies-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
-|body|body|[CompanyUpdateDTO](#schemacompanyupdatedto)|false|none|
-
-> Example responses
-
-<h3 id="updatecompanies-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="updatecompanies-responseschema">Response Schema</h3>
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-managementAPIToken ( Scopes: create:companies update:companies )
-</aside>
-
-## batchUpdateCompanies
-
-<a id="opIdbatchUpdateCompanies"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/companies/batch \
-  -H 'Accept: application/json' \
-  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
-};
-
-fetch('https://api.moesif.com/v1/search/~/companies/batch',
-{
-  method: 'POST',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
-}
-
-r = requests.post('https://api.moesif.com/v1/search/~/companies/batch', headers = headers)
-
-print(r.json())
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/json',
-  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
-}
-
-result = RestClient.post 'https://api.moesif.com/v1/search/~/companies/batch',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-$headers = array(
-    'Accept' => 'application/json',
-    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
-);
-
-$client = new \GuzzleHttp\Client();
-
-// Define array of request body.
-$request_body = array();
-
-try {
-    $response = $client->request('POST','https://api.moesif.com/v1/search/~/companies/batch', array(
-        'headers' => $headers,
-        'json' => $request_body,
-       )
-    );
-    print_r($response->getBody()->getContents());
- }
- catch (\GuzzleHttp\Exception\BadResponseException $e) {
-    // handle exception or api errors.
-    print_r($e->getMessage());
- }
-
- // ...
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Accept": []string{"application/json"},
-        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/companies/batch", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
-/// <<summary>>
-/// Example of Http Client
-/// <</summary>>
-public class HttpExample
-{
-    private HttpClient Client { get; set; }
-
-    /// <<summary>>
-    /// Setup http client
-    /// <</summary>>
-    public HttpExample()
-    {
-      Client = new HttpClient();
-    }
-    
-    
-    /// Make a dummy request
-    public async Task MakePostRequest()
-    {
-      string url = "https://api.moesif.com/v1/search/~/companies/batch";
-      
-      
-      await PostAsync(null, url);
-      
-    }
-
-    /// Performs a POST Request
-    public async Task PostAsync(undefined content, string url)
-    {
-        //Serialize Object
-        StringContent jsonContent = SerializeObject(content);
-
-        //Execute POST request
-        HttpResponseMessage response = await Client.PostAsync(url, jsonContent);
-    }
-    
-    
-    
-    /// Serialize an object to Json
-    private StringContent SerializeObject(undefined content)
-    {
-        //Serialize Object
-        string jsonObject = JsonConvert.SerializeObject(content);
-
-        //Create Json UTF8 String Content
-        return new StringContent(jsonObject, Encoding.UTF8, "application/json");
-    }
-    
-    /// Deserialize object from request response
-    private async Task DeserializeObject(HttpResponseMessage response)
-    {
-        //Read body 
-        string responseBody = await response.Content.ReadAsStringAsync();
-
-        //Deserialize Body to object
-        var result = JsonConvert.DeserializeObject(responseBody);
-    }
-}
-
-```
-
-```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/companies/batch");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`POST https://api.moesif.com/v1/search/~/companies/batch`
-
-*Update Companies in Batch*
-
-<h3 id="batchupdatecompanies-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
-|body|body|array[object]|false|none|
-
-> Example responses
-
-<h3 id="batchupdatecompanies-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="batchupdatecompanies-responseschema">Response Schema</h3>
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-managementAPIToken ( Scopes: create:companies update:companies )
-</aside>
-
-## countCompanies
-
-<a id="opIdcountCompanies"></a>
-
-<aside class="info">
-The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
-</aside>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/count/companies?app_id=string \
-  -H 'Accept: application/json' \
-  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
-};
-
-fetch('https://api.moesif.com/v1/search/~/count/companies?app_id=string',
-{
-  method: 'POST',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
-}
-
-r = requests.post('https://api.moesif.com/v1/search/~/count/companies', params={
-  'app_id': 'string'
-}, headers = headers)
-
-print(r.json())
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/json',
-  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
-}
-
-result = RestClient.post 'https://api.moesif.com/v1/search/~/count/companies',
-  params: {
-  'app_id' => 'string'
-}, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-$headers = array(
-    'Accept' => 'application/json',
-    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
-);
-
-$client = new \GuzzleHttp\Client();
-
-// Define array of request body.
-$request_body = array();
-
-try {
-    $response = $client->request('POST','https://api.moesif.com/v1/search/~/count/companies', array(
-        'headers' => $headers,
-        'json' => $request_body,
-       )
-    );
-    print_r($response->getBody()->getContents());
- }
- catch (\GuzzleHttp\Exception\BadResponseException $e) {
-    // handle exception or api errors.
-    print_r($e->getMessage());
- }
-
- // ...
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Accept": []string{"application/json"},
-        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/count/companies", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
-/// <<summary>>
-/// Example of Http Client
-/// <</summary>>
-public class HttpExample
-{
-    private HttpClient Client { get; set; }
-
-    /// <<summary>>
-    /// Setup http client
-    /// <</summary>>
-    public HttpExample()
-    {
-      Client = new HttpClient();
-    }
-    
-    
-    /// Make a dummy request
-    public async Task MakePostRequest()
-    {
-      string url = "https://api.moesif.com/v1/search/~/count/companies";
-      
-      
-      await PostAsync(null, url);
-      
-    }
-
-    /// Performs a POST Request
-    public async Task PostAsync(undefined content, string url)
-    {
-        //Serialize Object
-        StringContent jsonContent = SerializeObject(content);
-
-        //Execute POST request
-        HttpResponseMessage response = await Client.PostAsync(url, jsonContent);
-    }
-    
-    
-    
-    /// Serialize an object to Json
-    private StringContent SerializeObject(undefined content)
-    {
-        //Serialize Object
-        string jsonObject = JsonConvert.SerializeObject(content);
-
-        //Create Json UTF8 String Content
-        return new StringContent(jsonObject, Encoding.UTF8, "application/json");
-    }
-    
-    /// Deserialize object from request response
-    private async Task DeserializeObject(HttpResponseMessage response)
-    {
-        //Read body 
-        string responseBody = await response.Content.ReadAsStringAsync();
-
-        //Deserialize Body to object
-        var result = JsonConvert.DeserializeObject(responseBody);
-    }
-}
-
-```
-
-```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/count/companies?app_id=string");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`POST https://api.moesif.com/v1/search/~/count/companies`
-
-*Count Companies*
-
-<h3 id="countcompanies-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|true|none|
-|body|body|undefined|false|A query to restrict the results specified with the Elasticsearch Query DSL|
-
-> Example responses
-
-<h3 id="countcompanies-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="countcompanies-responseschema">Response Schema</h3>
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-managementAPIToken ( Scopes: read:companies )
-</aside>
-
-<h1 id="management-api-events">Events</h1>
+<h1 id="management-api-metrics">Metrics</h1>
 
 ## countEvents
 
 <a id="opIdcountEvents"></a>
-
-<aside class="info">
-The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
-</aside>
 
 > Code samples
 
@@ -19725,7 +18531,6 @@ System.out.println(response.toString());
 |app_id|query|string|false|none|
 |from|query|string(date-time)|true|The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|true|The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now|
-|track_total_hits|query|boolean|false|none|
 |body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
 
 > Example responses
@@ -19750,7 +18555,6 @@ managementAPIToken ( Scopes: read:events )
 <aside class="info">
 The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
 </aside>
-
 
 > Code samples
 
@@ -19969,16 +18773,12 @@ System.out.println(response.toString());
 
 <h3 id="searchevents-parameters">Parameters</h3>
 
-<aside class="info">
-The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
-</aside>
-
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |orgId|path|string|true|none|
 |app_id|query|string|false|none|
-|from|query|string(date-time)|true|The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h|
-|to|query|string(date-time)|true|The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now|
+|from|query|string(date-time)|true|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
+|to|query|string(date-time)|true|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
 |body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
 
 > Example responses
@@ -20084,6 +18884,10 @@ managementAPIToken ( Scopes: read:events )
 ## searchPublicWorkspaces
 
 <a id="opIdsearchPublicWorkspaces"></a>
+
+<aside class="info">
+The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
+</aside>
 
 > Code samples
 
@@ -20306,8 +19110,8 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |orgId|path|string|true|none|
 |app_id|query|string|false|none|
-|from|query|string(date-time)|true|The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h|
-|to|query|string(date-time)|true|The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now|
+|from|query|string(date-time)|true|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
+|to|query|string(date-time)|true|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
 |workspaceId|path|string|true|none|
 |include_details|query|boolean|false|none|
 |take|query|integer(int32)|false|none|
@@ -20724,11 +19528,6 @@ managementAPIToken ( Scopes: read:events )
 ## countUsers
 
 <a id="opIdcountUsers"></a>
-
-<aside class="info">
-The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
-</aside>
-
 
 > Code samples
 
@@ -21259,9 +20058,9 @@ To perform this operation, you must be authenticated by means of one of the foll
 managementAPIToken ( Scopes: create:users update:users )
 </aside>
 
-## searchUsers
+## searchUserMetrics
 
-<a id="opIdsearchUsers"></a>
+<a id="opIdsearchUserMetrics"></a>
 
 <aside class="info">
 The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
@@ -21271,8 +20070,8 @@ The Moesif UI has a query generator to make it easy to create the necessary quer
 
 ```shell
 # You can also use wget
-curl -X POST https://api.moesif.com/v1/search/~/search/users \
-  -H 'Accept: application/json' \
+curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/users \
+  -H 'Accept: 0' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
 
 ```
@@ -21281,11 +20080,11 @@ curl -X POST https://api.moesif.com/v1/search/~/search/users \
 const fetch = require('node-fetch');
 
 const headers = {
-  'Accept':'application/json',
+  'Accept':'0',
   'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
 };
 
-fetch('https://api.moesif.com/v1/search/~/search/users',
+fetch('https://api.moesif.com/v1/search/~/search/usermetrics/users',
 {
   method: 'POST',
 
@@ -21302,11 +20101,11 @@ fetch('https://api.moesif.com/v1/search/~/search/users',
 ```python
 import requests
 headers = {
-  'Accept': 'application/json',
+  'Accept': '0',
   'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
 }
 
-r = requests.post('https://api.moesif.com/v1/search/~/search/users', headers = headers)
+r = requests.post('https://api.moesif.com/v1/search/~/search/usermetrics/users', headers = headers)
 
 print(r.json())
 
@@ -21317,11 +20116,11 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Accept' => 'application/json',
+  'Accept' => '0',
   'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
 }
 
-result = RestClient.post 'https://api.moesif.com/v1/search/~/search/users',
+result = RestClient.post 'https://api.moesif.com/v1/search/~/search/usermetrics/users',
   params: {
   }, headers: headers
 
@@ -21335,7 +20134,7 @@ p JSON.parse(result)
 require 'vendor/autoload.php';
 
 $headers = array(
-    'Accept' => 'application/json',
+    'Accept' => '0',
     'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
 );
 
@@ -21345,7 +20144,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('POST','https://api.moesif.com/v1/search/~/search/users', array(
+    $response = $client->request('POST','https://api.moesif.com/v1/search/~/search/usermetrics/users', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -21372,12 +20171,12 @@ import (
 func main() {
 
     headers := map[string][]string{
-        "Accept": []string{"application/json"},
+        "Accept": []string{"0"},
         "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/search/users", data)
+    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/search/usermetrics/users", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -21415,7 +20214,7 @@ public class HttpExample
     /// Make a dummy request
     public async Task MakePostRequest()
     {
-      string url = "https://api.moesif.com/v1/search/~/search/users";
+      string url = "https://api.moesif.com/v1/search/~/search/usermetrics/users";
       
       
       await PostAsync(null, url);
@@ -21458,7 +20257,7 @@ public class HttpExample
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/search/~/search/users");
+URL obj = new URL("https://api.moesif.com/v1/search/~/search/usermetrics/users");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -21474,94 +20273,29 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/search/~/search/users`
+`POST https://api.moesif.com/v1/search/~/search/usermetrics/users`
 
-*Search Users*
+*Search UserMetrics/Users*
 
-<h3 id="searchusers-parameters">Parameters</h3>
-
-<aside class="info">
-The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
-</aside>
+<h3 id="searchusermetrics-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |orgId|path|string|true|none|
 |app_id|query|string|false|none|
+|from|query|string(date-time)|false|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
+|to|query|string(date-time)|false|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
 |body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
 
 > Example responses
 
-> 201 Response
-
-```json
-{
-  "took": 11,
-  "timed_out": false,
-  "hits": {
-    "total": 420,
-    "hits": [
-      {
-        "_id": "123456",
-        "_source": {
-          "first_name": "John",
-          "body": {},
-          "name": "John Doe",
-          "email": "john.doe@gmail.com",
-          "first_seen_time": "2019-07-27T21:52:58.0990000Z",
-          "user_agent": {
-            "name": "Android",
-            "os_major": "7",
-            "os": "Android 7.0",
-            "os_name": "Android",
-            "os_minor": "0",
-            "major": "7",
-            "device": "Samsung SM-G955U",
-            "minor": "0"
-          },
-          "geo_ip": {
-            "ip": "107.200.85.196",
-            "region_name": "South Carolina",
-            "continent_code": "NA",
-            "location": {
-              "lon": -79.85489654541016,
-              "lat": 32.822898864746094
-            },
-            "latitude": 32.822898864746094,
-            "timezone": "America/New_York",
-            "longitude": -79.85489654541016,
-            "dma_code": 519,
-            "postal_code": "29464",
-            "region_code": "SC",
-            "city_name": "Mt. Pleasant",
-            "country_code2": "US",
-            "country_code3": "US",
-            "country_name": "United States"
-          },
-          "modified_time": "2019-07-27T21:55:19.464",
-          "last_name": "Doe",
-          "ip_address": "107.200.85.196",
-          "session_token": [
-            "e93u2jiry8fij8q09-tfZ9SIK9DERDXUYMF"
-          ],
-          "last_seen_time": "2019-07-27T21:52:58.0990000Z",
-          "app_id": "198:3",
-          "org_id": "177:3"
-        },
-        "sort": [
-          1519768519464
-        ]
-      }
-    ]
-  }
-}
-```
-
-<h3 id="searchusers-responses">Responses</h3>
+<h3 id="searchusermetrics-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|[searchUsersResponseDTO](#schemasearchusersresponsedto)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+
+<h3 id="searchusermetrics-responseschema">Response Schema</h3>
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -22618,34 +21352,6 @@ managementAPIToken ( Scopes: delete:users )
 |---|---|---|---|---|
 |billing_meter_id|string|true|none|none|
 |buckets|[[BillingMetricBucket](#schemabillingmetricbucket)]|true|none|none|
-
-<h2 id="tocS_StatusDTO">StatusDTO</h2>
-
-<a id="schemastatusdto"></a>
-<a id="schema_StatusDTO"></a>
-<a id="tocSstatusdto"></a>
-<a id="tocsstatusdto"></a>
-
-```json
-{
-  "status": true,
-  "region": "string",
-  "build": "string",
-  "health": "string",
-  "name": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|status|boolean|true|none|none|
-|region|string|true|none|none|
-|build|string|false|none|none|
-|health|string|true|none|none|
-|name|string|true|none|none|
 
 <h2 id="tocS_AppCreateDTO">AppCreateDTO</h2>
 
