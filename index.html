@@ -315,9 +315,9 @@ For an overview on the Moesif platform, see the <a href="/docs">developer docs</
 
           <h1 id="overview">Overview</h1>
 
-<h2 id="pagination-and-filtering">Pagination and Filtering</h2>
+<h2 id="filtering">Filtering</h2>
 
-<h3 id="dates">Dates</h3>
+<h3 id="query-params">Query Params</h3>
 
 <p>Some endpoints require a date range for data to look at. This is done via the <code class="prettyprint">from</code> and the <code class="prettyprint">to</code>
 query parameters. There is also an optional <code class="prettyprint">time_zone</code> query parameter if you want the calendar dates aligned to your local time zone. 
@@ -403,10 +403,10 @@ Time zone is <code class="prettyprint">UTC</code> by default and must be a <a hr
 Dates are aligned to calendar dates. For example, if the current time is 2:30pm on a Wednesday and you specify `from=-2d`, the start of the time period will be 12:00am of the previous Monday based on `time_zone`.
 </aside>
 
-<h3 id="search-dsl">Search DSL</h3>
+<h3 id="elasticsearch-dsl">Elasticsearch DSL</h3>
 
-<p>For certain search endpoints, Moesif supports querying and filtering using <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-body.html">Elasticsearch DSL</a>. Simply pass the DSL as the request body.
-While majority of DSL for Elasticsearch&rsquo;s Request Body Search is supported by Moesif, other administrative APIs are unavailable. For help building a query for your business requirements, <a href="mailto:support@moesif.com">contact us</a>.</p>
+<p>The Moesif Search APIs supports majority of the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-body.html">Elasticsearch/Opensearch Search DSL</a>, which makes it super flexible to generate the report you&rsquo;re looking for. Only the DSL for search is supported. Other APIs outside of search are not supported. 
+You can generate a query quickly within the Moesif UI by clicking the orange &ldquo;Embed&rdquo; button on any report. Then select &ldquo;Search API&rdquo;. The generated CURL command will be for the exact report you are looking at. If you change filters or other criteria, you can go back and click &ldquo;Embed&rdquo; again to see how it changes. For help building a query for your business requirements, <a href="mailto:support@moesif.com">contact us</a>.</p>
 
 <h3 id="example-getting-most-recent-500-errors">Example: Getting most recent 500 errors</h3>
 
@@ -467,6 +467,179 @@ This can be done easily by looking at past month and getting a count for the use
     -H <span class="s1">'Authorization: Bearer {access-token}'</span> <span class="se">\</span>
     <span class="s2">"https://api.moesif.com/search/~/count/events?from=-1M&amp;to=now"</span>
 </code></pre>
+<h2 id="pagination">Pagination</h2>
+
+<h3 id="sorting-list-of-items">Sorting List of Items</h3>
+
+<blockquote>
+<p>To rapidly generate your query, t&rsquo;s strongly recommended using the query builder within the Moesif UI. This can be found by clicking orange &ldquo;Embed&rdquo; button and selecting &ldquo;Search API&rdquo;. Set up your sort field and click the next page to see an example for pagination. </p>
+</blockquote>
+
+<p>Moesif&rsquo;s search APIs (such as to get list of events of users) use a combination of keyset and seek pagination to ensure APIs are performant for very large offset values. For an overview of different types, see <a href="https://www.moesif.com/blog/technical/api-design/REST-API-Design-Filtering-Sorting-and-Pagination/">this blog post on pagination</a>. </p>
+
+<p>For pagination, the search API allows for three request body fields:
+* <code class="prettyprint">size</code> is the number of records to return in the response (i.e. batch size)
+* <code class="prettyprint">sort</code> defines how the dataset is sorted
+* <code class="prettyprint">search_after</code> is the last seen key(s) from previous page. This is not set if this is the first page.</p>
+
+<p>For the request, we need to define the last item seen in the ordered list. 
+This can be obtained by looking at the previous response&rsquo;s <code class="prettyprint">hits.hits.sort</code> field.</p>
+
+<p><strong>Sorting items by request time</strong>
+For example, let&rsquo;s say we want to return the most recent events in descending order in batches of 100 items. For each page after the first, we should set the last event already seen as the <code class="prettyprint">request.time</code>.</p>
+
+<blockquote class="lang-specific json">
+<code><b>POST</b> https://api.moesif.com/search/~/search/events?from=-7d&to=now</code>
+<br><br><i>Sorting items by request time</i><br>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"search_after"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mi">1694190464456</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"sort"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"request.time"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"desc"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unmapped_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>Sorting items by low cardinality key</strong></p>
+
+<p>For lower cardinality keys (likes response.status), many events may match the same status code. In order to have a stable sort, you must use a high cardinality key as well such that it&rsquo;s a sort on a compound key. Below is an example using both the response.status as well as the _id field (which is guaranteed to be unique)</p>
+
+<blockquote class="lang-specific json">
+<code><b>POST</b> https://api.moesif.com/search/~/search/events?from=-7d&to=now</code>
+<br><br><i>Sorting items by low cardinality key</i><br>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"search_after"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"AYpjf3Gow2BIxAOLPgx4"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"sort"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"user_id.raw"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"desc"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unmapped_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"desc"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="sorting-metric-terms">Sorting Metric Terms</h3>
+
+<blockquote>
+<p>To rapidly generate your query, t&rsquo;s strongly recommended using the query builder within the Moesif UI. This can be found by clicking orange &ldquo;Embed&rdquo; button and selecting &ldquo;Search API&rdquo;.</p>
+</blockquote>
+
+<p>Metrics APIs (such as to get a time series or segmentation report) do not support pagination as the response is already aggregated and contains the required dataset.
+However, Moesif does support sorting by &ldquo;top X&rdquo; and &ldquo;Bottom X&rdquo; for when a &ldquo;group by&rdquo; is present. This is important to define whether you want the top terms or bottom terms and what is the metric to order the group by terms. </p>
+
+<p><strong>Sorting group by terms</strong></p>
+
+<p>In the below example, we have a segmentation report that gets the total event count for the top 10 companies. The query has a &ldquo;group by&rdquo; on <code class="prettyprint">company_id.raw</code>. The group by will return the top 10 terms sorted by the company&rsquo;s event count (<code class="prettyprint">weight</code>) in descending order (<code class="prettyprint">desc</code>).</p>
+
+<blockquote class="lang-specific json">
+<code><b>POST</b> https://api.moesif.com/search/~/search/events?from=-7d&to=now</code>
+<br><br><i>Sorting group by term</i><br>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"aggs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"seg"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"match_all"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"aggs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"company_id.raw"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"terms"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company_id.raw"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"min_doc_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"weight|sum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"desc"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="s2">"missing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(none)"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"aggs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"weight|sum"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"sum"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                </span><span class="s2">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"weight"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"missing"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+                            </span><span class="p">}</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"weight|sum"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"sum"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"weight"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"missing"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>Sorting by a different metric</strong></p>
+
+<p>The metric returned and the sort order can be different. In the below example, the metric returned is 90th percentile latency, but we still want to sort by the top 10 APIs 
+by volume so we ignore the small volume APIs. </p>
+
+<blockquote class="lang-specific json">
+<code><b>POST</b> https://api.moesif.com/search/~/search/events?from=-7d&to=now</code>
+<br><br><i>Sorting by a different metric</i><br>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"aggs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"seg"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"match_all"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"aggs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"request.route.raw"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"terms"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"request.route.raw"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"min_doc_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"duration_ms|percentiles(90).90"</span><span class="p">:</span><span class="w"> </span><span class="s2">"desc"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="s2">"missing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(none)"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"aggs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"duration_ms|percentiles(90)"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"percentiles"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                </span><span class="s2">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"duration_ms"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"percents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                                    </span><span class="mi">90</span><span class="w">
+                                </span><span class="p">]</span><span class="w">
+                            </span><span class="p">}</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"duration_ms|percentiles(90)"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"percentiles"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"duration_ms"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"percents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                            </span><span class="mi">90</span><span class="w">
+                        </span><span class="p">]</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <h2 id="request-format">Request Format</h2>
 
 <p>For POST, PUT, and PATCH requests, the request body should be JSON. The <code class="prettyprint">Content-Type</code> header
@@ -476,7 +649,7 @@ should be set to <code class="prettyprint">application/json</code></p>
 
 <p>The response body format is always JSON. Successful operations are seen via 2xx status code. Successful creation of new objects will be seen via 201. 4xx status implies client error.</p>
 
-<p>The REST API JSON payloads uses <em>underscore</em> format (i.e some_key). Many of the API libs
+<p>The REST API JSON payload uses <em>underscore</em> format (i.e some_key). Many of the API libs
 may use camelCase, PascalCase, or other as their model entities. Please
 select the respective language tab.</p>
 
