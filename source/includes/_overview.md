@@ -114,11 +114,12 @@ curl -XPOST \
 
 ### Sorting List of Items
 
-> To rapidly generate your query, t's strongly recommended using the query builder within the Moesif UI. This can be found by clicking orange "Embed" button and selecting "Search API". Set up your sort field and click the next page to see an example for pagination. 
+> To rapidly generate your query, it's strongly recommended using the query builder within the Moesif UI. This can be found by clicking orange "Embed" button and selecting "Search API". Set up your sort field and click the next page to see an example for pagination. 
 
 Moesif's search APIs (such as to get list of events of users) use a combination of keyset and seek pagination to ensure APIs are performant for very large offset values. For an overview of different types, see [this blog post on pagination](https://www.moesif.com/blog/technical/api-design/REST-API-Design-Filtering-Sorting-and-Pagination/). 
 
 For pagination, the search API allows for three request body fields:
+
 * `size` is the number of records to return in the response (i.e. batch size)
 * `sort` defines how the dataset is sorted
 * `search_after` is the last seen key(s) from previous page. This is not set if this is the first page.
