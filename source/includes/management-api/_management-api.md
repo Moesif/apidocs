@@ -16006,11 +16006,11 @@ managementAPIToken ( Scopes: delete:email_templates )
 
 ## searchCompanyMetrics
 
-<a id="opIdsearchCompanyMetrics"></
+<a id="opIdsearchCompanyMetrics"></a>
 
 <aside class="info">
 The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click the orange Embed  button and then select Access via API.
-</aside>a>
+</aside>
 
 > Code samples
 
@@ -19287,11 +19287,11 @@ managementAPIToken ( Scopes: read:events )
 
 ## searchEvents
 
-<a id="opIdsearchEvents"></
+<a id="opIdsearchEvents"></a>
 
 <aside class="info">
 The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click the orange Embed  button and then select Access via API.
-</aside>a>
+</aside>
 
 > Code samples
 
@@ -19620,11 +19620,11 @@ managementAPIToken ( Scopes: read:events )
 
 ## searchPublicWorkspaces
 
-<a id="opIdsearchPublicWorkspaces"></
+<a id="opIdsearchPublicWorkspaces"></a>
 
 <aside class="info">
 The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click the orange Embed  button and then select Access via API.
-</aside>a>
+</aside>
 
 > Code samples
 
@@ -20797,11 +20797,11 @@ managementAPIToken ( Scopes: create:users update:users )
 
 ## searchUserMetrics
 
-<a id="opIdsearchUserMetrics"></
+<a id="opIdsearchUserMetrics"></a>
 
 <aside class="info">
 The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click the orange Embed  button and then select Access via API.
-</aside>a>
+</aside>
 
 > Code samples
 
