@@ -4,13 +4,11 @@
 
 Management API to query data in Moesif. You can use the management API to export data for custom reports or to build custom dashboards.
 
-Management API to query data in Moesif. You can use the management API to export data for custom reports or to build custom dashboards.
-
-|Base URL (Public)|Base URL (When using Secure Proxy)|
-|--|--|
-|`https://api.moesif.com/v1`|`http://localhost:9500/api/v1`
+Base URLs:
 
 If you're using the [Moesif secure proxy](https://www.moesif.com/docs/platform/secure-proxy/), the base URL is `http://localhost:9500/api/v1` assuming it's running on port `9500`.
+
+* <a href="https://api.moesif.com/v1">https://api.moesif.com/v1</a>
 
 <a href="https://www.moesif.com/terms">Terms of service</a>
 
@@ -289,8 +287,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |body|body|undefined|false|none|
 
 > Example responses
@@ -515,8 +513,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 
 > Example responses
 
@@ -752,8 +750,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 |body|body|undefined|false|none|
 
@@ -979,8 +977,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 
 > Example responses
@@ -1200,8 +1198,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 
 <h3 id="deletegovernancerule-responses">Responses</h3>
@@ -1430,8 +1428,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |dashId|path|string|true|none|
 
 <h3 id="updatedashboard-responses">Responses</h3>
@@ -1647,8 +1645,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |dashId|path|string|true|none|
 
 <h3 id="deletedashboard-responses">Responses</h3>
@@ -1864,8 +1862,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |dashId|path|string|true|none|
 
 <h3 id="cascadedeletedashboard-responses">Responses</h3>
@@ -2081,8 +2079,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |dashId|path|string|true|none|
 |parent_id|query|string|false|none|
 
@@ -2310,7 +2308,7 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
+
 |appId|path|string|true|none|
 |entity|path|string|true|none|
 |dashId|path|string|true|none|
@@ -2539,8 +2537,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 |grantee|query|string|false|none|
 |permission|query|string|false|none|
@@ -2761,8 +2759,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 |grantee|query|string|true|none|
 
@@ -2990,10 +2988,10 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
-|to_app_id|query|string|false|none|
+
 
 <h3 id="copydashboard-responses">Responses</h3>
 
@@ -3223,9 +3221,9 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|true|none|
-|to_app_id|query|string|true|none|
+
+
+
 
 <h3 id="copyalldashboards-responses">Responses</h3>
 
@@ -3457,8 +3455,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 
 > Example responses
 
@@ -3676,8 +3674,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 
 <h3 id="getdashboards-responses">Responses</h3>
 
@@ -3901,8 +3899,8 @@ Query audit history of billing reports to external billing providers
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |from|query|string(date-time)|false|none|
 |to|query|string(date-time)|false|none|
 |billing_meter_id|query|string|false|none|
@@ -4148,11 +4146,12 @@ Get BillingReports' values for a given meter and time range for a single company
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |billing_meter_id|query|string|true|none|
 |from|query|string(date-time)|true|none|
 |to|query|string(date-time)|true|none|
+|success|query|boolean|false|none|
 |aggregator|query|string|false|none|
 |interval|query|string|false|none|
 |company_id|query|string|false|none|
@@ -4408,8 +4407,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |body|body|undefined|false|none|
 
 > Example responses
@@ -4634,8 +4633,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |from|query|string(date-time)|false|none|
 |to|query|string(date-time)|false|none|
 |type|undefined|undefined|false|none|
@@ -4862,8 +4861,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |keyId|path|string|true|none|
 
 > Example responses
@@ -5318,8 +5317,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 
 > Example responses
 
@@ -5561,8 +5560,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 |commentId|path|string|true|none|
 
@@ -5779,8 +5778,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 |commentId|path|string|true|none|
 
@@ -6008,8 +6007,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 
 <h3 id="updateworkspace-responses">Responses</h3>
@@ -6230,8 +6229,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 
 > Example responses
@@ -6451,8 +6450,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 
 <h3 id="deleteworkspace-responses">Responses</h3>
@@ -6903,8 +6902,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 |grantee|query|string|false|none|
 |permission|query|string|false|none|
@@ -7125,8 +7124,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 |grantee|query|string|true|none|
 
@@ -7360,8 +7359,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |expiration|query|string(date-time)|false|none|
 
 > Example responses
@@ -7592,8 +7591,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |take|query|integer(int32)|true|none|
 |before_id|query|string|false|none|
 |`type`|query|string|false|none|
@@ -7839,8 +7838,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 
 <h3 id="createcomment-responses">Responses</h3>
@@ -8055,8 +8054,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 
 <h3 id="getcomments-responses">Responses</h3>
@@ -8285,8 +8284,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |cohortId|path|string|true|none|
 |body|body|undefined|false|none|
 
@@ -8505,8 +8504,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |cohort_type|query|string|true|none|
 |cohortId|path|string|true|none|
 
@@ -8723,8 +8722,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |cohortId|path|string|true|none|
 
 <h3 id="deletecohort-responses">Responses</h3>
@@ -8940,8 +8939,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |cohortId|path|string|true|none|
 
 <h3 id="deletecohortsamplerate-responses">Responses</h3>
@@ -9174,8 +9173,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |body|body|undefined|false|none|
 
 > Example responses
@@ -9397,8 +9396,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |cohort_type|query|string|true|none|
 
 <h3 id="getcohorts-responses">Responses</h3>
@@ -9623,8 +9622,8 @@ Get Billing Meter by id
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |meterId|path|string|true|none|
 
 > Example responses
@@ -9846,8 +9845,8 @@ Delete Billing Meter by id
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |meterId|path|string|true|none|
 
 <h3 id="deletemeter-responses">Responses</h3>
@@ -10070,8 +10069,8 @@ List Billing Meters
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 
 > Example responses
 
@@ -10544,8 +10543,8 @@ Get a new access_token using logged in user's token
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |target|query|string|true|none|
 |scope|query|string|true|none|
 |publishable|query|boolean|false|none|
@@ -10796,8 +10795,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |entity|query|string|true|none|
 |body|body|undefined|false|none|
 
@@ -11028,8 +11027,8 @@ Get the Profile View of a given entity type for authenticated users
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |entity|query|string|true|none|
 
 > Example responses
@@ -11258,8 +11257,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |entity|query|string|true|none|
 
 > Example responses
@@ -11504,8 +11503,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |entity|query|string|true|none|
 |body|body|undefined|false|none|
 
@@ -11759,7 +11758,7 @@ Create a new app under the selected organization
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
+
 |body|body|[AppCreateDTO](#schemaappcreatedto)|false|none|
 
 > Example responses
@@ -12002,7 +12001,7 @@ Gets a list of apps for the selected organization
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
+
 |take|query|integer(int32)|true|none|
 |before_id|query|string|false|none|
 
@@ -12273,7 +12272,7 @@ Update the name of the app for the selected organization
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
+
 |id|path|string|true|none|
 
 > Example responses
@@ -12507,7 +12506,7 @@ Delete the app for the selected organization
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
+
 |id|path|string|true|none|
 
 <h3 id="deleteapp-responses">Responses</h3>
@@ -12735,8 +12734,8 @@ Get the Moesif Price for a specific Plan for authenticated users
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 |provider|query|string|true|none|
 
@@ -12960,8 +12959,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 |provider|query|string|true|none|
 
@@ -13203,8 +13202,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 |provider|query|string|true|none|
 |body|body|undefined|false|none|
@@ -13446,8 +13445,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |provider|query|string|true|none|
 |body|body|undefined|false|none|
 
@@ -13673,8 +13672,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |provider|query|string|false|none|
 
 > Example responses
@@ -13916,8 +13915,8 @@ Get the Moesif Plan for authenticated users
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 |provider|query|string|true|none|
 
@@ -14141,8 +14140,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 |provider|query|string|true|none|
 
@@ -14384,8 +14383,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 |provider|query|string|true|none|
 |body|body|undefined|false|none|
@@ -14627,8 +14626,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |provider|query|string|true|none|
 |body|body|undefined|false|none|
 
@@ -14854,8 +14853,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |provider|query|string|false|none|
 
 > Example responses
@@ -15106,8 +15105,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |body|body|undefined|false|none|
 
 > Example responses
@@ -15326,8 +15325,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |cohort_id|query|string|false|none|
 
 <h3 id="getemailtemplates-responses">Responses</h3>
@@ -15554,8 +15553,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 |body|body|undefined|false|none|
 
@@ -15771,8 +15770,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 
 <h3 id="getemailtemplate-responses">Responses</h3>
@@ -15988,8 +15987,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 
 <h3 id="deleteemailtemplate-responses">Responses</h3>
@@ -16007,11 +16006,11 @@ managementAPIToken ( Scopes: delete:email_templates )
 
 ## searchCompanyMetrics
 
-<a id="opIdsearchCompanyMetrics"></a>
+<a id="opIdsearchCompanyMetrics"></
 
 <aside class="info">
-The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
-</aside>
+The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click the orange Embed  button and then select Access via API.
+</aside>a>
 
 > Code samples
 
@@ -16228,8 +16227,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |from|query|string(date-time)|false|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|false|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
 |body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
@@ -16456,8 +16455,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 
 > Example responses
@@ -16677,8 +16676,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 |delete_events|query|boolean|false|Delete events associated with the company which can be set to true or false(default)|
 
@@ -16912,8 +16911,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |body|body|[CompanyUpdateDTO](#schemacompanyupdatedto)|false|none|
 
 > Example responses
@@ -17150,8 +17149,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |body|body|array[object]|false|none|
 
 > Example responses
@@ -17391,8 +17390,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|true|none|
+
+
 |body|body|undefined|false|A query to restrict the results specified with the Elasticsearch Query DSL|
 
 > Example responses
@@ -17622,8 +17621,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|true|none|
+
+
 |from|query|string(date-time)|false|none|
 
 > Example responses
@@ -17853,8 +17852,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|true|none|
+
+
 |from|query|string(date-time)|true|none|
 |to|query|string(date-time)|true|none|
 |include_values|query|boolean|false|none|
@@ -18087,8 +18086,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|true|none|
+
+
 |from|query|string(date-time)|true|none|
 |to|query|string(date-time)|true|none|
 |include_values|query|boolean|false|none|
@@ -18318,8 +18317,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 
 > Example responses
@@ -18544,8 +18543,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 
 > Example responses
@@ -18782,8 +18781,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |body|body|[SubscriptionDTO](#schemasubscriptiondto)|false|none|
 
 > Example responses
@@ -19020,8 +19019,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |body|body|[SubscriptionDTO](#schemasubscriptiondto)|false|none|
 
 > Example responses
@@ -19264,8 +19263,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |from|query|string(date-time)|true|The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|true|The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now|
 |track_total_hits|query|boolean|false|none|
@@ -19288,11 +19287,11 @@ managementAPIToken ( Scopes: read:events )
 
 ## searchEvents
 
-<a id="opIdsearchEvents"></a>
+<a id="opIdsearchEvents"></
 
 <aside class="info">
-The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
-</aside>
+The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click the orange Embed  button and then select Access via API.
+</aside>a>
 
 > Code samples
 
@@ -19513,8 +19512,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |from|query|string(date-time)|true|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|true|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
 |body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
@@ -19621,11 +19620,11 @@ managementAPIToken ( Scopes: read:events )
 
 ## searchPublicWorkspaces
 
-<a id="opIdsearchPublicWorkspaces"></a>
+<a id="opIdsearchPublicWorkspaces"></
 
 <aside class="info">
-The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
-</aside>
+The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click the orange Embed  button and then select Access via API.
+</aside>a>
 
 > Code samples
 
@@ -19846,8 +19845,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |from|query|string(date-time)|true|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|true|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
 |workspaceId|path|string|true|none|
@@ -20165,8 +20164,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 |event_time|query|string(date-time)|true|none|
 
@@ -20485,8 +20484,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|true|none|
+
+
 |body|body|undefined|false|A query to restrict the results specified with the Elasticsearch Query DSL|
 
 > Example responses
@@ -20723,8 +20722,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |body|body|[UserUpdateDTO](#schemauserupdatedto)|false|none|
 
 > Example responses
@@ -20798,11 +20797,11 @@ managementAPIToken ( Scopes: create:users update:users )
 
 ## searchUserMetrics
 
-<a id="opIdsearchUserMetrics"></a>
+<a id="opIdsearchUserMetrics"></
 
 <aside class="info">
-The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
-</aside>
+The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click the orange Embed  button and then select Access via API.
+</aside>a>
 
 > Code samples
 
@@ -21019,8 +21018,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |from|query|string(date-time)|false|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|false|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
 |body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
@@ -21259,8 +21258,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |body|body|array[object]|false|none|
 
 > Example responses
@@ -21539,8 +21538,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 
 > Example responses
@@ -21814,8 +21813,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|orgId|path|string|true|none|
-|app_id|query|string|false|none|
+
+
 |id|path|string|true|none|
 |delete_events|query|boolean|false|Delete events associated with the user which can be set to true or false(default)|
 
