@@ -287,8 +287,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |body|body|undefined|false|none|
 
 > Example responses
@@ -513,8 +511,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 
 > Example responses
 
@@ -750,8 +746,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 |body|body|undefined|false|none|
 
@@ -977,8 +971,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 
 > Example responses
@@ -1198,8 +1190,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 
 <h3 id="deletegovernancerule-responses">Responses</h3>
@@ -1428,8 +1418,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |dashId|path|string|true|none|
 
 <h3 id="updatedashboard-responses">Responses</h3>
@@ -1645,8 +1633,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |dashId|path|string|true|none|
 
 <h3 id="deletedashboard-responses">Responses</h3>
@@ -1862,8 +1848,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |dashId|path|string|true|none|
 
 <h3 id="cascadedeletedashboard-responses">Responses</h3>
@@ -2079,8 +2063,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |dashId|path|string|true|none|
 |parent_id|query|string|false|none|
 
@@ -2308,7 +2290,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
 |appId|path|string|true|none|
 |entity|path|string|true|none|
 |dashId|path|string|true|none|
@@ -2537,8 +2518,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 |grantee|query|string|false|none|
 |permission|query|string|false|none|
@@ -2759,8 +2738,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 |grantee|query|string|true|none|
 
@@ -2988,10 +2965,7 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
-
 
 <h3 id="copydashboard-responses">Responses</h3>
 
@@ -3221,9 +3195,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
-
 
 <h3 id="copyalldashboards-responses">Responses</h3>
 
@@ -3456,8 +3427,6 @@ System.out.println(response.toString());
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 
-
-
 > Example responses
 
 <h3 id="createdashboard-responses">Responses</h3>
@@ -3674,8 +3643,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 
 <h3 id="getdashboards-responses">Responses</h3>
 
@@ -3899,8 +3866,6 @@ Query audit history of billing reports to external billing providers
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |from|query|string(date-time)|false|none|
 |to|query|string(date-time)|false|none|
 |billing_meter_id|query|string|false|none|
@@ -4146,8 +4111,6 @@ Get BillingReports' values for a given meter and time range for a single company
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |billing_meter_id|query|string|true|none|
 |from|query|string(date-time)|true|none|
 |to|query|string(date-time)|true|none|
@@ -4407,8 +4370,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |body|body|undefined|false|none|
 
 > Example responses
@@ -4633,8 +4594,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |from|query|string(date-time)|false|none|
 |to|query|string(date-time)|false|none|
 |type|undefined|undefined|false|none|
@@ -4861,8 +4820,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |keyId|path|string|true|none|
 
 > Example responses
@@ -5318,8 +5275,6 @@ System.out.println(response.toString());
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 
-
-
 > Example responses
 
 > 200 Response
@@ -5560,8 +5515,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 |commentId|path|string|true|none|
 
@@ -5778,8 +5731,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 |commentId|path|string|true|none|
 
@@ -6007,8 +5958,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 
 <h3 id="updateworkspace-responses">Responses</h3>
@@ -6229,8 +6178,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 
 > Example responses
@@ -6450,8 +6397,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 
 <h3 id="deleteworkspace-responses">Responses</h3>
@@ -6902,8 +6847,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 |grantee|query|string|false|none|
 |permission|query|string|false|none|
@@ -7124,8 +7067,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 |grantee|query|string|true|none|
 
@@ -7359,8 +7300,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |expiration|query|string(date-time)|false|none|
 
 > Example responses
@@ -7591,8 +7530,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |take|query|integer(int32)|true|none|
 |before_id|query|string|false|none|
 |`type`|query|string|false|none|
@@ -7838,8 +7775,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 
 <h3 id="createcomment-responses">Responses</h3>
@@ -8054,8 +7989,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 
 <h3 id="getcomments-responses">Responses</h3>
@@ -8284,8 +8217,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |cohortId|path|string|true|none|
 |body|body|undefined|false|none|
 
@@ -8504,8 +8435,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |cohort_type|query|string|true|none|
 |cohortId|path|string|true|none|
 
@@ -8722,8 +8651,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |cohortId|path|string|true|none|
 
 <h3 id="deletecohort-responses">Responses</h3>
@@ -8939,8 +8866,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |cohortId|path|string|true|none|
 
 <h3 id="deletecohortsamplerate-responses">Responses</h3>
@@ -9173,8 +9098,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |body|body|undefined|false|none|
 
 > Example responses
@@ -9396,8 +9319,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |cohort_type|query|string|true|none|
 
 <h3 id="getcohorts-responses">Responses</h3>
@@ -9622,8 +9543,6 @@ Get Billing Meter by id
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |meterId|path|string|true|none|
 
 > Example responses
@@ -9845,8 +9764,6 @@ Delete Billing Meter by id
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |meterId|path|string|true|none|
 
 <h3 id="deletemeter-responses">Responses</h3>
@@ -10069,8 +9986,6 @@ List Billing Meters
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 
 > Example responses
 
@@ -10543,8 +10458,6 @@ Get a new access_token using logged in user's token
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |target|query|string|true|none|
 |scope|query|string|true|none|
 |publishable|query|boolean|false|none|
@@ -10795,8 +10708,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |entity|query|string|true|none|
 |body|body|undefined|false|none|
 
@@ -11027,8 +10938,6 @@ Get the Profile View of a given entity type for authenticated users
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |entity|query|string|true|none|
 
 > Example responses
@@ -11257,8 +11166,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |entity|query|string|true|none|
 
 > Example responses
@@ -11503,8 +11410,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |entity|query|string|true|none|
 |body|body|undefined|false|none|
 
@@ -11758,7 +11663,6 @@ Create a new app under the selected organization
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
 |body|body|[AppCreateDTO](#schemaappcreatedto)|false|none|
 
 > Example responses
@@ -12001,7 +11905,6 @@ Gets a list of apps for the selected organization
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
 |take|query|integer(int32)|true|none|
 |before_id|query|string|false|none|
 
@@ -12272,7 +12175,6 @@ Update the name of the app for the selected organization
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
 |id|path|string|true|none|
 
 > Example responses
@@ -12506,7 +12408,6 @@ Delete the app for the selected organization
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
 |id|path|string|true|none|
 
 <h3 id="deleteapp-responses">Responses</h3>
@@ -12734,8 +12635,6 @@ Get the Moesif Price for a specific Plan for authenticated users
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 |provider|query|string|true|none|
 
@@ -12959,8 +12858,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 |provider|query|string|true|none|
 
@@ -13202,8 +13099,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 |provider|query|string|true|none|
 |body|body|undefined|false|none|
@@ -13445,8 +13340,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |provider|query|string|true|none|
 |body|body|undefined|false|none|
 
@@ -13672,8 +13565,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |provider|query|string|false|none|
 
 > Example responses
@@ -13915,8 +13806,6 @@ Get the Moesif Plan for authenticated users
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 |provider|query|string|true|none|
 
@@ -14140,8 +14029,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 |provider|query|string|true|none|
 
@@ -14383,8 +14270,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 |provider|query|string|true|none|
 |body|body|undefined|false|none|
@@ -14626,8 +14511,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |provider|query|string|true|none|
 |body|body|undefined|false|none|
 
@@ -14853,8 +14736,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |provider|query|string|false|none|
 
 > Example responses
@@ -15105,8 +14986,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |body|body|undefined|false|none|
 
 > Example responses
@@ -15325,8 +15204,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |cohort_id|query|string|false|none|
 
 <h3 id="getemailtemplates-responses">Responses</h3>
@@ -15553,8 +15430,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 |body|body|undefined|false|none|
 
@@ -15770,8 +15645,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 
 <h3 id="getemailtemplate-responses">Responses</h3>
@@ -15987,8 +15860,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 
 <h3 id="deleteemailtemplate-responses">Responses</h3>
@@ -16227,8 +16098,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |from|query|string(date-time)|false|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|false|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
 |body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
@@ -16455,8 +16324,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 
 > Example responses
@@ -16676,8 +16543,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 |delete_events|query|boolean|false|Delete events associated with the company which can be set to true or false(default)|
 
@@ -16911,8 +16776,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |body|body|[CompanyUpdateDTO](#schemacompanyupdatedto)|false|none|
 
 > Example responses
@@ -17149,8 +17012,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |body|body|array[object]|false|none|
 
 > Example responses
@@ -17390,8 +17251,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |body|body|undefined|false|A query to restrict the results specified with the Elasticsearch Query DSL|
 
 > Example responses
@@ -17621,8 +17480,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |from|query|string(date-time)|false|none|
 
 > Example responses
@@ -17852,8 +17709,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |from|query|string(date-time)|true|none|
 |to|query|string(date-time)|true|none|
 |include_values|query|boolean|false|none|
@@ -18086,8 +17941,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |from|query|string(date-time)|true|none|
 |to|query|string(date-time)|true|none|
 |include_values|query|boolean|false|none|
@@ -18317,8 +18170,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 
 > Example responses
@@ -18543,8 +18394,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 
 > Example responses
@@ -18781,8 +18630,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |body|body|[SubscriptionDTO](#schemasubscriptiondto)|false|none|
 
 > Example responses
@@ -19019,8 +18866,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |body|body|[SubscriptionDTO](#schemasubscriptiondto)|false|none|
 
 > Example responses
@@ -19263,8 +19108,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |from|query|string(date-time)|true|The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|true|The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now|
 |track_total_hits|query|boolean|false|none|
@@ -19512,8 +19355,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |from|query|string(date-time)|true|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|true|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
 |body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
@@ -19845,8 +19686,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |from|query|string(date-time)|true|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|true|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
 |workspaceId|path|string|true|none|
@@ -20164,8 +20003,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 |event_time|query|string(date-time)|true|none|
 
@@ -20484,8 +20321,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |body|body|undefined|false|A query to restrict the results specified with the Elasticsearch Query DSL|
 
 > Example responses
@@ -20722,8 +20557,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |body|body|[UserUpdateDTO](#schemauserupdatedto)|false|none|
 
 > Example responses
@@ -21018,8 +20851,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |from|query|string(date-time)|false|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|false|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
 |body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
@@ -21258,8 +21089,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |body|body|array[object]|false|none|
 
 > Example responses
@@ -21538,8 +21367,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 
 > Example responses
@@ -21813,8 +21640,6 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-
-
 |id|path|string|true|none|
 |delete_events|query|boolean|false|Delete events associated with the user which can be set to true or false(default)|
 
