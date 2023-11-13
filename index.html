@@ -4633,21 +4633,13 @@ individual users along with account-level usage. </p>
 
 <p>Management API to query data in Moesif. You can use the management API to export data for custom reports or to build custom dashboards.</p>
 
-<p>Management API to query data in Moesif. You can use the management API to export data for custom reports or to build custom dashboards.</p>
-
-<table><thead>
-<tr>
-<th>Base URL (Public)</th>
-<th>Base URL (When using Secure Proxy)</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">https://api.moesif.com/v1</code></td>
-<td><code class="prettyprint">http://localhost:9500/api/v1</code></td>
-</tr>
-</tbody></table>
+<p>Base URLs:</p>
 
 <p>If you&rsquo;re using the <a href="https://www.moesif.com/docs/platform/secure-proxy/">Moesif secure proxy</a>, the base URL is <code class="prettyprint">http://localhost:9500/api/v1</code> assuming it&rsquo;s running on port <code class="prettyprint">9500</code>.</p>
+
+<ul>
+<li><a href="https://api.moesif.com/v1">https://api.moesif.com/v1</a></li>
+</ul>
 
 <p><a href="https://www.moesif.com/terms">Terms of service</a></p>
 
@@ -5041,28 +5033,9 @@ curl -X POST https://api.moesif.com/v1/~/governance/rules <span class="se">\</sp
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>undefined</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|body|body|undefined|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -5285,20 +5258,6 @@ curl -X GET https://api.moesif.com/v1/~/governance/rules <span class="se">\</spa
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
 
 <blockquote>
@@ -5534,35 +5493,10 @@ curl -X POST https://api.moesif.com/v1/~/governance/rules/<span class="o">{</spa
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>undefined</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|
+|body|body|undefined|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -5785,28 +5719,9 @@ curl -X GET https://api.moesif.com/v1/~/governance/rules/<span class="o">{</span
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -6024,28 +5939,9 @@ curl -X DELETE https://api.moesif.com/v1/~/governance/rules/<span class="o">{</s
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|</p>
 
 <h3 id="deletegovernancerule-responses">Responses</h3>
 
@@ -6270,28 +6166,9 @@ curl -X POST https://api.moesif.com/v1/~/dashboards/<span class="o">{</span>dash
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>dashId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|dashId|path|string|true|none|</p>
 
 <h3 id="updatedashboard-responses">Responses</h3>
 
@@ -6503,28 +6380,9 @@ curl -X DELETE https://api.moesif.com/v1/~/dashboards/<span class="o">{</span>da
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>dashId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|dashId|path|string|true|none|</p>
 
 <h3 id="deletedashboard-responses">Responses</h3>
 
@@ -6736,28 +6594,9 @@ curl -X DELETE https://api.moesif.com/v1/~/dashboards/<span class="o">{</span>da
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>dashId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|dashId|path|string|true|none|</p>
 
 <h3 id="cascadedeletedashboard-responses">Responses</h3>
 
@@ -6969,35 +6808,10 @@ curl -X DELETE https://api.moesif.com/v1/~/dashboard/<span class="o">{</span>das
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>dashId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>parent_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|dashId|path|string|true|none|
+|parent_id|query|string|false|none|</p>
 
 <h3 id="deletedashboards-responses">Responses</h3>
 
@@ -7220,35 +7034,11 @@ curl -X POST https://api.moesif.com/v1/~/<span class="o">{</span>appId<span clas
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>appId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>entity</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>dashId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|appId|path|string|true|none|
+|entity|path|string|true|none|
+|dashId|path|string|true|none|</p>
 
 <h3 id="promotetoprofileview-responses">Responses</h3>
 
@@ -7471,42 +7261,11 @@ curl -X POST https://api.moesif.com/v1/~/dashboards/<span class="o">{</span>id<s
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>grantee</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>permission</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|
+|grantee|query|string|false|none|
+|permission|query|string|false|none|</p>
 
 <h3 id="addaclpermissions-responses">Responses</h3>
 
@@ -7721,35 +7480,10 @@ curl -X DELETE https://api.moesif.com/v1/~/dashboards/<span class="o">{</span>id
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>grantee</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|
+|grantee|query|string|true|none|</p>
 
 <h3 id="deleteaclpermissions-responses">Responses</h3>
 
@@ -7972,35 +7706,9 @@ curl -X POST https://api.moesif.com/v1/~/dashboard/<span class="o">{</span>id<sp
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>to_app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|</p>
 
 <h3 id="copydashboard-responses">Responses</h3>
 
@@ -8227,27 +7935,6 @@ curl -X POST https://api.moesif.com/v1/~/dashboards/copy?app_id<span class="o">=
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>to_app_id</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
 
 <h3 id="copyalldashboards-responses">Responses</h3>
@@ -8477,20 +8164,6 @@ curl -X POST https://api.moesif.com/v1/~/dashboards <span class="se">\</span>
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
 
 <blockquote>
@@ -8708,20 +8381,6 @@ curl -X GET https://api.moesif.com/v1/~/dashboards <span class="se">\</span>
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
 
 <h3 id="getdashboards-responses">Responses</h3>
@@ -8943,84 +8602,17 @@ curl -X GET https://api.moesif.com/v1/~/billing/reports <span class="se">\</span
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>from</td>
-<td>query</td>
-<td>string(date-time)</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>to</td>
-<td>query</td>
-<td>string(date-time)</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>billing_meter_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>company_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>provider</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>subscription_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>success</td>
-<td>query</td>
-<td>boolean</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>status_code</td>
-<td>query</td>
-<td>integer(int32)</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>error_code</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|from|query|string(date-time)|false|none|
+|to|query|string(date-time)|false|none|
+|billing_meter_id|query|string|false|none|
+|company_id|query|string|false|none|
+|provider|query|string|false|none|
+|subscription_id|query|string|false|none|
+|success|query|boolean|false|none|
+|status_code|query|integer(int32)|false|none|
+|error_code|query|string|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -9267,63 +8859,15 @@ curl -X GET https://api.moesif.com/v1/~/billing/reports/metrics?billing_meter_id
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>billing_meter_id</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>from</td>
-<td>query</td>
-<td>string(date-time)</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>to</td>
-<td>query</td>
-<td>string(date-time)</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>aggregator</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>interval</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>company_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|billing_meter_id|query|string|true|none|
+|from|query|string(date-time)|true|none|
+|to|query|string(date-time)|true|none|
+|success|query|boolean|false|none|
+|aggregator|query|string|false|none|
+|interval|query|string|false|none|
+|company_id|query|string|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -9572,28 +9116,9 @@ curl -X POST https://api.moesif.com/v1/v1/~/keystore <span class="se">\</span>
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>undefined</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|body|body|undefined|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -9816,42 +9341,11 @@ curl -X GET https://api.moesif.com/v1/v1/~/keystore <span class="se">\</span>
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>from</td>
-<td>query</td>
-<td>string(date-time)</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>to</td>
-<td>query</td>
-<td>string(date-time)</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>type</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|from|query|string(date-time)|false|none|
+|to|query|string(date-time)|false|none|
+|type|undefined|undefined|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -10074,28 +9568,9 @@ curl -X GET https://api.moesif.com/v1/v1/~/keystore/<span class="o">{</span>keyI
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>keyId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|keyId|path|string|true|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -10537,20 +10012,6 @@ curl -X GET https://api.moesif.com/v1/~/workspaces/templates <span class="se">\<
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
 
 <blockquote>
@@ -10803,35 +10264,10 @@ curl -X POST https://api.moesif.com/v1/~/workspaces/<span class="o">{</span>id<s
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>commentId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|
+|commentId|path|string|true|none|</p>
 
 <h3 id="updatecomment-responses">Responses</h3>
 
@@ -11043,35 +10479,10 @@ curl -X DELETE https://api.moesif.com/v1/~/workspaces/<span class="o">{</span>id
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>commentId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|
+|commentId|path|string|true|none|</p>
 
 <h3 id="deletecomment-responses">Responses</h3>
 
@@ -11294,28 +10705,9 @@ curl -X POST https://api.moesif.com/v1/~/workspaces/<span class="o">{</span>id<s
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|</p>
 
 <h3 id="updateworkspace-responses">Responses</h3>
 
@@ -11532,28 +10924,9 @@ curl -X GET https://api.moesif.com/v1/~/workspaces/<span class="o">{</span>id<sp
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -11771,28 +11144,9 @@ curl -X DELETE https://api.moesif.com/v1/~/workspaces/<span class="o">{</span>id
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|</p>
 
 <h3 id="deleteworkspace-responses">Responses</h3>
 
@@ -12245,42 +11599,11 @@ curl -X POST https://api.moesif.com/v1/~/workspaces/<span class="o">{</span>id<s
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>grantee</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>permission</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|
+|grantee|query|string|false|none|
+|permission|query|string|false|none|</p>
 
 <h3 id="addaclpermissions-responses">Responses</h3>
 
@@ -12495,35 +11818,10 @@ curl -X DELETE https://api.moesif.com/v1/~/workspaces/<span class="o">{</span>id
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>grantee</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|
+|grantee|query|string|true|none|</p>
 
 <h3 id="deleteaclpermissions-responses">Responses</h3>
 
@@ -12752,28 +12050,9 @@ curl -X POST https://api.moesif.com/v1/~/workspaces <span class="se">\</span>
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>expiration</td>
-<td>query</td>
-<td>string(date-time)</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|expiration|query|string(date-time)|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -13002,49 +12281,12 @@ curl -X GET https://api.moesif.com/v1/~/workspaces?take<span class="o">=</span>0
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>take</td>
-<td>query</td>
-<td>integer(int32)</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>before_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td><code class="prettyprint">type</code></td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>access</td>
-<td>query</td>
-<td>array[string]</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|take|query|integer(int32)|true|none|
+|before_id|query|string|false|none|
+|<code class="prettyprint">type</code>|query|string|false|none|
+|access|query|array[string]|true|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -13296,28 +12538,9 @@ curl -X POST https://api.moesif.com/v1/~/workspaces/<span class="o">{</span>id<s
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|</p>
 
 <h3 id="createcomment-responses">Responses</h3>
 
@@ -13528,28 +12751,9 @@ curl -X GET https://api.moesif.com/v1/~/workspaces/<span class="o">{</span>id<sp
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|</p>
 
 <h3 id="getcomments-responses">Responses</h3>
 
@@ -13774,35 +12978,10 @@ curl -X POST https://api.moesif.com/v1/~/cohorts/<span class="o">{</span>cohortI
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>cohortId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>undefined</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|cohortId|path|string|true|none|
+|body|body|undefined|false|none|</p>
 
 <h3 id="updatecohort-responses">Responses</h3>
 
@@ -14016,35 +13195,10 @@ curl -X GET https://api.moesif.com/v1/~/cohorts/<span class="o">{</span>cohortId
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>cohort_type</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>cohortId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|cohort_type|query|string|true|none|
+|cohortId|path|string|true|none|</p>
 
 <h3 id="getcohort-responses">Responses</h3>
 
@@ -14256,28 +13410,9 @@ curl -X DELETE https://api.moesif.com/v1/~/cohorts/<span class="o">{</span>cohor
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>cohortId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|cohortId|path|string|true|none|</p>
 
 <h3 id="deletecohort-responses">Responses</h3>
 
@@ -14489,28 +13624,9 @@ curl -X DELETE https://api.moesif.com/v1/~/cohorts/<span class="o">{</span>cohor
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>cohortId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|cohortId|path|string|true|none|</p>
 
 <h3 id="deletecohortsamplerate-responses">Responses</h3>
 
@@ -14739,28 +13855,9 @@ curl -X POST https://api.moesif.com/v1/~/cohorts <span class="se">\</span>
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>undefined</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|body|body|undefined|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -14980,28 +14077,9 @@ curl -X GET https://api.moesif.com/v1/~/cohorts?cohort_type<span class="o">=</sp
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>cohort_type</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|cohort_type|query|string|true|none|</p>
 
 <h3 id="getcohorts-responses">Responses</h3>
 
@@ -15222,28 +14300,9 @@ curl -X GET https://api.moesif.com/v1/~/billing/meters/<span class="o">{</span>m
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>meterId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|meterId|path|string|true|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -15463,28 +14522,9 @@ curl -X DELETE https://api.moesif.com/v1/~/billing/meters/<span class="o">{</spa
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>meterId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|meterId|path|string|true|none|</p>
 
 <h3 id="deletemeter-responses">Responses</h3>
 
@@ -15703,20 +14743,6 @@ curl -X GET https://api.moesif.com/v1/~/billing/meters <span class="se">\</span>
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
 
 <blockquote>
@@ -16206,49 +15232,12 @@ curl -X GET https://api.moesif.com/v1/~/oauth/access_tokens?target<span class="o
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>target</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>scope</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>publishable</td>
-<td>query</td>
-<td>boolean</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>expiration</td>
-<td>query</td>
-<td>string(date-time)</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|target|query|string|true|none|
+|scope|query|string|true|none|
+|publishable|query|boolean|false|none|
+|expiration|query|string(date-time)|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -16491,35 +15480,10 @@ curl -X POST https://api.moesif.com/v1/~/profileviewconfigs?entity<span class="o
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>entity</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>undefined</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|entity|query|string|true|none|
+|body|body|undefined|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -16747,28 +15711,9 @@ curl -X GET https://api.moesif.com/v1/~/profileviewconfigs?entity<span class="o"
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>entity</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|entity|query|string|true|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -16995,28 +15940,9 @@ curl -X DELETE https://api.moesif.com/v1/~/profileviewconfigs?entity<span class=
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>entity</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|entity|query|string|true|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -17259,35 +16185,10 @@ curl -X PUT https://api.moesif.com/v1/~/profileviewconfigs?entity<span class="o"
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>entity</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>undefined</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|entity|query|string|true|none|
+|body|body|undefined|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -17549,21 +16450,9 @@ curl -X POST https://api.moesif.com/v1/~/apps <span class="se">\</span>
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td><a href="#schemaappcreatedto">AppCreateDTO</a></td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|body|body|<a href="#schemaappcreatedto">AppCreateDTO</a>|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -17801,28 +16690,10 @@ curl -X GET https://api.moesif.com/v1/~/apps?take<span class="o">=</span>0 <span
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>take</td>
-<td>query</td>
-<td>integer(int32)</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>before_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|take|query|integer(int32)|true|none|
+|before_id|query|string|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -18149,21 +17020,9 @@ curl -X POST https://api.moesif.com/v1/~/apps/<span class="o">{</span>id<span cl
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -18392,21 +17251,9 @@ curl -X DELETE https://api.moesif.com/v1/~/apps/<span class="o">{</span>id<span 
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|</p>
 
 <h3 id="deleteapp-responses">Responses</h3>
 
@@ -18630,35 +17477,10 @@ curl -X GET https://api.moesif.com/v1/~/billing/catalog/prices/<span class="o">{
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>provider</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|
+|provider|query|string|true|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -18879,35 +17701,10 @@ curl -X DELETE https://api.moesif.com/v1/~/billing/catalog/prices/<span class="o
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>provider</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|
+|provider|query|string|true|none|</p>
 
 <h3 id="deletemoesifprice-responses">Responses</h3>
 
@@ -19144,42 +17941,11 @@ curl -X PUT https://api.moesif.com/v1/~/billing/catalog/prices/<span class="o">{
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>provider</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>undefined</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|
+|provider|query|string|true|none|
+|body|body|undefined|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -19417,35 +18183,10 @@ curl -X POST https://api.moesif.com/v1/~/billing/catalog/plans?provider<span cla
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>provider</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>undefined</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|provider|query|string|true|none|
+|body|body|undefined|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -19668,28 +18409,9 @@ curl -X GET https://api.moesif.com/v1/~/billing/catalog/plans <span class="se">\
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>provider</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|provider|query|string|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -19940,35 +18662,10 @@ curl -X GET https://api.moesif.com/v1/~/billing/catalog/plans/<span class="o">{<
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>provider</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|
+|provider|query|string|true|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -20189,35 +18886,10 @@ curl -X DELETE https://api.moesif.com/v1/~/billing/catalog/plans/<span class="o"
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>provider</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|
+|provider|query|string|true|none|</p>
 
 <h3 id="deletemoesifplan-responses">Responses</h3>
 
@@ -20454,42 +19126,11 @@ curl -X PUT https://api.moesif.com/v1/~/billing/catalog/plans/<span class="o">{<
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>provider</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>undefined</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|
+|provider|query|string|true|none|
+|body|body|undefined|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -20727,35 +19368,10 @@ curl -X POST https://api.moesif.com/v1/~/billing/catalog/prices?provider<span cl
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>provider</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>undefined</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|provider|query|string|true|none|
+|body|body|undefined|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -20978,28 +19594,9 @@ curl -X GET https://api.moesif.com/v1/~/billing/catalog/prices <span class="se">
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>provider</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|provider|query|string|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -21259,28 +19856,9 @@ curl -X POST https://api.moesif.com/v1/~/emails/templates <span class="se">\</sp
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>undefined</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|body|body|undefined|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -21497,28 +20075,9 @@ curl -X GET https://api.moesif.com/v1/~/emails/templates <span class="se">\</spa
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>cohort_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|cohort_id|query|string|false|none|</p>
 
 <h3 id="getemailtemplates-responses">Responses</h3>
 
@@ -21741,35 +20300,10 @@ curl -X POST https://api.moesif.com/v1/~/emails/templates/<span class="o">{</spa
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>undefined</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|
+|body|body|undefined|false|none|</p>
 
 <h3 id="updateemailtemplate-responses">Responses</h3>
 
@@ -21980,28 +20514,9 @@ curl -X GET https://api.moesif.com/v1/~/emails/templates/<span class="o">{</span
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|</p>
 
 <h3 id="getemailtemplate-responses">Responses</h3>
 
@@ -22213,28 +20728,9 @@ curl -X DELETE https://api.moesif.com/v1/~/emails/templates/<span class="o">{</s
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|</p>
 
 <h3 id="deleteemailtemplate-responses">Responses</h3>
 
@@ -22263,270 +20759,240 @@ managementAPIToken ( Scopes: delete:email_templates )
 
 <h2 id="searchcompanymetrics">searchCompanyMetrics</h2>
 
-<p><a id="opIdsearchCompanyMetrics"></a></p>
+<p><a id="opIdsearchCompanyMetrics">&lt;/</p>
 
 <aside class="info">
-The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
-</aside>
+The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click the orange Embed  button and then select Access via API.
+</aside>a>
 
-<blockquote>
-<p>Code samples</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.moesif.com/v1/search/~/search/companymetrics/companies <span class="se">\</span>
-  -H <span class="s1">'Accept: 0'</span> <span class="se">\</span>
-  -H <span class="s1">'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'</span>
+> Code samples
 
-</code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
+&ldquo;`shell
+# You can also use wget
+curl -X POST https://api.moesif.com/v1/search/~/search/companymetrics/companies \
+  -H &lsquo;Accept: 0&rsquo; \
+  -H &lsquo;Authorization: Bearer YOUR_MANAGEMENT_API_KEY&rsquo;
 
-<span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'0'</span><span class="p">,</span>
-  <span class="s1">'Authorization'</span><span class="p">:</span><span class="s1">'Bearer YOUR_MANAGEMENT_API_KEY'</span>
-<span class="p">};</span>
+&rdquo;`
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/search/~/search/companymetrics/companies'</span><span class="p">,</span>
-<span class="p">{</span>
-  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+&ldquo;`javascript&ndash;nodejs
+const fetch = require(&lsquo;node-fetch&rsquo;);
 
-  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span>
-<span class="p">})</span>
-<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
-<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
-<span class="p">});</span>
+const headers = {
+  &lsquo;Accept&rsquo;:&lsquo;0&rsquo;,
+  &lsquo;Authorization&rsquo;:&lsquo;Bearer YOUR_MANAGEMENT_API_KEY&rsquo;
+};
 
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'0'</span><span class="p">,</span>
-  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer YOUR_MANAGEMENT_API_KEY'</span>
-<span class="p">}</span>
+fetch(&lsquo;https://api.moesif.com/v1/search/~/search/companymetrics/companies&rsquo;,
+{
+  method: &lsquo;POST&rsquo;,
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/search/companymetrics/companies'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
 
-<span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+&rdquo;`
 
-</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
-<span class="nb">require</span> <span class="s1">'json'</span>
+&ldquo;`python
+import requests
+headers = {
+  &lsquo;Accept&rsquo;: &lsquo;0&rsquo;,
+  &lsquo;Authorization&rsquo;: &lsquo;Bearer YOUR_MANAGEMENT_API_KEY&rsquo;
+}
 
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'0'</span><span class="p">,</span>
-  <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer YOUR_MANAGEMENT_API_KEY'</span>
-<span class="p">}</span>
+r = requests.post(&lsquo;https://api.moesif.com/v1/search/~/search/companymetrics/companies&rsquo;, headers = headers)
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'https://api.moesif.com/v1/search/~/search/companymetrics/companies'</span><span class="p">,</span>
-  <span class="ss">params: </span><span class="p">{</span>
-  <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
+print(r.json())
 
-<span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+&rdquo;`
 
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+&ldquo;`ruby
+require &lsquo;rest-client&rsquo;
+require &lsquo;json&rsquo;
 
-<span class="k">require</span> <span class="s1">'vendor/autoload.php'</span><span class="p">;</span>
+headers = {
+  &lsquo;Accept&rsquo; => &lsquo;0&rsquo;,
+  &lsquo;Authorization&rsquo; => &lsquo;Bearer YOUR_MANAGEMENT_API_KEY&rsquo;
+}
 
-<span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'0'</span><span class="p">,</span>
-    <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer YOUR_MANAGEMENT_API_KEY'</span><span class="p">,</span>
-<span class="p">);</span>
+result = RestClient.post &lsquo;https://api.moesif.com/v1/search/~/search/companymetrics/companies&rsquo;,
+  params: {
+  }, headers: headers
 
-<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\GuzzleHttp\Client</span><span class="p">();</span>
+p JSON.parse(result)
 
-<span class="c1">// Define array of request body.
-</span><span class="nv">$request_body</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+&rdquo;`
 
-<span class="k">try</span> <span class="p">{</span>
-    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">'POST'</span><span class="p">,</span><span class="s1">'https://api.moesif.com/v1/search/~/search/companymetrics/companies'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-        <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="nv">$headers</span><span class="p">,</span>
-        <span class="s1">'json'</span> <span class="o">=&gt;</span> <span class="nv">$request_body</span><span class="p">,</span>
-       <span class="p">)</span>
-    <span class="p">);</span>
-    <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getContents</span><span class="p">());</span>
- <span class="p">}</span>
- <span class="k">catch</span> <span class="p">(</span><span class="nx">\GuzzleHttp\Exception\BadResponseException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// handle exception or api errors.
-</span>    <span class="nb">print_r</span><span class="p">(</span><span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">());</span>
- <span class="p">}</span>
+&ldquo;`php
+<?php
 
- <span class="c1">// ...
-</span>
-</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+require 'vendor/autoload.php';
 
-</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
-       </span><span class="s">"bytes"</span><span class="x">
-       </span><span class="s">"net/http"</span><span class="x">
-</span><span class="p">)</span><span class="x">
+$headers = array(
+    'Accept' => &lsquo;0&rsquo;,
+    &lsquo;Authorization&rsquo; => &lsquo;Bearer YOUR_MANAGEMENT_API_KEY&rsquo;,
+);
 
-</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+$client = new \GuzzleHttp\Client();
 
-    </span><span class="n">headers</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">][]</span><span class="kt">string</span><span class="p">{</span><span class="x">
-        </span><span class="s">"Accept"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"0"</span><span class="p">},</span><span class="x">
-        </span><span class="s">"Authorization"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"Bearer YOUR_MANAGEMENT_API_KEY"</span><span class="p">},</span><span class="x">
-    </span><span class="p">}</span><span class="x">
+// Define array of request body.
+$request_body = array();
 
-    </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span><span class="x"> </span><span class="s">"https://api.moesif.com/v1/search/~/search/companymetrics/companies"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
-    </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
+try {
+    $response = $client->request(&lsquo;POST&rsquo;,&lsquo;https://api.moesif.com/v1/search/~/search/companymetrics/companies&rsquo;, array(
+        &lsquo;headers&rsquo; => $headers,
+        &lsquo;json&rsquo; => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
 
-    </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
-    </span><span class="n">resp</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">client</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
-    </span><span class="c">// ...</span><span class="x">
-</span><span class="p">}</span><span class="x">
+ // &hellip;
 
-</span></code></pre><pre class="highlight csharp tab-csharp"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Net.Http</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Net.Http.Headers</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Text</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Threading.Tasks</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">Newtonsoft.Json</span><span class="p">;</span>
+&rdquo;`
 
-<span class="c1">/// &lt;&lt;summary&gt;&gt;</span>
-<span class="c1">/// Example of Http Client</span>
-<span class="c1">/// &lt;&lt;/summary&gt;&gt;</span>
-<span class="k">public</span> <span class="k">class</span> <span class="nc">HttpExample</span>
-<span class="p">{</span>
-    <span class="k">private</span> <span class="n">HttpClient</span> <span class="n">Client</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+&ldquo;`go
+package main
 
-    <span class="c1">/// &lt;&lt;summary&gt;&gt;</span>
-    <span class="c1">/// Setup http client</span>
-    <span class="c1">/// &lt;&lt;/summary&gt;&gt;</span>
-    <span class="k">public</span> <span class="nf">HttpExample</span><span class="p">()</span>
-    <span class="p">{</span>
-      <span class="n">Client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">HttpClient</span><span class="p">();</span>
-    <span class="p">}</span>
+import (
+       &quot;bytes&rdquo;
+       &ldquo;net/http&rdquo;
+)
 
+func main() {
 
-    <span class="c1">/// Make a dummy request</span>
-    <span class="k">public</span> <span class="k">async</span> <span class="n">Task</span> <span class="nf">MakePostRequest</span><span class="p">()</span>
-    <span class="p">{</span>
-      <span class="kt">string</span> <span class="n">url</span> <span class="p">=</span> <span class="s">"https://api.moesif.com/v1/search/~/search/companymetrics/companies"</span><span class="p">;</span>
+    headers := map[string][]string{
+        &ldquo;Accept&rdquo;: []string{&ldquo;0&rdquo;},
+        &ldquo;Authorization&rdquo;: []string{&ldquo;Bearer YOUR_MANAGEMENT_API_KEY&rdquo;},
+    }
 
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest(&ldquo;POST&rdquo;, &ldquo;https://api.moesif.com/v1/search/~/search/companymetrics/companies&rdquo;, data)
+    req.Header = headers
 
-      <span class="k">await</span> <span class="nf">PostAsync</span><span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="n">url</span><span class="p">);</span>
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // &hellip;
+}
 
-    <span class="p">}</span>
+&ldquo;`
 
-    <span class="c1">/// Performs a POST Request</span>
-    <span class="k">public</span> <span class="k">async</span> <span class="n">Task</span> <span class="nf">PostAsync</span><span class="p">(</span><span class="n">undefined</span> <span class="n">content</span><span class="p">,</span> <span class="kt">string</span> <span class="n">url</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">//Serialize Object</span>
-        <span class="n">StringContent</span> <span class="n">jsonContent</span> <span class="p">=</span> <span class="nf">SerializeObject</span><span class="p">(</span><span class="n">content</span><span class="p">);</span>
+&rdquo;`csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 
-        <span class="c1">//Execute POST request</span>
-        <span class="n">HttpResponseMessage</span> <span class="n">response</span> <span class="p">=</span> <span class="k">await</span> <span class="n">Client</span><span class="p">.</span><span class="nf">PostAsync</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">jsonContent</span><span class="p">);</span>
-    <span class="p">}</span>
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
 
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    
+    /// Make a dummy request
+    public async Task MakePostRequest()
+    {
+      string url = &ldquo;https://api.moesif.com/v1/search/~/search/companymetrics/companies&rdquo;;
+      
+      
+      await PostAsync(null, url);
+      
+    }
 
+    /// Performs a POST Request
+    public async Task PostAsync(undefined content, string url)
+    {
+        //Serialize Object
+        StringContent jsonContent = SerializeObject(content);
 
-    <span class="c1">/// Serialize an object to Json</span>
-    <span class="k">private</span> <span class="n">StringContent</span> <span class="nf">SerializeObject</span><span class="p">(</span><span class="n">undefined</span> <span class="n">content</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">//Serialize Object</span>
-        <span class="kt">string</span> <span class="n">jsonObject</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">SerializeObject</span><span class="p">(</span><span class="n">content</span><span class="p">);</span>
+        //Execute POST request
+        HttpResponseMessage response = await Client.PostAsync(url, jsonContent);
+    }
+    
+    
+    
+    /// Serialize an object to Json
+    private StringContent SerializeObject(undefined content)
+    {
+        //Serialize Object
+        string jsonObject = JsonConvert.SerializeObject(content);
 
-        <span class="c1">//Create Json UTF8 String Content</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="nf">StringContent</span><span class="p">(</span><span class="n">jsonObject</span><span class="p">,</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span>
-    <span class="p">}</span>
+        //Create Json UTF8 String Content
+        return new StringContent(jsonObject, Encoding.UTF8, &ldquo;application/json&rdquo;);
+    }
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
 
-    <span class="c1">/// Deserialize object from request response</span>
-    <span class="k">private</span> <span class="k">async</span> <span class="n">Task</span> <span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">HttpResponseMessage</span> <span class="n">response</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">//Read body </span>
-        <span class="kt">string</span> <span class="n">responseBody</span> <span class="p">=</span> <span class="k">await</span> <span class="n">response</span><span class="p">.</span><span class="n">Content</span><span class="p">.</span><span class="nf">ReadAsStringAsync</span><span class="p">();</span>
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
 
-        <span class="c1">//Deserialize Body to object</span>
-        <span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">responseBody</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+&ldquo;`
 
-</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/search/~/search/companymetrics/companies"</span><span class="o">);</span>
-<span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
-<span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"POST"</span><span class="o">);</span>
-<span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
-<span class="n">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span>
-    <span class="k">new</span> <span class="nf">InputStreamReader</span><span class="o">(</span><span class="n">con</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()));</span>
-<span class="n">String</span> <span class="n">inputLine</span><span class="o">;</span>
-<span class="n">StringBuffer</span> <span class="n">response</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">();</span>
-<span class="k">while</span> <span class="o">((</span><span class="n">inputLine</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">response</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">inputLine</span><span class="o">);</span>
-<span class="o">}</span>
-<span class="n">in</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+&rdquo;`java
+URL obj = new URL(&ldquo;https://api.moesif.com/v1/search/~/search/companymetrics/companies&rdquo;);
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod(&ldquo;POST&rdquo;);
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
 
-</code></pre>
-<p><code class="prettyprint">POST https://api.moesif.com/v1/search/~/search/companymetrics/companies</code></p>
+&ldquo;`
 
-<p><em>Search CompanyMetrics/Companies</em></p>
+`POST https://api.moesif.com/v1/search/~/search/companymetrics/companies`
+
+*Search CompanyMetrics/Companies*
 
 <h3 id="searchcompanymetrics-parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Name</th>
-<th>In</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>from</td>
-<td>query</td>
-<td>string(date-time)</td>
-<td>false</td>
-<td>The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h</td>
-</tr>
-<tr>
-<td>to</td>
-<td>query</td>
-<td>string(date-time)</td>
-<td>false</td>
-<td>The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>undefined</td>
-<td>false</td>
-<td>The search definition using the Elasticsearch Query DSL</td>
-</tr>
-</tbody></table>
+|Name|In|Type|Required|Description|
+|&mdash;|&mdash;|&mdash;|&mdash;|&mdash;|
 
-<blockquote>
-<p>Example responses</p>
-</blockquote>
+
+|from|query|string(date-time)|false|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
+|to|query|string(date-time)|false|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
+|body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
+
+> Example responses
 
 <h3 id="searchcompanymetrics-responses">Responses</h3>
 
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-<th>Schema</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>success</td>
-<td>None</td>
-</tr>
-</tbody></table>
+|Status|Meaning|Description|Schema|
+|&mdash;|&mdash;|&mdash;|&mdash;|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
 
 <h3 id="searchcompanymetrics-responseschema">Response Schema</h3>
 
@@ -22727,28 +21193,9 @@ curl -X GET https://api.moesif.com/v1/search/~/companies/<span class="o">{</span
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -22966,35 +21413,10 @@ curl -X DELETE https://api.moesif.com/v1/search/~/companies/<span class="o">{</s
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>delete_events</td>
-<td>query</td>
-<td>boolean</td>
-<td>false</td>
-<td>Delete events associated with the company which can be set to true or false(default)</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|
+|delete_events|query|boolean|false|Delete events associated with the company which can be set to true or false(default)|</p>
 
 <h3 id="deletecompany-responses">Responses</h3>
 
@@ -23223,28 +21645,9 @@ curl -X POST https://api.moesif.com/v1/search/~/companies <span class="se">\</sp
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td><a href="#schemacompanyupdatedto">CompanyUpdateDTO</a></td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|body|body|<a href="#schemacompanyupdatedto">CompanyUpdateDTO</a>|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -23479,28 +21882,9 @@ curl -X POST https://api.moesif.com/v1/search/~/companies/batch <span class="se"
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>array[object]</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|body|body|array[object]|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -23738,28 +22122,9 @@ curl -X POST https://api.moesif.com/v1/search/~/count/companies?app_id<span clas
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>undefined</td>
-<td>false</td>
-<td>A query to restrict the results specified with the Elasticsearch Query DSL</td>
-</tr>
 </tbody></table>
+
+<p>|body|body|undefined|false|A query to restrict the results specified with the Elasticsearch Query DSL|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -23987,28 +22352,9 @@ curl -X GET https://api.moesif.com/v1/search/~/mappings/companymetrics/propertie
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>from</td>
-<td>query</td>
-<td>string(date-time)</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|from|query|string(date-time)|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -24236,49 +22582,12 @@ curl -X GET https://api.moesif.com/v1/search/~/mappings/events/request/body/prop
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>from</td>
-<td>query</td>
-<td>string(date-time)</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>to</td>
-<td>query</td>
-<td>string(date-time)</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>include_values</td>
-<td>query</td>
-<td>boolean</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>key_path</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|from|query|string(date-time)|true|none|
+|to|query|string(date-time)|true|none|
+|include_values|query|boolean|false|none|
+|key_path|query|string|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -24506,49 +22815,12 @@ curl -X GET https://api.moesif.com/v1/search/~/mappings/events/response/body/pro
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>from</td>
-<td>query</td>
-<td>string(date-time)</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>to</td>
-<td>query</td>
-<td>string(date-time)</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>include_values</td>
-<td>query</td>
-<td>boolean</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>key_path</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|from|query|string(date-time)|true|none|
+|to|query|string(date-time)|true|none|
+|include_values|query|boolean|false|none|
+|key_path|query|string|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -24773,28 +23045,9 @@ curl -X GET https://api.moesif.com/v1/search/~/subscriptions/<span class="o">{</
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -25017,28 +23270,9 @@ curl -X GET https://api.moesif.com/v1/search/~/companies/<span class="o">{</span
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -25273,28 +23507,9 @@ curl -X POST https://api.moesif.com/v1/search/~/subscriptions/batch <span class=
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td><a href="#schemasubscriptiondto">SubscriptionDTO</a></td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|body|body|<a href="#schemasubscriptiondto">SubscriptionDTO</a>|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -25529,28 +23744,9 @@ curl -X POST https://api.moesif.com/v1/search/~/subscriptions <span class="se">\
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td><a href="#schemasubscriptiondto">SubscriptionDTO</a></td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|body|body|<a href="#schemasubscriptiondto">SubscriptionDTO</a>|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -25791,49 +23987,12 @@ curl -X POST https://api.moesif.com/v1/search/~/count/events?from<span class="o"
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>from</td>
-<td>query</td>
-<td>string(date-time)</td>
-<td>true</td>
-<td>The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h</td>
-</tr>
-<tr>
-<td>to</td>
-<td>query</td>
-<td>string(date-time)</td>
-<td>true</td>
-<td>The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now</td>
-</tr>
-<tr>
-<td>track_total_hits</td>
-<td>query</td>
-<td>boolean</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>undefined</td>
-<td>false</td>
-<td>The search definition using the Elasticsearch Query DSL</td>
-</tr>
 </tbody></table>
+
+<p>|from|query|string(date-time)|true|The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h|
+|to|query|string(date-time)|true|The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now|
+|track_total_hits|query|boolean|false|none|
+|body|body|undefined|false|The search definition using the Elasticsearch Query DSL|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -25866,358 +24025,331 @@ managementAPIToken ( Scopes: read:events )
 
 <h2 id="searchevents">searchEvents</h2>
 
-<p><a id="opIdsearchEvents"></a></p>
+<p><a id="opIdsearchEvents">&lt;/</p>
 
 <aside class="info">
-The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
-</aside>
+The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click the orange Embed  button and then select Access via API.
+</aside>a>
 
-<blockquote>
-<p>Code samples</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.moesif.com/v1/search/~/search/events?from<span class="o">=</span>2019-08-24T14%3A15%3A22Z&amp;to<span class="o">=</span>2019-08-24T14%3A15%3A22Z <span class="se">\</span>
-  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'</span>
+> Code samples
 
-</code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
+&rdquo;`shell
+# You can also use wget
+curl -X POST https://api.moesif.com/v1/search/~/search/events?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z \
+  -H &lsquo;Accept: application/json&rsquo; \
+  -H &lsquo;Authorization: Bearer YOUR_MANAGEMENT_API_KEY&rsquo;
 
-<span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
-  <span class="s1">'Authorization'</span><span class="p">:</span><span class="s1">'Bearer YOUR_MANAGEMENT_API_KEY'</span>
-<span class="p">};</span>
+&ldquo;`
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/search/~/search/events?from=2019-08-24T14%3A15%3A22Z&amp;to=2019-08-24T14%3A15%3A22Z'</span><span class="p">,</span>
-<span class="p">{</span>
-  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+&rdquo;`javascript&ndash;nodejs
+const fetch = require(&lsquo;node-fetch&rsquo;);
 
-  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span>
-<span class="p">})</span>
-<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
-<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
-<span class="p">});</span>
+const headers = {
+  &lsquo;Accept&rsquo;:&lsquo;application/json&rsquo;,
+  &lsquo;Authorization&rsquo;:&lsquo;Bearer YOUR_MANAGEMENT_API_KEY&rsquo;
+};
 
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
-  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer YOUR_MANAGEMENT_API_KEY'</span>
-<span class="p">}</span>
+fetch(&lsquo;https://api.moesif.com/v1/search/~/search/events?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z&rsquo;,
+{
+  method: &lsquo;POST&rsquo;,
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/search/events'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
-  <span class="s">'from'</span><span class="p">:</span> <span class="s">'2019-08-24T14:15:22Z'</span><span class="p">,</span>  <span class="s">'to'</span><span class="p">:</span> <span class="s">'2019-08-24T14:15:22Z'</span>
-<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
 
-<span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+&ldquo;`
 
-</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
-<span class="nb">require</span> <span class="s1">'json'</span>
+&rdquo;`python
+import requests
+headers = {
+  &lsquo;Accept&rsquo;: &lsquo;application/json&rsquo;,
+  &lsquo;Authorization&rsquo;: &lsquo;Bearer YOUR_MANAGEMENT_API_KEY&rsquo;
+}
 
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
-  <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer YOUR_MANAGEMENT_API_KEY'</span>
-<span class="p">}</span>
+r = requests.post(&lsquo;https://api.moesif.com/v1/search/~/search/events&rsquo;, params={
+  &lsquo;from&rsquo;: &lsquo;2019-08-24T14:15:22Z&rsquo;,  &lsquo;to&rsquo;: &lsquo;2019-08-24T14:15:22Z&rsquo;
+}, headers = headers)
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'https://api.moesif.com/v1/search/~/search/events'</span><span class="p">,</span>
-  <span class="ss">params: </span><span class="p">{</span>
-  <span class="s1">'from'</span> <span class="o">=&gt;</span> <span class="s1">'string(date-time)'</span><span class="p">,</span>
-<span class="s1">'to'</span> <span class="o">=&gt;</span> <span class="s1">'string(date-time)'</span>
-<span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
+print(r.json())
 
-<span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+&ldquo;`
 
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+&rdquo;`ruby
+require &lsquo;rest-client&rsquo;
+require &lsquo;json&rsquo;
 
-<span class="k">require</span> <span class="s1">'vendor/autoload.php'</span><span class="p">;</span>
+headers = {
+  &lsquo;Accept&rsquo; => &lsquo;application/json&rsquo;,
+  &lsquo;Authorization&rsquo; => &lsquo;Bearer YOUR_MANAGEMENT_API_KEY&rsquo;
+}
 
-<span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
-    <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer YOUR_MANAGEMENT_API_KEY'</span><span class="p">,</span>
-<span class="p">);</span>
+result = RestClient.post &lsquo;https://api.moesif.com/v1/search/~/search/events&rsquo;,
+  params: {
+  &lsquo;from&rsquo; => &lsquo;string(date-time)&rsquo;,
+&lsquo;to&rsquo; => &lsquo;string(date-time)&rsquo;
+}, headers: headers
 
-<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\GuzzleHttp\Client</span><span class="p">();</span>
+p JSON.parse(result)
 
-<span class="c1">// Define array of request body.
-</span><span class="nv">$request_body</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+&ldquo;`
 
-<span class="k">try</span> <span class="p">{</span>
-    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">'POST'</span><span class="p">,</span><span class="s1">'https://api.moesif.com/v1/search/~/search/events'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-        <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="nv">$headers</span><span class="p">,</span>
-        <span class="s1">'json'</span> <span class="o">=&gt;</span> <span class="nv">$request_body</span><span class="p">,</span>
-       <span class="p">)</span>
-    <span class="p">);</span>
-    <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getContents</span><span class="p">());</span>
- <span class="p">}</span>
- <span class="k">catch</span> <span class="p">(</span><span class="nx">\GuzzleHttp\Exception\BadResponseException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// handle exception or api errors.
-</span>    <span class="nb">print_r</span><span class="p">(</span><span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">());</span>
- <span class="p">}</span>
+&rdquo;`php
+<?php
 
- <span class="c1">// ...
-</span>
-</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+require 'vendor/autoload.php';
 
-</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
-       </span><span class="s">"bytes"</span><span class="x">
-       </span><span class="s">"net/http"</span><span class="x">
-</span><span class="p">)</span><span class="x">
+$headers = array(
+    'Accept' => &lsquo;application/json&rsquo;,
+    &lsquo;Authorization&rsquo; => &lsquo;Bearer YOUR_MANAGEMENT_API_KEY&rsquo;,
+);
 
-</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+$client = new \GuzzleHttp\Client();
 
-    </span><span class="n">headers</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">][]</span><span class="kt">string</span><span class="p">{</span><span class="x">
-        </span><span class="s">"Accept"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"application/json"</span><span class="p">},</span><span class="x">
-        </span><span class="s">"Authorization"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"Bearer YOUR_MANAGEMENT_API_KEY"</span><span class="p">},</span><span class="x">
-    </span><span class="p">}</span><span class="x">
+// Define array of request body.
+$request_body = array();
 
-    </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span><span class="x"> </span><span class="s">"https://api.moesif.com/v1/search/~/search/events"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
-    </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
+try {
+    $response = $client->request(&lsquo;POST&rsquo;,&lsquo;https://api.moesif.com/v1/search/~/search/events&rsquo;, array(
+        &lsquo;headers&rsquo; => $headers,
+        &lsquo;json&rsquo; => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
 
-    </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
-    </span><span class="n">resp</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">client</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
-    </span><span class="c">// ...</span><span class="x">
-</span><span class="p">}</span><span class="x">
+ // &hellip;
 
-</span></code></pre><pre class="highlight csharp tab-csharp"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Net.Http</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Net.Http.Headers</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Text</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Threading.Tasks</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">Newtonsoft.Json</span><span class="p">;</span>
+&ldquo;`
 
-<span class="c1">/// &lt;&lt;summary&gt;&gt;</span>
-<span class="c1">/// Example of Http Client</span>
-<span class="c1">/// &lt;&lt;/summary&gt;&gt;</span>
-<span class="k">public</span> <span class="k">class</span> <span class="nc">HttpExample</span>
-<span class="p">{</span>
-    <span class="k">private</span> <span class="n">HttpClient</span> <span class="n">Client</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+&rdquo;`go
+package main
 
-    <span class="c1">/// &lt;&lt;summary&gt;&gt;</span>
-    <span class="c1">/// Setup http client</span>
-    <span class="c1">/// &lt;&lt;/summary&gt;&gt;</span>
-    <span class="k">public</span> <span class="nf">HttpExample</span><span class="p">()</span>
-    <span class="p">{</span>
-      <span class="n">Client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">HttpClient</span><span class="p">();</span>
-    <span class="p">}</span>
+import (
+       &ldquo;bytes&rdquo;
+       &ldquo;net/http&rdquo;
+)
 
+func main() {
 
-    <span class="c1">/// Make a dummy request</span>
-    <span class="k">public</span> <span class="k">async</span> <span class="n">Task</span> <span class="nf">MakePostRequest</span><span class="p">()</span>
-    <span class="p">{</span>
-      <span class="kt">string</span> <span class="n">url</span> <span class="p">=</span> <span class="s">"https://api.moesif.com/v1/search/~/search/events"</span><span class="p">;</span>
+    headers := map[string][]string{
+        &ldquo;Accept&rdquo;: []string{&ldquo;application/json&rdquo;},
+        &ldquo;Authorization&rdquo;: []string{&ldquo;Bearer YOUR_MANAGEMENT_API_KEY&rdquo;},
+    }
 
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest(&ldquo;POST&rdquo;, &ldquo;https://api.moesif.com/v1/search/~/search/events&rdquo;, data)
+    req.Header = headers
 
-      <span class="k">await</span> <span class="nf">PostAsync</span><span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="n">url</span><span class="p">);</span>
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // &hellip;
+}
 
-    <span class="p">}</span>
+&ldquo;`
 
-    <span class="c1">/// Performs a POST Request</span>
-    <span class="k">public</span> <span class="k">async</span> <span class="n">Task</span> <span class="nf">PostAsync</span><span class="p">(</span><span class="n">undefined</span> <span class="n">content</span><span class="p">,</span> <span class="kt">string</span> <span class="n">url</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">//Serialize Object</span>
-        <span class="n">StringContent</span> <span class="n">jsonContent</span> <span class="p">=</span> <span class="nf">SerializeObject</span><span class="p">(</span><span class="n">content</span><span class="p">);</span>
+&rdquo;`csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 
-        <span class="c1">//Execute POST request</span>
-        <span class="n">HttpResponseMessage</span> <span class="n">response</span> <span class="p">=</span> <span class="k">await</span> <span class="n">Client</span><span class="p">.</span><span class="nf">PostAsync</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">jsonContent</span><span class="p">);</span>
-    <span class="p">}</span>
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
 
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    
+    /// Make a dummy request
+    public async Task MakePostRequest()
+    {
+      string url = &ldquo;https://api.moesif.com/v1/search/~/search/events&rdquo;;
+      
+      
+      await PostAsync(null, url);
+      
+    }
 
+    /// Performs a POST Request
+    public async Task PostAsync(undefined content, string url)
+    {
+        //Serialize Object
+        StringContent jsonContent = SerializeObject(content);
 
-    <span class="c1">/// Serialize an object to Json</span>
-    <span class="k">private</span> <span class="n">StringContent</span> <span class="nf">SerializeObject</span><span class="p">(</span><span class="n">undefined</span> <span class="n">content</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">//Serialize Object</span>
-        <span class="kt">string</span> <span class="n">jsonObject</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">SerializeObject</span><span class="p">(</span><span class="n">content</span><span class="p">);</span>
+        //Execute POST request
+        HttpResponseMessage response = await Client.PostAsync(url, jsonContent);
+    }
+    
+    
+    
+    /// Serialize an object to Json
+    private StringContent SerializeObject(undefined content)
+    {
+        //Serialize Object
+        string jsonObject = JsonConvert.SerializeObject(content);
 
-        <span class="c1">//Create Json UTF8 String Content</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="nf">StringContent</span><span class="p">(</span><span class="n">jsonObject</span><span class="p">,</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span>
-    <span class="p">}</span>
+        //Create Json UTF8 String Content
+        return new StringContent(jsonObject, Encoding.UTF8, &ldquo;application/json&rdquo;);
+    }
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
 
-    <span class="c1">/// Deserialize object from request response</span>
-    <span class="k">private</span> <span class="k">async</span> <span class="n">Task</span> <span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">HttpResponseMessage</span> <span class="n">response</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">//Read body </span>
-        <span class="kt">string</span> <span class="n">responseBody</span> <span class="p">=</span> <span class="k">await</span> <span class="n">response</span><span class="p">.</span><span class="n">Content</span><span class="p">.</span><span class="nf">ReadAsStringAsync</span><span class="p">();</span>
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
 
-        <span class="c1">//Deserialize Body to object</span>
-        <span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">responseBody</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+&ldquo;`
 
-</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/search/~/search/events?from=2019-08-24T14%3A15%3A22Z&amp;to=2019-08-24T14%3A15%3A22Z"</span><span class="o">);</span>
-<span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
-<span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"POST"</span><span class="o">);</span>
-<span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
-<span class="n">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span>
-    <span class="k">new</span> <span class="nf">InputStreamReader</span><span class="o">(</span><span class="n">con</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()));</span>
-<span class="n">String</span> <span class="n">inputLine</span><span class="o">;</span>
-<span class="n">StringBuffer</span> <span class="n">response</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">();</span>
-<span class="k">while</span> <span class="o">((</span><span class="n">inputLine</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">response</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">inputLine</span><span class="o">);</span>
-<span class="o">}</span>
-<span class="n">in</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+&rdquo;`java
+URL obj = new URL(&ldquo;https://api.moesif.com/v1/search/~/search/events?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z&rdquo;);
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod(&ldquo;POST&rdquo;);
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
 
-</code></pre>
-<p><code class="prettyprint">POST https://api.moesif.com/v1/search/~/search/events</code></p>
+&ldquo;`
 
-<p><em>Search Events</em></p>
+`POST https://api.moesif.com/v1/search/~/search/events`
+
+*Search Events*
 
 <h3 id="searchevents-parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Name</th>
-<th>In</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>from</td>
-<td>query</td>
-<td>string(date-time)</td>
-<td>true</td>
-<td>The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h</td>
-</tr>
-<tr>
-<td>to</td>
-<td>query</td>
-<td>string(date-time)</td>
-<td>true</td>
-<td>The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>undefined</td>
-<td>false</td>
-<td>The search definition using the Elasticsearch Query DSL</td>
-</tr>
-</tbody></table>
+|Name|In|Type|Required|Description|
+|&mdash;|&mdash;|&mdash;|&mdash;|&mdash;|
 
-<blockquote>
-<p>Example responses</p>
 
-<p>201 Response</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"took"</span><span class="p">:</span><span class="w"> </span><span class="mi">358</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"timed_out"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"hits"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">947</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWF5M-FDTqLFD8l5y2f4"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"_source"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"duration_ms"</span><span class="p">:</span><span class="w"> </span><span class="mi">76</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-            </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"user_agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="s2">"patch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"major"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"minor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PostmanRuntime"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"geo_ip"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="s2">"ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73.189.235.253"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"region_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"continent_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NA"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="mf">-122.393</span><span class="w">
-              </span><span class="p">],</span><span class="w">
-              </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">37.769</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Los_Angeles"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"area_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">415</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-122.393</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"real_region_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"California"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"dma_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">807</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"94107"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"city_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"San Francisco"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"country_code2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"country_code3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"country_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73.189.235.253"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T06:14:58.550"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="s2">"_accept-_encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gzip, deflate"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_connection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"close"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_cache-_control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no-cache"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_user-_agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PostmanRuntime/7.1.1"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api.github.com"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_accept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*/*"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123454"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="s2">"_vary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accept"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_cache-_control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public, max-age=60, s-maxage=60"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_strict-_transport-_security"</span><span class="p">:</span><span class="w"> </span><span class="s2">"max-age=31536000; includeSubdomains; preload"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_access-_control-_expose-_headers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_content-_security-_policy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default-src 'none'"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_transfer-_encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chunked"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_e_tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"W/</span><span class="se">\"</span><span class="s2">7dc470913f1fe9bb6c7355b50a0737bc</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_content-_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json; charset=utf-8"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_access-_control-_allow-_origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T06:14:58.626"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWF5M-FDTqLFD8l5y2f4"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"session_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfmnw3fu24309efjc534nb421UZ9-]2JDO[ME"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-          </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"198:3"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"org_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"177:3"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"sort"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="mi">0</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+|from|query|string(date-time)|true|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
+|to|query|string(date-time)|true|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
+|body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
+
+> Example responses
+
+> 201 Response
+
+&rdquo;`json
+{
+  &ldquo;took&rdquo;: 358,
+  &ldquo;timed_out&rdquo;: false,
+  &ldquo;hits&rdquo;: {
+    &ldquo;total&rdquo;: 947,
+    &ldquo;hits&rdquo;: [
+      {
+        &ldquo;_id&rdquo;: &ldquo;AWF5M-FDTqLFD8l5y2f4&rdquo;,
+        &ldquo;_source&rdquo;: {
+          &ldquo;duration_ms&rdquo;: 76,
+          &ldquo;request&rdquo;: {
+            &ldquo;body&rdquo;: {},
+            &ldquo;uri&rdquo;: &ldquo;https://api.github.com&rdquo;,
+            &ldquo;user_agent&rdquo;: {
+              &ldquo;patch&rdquo;: &ldquo;1&rdquo;,
+              &ldquo;major&rdquo;: &ldquo;7&rdquo;,
+              &ldquo;minor&rdquo;: &ldquo;1&rdquo;,
+              &ldquo;name&rdquo;: &ldquo;PostmanRuntime&rdquo;
+            },
+            &ldquo;geo_ip&rdquo;: {
+              &ldquo;ip&rdquo;: &ldquo;73.189.235.253&rdquo;,
+              &ldquo;region_name&rdquo;: &ldquo;CA&rdquo;,
+              &ldquo;continent_code&rdquo;: &ldquo;NA&rdquo;,
+              &ldquo;location&rdquo;: [
+                -122.393
+              ],
+              &ldquo;latitude&rdquo;: 37.769,
+              &ldquo;timezone&rdquo;: &ldquo;America/Los_Angeles&rdquo;,
+              &ldquo;area_code&rdquo;: 415,
+              &ldquo;longitude&rdquo;: -122.393,
+              &ldquo;real_region_name&rdquo;: &ldquo;California&rdquo;,
+              &ldquo;dma_code&rdquo;: 807,
+              &ldquo;postal_code&rdquo;: &ldquo;94107&rdquo;,
+              &ldquo;city_name&rdquo;: &ldquo;San Francisco&rdquo;,
+              &ldquo;country_code2&rdquo;: &ldquo;US&rdquo;,
+              &ldquo;country_code3&rdquo;: &ldquo;USA&rdquo;,
+              &ldquo;country_name&rdquo;: &ldquo;United States&rdquo;
+            },
+            &ldquo;ip_address&rdquo;: &ldquo;73.189.235.253&rdquo;,
+            &ldquo;verb&rdquo;: &ldquo;GET&rdquo;,
+            &ldquo;route&rdquo;: &ldquo;/&rdquo;,
+            &ldquo;time&rdquo;: &ldquo;2019-07-09T06:14:58.550&rdquo;,
+            &ldquo;headers&rdquo;: {
+              &ldquo;_accept-_encoding&rdquo;: &ldquo;gzip, deflate&rdquo;,
+              &ldquo;_connection&rdquo;: &ldquo;close&rdquo;,
+              &ldquo;_cache-_control&rdquo;: &ldquo;no-cache&rdquo;,
+              &ldquo;_user-_agent&rdquo;: &ldquo;PostmanRuntime/7.1.1&rdquo;,
+              &ldquo;_host&rdquo;: &ldquo;api.github.com&rdquo;,
+              &ldquo;_accept&rdquo;: &ldquo;*/*&rdquo;
+            }
+          },
+          &ldquo;user_id&rdquo;: &ldquo;123454&rdquo;,
+          &ldquo;response&rdquo;: {
+            &ldquo;headers&rdquo;: {
+              &ldquo;_vary&rdquo;: &ldquo;Accept&rdquo;,
+              &ldquo;_cache-_control&rdquo;: &ldquo;public, max-age=60, s-maxage=60&rdquo;,
+              &ldquo;_strict-_transport-_security&rdquo;: &ldquo;max-age=31536000; includeSubdomains; preload&rdquo;,
+              &ldquo;_access-_control-_expose-_headers&rdquo;: &ldquo;ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval&rdquo;,
+              &ldquo;_content-_security-_policy&rdquo;: &ldquo;default-src &lsquo;none&rsquo;&rdquo;,
+              &ldquo;_transfer-_encoding&rdquo;: &ldquo;chunked&rdquo;,
+              &ldquo;_e_tag&rdquo;: &ldquo;W/"7dc470913f1fe9bb6c7355b50a0737bc"&rdquo;,
+              &ldquo;_content-_type&rdquo;: &ldquo;application/json; charset=utf-8&rdquo;,
+              &ldquo;_access-_control-_allow-_origin&rdquo;: &ldquo;*&rdquo;
+            },
+            &ldquo;time&rdquo;: &ldquo;2019-07-09T06:14:58.626&rdquo;,
+            &ldquo;body&rdquo;: {},
+            &ldquo;status&rdquo;: 200
+          },
+          &ldquo;id&rdquo;: &ldquo;AWF5M-FDTqLFD8l5y2f4&rdquo;,
+          &ldquo;session_token&rdquo;: &ldquo;rdfmnw3fu24309efjc534nb421UZ9-]2JDO[ME&rdquo;,
+          &ldquo;metadata&rdquo;: {},
+          &ldquo;app_id&rdquo;: &ldquo;198:3&rdquo;,
+          &ldquo;org_id&rdquo;: &ldquo;177:3&rdquo;,
+          &ldquo;user&rdquo;: {}
+        },
+        &ldquo;sort&rdquo;: [
+          0
+        ]
+      }
+    ]
+  }
+}
+&ldquo;`
+
 <h3 id="searchevents-responses">Responses</h3>
 
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-<th>Schema</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>201</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
-<td>success</td>
-<td><a href="#schemasearcheventsresponsedto">searchEventsResponseDTO</a></td>
-</tr>
-</tbody></table>
+|Status|Meaning|Description|Schema|
+|&mdash;|&mdash;|&mdash;|&mdash;|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|[searchEventsResponseDTO](#schemasearcheventsresponsedto)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -26226,379 +24358,334 @@ managementAPIToken ( Scopes: read:events )
 
 <h2 id="searchpublicworkspaces">searchPublicWorkspaces</h2>
 
-<p><a id="opIdsearchPublicWorkspaces"></a></p>
+<p><a id="opIdsearchPublicWorkspaces">&lt;/</p>
 
 <aside class="info">
-The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
-</aside>
+The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click the orange Embed  button and then select Access via API.
+</aside>a>
 
-<blockquote>
-<p>Code samples</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.moesif.com/v1/search/~/workspaces/<span class="o">{</span>workspaceId<span class="o">}</span>/search?from<span class="o">=</span>2019-08-24T14%3A15%3A22Z&amp;to<span class="o">=</span>2019-08-24T14%3A15%3A22Z <span class="se">\</span>
-  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'</span>
+> Code samples
 
-</code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
+&rdquo;`shell
+# You can also use wget
+curl -X POST https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z \
+  -H &lsquo;Accept: application/json&rsquo; \
+  -H &lsquo;Authorization: Bearer YOUR_MANAGEMENT_API_KEY&rsquo;
 
-<span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
-  <span class="s1">'Authorization'</span><span class="p">:</span><span class="s1">'Bearer YOUR_MANAGEMENT_API_KEY'</span>
-<span class="p">};</span>
+&ldquo;`
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search?from=2019-08-24T14%3A15%3A22Z&amp;to=2019-08-24T14%3A15%3A22Z'</span><span class="p">,</span>
-<span class="p">{</span>
-  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+&rdquo;`javascript&ndash;nodejs
+const fetch = require(&lsquo;node-fetch&rsquo;);
 
-  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span>
-<span class="p">})</span>
-<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
-<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
-<span class="p">});</span>
+const headers = {
+  &lsquo;Accept&rsquo;:&lsquo;application/json&rsquo;,
+  &lsquo;Authorization&rsquo;:&lsquo;Bearer YOUR_MANAGEMENT_API_KEY&rsquo;
+};
 
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
-  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer YOUR_MANAGEMENT_API_KEY'</span>
-<span class="p">}</span>
+fetch(&lsquo;https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z&rsquo;,
+{
+  method: &lsquo;POST&rsquo;,
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
-  <span class="s">'from'</span><span class="p">:</span> <span class="s">'2019-08-24T14:15:22Z'</span><span class="p">,</span>  <span class="s">'to'</span><span class="p">:</span> <span class="s">'2019-08-24T14:15:22Z'</span>
-<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
 
-<span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+&ldquo;`
 
-</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
-<span class="nb">require</span> <span class="s1">'json'</span>
+&rdquo;`python
+import requests
+headers = {
+  &lsquo;Accept&rsquo;: &lsquo;application/json&rsquo;,
+  &lsquo;Authorization&rsquo;: &lsquo;Bearer YOUR_MANAGEMENT_API_KEY&rsquo;
+}
 
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
-  <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer YOUR_MANAGEMENT_API_KEY'</span>
-<span class="p">}</span>
+r = requests.post(&lsquo;https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search&rsquo;, params={
+  &lsquo;from&rsquo;: &lsquo;2019-08-24T14:15:22Z&rsquo;,  &lsquo;to&rsquo;: &lsquo;2019-08-24T14:15:22Z&rsquo;
+}, headers = headers)
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search'</span><span class="p">,</span>
-  <span class="ss">params: </span><span class="p">{</span>
-  <span class="s1">'from'</span> <span class="o">=&gt;</span> <span class="s1">'string(date-time)'</span><span class="p">,</span>
-<span class="s1">'to'</span> <span class="o">=&gt;</span> <span class="s1">'string(date-time)'</span>
-<span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
+print(r.json())
 
-<span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+&ldquo;`
 
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+&rdquo;`ruby
+require &lsquo;rest-client&rsquo;
+require &lsquo;json&rsquo;
 
-<span class="k">require</span> <span class="s1">'vendor/autoload.php'</span><span class="p">;</span>
+headers = {
+  &lsquo;Accept&rsquo; => &lsquo;application/json&rsquo;,
+  &lsquo;Authorization&rsquo; => &lsquo;Bearer YOUR_MANAGEMENT_API_KEY&rsquo;
+}
 
-<span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
-    <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer YOUR_MANAGEMENT_API_KEY'</span><span class="p">,</span>
-<span class="p">);</span>
+result = RestClient.post &lsquo;https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search&rsquo;,
+  params: {
+  &lsquo;from&rsquo; => &lsquo;string(date-time)&rsquo;,
+&lsquo;to&rsquo; => &lsquo;string(date-time)&rsquo;
+}, headers: headers
 
-<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\GuzzleHttp\Client</span><span class="p">();</span>
+p JSON.parse(result)
 
-<span class="c1">// Define array of request body.
-</span><span class="nv">$request_body</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+&ldquo;`
 
-<span class="k">try</span> <span class="p">{</span>
-    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">'POST'</span><span class="p">,</span><span class="s1">'https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-        <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="nv">$headers</span><span class="p">,</span>
-        <span class="s1">'json'</span> <span class="o">=&gt;</span> <span class="nv">$request_body</span><span class="p">,</span>
-       <span class="p">)</span>
-    <span class="p">);</span>
-    <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getContents</span><span class="p">());</span>
- <span class="p">}</span>
- <span class="k">catch</span> <span class="p">(</span><span class="nx">\GuzzleHttp\Exception\BadResponseException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// handle exception or api errors.
-</span>    <span class="nb">print_r</span><span class="p">(</span><span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">());</span>
- <span class="p">}</span>
+&rdquo;`php
+<?php
 
- <span class="c1">// ...
-</span>
-</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+require 'vendor/autoload.php';
 
-</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
-       </span><span class="s">"bytes"</span><span class="x">
-       </span><span class="s">"net/http"</span><span class="x">
-</span><span class="p">)</span><span class="x">
+$headers = array(
+    'Accept' => &lsquo;application/json&rsquo;,
+    &lsquo;Authorization&rsquo; => &lsquo;Bearer YOUR_MANAGEMENT_API_KEY&rsquo;,
+);
 
-</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+$client = new \GuzzleHttp\Client();
 
-    </span><span class="n">headers</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">][]</span><span class="kt">string</span><span class="p">{</span><span class="x">
-        </span><span class="s">"Accept"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"application/json"</span><span class="p">},</span><span class="x">
-        </span><span class="s">"Authorization"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"Bearer YOUR_MANAGEMENT_API_KEY"</span><span class="p">},</span><span class="x">
-    </span><span class="p">}</span><span class="x">
+// Define array of request body.
+$request_body = array();
 
-    </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span><span class="x"> </span><span class="s">"https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
-    </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
+try {
+    $response = $client->request(&lsquo;POST&rsquo;,&lsquo;https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search&rsquo;, array(
+        &lsquo;headers&rsquo; => $headers,
+        &lsquo;json&rsquo; => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
 
-    </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
-    </span><span class="n">resp</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">client</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
-    </span><span class="c">// ...</span><span class="x">
-</span><span class="p">}</span><span class="x">
+ // &hellip;
 
-</span></code></pre><pre class="highlight csharp tab-csharp"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Net.Http</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Net.Http.Headers</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Text</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Threading.Tasks</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">Newtonsoft.Json</span><span class="p">;</span>
+&ldquo;`
 
-<span class="c1">/// &lt;&lt;summary&gt;&gt;</span>
-<span class="c1">/// Example of Http Client</span>
-<span class="c1">/// &lt;&lt;/summary&gt;&gt;</span>
-<span class="k">public</span> <span class="k">class</span> <span class="nc">HttpExample</span>
-<span class="p">{</span>
-    <span class="k">private</span> <span class="n">HttpClient</span> <span class="n">Client</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+&rdquo;`go
+package main
 
-    <span class="c1">/// &lt;&lt;summary&gt;&gt;</span>
-    <span class="c1">/// Setup http client</span>
-    <span class="c1">/// &lt;&lt;/summary&gt;&gt;</span>
-    <span class="k">public</span> <span class="nf">HttpExample</span><span class="p">()</span>
-    <span class="p">{</span>
-      <span class="n">Client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">HttpClient</span><span class="p">();</span>
-    <span class="p">}</span>
+import (
+       &ldquo;bytes&rdquo;
+       &ldquo;net/http&rdquo;
+)
 
+func main() {
 
-    <span class="c1">/// Make a dummy request</span>
-    <span class="k">public</span> <span class="k">async</span> <span class="n">Task</span> <span class="nf">MakePostRequest</span><span class="p">()</span>
-    <span class="p">{</span>
-      <span class="kt">string</span> <span class="n">url</span> <span class="p">=</span> <span class="s">"https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search"</span><span class="p">;</span>
+    headers := map[string][]string{
+        &ldquo;Accept&rdquo;: []string{&ldquo;application/json&rdquo;},
+        &ldquo;Authorization&rdquo;: []string{&ldquo;Bearer YOUR_MANAGEMENT_API_KEY&rdquo;},
+    }
 
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest(&ldquo;POST&rdquo;, &ldquo;https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search&rdquo;, data)
+    req.Header = headers
 
-      <span class="k">await</span> <span class="nf">PostAsync</span><span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="n">url</span><span class="p">);</span>
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // &hellip;
+}
 
-    <span class="p">}</span>
+&ldquo;`
 
-    <span class="c1">/// Performs a POST Request</span>
-    <span class="k">public</span> <span class="k">async</span> <span class="n">Task</span> <span class="nf">PostAsync</span><span class="p">(</span><span class="n">undefined</span> <span class="n">content</span><span class="p">,</span> <span class="kt">string</span> <span class="n">url</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">//Serialize Object</span>
-        <span class="n">StringContent</span> <span class="n">jsonContent</span> <span class="p">=</span> <span class="nf">SerializeObject</span><span class="p">(</span><span class="n">content</span><span class="p">);</span>
+&rdquo;`csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 
-        <span class="c1">//Execute POST request</span>
-        <span class="n">HttpResponseMessage</span> <span class="n">response</span> <span class="p">=</span> <span class="k">await</span> <span class="n">Client</span><span class="p">.</span><span class="nf">PostAsync</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">jsonContent</span><span class="p">);</span>
-    <span class="p">}</span>
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
 
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    
+    /// Make a dummy request
+    public async Task MakePostRequest()
+    {
+      string url = &ldquo;https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search&rdquo;;
+      
+      
+      await PostAsync(null, url);
+      
+    }
 
+    /// Performs a POST Request
+    public async Task PostAsync(undefined content, string url)
+    {
+        //Serialize Object
+        StringContent jsonContent = SerializeObject(content);
 
-    <span class="c1">/// Serialize an object to Json</span>
-    <span class="k">private</span> <span class="n">StringContent</span> <span class="nf">SerializeObject</span><span class="p">(</span><span class="n">undefined</span> <span class="n">content</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">//Serialize Object</span>
-        <span class="kt">string</span> <span class="n">jsonObject</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">SerializeObject</span><span class="p">(</span><span class="n">content</span><span class="p">);</span>
+        //Execute POST request
+        HttpResponseMessage response = await Client.PostAsync(url, jsonContent);
+    }
+    
+    
+    
+    /// Serialize an object to Json
+    private StringContent SerializeObject(undefined content)
+    {
+        //Serialize Object
+        string jsonObject = JsonConvert.SerializeObject(content);
 
-        <span class="c1">//Create Json UTF8 String Content</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="nf">StringContent</span><span class="p">(</span><span class="n">jsonObject</span><span class="p">,</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span>
-    <span class="p">}</span>
+        //Create Json UTF8 String Content
+        return new StringContent(jsonObject, Encoding.UTF8, &ldquo;application/json&rdquo;);
+    }
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
 
-    <span class="c1">/// Deserialize object from request response</span>
-    <span class="k">private</span> <span class="k">async</span> <span class="n">Task</span> <span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">HttpResponseMessage</span> <span class="n">response</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">//Read body </span>
-        <span class="kt">string</span> <span class="n">responseBody</span> <span class="p">=</span> <span class="k">await</span> <span class="n">response</span><span class="p">.</span><span class="n">Content</span><span class="p">.</span><span class="nf">ReadAsStringAsync</span><span class="p">();</span>
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
 
-        <span class="c1">//Deserialize Body to object</span>
-        <span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">responseBody</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+&ldquo;`
 
-</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search?from=2019-08-24T14%3A15%3A22Z&amp;to=2019-08-24T14%3A15%3A22Z"</span><span class="o">);</span>
-<span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
-<span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"POST"</span><span class="o">);</span>
-<span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
-<span class="n">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span>
-    <span class="k">new</span> <span class="nf">InputStreamReader</span><span class="o">(</span><span class="n">con</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()));</span>
-<span class="n">String</span> <span class="n">inputLine</span><span class="o">;</span>
-<span class="n">StringBuffer</span> <span class="n">response</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">();</span>
-<span class="k">while</span> <span class="o">((</span><span class="n">inputLine</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">response</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">inputLine</span><span class="o">);</span>
-<span class="o">}</span>
-<span class="n">in</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+&rdquo;`java
+URL obj = new URL(&ldquo;https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z&rdquo;);
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod(&ldquo;POST&rdquo;);
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
 
-</code></pre>
-<p><code class="prettyprint">POST https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search</code></p>
+&ldquo;`
 
-<p><em>Search Events in saved public Workspace</em></p>
+`POST https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search`
+
+*Search Events in saved public Workspace*
 
 <h3 id="searchpublicworkspaces-parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Name</th>
-<th>In</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>from</td>
-<td>query</td>
-<td>string(date-time)</td>
-<td>true</td>
-<td>The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h</td>
-</tr>
-<tr>
-<td>to</td>
-<td>query</td>
-<td>string(date-time)</td>
-<td>true</td>
-<td>The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now</td>
-</tr>
-<tr>
-<td>workspaceId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>include_details</td>
-<td>query</td>
-<td>boolean</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>take</td>
-<td>query</td>
-<td>integer(int32)</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>undefined</td>
-<td>false</td>
-<td>The search definition using the Elasticsearch Query DSL</td>
-</tr>
-</tbody></table>
+|Name|In|Type|Required|Description|
+|&mdash;|&mdash;|&mdash;|&mdash;|&mdash;|
 
-<blockquote>
-<p>Example responses</p>
 
-<p>201 Response</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"took"</span><span class="p">:</span><span class="w"> </span><span class="mi">358</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"timed_out"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"hits"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">947</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWF5M-FDTqLFD8l5y2f4"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"_source"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"duration_ms"</span><span class="p">:</span><span class="w"> </span><span class="mi">76</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-            </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"user_agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="s2">"patch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"major"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"minor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PostmanRuntime"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"geo_ip"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="s2">"ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73.189.235.253"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"region_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"continent_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NA"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="mf">-122.393</span><span class="w">
-              </span><span class="p">],</span><span class="w">
-              </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">37.769</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Los_Angeles"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"area_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">415</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-122.393</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"real_region_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"California"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"dma_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">807</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"94107"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"city_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"San Francisco"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"country_code2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"country_code3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"country_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73.189.235.253"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T06:14:58.550"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="s2">"_accept-_encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gzip, deflate"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_connection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"close"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_cache-_control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no-cache"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_user-_agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PostmanRuntime/7.1.1"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api.github.com"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_accept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*/*"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123454"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="s2">"_vary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accept"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_cache-_control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public, max-age=60, s-maxage=60"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_strict-_transport-_security"</span><span class="p">:</span><span class="w"> </span><span class="s2">"max-age=31536000; includeSubdomains; preload"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_access-_control-_expose-_headers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_content-_security-_policy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default-src 'none'"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_transfer-_encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chunked"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_e_tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"W/</span><span class="se">\"</span><span class="s2">7dc470913f1fe9bb6c7355b50a0737bc</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_content-_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json; charset=utf-8"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"_access-_control-_allow-_origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T06:14:58.626"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWF5M-FDTqLFD8l5y2f4"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"session_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfmnw3fu24309efjc534nb421UZ9-]2JDO[ME"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-          </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"198:3"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"org_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"177:3"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"sort"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="mi">0</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+|from|query|string(date-time)|true|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
+|to|query|string(date-time)|true|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
+|workspaceId|path|string|true|none|
+|include_details|query|boolean|false|none|
+|take|query|integer(int32)|false|none|
+|body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
+
+> Example responses
+
+> 201 Response
+
+&rdquo;`json
+{
+  &ldquo;took&rdquo;: 358,
+  &ldquo;timed_out&rdquo;: false,
+  &ldquo;hits&rdquo;: {
+    &ldquo;total&rdquo;: 947,
+    &ldquo;hits&rdquo;: [
+      {
+        &ldquo;_id&rdquo;: &ldquo;AWF5M-FDTqLFD8l5y2f4&rdquo;,
+        &ldquo;_source&rdquo;: {
+          &ldquo;duration_ms&rdquo;: 76,
+          &ldquo;request&rdquo;: {
+            &ldquo;body&rdquo;: {},
+            &ldquo;uri&rdquo;: &ldquo;https://api.github.com&rdquo;,
+            &ldquo;user_agent&rdquo;: {
+              &ldquo;patch&rdquo;: &ldquo;1&rdquo;,
+              &ldquo;major&rdquo;: &ldquo;7&rdquo;,
+              &ldquo;minor&rdquo;: &ldquo;1&rdquo;,
+              &ldquo;name&rdquo;: &ldquo;PostmanRuntime&rdquo;
+            },
+            &ldquo;geo_ip&rdquo;: {
+              &ldquo;ip&rdquo;: &ldquo;73.189.235.253&rdquo;,
+              &ldquo;region_name&rdquo;: &ldquo;CA&rdquo;,
+              &ldquo;continent_code&rdquo;: &ldquo;NA&rdquo;,
+              &ldquo;location&rdquo;: [
+                -122.393
+              ],
+              &ldquo;latitude&rdquo;: 37.769,
+              &ldquo;timezone&rdquo;: &ldquo;America/Los_Angeles&rdquo;,
+              &ldquo;area_code&rdquo;: 415,
+              &ldquo;longitude&rdquo;: -122.393,
+              &ldquo;real_region_name&rdquo;: &ldquo;California&rdquo;,
+              &ldquo;dma_code&rdquo;: 807,
+              &ldquo;postal_code&rdquo;: &ldquo;94107&rdquo;,
+              &ldquo;city_name&rdquo;: &ldquo;San Francisco&rdquo;,
+              &ldquo;country_code2&rdquo;: &ldquo;US&rdquo;,
+              &ldquo;country_code3&rdquo;: &ldquo;USA&rdquo;,
+              &ldquo;country_name&rdquo;: &ldquo;United States&rdquo;
+            },
+            &ldquo;ip_address&rdquo;: &ldquo;73.189.235.253&rdquo;,
+            &ldquo;verb&rdquo;: &ldquo;GET&rdquo;,
+            &ldquo;route&rdquo;: &ldquo;/&rdquo;,
+            &ldquo;time&rdquo;: &ldquo;2019-07-09T06:14:58.550&rdquo;,
+            &ldquo;headers&rdquo;: {
+              &ldquo;_accept-_encoding&rdquo;: &ldquo;gzip, deflate&rdquo;,
+              &ldquo;_connection&rdquo;: &ldquo;close&rdquo;,
+              &ldquo;_cache-_control&rdquo;: &ldquo;no-cache&rdquo;,
+              &ldquo;_user-_agent&rdquo;: &ldquo;PostmanRuntime/7.1.1&rdquo;,
+              &ldquo;_host&rdquo;: &ldquo;api.github.com&rdquo;,
+              &ldquo;_accept&rdquo;: &ldquo;*/*&rdquo;
+            }
+          },
+          &ldquo;user_id&rdquo;: &ldquo;123454&rdquo;,
+          &ldquo;response&rdquo;: {
+            &ldquo;headers&rdquo;: {
+              &ldquo;_vary&rdquo;: &ldquo;Accept&rdquo;,
+              &ldquo;_cache-_control&rdquo;: &ldquo;public, max-age=60, s-maxage=60&rdquo;,
+              &ldquo;_strict-_transport-_security&rdquo;: &ldquo;max-age=31536000; includeSubdomains; preload&rdquo;,
+              &ldquo;_access-_control-_expose-_headers&rdquo;: &ldquo;ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval&rdquo;,
+              &ldquo;_content-_security-_policy&rdquo;: &ldquo;default-src &lsquo;none&rsquo;&rdquo;,
+              &ldquo;_transfer-_encoding&rdquo;: &ldquo;chunked&rdquo;,
+              &ldquo;_e_tag&rdquo;: &ldquo;W/"7dc470913f1fe9bb6c7355b50a0737bc"&rdquo;,
+              &ldquo;_content-_type&rdquo;: &ldquo;application/json; charset=utf-8&rdquo;,
+              &ldquo;_access-_control-_allow-_origin&rdquo;: &ldquo;*&rdquo;
+            },
+            &ldquo;time&rdquo;: &ldquo;2019-07-09T06:14:58.626&rdquo;,
+            &ldquo;body&rdquo;: {},
+            &ldquo;status&rdquo;: 200
+          },
+          &ldquo;id&rdquo;: &ldquo;AWF5M-FDTqLFD8l5y2f4&rdquo;,
+          &ldquo;session_token&rdquo;: &ldquo;rdfmnw3fu24309efjc534nb421UZ9-]2JDO[ME&rdquo;,
+          &ldquo;metadata&rdquo;: {},
+          &ldquo;app_id&rdquo;: &ldquo;198:3&rdquo;,
+          &ldquo;org_id&rdquo;: &ldquo;177:3&rdquo;,
+          &ldquo;user&rdquo;: {}
+        },
+        &ldquo;sort&rdquo;: [
+          0
+        ]
+      }
+    ]
+  }
+}
+&ldquo;`
+
 <h3 id="searchpublicworkspaces-responses">Responses</h3>
 
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-<th>Schema</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>201</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
-<td>success</td>
-<td><a href="#schemasearcheventsresponsedto">searchEventsResponseDTO</a></td>
-</tr>
-</tbody></table>
+|Status|Meaning|Description|Schema|
+|&mdash;|&mdash;|&mdash;|&mdash;|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|[searchEventsResponseDTO](#schemasearcheventsresponsedto)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -26800,35 +24887,10 @@ curl -X GET https://api.moesif.com/v1/search/~/events/<span class="o">{</span>id
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>event_time</td>
-<td>query</td>
-<td>string(date-time)</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|
+|event_time|query|string(date-time)|true|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -27141,28 +25203,9 @@ curl -X POST https://api.moesif.com/v1/search/~/count/users?app_id<span class="o
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>undefined</td>
-<td>false</td>
-<td>A query to restrict the results specified with the Elasticsearch Query DSL</td>
-</tr>
 </tbody></table>
+
+<p>|body|body|undefined|false|A query to restrict the results specified with the Elasticsearch Query DSL|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -27397,28 +25440,9 @@ curl -X POST https://api.moesif.com/v1/search/~/users <span class="se">\</span>
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td><a href="#schemauserupdatedto">UserUpdateDTO</a></td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|body|body|<a href="#schemauserupdatedto">UserUpdateDTO</a>|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -27502,270 +25526,240 @@ managementAPIToken ( Scopes: create:users update:users )
 
 <h2 id="searchusermetrics">searchUserMetrics</h2>
 
-<p><a id="opIdsearchUserMetrics"></a></p>
+<p><a id="opIdsearchUserMetrics">&lt;/</p>
 
 <aside class="info">
-The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click teh orange Embed  button and then select Access via API.
-</aside>
+The Moesif UI has a query generator to make it easy to create the necessary query. From any workspace view in Moesif, click the orange Embed  button and then select Access via API.
+</aside>a>
 
-<blockquote>
-<p>Code samples</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/users <span class="se">\</span>
-  -H <span class="s1">'Accept: 0'</span> <span class="se">\</span>
-  -H <span class="s1">'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'</span>
+> Code samples
 
-</code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
+&rdquo;`shell
+# You can also use wget
+curl -X POST https://api.moesif.com/v1/search/~/search/usermetrics/users \
+  -H &lsquo;Accept: 0&rsquo; \
+  -H &lsquo;Authorization: Bearer YOUR_MANAGEMENT_API_KEY&rsquo;
 
-<span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'0'</span><span class="p">,</span>
-  <span class="s1">'Authorization'</span><span class="p">:</span><span class="s1">'Bearer YOUR_MANAGEMENT_API_KEY'</span>
-<span class="p">};</span>
+&ldquo;`
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.moesif.com/v1/search/~/search/usermetrics/users'</span><span class="p">,</span>
-<span class="p">{</span>
-  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+&rdquo;`javascript&ndash;nodejs
+const fetch = require(&lsquo;node-fetch&rsquo;);
 
-  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span>
-<span class="p">})</span>
-<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
-<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
-<span class="p">});</span>
+const headers = {
+  &lsquo;Accept&rsquo;:&lsquo;0&rsquo;,
+  &lsquo;Authorization&rsquo;:&lsquo;Bearer YOUR_MANAGEMENT_API_KEY&rsquo;
+};
 
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'0'</span><span class="p">,</span>
-  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer YOUR_MANAGEMENT_API_KEY'</span>
-<span class="p">}</span>
+fetch(&lsquo;https://api.moesif.com/v1/search/~/search/usermetrics/users&rsquo;,
+{
+  method: &lsquo;POST&rsquo;,
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/search/usermetrics/users'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
 
-<span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+&ldquo;`
 
-</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
-<span class="nb">require</span> <span class="s1">'json'</span>
+&rdquo;`python
+import requests
+headers = {
+  &lsquo;Accept&rsquo;: &lsquo;0&rsquo;,
+  &lsquo;Authorization&rsquo;: &lsquo;Bearer YOUR_MANAGEMENT_API_KEY&rsquo;
+}
 
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'0'</span><span class="p">,</span>
-  <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer YOUR_MANAGEMENT_API_KEY'</span>
-<span class="p">}</span>
+r = requests.post(&lsquo;https://api.moesif.com/v1/search/~/search/usermetrics/users&rsquo;, headers = headers)
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'https://api.moesif.com/v1/search/~/search/usermetrics/users'</span><span class="p">,</span>
-  <span class="ss">params: </span><span class="p">{</span>
-  <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
+print(r.json())
 
-<span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+&ldquo;`
 
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+&rdquo;`ruby
+require &lsquo;rest-client&rsquo;
+require &lsquo;json&rsquo;
 
-<span class="k">require</span> <span class="s1">'vendor/autoload.php'</span><span class="p">;</span>
+headers = {
+  &lsquo;Accept&rsquo; => &lsquo;0&rsquo;,
+  &lsquo;Authorization&rsquo; => &lsquo;Bearer YOUR_MANAGEMENT_API_KEY&rsquo;
+}
 
-<span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'0'</span><span class="p">,</span>
-    <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer YOUR_MANAGEMENT_API_KEY'</span><span class="p">,</span>
-<span class="p">);</span>
+result = RestClient.post &lsquo;https://api.moesif.com/v1/search/~/search/usermetrics/users&rsquo;,
+  params: {
+  }, headers: headers
 
-<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\GuzzleHttp\Client</span><span class="p">();</span>
+p JSON.parse(result)
 
-<span class="c1">// Define array of request body.
-</span><span class="nv">$request_body</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+&ldquo;`
 
-<span class="k">try</span> <span class="p">{</span>
-    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">'POST'</span><span class="p">,</span><span class="s1">'https://api.moesif.com/v1/search/~/search/usermetrics/users'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-        <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="nv">$headers</span><span class="p">,</span>
-        <span class="s1">'json'</span> <span class="o">=&gt;</span> <span class="nv">$request_body</span><span class="p">,</span>
-       <span class="p">)</span>
-    <span class="p">);</span>
-    <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getContents</span><span class="p">());</span>
- <span class="p">}</span>
- <span class="k">catch</span> <span class="p">(</span><span class="nx">\GuzzleHttp\Exception\BadResponseException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// handle exception or api errors.
-</span>    <span class="nb">print_r</span><span class="p">(</span><span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">());</span>
- <span class="p">}</span>
+&rdquo;`php
+<?php
 
- <span class="c1">// ...
-</span>
-</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+require 'vendor/autoload.php';
 
-</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
-       </span><span class="s">"bytes"</span><span class="x">
-       </span><span class="s">"net/http"</span><span class="x">
-</span><span class="p">)</span><span class="x">
+$headers = array(
+    'Accept' => &lsquo;0&rsquo;,
+    &lsquo;Authorization&rsquo; => &lsquo;Bearer YOUR_MANAGEMENT_API_KEY&rsquo;,
+);
 
-</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+$client = new \GuzzleHttp\Client();
 
-    </span><span class="n">headers</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">][]</span><span class="kt">string</span><span class="p">{</span><span class="x">
-        </span><span class="s">"Accept"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"0"</span><span class="p">},</span><span class="x">
-        </span><span class="s">"Authorization"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"Bearer YOUR_MANAGEMENT_API_KEY"</span><span class="p">},</span><span class="x">
-    </span><span class="p">}</span><span class="x">
+// Define array of request body.
+$request_body = array();
 
-    </span><span class="n">data</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span><span class="x">
-    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span><span class="x"> </span><span class="s">"https://api.moesif.com/v1/search/~/search/usermetrics/users"</span><span class="p">,</span><span class="x"> </span><span class="n">data</span><span class="p">)</span><span class="x">
-    </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">headers</span><span class="x">
+try {
+    $response = $client->request(&lsquo;POST&rsquo;,&lsquo;https://api.moesif.com/v1/search/~/search/usermetrics/users&rsquo;, array(
+        &lsquo;headers&rsquo; => $headers,
+        &lsquo;json&rsquo; => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
 
-    </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span><span class="x">
-    </span><span class="n">resp</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">client</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
-    </span><span class="c">// ...</span><span class="x">
-</span><span class="p">}</span><span class="x">
+ // &hellip;
 
-</span></code></pre><pre class="highlight csharp tab-csharp"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Net.Http</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Net.Http.Headers</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Text</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Threading.Tasks</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">Newtonsoft.Json</span><span class="p">;</span>
+&ldquo;`
 
-<span class="c1">/// &lt;&lt;summary&gt;&gt;</span>
-<span class="c1">/// Example of Http Client</span>
-<span class="c1">/// &lt;&lt;/summary&gt;&gt;</span>
-<span class="k">public</span> <span class="k">class</span> <span class="nc">HttpExample</span>
-<span class="p">{</span>
-    <span class="k">private</span> <span class="n">HttpClient</span> <span class="n">Client</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+&rdquo;`go
+package main
 
-    <span class="c1">/// &lt;&lt;summary&gt;&gt;</span>
-    <span class="c1">/// Setup http client</span>
-    <span class="c1">/// &lt;&lt;/summary&gt;&gt;</span>
-    <span class="k">public</span> <span class="nf">HttpExample</span><span class="p">()</span>
-    <span class="p">{</span>
-      <span class="n">Client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">HttpClient</span><span class="p">();</span>
-    <span class="p">}</span>
+import (
+       &ldquo;bytes&rdquo;
+       &ldquo;net/http&rdquo;
+)
 
+func main() {
 
-    <span class="c1">/// Make a dummy request</span>
-    <span class="k">public</span> <span class="k">async</span> <span class="n">Task</span> <span class="nf">MakePostRequest</span><span class="p">()</span>
-    <span class="p">{</span>
-      <span class="kt">string</span> <span class="n">url</span> <span class="p">=</span> <span class="s">"https://api.moesif.com/v1/search/~/search/usermetrics/users"</span><span class="p">;</span>
+    headers := map[string][]string{
+        &ldquo;Accept&rdquo;: []string{&ldquo;0&rdquo;},
+        &ldquo;Authorization&rdquo;: []string{&ldquo;Bearer YOUR_MANAGEMENT_API_KEY&rdquo;},
+    }
 
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest(&ldquo;POST&rdquo;, &ldquo;https://api.moesif.com/v1/search/~/search/usermetrics/users&rdquo;, data)
+    req.Header = headers
 
-      <span class="k">await</span> <span class="nf">PostAsync</span><span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="n">url</span><span class="p">);</span>
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // &hellip;
+}
 
-    <span class="p">}</span>
+&ldquo;`
 
-    <span class="c1">/// Performs a POST Request</span>
-    <span class="k">public</span> <span class="k">async</span> <span class="n">Task</span> <span class="nf">PostAsync</span><span class="p">(</span><span class="n">undefined</span> <span class="n">content</span><span class="p">,</span> <span class="kt">string</span> <span class="n">url</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">//Serialize Object</span>
-        <span class="n">StringContent</span> <span class="n">jsonContent</span> <span class="p">=</span> <span class="nf">SerializeObject</span><span class="p">(</span><span class="n">content</span><span class="p">);</span>
+&rdquo;`csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 
-        <span class="c1">//Execute POST request</span>
-        <span class="n">HttpResponseMessage</span> <span class="n">response</span> <span class="p">=</span> <span class="k">await</span> <span class="n">Client</span><span class="p">.</span><span class="nf">PostAsync</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">jsonContent</span><span class="p">);</span>
-    <span class="p">}</span>
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
 
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    
+    /// Make a dummy request
+    public async Task MakePostRequest()
+    {
+      string url = &ldquo;https://api.moesif.com/v1/search/~/search/usermetrics/users&rdquo;;
+      
+      
+      await PostAsync(null, url);
+      
+    }
 
+    /// Performs a POST Request
+    public async Task PostAsync(undefined content, string url)
+    {
+        //Serialize Object
+        StringContent jsonContent = SerializeObject(content);
 
-    <span class="c1">/// Serialize an object to Json</span>
-    <span class="k">private</span> <span class="n">StringContent</span> <span class="nf">SerializeObject</span><span class="p">(</span><span class="n">undefined</span> <span class="n">content</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">//Serialize Object</span>
-        <span class="kt">string</span> <span class="n">jsonObject</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">SerializeObject</span><span class="p">(</span><span class="n">content</span><span class="p">);</span>
+        //Execute POST request
+        HttpResponseMessage response = await Client.PostAsync(url, jsonContent);
+    }
+    
+    
+    
+    /// Serialize an object to Json
+    private StringContent SerializeObject(undefined content)
+    {
+        //Serialize Object
+        string jsonObject = JsonConvert.SerializeObject(content);
 
-        <span class="c1">//Create Json UTF8 String Content</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="nf">StringContent</span><span class="p">(</span><span class="n">jsonObject</span><span class="p">,</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span>
-    <span class="p">}</span>
+        //Create Json UTF8 String Content
+        return new StringContent(jsonObject, Encoding.UTF8, &ldquo;application/json&rdquo;);
+    }
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
 
-    <span class="c1">/// Deserialize object from request response</span>
-    <span class="k">private</span> <span class="k">async</span> <span class="n">Task</span> <span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">HttpResponseMessage</span> <span class="n">response</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">//Read body </span>
-        <span class="kt">string</span> <span class="n">responseBody</span> <span class="p">=</span> <span class="k">await</span> <span class="n">response</span><span class="p">.</span><span class="n">Content</span><span class="p">.</span><span class="nf">ReadAsStringAsync</span><span class="p">();</span>
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
 
-        <span class="c1">//Deserialize Body to object</span>
-        <span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">responseBody</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+&ldquo;`
 
-</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.moesif.com/v1/search/~/search/usermetrics/users"</span><span class="o">);</span>
-<span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
-<span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"POST"</span><span class="o">);</span>
-<span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
-<span class="n">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span>
-    <span class="k">new</span> <span class="nf">InputStreamReader</span><span class="o">(</span><span class="n">con</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()));</span>
-<span class="n">String</span> <span class="n">inputLine</span><span class="o">;</span>
-<span class="n">StringBuffer</span> <span class="n">response</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">();</span>
-<span class="k">while</span> <span class="o">((</span><span class="n">inputLine</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">response</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">inputLine</span><span class="o">);</span>
-<span class="o">}</span>
-<span class="n">in</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+&rdquo;`java
+URL obj = new URL(&ldquo;https://api.moesif.com/v1/search/~/search/usermetrics/users&rdquo;);
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod(&ldquo;POST&rdquo;);
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
 
-</code></pre>
-<p><code class="prettyprint">POST https://api.moesif.com/v1/search/~/search/usermetrics/users</code></p>
+&ldquo;`
 
-<p><em>Search UserMetrics/Users</em></p>
+`POST https://api.moesif.com/v1/search/~/search/usermetrics/users`
+
+*Search UserMetrics/Users*
 
 <h3 id="searchusermetrics-parameters">Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Name</th>
-<th>In</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>from</td>
-<td>query</td>
-<td>string(date-time)</td>
-<td>false</td>
-<td>The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h</td>
-</tr>
-<tr>
-<td>to</td>
-<td>query</td>
-<td>string(date-time)</td>
-<td>false</td>
-<td>The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>undefined</td>
-<td>false</td>
-<td>The search definition using the Elasticsearch Query DSL</td>
-</tr>
-</tbody></table>
+|Name|In|Type|Required|Description|
+|&mdash;|&mdash;|&mdash;|&mdash;|&mdash;|
 
-<blockquote>
-<p>Example responses</p>
-</blockquote>
+
+|from|query|string(date-time)|false|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
+|to|query|string(date-time)|false|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
+|body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
+
+> Example responses
 
 <h3 id="searchusermetrics-responses">Responses</h3>
 
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-<th>Schema</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>success</td>
-<td>None</td>
-</tr>
-</tbody></table>
+|Status|Meaning|Description|Schema|
+|&mdash;|&mdash;|&mdash;|&mdash;|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
 
 <h3 id="searchusermetrics-responseschema">Response Schema</h3>
 
@@ -27978,28 +25972,9 @@ curl -X POST https://api.moesif.com/v1/search/~/users/batch <span class="se">\</
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>array[object]</td>
-<td>false</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|body|body|array[object]|false|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -28273,28 +26248,9 @@ curl -X GET https://api.moesif.com/v1/search/~/users/<span class="o">{</span>id<
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -28563,35 +26519,10 @@ curl -X DELETE https://api.moesif.com/v1/search/~/users/<span class="o">{</span>
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>orgId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-<tr>
-<td>delete_events</td>
-<td>query</td>
-<td>boolean</td>
-<td>false</td>
-<td>Delete events associated with the user which can be set to true or false(default)</td>
-</tr>
 </tbody></table>
+
+<p>|id|path|string|true|none|
+|delete_events|query|boolean|false|Delete events associated with the user which can be set to true or false(default)|</p>
 
 <h3 id="deleteuser-responses">Responses</h3>
 
