@@ -22,7 +22,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 ```json
   {
     "request": {
-      "time": "2023-10-06T04:45:42.914",
+      "time": "2023-11-06T04:45:42.914",
       "uri": "https://api.acmeinc.com/items/12345/reviews/",
       "verb": "POST",
       "api_version": "1.1.0",
@@ -52,7 +52,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
       "transfer_encoding": ""
     },
     "response": {
-      "time": "2023-10-06T04:45:42.914",
+      "time": "2023-11-06T04:45:42.914",
       "status": 500,
       "headers": {
         "Vary": "Accept-Encoding",
@@ -69,7 +69,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
     },
     "user_id": "12345",
     "company_id": "67890",
-    "session_token": "XXXXXXXXX",
+    "transaction_id": "a3765025-46ec-45dd-bc83-b136c8d1d257",
     "metadata": {
         "some_string": "I am a string",
         "some_int": 77,
@@ -85,7 +85,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 curl -X POST https://api.moesif.net/v1/events \
   -H 'Content-Type: application/json' \
   -H 'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'
-  -d '{"request":{"time":"2023-10-06T04:45:42.914","uri":"https://api.acmeinc.com/items/12345/reviews/","verb":"POST","api_version":"1.1.0","ip_address":"61.48.220.123","headers":{"Host":"api.acmeinc.com","Accept":"*/*","Connection":"Keep-Alive","Content-Type":"application/json","Content-Length":"126","Accept-Encoding":"gzip"},"body":{"items":[{"direction_type":1,"item_id":"hello","liked":false},{"direction_type":2,"item_id":"world","liked":true}]},"transfer_encoding":""},"response":{"time":"2023-10-06T04:45:42.914","status":500,"headers":{"Vary":"Accept-Encoding","Pragma":"no-cache","Expires":"-1","Content-Type":"application/json; charset=utf-8","Cache-Control":"no-cache"},"body":{"Error":"InvalidArgumentException","Message":"Missing field location"},"transfer_encoding":""},"user_id":"12345","company_id":"67890","session_token":"XXXXXXXXX","metadata":{"some_string":"I am a string","some_int":77,"some_object":{"some_sub_field":"some_value"}}}'
+  -d '{"request":{"time":"2023-11-06T04:45:42.914","uri":"https://api.acmeinc.com/items/12345/reviews/","verb":"POST","api_version":"1.1.0","ip_address":"61.48.220.123","headers":{"Host":"api.acmeinc.com","Accept":"*/*","Connection":"Keep-Alive","Content-Type":"application/json","Content-Length":"126","Accept-Encoding":"gzip"},"body":{"items":[{"direction_type":1,"item_id":"hello","liked":false},{"direction_type":2,"item_id":"world","liked":true}]},"transfer_encoding":""},"response":{"time":"2023-11-06T04:45:42.914","status":500,"headers":{"Vary":"Accept-Encoding","Pragma":"no-cache","Expires":"-1","Content-Type":"application/json; charset=utf-8","Cache-Control":"no-cache"},"body":{"Error":"InvalidArgumentException","Message":"Missing field location"},"transfer_encoding":""},"user_id":"12345","company_id":"67890","transaction_id":"a3765025-46ec-45dd-bc83-b136c8d1d257","metadata":{"some_string":"I am a string","some_int":77,"some_object":{"some_sub_field":"some_value"}}}'
 ```
 
 ```java
@@ -326,7 +326,7 @@ event_model = EventModel(request = event_req,
     response = event_rsp,
     user_id = "12345",
     company_id = "67890",
-    session_token = "XXXXXXXXX")
+     = "XXXXXXXXX")
 
 
 # Perform the API call through the SDK function
@@ -378,7 +378,7 @@ rsp_body = JSON.parse('{'\
 
 
 event_req = EventRequestModel.new()
-event_req.time = "2023-10-06T04:45:42.914"
+event_req.time = "2023-11-06T04:45:42.914"
 event_req.uri = "https://api.acmeinc.com/items/reviews/"
 event_req.verb = "PATCH"
 event_req.api_version = "1.1.0"
@@ -387,7 +387,7 @@ event_req.headers = req_headers
 event_req.body = req_body
 
 event_rsp = EventResponseModel.new()
-event_rsp.time = "2023-10-06T04:45:42.914"
+event_rsp.time = "2023-11-06T04:45:42.914"
 event_rsp.status = 500
 event_rsp.headers = rsp_headers
 event_rsp.body = rsp_body
@@ -397,7 +397,7 @@ event_model.request = event_req
 event_model.response = event_rsp
 event_model.user_id ="12345"
 event_model.company_id ="67890"
-event_model.session_token = "XXXXXXXXX"
+event_model. = "XXXXXXXXX"
 
 # Perform the API call through the SDK function
 response = api.create_event(event_model)
@@ -453,7 +453,7 @@ var rspBody = APIHelper.JsonDeserialize<object>(@" {
 
 var eventReq = new EventRequestModel()
 {
-    Time = DateTime.Parse("2023-10-06T04:45:42.914"),
+    Time = DateTime.Parse("2023-11-06T04:45:42.914"),
     Uri = "https://api.acmeinc.com/items/reviews/",
     Verb = "PATCH",
     ApiVersion = "1.1.0",
@@ -464,7 +464,7 @@ var eventReq = new EventRequestModel()
 
 var eventRsp = new EventResponseModel()
 {
-    Time = DateTime.Parse("2023-10-06T04:45:42.914"),
+    Time = DateTime.Parse("2023-11-06T04:45:42.914"),
     Status = 500,
     Headers = rspHeaders,
     Body = rspBody
@@ -636,7 +636,7 @@ $event->metadata = array(
 
 $event->user_id = "12345";
 $event->company_id = "67890";
-$event->session_token = "XXXXXXXXX";
+$event-> = "XXXXXXXXX";
 
 $api->createEvent($event);
 ```
@@ -661,6 +661,7 @@ response |object | false | The object that specifies the API response. The respo
 <p style="margin-left:1.5em">body</p> |object | false | Payload of the response in either JSON or a base64 encoded string.
 <p style="margin-left:1.5em">transfer_encoding</p> | string | false | Specifies the transfer encoding of _response.body_ field. If set to _json_ then the response.body must be a JSON object. If set to _base64_, then _response.body_ must be a base64 encoded string. Helpful for binary payloads. If not set, the body is assumed to be _json_.
 ||
+transaction_id | string | false | A random 36 char UUID for this event. If set, Moesif will deduplicate events using this id and ensure idempotency.
 session_token | string | false | Set the API key/session token used for this API call. Moesif will auto-detect API sessions if not set.
 user_id | string | false | Associate this API call to a [user](#users).
 company_id | string | false | Associate this API call to a [company](#companies) (Helpful for B2B companies).
@@ -691,7 +692,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
   [
     {
         "request": {
-          "time": "2023-10-06T04:45:42.914",
+          "time": "2023-11-06T04:45:42.914",
           "uri": "https://api.acmeinc.com/items/83738/reviews/",
           "verb": "POST",
           "api_version": "1.1.0",
@@ -721,7 +722,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
           "transfer_encoding": ""
         },
         "response": {
-          "time": "2023-10-06T04:45:42.914",
+          "time": "2023-11-06T04:45:42.914",
           "status": 500,
           "headers": {
             "Vary": "Accept-Encoding",
@@ -738,7 +739,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
         },
         "user_id": "12345",
         "company_id": "67890",
-        "session_token": "XXXXXXXXX",
+        "transaction_id": "a3765025-46ec-45dd-bc83-b136c8d1d257",
         "metadata": {
             "some_string": "I am a string",
             "some_int": 77,
@@ -755,7 +756,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 curl -X POST https://api.moesif.net/v1/events/batch \
   -H 'Content-Type: application/json' \
   -H 'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'
-  -d '[{"request":{"time":"2023-10-06T04:45:42.914","uri":"https://api.acmeinc.com/items/83738/reviews/","verb":"POST","api_version":"1.1.0","ip_address":"61.48.220.123","headers":{"Host":"api.acmeinc.com","Accept":"*/*","Connection":"Keep-Alive","Content-Type":"application/json","Content-Length":"126","Accept-Encoding":"gzip"},"body":{"items":[{"direction_type":1,"item_id":"hello","liked":false},{"direction_type":2,"item_id":"world","liked":true}]},"transfer_encoding":""},"response":{"time":"2023-10-06T04:45:42.914","status":500,"headers":{"Vary":"Accept-Encoding","Pragma":"no-cache","Expires":"-1","Content-Type":"application/json; charset=utf-8","Cache-Control":"no-cache"},"body":{"Error":"InvalidArgumentException","Message":"Missing field location"},"transfer_encoding":""},"user_id":"12345","company_id":"67890","session_token":"XXXXXXXXX","metadata":{"some_string":"I am a string","some_int":77,"some_object":{"some_sub_field":"some_value"}}}]'
+  -d '[{"request":{"time":"2023-11-06T04:45:42.914","uri":"https://api.acmeinc.com/items/83738/reviews/","verb":"POST","api_version":"1.1.0","ip_address":"61.48.220.123","headers":{"Host":"api.acmeinc.com","Accept":"*/*","Connection":"Keep-Alive","Content-Type":"application/json","Content-Length":"126","Accept-Encoding":"gzip"},"body":{"items":[{"direction_type":1,"item_id":"hello","liked":false},{"direction_type":2,"item_id":"world","liked":true}]},"transfer_encoding":""},"response":{"time":"2023-11-06T04:45:42.914","status":500,"headers":{"Vary":"Accept-Encoding","Pragma":"no-cache","Expires":"-1","Content-Type":"application/json; charset=utf-8","Cache-Control":"no-cache"},"body":{"Error":"InvalidArgumentException","Message":"Missing field location"},"transfer_encoding":""},"user_id":"12345","company_id":"67890","transaction_id":"a3765025-46ec-45dd-bc83-b136c8d1d257","metadata":{"some_string":"I am a string","some_int":77,"some_object":{"some_sub_field":"some_value"}}}]'
 ```
 
 ```java
@@ -1078,7 +1079,7 @@ var rspBody = APIHelper.JsonDeserialize<object>(@" {
 var reqDate = new Date();
 var eventReq = new EventRequestModel()
 {
-    Time = DateTime.Parse("2023-10-06T04:45:42.914"),
+    Time = DateTime.Parse("2023-11-06T04:45:42.914"),
     Uri = "https://api.acmeinc.com/items/reviews/",
     Verb = "PATCH",
     ApiVersion = "1.1.0",
@@ -1089,7 +1090,7 @@ var eventReq = new EventRequestModel()
 
 var eventRsp = new EventResponseModel()
 {
-    Time = DateTime.Parse("2023-10-06T04:45:42.914"),
+    Time = DateTime.Parse("2023-11-06T04:45:42.914"),
     Status = 500,
     Headers = rspHeaders,
     Body = rspBody
@@ -1241,6 +1242,7 @@ response |object | false | The object that specifies the API response. The respo
 <p style="margin-left:1.5em">body</p> |object | false | Payload of the response in either JSON or a base64 encoded string.
 <p style="margin-left:1.5em">transfer_encoding</p> | string | false | Specifies the transfer encoding of _response.body_ field. If set to _json_ then the response.body must be a JSON object. If set to _base64_, then _response.body_ must be a base64 encoded string. Helpful for binary payloads. If not set, the body is assumed to be _json_.
 ||
+transaction_id | string | false | A random 36 char UUID for this event. If set, Moesif will deduplicate events using this id and ensure idempotency. Moesif will still deduplicate even accross different size batches.
 session_token | string | false | Set the API key/session token used for this API call. Moesif will auto-detect API sessions if not set.
 user_id | string | false | Associate this API call to a [user](#users).
 company_id | string | false | Associate this API call to a [company](#companies) (Helpful for B2B companies).
