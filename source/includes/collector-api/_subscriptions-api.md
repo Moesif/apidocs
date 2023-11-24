@@ -31,10 +31,10 @@ and selecting API keys from bottom left menu.
     "status": "active", 
     "metadata": {
         "subscription_type": "PAYG",
-        "subscription_tier": "PREMIUM",
+        "subscription_tier": "Pro",
         "quota": {
-            "quota_limit": 5000,
-            "quota_period": "YEAR"
+            "quota_limit": 1000000,
+            "quota_period": "Year"
         }
     }
 }
@@ -53,9 +53,9 @@ curl --location 'https://api.moesif.net/v1/subscriptions' \
     "status": "active", 
     "metadata": {
         "subscription_type": "PAYG",
-        "subscription_tier": "PREMIUM",
+        "subscription_tier": "Pro",
         "quota": {
-            "quota_limit": 5000,
+            "quota_limit": 1000000,
             "quota_period": "YEAR"
         }
     }
@@ -106,10 +106,10 @@ Replace <i>my_application_id</i> with your real Application Id
     "status": "active", 
     "metadata": {
         "subscription_type": "PAYG",
-        "subscription_tier": "PREMIUM",
+        "subscription_tier": "Pro",
         "quota": {
-            "quota_limit": 5000,
-            "quota_period": "YEAR"
+            "quota_limit": 1000000,
+            "quota_period": "Year"
         }
     }
 },
@@ -121,9 +121,9 @@ Replace <i>my_application_id</i> with your real Application Id
     "status": "active", 
     "metadata": {
         "subscription_type": "PAYG",
-        "subscription_tier": "PREMIUM",
+        "subscription_tier": "Enterprise",
         "quota": {
-            "quota_limit": 5000,
+            "quota_limit": 1000000,
             "quota_period": "YEAR"
         }
     }
@@ -144,9 +144,9 @@ curl --location 'https://api.moesif.net/v1/subscriptions/batch' \
     "status": "active", 
     "metadata": {
         "subscription_type": "PAYG",
-        "subscription_tier": "PREMIUM",
+        "subscription_tier": "Pro",
         "quota": {
-            "quota_limit": 5000,
+            "quota_limit": 1000000,
             "quota_period": "YEAR"
         }
     }
