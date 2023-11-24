@@ -2693,8 +2693,8 @@ and selecting API keys from bottom left menu.
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"subscription_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Subscription</span><span class="w"> </span><span class="err">Id</span><span class="w">
     </span><span class="s2">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Company</span><span class="w"> </span><span class="err">Id</span><span class="w">
-    </span><span class="s2">"current_period_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-11-21T17:32:28.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"current_period_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-21T17:32:28.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"current_period_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-11-21T17:32:28.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"current_period_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-11-21T17:32:28.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w"> 
     </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"subscription_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYG"</span><span class="p">,</span><span class="w">
@@ -2712,8 +2712,8 @@ curl --location <span class="s1">'https://api.moesif.net/v1/subscriptions'</span
 --data <span class="s1">'{
     "subscription_id": "12345", 
     "company_id": "67890", 
-    "current_period_start": "2013-11-21T17:32:28.000Z",
-    "current_period_end": "2014-11-21T17:32:28.000Z",
+    "current_period_start": "2023-11-21T17:32:28.000Z",
+    "current_period_end": "2024-11-21T17:32:28.000Z",
     "status": "active", 
     "metadata": {
         "subscription_type": "PAYG",
@@ -2765,7 +2765,7 @@ curl --location <span class="s1">'https://api.moesif.net/v1/subscriptions'</span
 <td>status</td>
 <td>string</td>
 <td>false</td>
-<td>One of active, cancelled, paused, trialing, pending, draft, future. This Manages the subscription status in Moesif such as blocking access to cancelled subscriptions.</td>
+<td>One of [active, cancelled, paused, trialing, pending, draft, future]. This can be used to drive governance rules that the subscription status in Moesif such as blocking access to cancelled subscriptions.</td>
 </tr>
 <tr>
 <td>metadata</td>
@@ -2801,8 +2801,8 @@ Replace <i>my_application_id</i> with your real Application Id
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"subscription_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Subscription</span><span class="w"> </span><span class="err">Id</span><span class="w">
     </span><span class="s2">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Company</span><span class="w"> </span><span class="err">Id</span><span class="w">
-    </span><span class="s2">"current_period_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-11-21T17:32:28.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"current_period_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-21T17:32:28.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"current_period_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-11-21T17:32:28.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"current_period_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-11-21T17:32:28.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w"> 
     </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"subscription_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYG"</span><span class="p">,</span><span class="w">
@@ -2816,8 +2816,8 @@ Replace <i>my_application_id</i> with your real Application Id
 </span><span class="p">{</span><span class="w">
     </span><span class="s2">"subscription_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcde"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Subscription</span><span class="w"> </span><span class="err">Id</span><span class="w">
     </span><span class="s2">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xyz"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Company</span><span class="w"> </span><span class="err">Id</span><span class="w">
-    </span><span class="s2">"current_period_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-11-21T17:32:28.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"current_period_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-21T17:32:28.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"current_period_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-11-21T17:32:28.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"current_period_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-11-21T17:32:28.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w"> 
     </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"subscription_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYG"</span><span class="p">,</span><span class="w">
@@ -2836,8 +2836,8 @@ curl --location <span class="s1">'https://api.moesif.net/v1/subscriptions/batch'
 --data <span class="s1">'[{
     "subscription_id": "12345", 
     "company_id": "67890", 
-    "current_period_start": "2013-11-21T17:32:28.000Z",
-    "current_period_end": "2014-11-21T17:32:28.000Z",
+    "current_period_start": "2023-11-21T17:32:28.000Z",
+    "current_period_end": "2024-11-21T17:32:28.000Z",
     "status": "active", 
     "metadata": {
         "subscription_type": "PAYG",
@@ -2889,7 +2889,7 @@ curl --location <span class="s1">'https://api.moesif.net/v1/subscriptions/batch'
 <td>status</td>
 <td>string</td>
 <td>false</td>
-<td>One of active, cancelled, paused, trialing, pending, draft, future. This Manages the subscription status in Moesif such as blocking access to cancelled subscriptions.</td>
+<td>One of [active, cancelled, paused, trialing, pending, draft, future]. This can be used to drive governance rules that the subscription status in Moesif such as blocking access to cancelled subscriptions.</td>
 </tr>
 <tr>
 <td>metadata</td>
