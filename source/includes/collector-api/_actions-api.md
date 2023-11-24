@@ -44,6 +44,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
   "action_name": "Clicked Sign Up",
   "user_id": "12345",
   "company_id": "67890",
+  "transaction_id": "a3765025-46ec-45dd-bc83-b136c8d1d257",
   "session_token": "XXXXX",
   "request": {
     "uri": "https://acmeinc.com/pricing",
@@ -61,7 +62,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 curl -X POST https://api.moesif.net/v1/actions \
   -H 'Content-Type: application/json' \
   -H 'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID' \
-  -d '{"action_name":"Clicked Sign Up","user_id":"12345","company_id":"67890","session_token":"XXXXX","request":{"uri":"https://acmeinc.com/pricing","user_agent_string":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"},"metadata":{"button_label":"Get Started","sign_up_method":"Google SSO"}}'
+  -d '{"action_name":"Clicked Sign Up","user_id":"12345","company_id":"67890","session_token":"XXXXX","transaction_id": "a3765025-46ec-45dd-bc83-b136c8d1d257","request":{"uri":"https://acmeinc.com/pricing","user_agent_string":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"},"metadata":{"button_label":"Get Started","sign_up_method":"Google SSO"}}'
 ```
 
 ```javascript--browser
@@ -81,6 +82,7 @@ moesif.track('Clicked Sign Up', {
 
 |Name|Type|Required|Description|
 |-----------|-----------|-----------|-----------|
+transaction_id | string | false | A random 36 char UUID for this event. If set, Moesif will deduplicate events using this id and ensure idempotency.
 action_name | string | __true__ | A recognizable name such as <i>Clicked Sign Up</i> or <i>Purchased Subscription<i>
 session_token | string | false | The customer's current session token as a string.
 user_id | string | false | The [user](#users) identifier to associate this action with.
@@ -142,6 +144,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
     "user_id": "12345",
     "company_id": "67890",
     "session_token": "XXXXX",
+    "transaction_id": "a3765025-46ec-45dd-bc83-b136c8d1d257",
     "request": {
       "uri": "https://acmeinc.com/pricing",
       "user_agent_string": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
@@ -156,6 +159,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
     "user_id": "12345",
     "company_id": "67890",
     "session_token": "XXXXX",
+    "transaction_id": "a90cbabb-2dfc-4290-a368-48ce1a1af7ba",
     "request": {
       "uri": "https://acmeinc.com/pricing",
       "user_agent_string": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
@@ -173,7 +177,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 curl -X POST https://api.moesif.net/v1/actions/batch \
   -H 'Content-Type: application/json' \
   -H 'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID' \
-  -d '[{"action_name":"Clicked Sign Up","user_id":"12345","company_id":"67890","session_token":"XXXXX","request":{"uri":"https://acmeinc.com/pricing","user_agent_string":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"},"metadata":{"button_label":"Get Started","sign_up_method":"Google SSO"}},{"action_name":"Purchased Subscription","user_id":"12345","company_id":"67890","session_token":"XXXXX","request":{"uri":"https://acmeinc.com/pricing","user_agent_string":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"},"metadata":{"plan_name":"Pay As You Go","plan_revenue":5000}}]'
+  -d '[{"action_name":"Clicked Sign Up","user_id":"12345","company_id":"67890","session_token":"XXXXX","transaction_id": "a3765025-46ec-45dd-bc83-b136c8d1d257","request":{"uri":"https://acmeinc.com/pricing","user_agent_string":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"},"metadata":{"button_label":"Get Started","sign_up_method":"Google SSO"}},{"action_name":"Purchased Subscription","user_id":"12345","company_id":"67890","session_token":"XXXXX","transaction_id": "a90cbabb-2dfc-4290-a368-48ce1a1af7ba","request":{"uri":"https://acmeinc.com/pricing","user_agent_string":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"},"metadata":{"plan_name":"Pay As You Go","plan_revenue":5000}}]'
 ```
 
 ```javascript--browser
@@ -193,6 +197,7 @@ moesif.track('Clicked Sign Up', {
 
 |Name|Type|Required|Description|
 |-----------|-----------|-----------|-----------|
+transaction_id | string | false | A random 36 char UUID for this event. If set, Moesif will deduplicate events using this id and ensure idempotency. Moesif will still deduplicate even accross different size batches.
 action_name | string | __true__ | A recognizable name such as <i>Clicked Sign Up</i> or <i>Purchased Subscription<i>
 session_token | string | false | The customer's current session token as a string.
 user_id | string | false | The [user](#users) identifier to associate this action with.

@@ -293,6 +293,22 @@ by volume so we ignore the small volume APIs.
 }
 ```
 
+## Idempotency 
+
+Moesif Collector API support idempotent requests. This ensures Moesif does not create duplicate events even if the same event was sent twice to the Moesif Collector API.
+For users and companies APIs, this is automatic. For events and actions APIs, ensure you set the `transaction_id` for each event to a random UUID.
+This should be a 36 character UUID such as `123e4567-e89b-12d3-a456-426614174000`. Moesif uses the `transaction_id` for ensuring duplicate events are not created.
+Setting the `transaction_id` is strongly recommended if you can replay processing from a pipeline like logstash.
+
+### Deduplication for Batches
+Because each event has it's own `transaction_id`, Moesif will still deduplicate even if the batches are different.
+For example, let's say you send the following batches:
+
+1. Send a batch of two events containing transaction_id's A, B
+2. Send a batch of one event containing transaction_id C
+3. Send a batch of three events containing transaction_id's A, C, D
+
+At the end, Moesif will only contain 4 events (A, B, C, D)
 
 ## Request Format
 For POST, PUT, and PATCH requests, the request body should be JSON. The `Content-Type` header
