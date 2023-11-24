@@ -26,8 +26,8 @@ and selecting API keys from bottom left menu.
 {
     "subscription_id": "12345", // Subscription Id
     "company_id": "67890", // Company Id
-    "current_period_start": "2013-11-21T17:32:28.000Z",
-    "current_period_end": "2014-11-21T17:32:28.000Z",
+    "current_period_start": "2023-11-21T17:32:28.000Z",
+    "current_period_end": "2024-11-21T17:32:28.000Z",
     "status": "active", 
     "metadata": {
         "subscription_type": "PAYG",
@@ -48,8 +48,8 @@ curl --location 'https://api.moesif.net/v1/subscriptions' \
 --data '{
     "subscription_id": "12345", 
     "company_id": "67890", 
-    "current_period_start": "2013-11-21T17:32:28.000Z",
-    "current_period_end": "2014-11-21T17:32:28.000Z",
+    "current_period_start": "2023-11-21T17:32:28.000Z",
+    "current_period_end": "2024-11-21T17:32:28.000Z",
     "status": "active", 
     "metadata": {
         "subscription_type": "PAYG",
@@ -101,8 +101,8 @@ Replace <i>my_application_id</i> with your real Application Id
   {
     "subscription_id": "12345", // Subscription Id
     "company_id": "67890", // Company Id
-    "current_period_start": "2013-11-21T17:32:28.000Z",
-    "current_period_end": "2014-11-21T17:32:28.000Z",
+    "current_period_start": "2023-11-21T17:32:28.000Z",
+    "current_period_end": "2024-11-21T17:32:28.000Z",
     "status": "active", 
     "metadata": {
         "subscription_type": "PAYG",
@@ -116,8 +116,8 @@ Replace <i>my_application_id</i> with your real Application Id
 {
     "subscription_id": "abcde", // Subscription Id
     "company_id": "xyz", // Company Id
-    "current_period_start": "2013-11-21T17:32:28.000Z",
-    "current_period_end": "2014-11-21T17:32:28.000Z",
+    "current_period_start": "2023-11-21T17:32:28.000Z",
+    "current_period_end": "2024-11-21T17:32:28.000Z",
     "status": "active", 
     "metadata": {
         "subscription_type": "PAYG",
@@ -139,8 +139,8 @@ curl --location 'https://api.moesif.net/v1/subscriptions/batch' \
 --data '[{
     "subscription_id": "12345", 
     "company_id": "67890", 
-    "current_period_start": "2013-11-21T17:32:28.000Z",
-    "current_period_end": "2014-11-21T17:32:28.000Z",
+    "current_period_start": "2023-11-21T17:32:28.000Z",
+    "current_period_end": "2024-11-21T17:32:28.000Z",
     "status": "active", 
     "metadata": {
         "subscription_type": "PAYG",
