@@ -4118,6 +4118,7 @@ Get BillingReports' values for a given meter and time range for a single company
 |aggregator|query|string|false|none|
 |interval|query|string|false|none|
 |company_id|query|string|false|none|
+|subscription_id|query|string|false|none|
 
 > Example responses
 
@@ -16098,8 +16099,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|from|query|string(date-time)|false|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
-|to|query|string(date-time)|false|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
+|from|query|string(date-time)|false|The start date, which can be absolute such as 2024-01-01T00:00:00Z or relative such as -24h|
+|to|query|string(date-time)|false|The end date, which can be absolute such as 2024-01-02T00:00:00Z or relative such as now|
 |body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
 
 > Example responses
@@ -19355,8 +19356,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|from|query|string(date-time)|true|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
-|to|query|string(date-time)|true|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
+|from|query|string(date-time)|true|The start date, which can be absolute such as 2024-01-01T00:00:00Z or relative such as -24h|
+|to|query|string(date-time)|true|The end date, which can be absolute such as 2024-01-02T00:00:00Z or relative such as now|
 |body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
 
 > Example responses
@@ -19686,8 +19687,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|from|query|string(date-time)|true|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
-|to|query|string(date-time)|true|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
+|from|query|string(date-time)|true|The start date, which can be absolute such as 2024-01-01T00:00:00Z or relative such as -24h|
+|to|query|string(date-time)|true|The end date, which can be absolute such as 2024-01-02T00:00:00Z or relative such as now|
 |workspaceId|path|string|true|none|
 |include_details|query|boolean|false|none|
 |take|query|integer(int32)|false|none|
@@ -20851,8 +20852,8 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|from|query|string(date-time)|false|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
-|to|query|string(date-time)|false|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
+|from|query|string(date-time)|false|The start date, which can be absolute such as 2024-01-01T00:00:00Z or relative such as -24h|
+|to|query|string(date-time)|false|The end date, which can be absolute such as 2024-01-02T00:00:00Z or relative such as now|
 |body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
 
 > Example responses
