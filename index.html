@@ -4906,6 +4906,94 @@ curl --location <span class="s1">'https://api.moesif.net/v1/subscriptions/batch'
 </tr>
 </tbody></table>
 
+          <h2 id="config">Config</h2>
+
+<h3 id="get-config">Get Config</h3>
+
+<p><strong><code class="prettyprint">GET https://api.moesif.net/v1/config</code></strong></p>
+
+<p>Receives the configuration for governance rules and dynamic sampling rules.</p>
+
+<aside class="warning">
+Typically, this API is not directly used unless you are building a new server integration with Moesif.
+</aside>
+
+<aside class="info">
+Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
+</aside>
+
+<blockquote class="lang-specific json">
+<code><b>POST</b> https://api.moesif.net/v1/config</code>
+<br><br><i>Example Response</i><br>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"sample_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_sample_rate"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="s2">"company_sample_rate"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"user_rules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"company_rules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"regex_config"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"conditions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"request.route"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/health/.*"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"sample_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="get-rules">Get Rules</h3>
+
+<p><strong><code class="prettyprint">GET https://api.moesif.net/v1/rules</code></strong></p>
+
+<p>Receives the set of rules for quotas and behavior rules to block users/companies.</p>
+
+<aside class="warning">
+Typically, this API is not directly used unless you are building a new server integration with Moesif.
+</aside>
+
+<aside class="info">
+Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
+</aside>
+
+<blockquote class="lang-specific json">
+<code><b>POST</b> https://api.moesif.net/v1/rules</code>
+<br><br><i>Example Response</i><br>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"64ca685a833073c6b41b15f3"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-01-01T00:00:00.000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Block Free Users who Exceeded their Monthly Quota"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"block"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"variables"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"body.plan_name"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"body.quota_amount"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"regex_config"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">429</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"X-Rate-Limit-Month"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{1}}"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"error_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"too_many_requests"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You exceeded your monthly quota of {{1}} for the {{0}} plan. Please upgrade your plan."</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
           <h1 id="management-api">Management API v1</h1>
 
 <blockquote>
