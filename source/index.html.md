@@ -29,6 +29,7 @@ includes:
   - collector-api/users-api
   - collector-api/companies-api
   - collector-api/subscriptions-api
+  - collector-api/config-api
   - management-api/management-api
 
 search: true
