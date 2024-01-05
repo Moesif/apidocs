@@ -4,7 +4,7 @@
 
 **`GET https://api.moesif.net/v1/config`**
 
-Receives the configuration for governance rules and dynamic sampling rules.
+Retrieves  the configuration for governance rules and dynamic sampling rules.
 
 <aside class="warning">
 Typically, this API is not directly used unless you are building a new server integration with Moesif.
@@ -44,7 +44,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 
 **`GET https://api.moesif.net/v1/rules`**
 
-Receives the set of rules for quotas and behavior rules to block users/companies.
+Retrieves  the set of rules for quotas and behavior rules to block users/companies.
 
 <aside class="warning">
 Typically, this API is not directly used unless you are building a new server integration with Moesif.
