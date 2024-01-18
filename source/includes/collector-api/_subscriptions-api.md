@@ -71,7 +71,7 @@ Subscriptions in Moesif are identified via a `subscription_id` and should be a _
 |company_id |string| __true__ | The unique identifier for the company this subscription should be associated with.|
 |current_period_start |string(date-time)| false | The start time of the current billing term. This can be yearly, monthly, or other billing term. Required for quota and billing management.|
 |current_period_end |string(date-time)| false | The end time of the current billing term. This can be yearly, monthly, or other billing term. Required for quota and billing management.|
-|status |string| false | One of [active, cancelled, paused, trialing, pending, draft, future]. This can be used to drive governance rules that the subscription status in Moesif such as blocking access to cancelled subscriptions.|
+|status |string| __true__ | One of [active, cancelled, paused, trialing, pending, draft, future]. This can be used to drive governance rules that the subscription status in Moesif such as blocking access to cancelled subscriptions.|
 |metadata |object| false | An object containing subscription demographics or other properties you want to store with this profile.|
 
 ### Update Subscriptions in Batch
