@@ -74,7 +74,7 @@ Subscriptions in Moesif are identified via a `subscription_id` and should be a _
 |status |string| false | One of [active, cancelled, paused, trialing, pending, draft, future]. This can be used to drive governance rules that the subscription status in Moesif such as blocking access to cancelled subscriptions.|
 |metadata |object| false | An object containing subscription demographics or other properties you want to store with this profile.|
 
-### Update Companies in Batch
+### Update Subscriptions in Batch
 
 **`POST https://api.moesif.net/v1/subscriptions/batch`**
 
