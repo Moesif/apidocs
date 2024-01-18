@@ -4678,18 +4678,18 @@ individual users along with account-level usage. </p>
 
 <p><strong><code class="prettyprint">POST https://api.moesif.net/v1/subscriptions</code></strong></p>
 
-<p>Updates a subscription for a subscription in Moesif. A subscription represents a single plan a customer is subscribed to and paying for. A company can have one or more subscriptions. Any custom subscription properties can be stored via the <code class="prettyprint">metadata</code> object. </p>
+<p>Updates a subscription for a subscription in Moesif. A subscription represents a single plan a customer is subscribed to and paying for. A company can have one or more subscriptions. Any custom subscription properties can be stored via the <code class="prettyprint">metadata</code> object.</p>
 
 <h4 id="create-vs-update">Create vs update</h4>
 
-<p>If the subscription does not exist, Moesif will create a new one. </p>
+<p>If the subscription does not exist, Moesif will create a new one.</p>
 
 <p>If a subscription exists, the new subscription properties will be merged with the existing properties
-recursively. This means you don&rsquo;t need to resend the entire subscription object if you are only 
+recursively. This means you don&rsquo;t need to resend the entire subscription object if you are only
 updating a single field.</p>
 
 <aside class="notice">
-Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found by logging into Moesif 
+Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found by logging into Moesif
 and selecting API keys from bottom left menu.
 </aside>
 
@@ -4702,7 +4702,7 @@ and selecting API keys from bottom left menu.
     </span><span class="s2">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Company</span><span class="w"> </span><span class="err">Id</span><span class="w">
     </span><span class="s2">"current_period_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-01-21T17:32:28.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"current_period_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-11-21T17:32:28.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"subscription_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYG"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"subscription_tier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pro"</span><span class="p">,</span><span class="w">
@@ -4717,11 +4717,11 @@ curl --location <span class="s1">'https://api.moesif.net/v1/subscriptions'</span
 --header <span class="s1">'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 --data <span class="s1">'{
-    "subscription_id": "12345", 
-    "company_id": "67890", 
+    "subscription_id": "12345",
+    "company_id": "67890",
     "current_period_start": "2024-01-21T17:32:28.000Z",
     "current_period_end": "2024-11-21T17:32:28.000Z",
-    "status": "active", 
+    "status": "active",
     "metadata": {
         "subscription_type": "PAYG",
         "subscription_tier": "Pro",
@@ -4754,7 +4754,7 @@ curl --location <span class="s1">'https://api.moesif.net/v1/subscriptions'</span
 <td>company_id</td>
 <td>string</td>
 <td><strong>true</strong></td>
-<td>The unique identifier for the company this subscruiption should be associated with.</td>
+<td>The unique identifier for the company this subscription should be associated with.</td>
 </tr>
 <tr>
 <td>current_period_start</td>
@@ -4810,7 +4810,7 @@ Replace <i>my_application_id</i> with your real Application Id
     </span><span class="s2">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Company</span><span class="w"> </span><span class="err">Id</span><span class="w">
     </span><span class="s2">"current_period_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-01-21T17:32:28.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"current_period_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-11-21T17:32:28.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"subscription_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYG"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"subscription_tier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pro"</span><span class="p">,</span><span class="w">
@@ -4825,7 +4825,7 @@ Replace <i>my_application_id</i> with your real Application Id
     </span><span class="s2">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xyz"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Company</span><span class="w"> </span><span class="err">Id</span><span class="w">
     </span><span class="s2">"current_period_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-01-21T17:32:28.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"current_period_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-11-21T17:32:28.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"subscription_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYG"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"subscription_tier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Enterprise"</span><span class="p">,</span><span class="w">
@@ -4841,11 +4841,11 @@ curl --location <span class="s1">'https://api.moesif.net/v1/subscriptions/batch'
 --header <span class="s1">'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 --data <span class="s1">'[{
-    "subscription_id": "12345", 
-    "company_id": "67890", 
+    "subscription_id": "12345",
+    "company_id": "67890",
     "current_period_start": "2024-01-21T17:32:28.000Z",
     "current_period_end": "2024-11-21T17:32:28.000Z",
-    "status": "active", 
+    "status": "active",
     "metadata": {
         "subscription_type": "PAYG",
         "subscription_tier": "Pro",
@@ -4878,7 +4878,7 @@ curl --location <span class="s1">'https://api.moesif.net/v1/subscriptions/batch'
 <td>company_id</td>
 <td>string</td>
 <td><strong>true</strong></td>
-<td>The unique identifier for the company this subscruiption should be associated with.</td>
+<td>The unique identifier for the company this subscription should be associated with.</td>
 </tr>
 <tr>
 <td>current_period_start</td>
