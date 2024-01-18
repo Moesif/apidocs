@@ -4,17 +4,17 @@
 
 **`POST https://api.moesif.net/v1/subscriptions`**
 
-Updates a subscription for a subscription in Moesif. A subscription represents a single plan a customer is subscribed to and paying for. A company can have one or more subscriptions. Any custom subscription properties can be stored via the `metadata` object. 
+Updates a subscription for a subscription in Moesif. A subscription represents a single plan a customer is subscribed to and paying for. A company can have one or more subscriptions. Any custom subscription properties can be stored via the `metadata` object.
 
 #### Create vs update
-If the subscription does not exist, Moesif will create a new one. 
+If the subscription does not exist, Moesif will create a new one.
 
 If a subscription exists, the new subscription properties will be merged with the existing properties
-recursively. This means you don't need to resend the entire subscription object if you are only 
+recursively. This means you don't need to resend the entire subscription object if you are only
 updating a single field.
 
 <aside class="notice">
-Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found by logging into Moesif 
+Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found by logging into Moesif
 and selecting API keys from bottom left menu.
 </aside>
 
@@ -28,7 +28,7 @@ and selecting API keys from bottom left menu.
     "company_id": "67890", // Company Id
     "current_period_start": "2024-01-21T17:32:28.000Z",
     "current_period_end": "2024-11-21T17:32:28.000Z",
-    "status": "active", 
+    "status": "active",
     "metadata": {
         "subscription_type": "PAYG",
         "subscription_tier": "Pro",
@@ -46,11 +46,11 @@ curl --location 'https://api.moesif.net/v1/subscriptions' \
 --header 'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID' \
 --header 'Content-Type: application/json' \
 --data '{
-    "subscription_id": "12345", 
-    "company_id": "67890", 
+    "subscription_id": "12345",
+    "company_id": "67890",
     "current_period_start": "2024-01-21T17:32:28.000Z",
     "current_period_end": "2024-11-21T17:32:28.000Z",
-    "status": "active", 
+    "status": "active",
     "metadata": {
         "subscription_type": "PAYG",
         "subscription_tier": "Pro",
@@ -68,7 +68,7 @@ Subscriptions in Moesif are identified via a `subscription_id` and should be a _
 |Name|Type|Required|Description|
 |-----------|-----------|-----------|-----------|
 |subscription_id |string| __true__ | The unique identifier for this subscription.|
-|company_id |string| __true__ | The unique identifier for the company this subscruiption should be associated with.|
+|company_id |string| __true__ | The unique identifier for the company this subscription should be associated with.|
 |current_period_start |string(date-time)| false | The start time of the current billing term. This can be yearly, monthly, or other billing term. Required for quota and billing management.|
 |current_period_end |string(date-time)| false | The end time of the current billing term. This can be yearly, monthly, or other billing term. Required for quota and billing management.|
 |status |string| false | One of [active, cancelled, paused, trialing, pending, draft, future]. This can be used to drive governance rules that the subscription status in Moesif such as blocking access to cancelled subscriptions.|
@@ -103,7 +103,7 @@ Replace <i>my_application_id</i> with your real Application Id
     "company_id": "67890", // Company Id
     "current_period_start": "2024-01-21T17:32:28.000Z",
     "current_period_end": "2024-11-21T17:32:28.000Z",
-    "status": "active", 
+    "status": "active",
     "metadata": {
         "subscription_type": "PAYG",
         "subscription_tier": "Pro",
@@ -118,7 +118,7 @@ Replace <i>my_application_id</i> with your real Application Id
     "company_id": "xyz", // Company Id
     "current_period_start": "2024-01-21T17:32:28.000Z",
     "current_period_end": "2024-11-21T17:32:28.000Z",
-    "status": "active", 
+    "status": "active",
     "metadata": {
         "subscription_type": "PAYG",
         "subscription_tier": "Enterprise",
@@ -137,11 +137,11 @@ curl --location 'https://api.moesif.net/v1/subscriptions/batch' \
 --header 'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID' \
 --header 'Content-Type: application/json' \
 --data '[{
-    "subscription_id": "12345", 
-    "company_id": "67890", 
+    "subscription_id": "12345",
+    "company_id": "67890",
     "current_period_start": "2024-01-21T17:32:28.000Z",
     "current_period_end": "2024-11-21T17:32:28.000Z",
-    "status": "active", 
+    "status": "active",
     "metadata": {
         "subscription_type": "PAYG",
         "subscription_tier": "Pro",
@@ -159,7 +159,7 @@ Subscriptions in Moesif are identified via a `subscription_id` and should be a _
 |Name|Type|Required|Description|
 |-----------|-----------|-----------|-----------|
 |subscription_id |string| __true__ | The unique identifier for this subscription.|
-|company_id |string| __true__ | The unique identifier for the company this subscruiption should be associated with.|
+|company_id |string| __true__ | The unique identifier for the company this subscription should be associated with.|
 |current_period_start |string(date-time)| false | The start time of the current billing term. This can be yearly, monthly, or other billing term. Required for quota and billing management.|
 |current_period_end |string(date-time)| false | The end time of the current billing term. This can be yearly, monthly, or other billing term. Required for quota and billing management.|
 |status |string| false | One of [active, cancelled, paused, trialing, pending, draft, future]. This can be used to drive governance rules that the subscription status in Moesif such as blocking access to cancelled subscriptions.|
