@@ -63,7 +63,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 [
     {
         "_id": "64ca685a833073c6b41b15f3",
-        "created_at": "2024-01-01T00:00:00.000",
+        "created_at": "2024-02-01T00:00:00.000",
         "name": "Block Free Users who Exceeded their Monthly Quota",
         "block": true,
         "type": "user",
