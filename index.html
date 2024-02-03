@@ -734,9 +734,15 @@ select the respective language tab.</p>
 </tr>
 </tbody></table>
 
-<h2 id="limits-and-slas">Limits and SLAs</h2>
+<h2 id="limits-and-restrictions">Limits and Restrictions</h2>
 
-<h3 id="collector-api">Collector API</h3>
+<p>Moesif has certain limits to ensure performance and stability for all Moesif customers. The Management APIs are rate limited to protect service degradation. Moesif also has limits on event size to ensure performance of your account.</p>
+
+<p><strong>Moesif does not rate limit data ingestion via the collector APIs. However, you can still be throttled due to security reasons to product Moesif infrastructure. This may happen when unusual behavior is detected such as exceeding your quota by a wide margin</strong></p>
+
+<h3 id="maximum-event-size">Maximum Event Size</h3>
+
+<p>Collected events have size limits to ensure performance and stability of the Moesif platform for customers.</p>
 
 <table><thead>
 <tr>
@@ -753,7 +759,7 @@ select the respective language tab.</p>
 <td>50MB</td>
 </tr>
 <tr>
-<td>Cutoff for a request.body or response.body</td>
+<td>Truncation size of request.body or response.body</td>
 <td>450KB</td>
 </tr>
 </tbody></table>
@@ -767,23 +773,24 @@ select the respective language tab.</p>
 
 <p>If you&rsquo;re sending a batch of events to the batch API, the maximum batch size is 50MB regardless if compression is used. For batches of events greater than 50MB, you should break up the batch into smaller batches. </p>
 
-<h3 id="automatic-mitigation">Automatic Mitigation</h3>
-
 <p>Moesif will still try to log events over 1MB by truncating the request or response body to 450Kb and base64 encoded it. The logged body won&rsquo;t be valid JSON but at least the event is logged for later inspection. A warning is also displayed in the Moesif app so you can identify when this is occurring. The partial body will not be analyzed by Moesif&rsquo;s body analytics feature so filters may not match on body fields, etc.</p>
 
-<h3 id="management-api">Management API</h3>
+<h3 id="management-api-rate-limits">Management API Rate Limits</h3>
 
-<p>The Management API has a rate limit of 500 queries/minute, but can burst higher if needed. The Management API will return <code class="prettyprint">429 Too Many Requests</code> once you hit this limit. Moesif reserves the right to modify these limits to protect the reliability of the Moesif Platform. </p>
+<p>To ensure performance of search queries, the Management API has a rate limit of 500 queries/minute, but can burst higher based on your history and pattern. The Management API will return <code class="prettyprint">429 Too Many Requests</code> once you hit this limit. This operates on a fixed calendar minute period. Moesif reserves the right to modify these limits to protect the reliability of the Moesif Platform. </p>
 
-<p>The Management API is intended for interactive workflows and programmatically query metrics. If you need to ingest a lot of data at once, you must use the Collector API. If you need to export a lot of data, you should use the bulk export feature. </p>
+<p>The search APIs are intended for interactive workflows such as logging into Moesif UI or to integrate Moesif into your applications.
+If you need to transfer large amounts of data to cloud object storage (like Azure Storage) or to your data warehouse, you should use the bulk export APIs and not the search API.</p>
+
+<p><strong>Moesif does not rate limit data ingestion via the collector APIs. However, you can still be throttled due to security reasons to product Moesif infrastructure. This may happen when unusual behavior is detected such as exceeding your quota by a wide margin</strong></p>
 
 <h3 id="late-events">Late Events</h3>
 
-<p>The Moesif collector API and integrations stream events in real-time. However, we understand you may have special circumstances that cause events to be sent later than expected. By default, Moesif can process events that are up to 30 days in the past. If it&rsquo;s over 30 days, the request will be rejected by the collector. If you need to backfill historical data larger than this, please contact us so we can temporarily enable it for your subscription.</p>
+<p>Moesif server integrations stream events to the collector API in real-time. If you build a custom integration, you should also send events in real-time.</p>
 
-<h3 id="impact-to-workflows">Impact to workflows</h3>
+<p>However, we understand you may have special circumstances that cause events to be sent later than expected. By default, Moesif can process events that are up to 30 days in the past. By default, events older than 30 days are rejected by the collector API. If you need an exception to backfill more historical data, please contact us so we can enable your account for backfill.</p>
 
-<p>Events that are more than 5 minutes in the past are considered &ldquo;late events&rdquo; which may impact certain workflows like alerts and billing that have strict deadlines. Moesif server integrations streams events to Moesif in real-time within milliseconds so if you have an ingestion delay in the minutes it likely implies something wrong with your server integration or clock. We track ingestion delays internally, so we&rsquo;ll reach out if we see such issues happening on your account.</p>
+<p>While Moesif will process the events, events that are more than 5 minutes old are considered &ldquo;late events&rdquo;. Certain workflows with strict deadlines like alerting and billing may be impacted. If you&rsquo;re using a native Moesif server integrations, this shouldn&rsquo;t be an issue as they stream events to Moesif in real-time within milliseconds. If you have an ingestion delay in the minutes it likely implies something wrong with your server integration. Server clock can be another issue if incorrectly set. We do track ingestion delays internally, so we&rsquo;ll reach out if we see such issues happening on your account.</p>
 
           <h1 id="api-libs">API Libs</h1>
 
