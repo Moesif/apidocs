@@ -287,17 +287,69 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|undefined|false|none|
+|body|body|[GovernanceRuleCreateItem](#schemagovernancerulecreateitem)|false|none|
 
 > Example responses
+
+> 201 Response
+
+```json
+{
+  "name": "string",
+  "priority": 0,
+  "model": "string",
+  "state": 0,
+  "cohorts": [
+    {}
+  ],
+  "_id": "string",
+  "variables": [
+    {
+      "name": "string",
+      "path": "string"
+    }
+  ],
+  "applied_to": "string",
+  "block": true,
+  "response": {
+    "status": 0,
+    "headers": null,
+    "body": {},
+    "original_encoded_body": "string"
+  },
+  "applied_to_unidentified": true,
+  "regex_config": [
+    {
+      "conditions": [
+        {
+          "path": "string",
+          "value": "string"
+        }
+      ],
+      "sample_rate": 0
+    }
+  ],
+  "created_at": "2019-08-24T14:15:22Z",
+  "app_id": "string",
+  "plans": [
+    {
+      "provider": "string",
+      "plan_id": "string",
+      "price_ids": [
+        "string"
+      ]
+    }
+  ],
+  "type": "string",
+  "org_id": "string"
+}
+```
 
 <h3 id="creategovernancerule-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|None|
-
-<h3 id="creategovernancerule-responseschema">Response Schema</h3>
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|[GovernanceRulesDocument](#schemagovernancerulesdocument)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -514,13 +566,65 @@ System.out.println(response.toString());
 
 > Example responses
 
+> 200 Response
+
+```json
+{
+  "name": "string",
+  "priority": 0,
+  "model": "string",
+  "state": 0,
+  "cohorts": [
+    {}
+  ],
+  "_id": "string",
+  "variables": [
+    {
+      "name": "string",
+      "path": "string"
+    }
+  ],
+  "applied_to": "string",
+  "block": true,
+  "response": {
+    "status": 0,
+    "headers": null,
+    "body": {},
+    "original_encoded_body": "string"
+  },
+  "applied_to_unidentified": true,
+  "regex_config": [
+    {
+      "conditions": [
+        {
+          "path": "string",
+          "value": "string"
+        }
+      ],
+      "sample_rate": 0
+    }
+  ],
+  "created_at": "2019-08-24T14:15:22Z",
+  "app_id": "string",
+  "plans": [
+    {
+      "provider": "string",
+      "plan_id": "string",
+      "price_ids": [
+        "string"
+      ]
+    }
+  ],
+  "type": "string",
+  "org_id": "string"
+}
+```
+
 <h3 id="getgovernancerules-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="getgovernancerules-responseschema">Response Schema</h3>
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[GovernanceRulesDocument](#schemagovernancerulesdocument)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -747,17 +851,69 @@ System.out.println(response.toString());
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |id|path|string|true|none|
-|body|body|undefined|false|none|
+|body|body|[GovernanceRuleUpdateItem](#schemagovernanceruleupdateitem)|false|none|
 
 > Example responses
+
+> 201 Response
+
+```json
+{
+  "name": "string",
+  "priority": 0,
+  "model": "string",
+  "state": 0,
+  "cohorts": [
+    {}
+  ],
+  "_id": "string",
+  "variables": [
+    {
+      "name": "string",
+      "path": "string"
+    }
+  ],
+  "applied_to": "string",
+  "block": true,
+  "response": {
+    "status": 0,
+    "headers": null,
+    "body": {},
+    "original_encoded_body": "string"
+  },
+  "applied_to_unidentified": true,
+  "regex_config": [
+    {
+      "conditions": [
+        {
+          "path": "string",
+          "value": "string"
+        }
+      ],
+      "sample_rate": 0
+    }
+  ],
+  "created_at": "2019-08-24T14:15:22Z",
+  "app_id": "string",
+  "plans": [
+    {
+      "provider": "string",
+      "plan_id": "string",
+      "price_ids": [
+        "string"
+      ]
+    }
+  ],
+  "type": "string",
+  "org_id": "string"
+}
+```
 
 <h3 id="updategovernancerule-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|None|
-
-<h3 id="updategovernancerule-responseschema">Response Schema</h3>
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|[GovernanceRulesDocument](#schemagovernancerulesdocument)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -975,13 +1131,65 @@ System.out.println(response.toString());
 
 > Example responses
 
+> 200 Response
+
+```json
+{
+  "name": "string",
+  "priority": 0,
+  "model": "string",
+  "state": 0,
+  "cohorts": [
+    {}
+  ],
+  "_id": "string",
+  "variables": [
+    {
+      "name": "string",
+      "path": "string"
+    }
+  ],
+  "applied_to": "string",
+  "block": true,
+  "response": {
+    "status": 0,
+    "headers": null,
+    "body": {},
+    "original_encoded_body": "string"
+  },
+  "applied_to_unidentified": true,
+  "regex_config": [
+    {
+      "conditions": [
+        {
+          "path": "string",
+          "value": "string"
+        }
+      ],
+      "sample_rate": 0
+    }
+  ],
+  "created_at": "2019-08-24T14:15:22Z",
+  "app_id": "string",
+  "plans": [
+    {
+      "provider": "string",
+      "plan_id": "string",
+      "price_ids": [
+        "string"
+      ]
+    }
+  ],
+  "type": "string",
+  "org_id": "string"
+}
+```
+
 <h3 id="getgovernancerule-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="getgovernancerule-responseschema">Response Schema</h3>
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[GovernanceRulesDocument](#schemagovernancerulesdocument)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -3429,13 +3637,49 @@ System.out.println(response.toString());
 
 > Example responses
 
+> 201 Response
+
+```json
+{
+  "parent": "string",
+  "name": "string",
+  "_id": "string",
+  "auth_user_id": "string",
+  "profile_view_promotion": "string",
+  "app_id": "string",
+  "workspace_ids": [
+    [
+      "string"
+    ]
+  ],
+  "sort_order": 0,
+  "dashboard_ids": [
+    "string"
+  ],
+  "policy": {
+    "acl": [
+      {
+        "grantee": "string",
+        "permission": "string"
+      }
+    ],
+    "resource": {},
+    "api_scopes": [
+      "string"
+    ],
+    "original_encoded_resource": "string"
+  },
+  "org_id": "string",
+  "migration": {},
+  "created": "2019-08-24T14:15:22Z"
+}
+```
+
 <h3 id="createdashboard-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|None|
-
-<h3 id="createdashboard-responseschema">Response Schema</h3>
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|[DashboardDocument](#schemadashboarddocument)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -3881,7 +4125,35 @@ Query audit history of billing reports to external billing providers
 > 200 Response
 
 ```json
-[]
+[
+  {
+    "company_id": "string",
+    "success": true,
+    "provider": "string",
+    "report_version": 0,
+    "usage_end_time": "2019-08-24T14:15:22Z",
+    "_id": "string",
+    "meter_usage": 0,
+    "last_success_time": "2019-08-24T14:15:22Z",
+    "billing_meter_id": "string",
+    "amount": 0,
+    "usage_start_time": "2019-08-24T14:15:22Z",
+    "provider_requests": [
+      null
+    ],
+    "currency": "string",
+    "report_total_usage": 0,
+    "channel_requests": [
+      null
+    ],
+    "created_at": "2019-08-24T14:15:22Z",
+    "app_id": "string",
+    "subscription_id": "string",
+    "updated_at": "2019-08-24T14:15:22Z",
+    "org_id": "string",
+    "meter_metric": 0
+  }
+]
 ```
 
 <h3 id="getbillingreports-responses">Responses</h3>
@@ -3896,7 +4168,28 @@ Status Code **200**
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|» *anonymous*|any|false|none|none|
+|*anonymous*|[[.BillingReport](#schema.billingreport)]|false|none|none|
+|» company_id|string|true|none|none|
+|» success|boolean|true|none|none|
+|» provider|string|true|none|none|
+|» report_version|integer(int32)|false|none|none|
+|» usage_end_time|string(date-time)|true|none|none|
+|» _id|string|false|none|none|
+|» meter_usage|integer(int64)|true|none|none|
+|» last_success_time|string(date-time)|false|none|none|
+|» billing_meter_id|string|true|none|none|
+|» amount|number(double)|false|none|none|
+|» usage_start_time|string(date-time)|true|none|none|
+|» provider_requests|[providerrequest]|true|none|none|
+|» currency|string|false|none|none|
+|» report_total_usage|integer(int64)|true|none|none|
+|» channel_requests|[channelrequest]|true|none|none|
+|» created_at|string(date-time)|false|none|none|
+|» app_id|string|true|none|none|
+|» subscription_id|string|true|none|none|
+|» updated_at|string(date-time)|false|none|none|
+|» org_id|string|true|none|none|
+|» meter_metric|integer(int64)|true|none|none|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -4371,17 +4664,32 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|undefined|false|none|
+|body|body|[EncryptedKeyCreateItem](#schemaencryptedkeycreateitem)|false|none|
 
 > Example responses
+
+> 201 Response
+
+```json
+{
+  "_id": "string",
+  "to": "2019-08-24T14:15:22Z",
+  "encrypted_key": "string",
+  "modified_at": "2019-08-24T14:15:22Z",
+  "from": "2019-08-24T14:15:22Z",
+  "created_at": "2019-08-24T14:15:22Z",
+  "app_id": "string",
+  "type": "string",
+  "org_id": "string",
+  "month": "string"
+}
+```
 
 <h3 id="createencryptedkeys-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|None|
-
-<h3 id="createencryptedkeys-responseschema">Response Schema</h3>
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|[EncryptedKeyDocument](#schemaencryptedkeydocument)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -4601,13 +4909,28 @@ System.out.println(response.toString());
 
 > Example responses
 
+> 200 Response
+
+```json
+{
+  "_id": "string",
+  "to": "2019-08-24T14:15:22Z",
+  "encrypted_key": "string",
+  "modified_at": "2019-08-24T14:15:22Z",
+  "from": "2019-08-24T14:15:22Z",
+  "created_at": "2019-08-24T14:15:22Z",
+  "app_id": "string",
+  "type": "string",
+  "org_id": "string",
+  "month": "string"
+}
+```
+
 <h3 id="getencryptedkeys-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="getencryptedkeys-responseschema">Response Schema</h3>
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[EncryptedKeyDocument](#schemaencryptedkeydocument)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -4825,13 +5148,28 @@ System.out.println(response.toString());
 
 > Example responses
 
+> 200 Response
+
+```json
+{
+  "_id": "string",
+  "to": "2019-08-24T14:15:22Z",
+  "encrypted_key": "string",
+  "modified_at": "2019-08-24T14:15:22Z",
+  "from": "2019-08-24T14:15:22Z",
+  "created_at": "2019-08-24T14:15:22Z",
+  "app_id": "string",
+  "type": "string",
+  "org_id": "string",
+  "month": "string"
+}
+```
+
 <h3 id="getencryptedkey-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="getencryptedkey-responseschema">Response Schema</h3>
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[EncryptedKeyDocument](#schemaencryptedkeydocument)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -5061,7 +5399,7 @@ Get a new Workspace Access Token
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[SignedTokenDTO](#schemasignedtokendto)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[com.moesif.dash.SignedTokenDTO](#schemacom.moesif.dash.signedtokendto)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -5281,7 +5619,105 @@ System.out.println(response.toString());
 > 200 Response
 
 ```json
-[]
+[
+  {
+    "name": "string",
+    "is_default": true,
+    "view_count": 0,
+    "_id": "string",
+    "is_template": true,
+    "dashboard": {},
+    "auth_user_id": "string",
+    "colors": {},
+    "sequence": [
+      {
+        "delay": 0,
+        "submit_data": {
+          "body": {},
+          "url": "string",
+          "params": [
+            {
+              "key": "string",
+              "val": "string"
+            }
+          ],
+          "verb": "string",
+          "headers": [
+            {
+              "key": "string",
+              "val": "string"
+            }
+          ]
+        }
+      }
+    ],
+    "drawings": [
+      {
+        "name": "string",
+        "direction": "string",
+        "id": "string",
+        "type": "string",
+        "value": 0
+      }
+    ],
+    "chart": {
+      "original_encoded_view_elements": "string",
+      "funnel_query": {},
+      "url_query": "string",
+      "to": "string",
+      "view_elements": {},
+      "from": "string",
+      "original_encoded_funnel_query": "string",
+      "es_query": {},
+      "args": "string",
+      "original_encoded_query": "string",
+      "time_zone": "string",
+      "view": "string"
+    },
+    "template": {
+      "dynamic_fields": [
+        "string"
+      ],
+      "dynamic_time": true
+    },
+    "app_id": "string",
+    "type": "string",
+    "width": 0,
+    "sort_order": 0,
+    "policy": {
+      "acl": [
+        {
+          "grantee": "string",
+          "permission": "string"
+        }
+      ],
+      "resource": {},
+      "api_scopes": [
+        "string"
+      ],
+      "original_encoded_resource": "string"
+    },
+    "org_id": "string",
+    "migration": {},
+    "created": "2019-08-24T14:15:22Z",
+    "comments": {
+      "summary": {
+        "count": 0,
+        "latest_comment": {
+          "auth_user_id": "string",
+          "comment_id": "string",
+          "mentions": [
+            "string"
+          ],
+          "partner_user_id": "string",
+          "message": "string",
+          "created_at": "2019-08-24T14:15:22Z",
+          "updated_at": "2019-08-24T14:15:22Z"
+        }
+      }
+    }
+  }
+]
 ```
 
 <h3 id="getworkspacetemplates-responses">Responses</h3>
@@ -5296,7 +5732,72 @@ Status Code **200**
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|» *anonymous*|any|false|none|none|
+|*anonymous*|[[WorkspaceDocument](#schemaworkspacedocument)]|false|none|none|
+|» name|string|false|none|none|
+|» is_default|boolean|false|none|none|
+|» view_count|integer(int32)|true|none|none|
+|» _id|string|false|none|none|
+|» is_template|boolean|false|none|none|
+|» dashboard|object|false|none|none|
+|» auth_user_id|string|true|none|none|
+|» colors|object|false|none|none|
+|» sequence|[[SequenceItem](#schemasequenceitem)]|false|none|none|
+|»» delay|integer(int32)|true|none|none|
+|»» submit_data|object|true|none|none|
+|»»» body|object|false|none|none|
+|»»» url|string|true|none|none|
+|»»» params|[[KeyValuePair](#schemakeyvaluepair)]|false|none|none|
+|»»»» key|string|true|none|none|
+|»»»» val|string|true|none|none|
+|»»» verb|string|true|none|none|
+|»»» headers|[[KeyValuePair](#schemakeyvaluepair)]|false|none|none|
+|» drawings|[[DrawingItem](#schemadrawingitem)]|false|none|none|
+|»» name|string|true|none|none|
+|»» direction|string|true|none|none|
+|»» id|string|true|none|none|
+|»» type|string|true|none|none|
+|»» value|number(double)|true|none|none|
+|» chart|object|false|none|none|
+|»» original_encoded_view_elements|string|false|none|none|
+|»» funnel_query|object|false|none|none|
+|»» url_query|string|true|none|none|
+|»» to|string|false|none|none|
+|»» view_elements|object|false|none|none|
+|»» from|string|false|none|none|
+|»» original_encoded_funnel_query|string|false|none|none|
+|»» es_query|object|false|none|none|
+|»» args|string|false|none|none|
+|»» original_encoded_query|string|false|none|none|
+|»» time_zone|string|false|none|none|
+|»» view|string|true|none|none|
+|» template|object|false|none|none|
+|»» dynamic_fields|[string]|true|none|none|
+|»» dynamic_time|boolean|false|none|none|
+|» app_id|string|true|none|none|
+|» type|string|false|none|none|
+|» width|number(double)|false|none|none|
+|» sort_order|number(double)|false|none|none|
+|» policy|object|false|none|none|
+|»» acl|[[ACLItem](#schemaaclitem)]|true|none|none|
+|»»» grantee|string|true|none|none|
+|»»» permission|string|true|none|none|
+|»» resource|object|true|none|none|
+|»» api_scopes|[string]|false|none|none|
+|»» original_encoded_resource|string|false|none|none|
+|» org_id|string|true|none|none|
+|» migration|object|false|none|none|
+|» created|string(date-time)|true|none|none|
+|» comments|object|false|none|none|
+|»» summary|object|true|none|none|
+|»»» count|integer(int32)|true|none|none|
+|»»» latest_comment|object|false|none|none|
+|»»»» auth_user_id|string|false|none|none|
+|»»»» comment_id|string|false|none|none|
+|»»»» mentions|[string]|false|none|none|
+|»»»» partner_user_id|string|false|none|none|
+|»»»» message|string|false|none|none|
+|»»»» created_at|string(date-time)|false|none|none|
+|»»»» updated_at|string(date-time)|false|none|none|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -6183,13 +6684,113 @@ System.out.println(response.toString());
 
 > Example responses
 
+> 200 Response
+
+```json
+{
+  "name": "string",
+  "is_default": true,
+  "view_count": 0,
+  "_id": "string",
+  "is_template": true,
+  "dashboard": {},
+  "auth_user_id": "string",
+  "colors": {},
+  "sequence": [
+    {
+      "delay": 0,
+      "submit_data": {
+        "body": {},
+        "url": "string",
+        "params": [
+          {
+            "key": "string",
+            "val": "string"
+          }
+        ],
+        "verb": "string",
+        "headers": [
+          {
+            "key": "string",
+            "val": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "drawings": [
+    {
+      "name": "string",
+      "direction": "string",
+      "id": "string",
+      "type": "string",
+      "value": 0
+    }
+  ],
+  "chart": {
+    "original_encoded_view_elements": "string",
+    "funnel_query": {},
+    "url_query": "string",
+    "to": "string",
+    "view_elements": {},
+    "from": "string",
+    "original_encoded_funnel_query": "string",
+    "es_query": {},
+    "args": "string",
+    "original_encoded_query": "string",
+    "time_zone": "string",
+    "view": "string"
+  },
+  "template": {
+    "dynamic_fields": [
+      "string"
+    ],
+    "dynamic_time": true
+  },
+  "app_id": "string",
+  "type": "string",
+  "width": 0,
+  "sort_order": 0,
+  "policy": {
+    "acl": [
+      {
+        "grantee": "string",
+        "permission": "string"
+      }
+    ],
+    "resource": {},
+    "api_scopes": [
+      "string"
+    ],
+    "original_encoded_resource": "string"
+  },
+  "org_id": "string",
+  "migration": {},
+  "created": "2019-08-24T14:15:22Z",
+  "comments": {
+    "summary": {
+      "count": 0,
+      "latest_comment": {
+        "auth_user_id": "string",
+        "comment_id": "string",
+        "mentions": [
+          "string"
+        ],
+        "partner_user_id": "string",
+        "message": "string",
+        "created_at": "2019-08-24T14:15:22Z",
+        "updated_at": "2019-08-24T14:15:22Z"
+      }
+    }
+  }
+}
+```
+
 <h3 id="getworkspace-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="getworkspace-responseschema">Response Schema</h3>
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[WorkspaceDocument](#schemaworkspacedocument)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -6622,13 +7223,113 @@ System.out.println(response.toString());
 
 > Example responses
 
+> 200 Response
+
+```json
+{
+  "name": "string",
+  "is_default": true,
+  "view_count": 0,
+  "_id": "string",
+  "is_template": true,
+  "dashboard": {},
+  "auth_user_id": "string",
+  "colors": {},
+  "sequence": [
+    {
+      "delay": 0,
+      "submit_data": {
+        "body": {},
+        "url": "string",
+        "params": [
+          {
+            "key": "string",
+            "val": "string"
+          }
+        ],
+        "verb": "string",
+        "headers": [
+          {
+            "key": "string",
+            "val": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "drawings": [
+    {
+      "name": "string",
+      "direction": "string",
+      "id": "string",
+      "type": "string",
+      "value": 0
+    }
+  ],
+  "chart": {
+    "original_encoded_view_elements": "string",
+    "funnel_query": {},
+    "url_query": "string",
+    "to": "string",
+    "view_elements": {},
+    "from": "string",
+    "original_encoded_funnel_query": "string",
+    "es_query": {},
+    "args": "string",
+    "original_encoded_query": "string",
+    "time_zone": "string",
+    "view": "string"
+  },
+  "template": {
+    "dynamic_fields": [
+      "string"
+    ],
+    "dynamic_time": true
+  },
+  "app_id": "string",
+  "type": "string",
+  "width": 0,
+  "sort_order": 0,
+  "policy": {
+    "acl": [
+      {
+        "grantee": "string",
+        "permission": "string"
+      }
+    ],
+    "resource": {},
+    "api_scopes": [
+      "string"
+    ],
+    "original_encoded_resource": "string"
+  },
+  "org_id": "string",
+  "migration": {},
+  "created": "2019-08-24T14:15:22Z",
+  "comments": {
+    "summary": {
+      "count": 0,
+      "latest_comment": {
+        "auth_user_id": "string",
+        "comment_id": "string",
+        "mentions": [
+          "string"
+        ],
+        "partner_user_id": "string",
+        "message": "string",
+        "created_at": "2019-08-24T14:15:22Z",
+        "updated_at": "2019-08-24T14:15:22Z"
+      }
+    }
+  }
+}
+```
+
 <h3 id="getpublicworkspace-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="getpublicworkspace-responseschema">Response Schema</h3>
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[WorkspaceDocument](#schemaworkspacedocument)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -7305,13 +8006,113 @@ System.out.println(response.toString());
 
 > Example responses
 
+> 201 Response
+
+```json
+{
+  "name": "string",
+  "is_default": true,
+  "view_count": 0,
+  "_id": "string",
+  "is_template": true,
+  "dashboard": {},
+  "auth_user_id": "string",
+  "colors": {},
+  "sequence": [
+    {
+      "delay": 0,
+      "submit_data": {
+        "body": {},
+        "url": "string",
+        "params": [
+          {
+            "key": "string",
+            "val": "string"
+          }
+        ],
+        "verb": "string",
+        "headers": [
+          {
+            "key": "string",
+            "val": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "drawings": [
+    {
+      "name": "string",
+      "direction": "string",
+      "id": "string",
+      "type": "string",
+      "value": 0
+    }
+  ],
+  "chart": {
+    "original_encoded_view_elements": "string",
+    "funnel_query": {},
+    "url_query": "string",
+    "to": "string",
+    "view_elements": {},
+    "from": "string",
+    "original_encoded_funnel_query": "string",
+    "es_query": {},
+    "args": "string",
+    "original_encoded_query": "string",
+    "time_zone": "string",
+    "view": "string"
+  },
+  "template": {
+    "dynamic_fields": [
+      "string"
+    ],
+    "dynamic_time": true
+  },
+  "app_id": "string",
+  "type": "string",
+  "width": 0,
+  "sort_order": 0,
+  "policy": {
+    "acl": [
+      {
+        "grantee": "string",
+        "permission": "string"
+      }
+    ],
+    "resource": {},
+    "api_scopes": [
+      "string"
+    ],
+    "original_encoded_resource": "string"
+  },
+  "org_id": "string",
+  "migration": {},
+  "created": "2019-08-24T14:15:22Z",
+  "comments": {
+    "summary": {
+      "count": 0,
+      "latest_comment": {
+        "auth_user_id": "string",
+        "comment_id": "string",
+        "mentions": [
+          "string"
+        ],
+        "partner_user_id": "string",
+        "message": "string",
+        "created_at": "2019-08-24T14:15:22Z",
+        "updated_at": "2019-08-24T14:15:22Z"
+      }
+    }
+  }
+}
+```
+
 <h3 id="createworkspace-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|None|
-
-<h3 id="createworkspace-responseschema">Response Schema</h3>
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|[WorkspaceDocument](#schemaworkspacedocument)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -7541,7 +8342,105 @@ System.out.println(response.toString());
 > 200 Response
 
 ```json
-[]
+[
+  {
+    "name": "string",
+    "is_default": true,
+    "view_count": 0,
+    "_id": "string",
+    "is_template": true,
+    "dashboard": {},
+    "auth_user_id": "string",
+    "colors": {},
+    "sequence": [
+      {
+        "delay": 0,
+        "submit_data": {
+          "body": {},
+          "url": "string",
+          "params": [
+            {
+              "key": "string",
+              "val": "string"
+            }
+          ],
+          "verb": "string",
+          "headers": [
+            {
+              "key": "string",
+              "val": "string"
+            }
+          ]
+        }
+      }
+    ],
+    "drawings": [
+      {
+        "name": "string",
+        "direction": "string",
+        "id": "string",
+        "type": "string",
+        "value": 0
+      }
+    ],
+    "chart": {
+      "original_encoded_view_elements": "string",
+      "funnel_query": {},
+      "url_query": "string",
+      "to": "string",
+      "view_elements": {},
+      "from": "string",
+      "original_encoded_funnel_query": "string",
+      "es_query": {},
+      "args": "string",
+      "original_encoded_query": "string",
+      "time_zone": "string",
+      "view": "string"
+    },
+    "template": {
+      "dynamic_fields": [
+        "string"
+      ],
+      "dynamic_time": true
+    },
+    "app_id": "string",
+    "type": "string",
+    "width": 0,
+    "sort_order": 0,
+    "policy": {
+      "acl": [
+        {
+          "grantee": "string",
+          "permission": "string"
+        }
+      ],
+      "resource": {},
+      "api_scopes": [
+        "string"
+      ],
+      "original_encoded_resource": "string"
+    },
+    "org_id": "string",
+    "migration": {},
+    "created": "2019-08-24T14:15:22Z",
+    "comments": {
+      "summary": {
+        "count": 0,
+        "latest_comment": {
+          "auth_user_id": "string",
+          "comment_id": "string",
+          "mentions": [
+            "string"
+          ],
+          "partner_user_id": "string",
+          "message": "string",
+          "created_at": "2019-08-24T14:15:22Z",
+          "updated_at": "2019-08-24T14:15:22Z"
+        }
+      }
+    }
+  }
+]
 ```
 
 <h3 id="getworkspaces-responses">Responses</h3>
@@ -7556,7 +8455,72 @@ Status Code **200**
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|» *anonymous*|any|false|none|none|
+|*anonymous*|[[WorkspaceDocument](#schemaworkspacedocument)]|false|none|none|
+|» name|string|false|none|none|
+|» is_default|boolean|false|none|none|
+|» view_count|integer(int32)|true|none|none|
+|» _id|string|false|none|none|
+|» is_template|boolean|false|none|none|
+|» dashboard|object|false|none|none|
+|» auth_user_id|string|true|none|none|
+|» colors|object|false|none|none|
+|» sequence|[[SequenceItem](#schemasequenceitem)]|false|none|none|
+|»» delay|integer(int32)|true|none|none|
+|»» submit_data|object|true|none|none|
+|»»» body|object|false|none|none|
+|»»» url|string|true|none|none|
+|»»» params|[[KeyValuePair](#schemakeyvaluepair)]|false|none|none|
+|»»»» key|string|true|none|none|
+|»»»» val|string|true|none|none|
+|»»» verb|string|true|none|none|
+|»»» headers|[[KeyValuePair](#schemakeyvaluepair)]|false|none|none|
+|» drawings|[[DrawingItem](#schemadrawingitem)]|false|none|none|
+|»» name|string|true|none|none|
+|»» direction|string|true|none|none|
+|»» id|string|true|none|none|
+|»» type|string|true|none|none|
+|»» value|number(double)|true|none|none|
+|» chart|object|false|none|none|
+|»» original_encoded_view_elements|string|false|none|none|
+|»» funnel_query|object|false|none|none|
+|»» url_query|string|true|none|none|
+|»» to|string|false|none|none|
+|»» view_elements|object|false|none|none|
+|»» from|string|false|none|none|
+|»» original_encoded_funnel_query|string|false|none|none|
+|»» es_query|object|false|none|none|
+|»» args|string|false|none|none|
+|»» original_encoded_query|string|false|none|none|
+|»» time_zone|string|false|none|none|
+|»» view|string|true|none|none|
+|» template|object|false|none|none|
+|»» dynamic_fields|[string]|true|none|none|
+|»» dynamic_time|boolean|false|none|none|
+|» app_id|string|true|none|none|
+|» type|string|false|none|none|
+|» width|number(double)|false|none|none|
+|» sort_order|number(double)|false|none|none|
+|» policy|object|false|none|none|
+|»» acl|[[ACLItem](#schemaaclitem)]|true|none|none|
+|»»» grantee|string|true|none|none|
+|»»» permission|string|true|none|none|
+|»» resource|object|true|none|none|
+|»» api_scopes|[string]|false|none|none|
+|»» original_encoded_resource|string|false|none|none|
+|» org_id|string|true|none|none|
+|» migration|object|false|none|none|
+|» created|string(date-time)|true|none|none|
+|» comments|object|false|none|none|
+|»» summary|object|true|none|none|
+|»»» count|integer(int32)|true|none|none|
+|»»» latest_comment|object|false|none|none|
+|»»»» auth_user_id|string|false|none|none|
+|»»»» comment_id|string|false|none|none|
+|»»»» mentions|[string]|false|none|none|
+|»»»» partner_user_id|string|false|none|none|
+|»»»» message|string|false|none|none|
+|»»»» created_at|string(date-time)|false|none|none|
+|»»»» updated_at|string(date-time)|false|none|none|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -8219,7 +9183,7 @@ System.out.println(response.toString());
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |cohortId|path|string|true|none|
-|body|body|undefined|false|none|
+|body|body|[CohortUpdateItem](#schemacohortupdateitem)|false|none|
 
 <h3 id="updatecohort-responses">Responses</h3>
 
@@ -9099,17 +10063,47 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|undefined|false|none|
+|body|body|[CohortCreateItem](#schemacohortcreateitem)|false|none|
 
 > Example responses
+
+> 201 Response
+
+```json
+{
+  "channels": null,
+  "priority": 0,
+  "url_query": "string",
+  "criteria": "string",
+  "_id": "string",
+  "sample_rate": 0,
+  "notification_rule": {
+    "send_on_addition": true,
+    "send_on_removal": true,
+    "period": "string",
+    "fields": [
+      "string"
+    ]
+  },
+  "cohort_name": "string",
+  "to": "string",
+  "week_starts_on": 0,
+  "locked_by": "string",
+  "modified_at": "2019-08-24T14:15:22Z",
+  "from": "string",
+  "created_at": "2019-08-24T14:15:22Z",
+  "app_id": "string",
+  "cohort_type": "string",
+  "time_zone": "string",
+  "org_id": "string"
+}
+```
 
 <h3 id="createcohort-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|None|
-
-<h3 id="createcohort-responseschema">Response Schema</h3>
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|[CohortDocument](#schemacohortdocument)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -9548,13 +10542,311 @@ Get Billing Meter by id
 
 > Example responses
 
+> 200 Response
+
+```json
+{
+  "name": "string",
+  "billing_plan": {
+    "provider_slug": "string",
+    "friendly_name": "string",
+    "params": {
+      "usage_rounding_mode": "string",
+      "webhook_params": {
+        "reporting": {
+          "report_when": [
+            "string"
+          ]
+        },
+        "channel_ids": [
+          "string"
+        ],
+        "custom_plan": {
+          "plan_id": "string"
+        }
+      },
+      "recurly_params": {
+        "plan": {
+          "name": "string",
+          "id": "string",
+          "code": "string"
+        },
+        "add_on": {
+          "name": "string",
+          "currencies": [
+            {
+              "currency": "string",
+              "unit_amount": null,
+              "unit_amount_decimal": "string"
+            }
+          ],
+          "usage_percentage": null,
+          "add_on_type": "string",
+          "external_sku": "string",
+          "state": "string",
+          "tiers": [
+            {
+              "ending_quantity": 0,
+              "currencies": [
+                {
+                  "currency": "string",
+                  "unit_amount": null,
+                  "unit_amount_decimal": "string"
+                }
+              ]
+            }
+          ],
+          "tier_type": "string",
+          "code": "string",
+          "plan_id": "string",
+          "id": "string",
+          "percentage_tiers": [
+            {
+              "tiers": [
+                {
+                  "ending_amount": null,
+                  "usage_percent": "string"
+                }
+              ],
+              "currency": "string"
+            }
+          ],
+          "usage_type": "string",
+          "created_at": "string",
+          "usage_calculation_type": "string",
+          "updated_at": "string",
+          "deleted_at": "string"
+        },
+        "add_ons": [
+          {
+            "name": "string",
+            "currencies": [
+              {
+                "currency": "string",
+                "unit_amount": null,
+                "unit_amount_decimal": "string"
+              }
+            ],
+            "usage_percentage": null,
+            "add_on_type": "string",
+            "external_sku": "string",
+            "state": "string",
+            "tiers": [
+              {
+                "ending_quantity": 0,
+                "currencies": [
+                  {
+                    "currency": "string",
+                    "unit_amount": null,
+                    "unit_amount_decimal": "string"
+                  }
+                ]
+              }
+            ],
+            "tier_type": "string",
+            "code": "string",
+            "plan_id": "string",
+            "id": "string",
+            "percentage_tiers": [
+              {
+                "tiers": [
+                  {
+                    "ending_amount": null,
+                    "usage_percent": "string"
+                  }
+                ],
+                "currency": "string"
+              }
+            ],
+            "usage_type": "string",
+            "created_at": "string",
+            "usage_calculation_type": "string",
+            "updated_at": "string",
+            "deleted_at": "string"
+          }
+        ]
+      },
+      "chargebee_params": {
+        "item_plan": {
+          "name": "string",
+          "item_family_id": "string",
+          "description": "string",
+          "usage_calculation": "string",
+          "external_name": "string",
+          "metered": true,
+          "id": "string",
+          "status": "string",
+          "unit": "string",
+          "updated_at": 0,
+          "archived_at": 0
+        },
+        "item_price": {
+          "name": "string",
+          "item_id": "string",
+          "description": "string",
+          "price": 0,
+          "price_in_decimal": "string",
+          "external_name": "string",
+          "tiers": [
+            {
+              "starting_unit": 0,
+              "ending_unit": 0,
+              "price": 0
+            }
+          ],
+          "trial_end_action": "string",
+          "trial_period": 0,
+          "id": "string",
+          "status": "string",
+          "pricing_model": "string",
+          "created_at": 0,
+          "period_unit": "string",
+          "updated_at": 0,
+          "trial_period_unit": "string",
+          "item_type": "string",
+          "currency_code": "string",
+          "archived_at": 0,
+          "free_quantity": 0,
+          "period": 0
+        },
+        "item_prices": [
+          {
+            "name": "string",
+            "item_id": "string",
+            "description": "string",
+            "price": 0,
+            "price_in_decimal": "string",
+            "external_name": "string",
+            "tiers": [
+              {
+                "starting_unit": 0,
+                "ending_unit": 0,
+                "price": 0
+              }
+            ],
+            "trial_end_action": "string",
+            "trial_period": 0,
+            "id": "string",
+            "status": "string",
+            "pricing_model": "string",
+            "created_at": 0,
+            "period_unit": "string",
+            "updated_at": 0,
+            "trial_period_unit": "string",
+            "item_type": "string",
+            "currency_code": "string",
+            "archived_at": 0,
+            "free_quantity": 0,
+            "period": 0
+          }
+        ],
+        "reporting": {
+          "reporting_period": "string"
+        }
+      },
+      "stripe_params": {
+        "product": {
+          "name": "string",
+          "description": "string",
+          "unit_label": "string",
+          "id": "string",
+          "usage_type": "string"
+        },
+        "price": {
+          "tiers_mode": "string",
+          "transform_quantity": {
+            "divide_by": 0,
+            "round": "string"
+          },
+          "price_id": "string",
+          "tiers": [
+            {
+              "flat_amount_decimal": "string",
+              "up_to": 0,
+              "unit_amount_decimal": "string",
+              "flat_amount": 0,
+              "unit_amount": 0
+            }
+          ],
+          "recurring": {
+            "trial_period_days": 0,
+            "interval": "string",
+            "usage_type": "string",
+            "interval_count": 0,
+            "aggregate_usage": "string"
+          },
+          "unit_amount_decimal": "string",
+          "price_nickname": "string",
+          "currency": "string",
+          "billing_scheme": "string",
+          "unit_amount": 0,
+          "created": 0,
+          "active": true
+        },
+        "prices": [
+          {
+            "tiers_mode": "string",
+            "transform_quantity": {
+              "divide_by": 0,
+              "round": "string"
+            },
+            "price_id": "string",
+            "tiers": [
+              {
+                "flat_amount_decimal": "string",
+                "up_to": 0,
+                "unit_amount_decimal": "string",
+                "flat_amount": 0,
+                "unit_amount": 0
+              }
+            ],
+            "recurring": {
+              "trial_period_days": 0,
+              "interval": "string",
+              "usage_type": "string",
+              "interval_count": 0,
+              "aggregate_usage": "string"
+            },
+            "unit_amount_decimal": "string",
+            "price_nickname": "string",
+            "currency": "string",
+            "billing_scheme": "string",
+            "unit_amount": 0,
+            "created": 0,
+            "active": true
+          }
+        ],
+        "reporting": {
+          "reporting_period": "string"
+        }
+      },
+      "zuora_params": {
+        "plan_id": "string",
+        "price_id": "string",
+        "price_ids": [
+          "string"
+        ]
+      },
+      "usage_multiplier": null
+    }
+  },
+  "url_query": "string",
+  "_id": "string",
+  "slug": "string",
+  "status": "string",
+  "modified_at": "2019-08-24T14:15:22Z",
+  "es_query": "string",
+  "created_at": "2019-08-24T14:15:22Z",
+  "app_id": "string",
+  "org_id": "string"
+}
+```
+
 <h3 id="getmeter-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="getmeter-responseschema">Response Schema</h3>
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[BillingMeterDocument](#schemabillingmeterdocument)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -9993,7 +11285,303 @@ List Billing Meters
 > 200 Response
 
 ```json
-[]
+[
+  {
+    "name": "string",
+    "billing_plan": {
+      "provider_slug": "string",
+      "friendly_name": "string",
+      "params": {
+        "usage_rounding_mode": "string",
+        "webhook_params": {
+          "reporting": {
+            "report_when": [
+              "string"
+            ]
+          },
+          "channel_ids": [
+            "string"
+          ],
+          "custom_plan": {
+            "plan_id": "string"
+          }
+        },
+        "recurly_params": {
+          "plan": {
+            "name": "string",
+            "id": "string",
+            "code": "string"
+          },
+          "add_on": {
+            "name": "string",
+            "currencies": [
+              {
+                "currency": "string",
+                "unit_amount": null,
+                "unit_amount_decimal": "string"
+              }
+            ],
+            "usage_percentage": null,
+            "add_on_type": "string",
+            "external_sku": "string",
+            "state": "string",
+            "tiers": [
+              {
+                "ending_quantity": 0,
+                "currencies": [
+                  {
+                    "currency": "string",
+                    "unit_amount": null,
+                    "unit_amount_decimal": "string"
+                  }
+                ]
+              }
+            ],
+            "tier_type": "string",
+            "code": "string",
+            "plan_id": "string",
+            "id": "string",
+            "percentage_tiers": [
+              {
+                "tiers": [
+                  {
+                    "ending_amount": null,
+                    "usage_percent": "string"
+                  }
+                ],
+                "currency": "string"
+              }
+            ],
+            "usage_type": "string",
+            "created_at": "string",
+            "usage_calculation_type": "string",
+            "updated_at": "string",
+            "deleted_at": "string"
+          },
+          "add_ons": [
+            {
+              "name": "string",
+              "currencies": [
+                {
+                  "currency": "string",
+                  "unit_amount": null,
+                  "unit_amount_decimal": "string"
+                }
+              ],
+              "usage_percentage": null,
+              "add_on_type": "string",
+              "external_sku": "string",
+              "state": "string",
+              "tiers": [
+                {
+                  "ending_quantity": 0,
+                  "currencies": [
+                    {
+                      "currency": "string",
+                      "unit_amount": null,
+                      "unit_amount_decimal": "string"
+                    }
+                  ]
+                }
+              ],
+              "tier_type": "string",
+              "code": "string",
+              "plan_id": "string",
+              "id": "string",
+              "percentage_tiers": [
+                {
+                  "tiers": [
+                    {
+                      "ending_amount": null,
+                      "usage_percent": "string"
+                    }
+                  ],
+                  "currency": "string"
+                }
+              ],
+              "usage_type": "string",
+              "created_at": "string",
+              "usage_calculation_type": "string",
+              "updated_at": "string",
+              "deleted_at": "string"
+            }
+          ]
+        },
+        "chargebee_params": {
+          "item_plan": {
+            "name": "string",
+            "item_family_id": "string",
+            "description": "string",
+            "usage_calculation": "string",
+            "external_name": "string",
+            "metered": true,
+            "id": "string",
+            "status": "string",
+            "unit": "string",
+            "updated_at": 0,
+            "archived_at": 0
+          },
+          "item_price": {
+            "name": "string",
+            "item_id": "string",
+            "description": "string",
+            "price": 0,
+            "price_in_decimal": "string",
+            "external_name": "string",
+            "tiers": [
+              {
+                "starting_unit": 0,
+                "ending_unit": 0,
+                "price": 0
+              }
+            ],
+            "trial_end_action": "string",
+            "trial_period": 0,
+            "id": "string",
+            "status": "string",
+            "pricing_model": "string",
+            "created_at": 0,
+            "period_unit": "string",
+            "updated_at": 0,
+            "trial_period_unit": "string",
+            "item_type": "string",
+            "currency_code": "string",
+            "archived_at": 0,
+            "free_quantity": 0,
+            "period": 0
+          },
+          "item_prices": [
+            {
+              "name": "string",
+              "item_id": "string",
+              "description": "string",
+              "price": 0,
+              "price_in_decimal": "string",
+              "external_name": "string",
+              "tiers": [
+                {
+                  "starting_unit": 0,
+                  "ending_unit": 0,
+                  "price": 0
+                }
+              ],
+              "trial_end_action": "string",
+              "trial_period": 0,
+              "id": "string",
+              "status": "string",
+              "pricing_model": "string",
+              "created_at": 0,
+              "period_unit": "string",
+              "updated_at": 0,
+              "trial_period_unit": "string",
+              "item_type": "string",
+              "currency_code": "string",
+              "archived_at": 0,
+              "free_quantity": 0,
+              "period": 0
+            }
+          ],
+          "reporting": {
+            "reporting_period": "string"
+          }
+        },
+        "stripe_params": {
+          "product": {
+            "name": "string",
+            "description": "string",
+            "unit_label": "string",
+            "id": "string",
+            "usage_type": "string"
+          },
+          "price": {
+            "tiers_mode": "string",
+            "transform_quantity": {
+              "divide_by": 0,
+              "round": "string"
+            },
+            "price_id": "string",
+            "tiers": [
+              {
+                "flat_amount_decimal": "string",
+                "up_to": 0,
+                "unit_amount_decimal": "string",
+                "flat_amount": 0,
+                "unit_amount": 0
+              }
+            ],
+            "recurring": {
+              "trial_period_days": 0,
+              "interval": "string",
+              "usage_type": "string",
+              "interval_count": 0,
+              "aggregate_usage": "string"
+            },
+            "unit_amount_decimal": "string",
+            "price_nickname": "string",
+            "currency": "string",
+            "billing_scheme": "string",
+            "unit_amount": 0,
+            "created": 0,
+            "active": true
+          },
+          "prices": [
+            {
+              "tiers_mode": "string",
+              "transform_quantity": {
+                "divide_by": 0,
+                "round": "string"
+              },
+              "price_id": "string",
+              "tiers": [
+                {
+                  "flat_amount_decimal": "string",
+                  "up_to": 0,
+                  "unit_amount_decimal": "string",
+                  "flat_amount": 0,
+                  "unit_amount": 0
+                }
+              ],
+              "recurring": {
+                "trial_period_days": 0,
+                "interval": "string",
+                "usage_type": "string",
+                "interval_count": 0,
+                "aggregate_usage": "string"
+              },
+              "unit_amount_decimal": "string",
+              "price_nickname": "string",
+              "currency": "string",
+              "billing_scheme": "string",
+              "unit_amount": 0,
+              "created": 0,
+              "active": true
+            }
+          ],
+          "reporting": {
+            "reporting_period": "string"
+          }
+        },
+        "zuora_params": {
+          "plan_id": "string",
+          "price_id": "string",
+          "price_ids": [
+            "string"
+          ]
+        },
+        "usage_multiplier": null
+      }
+    },
+    "url_query": "string",
+    "_id": "string",
+    "slug": "string",
+    "status": "string",
+    "modified_at": "2019-08-24T14:15:22Z",
+    "es_query": "string",
+    "created_at": "2019-08-24T14:15:22Z",
+    "app_id": "string",
+    "org_id": "string"
+  }
+]
 ```
 
 <h3 id="listmeters-responses">Responses</h3>
@@ -10008,7 +11596,141 @@ Status Code **200**
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|» *anonymous*|any|false|none|none|
+|*anonymous*|[[BillingMeterDocument](#schemabillingmeterdocument)]|false|none|none|
+|» name|string|true|none|none|
+|» billing_plan|object|true|none|none|
+|»» provider_slug|string|true|none|none|
+|»» friendly_name|string|false|none|none|
+|»» params|object|false|none|none|
+|»»» usage_rounding_mode|string|false|none|none|
+|»»» webhook_params|object|false|none|none|
+|»»»» reporting|object|false|none|none|
+|»»»»» report_when|[string]|true|none|none|
+|»»»» channel_ids|[string]|true|none|none|
+|»»»» custom_plan|object|true|none|none|
+|»»»»» plan_id|string|true|none|none|
+|»»» recurly_params|object|false|none|none|
+|»»»» plan|object|false|none|none|
+|»»»»» name|string|false|none|none|
+|»»»»» id|string|false|none|none|
+|»»»»» code|string|true|none|none|
+|»»»» add_on|object|false|none|none|
+|»»»»» name|string|false|none|none|
+|»»»»» currencies|[[RecurlyCurrencyAmount](#schemarecurlycurrencyamount)]|false|none|none|
+|»»»»»» currency|string|true|none|none|
+|»»»»»» unit_amount|double|false|none|none|
+|»»»»»» unit_amount_decimal|string|false|none|none|
+|»»»»» usage_percentage|double|false|none|none|
+|»»»»» add_on_type|string|false|none|none|
+|»»»»» external_sku|string|false|none|none|
+|»»»»» state|string|false|none|none|
+|»»»»» tiers|[[RecurlyAddOnTier](#schemarecurlyaddontier)]|false|none|none|
+|»»»»»» ending_quantity|integer(int64)|false|none|none|
+|»»»»»» currencies|[[RecurlyCurrencyAmount](#schemarecurlycurrencyamount)]|true|none|none|
+|»»»»» tier_type|string|false|none|none|
+|»»»»» code|string|true|none|none|
+|»»»»» plan_id|string|false|none|none|
+|»»»»» id|string|false|none|none|
+|»»»»» percentage_tiers|[[RecurlyAddOnPercentageTiers](#schemarecurlyaddonpercentagetiers)]|false|none|none|
+|»»»»»» tiers|[[RecurlyAddOnPercentageTier](#schemarecurlyaddonpercentagetier)]|false|none|none|
+|»»»»»»» ending_amount|double|false|none|none|
+|»»»»»»» usage_percent|string|false|none|none|
+|»»»»»» currency|string|false|none|none|
+|»»»»» usage_type|string|false|none|none|
+|»»»»» created_at|string|false|none|none|
+|»»»»» usage_calculation_type|string|false|none|none|
+|»»»»» updated_at|string|false|none|none|
+|»»»»» deleted_at|string|false|none|none|
+|»»»» add_ons|[[RecurlyPlanAddOn](#schemarecurlyplanaddon)]|false|none|none|
+|»»» chargebee_params|object|false|none|none|
+|»»»» item_plan|object|false|none|none|
+|»»»»» name|string|false|none|none|
+|»»»»» item_family_id|string|false|none|none|
+|»»»»» description|string|false|none|none|
+|»»»»» usage_calculation|string|false|none|none|
+|»»»»» external_name|string|false|none|none|
+|»»»»» metered|boolean|false|none|none|
+|»»»»» id|string|true|none|none|
+|»»»»» status|string|false|none|none|
+|»»»»» unit|string|false|none|none|
+|»»»»» updated_at|integer(int64)|false|none|none|
+|»»»»» archived_at|integer(int64)|false|none|none|
+|»»»» item_price|object|false|none|none|
+|»»»»» name|string|false|none|none|
+|»»»»» item_id|string|false|none|none|
+|»»»»» description|string|false|none|none|
+|»»»»» price|integer(int64)|false|none|none|
+|»»»»» price_in_decimal|string|false|none|none|
+|»»»»» external_name|string|false|none|none|
+|»»»»» tiers|[[ChargebeeItemPriceTier](#schemachargebeeitempricetier)]|false|none|none|
+|»»»»»» starting_unit|integer(int32)|true|none|none|
+|»»»»»» ending_unit|integer(int32)|false|none|none|
+|»»»»»» price|integer(int32)|true|none|none|
+|»»»»» trial_end_action|string|false|none|none|
+|»»»»» trial_period|integer(int64)|false|none|none|
+|»»»»» id|string|true|none|none|
+|»»»»» status|string|false|none|none|
+|»»»»» pricing_model|string|false|none|none|
+|»»»»» created_at|integer(int64)|false|none|none|
+|»»»»» period_unit|string|false|none|none|
+|»»»»» updated_at|integer(int64)|false|none|none|
+|»»»»» trial_period_unit|string|false|none|none|
+|»»»»» item_type|string|false|none|none|
+|»»»»» currency_code|string|false|none|none|
+|»»»»» archived_at|integer(int64)|false|none|none|
+|»»»»» free_quantity|integer(int64)|false|none|none|
+|»»»»» period|integer(int64)|false|none|none|
+|»»»» item_prices|[[ChargebeeItemPrice](#schemachargebeeitemprice)]|false|none|none|
+|»»»» reporting|object|false|none|none|
+|»»»»» reporting_period|string|false|none|none|
+|»»» stripe_params|object|false|none|none|
+|»»»» product|object|false|none|none|
+|»»»»» name|string|true|none|none|
+|»»»»» description|string|false|none|none|
+|»»»»» unit_label|string|false|none|none|
+|»»»»» id|string|true|none|none|
+|»»»»» usage_type|string|false|none|none|
+|»»»» price|object|false|none|none|
+|»»»»» tiers_mode|string|false|none|none|
+|»»»»» transform_quantity|object|false|none|none|
+|»»»»»» divide_by|integer(int64)|false|none|none|
+|»»»»»» round|string|false|none|none|
+|»»»»» price_id|string|true|none|none|
+|»»»»» tiers|[[StripeTier](#schemastripetier)]|false|none|none|
+|»»»»»» flat_amount_decimal|string|false|none|none|
+|»»»»»» up_to|integer(int64)|false|none|none|
+|»»»»»» unit_amount_decimal|string|false|none|none|
+|»»»»»» flat_amount|integer(int64)|false|none|none|
+|»»»»»» unit_amount|integer(int64)|false|none|none|
+|»»»»» recurring|object|false|none|none|
+|»»»»»» trial_period_days|integer(int64)|false|none|none|
+|»»»»»» interval|string|false|none|none|
+|»»»»»» usage_type|string|false|none|none|
+|»»»»»» interval_count|integer(int64)|false|none|none|
+|»»»»»» aggregate_usage|string|false|none|none|
+|»»»»» unit_amount_decimal|string|false|none|none|
+|»»»»» price_nickname|string|false|none|none|
+|»»»»» currency|string|false|none|none|
+|»»»»» billing_scheme|string|false|none|none|
+|»»»»» unit_amount|integer(int64)|false|none|none|
+|»»»»» created|integer(int64)|false|none|none|
+|»»»»» active|boolean|false|none|none|
+|»»»» prices|[[StripePrice](#schemastripeprice)]|false|none|none|
+|»»»» reporting|object|false|none|none|
+|»»» zuora_params|object|false|none|none|
+|»»»» plan_id|string|false|none|none|
+|»»»» price_id|string|false|none|none|
+|»»»» price_ids|[string]|false|none|none|
+|»»» usage_multiplier|double|false|none|none|
+|» url_query|string|true|none|none|
+|» _id|string|false|none|none|
+|» slug|string|true|none|none|
+|» status|string|true|none|none|
+|» modified_at|string(date-time)|true|none|none|
+|» es_query|string|true|none|none|
+|» created_at|string(date-time)|true|none|none|
+|» app_id|string|true|none|none|
+|» org_id|string|true|none|none|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -12641,13 +14363,44 @@ Get the Moesif Price for a specific Plan for authenticated users
 
 > Example responses
 
+> 200 Response
+
+```json
+{
+  "name": "string",
+  "transform_quantity": {
+    "divide_by": 0,
+    "round": "string"
+  },
+  "provider": "string",
+  "price_in_decimal": "string",
+  "tiers": [
+    {
+      "up_to": null,
+      "unit_price_in_decimal": "string",
+      "flat_price_in_decimal": "string"
+    }
+  ],
+  "period_units": "string",
+  "plan_id": "string",
+  "id": "string",
+  "status": "string",
+  "pricing_model": "string",
+  "tax_behavior": "string",
+  "currency": "string",
+  "metadata": null,
+  "created_at": "2019-08-24T14:15:22Z",
+  "unit": "string",
+  "usage_aggregator": "string",
+  "period": 0
+}
+```
+
 <h3 id="getmoesifprice-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="getmoesifprice-responseschema">Response Schema</h3>
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[MoesifPrice](#schemamoesifprice)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -13102,17 +14855,48 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |id|path|string|true|none|
 |provider|query|string|true|none|
-|body|body|undefined|false|none|
+|body|body|[MoesifPrice](#schemamoesifprice)|false|none|
 
 > Example responses
+
+> 200 Response
+
+```json
+{
+  "name": "string",
+  "transform_quantity": {
+    "divide_by": 0,
+    "round": "string"
+  },
+  "provider": "string",
+  "price_in_decimal": "string",
+  "tiers": [
+    {
+      "up_to": null,
+      "unit_price_in_decimal": "string",
+      "flat_price_in_decimal": "string"
+    }
+  ],
+  "period_units": "string",
+  "plan_id": "string",
+  "id": "string",
+  "status": "string",
+  "pricing_model": "string",
+  "tax_behavior": "string",
+  "currency": "string",
+  "metadata": null,
+  "created_at": "2019-08-24T14:15:22Z",
+  "unit": "string",
+  "usage_aggregator": "string",
+  "period": 0
+}
+```
 
 <h3 id="updatemoesifprice-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="updatemoesifprice-responseschema">Response Schema</h3>
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[MoesifPrice](#schemamoesifprice)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -13342,17 +15126,32 @@ System.out.println(response.toString());
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |provider|query|string|true|none|
-|body|body|undefined|false|none|
+|body|body|[MoesifPlan](#schemamoesifplan)|false|none|
 
 > Example responses
+
+> 201 Response
+
+```json
+{
+  "name": "string",
+  "provider": "string",
+  "description": "string",
+  "id": "string",
+  "status": "string",
+  "product_id": "string",
+  "metadata": null,
+  "created_at": "2019-08-24T14:15:22Z",
+  "unit": "string",
+  "updated_at": "2019-08-24T14:15:22Z"
+}
+```
 
 <h3 id="createmoesifplan-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|created|None|
-
-<h3 id="createmoesifplan-responseschema">Response Schema</h3>
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|created|[MoesifPlan](#schemamoesifplan)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -13573,7 +15372,20 @@ System.out.println(response.toString());
 > 200 Response
 
 ```json
-[]
+[
+  {
+    "name": "string",
+    "provider": "string",
+    "description": "string",
+    "id": "string",
+    "status": "string",
+    "product_id": "string",
+    "metadata": null,
+    "created_at": "2019-08-24T14:15:22Z",
+    "unit": "string",
+    "updated_at": "2019-08-24T14:15:22Z"
+  }
+]
 ```
 
 <h3 id="listmoesifplans-responses">Responses</h3>
@@ -13588,7 +15400,17 @@ Status Code **200**
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|» *anonymous*|any|false|none|none|
+|*anonymous*|[[MoesifPlan](#schemamoesifplan)]|false|none|none|
+|» name|string|false|none|none|
+|» provider|string|false|none|none|
+|» description|string|false|none|none|
+|» id|string|false|none|none|
+|» status|string|false|none|none|
+|» product_id|string|false|none|none|
+|» metadata|collection.immutable.map[string,string]|false|none|none|
+|» created_at|string(date-time)|false|none|none|
+|» unit|string|false|none|none|
+|» updated_at|string(date-time)|false|none|none|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -13812,13 +15634,28 @@ Get the Moesif Plan for authenticated users
 
 > Example responses
 
+> 200 Response
+
+```json
+{
+  "name": "string",
+  "provider": "string",
+  "description": "string",
+  "id": "string",
+  "status": "string",
+  "product_id": "string",
+  "metadata": null,
+  "created_at": "2019-08-24T14:15:22Z",
+  "unit": "string",
+  "updated_at": "2019-08-24T14:15:22Z"
+}
+```
+
 <h3 id="getmoesifplan-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="getmoesifplan-responseschema">Response Schema</h3>
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[MoesifPlan](#schemamoesifplan)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -14273,17 +16110,32 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |id|path|string|true|none|
 |provider|query|string|true|none|
-|body|body|undefined|false|none|
+|body|body|[MoesifPlan](#schemamoesifplan)|false|none|
 
 > Example responses
+
+> 200 Response
+
+```json
+{
+  "name": "string",
+  "provider": "string",
+  "description": "string",
+  "id": "string",
+  "status": "string",
+  "product_id": "string",
+  "metadata": null,
+  "created_at": "2019-08-24T14:15:22Z",
+  "unit": "string",
+  "updated_at": "2019-08-24T14:15:22Z"
+}
+```
 
 <h3 id="updatemoesifplan-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="updatemoesifplan-responseschema">Response Schema</h3>
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[MoesifPlan](#schemamoesifplan)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -14513,17 +16365,48 @@ System.out.println(response.toString());
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |provider|query|string|true|none|
-|body|body|undefined|false|none|
+|body|body|[MoesifPrice](#schemamoesifprice)|false|none|
 
 > Example responses
+
+> 201 Response
+
+```json
+{
+  "name": "string",
+  "transform_quantity": {
+    "divide_by": 0,
+    "round": "string"
+  },
+  "provider": "string",
+  "price_in_decimal": "string",
+  "tiers": [
+    {
+      "up_to": null,
+      "unit_price_in_decimal": "string",
+      "flat_price_in_decimal": "string"
+    }
+  ],
+  "period_units": "string",
+  "plan_id": "string",
+  "id": "string",
+  "status": "string",
+  "pricing_model": "string",
+  "tax_behavior": "string",
+  "currency": "string",
+  "metadata": null,
+  "created_at": "2019-08-24T14:15:22Z",
+  "unit": "string",
+  "usage_aggregator": "string",
+  "period": 0
+}
+```
 
 <h3 id="createmoesifprice-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|created|None|
-
-<h3 id="createmoesifprice-responseschema">Response Schema</h3>
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|created|[MoesifPrice](#schemamoesifprice)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -14744,7 +16627,36 @@ System.out.println(response.toString());
 > 200 Response
 
 ```json
-[]
+[
+  {
+    "name": "string",
+    "transform_quantity": {
+      "divide_by": 0,
+      "round": "string"
+    },
+    "provider": "string",
+    "price_in_decimal": "string",
+    "tiers": [
+      {
+        "up_to": null,
+        "unit_price_in_decimal": "string",
+        "flat_price_in_decimal": "string"
+      }
+    ],
+    "period_units": "string",
+    "plan_id": "string",
+    "id": "string",
+    "status": "string",
+    "pricing_model": "string",
+    "tax_behavior": "string",
+    "currency": "string",
+    "metadata": null,
+    "created_at": "2019-08-24T14:15:22Z",
+    "unit": "string",
+    "usage_aggregator": "string",
+    "period": 0
+  }
+]
 ```
 
 <h3 id="listmoesifprices-responses">Responses</h3>
@@ -14759,7 +16671,29 @@ Status Code **200**
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|» *anonymous*|any|false|none|none|
+|*anonymous*|[[MoesifPrice](#schemamoesifprice)]|false|none|none|
+|» name|string|false|none|none|
+|» transform_quantity|object|false|none|none|
+|»» divide_by|integer(int64)|true|none|none|
+|»» round|string|true|none|none|
+|» provider|string|false|none|none|
+|» price_in_decimal|string|false|none|none|
+|» tiers|[[MoesifPriceTier](#schemamoesifpricetier)]|false|none|none|
+|»» up_to|util.either[scala.long,string]|true|none|none|
+|»» unit_price_in_decimal|string|false|none|none|
+|»» flat_price_in_decimal|string|false|none|none|
+|» period_units|string|false|none|none|
+|» plan_id|string|false|none|none|
+|» id|string|false|none|none|
+|» status|string|false|none|none|
+|» pricing_model|string|false|none|none|
+|» tax_behavior|string|false|none|none|
+|» currency|string|false|none|none|
+|» metadata|collection.immutable.map[string,string]|false|none|none|
+|» created_at|string(date-time)|false|none|none|
+|» unit|string|false|none|none|
+|» usage_aggregator|string|false|none|none|
+|» period|integer(int64)|false|none|none|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -14987,7 +16921,7 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|undefined|false|none|
+|body|body|[EmailTemplateCreateItem](#schemaemailtemplatecreateitem)|false|none|
 
 > Example responses
 
@@ -15432,7 +17366,7 @@ System.out.println(response.toString());
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |id|path|string|true|none|
-|body|body|undefined|false|none|
+|body|body|[EmailTemplateUpdateItem](#schemaemailtemplateupdateitem)|false|none|
 
 <h3 id="updateemailtemplate-responses">Responses</h3>
 
@@ -16099,9 +18033,9 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|from|query|string(date-time)|false|The start date, which can be absolute such as 2024-02-01T00:00:00Z or relative such as -24h|
-|to|query|string(date-time)|false|The end date, which can be absolute such as 2024-02-02T00:00:00Z or relative such as now|
-|body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
+|from|query|string(date-time)|false|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
+|to|query|string(date-time)|false|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
+|body|body|[JsValue](#schemajsvalue)|false|The search definition using the Elasticsearch Query DSL|
 
 > Example responses
 
@@ -17252,17 +19186,21 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|undefined|false|A query to restrict the results specified with the Elasticsearch Query DSL|
+|body|body|[JsValue](#schemajsvalue)|false|A query to restrict the results specified with the Elasticsearch Query DSL|
 
 > Example responses
+
+> 200 Response
+
+```json
+{}
+```
 
 <h3 id="countcompanies-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="countcompanies-responseschema">Response Schema</h3>
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[JsValue](#schemajsvalue)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -17485,13 +19423,19 @@ System.out.println(response.toString());
 
 > Example responses
 
+> 200 Response
+
+```json
+{
+  "underlying": {}
+}
+```
+
 <h3 id="getproperties-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="getproperties-responseschema">Response Schema</h3>
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[JsObject](#schemajsobject)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -17717,13 +19661,19 @@ System.out.println(response.toString());
 
 > Example responses
 
+> 200 Response
+
+```json
+{
+  "underlying": {}
+}
+```
+
 <h3 id="getrequestbodyproperties-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="getrequestbodyproperties-responseschema">Response Schema</h3>
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[JsObject](#schemajsobject)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -17949,13 +19899,19 @@ System.out.println(response.toString());
 
 > Example responses
 
+> 200 Response
+
+```json
+{
+  "underlying": {}
+}
+```
+
 <h3 id="getresponsebodyproperties-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="getresponsebodyproperties-responseschema">Response Schema</h3>
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[JsObject](#schemajsobject)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -18175,13 +20131,52 @@ System.out.println(response.toString());
 
 > Example responses
 
+> 200 Response
+
+```json
+{
+  "trial_start": "2019-08-24T14:15:22Z",
+  "company_id": "string",
+  "start_date": "2019-08-24T14:15:22Z",
+  "collection_method": "string",
+  "provider": "string",
+  "items": [
+    {
+      "item_price_id": "string",
+      "price_id": "string",
+      "is_metered": true,
+      "plan_id": "string",
+      "unit_of_measure": "string",
+      "status": "string",
+      "subscription_item_id": "string"
+    }
+  ],
+  "current_period_start": "2019-08-24T14:15:22Z",
+  "company_external_id": "string",
+  "payment_status": "string",
+  "modified_time": "2019-08-24T14:15:22Z",
+  "cancel_time": "2019-08-24T14:15:22Z",
+  "status": "string",
+  "trial_end": "2019-08-24T14:15:22Z",
+  "external_id": "string",
+  "metadata": {
+    "underlying": {}
+  },
+  "app_id": "string",
+  "subscription_id": "string",
+  "version_id": "string",
+  "type": "string",
+  "current_period_end": "2019-08-24T14:15:22Z",
+  "org_id": "string",
+  "created": "2019-08-24T14:15:22Z"
+}
+```
+
 <h3 id="getsubscription-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="getsubscription-responseschema">Response Schema</h3>
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[SubscriptionDTO](#schemasubscriptiondto)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -18631,17 +20626,56 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|[SubscriptionDTO](#schemasubscriptiondto)|false|none|
+|body|body|array[object]|false|none|
 
 > Example responses
+
+> 200 Response
+
+```json
+{
+  "trial_start": "2019-08-24T14:15:22Z",
+  "company_id": "string",
+  "start_date": "2019-08-24T14:15:22Z",
+  "collection_method": "string",
+  "provider": "string",
+  "items": [
+    {
+      "item_price_id": "string",
+      "price_id": "string",
+      "is_metered": true,
+      "plan_id": "string",
+      "unit_of_measure": "string",
+      "status": "string",
+      "subscription_item_id": "string"
+    }
+  ],
+  "current_period_start": "2019-08-24T14:15:22Z",
+  "company_external_id": "string",
+  "payment_status": "string",
+  "modified_time": "2019-08-24T14:15:22Z",
+  "cancel_time": "2019-08-24T14:15:22Z",
+  "status": "string",
+  "trial_end": "2019-08-24T14:15:22Z",
+  "external_id": "string",
+  "metadata": {
+    "underlying": {}
+  },
+  "app_id": "string",
+  "subscription_id": "string",
+  "version_id": "string",
+  "type": "string",
+  "current_period_end": "2019-08-24T14:15:22Z",
+  "org_id": "string",
+  "created": "2019-08-24T14:15:22Z"
+}
+```
 
 <h3 id="batchcreatesubscriptions-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="batchcreatesubscriptions-responseschema">Response Schema</h3>
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[SubscriptionDTO](#schemasubscriptiondto)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -18867,17 +20901,56 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|[SubscriptionDTO](#schemasubscriptiondto)|false|none|
+|body|body|[AddSubscriptionDTO](#schemaaddsubscriptiondto)|false|none|
 
 > Example responses
+
+> 200 Response
+
+```json
+{
+  "trial_start": "2019-08-24T14:15:22Z",
+  "company_id": "string",
+  "start_date": "2019-08-24T14:15:22Z",
+  "collection_method": "string",
+  "provider": "string",
+  "items": [
+    {
+      "item_price_id": "string",
+      "price_id": "string",
+      "is_metered": true,
+      "plan_id": "string",
+      "unit_of_measure": "string",
+      "status": "string",
+      "subscription_item_id": "string"
+    }
+  ],
+  "current_period_start": "2019-08-24T14:15:22Z",
+  "company_external_id": "string",
+  "payment_status": "string",
+  "modified_time": "2019-08-24T14:15:22Z",
+  "cancel_time": "2019-08-24T14:15:22Z",
+  "status": "string",
+  "trial_end": "2019-08-24T14:15:22Z",
+  "external_id": "string",
+  "metadata": {
+    "underlying": {}
+  },
+  "app_id": "string",
+  "subscription_id": "string",
+  "version_id": "string",
+  "type": "string",
+  "current_period_end": "2019-08-24T14:15:22Z",
+  "org_id": "string",
+  "created": "2019-08-24T14:15:22Z"
+}
+```
 
 <h3 id="createsubscription-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="createsubscription-responseschema">Response Schema</h3>
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[SubscriptionDTO](#schemasubscriptiondto)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -19112,17 +21185,21 @@ System.out.println(response.toString());
 |from|query|string(date-time)|true|The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|true|The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now|
 |track_total_hits|query|boolean|false|none|
-|body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
+|body|body|[JsValue](#schemajsvalue)|false|The search definition using the Elasticsearch Query DSL|
 
 > Example responses
+
+> 200 Response
+
+```json
+{}
+```
 
 <h3 id="countevents-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="countevents-responseschema">Response Schema</h3>
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[JsValue](#schemajsvalue)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -19356,9 +21433,9 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|from|query|string(date-time)|true|The start date, which can be absolute such as 2024-02-01T00:00:00Z or relative such as -24h|
-|to|query|string(date-time)|true|The end date, which can be absolute such as 2024-02-02T00:00:00Z or relative such as now|
-|body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
+|from|query|string(date-time)|true|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
+|to|query|string(date-time)|true|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
+|body|body|[JsValue](#schemajsvalue)|false|The search definition using the Elasticsearch Query DSL|
 
 > Example responses
 
@@ -19687,12 +21764,12 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|from|query|string(date-time)|true|The start date, which can be absolute such as 2024-02-01T00:00:00Z or relative such as -24h|
-|to|query|string(date-time)|true|The end date, which can be absolute such as 2024-02-02T00:00:00Z or relative such as now|
+|from|query|string(date-time)|true|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
+|to|query|string(date-time)|true|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
 |workspaceId|path|string|true|none|
 |include_details|query|boolean|false|none|
 |take|query|integer(int32)|false|none|
-|body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
+|body|body|[JsValue](#schemajsvalue)|false|The search definition using the Elasticsearch Query DSL|
 
 > Example responses
 
@@ -20322,17 +22399,21 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|undefined|false|A query to restrict the results specified with the Elasticsearch Query DSL|
+|body|body|[JsValue](#schemajsvalue)|false|A query to restrict the results specified with the Elasticsearch Query DSL|
 
 > Example responses
+
+> 200 Response
+
+```json
+{}
+```
 
 <h3 id="countusers-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
-
-<h3 id="countusers-responseschema">Response Schema</h3>
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[JsValue](#schemajsvalue)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -20852,9 +22933,9 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|from|query|string(date-time)|false|The start date, which can be absolute such as 2024-02-01T00:00:00Z or relative such as -24h|
-|to|query|string(date-time)|false|The end date, which can be absolute such as 2024-02-02T00:00:00Z or relative such as now|
-|body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
+|from|query|string(date-time)|false|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
+|to|query|string(date-time)|false|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
+|body|body|[JsValue](#schemajsvalue)|false|The search definition using the Elasticsearch Query DSL|
 
 > Example responses
 
@@ -21657,21 +23738,20 @@ managementAPIToken ( Scopes: delete:users )
 
 # Schemas
 
-<h2 id="tocS_BillingMetricBucket">BillingMetricBucket</h2>
+<h2 id="tocS_StripeTier">StripeTier</h2>
 
-<a id="schemabillingmetricbucket"></a>
-<a id="schema_BillingMetricBucket"></a>
-<a id="tocSbillingmetricbucket"></a>
-<a id="tocsbillingmetricbucket"></a>
+<a id="schemastripetier"></a>
+<a id="schema_StripeTier"></a>
+<a id="tocSstripetier"></a>
+<a id="tocsstripetier"></a>
 
 ```json
 {
-  "start": "2019-08-24T14:15:22Z",
-  "metric": null,
-  "usage": null,
-  "errors": [
-    "string"
-  ]
+  "flat_amount_decimal": "string",
+  "up_to": 0,
+  "unit_amount_decimal": "string",
+  "flat_amount": 0,
+  "unit_amount": 0
 }
 
 ```
@@ -21680,23 +23760,46 @@ managementAPIToken ( Scopes: delete:users )
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|start|string(date-time)|true|none|none|
-|metric|math.bigdecimal|true|none|none|
-|usage|math.bigdecimal|true|none|none|
-|errors|[string]|false|none|none|
+|flat_amount_decimal|string|false|none|none|
+|up_to|integer(int64)|false|none|none|
+|unit_amount_decimal|string|false|none|none|
+|flat_amount|integer(int64)|false|none|none|
+|unit_amount|integer(int64)|false|none|none|
 
-<h2 id="tocS_SignedTokenDTO">SignedTokenDTO</h2>
+<h2 id="tocS_CohortDocument">CohortDocument</h2>
 
-<a id="schemasignedtokendto"></a>
-<a id="schema_SignedTokenDTO"></a>
-<a id="tocSsignedtokendto"></a>
-<a id="tocssignedtokendto"></a>
+<a id="schemacohortdocument"></a>
+<a id="schema_CohortDocument"></a>
+<a id="tocScohortdocument"></a>
+<a id="tocscohortdocument"></a>
 
 ```json
 {
+  "channels": null,
+  "priority": 0,
+  "url_query": "string",
+  "criteria": "string",
   "_id": "string",
-  "token": "string",
-  "url": "string"
+  "sample_rate": 0,
+  "notification_rule": {
+    "send_on_addition": true,
+    "send_on_removal": true,
+    "period": "string",
+    "fields": [
+      "string"
+    ]
+  },
+  "cohort_name": "string",
+  "to": "string",
+  "week_starts_on": 0,
+  "locked_by": "string",
+  "modified_at": "2019-08-24T14:15:22Z",
+  "from": "string",
+  "created_at": "2019-08-24T14:15:22Z",
+  "app_id": "string",
+  "cohort_type": "string",
+  "time_zone": "string",
+  "org_id": "string"
 }
 
 ```
@@ -21705,9 +23808,82 @@ managementAPIToken ( Scopes: delete:users )
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|_id|string|true|none|none|
-|token|string|true|none|none|
-|url|string|false|none|none|
+|channels|array[string]|false|none|none|
+|priority|integer(int32)|false|none|none|
+|url_query|string|false|none|none|
+|criteria|string|true|none|none|
+|_id|string|false|none|none|
+|sample_rate|integer(int32)|false|none|none|
+|notification_rule|[NotificationRule](#schemanotificationrule)|false|none|none|
+|cohort_name|string|true|none|none|
+|to|string|false|none|none|
+|week_starts_on|integer(int32)|false|none|none|
+|locked_by|string|false|none|none|
+|modified_at|string(date-time)|true|none|none|
+|from|string|false|none|none|
+|created_at|string(date-time)|true|none|none|
+|app_id|string|true|none|none|
+|cohort_type|string|true|none|none|
+|time_zone|string|false|none|none|
+|org_id|string|true|none|none|
+
+<h2 id="tocS_RulesResponseItem">RulesResponseItem</h2>
+
+<a id="schemarulesresponseitem"></a>
+<a id="schema_RulesResponseItem"></a>
+<a id="tocSrulesresponseitem"></a>
+<a id="tocsrulesresponseitem"></a>
+
+```json
+{
+  "status": 0,
+  "headers": null,
+  "body": {},
+  "original_encoded_body": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|status|integer(int32)|false|none|none|
+|headers|collection.immutable.map[string,string]|false|none|none|
+|body|object|false|none|none|
+|original_encoded_body|string|false|none|none|
+
+<h2 id="tocS_AppCreateDTO">AppCreateDTO</h2>
+
+<a id="schemaappcreatedto"></a>
+<a id="schema_AppCreateDTO"></a>
+<a id="tocSappcreatedto"></a>
+<a id="tocsappcreatedto"></a>
+
+```json
+{
+  "name": "string",
+  "custom_app_id": "string",
+  "search_api_base_url": "string",
+  "week_starts_on": 0,
+  "portal_api_base_url": "string",
+  "secure_proxy": true,
+  "time_zone": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|true|none|none|
+|custom_app_id|string|false|none|none|
+|search_api_base_url|string|false|none|none|
+|week_starts_on|integer(int32)|false|none|none|
+|portal_api_base_url|string|false|none|none|
+|secure_proxy|boolean|false|none|none|
+|time_zone|string|false|none|none|
 
 <h2 id="tocS_AppUpdateDTO">AppUpdateDTO</h2>
 
@@ -21741,6 +23917,836 @@ managementAPIToken ( Scopes: delete:users )
 |secure_proxy|boolean|false|none|none|
 |time_zone|string|false|none|none|
 
+<h2 id="tocS_CohortCreateItem">CohortCreateItem</h2>
+
+<a id="schemacohortcreateitem"></a>
+<a id="schema_CohortCreateItem"></a>
+<a id="tocScohortcreateitem"></a>
+<a id="tocscohortcreateitem"></a>
+
+```json
+{
+  "channels": null,
+  "priority": 0,
+  "url_query": "string",
+  "criteria": {},
+  "notification_rule": {
+    "send_on_addition": true,
+    "send_on_removal": true,
+    "period": "string",
+    "fields": [
+      "string"
+    ]
+  },
+  "cohort_name": "string",
+  "to": "string",
+  "week_starts_on": 0,
+  "locked_by": "string",
+  "from": "string",
+  "cohort_type": "string",
+  "time_zone": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|channels|array[string]|false|none|none|
+|priority|integer(int32)|false|none|none|
+|url_query|string|false|none|none|
+|criteria|object|true|none|none|
+|notification_rule|[NotificationRule](#schemanotificationrule)|false|none|none|
+|cohort_name|string|true|none|none|
+|to|string|false|none|none|
+|week_starts_on|integer(int32)|false|none|none|
+|locked_by|string|false|none|none|
+|from|string|false|none|none|
+|cohort_type|string|true|none|none|
+|time_zone|string|false|none|none|
+
+<h2 id="tocS_CustomReportPlan">CustomReportPlan</h2>
+
+<a id="schemacustomreportplan"></a>
+<a id="schema_CustomReportPlan"></a>
+<a id="tocScustomreportplan"></a>
+<a id="tocscustomreportplan"></a>
+
+```json
+{
+  "plan_id": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|plan_id|string|true|none|none|
+
+<h2 id="tocS_BillingMetricResponse">BillingMetricResponse</h2>
+
+<a id="schemabillingmetricresponse"></a>
+<a id="schema_BillingMetricResponse"></a>
+<a id="tocSbillingmetricresponse"></a>
+<a id="tocsbillingmetricresponse"></a>
+
+```json
+{
+  "billing_meter_id": "string",
+  "buckets": [
+    {
+      "start": "2019-08-24T14:15:22Z",
+      "metric": null,
+      "usage": null,
+      "errors": [
+        "string"
+      ]
+    }
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|billing_meter_id|string|true|none|none|
+|buckets|[[BillingMetricBucket](#schemabillingmetricbucket)]|true|none|none|
+
+<h2 id="tocS_EmailAddresses">EmailAddresses</h2>
+
+<a id="schemaemailaddresses"></a>
+<a id="schema_EmailAddresses"></a>
+<a id="tocSemailaddresses"></a>
+<a id="tocsemailaddresses"></a>
+
+```json
+{
+  "from": "string",
+  "cc": [
+    "string"
+  ],
+  "bcc": [
+    "string"
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|from|string|true|none|none|
+|cc|[string]|true|none|none|
+|bcc|[string]|true|none|none|
+
+<h2 id="tocS_Plan">Plan</h2>
+
+<a id="schemaplan"></a>
+<a id="schema_Plan"></a>
+<a id="tocSplan"></a>
+<a id="tocsplan"></a>
+
+```json
+{
+  "provider": "string",
+  "plan_id": "string",
+  "price_ids": [
+    "string"
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|provider|string|true|none|none|
+|plan_id|string|true|none|none|
+|price_ids|[string]|true|none|none|
+
+<h2 id="tocS_SequenceItem">SequenceItem</h2>
+
+<a id="schemasequenceitem"></a>
+<a id="schema_SequenceItem"></a>
+<a id="tocSsequenceitem"></a>
+<a id="tocssequenceitem"></a>
+
+```json
+{
+  "delay": 0,
+  "submit_data": {
+    "body": {},
+    "url": "string",
+    "params": [
+      {
+        "key": "string",
+        "val": "string"
+      }
+    ],
+    "verb": "string",
+    "headers": [
+      {
+        "key": "string",
+        "val": "string"
+      }
+    ]
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|delay|integer(int32)|true|none|none|
+|submit_data|[SubmitData](#schemasubmitdata)|true|none|none|
+
+<h2 id="tocS_Cohort">Cohort</h2>
+
+<a id="schemacohort"></a>
+<a id="schema_Cohort"></a>
+<a id="tocScohort"></a>
+<a id="tocscohort"></a>
+
+```json
+{
+  "id": "string",
+  "type": "string",
+  "config": {
+    "url_query": "string",
+    "criteria": "string",
+    "cohort_name": "string",
+    "to": "string",
+    "from": "string",
+    "cohort_type": "string",
+    "time_zone": "string"
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|id|string|true|none|none|
+|type|string|true|none|none|
+|config|[CohortConfig](#schemacohortconfig)|false|none|none|
+
+<h2 id="tocS_StripePrice">StripePrice</h2>
+
+<a id="schemastripeprice"></a>
+<a id="schema_StripePrice"></a>
+<a id="tocSstripeprice"></a>
+<a id="tocsstripeprice"></a>
+
+```json
+{
+  "tiers_mode": "string",
+  "transform_quantity": {
+    "divide_by": 0,
+    "round": "string"
+  },
+  "price_id": "string",
+  "tiers": [
+    {
+      "flat_amount_decimal": "string",
+      "up_to": 0,
+      "unit_amount_decimal": "string",
+      "flat_amount": 0,
+      "unit_amount": 0
+    }
+  ],
+  "recurring": {
+    "trial_period_days": 0,
+    "interval": "string",
+    "usage_type": "string",
+    "interval_count": 0,
+    "aggregate_usage": "string"
+  },
+  "unit_amount_decimal": "string",
+  "price_nickname": "string",
+  "currency": "string",
+  "billing_scheme": "string",
+  "unit_amount": 0,
+  "created": 0,
+  "active": true
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|tiers_mode|string|false|none|none|
+|transform_quantity|[StripeTransformQuantity](#schemastripetransformquantity)|false|none|none|
+|price_id|string|true|none|none|
+|tiers|[[StripeTier](#schemastripetier)]|false|none|none|
+|recurring|[StripeRecurring](#schemastriperecurring)|false|none|none|
+|unit_amount_decimal|string|false|none|none|
+|price_nickname|string|false|none|none|
+|currency|string|false|none|none|
+|billing_scheme|string|false|none|none|
+|unit_amount|integer(int64)|false|none|none|
+|created|integer(int64)|false|none|none|
+|active|boolean|false|none|none|
+
+<h2 id="tocS_RegexCondition">RegexCondition</h2>
+
+<a id="schemaregexcondition"></a>
+<a id="schema_RegexCondition"></a>
+<a id="tocSregexcondition"></a>
+<a id="tocsregexcondition"></a>
+
+```json
+{
+  "path": "string",
+  "value": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|path|string|true|none|none|
+|value|string|true|none|none|
+
+<h2 id="tocS_TemplateConfig">TemplateConfig</h2>
+
+<a id="schematemplateconfig"></a>
+<a id="schema_TemplateConfig"></a>
+<a id="tocStemplateconfig"></a>
+<a id="tocstemplateconfig"></a>
+
+```json
+{
+  "subject": "string",
+  "editor": "string",
+  "design": {},
+  "thumbnail_url": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|subject|string|true|none|none|
+|editor|string|true|none|none|
+|design|object|true|none|none|
+|thumbnail_url|string|false|none|none|
+
+<h2 id="tocS_RecurlyCurrencyAmount">RecurlyCurrencyAmount</h2>
+
+<a id="schemarecurlycurrencyamount"></a>
+<a id="schema_RecurlyCurrencyAmount"></a>
+<a id="tocSrecurlycurrencyamount"></a>
+<a id="tocsrecurlycurrencyamount"></a>
+
+```json
+{
+  "currency": "string",
+  "unit_amount": null,
+  "unit_amount_decimal": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|currency|string|true|none|none|
+|unit_amount|double|false|none|none|
+|unit_amount_decimal|string|false|none|none|
+
+<h2 id="tocS_MoesifTransformQuantity">MoesifTransformQuantity</h2>
+
+<a id="schemamoesiftransformquantity"></a>
+<a id="schema_MoesifTransformQuantity"></a>
+<a id="tocSmoesiftransformquantity"></a>
+<a id="tocsmoesiftransformquantity"></a>
+
+```json
+{
+  "divide_by": 0,
+  "round": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|divide_by|integer(int64)|true|none|none|
+|round|string|true|none|none|
+
+<h2 id="tocS_StripeRecurring">StripeRecurring</h2>
+
+<a id="schemastriperecurring"></a>
+<a id="schema_StripeRecurring"></a>
+<a id="tocSstriperecurring"></a>
+<a id="tocsstriperecurring"></a>
+
+```json
+{
+  "trial_period_days": 0,
+  "interval": "string",
+  "usage_type": "string",
+  "interval_count": 0,
+  "aggregate_usage": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|trial_period_days|integer(int64)|false|none|none|
+|interval|string|false|none|none|
+|usage_type|string|false|none|none|
+|interval_count|integer(int64)|false|none|none|
+|aggregate_usage|string|false|none|none|
+
+<h2 id="tocS_EncryptedKeyDocument">EncryptedKeyDocument</h2>
+
+<a id="schemaencryptedkeydocument"></a>
+<a id="schema_EncryptedKeyDocument"></a>
+<a id="tocSencryptedkeydocument"></a>
+<a id="tocsencryptedkeydocument"></a>
+
+```json
+{
+  "_id": "string",
+  "to": "2019-08-24T14:15:22Z",
+  "encrypted_key": "string",
+  "modified_at": "2019-08-24T14:15:22Z",
+  "from": "2019-08-24T14:15:22Z",
+  "created_at": "2019-08-24T14:15:22Z",
+  "app_id": "string",
+  "type": "string",
+  "org_id": "string",
+  "month": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|_id|string|false|none|none|
+|to|string(date-time)|false|none|none|
+|encrypted_key|string|true|none|none|
+|modified_at|string(date-time)|true|none|none|
+|from|string(date-time)|false|none|none|
+|created_at|string(date-time)|true|none|none|
+|app_id|string|true|none|none|
+|type|string|true|none|none|
+|org_id|string|true|none|none|
+|month|string|false|none|none|
+
+<h2 id="tocS_Comments">Comments</h2>
+
+<a id="schemacomments"></a>
+<a id="schema_Comments"></a>
+<a id="tocScomments"></a>
+<a id="tocscomments"></a>
+
+```json
+{
+  "summary": {
+    "count": 0,
+    "latest_comment": {
+      "auth_user_id": "string",
+      "comment_id": "string",
+      "mentions": [
+        "string"
+      ],
+      "partner_user_id": "string",
+      "message": "string",
+      "created_at": "2019-08-24T14:15:22Z",
+      "updated_at": "2019-08-24T14:15:22Z"
+    }
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|summary|[Summary](#schemasummary)|true|none|none|
+
+<h2 id="tocS_com.moesif.dash.SignedTokenDTO">com.moesif.dash.SignedTokenDTO</h2>
+
+<a id="schemacom.moesif.dash.signedtokendto"></a>
+<a id="schema_com.moesif.dash.SignedTokenDTO"></a>
+<a id="tocScom.moesif.dash.signedtokendto"></a>
+<a id="tocscom.moesif.dash.signedtokendto"></a>
+
+```json
+{
+  "_id": "string",
+  "token": "string",
+  "url": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|_id|string|true|none|none|
+|token|string|true|none|none|
+|url|string|false|none|none|
+
+<h2 id="tocS_ChargebeeItemPrice">ChargebeeItemPrice</h2>
+
+<a id="schemachargebeeitemprice"></a>
+<a id="schema_ChargebeeItemPrice"></a>
+<a id="tocSchargebeeitemprice"></a>
+<a id="tocschargebeeitemprice"></a>
+
+```json
+{
+  "name": "string",
+  "item_id": "string",
+  "description": "string",
+  "price": 0,
+  "price_in_decimal": "string",
+  "external_name": "string",
+  "tiers": [
+    {
+      "starting_unit": 0,
+      "ending_unit": 0,
+      "price": 0
+    }
+  ],
+  "trial_end_action": "string",
+  "trial_period": 0,
+  "id": "string",
+  "status": "string",
+  "pricing_model": "string",
+  "created_at": 0,
+  "period_unit": "string",
+  "updated_at": 0,
+  "trial_period_unit": "string",
+  "item_type": "string",
+  "currency_code": "string",
+  "archived_at": 0,
+  "free_quantity": 0,
+  "period": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|false|none|none|
+|item_id|string|false|none|none|
+|description|string|false|none|none|
+|price|integer(int64)|false|none|none|
+|price_in_decimal|string|false|none|none|
+|external_name|string|false|none|none|
+|tiers|[[ChargebeeItemPriceTier](#schemachargebeeitempricetier)]|false|none|none|
+|trial_end_action|string|false|none|none|
+|trial_period|integer(int64)|false|none|none|
+|id|string|true|none|none|
+|status|string|false|none|none|
+|pricing_model|string|false|none|none|
+|created_at|integer(int64)|false|none|none|
+|period_unit|string|false|none|none|
+|updated_at|integer(int64)|false|none|none|
+|trial_period_unit|string|false|none|none|
+|item_type|string|false|none|none|
+|currency_code|string|false|none|none|
+|archived_at|integer(int64)|false|none|none|
+|free_quantity|integer(int64)|false|none|none|
+|period|integer(int64)|false|none|none|
+
+<h2 id="tocS_EncryptedKeyCreateItem">EncryptedKeyCreateItem</h2>
+
+<a id="schemaencryptedkeycreateitem"></a>
+<a id="schema_EncryptedKeyCreateItem"></a>
+<a id="tocSencryptedkeycreateitem"></a>
+<a id="tocsencryptedkeycreateitem"></a>
+
+```json
+{
+  "to": "2019-08-24T14:15:22Z",
+  "encrypted_key": "string",
+  "from": "2019-08-24T14:15:22Z",
+  "type": "string",
+  "month": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|to|string(date-time)|false|none|none|
+|encrypted_key|string|true|none|none|
+|from|string(date-time)|false|none|none|
+|type|string|true|none|none|
+|month|string|false|none|none|
+
+<h2 id="tocS_MoesifPrice">MoesifPrice</h2>
+
+<a id="schemamoesifprice"></a>
+<a id="schema_MoesifPrice"></a>
+<a id="tocSmoesifprice"></a>
+<a id="tocsmoesifprice"></a>
+
+```json
+{
+  "name": "string",
+  "transform_quantity": {
+    "divide_by": 0,
+    "round": "string"
+  },
+  "provider": "string",
+  "price_in_decimal": "string",
+  "tiers": [
+    {
+      "up_to": null,
+      "unit_price_in_decimal": "string",
+      "flat_price_in_decimal": "string"
+    }
+  ],
+  "period_units": "string",
+  "plan_id": "string",
+  "id": "string",
+  "status": "string",
+  "pricing_model": "string",
+  "tax_behavior": "string",
+  "currency": "string",
+  "metadata": null,
+  "created_at": "2019-08-24T14:15:22Z",
+  "unit": "string",
+  "usage_aggregator": "string",
+  "period": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|false|none|none|
+|transform_quantity|[MoesifTransformQuantity](#schemamoesiftransformquantity)|false|none|none|
+|provider|string|false|none|none|
+|price_in_decimal|string|false|none|none|
+|tiers|[[MoesifPriceTier](#schemamoesifpricetier)]|false|none|none|
+|period_units|string|false|none|none|
+|plan_id|string|false|none|none|
+|id|string|false|none|none|
+|status|string|false|none|none|
+|pricing_model|string|false|none|none|
+|tax_behavior|string|false|none|none|
+|currency|string|false|none|none|
+|metadata|collection.immutable.map[string,string]|false|none|none|
+|created_at|string(date-time)|false|none|none|
+|unit|string|false|none|none|
+|usage_aggregator|string|false|none|none|
+|period|integer(int64)|false|none|none|
+
+<h2 id="tocS_EmailTemplateCreateItem">EmailTemplateCreateItem</h2>
+
+<a id="schemaemailtemplatecreateitem"></a>
+<a id="schema_EmailTemplateCreateItem"></a>
+<a id="tocSemailtemplatecreateitem"></a>
+<a id="tocsemailtemplatecreateitem"></a>
+
+```json
+{
+  "name": "string",
+  "state": 0,
+  "cohorts": [
+    {
+      "id": "string",
+      "type": "string",
+      "config": {
+        "url_query": "string",
+        "criteria": "string",
+        "cohort_name": "string",
+        "to": "string",
+        "from": "string",
+        "cohort_type": "string",
+        "time_zone": "string"
+      }
+    }
+  ],
+  "dynamic_fields": [
+    {
+      "token": "string",
+      "field": "string",
+      "aggregator": "avg"
+    }
+  ],
+  "content": {
+    "html": "string",
+    "chunks": {}
+  },
+  "template": {
+    "subject": "string",
+    "editor": "string",
+    "design": {},
+    "thumbnail_url": "string"
+  },
+  "period": "string",
+  "addresses": {
+    "from": "string",
+    "cc": [
+      "string"
+    ],
+    "bcc": [
+      "string"
+    ]
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|true|none|none|
+|state|integer(int32)|true|none|none|
+|cohorts|[[Cohort](#schemacohort)]|true|none|none|
+|dynamic_fields|[[DynamicField](#schemadynamicfield)]|false|none|none|
+|content|[TemplateContent](#schematemplatecontent)|true|none|none|
+|template|[TemplateConfig](#schematemplateconfig)|true|none|none|
+|period|string|false|none|none|
+|addresses|[EmailAddresses](#schemaemailaddresses)|true|none|none|
+
+<h2 id="tocS_PolicyItem">PolicyItem</h2>
+
+<a id="schemapolicyitem"></a>
+<a id="schema_PolicyItem"></a>
+<a id="tocSpolicyitem"></a>
+<a id="tocspolicyitem"></a>
+
+```json
+{
+  "acl": [
+    {
+      "grantee": "string",
+      "permission": "string"
+    }
+  ],
+  "resource": {},
+  "api_scopes": [
+    "string"
+  ],
+  "original_encoded_resource": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|acl|[[ACLItem](#schemaaclitem)]|true|none|none|
+|resource|object|true|none|none|
+|api_scopes|[string]|false|none|none|
+|original_encoded_resource|string|false|none|none|
+
+<h2 id="tocS_RecurlyAddOnPercentageTier">RecurlyAddOnPercentageTier</h2>
+
+<a id="schemarecurlyaddonpercentagetier"></a>
+<a id="schema_RecurlyAddOnPercentageTier"></a>
+<a id="tocSrecurlyaddonpercentagetier"></a>
+<a id="tocsrecurlyaddonpercentagetier"></a>
+
+```json
+{
+  "ending_amount": null,
+  "usage_percent": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|ending_amount|double|false|none|none|
+|usage_percent|string|false|none|none|
+
+<h2 id="tocS_StripeTransformQuantity">StripeTransformQuantity</h2>
+
+<a id="schemastripetransformquantity"></a>
+<a id="schema_StripeTransformQuantity"></a>
+<a id="tocSstripetransformquantity"></a>
+<a id="tocsstripetransformquantity"></a>
+
+```json
+{
+  "divide_by": 0,
+  "round": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|divide_by|integer(int64)|false|none|none|
+|round|string|false|none|none|
+
+<h2 id="tocS_BillingMetricBucket">BillingMetricBucket</h2>
+
+<a id="schemabillingmetricbucket"></a>
+<a id="schema_BillingMetricBucket"></a>
+<a id="tocSbillingmetricbucket"></a>
+<a id="tocsbillingmetricbucket"></a>
+
+```json
+{
+  "start": "2019-08-24T14:15:22Z",
+  "metric": null,
+  "usage": null,
+  "errors": [
+    "string"
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|start|string(date-time)|true|none|none|
+|metric|double|true|none|none|
+|usage|double|true|none|none|
+|errors|[string]|false|none|none|
+
 <h2 id="tocS_AccessTokenDTO">AccessTokenDTO</h2>
 
 <a id="schemaaccesstokendto"></a>
@@ -21760,6 +24766,1469 @@ managementAPIToken ( Scopes: delete:users )
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |app_token|string|true|none|none|
+
+<h2 id="tocS_DashboardDocument">DashboardDocument</h2>
+
+<a id="schemadashboarddocument"></a>
+<a id="schema_DashboardDocument"></a>
+<a id="tocSdashboarddocument"></a>
+<a id="tocsdashboarddocument"></a>
+
+```json
+{
+  "parent": "string",
+  "name": "string",
+  "_id": "string",
+  "auth_user_id": "string",
+  "profile_view_promotion": "string",
+  "app_id": "string",
+  "workspace_ids": [
+    [
+      "string"
+    ]
+  ],
+  "sort_order": 0,
+  "dashboard_ids": [
+    "string"
+  ],
+  "policy": {
+    "acl": [
+      {
+        "grantee": "string",
+        "permission": "string"
+      }
+    ],
+    "resource": {},
+    "api_scopes": [
+      "string"
+    ],
+    "original_encoded_resource": "string"
+  },
+  "org_id": "string",
+  "migration": {},
+  "created": "2019-08-24T14:15:22Z"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|parent|string|false|none|none|
+|name|string|true|none|none|
+|_id|string|false|none|none|
+|auth_user_id|string|true|none|none|
+|profile_view_promotion|string|false|none|none|
+|app_id|string|true|none|none|
+|workspace_ids|[array]|true|none|none|
+|sort_order|number(double)|false|none|none|
+|dashboard_ids|[string]|true|none|none|
+|policy|[PolicyItem](#schemapolicyitem)|false|none|none|
+|org_id|string|true|none|none|
+|migration|object|false|none|none|
+|created|string(date-time)|true|none|none|
+
+<h2 id="tocS_ChargebeeItemPlan">ChargebeeItemPlan</h2>
+
+<a id="schemachargebeeitemplan"></a>
+<a id="schema_ChargebeeItemPlan"></a>
+<a id="tocSchargebeeitemplan"></a>
+<a id="tocschargebeeitemplan"></a>
+
+```json
+{
+  "name": "string",
+  "item_family_id": "string",
+  "description": "string",
+  "usage_calculation": "string",
+  "external_name": "string",
+  "metered": true,
+  "id": "string",
+  "status": "string",
+  "unit": "string",
+  "updated_at": 0,
+  "archived_at": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|false|none|none|
+|item_family_id|string|false|none|none|
+|description|string|false|none|none|
+|usage_calculation|string|false|none|none|
+|external_name|string|false|none|none|
+|metered|boolean|false|none|none|
+|id|string|true|none|none|
+|status|string|false|none|none|
+|unit|string|false|none|none|
+|updated_at|integer(int64)|false|none|none|
+|archived_at|integer(int64)|false|none|none|
+
+<h2 id="tocS_CreateCommentItem">CreateCommentItem</h2>
+
+<a id="schemacreatecommentitem"></a>
+<a id="schema_CreateCommentItem"></a>
+<a id="tocScreatecommentitem"></a>
+<a id="tocscreatecommentitem"></a>
+
+```json
+{
+  "auth_user_id": "string",
+  "comment_id": "string",
+  "mentions": [
+    "string"
+  ],
+  "partner_user_id": "string",
+  "message": "string",
+  "created_at": "2019-08-24T14:15:22Z",
+  "updated_at": "2019-08-24T14:15:22Z"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|auth_user_id|string|false|none|none|
+|comment_id|string|false|none|none|
+|mentions|[string]|false|none|none|
+|partner_user_id|string|false|none|none|
+|message|string|false|none|none|
+|created_at|string(date-time)|false|none|none|
+|updated_at|string(date-time)|false|none|none|
+
+<h2 id="tocS_StripeBillingParams">StripeBillingParams</h2>
+
+<a id="schemastripebillingparams"></a>
+<a id="schema_StripeBillingParams"></a>
+<a id="tocSstripebillingparams"></a>
+<a id="tocsstripebillingparams"></a>
+
+```json
+{
+  "product": {
+    "name": "string",
+    "description": "string",
+    "unit_label": "string",
+    "id": "string",
+    "usage_type": "string"
+  },
+  "price": {
+    "tiers_mode": "string",
+    "transform_quantity": {
+      "divide_by": 0,
+      "round": "string"
+    },
+    "price_id": "string",
+    "tiers": [
+      {
+        "flat_amount_decimal": "string",
+        "up_to": 0,
+        "unit_amount_decimal": "string",
+        "flat_amount": 0,
+        "unit_amount": 0
+      }
+    ],
+    "recurring": {
+      "trial_period_days": 0,
+      "interval": "string",
+      "usage_type": "string",
+      "interval_count": 0,
+      "aggregate_usage": "string"
+    },
+    "unit_amount_decimal": "string",
+    "price_nickname": "string",
+    "currency": "string",
+    "billing_scheme": "string",
+    "unit_amount": 0,
+    "created": 0,
+    "active": true
+  },
+  "prices": [
+    {
+      "tiers_mode": "string",
+      "transform_quantity": {
+        "divide_by": 0,
+        "round": "string"
+      },
+      "price_id": "string",
+      "tiers": [
+        {
+          "flat_amount_decimal": "string",
+          "up_to": 0,
+          "unit_amount_decimal": "string",
+          "flat_amount": 0,
+          "unit_amount": 0
+        }
+      ],
+      "recurring": {
+        "trial_period_days": 0,
+        "interval": "string",
+        "usage_type": "string",
+        "interval_count": 0,
+        "aggregate_usage": "string"
+      },
+      "unit_amount_decimal": "string",
+      "price_nickname": "string",
+      "currency": "string",
+      "billing_scheme": "string",
+      "unit_amount": 0,
+      "created": 0,
+      "active": true
+    }
+  ],
+  "reporting": {
+    "reporting_period": "string"
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|product|[StripeProduct](#schemastripeproduct)|false|none|none|
+|price|[StripePrice](#schemastripeprice)|false|none|none|
+|prices|[[StripePrice](#schemastripeprice)]|false|none|none|
+|reporting|[ProviderReporting](#schemaproviderreporting)|false|none|none|
+
+<h2 id="tocS_TemplateContent">TemplateContent</h2>
+
+<a id="schematemplatecontent"></a>
+<a id="schema_TemplateContent"></a>
+<a id="tocStemplatecontent"></a>
+<a id="tocstemplatecontent"></a>
+
+```json
+{
+  "html": "string",
+  "chunks": {}
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|html|string|true|none|none|
+|chunks|object|true|none|none|
+
+<h2 id="tocS_DynamicField">DynamicField</h2>
+
+<a id="schemadynamicfield"></a>
+<a id="schema_DynamicField"></a>
+<a id="tocSdynamicfield"></a>
+<a id="tocsdynamicfield"></a>
+
+```json
+{
+  "token": "string",
+  "field": "string",
+  "aggregator": "avg"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|token|string|true|none|none|
+|field|string|true|none|none|
+|aggregator|string|true|none|none|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|aggregator|avg|
+|aggregator|min|
+|aggregator|max|
+|aggregator|terms|
+|aggregator|sum|
+
+<h2 id="tocS_RecurlyAddOnTier">RecurlyAddOnTier</h2>
+
+<a id="schemarecurlyaddontier"></a>
+<a id="schema_RecurlyAddOnTier"></a>
+<a id="tocSrecurlyaddontier"></a>
+<a id="tocsrecurlyaddontier"></a>
+
+```json
+{
+  "ending_quantity": 0,
+  "currencies": [
+    {
+      "currency": "string",
+      "unit_amount": null,
+      "unit_amount_decimal": "string"
+    }
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|ending_quantity|integer(int64)|false|none|none|
+|currencies|[[RecurlyCurrencyAmount](#schemarecurlycurrencyamount)]|true|none|none|
+
+<h2 id="tocS_ChargebeeItemPriceTier">ChargebeeItemPriceTier</h2>
+
+<a id="schemachargebeeitempricetier"></a>
+<a id="schema_ChargebeeItemPriceTier"></a>
+<a id="tocSchargebeeitempricetier"></a>
+<a id="tocschargebeeitempricetier"></a>
+
+```json
+{
+  "starting_unit": 0,
+  "ending_unit": 0,
+  "price": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|starting_unit|integer(int32)|true|none|none|
+|ending_unit|integer(int32)|false|none|none|
+|price|integer(int32)|true|none|none|
+
+<h2 id="tocS_MoesifPlan">MoesifPlan</h2>
+
+<a id="schemamoesifplan"></a>
+<a id="schema_MoesifPlan"></a>
+<a id="tocSmoesifplan"></a>
+<a id="tocsmoesifplan"></a>
+
+```json
+{
+  "name": "string",
+  "provider": "string",
+  "description": "string",
+  "id": "string",
+  "status": "string",
+  "product_id": "string",
+  "metadata": null,
+  "created_at": "2019-08-24T14:15:22Z",
+  "unit": "string",
+  "updated_at": "2019-08-24T14:15:22Z"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|false|none|none|
+|provider|string|false|none|none|
+|description|string|false|none|none|
+|id|string|false|none|none|
+|status|string|false|none|none|
+|product_id|string|false|none|none|
+|metadata|collection.immutable.map[string,string]|false|none|none|
+|created_at|string(date-time)|false|none|none|
+|unit|string|false|none|none|
+|updated_at|string(date-time)|false|none|none|
+
+<h2 id="tocS_ChargebeeBillingParams">ChargebeeBillingParams</h2>
+
+<a id="schemachargebeebillingparams"></a>
+<a id="schema_ChargebeeBillingParams"></a>
+<a id="tocSchargebeebillingparams"></a>
+<a id="tocschargebeebillingparams"></a>
+
+```json
+{
+  "item_plan": {
+    "name": "string",
+    "item_family_id": "string",
+    "description": "string",
+    "usage_calculation": "string",
+    "external_name": "string",
+    "metered": true,
+    "id": "string",
+    "status": "string",
+    "unit": "string",
+    "updated_at": 0,
+    "archived_at": 0
+  },
+  "item_price": {
+    "name": "string",
+    "item_id": "string",
+    "description": "string",
+    "price": 0,
+    "price_in_decimal": "string",
+    "external_name": "string",
+    "tiers": [
+      {
+        "starting_unit": 0,
+        "ending_unit": 0,
+        "price": 0
+      }
+    ],
+    "trial_end_action": "string",
+    "trial_period": 0,
+    "id": "string",
+    "status": "string",
+    "pricing_model": "string",
+    "created_at": 0,
+    "period_unit": "string",
+    "updated_at": 0,
+    "trial_period_unit": "string",
+    "item_type": "string",
+    "currency_code": "string",
+    "archived_at": 0,
+    "free_quantity": 0,
+    "period": 0
+  },
+  "item_prices": [
+    {
+      "name": "string",
+      "item_id": "string",
+      "description": "string",
+      "price": 0,
+      "price_in_decimal": "string",
+      "external_name": "string",
+      "tiers": [
+        {
+          "starting_unit": 0,
+          "ending_unit": 0,
+          "price": 0
+        }
+      ],
+      "trial_end_action": "string",
+      "trial_period": 0,
+      "id": "string",
+      "status": "string",
+      "pricing_model": "string",
+      "created_at": 0,
+      "period_unit": "string",
+      "updated_at": 0,
+      "trial_period_unit": "string",
+      "item_type": "string",
+      "currency_code": "string",
+      "archived_at": 0,
+      "free_quantity": 0,
+      "period": 0
+    }
+  ],
+  "reporting": {
+    "reporting_period": "string"
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|item_plan|[ChargebeeItemPlan](#schemachargebeeitemplan)|false|none|none|
+|item_price|[ChargebeeItemPrice](#schemachargebeeitemprice)|false|none|none|
+|item_prices|[[ChargebeeItemPrice](#schemachargebeeitemprice)]|false|none|none|
+|reporting|[ProviderReporting](#schemaproviderreporting)|false|none|none|
+
+<h2 id="tocS_GovernanceRuleCreateItem">GovernanceRuleCreateItem</h2>
+
+<a id="schemagovernancerulecreateitem"></a>
+<a id="schema_GovernanceRuleCreateItem"></a>
+<a id="tocSgovernancerulecreateitem"></a>
+<a id="tocsgovernancerulecreateitem"></a>
+
+```json
+{
+  "name": "string",
+  "priority": 0,
+  "model": "string",
+  "state": 0,
+  "cohorts": [
+    {}
+  ],
+  "variables": [
+    {
+      "name": "string",
+      "path": "string"
+    }
+  ],
+  "applied_to": "string",
+  "block": true,
+  "response": {
+    "status": 0,
+    "headers": null,
+    "body": {},
+    "original_encoded_body": "string"
+  },
+  "applied_to_unidentified": true,
+  "regex_config": [
+    {
+      "conditions": [
+        {
+          "path": "string",
+          "value": "string"
+        }
+      ],
+      "sample_rate": 0
+    }
+  ],
+  "plans": [
+    {
+      "provider": "string",
+      "plan_id": "string",
+      "price_ids": [
+        "string"
+      ]
+    }
+  ],
+  "type": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|true|none|none|
+|priority|integer(int32)|false|none|none|
+|model|string|false|none|none|
+|state|integer(int32)|true|none|none|
+|cohorts|[object]|false|none|none|
+|variables|[[GovernanceRulesVariables](#schemagovernancerulesvariables)]|false|none|none|
+|applied_to|string|false|none|none|
+|block|boolean|true|none|none|
+|response|[RulesResponseItem](#schemarulesresponseitem)|false|none|none|
+|applied_to_unidentified|boolean|false|none|none|
+|regex_config|[[RegexRule](#schemaregexrule)]|false|none|none|
+|plans|[[Plan](#schemaplan)]|false|none|none|
+|type|string|true|none|none|
+
+<h2 id="tocS_RecurlyPlanAddOn">RecurlyPlanAddOn</h2>
+
+<a id="schemarecurlyplanaddon"></a>
+<a id="schema_RecurlyPlanAddOn"></a>
+<a id="tocSrecurlyplanaddon"></a>
+<a id="tocsrecurlyplanaddon"></a>
+
+```json
+{
+  "name": "string",
+  "currencies": [
+    {
+      "currency": "string",
+      "unit_amount": null,
+      "unit_amount_decimal": "string"
+    }
+  ],
+  "usage_percentage": null,
+  "add_on_type": "string",
+  "external_sku": "string",
+  "state": "string",
+  "tiers": [
+    {
+      "ending_quantity": 0,
+      "currencies": [
+        {
+          "currency": "string",
+          "unit_amount": null,
+          "unit_amount_decimal": "string"
+        }
+      ]
+    }
+  ],
+  "tier_type": "string",
+  "code": "string",
+  "plan_id": "string",
+  "id": "string",
+  "percentage_tiers": [
+    {
+      "tiers": [
+        {
+          "ending_amount": null,
+          "usage_percent": "string"
+        }
+      ],
+      "currency": "string"
+    }
+  ],
+  "usage_type": "string",
+  "created_at": "string",
+  "usage_calculation_type": "string",
+  "updated_at": "string",
+  "deleted_at": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|false|none|none|
+|currencies|[[RecurlyCurrencyAmount](#schemarecurlycurrencyamount)]|false|none|none|
+|usage_percentage|double|false|none|none|
+|add_on_type|string|false|none|none|
+|external_sku|string|false|none|none|
+|state|string|false|none|none|
+|tiers|[[RecurlyAddOnTier](#schemarecurlyaddontier)]|false|none|none|
+|tier_type|string|false|none|none|
+|code|string|true|none|none|
+|plan_id|string|false|none|none|
+|id|string|false|none|none|
+|percentage_tiers|[[RecurlyAddOnPercentageTiers](#schemarecurlyaddonpercentagetiers)]|false|none|none|
+|usage_type|string|false|none|none|
+|created_at|string|false|none|none|
+|usage_calculation_type|string|false|none|none|
+|updated_at|string|false|none|none|
+|deleted_at|string|false|none|none|
+
+<h2 id="tocS_DrawingItem">DrawingItem</h2>
+
+<a id="schemadrawingitem"></a>
+<a id="schema_DrawingItem"></a>
+<a id="tocSdrawingitem"></a>
+<a id="tocsdrawingitem"></a>
+
+```json
+{
+  "name": "string",
+  "direction": "string",
+  "id": "string",
+  "type": "string",
+  "value": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|true|none|none|
+|direction|string|true|none|none|
+|id|string|true|none|none|
+|type|string|true|none|none|
+|value|number(double)|true|none|none|
+
+<h2 id="tocS_ChartItem">ChartItem</h2>
+
+<a id="schemachartitem"></a>
+<a id="schema_ChartItem"></a>
+<a id="tocSchartitem"></a>
+<a id="tocschartitem"></a>
+
+```json
+{
+  "original_encoded_view_elements": "string",
+  "funnel_query": {},
+  "url_query": "string",
+  "to": "string",
+  "view_elements": {},
+  "from": "string",
+  "original_encoded_funnel_query": "string",
+  "es_query": {},
+  "args": "string",
+  "original_encoded_query": "string",
+  "time_zone": "string",
+  "view": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|original_encoded_view_elements|string|false|none|none|
+|funnel_query|object|false|none|none|
+|url_query|string|true|none|none|
+|to|string|false|none|none|
+|view_elements|object|false|none|none|
+|from|string|false|none|none|
+|original_encoded_funnel_query|string|false|none|none|
+|es_query|object|false|none|none|
+|args|string|false|none|none|
+|original_encoded_query|string|false|none|none|
+|time_zone|string|false|none|none|
+|view|string|true|none|none|
+
+<h2 id="tocS_RecurlyAddOnPercentageTiers">RecurlyAddOnPercentageTiers</h2>
+
+<a id="schemarecurlyaddonpercentagetiers"></a>
+<a id="schema_RecurlyAddOnPercentageTiers"></a>
+<a id="tocSrecurlyaddonpercentagetiers"></a>
+<a id="tocsrecurlyaddonpercentagetiers"></a>
+
+```json
+{
+  "tiers": [
+    {
+      "ending_amount": null,
+      "usage_percent": "string"
+    }
+  ],
+  "currency": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|tiers|[[RecurlyAddOnPercentageTier](#schemarecurlyaddonpercentagetier)]|false|none|none|
+|currency|string|false|none|none|
+
+<h2 id="tocS_CustomReporting">CustomReporting</h2>
+
+<a id="schemacustomreporting"></a>
+<a id="schema_CustomReporting"></a>
+<a id="tocScustomreporting"></a>
+<a id="tocscustomreporting"></a>
+
+```json
+{
+  "report_when": [
+    "string"
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|report_when|[string]|true|none|none|
+
+<h2 id="tocS_ACLItem">ACLItem</h2>
+
+<a id="schemaaclitem"></a>
+<a id="schema_ACLItem"></a>
+<a id="tocSaclitem"></a>
+<a id="tocsaclitem"></a>
+
+```json
+{
+  "grantee": "string",
+  "permission": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|grantee|string|true|none|none|
+|permission|string|true|none|none|
+
+<h2 id="tocS_ZuoraBillingParams">ZuoraBillingParams</h2>
+
+<a id="schemazuorabillingparams"></a>
+<a id="schema_ZuoraBillingParams"></a>
+<a id="tocSzuorabillingparams"></a>
+<a id="tocszuorabillingparams"></a>
+
+```json
+{
+  "plan_id": "string",
+  "price_id": "string",
+  "price_ids": [
+    "string"
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|plan_id|string|false|none|none|
+|price_id|string|false|none|none|
+|price_ids|[string]|false|none|none|
+
+<h2 id="tocS_CohortConfig">CohortConfig</h2>
+
+<a id="schemacohortconfig"></a>
+<a id="schema_CohortConfig"></a>
+<a id="tocScohortconfig"></a>
+<a id="tocscohortconfig"></a>
+
+```json
+{
+  "url_query": "string",
+  "criteria": "string",
+  "cohort_name": "string",
+  "to": "string",
+  "from": "string",
+  "cohort_type": "string",
+  "time_zone": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|url_query|string|true|none|none|
+|criteria|string|true|none|none|
+|cohort_name|string|true|none|none|
+|to|string|true|none|none|
+|from|string|true|none|none|
+|cohort_type|string|true|none|none|
+|time_zone|string|true|none|none|
+
+<h2 id="tocS_RegexRule">RegexRule</h2>
+
+<a id="schemaregexrule"></a>
+<a id="schema_RegexRule"></a>
+<a id="tocSregexrule"></a>
+<a id="tocsregexrule"></a>
+
+```json
+{
+  "conditions": [
+    {
+      "path": "string",
+      "value": "string"
+    }
+  ],
+  "sample_rate": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|conditions|[[RegexCondition](#schemaregexcondition)]|true|none|none|
+|sample_rate|integer(int32)|false|none|none|
+
+<h2 id="tocS_GovernanceRulesVariables">GovernanceRulesVariables</h2>
+
+<a id="schemagovernancerulesvariables"></a>
+<a id="schema_GovernanceRulesVariables"></a>
+<a id="tocSgovernancerulesvariables"></a>
+<a id="tocsgovernancerulesvariables"></a>
+
+```json
+{
+  "name": "string",
+  "path": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|true|none|none|
+|path|string|true|none|none|
+
+<h2 id="tocS_WorkspaceDocument">WorkspaceDocument</h2>
+
+<a id="schemaworkspacedocument"></a>
+<a id="schema_WorkspaceDocument"></a>
+<a id="tocSworkspacedocument"></a>
+<a id="tocsworkspacedocument"></a>
+
+```json
+{
+  "name": "string",
+  "is_default": true,
+  "view_count": 0,
+  "_id": "string",
+  "is_template": true,
+  "dashboard": {},
+  "auth_user_id": "string",
+  "colors": {},
+  "sequence": [
+    {
+      "delay": 0,
+      "submit_data": {
+        "body": {},
+        "url": "string",
+        "params": [
+          {
+            "key": "string",
+            "val": "string"
+          }
+        ],
+        "verb": "string",
+        "headers": [
+          {
+            "key": "string",
+            "val": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "drawings": [
+    {
+      "name": "string",
+      "direction": "string",
+      "id": "string",
+      "type": "string",
+      "value": 0
+    }
+  ],
+  "chart": {
+    "original_encoded_view_elements": "string",
+    "funnel_query": {},
+    "url_query": "string",
+    "to": "string",
+    "view_elements": {},
+    "from": "string",
+    "original_encoded_funnel_query": "string",
+    "es_query": {},
+    "args": "string",
+    "original_encoded_query": "string",
+    "time_zone": "string",
+    "view": "string"
+  },
+  "template": {
+    "dynamic_fields": [
+      "string"
+    ],
+    "dynamic_time": true
+  },
+  "app_id": "string",
+  "type": "string",
+  "width": 0,
+  "sort_order": 0,
+  "policy": {
+    "acl": [
+      {
+        "grantee": "string",
+        "permission": "string"
+      }
+    ],
+    "resource": {},
+    "api_scopes": [
+      "string"
+    ],
+    "original_encoded_resource": "string"
+  },
+  "org_id": "string",
+  "migration": {},
+  "created": "2019-08-24T14:15:22Z",
+  "comments": {
+    "summary": {
+      "count": 0,
+      "latest_comment": {
+        "auth_user_id": "string",
+        "comment_id": "string",
+        "mentions": [
+          "string"
+        ],
+        "partner_user_id": "string",
+        "message": "string",
+        "created_at": "2019-08-24T14:15:22Z",
+        "updated_at": "2019-08-24T14:15:22Z"
+      }
+    }
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|false|none|none|
+|is_default|boolean|false|none|none|
+|view_count|integer(int32)|true|none|none|
+|_id|string|false|none|none|
+|is_template|boolean|false|none|none|
+|dashboard|object|false|none|none|
+|auth_user_id|string|true|none|none|
+|colors|object|false|none|none|
+|sequence|[[SequenceItem](#schemasequenceitem)]|false|none|none|
+|drawings|[[DrawingItem](#schemadrawingitem)]|false|none|none|
+|chart|[ChartItem](#schemachartitem)|false|none|none|
+|template|[TemplateItem](#schematemplateitem)|false|none|none|
+|app_id|string|true|none|none|
+|type|string|false|none|none|
+|width|number(double)|false|none|none|
+|sort_order|number(double)|false|none|none|
+|policy|[PolicyItem](#schemapolicyitem)|false|none|none|
+|org_id|string|true|none|none|
+|migration|object|false|none|none|
+|created|string(date-time)|true|none|none|
+|comments|[Comments](#schemacomments)|false|none|none|
+
+<h2 id="tocS_MoesifPriceTier">MoesifPriceTier</h2>
+
+<a id="schemamoesifpricetier"></a>
+<a id="schema_MoesifPriceTier"></a>
+<a id="tocSmoesifpricetier"></a>
+<a id="tocsmoesifpricetier"></a>
+
+```json
+{
+  "up_to": null,
+  "unit_price_in_decimal": "string",
+  "flat_price_in_decimal": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|up_to|util.either[scala.long,string]|true|none|none|
+|unit_price_in_decimal|string|false|none|none|
+|flat_price_in_decimal|string|false|none|none|
+
+<h2 id="tocS_BillingMeterDocument">BillingMeterDocument</h2>
+
+<a id="schemabillingmeterdocument"></a>
+<a id="schema_BillingMeterDocument"></a>
+<a id="tocSbillingmeterdocument"></a>
+<a id="tocsbillingmeterdocument"></a>
+
+```json
+{
+  "name": "string",
+  "billing_plan": {
+    "provider_slug": "string",
+    "friendly_name": "string",
+    "params": {
+      "usage_rounding_mode": "string",
+      "webhook_params": {
+        "reporting": {
+          "report_when": [
+            "string"
+          ]
+        },
+        "channel_ids": [
+          "string"
+        ],
+        "custom_plan": {
+          "plan_id": "string"
+        }
+      },
+      "recurly_params": {
+        "plan": {
+          "name": "string",
+          "id": "string",
+          "code": "string"
+        },
+        "add_on": {
+          "name": "string",
+          "currencies": [
+            {
+              "currency": "string",
+              "unit_amount": null,
+              "unit_amount_decimal": "string"
+            }
+          ],
+          "usage_percentage": null,
+          "add_on_type": "string",
+          "external_sku": "string",
+          "state": "string",
+          "tiers": [
+            {
+              "ending_quantity": 0,
+              "currencies": [
+                {
+                  "currency": "string",
+                  "unit_amount": null,
+                  "unit_amount_decimal": "string"
+                }
+              ]
+            }
+          ],
+          "tier_type": "string",
+          "code": "string",
+          "plan_id": "string",
+          "id": "string",
+          "percentage_tiers": [
+            {
+              "tiers": [
+                {
+                  "ending_amount": null,
+                  "usage_percent": "string"
+                }
+              ],
+              "currency": "string"
+            }
+          ],
+          "usage_type": "string",
+          "created_at": "string",
+          "usage_calculation_type": "string",
+          "updated_at": "string",
+          "deleted_at": "string"
+        },
+        "add_ons": [
+          {
+            "name": "string",
+            "currencies": [
+              {
+                "currency": "string",
+                "unit_amount": null,
+                "unit_amount_decimal": "string"
+              }
+            ],
+            "usage_percentage": null,
+            "add_on_type": "string",
+            "external_sku": "string",
+            "state": "string",
+            "tiers": [
+              {
+                "ending_quantity": 0,
+                "currencies": [
+                  {
+                    "currency": "string",
+                    "unit_amount": null,
+                    "unit_amount_decimal": "string"
+                  }
+                ]
+              }
+            ],
+            "tier_type": "string",
+            "code": "string",
+            "plan_id": "string",
+            "id": "string",
+            "percentage_tiers": [
+              {
+                "tiers": [
+                  {
+                    "ending_amount": null,
+                    "usage_percent": "string"
+                  }
+                ],
+                "currency": "string"
+              }
+            ],
+            "usage_type": "string",
+            "created_at": "string",
+            "usage_calculation_type": "string",
+            "updated_at": "string",
+            "deleted_at": "string"
+          }
+        ]
+      },
+      "chargebee_params": {
+        "item_plan": {
+          "name": "string",
+          "item_family_id": "string",
+          "description": "string",
+          "usage_calculation": "string",
+          "external_name": "string",
+          "metered": true,
+          "id": "string",
+          "status": "string",
+          "unit": "string",
+          "updated_at": 0,
+          "archived_at": 0
+        },
+        "item_price": {
+          "name": "string",
+          "item_id": "string",
+          "description": "string",
+          "price": 0,
+          "price_in_decimal": "string",
+          "external_name": "string",
+          "tiers": [
+            {
+              "starting_unit": 0,
+              "ending_unit": 0,
+              "price": 0
+            }
+          ],
+          "trial_end_action": "string",
+          "trial_period": 0,
+          "id": "string",
+          "status": "string",
+          "pricing_model": "string",
+          "created_at": 0,
+          "period_unit": "string",
+          "updated_at": 0,
+          "trial_period_unit": "string",
+          "item_type": "string",
+          "currency_code": "string",
+          "archived_at": 0,
+          "free_quantity": 0,
+          "period": 0
+        },
+        "item_prices": [
+          {
+            "name": "string",
+            "item_id": "string",
+            "description": "string",
+            "price": 0,
+            "price_in_decimal": "string",
+            "external_name": "string",
+            "tiers": [
+              {
+                "starting_unit": 0,
+                "ending_unit": 0,
+                "price": 0
+              }
+            ],
+            "trial_end_action": "string",
+            "trial_period": 0,
+            "id": "string",
+            "status": "string",
+            "pricing_model": "string",
+            "created_at": 0,
+            "period_unit": "string",
+            "updated_at": 0,
+            "trial_period_unit": "string",
+            "item_type": "string",
+            "currency_code": "string",
+            "archived_at": 0,
+            "free_quantity": 0,
+            "period": 0
+          }
+        ],
+        "reporting": {
+          "reporting_period": "string"
+        }
+      },
+      "stripe_params": {
+        "product": {
+          "name": "string",
+          "description": "string",
+          "unit_label": "string",
+          "id": "string",
+          "usage_type": "string"
+        },
+        "price": {
+          "tiers_mode": "string",
+          "transform_quantity": {
+            "divide_by": 0,
+            "round": "string"
+          },
+          "price_id": "string",
+          "tiers": [
+            {
+              "flat_amount_decimal": "string",
+              "up_to": 0,
+              "unit_amount_decimal": "string",
+              "flat_amount": 0,
+              "unit_amount": 0
+            }
+          ],
+          "recurring": {
+            "trial_period_days": 0,
+            "interval": "string",
+            "usage_type": "string",
+            "interval_count": 0,
+            "aggregate_usage": "string"
+          },
+          "unit_amount_decimal": "string",
+          "price_nickname": "string",
+          "currency": "string",
+          "billing_scheme": "string",
+          "unit_amount": 0,
+          "created": 0,
+          "active": true
+        },
+        "prices": [
+          {
+            "tiers_mode": "string",
+            "transform_quantity": {
+              "divide_by": 0,
+              "round": "string"
+            },
+            "price_id": "string",
+            "tiers": [
+              {
+                "flat_amount_decimal": "string",
+                "up_to": 0,
+                "unit_amount_decimal": "string",
+                "flat_amount": 0,
+                "unit_amount": 0
+              }
+            ],
+            "recurring": {
+              "trial_period_days": 0,
+              "interval": "string",
+              "usage_type": "string",
+              "interval_count": 0,
+              "aggregate_usage": "string"
+            },
+            "unit_amount_decimal": "string",
+            "price_nickname": "string",
+            "currency": "string",
+            "billing_scheme": "string",
+            "unit_amount": 0,
+            "created": 0,
+            "active": true
+          }
+        ],
+        "reporting": {
+          "reporting_period": "string"
+        }
+      },
+      "zuora_params": {
+        "plan_id": "string",
+        "price_id": "string",
+        "price_ids": [
+          "string"
+        ]
+      },
+      "usage_multiplier": null
+    }
+  },
+  "url_query": "string",
+  "_id": "string",
+  "slug": "string",
+  "status": "string",
+  "modified_at": "2019-08-24T14:15:22Z",
+  "es_query": "string",
+  "created_at": "2019-08-24T14:15:22Z",
+  "app_id": "string",
+  "org_id": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|true|none|none|
+|billing_plan|[BillingPlan](#schemabillingplan)|true|none|none|
+|url_query|string|true|none|none|
+|_id|string|false|none|none|
+|slug|string|true|none|none|
+|status|string|true|none|none|
+|modified_at|string(date-time)|true|none|none|
+|es_query|string|true|none|none|
+|created_at|string(date-time)|true|none|none|
+|app_id|string|true|none|none|
+|org_id|string|true|none|none|
+
+<h2 id="tocS_KeyValuePair">KeyValuePair</h2>
+
+<a id="schemakeyvaluepair"></a>
+<a id="schema_KeyValuePair"></a>
+<a id="tocSkeyvaluepair"></a>
+<a id="tocskeyvaluepair"></a>
+
+```json
+{
+  "key": "string",
+  "val": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|key|string|true|none|none|
+|val|string|true|none|none|
+
+<h2 id="tocS_.BillingReport">.BillingReport</h2>
+
+<a id="schema.billingreport"></a>
+<a id="schema_.BillingReport"></a>
+<a id="tocS.billingreport"></a>
+<a id="tocs.billingreport"></a>
+
+```json
+{
+  "company_id": "string",
+  "success": true,
+  "provider": "string",
+  "report_version": 0,
+  "usage_end_time": "2019-08-24T14:15:22Z",
+  "_id": "string",
+  "meter_usage": 0,
+  "last_success_time": "2019-08-24T14:15:22Z",
+  "billing_meter_id": "string",
+  "amount": 0,
+  "usage_start_time": "2019-08-24T14:15:22Z",
+  "provider_requests": [
+    null
+  ],
+  "currency": "string",
+  "report_total_usage": 0,
+  "channel_requests": [
+    null
+  ],
+  "created_at": "2019-08-24T14:15:22Z",
+  "app_id": "string",
+  "subscription_id": "string",
+  "updated_at": "2019-08-24T14:15:22Z",
+  "org_id": "string",
+  "meter_metric": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|company_id|string|true|none|none|
+|success|boolean|true|none|none|
+|provider|string|true|none|none|
+|report_version|integer(int32)|false|none|none|
+|usage_end_time|string(date-time)|true|none|none|
+|_id|string|false|none|none|
+|meter_usage|integer(int64)|true|none|none|
+|last_success_time|string(date-time)|false|none|none|
+|billing_meter_id|string|true|none|none|
+|amount|number(double)|false|none|none|
+|usage_start_time|string(date-time)|true|none|none|
+|provider_requests|[providerrequest]|true|none|none|
+|currency|string|false|none|none|
+|report_total_usage|integer(int64)|true|none|none|
+|channel_requests|[channelrequest]|true|none|none|
+|created_at|string(date-time)|false|none|none|
+|app_id|string|true|none|none|
+|subscription_id|string|true|none|none|
+|updated_at|string(date-time)|false|none|none|
+|org_id|string|true|none|none|
+|meter_metric|integer(int64)|true|none|none|
+
+<h2 id="tocS_ProviderReporting">ProviderReporting</h2>
+
+<a id="schemaproviderreporting"></a>
+<a id="schema_ProviderReporting"></a>
+<a id="tocSproviderreporting"></a>
+<a id="tocsproviderreporting"></a>
+
+```json
+{
+  "reporting_period": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|reporting_period|string|false|none|none|
 
 <h2 id="tocS_AppResponseDTO">AppResponseDTO</h2>
 
@@ -21795,24 +26264,585 @@ managementAPIToken ( Scopes: delete:users )
 |secure_proxy|boolean|false|none|none|
 |time_zone|string|false|none|none|
 
-<h2 id="tocS_BillingMetricResponse">BillingMetricResponse</h2>
+<h2 id="tocS_CohortUpdateItem">CohortUpdateItem</h2>
 
-<a id="schemabillingmetricresponse"></a>
-<a id="schema_BillingMetricResponse"></a>
-<a id="tocSbillingmetricresponse"></a>
-<a id="tocsbillingmetricresponse"></a>
+<a id="schemacohortupdateitem"></a>
+<a id="schema_CohortUpdateItem"></a>
+<a id="tocScohortupdateitem"></a>
+<a id="tocscohortupdateitem"></a>
 
 ```json
 {
-  "billing_meter_id": "string",
-  "buckets": [
+  "channels": null,
+  "priority": 0,
+  "url_query": "string",
+  "criteria": {},
+  "sample_rate": 0,
+  "notification_rule": {
+    "send_on_addition": true,
+    "send_on_removal": true,
+    "period": "string",
+    "fields": [
+      "string"
+    ]
+  },
+  "cohort_name": "string",
+  "to": "string",
+  "week_starts_on": 0,
+  "from": "string",
+  "cohort_type": "string",
+  "time_zone": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|channels|array[string]|false|none|none|
+|priority|integer(int32)|false|none|none|
+|url_query|string|false|none|none|
+|criteria|object|false|none|none|
+|sample_rate|integer(int32)|false|none|none|
+|notification_rule|[NotificationRule](#schemanotificationrule)|false|none|none|
+|cohort_name|string|false|none|none|
+|to|string|false|none|none|
+|week_starts_on|integer(int32)|false|none|none|
+|from|string|false|none|none|
+|cohort_type|string|true|none|none|
+|time_zone|string|false|none|none|
+
+<h2 id="tocS_EmailTemplateUpdateItem">EmailTemplateUpdateItem</h2>
+
+<a id="schemaemailtemplateupdateitem"></a>
+<a id="schema_EmailTemplateUpdateItem"></a>
+<a id="tocSemailtemplateupdateitem"></a>
+<a id="tocsemailtemplateupdateitem"></a>
+
+```json
+{
+  "name": "string",
+  "state": 0,
+  "cohorts": [
     {
-      "start": "2019-08-24T14:15:22Z",
-      "metric": null,
-      "usage": null,
-      "errors": [
+      "id": "string",
+      "type": "string",
+      "config": {
+        "url_query": "string",
+        "criteria": "string",
+        "cohort_name": "string",
+        "to": "string",
+        "from": "string",
+        "cohort_type": "string",
+        "time_zone": "string"
+      }
+    }
+  ],
+  "dynamic_fields": [
+    {
+      "token": "string",
+      "field": "string",
+      "aggregator": "avg"
+    }
+  ],
+  "content": {
+    "html": "string",
+    "chunks": {}
+  },
+  "template": {
+    "subject": "string",
+    "editor": "string",
+    "design": {},
+    "thumbnail_url": "string"
+  },
+  "period": "string",
+  "addresses": {
+    "from": "string",
+    "cc": [
+      "string"
+    ],
+    "bcc": [
+      "string"
+    ]
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|false|none|none|
+|state|integer(int32)|false|none|none|
+|cohorts|[[Cohort](#schemacohort)]|false|none|none|
+|dynamic_fields|[[DynamicField](#schemadynamicfield)]|false|none|none|
+|content|[TemplateContent](#schematemplatecontent)|false|none|none|
+|template|[TemplateConfig](#schematemplateconfig)|false|none|none|
+|period|string|false|none|none|
+|addresses|[EmailAddresses](#schemaemailaddresses)|false|none|none|
+
+<h2 id="tocS_RecurlyPlan">RecurlyPlan</h2>
+
+<a id="schemarecurlyplan"></a>
+<a id="schema_RecurlyPlan"></a>
+<a id="tocSrecurlyplan"></a>
+<a id="tocsrecurlyplan"></a>
+
+```json
+{
+  "name": "string",
+  "id": "string",
+  "code": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|false|none|none|
+|id|string|false|none|none|
+|code|string|true|none|none|
+
+<h2 id="tocS_StripeProduct">StripeProduct</h2>
+
+<a id="schemastripeproduct"></a>
+<a id="schema_StripeProduct"></a>
+<a id="tocSstripeproduct"></a>
+<a id="tocsstripeproduct"></a>
+
+```json
+{
+  "name": "string",
+  "description": "string",
+  "unit_label": "string",
+  "id": "string",
+  "usage_type": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|true|none|none|
+|description|string|false|none|none|
+|unit_label|string|false|none|none|
+|id|string|true|none|none|
+|usage_type|string|false|none|none|
+
+<h2 id="tocS_BillingParams">BillingParams</h2>
+
+<a id="schemabillingparams"></a>
+<a id="schema_BillingParams"></a>
+<a id="tocSbillingparams"></a>
+<a id="tocsbillingparams"></a>
+
+```json
+{
+  "usage_rounding_mode": "string",
+  "webhook_params": {
+    "reporting": {
+      "report_when": [
         "string"
       ]
+    },
+    "channel_ids": [
+      "string"
+    ],
+    "custom_plan": {
+      "plan_id": "string"
+    }
+  },
+  "recurly_params": {
+    "plan": {
+      "name": "string",
+      "id": "string",
+      "code": "string"
+    },
+    "add_on": {
+      "name": "string",
+      "currencies": [
+        {
+          "currency": "string",
+          "unit_amount": null,
+          "unit_amount_decimal": "string"
+        }
+      ],
+      "usage_percentage": null,
+      "add_on_type": "string",
+      "external_sku": "string",
+      "state": "string",
+      "tiers": [
+        {
+          "ending_quantity": 0,
+          "currencies": [
+            {
+              "currency": "string",
+              "unit_amount": null,
+              "unit_amount_decimal": "string"
+            }
+          ]
+        }
+      ],
+      "tier_type": "string",
+      "code": "string",
+      "plan_id": "string",
+      "id": "string",
+      "percentage_tiers": [
+        {
+          "tiers": [
+            {
+              "ending_amount": null,
+              "usage_percent": "string"
+            }
+          ],
+          "currency": "string"
+        }
+      ],
+      "usage_type": "string",
+      "created_at": "string",
+      "usage_calculation_type": "string",
+      "updated_at": "string",
+      "deleted_at": "string"
+    },
+    "add_ons": [
+      {
+        "name": "string",
+        "currencies": [
+          {
+            "currency": "string",
+            "unit_amount": null,
+            "unit_amount_decimal": "string"
+          }
+        ],
+        "usage_percentage": null,
+        "add_on_type": "string",
+        "external_sku": "string",
+        "state": "string",
+        "tiers": [
+          {
+            "ending_quantity": 0,
+            "currencies": [
+              {
+                "currency": "string",
+                "unit_amount": null,
+                "unit_amount_decimal": "string"
+              }
+            ]
+          }
+        ],
+        "tier_type": "string",
+        "code": "string",
+        "plan_id": "string",
+        "id": "string",
+        "percentage_tiers": [
+          {
+            "tiers": [
+              {
+                "ending_amount": null,
+                "usage_percent": "string"
+              }
+            ],
+            "currency": "string"
+          }
+        ],
+        "usage_type": "string",
+        "created_at": "string",
+        "usage_calculation_type": "string",
+        "updated_at": "string",
+        "deleted_at": "string"
+      }
+    ]
+  },
+  "chargebee_params": {
+    "item_plan": {
+      "name": "string",
+      "item_family_id": "string",
+      "description": "string",
+      "usage_calculation": "string",
+      "external_name": "string",
+      "metered": true,
+      "id": "string",
+      "status": "string",
+      "unit": "string",
+      "updated_at": 0,
+      "archived_at": 0
+    },
+    "item_price": {
+      "name": "string",
+      "item_id": "string",
+      "description": "string",
+      "price": 0,
+      "price_in_decimal": "string",
+      "external_name": "string",
+      "tiers": [
+        {
+          "starting_unit": 0,
+          "ending_unit": 0,
+          "price": 0
+        }
+      ],
+      "trial_end_action": "string",
+      "trial_period": 0,
+      "id": "string",
+      "status": "string",
+      "pricing_model": "string",
+      "created_at": 0,
+      "period_unit": "string",
+      "updated_at": 0,
+      "trial_period_unit": "string",
+      "item_type": "string",
+      "currency_code": "string",
+      "archived_at": 0,
+      "free_quantity": 0,
+      "period": 0
+    },
+    "item_prices": [
+      {
+        "name": "string",
+        "item_id": "string",
+        "description": "string",
+        "price": 0,
+        "price_in_decimal": "string",
+        "external_name": "string",
+        "tiers": [
+          {
+            "starting_unit": 0,
+            "ending_unit": 0,
+            "price": 0
+          }
+        ],
+        "trial_end_action": "string",
+        "trial_period": 0,
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "created_at": 0,
+        "period_unit": "string",
+        "updated_at": 0,
+        "trial_period_unit": "string",
+        "item_type": "string",
+        "currency_code": "string",
+        "archived_at": 0,
+        "free_quantity": 0,
+        "period": 0
+      }
+    ],
+    "reporting": {
+      "reporting_period": "string"
+    }
+  },
+  "stripe_params": {
+    "product": {
+      "name": "string",
+      "description": "string",
+      "unit_label": "string",
+      "id": "string",
+      "usage_type": "string"
+    },
+    "price": {
+      "tiers_mode": "string",
+      "transform_quantity": {
+        "divide_by": 0,
+        "round": "string"
+      },
+      "price_id": "string",
+      "tiers": [
+        {
+          "flat_amount_decimal": "string",
+          "up_to": 0,
+          "unit_amount_decimal": "string",
+          "flat_amount": 0,
+          "unit_amount": 0
+        }
+      ],
+      "recurring": {
+        "trial_period_days": 0,
+        "interval": "string",
+        "usage_type": "string",
+        "interval_count": 0,
+        "aggregate_usage": "string"
+      },
+      "unit_amount_decimal": "string",
+      "price_nickname": "string",
+      "currency": "string",
+      "billing_scheme": "string",
+      "unit_amount": 0,
+      "created": 0,
+      "active": true
+    },
+    "prices": [
+      {
+        "tiers_mode": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "price_id": "string",
+        "tiers": [
+          {
+            "flat_amount_decimal": "string",
+            "up_to": 0,
+            "unit_amount_decimal": "string",
+            "flat_amount": 0,
+            "unit_amount": 0
+          }
+        ],
+        "recurring": {
+          "trial_period_days": 0,
+          "interval": "string",
+          "usage_type": "string",
+          "interval_count": 0,
+          "aggregate_usage": "string"
+        },
+        "unit_amount_decimal": "string",
+        "price_nickname": "string",
+        "currency": "string",
+        "billing_scheme": "string",
+        "unit_amount": 0,
+        "created": 0,
+        "active": true
+      }
+    ],
+    "reporting": {
+      "reporting_period": "string"
+    }
+  },
+  "zuora_params": {
+    "plan_id": "string",
+    "price_id": "string",
+    "price_ids": [
+      "string"
+    ]
+  },
+  "usage_multiplier": null
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|usage_rounding_mode|string|false|none|none|
+|webhook_params|[BillingWebhookParams](#schemabillingwebhookparams)|false|none|none|
+|recurly_params|[RecurlyBillingParams](#schemarecurlybillingparams)|false|none|none|
+|chargebee_params|[ChargebeeBillingParams](#schemachargebeebillingparams)|false|none|none|
+|stripe_params|[StripeBillingParams](#schemastripebillingparams)|false|none|none|
+|zuora_params|[ZuoraBillingParams](#schemazuorabillingparams)|false|none|none|
+|usage_multiplier|double|false|none|none|
+
+<h2 id="tocS_RecurlyBillingParams">RecurlyBillingParams</h2>
+
+<a id="schemarecurlybillingparams"></a>
+<a id="schema_RecurlyBillingParams"></a>
+<a id="tocSrecurlybillingparams"></a>
+<a id="tocsrecurlybillingparams"></a>
+
+```json
+{
+  "plan": {
+    "name": "string",
+    "id": "string",
+    "code": "string"
+  },
+  "add_on": {
+    "name": "string",
+    "currencies": [
+      {
+        "currency": "string",
+        "unit_amount": null,
+        "unit_amount_decimal": "string"
+      }
+    ],
+    "usage_percentage": null,
+    "add_on_type": "string",
+    "external_sku": "string",
+    "state": "string",
+    "tiers": [
+      {
+        "ending_quantity": 0,
+        "currencies": [
+          {
+            "currency": "string",
+            "unit_amount": null,
+            "unit_amount_decimal": "string"
+          }
+        ]
+      }
+    ],
+    "tier_type": "string",
+    "code": "string",
+    "plan_id": "string",
+    "id": "string",
+    "percentage_tiers": [
+      {
+        "tiers": [
+          {
+            "ending_amount": null,
+            "usage_percent": "string"
+          }
+        ],
+        "currency": "string"
+      }
+    ],
+    "usage_type": "string",
+    "created_at": "string",
+    "usage_calculation_type": "string",
+    "updated_at": "string",
+    "deleted_at": "string"
+  },
+  "add_ons": [
+    {
+      "name": "string",
+      "currencies": [
+        {
+          "currency": "string",
+          "unit_amount": null,
+          "unit_amount_decimal": "string"
+        }
+      ],
+      "usage_percentage": null,
+      "add_on_type": "string",
+      "external_sku": "string",
+      "state": "string",
+      "tiers": [
+        {
+          "ending_quantity": 0,
+          "currencies": [
+            {
+              "currency": "string",
+              "unit_amount": null,
+              "unit_amount_decimal": "string"
+            }
+          ]
+        }
+      ],
+      "tier_type": "string",
+      "code": "string",
+      "plan_id": "string",
+      "id": "string",
+      "percentage_tiers": [
+        {
+          "tiers": [
+            {
+              "ending_amount": null,
+              "usage_percent": "string"
+            }
+          ],
+          "currency": "string"
+        }
+      ],
+      "usage_type": "string",
+      "created_at": "string",
+      "usage_calculation_type": "string",
+      "updated_at": "string",
+      "deleted_at": "string"
     }
   ]
 }
@@ -21823,25 +26853,66 @@ managementAPIToken ( Scopes: delete:users )
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|billing_meter_id|string|true|none|none|
-|buckets|[[BillingMetricBucket](#schemabillingmetricbucket)]|true|none|none|
+|plan|[RecurlyPlan](#schemarecurlyplan)|false|none|none|
+|add_on|[RecurlyPlanAddOn](#schemarecurlyplanaddon)|false|none|none|
+|add_ons|[[RecurlyPlanAddOn](#schemarecurlyplanaddon)]|false|none|none|
 
-<h2 id="tocS_AppCreateDTO">AppCreateDTO</h2>
+<h2 id="tocS_GovernanceRulesDocument">GovernanceRulesDocument</h2>
 
-<a id="schemaappcreatedto"></a>
-<a id="schema_AppCreateDTO"></a>
-<a id="tocSappcreatedto"></a>
-<a id="tocsappcreatedto"></a>
+<a id="schemagovernancerulesdocument"></a>
+<a id="schema_GovernanceRulesDocument"></a>
+<a id="tocSgovernancerulesdocument"></a>
+<a id="tocsgovernancerulesdocument"></a>
 
 ```json
 {
   "name": "string",
-  "custom_app_id": "string",
-  "search_api_base_url": "string",
-  "week_starts_on": 0,
-  "portal_api_base_url": "string",
-  "secure_proxy": true,
-  "time_zone": "string"
+  "priority": 0,
+  "model": "string",
+  "state": 0,
+  "cohorts": [
+    {}
+  ],
+  "_id": "string",
+  "variables": [
+    {
+      "name": "string",
+      "path": "string"
+    }
+  ],
+  "applied_to": "string",
+  "block": true,
+  "response": {
+    "status": 0,
+    "headers": null,
+    "body": {},
+    "original_encoded_body": "string"
+  },
+  "applied_to_unidentified": true,
+  "regex_config": [
+    {
+      "conditions": [
+        {
+          "path": "string",
+          "value": "string"
+        }
+      ],
+      "sample_rate": 0
+    }
+  ],
+  "created_at": "2019-08-24T14:15:22Z",
+  "app_id": "string",
+  "plans": [
+    {
+      "provider": "string",
+      "plan_id": "string",
+      "price_ids": [
+        "string"
+      ]
+    }
+  ],
+  "type": "string",
+  "org_id": "string"
 }
 
 ```
@@ -21851,12 +26922,552 @@ managementAPIToken ( Scopes: delete:users )
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |name|string|true|none|none|
-|custom_app_id|string|false|none|none|
-|search_api_base_url|string|false|none|none|
-|week_starts_on|integer(int32)|false|none|none|
-|portal_api_base_url|string|false|none|none|
-|secure_proxy|boolean|false|none|none|
-|time_zone|string|false|none|none|
+|priority|integer(int32)|false|none|none|
+|model|string|false|none|none|
+|state|integer(int32)|true|none|none|
+|cohorts|[object]|false|none|none|
+|_id|string|false|none|none|
+|variables|[[GovernanceRulesVariables](#schemagovernancerulesvariables)]|false|none|none|
+|applied_to|string|false|none|none|
+|block|boolean|true|none|none|
+|response|[RulesResponseItem](#schemarulesresponseitem)|false|none|none|
+|applied_to_unidentified|boolean|false|none|none|
+|regex_config|[[RegexRule](#schemaregexrule)]|false|none|none|
+|created_at|string(date-time)|true|none|none|
+|app_id|string|true|none|none|
+|plans|[[Plan](#schemaplan)]|false|none|none|
+|type|string|true|none|none|
+|org_id|string|true|none|none|
+
+<h2 id="tocS_BillingPlan">BillingPlan</h2>
+
+<a id="schemabillingplan"></a>
+<a id="schema_BillingPlan"></a>
+<a id="tocSbillingplan"></a>
+<a id="tocsbillingplan"></a>
+
+```json
+{
+  "provider_slug": "string",
+  "friendly_name": "string",
+  "params": {
+    "usage_rounding_mode": "string",
+    "webhook_params": {
+      "reporting": {
+        "report_when": [
+          "string"
+        ]
+      },
+      "channel_ids": [
+        "string"
+      ],
+      "custom_plan": {
+        "plan_id": "string"
+      }
+    },
+    "recurly_params": {
+      "plan": {
+        "name": "string",
+        "id": "string",
+        "code": "string"
+      },
+      "add_on": {
+        "name": "string",
+        "currencies": [
+          {
+            "currency": "string",
+            "unit_amount": null,
+            "unit_amount_decimal": "string"
+          }
+        ],
+        "usage_percentage": null,
+        "add_on_type": "string",
+        "external_sku": "string",
+        "state": "string",
+        "tiers": [
+          {
+            "ending_quantity": 0,
+            "currencies": [
+              {
+                "currency": "string",
+                "unit_amount": null,
+                "unit_amount_decimal": "string"
+              }
+            ]
+          }
+        ],
+        "tier_type": "string",
+        "code": "string",
+        "plan_id": "string",
+        "id": "string",
+        "percentage_tiers": [
+          {
+            "tiers": [
+              {
+                "ending_amount": null,
+                "usage_percent": "string"
+              }
+            ],
+            "currency": "string"
+          }
+        ],
+        "usage_type": "string",
+        "created_at": "string",
+        "usage_calculation_type": "string",
+        "updated_at": "string",
+        "deleted_at": "string"
+      },
+      "add_ons": [
+        {
+          "name": "string",
+          "currencies": [
+            {
+              "currency": "string",
+              "unit_amount": null,
+              "unit_amount_decimal": "string"
+            }
+          ],
+          "usage_percentage": null,
+          "add_on_type": "string",
+          "external_sku": "string",
+          "state": "string",
+          "tiers": [
+            {
+              "ending_quantity": 0,
+              "currencies": [
+                {
+                  "currency": "string",
+                  "unit_amount": null,
+                  "unit_amount_decimal": "string"
+                }
+              ]
+            }
+          ],
+          "tier_type": "string",
+          "code": "string",
+          "plan_id": "string",
+          "id": "string",
+          "percentage_tiers": [
+            {
+              "tiers": [
+                {
+                  "ending_amount": null,
+                  "usage_percent": "string"
+                }
+              ],
+              "currency": "string"
+            }
+          ],
+          "usage_type": "string",
+          "created_at": "string",
+          "usage_calculation_type": "string",
+          "updated_at": "string",
+          "deleted_at": "string"
+        }
+      ]
+    },
+    "chargebee_params": {
+      "item_plan": {
+        "name": "string",
+        "item_family_id": "string",
+        "description": "string",
+        "usage_calculation": "string",
+        "external_name": "string",
+        "metered": true,
+        "id": "string",
+        "status": "string",
+        "unit": "string",
+        "updated_at": 0,
+        "archived_at": 0
+      },
+      "item_price": {
+        "name": "string",
+        "item_id": "string",
+        "description": "string",
+        "price": 0,
+        "price_in_decimal": "string",
+        "external_name": "string",
+        "tiers": [
+          {
+            "starting_unit": 0,
+            "ending_unit": 0,
+            "price": 0
+          }
+        ],
+        "trial_end_action": "string",
+        "trial_period": 0,
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "created_at": 0,
+        "period_unit": "string",
+        "updated_at": 0,
+        "trial_period_unit": "string",
+        "item_type": "string",
+        "currency_code": "string",
+        "archived_at": 0,
+        "free_quantity": 0,
+        "period": 0
+      },
+      "item_prices": [
+        {
+          "name": "string",
+          "item_id": "string",
+          "description": "string",
+          "price": 0,
+          "price_in_decimal": "string",
+          "external_name": "string",
+          "tiers": [
+            {
+              "starting_unit": 0,
+              "ending_unit": 0,
+              "price": 0
+            }
+          ],
+          "trial_end_action": "string",
+          "trial_period": 0,
+          "id": "string",
+          "status": "string",
+          "pricing_model": "string",
+          "created_at": 0,
+          "period_unit": "string",
+          "updated_at": 0,
+          "trial_period_unit": "string",
+          "item_type": "string",
+          "currency_code": "string",
+          "archived_at": 0,
+          "free_quantity": 0,
+          "period": 0
+        }
+      ],
+      "reporting": {
+        "reporting_period": "string"
+      }
+    },
+    "stripe_params": {
+      "product": {
+        "name": "string",
+        "description": "string",
+        "unit_label": "string",
+        "id": "string",
+        "usage_type": "string"
+      },
+      "price": {
+        "tiers_mode": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "price_id": "string",
+        "tiers": [
+          {
+            "flat_amount_decimal": "string",
+            "up_to": 0,
+            "unit_amount_decimal": "string",
+            "flat_amount": 0,
+            "unit_amount": 0
+          }
+        ],
+        "recurring": {
+          "trial_period_days": 0,
+          "interval": "string",
+          "usage_type": "string",
+          "interval_count": 0,
+          "aggregate_usage": "string"
+        },
+        "unit_amount_decimal": "string",
+        "price_nickname": "string",
+        "currency": "string",
+        "billing_scheme": "string",
+        "unit_amount": 0,
+        "created": 0,
+        "active": true
+      },
+      "prices": [
+        {
+          "tiers_mode": "string",
+          "transform_quantity": {
+            "divide_by": 0,
+            "round": "string"
+          },
+          "price_id": "string",
+          "tiers": [
+            {
+              "flat_amount_decimal": "string",
+              "up_to": 0,
+              "unit_amount_decimal": "string",
+              "flat_amount": 0,
+              "unit_amount": 0
+            }
+          ],
+          "recurring": {
+            "trial_period_days": 0,
+            "interval": "string",
+            "usage_type": "string",
+            "interval_count": 0,
+            "aggregate_usage": "string"
+          },
+          "unit_amount_decimal": "string",
+          "price_nickname": "string",
+          "currency": "string",
+          "billing_scheme": "string",
+          "unit_amount": 0,
+          "created": 0,
+          "active": true
+        }
+      ],
+      "reporting": {
+        "reporting_period": "string"
+      }
+    },
+    "zuora_params": {
+      "plan_id": "string",
+      "price_id": "string",
+      "price_ids": [
+        "string"
+      ]
+    },
+    "usage_multiplier": null
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|provider_slug|string|true|none|none|
+|friendly_name|string|false|none|none|
+|params|[BillingParams](#schemabillingparams)|false|none|none|
+
+<h2 id="tocS_SubmitData">SubmitData</h2>
+
+<a id="schemasubmitdata"></a>
+<a id="schema_SubmitData"></a>
+<a id="tocSsubmitdata"></a>
+<a id="tocssubmitdata"></a>
+
+```json
+{
+  "body": {},
+  "url": "string",
+  "params": [
+    {
+      "key": "string",
+      "val": "string"
+    }
+  ],
+  "verb": "string",
+  "headers": [
+    {
+      "key": "string",
+      "val": "string"
+    }
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|body|object|false|none|none|
+|url|string|true|none|none|
+|params|[[KeyValuePair](#schemakeyvaluepair)]|false|none|none|
+|verb|string|true|none|none|
+|headers|[[KeyValuePair](#schemakeyvaluepair)]|false|none|none|
+
+<h2 id="tocS_NotificationRule">NotificationRule</h2>
+
+<a id="schemanotificationrule"></a>
+<a id="schema_NotificationRule"></a>
+<a id="tocSnotificationrule"></a>
+<a id="tocsnotificationrule"></a>
+
+```json
+{
+  "send_on_addition": true,
+  "send_on_removal": true,
+  "period": "string",
+  "fields": [
+    "string"
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|send_on_addition|boolean|true|none|none|
+|send_on_removal|boolean|true|none|none|
+|period|string|false|none|none|
+|fields|[string]|false|none|none|
+
+<h2 id="tocS_TemplateItem">TemplateItem</h2>
+
+<a id="schematemplateitem"></a>
+<a id="schema_TemplateItem"></a>
+<a id="tocStemplateitem"></a>
+<a id="tocstemplateitem"></a>
+
+```json
+{
+  "dynamic_fields": [
+    "string"
+  ],
+  "dynamic_time": true
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|dynamic_fields|[string]|true|none|none|
+|dynamic_time|boolean|false|none|none|
+
+<h2 id="tocS_Summary">Summary</h2>
+
+<a id="schemasummary"></a>
+<a id="schema_Summary"></a>
+<a id="tocSsummary"></a>
+<a id="tocssummary"></a>
+
+```json
+{
+  "count": 0,
+  "latest_comment": {
+    "auth_user_id": "string",
+    "comment_id": "string",
+    "mentions": [
+      "string"
+    ],
+    "partner_user_id": "string",
+    "message": "string",
+    "created_at": "2019-08-24T14:15:22Z",
+    "updated_at": "2019-08-24T14:15:22Z"
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|count|integer(int32)|true|none|none|
+|latest_comment|[CreateCommentItem](#schemacreatecommentitem)|false|none|none|
+
+<h2 id="tocS_GovernanceRuleUpdateItem">GovernanceRuleUpdateItem</h2>
+
+<a id="schemagovernanceruleupdateitem"></a>
+<a id="schema_GovernanceRuleUpdateItem"></a>
+<a id="tocSgovernanceruleupdateitem"></a>
+<a id="tocsgovernanceruleupdateitem"></a>
+
+```json
+{
+  "name": "string",
+  "priority": 0,
+  "model": "string",
+  "state": 0,
+  "cohorts": [
+    {}
+  ],
+  "variables": [
+    {
+      "name": "string",
+      "path": "string"
+    }
+  ],
+  "applied_to": "string",
+  "block": true,
+  "response": {
+    "status": 0,
+    "headers": null,
+    "body": {},
+    "original_encoded_body": "string"
+  },
+  "applied_to_unidentified": true,
+  "regex_config": [
+    {
+      "conditions": [
+        {
+          "path": "string",
+          "value": "string"
+        }
+      ],
+      "sample_rate": 0
+    }
+  ],
+  "plans": [
+    {
+      "provider": "string",
+      "plan_id": "string",
+      "price_ids": [
+        "string"
+      ]
+    }
+  ],
+  "type": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|false|none|none|
+|priority|integer(int32)|false|none|none|
+|model|string|false|none|none|
+|state|integer(int32)|false|none|none|
+|cohorts|[object]|false|none|none|
+|variables|[[GovernanceRulesVariables](#schemagovernancerulesvariables)]|false|none|none|
+|applied_to|string|false|none|none|
+|block|boolean|false|none|none|
+|response|[RulesResponseItem](#schemarulesresponseitem)|false|none|none|
+|applied_to_unidentified|boolean|false|none|none|
+|regex_config|[[RegexRule](#schemaregexrule)]|false|none|none|
+|plans|[[Plan](#schemaplan)]|false|none|none|
+|type|string|false|none|none|
+
+<h2 id="tocS_BillingWebhookParams">BillingWebhookParams</h2>
+
+<a id="schemabillingwebhookparams"></a>
+<a id="schema_BillingWebhookParams"></a>
+<a id="tocSbillingwebhookparams"></a>
+<a id="tocsbillingwebhookparams"></a>
+
+```json
+{
+  "reporting": {
+    "report_when": [
+      "string"
+    ]
+  },
+  "channel_ids": [
+    "string"
+  ],
+  "custom_plan": {
+    "plan_id": "string"
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|reporting|[CustomReporting](#schemacustomreporting)|false|none|none|
+|channel_ids|[string]|true|none|none|
+|custom_plan|[CustomReportPlan](#schemacustomreportplan)|true|none|none|
 
 <h2 id="tocS_searchUsersResponseDTO">searchUsersResponseDTO</h2>
 
@@ -21939,20 +27550,49 @@ managementAPIToken ( Scopes: delete:users )
 |» total|integer|false|none|none|
 |» hits|[[userResponseDTO](#schemauserresponsedto)]|false|none|none|
 
-<h2 id="tocS_CompanyUpdateDTO">CompanyUpdateDTO</h2>
+<h2 id="tocS_SubscriptionDTO">SubscriptionDTO</h2>
 
-<a id="schemacompanyupdatedto"></a>
-<a id="schema_CompanyUpdateDTO"></a>
-<a id="tocScompanyupdatedto"></a>
-<a id="tocscompanyupdatedto"></a>
+<a id="schemasubscriptiondto"></a>
+<a id="schema_SubscriptionDTO"></a>
+<a id="tocSsubscriptiondto"></a>
+<a id="tocssubscriptiondto"></a>
 
 ```json
 {
+  "trial_start": "2019-08-24T14:15:22Z",
   "company_id": "string",
+  "start_date": "2019-08-24T14:15:22Z",
+  "collection_method": "string",
+  "provider": "string",
+  "items": [
+    {
+      "item_price_id": "string",
+      "price_id": "string",
+      "is_metered": true,
+      "plan_id": "string",
+      "unit_of_measure": "string",
+      "status": "string",
+      "subscription_item_id": "string"
+    }
+  ],
+  "current_period_start": "2019-08-24T14:15:22Z",
+  "company_external_id": "string",
+  "payment_status": "string",
   "modified_time": "2019-08-24T14:15:22Z",
-  "session_token": "string",
-  "company_domain": "string",
-  "metadata": null
+  "cancel_time": "2019-08-24T14:15:22Z",
+  "status": "string",
+  "trial_end": "2019-08-24T14:15:22Z",
+  "external_id": "string",
+  "metadata": {
+    "underlying": {}
+  },
+  "app_id": "string",
+  "subscription_id": "string",
+  "version_id": "string",
+  "type": "string",
+  "current_period_end": "2019-08-24T14:15:22Z",
+  "org_id": "string",
+  "created": "2019-08-24T14:15:22Z"
 }
 
 ```
@@ -21961,11 +27601,28 @@ managementAPIToken ( Scopes: delete:users )
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
+|trial_start|string(date-time)|false|none|none|
 |company_id|string|true|none|none|
+|start_date|string(date-time)|false|none|none|
+|collection_method|string|false|none|none|
+|provider|string|false|none|none|
+|items|[[SubscriptionItem](#schemasubscriptionitem)]|false|none|none|
+|current_period_start|string(date-time)|false|none|none|
+|company_external_id|string|false|none|none|
+|payment_status|string|false|none|none|
 |modified_time|string(date-time)|false|none|none|
-|session_token|string|false|none|none|
-|company_domain|string|false|none|none|
-|metadata|[play.api.libs.json.JsObject](#schemaplay.api.libs.json.jsobject)|false|none|none|
+|cancel_time|string(date-time)|false|none|none|
+|status|string|true|none|none|
+|trial_end|string(date-time)|false|none|none|
+|external_id|string|false|none|none|
+|metadata|[JsObject](#schemajsobject)|false|none|none|
+|app_id|string|true|none|none|
+|subscription_id|string|true|none|none|
+|version_id|string|false|none|none|
+|type|string|true|none|none|
+|current_period_end|string(date-time)|false|none|none|
+|org_id|string|true|none|none|
+|created|string(date-time)|false|none|none|
 
 <h2 id="tocS_searchEventsResponseDTO">searchEventsResponseDTO</h2>
 
@@ -22070,6 +27727,26 @@ managementAPIToken ( Scopes: delete:users )
 |» total|integer|false|none|none|
 |» hits|[[eventResponseDTO](#schemaeventresponsedto)]|false|none|none|
 
+<h2 id="tocS_JsObject">JsObject</h2>
+
+<a id="schemajsobject"></a>
+<a id="schema_JsObject"></a>
+<a id="tocSjsobject"></a>
+<a id="tocsjsobject"></a>
+
+```json
+{
+  "underlying": {}
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|underlying|object|true|none|none|
+
 <h2 id="tocS_searchcompanysResponseDTO">searchcompanysResponseDTO</h2>
 
 <a id="schemasearchcompanysresponsedto"></a>
@@ -22116,8 +27793,10 @@ managementAPIToken ( Scopes: delete:users )
   "user_id": "string",
   "modified_time": "2019-08-24T14:15:22Z",
   "last_name": "string",
-  "session_token": null,
-  "metadata": null,
+  "session_token": {},
+  "metadata": {
+    "underlying": {}
+  },
   "user_name": "string",
   "phone": "string"
 }
@@ -22136,10 +27815,42 @@ managementAPIToken ( Scopes: delete:users )
 |user_id|string|true|none|none|
 |modified_time|string(date-time)|false|none|none|
 |last_name|string|false|none|none|
-|session_token|[play.api.libs.json.JsValue](#schemaplay.api.libs.json.jsvalue)|false|none|none|
-|metadata|[play.api.libs.json.JsObject](#schemaplay.api.libs.json.jsobject)|false|none|none|
+|session_token|[JsValue](#schemajsvalue)|false|none|none|
+|metadata|[JsObject](#schemajsobject)|false|none|none|
 |user_name|string|false|none|none|
 |phone|string|false|none|none|
+
+<h2 id="tocS_SubscriptionItem">SubscriptionItem</h2>
+
+<a id="schemasubscriptionitem"></a>
+<a id="schema_SubscriptionItem"></a>
+<a id="tocSsubscriptionitem"></a>
+<a id="tocssubscriptionitem"></a>
+
+```json
+{
+  "item_price_id": "string",
+  "price_id": "string",
+  "is_metered": true,
+  "plan_id": "string",
+  "unit_of_measure": "string",
+  "status": "string",
+  "subscription_item_id": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|item_price_id|string|false|none|none|
+|price_id|string|false|none|none|
+|is_metered|boolean|false|none|none|
+|plan_id|string|true|none|none|
+|unit_of_measure|string|false|none|none|
+|status|string|false|none|none|
+|subscription_item_id|string|false|none|none|
 
 <h2 id="tocS_userResponseDTO">userResponseDTO</h2>
 
@@ -22398,28 +28109,45 @@ managementAPIToken ( Scopes: delete:users )
 |» user|object|false|none|none|
 |sort|[integer]|false|none|none|
 
-<h2 id="tocS_SubscriptionDTO">SubscriptionDTO</h2>
+<h2 id="tocS_AddSubscriptionDTO">AddSubscriptionDTO</h2>
 
-<a id="schemasubscriptiondto"></a>
-<a id="schema_SubscriptionDTO"></a>
-<a id="tocSsubscriptiondto"></a>
-<a id="tocssubscriptiondto"></a>
+<a id="schemaaddsubscriptiondto"></a>
+<a id="schema_AddSubscriptionDTO"></a>
+<a id="tocSaddsubscriptiondto"></a>
+<a id="tocsaddsubscriptiondto"></a>
 
 ```json
 {
   "trial_start": "2019-08-24T14:15:22Z",
   "company_id": "string",
+  "start_date": "2019-08-24T14:15:22Z",
+  "collection_method": "string",
+  "provider": "string",
   "items": [
     {
-      "plan_id": "string"
+      "item_price_id": "string",
+      "price_id": "string",
+      "is_metered": true,
+      "plan_id": "string",
+      "unit_of_measure": "string",
+      "status": "string",
+      "subscription_item_id": "string"
     }
   ],
   "current_period_start": "2019-08-24T14:15:22Z",
+  "company_external_id": "string",
+  "payment_status": "string",
+  "cancel_time": "2019-08-24T14:15:22Z",
   "status": "string",
   "trial_end": "2019-08-24T14:15:22Z",
   "external_id": "string",
+  "metadata": {
+    "underlying": {}
+  },
   "subscription_id": "string",
-  "current_period_end": "2019-08-24T14:15:22Z"
+  "version_id": "string",
+  "current_period_end": "2019-08-24T14:15:22Z",
+  "created": "2019-08-24T14:15:22Z"
 }
 
 ```
@@ -22430,24 +28158,55 @@ managementAPIToken ( Scopes: delete:users )
 |---|---|---|---|---|
 |trial_start|string(date-time)|false|none|none|
 |company_id|string|true|none|none|
+|start_date|string(date-time)|false|none|none|
+|collection_method|string|false|none|none|
+|provider|string|false|none|none|
 |items|[[SubscriptionItem](#schemasubscriptionitem)]|false|none|none|
-|current_period_start|string(date-time)|true|none|none|
+|current_period_start|string(date-time)|false|none|none|
+|company_external_id|string|false|none|none|
+|payment_status|string|false|none|none|
+|cancel_time|string(date-time)|false|none|none|
 |status|string|true|none|none|
 |trial_end|string(date-time)|false|none|none|
 |external_id|string|false|none|none|
+|metadata|[JsObject](#schemajsobject)|false|none|none|
 |subscription_id|string|true|none|none|
-|current_period_end|string(date-time)|true|none|none|
+|version_id|string|false|none|none|
+|current_period_end|string(date-time)|false|none|none|
+|created|string(date-time)|false|none|none|
 
-<h2 id="tocS_SubscriptionItem">SubscriptionItem</h2>
+<h2 id="tocS_JsValue">JsValue</h2>
 
-<a id="schemasubscriptionitem"></a>
-<a id="schema_SubscriptionItem"></a>
-<a id="tocSsubscriptionitem"></a>
-<a id="tocssubscriptionitem"></a>
+<a id="schemajsvalue"></a>
+<a id="schema_JsValue"></a>
+<a id="tocSjsvalue"></a>
+<a id="tocsjsvalue"></a>
+
+```json
+{}
+
+```
+
+### Properties
+
+*None*
+
+<h2 id="tocS_CompanyUpdateDTO">CompanyUpdateDTO</h2>
+
+<a id="schemacompanyupdatedto"></a>
+<a id="schema_CompanyUpdateDTO"></a>
+<a id="tocScompanyupdatedto"></a>
+<a id="tocscompanyupdatedto"></a>
 
 ```json
 {
-  "plan_id": "string"
+  "company_id": "string",
+  "modified_time": "2019-08-24T14:15:22Z",
+  "session_token": "string",
+  "company_domain": "string",
+  "metadata": {
+    "underlying": {}
+  }
 }
 
 ```
@@ -22456,5 +28215,9 @@ managementAPIToken ( Scopes: delete:users )
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|plan_id|string|true|none|none|
+|company_id|string|true|none|none|
+|modified_time|string(date-time)|false|none|none|
+|session_token|string|false|none|none|
+|company_domain|string|false|none|none|
+|metadata|[JsObject](#schemajsobject)|false|none|none|
 
