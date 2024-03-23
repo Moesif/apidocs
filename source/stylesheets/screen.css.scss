@@ -199,17 +199,19 @@ html, body {
       padding-left: $nav-padding + $nav-indent;
       @extend %nav-font;
     }
+  }
 
-    .tocify-subheader {
+  .tocify-subheader {
       .tocify-item>a {
         // Styling here for a level 2 nesting. For example ->
         padding-left: $nav-padding + $nav-indent * 2;
         font-size: 12px;
       }
-    .toc-h2 {
-        padding-left: $nav-padding + $nav-indent;
-        font-size: 12px;
     }
+
+  .toc-h2 {
+    padding-left: $nav-padding + $nav-indent;
+    font-size: 12px;
   }
 
   .toc-footer {
@@ -695,6 +697,7 @@ html, body {
   @extend %label-font;
     border-radius: 3px;
 }
+
 .highlight .c, .highlight .cm, .highlight .c1, .highlight .cs {
   color: #909090;
 }
@@ -708,6 +711,8 @@ html, body {
   padding: 10px;
   text-decoration: none;
   color: $tg-slate;
+}
+
 .copy-clipboard {
   float: right;
   fill: #9DAAB6;
