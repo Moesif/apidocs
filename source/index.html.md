@@ -14,7 +14,7 @@ language_tabs:
   - java: Java
 
 toc_footers:
-  - <a href='https:/wwww.moesif.com/docs/api/openapi/management-api.json'>Management OpenAPI Spec</a>
+  - <a href='/docs/api/openapi/management-api.json'>Management OpenAPI Spec</a>
   - <a href='https://status.moesif.com'>API Status</a>
   - <a href='/docs'>Developer Docs</a>
   - <a href='/blog/changelog'>Changelog</a>
