@@ -23,4 +23,5 @@ _yardoc
 doc/
 .idea/
 
-# webhook-generic-test
+# Vagrant artifacts
+ubuntu-*-console.log
