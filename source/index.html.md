@@ -14,10 +14,10 @@ language_tabs:
   - java: Java
 
 toc_footers:
+  - <a href='https:/wwww.moesif.com/docs/api/openapi/management-api.json'>Management OpenAPI Spec</a>
+  - <a href='https://status.moesif.com'>API Status</a>
   - <a href='/docs'>Developer Docs</a>
   - <a href='/blog/changelog'>Changelog</a>
-  - <a href='https://status.moesif.com'>API Status</a>
-  - <a href='/wrap'>My Account</a>
 
 includes:
   - overview
@@ -33,13 +33,14 @@ includes:
   - management-api/management-api
 
 search: true
-
 code_clipboard: true
 ---
 
 # Moesif API Reference
 
-Moesif is an analytics and monetization platform for API products. This reference is for v1 of the Moesif APIs.
+Moesif is an API analytics and monetization service to grow your API products. With Moesif, you can quickly get started with API Observability, API monetization and usage-based billing.
+
+ With Moesif, you cam This reference is for v1 of the Moesif APIs.
 For an overview on the Moesif platform, see the [developer docs](/docs) or [implementation guides](https://www.moesif.com/implementation)
 
 There are two APIs:
