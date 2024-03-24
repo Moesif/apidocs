@@ -33,6 +33,8 @@ includes:
   - management-api/management-api
 
 search: true
+
+code_clipboard: true
 ---
 
 # Moesif API Reference
@@ -52,4 +54,3 @@ There are two APIs:
 The _Collector API_ enables you to log raw data to Moesif at high volume such as events and user profiles. It's a write-only, high-volume data collection network and is also used by the Moesif server integrations and plugins.
 
 The _Management API_ enables you to query and manage data in your Moesif account such as to embed charts in customer-facing applications.
-

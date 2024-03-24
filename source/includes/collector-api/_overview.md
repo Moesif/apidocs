@@ -1,4 +1,4 @@
-# <a id="collector-api"></a> Collector API v1
+<h1 id="collector-api">Collector API v1</h1>
 
 The Collector API enables you to log data to Moesif at high volumes. This is also what the [Moesif server integrations](https://www.moesif.com/implementation) use. For more info, check out [an overview of our analytics infrastructure](https://www.moesif.com/enterprise/api-analytics-infrastructure).
 

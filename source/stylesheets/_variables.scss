@@ -46,6 +46,7 @@ $code-annotation-bg: #244048;
 $search-highlight: rgba($tg-bermuda-green, .3);
 $nav-subitem-bg: #fff;
 $nav-active-bg: $base-grey-5;
+$nav-active-parent-bg: #1E2224 !default; // parent links of the current section
 $lang-select-border: #000;
 $lang-select-bg: #222;
 $lang-select-active-bg: #FF4F00; // feel free to change this to blue or something
@@ -62,6 +63,7 @@ $search-notice-bg: #FFC0A4;
 $main-text: $tg-slate; // main content text color
 $nav-text: $tg-grey;
 $nav-active-text: $main-text;
+$nav-active-parent-text: #fff !default; // parent links of the current section
 $nav-footer-text: $base-grey-70;
 $content-link: $tg-bermuda-green;
 $content-link-hover: $tg-teal;
@@ -132,6 +134,8 @@ $border-radius: 3px;
 $border-color: $base-grey-30;
 $solid-border: 1px solid $border-color;
 $dotted-border: 1px dotted $border-color;
+$nav-footer-border-color: #666 !default;
+$search-box-border-color: #666 !default;
 
 
 ////////////////////////////////////////////////////////////////////////////////
