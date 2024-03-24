@@ -1,36 +1,21 @@
-<h1 id="moesif-api">Moesif API</h1>
-
+<h1 id='moesif-api'>Moesif API</h1>
 <p><a name="overview"></a></p>
-
-<h2 id="overview">Overview</h2>
-
-<h3 id="version-information">Version information</h3>
-
+<h2 id='overview'>Overview</h2><h3 id='version-information'>Version information</h3>
 <p><em>Version</em> : 1.0.0</p>
-
-<h3 id="license-information">License information</h3>
-
+<h3 id='license-information'>License information</h3>
 <p><em>Terms of service</em> : https://www.moesif.com/terms</p>
-
-<h3 id="uri-scheme">URI scheme</h3>
-
+<h3 id='uri-scheme'>URI scheme</h3>
 <p><em>Host</em> : https://api.moesif.net<br>
 <em>Schemes</em> : HTTPS</p>
-
-<h3 id="tags">Tags</h3>
-
+<h3 id='tags'>Tags</h3>
 <ul>
 <li>routes</li>
 </ul>
-
-<h3 id="consumes">Consumes</h3>
-
+<h3 id='consumes'>Consumes</h3>
 <ul>
-<li><code class="prettyprint">application/json</code></li>
+<li><code>application/json</code></li>
 </ul>
-
-<h3 id="produces">Produces</h3>
-
+<h3 id='produces'>Produces</h3>
 <ul>
-<li><code class="prettyprint">application/json</code></li>
+<li><code>application/json</code></li>
 </ul>
