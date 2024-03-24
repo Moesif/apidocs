@@ -92,8 +92,6 @@ configure :build do
   # out the following two lines has been known to help
   activate :minify_css
   activate :minify_javascript
-  # activate :relative_assets
-  activate :asset_hash
   activate :asset_host, :host => '//apidocs.moesif.com'
   # activate :gzip
 end
