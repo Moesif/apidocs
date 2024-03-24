@@ -21042,9 +21042,10 @@ System.out.println(response.toString());
       {
         "_id": "AWF5M-FDTqLFD8l5y2f4",
         "_source": {
+          "company_id": "67890",
           "duration_ms": 76,
           "request": {
-            "body": {},
+            "body": "json",
             "uri": "https://api.github.com",
             "user_agent": {
               "patch": "1",
@@ -21074,34 +21075,20 @@ System.out.println(response.toString());
             "ip_address": "73.189.235.253",
             "verb": "GET",
             "route": "/",
-            "time": "2019-07-09T06:14:58.550",
-            "headers": {
-              "_accept-_encoding": "gzip, deflate",
-              "_connection": "close",
-              "_cache-_control": "no-cache",
-              "_user-_agent": "PostmanRuntime/7.1.1",
-              "_host": "api.github.com",
-              "_accept": "*/*"
-            }
+            "time": "2023-07-09T06:14:58.550",
+            "headers": {}
           },
           "user_id": "123454",
+          "company": {},
           "response": {
-            "headers": {
-              "_vary": "Accept",
-              "_cache-_control": "public, max-age=60, s-maxage=60",
-              "_strict-_transport-_security": "max-age=31536000; includeSubdomains; preload",
-              "_access-_control-_expose-_headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
-              "_content-_security-_policy": "default-src 'none'",
-              "_transfer-_encoding": "chunked",
-              "_e_tag": "W/\"7dc470913f1fe9bb6c7355b50a0737bc\"",
-              "_content-_type": "application/json; charset=utf-8",
-              "_access-_control-_allow-_origin": "*"
-            },
-            "time": "2019-07-09T06:14:58.626",
             "body": {},
-            "status": 200
+            "transfer_encoding": "json",
+            "status": 200,
+            "time": "2023-07-09T06:14:58.626",
+            "headers": {}
           },
           "id": "AWF5M-FDTqLFD8l5y2f4",
+          "event_type": "api_call",
           "session_token": "rdfmnw3fu24309efjc534nb421UZ9-]2JDO[ME",
           "metadata": {},
           "app_id": "198:3",
@@ -21376,9 +21363,10 @@ System.out.println(response.toString());
       {
         "_id": "AWF5M-FDTqLFD8l5y2f4",
         "_source": {
+          "company_id": "67890",
           "duration_ms": 76,
           "request": {
-            "body": {},
+            "body": "json",
             "uri": "https://api.github.com",
             "user_agent": {
               "patch": "1",
@@ -21408,34 +21396,20 @@ System.out.println(response.toString());
             "ip_address": "73.189.235.253",
             "verb": "GET",
             "route": "/",
-            "time": "2019-07-09T06:14:58.550",
-            "headers": {
-              "_accept-_encoding": "gzip, deflate",
-              "_connection": "close",
-              "_cache-_control": "no-cache",
-              "_user-_agent": "PostmanRuntime/7.1.1",
-              "_host": "api.github.com",
-              "_accept": "*/*"
-            }
+            "time": "2023-07-09T06:14:58.550",
+            "headers": {}
           },
           "user_id": "123454",
+          "company": {},
           "response": {
-            "headers": {
-              "_vary": "Accept",
-              "_cache-_control": "public, max-age=60, s-maxage=60",
-              "_strict-_transport-_security": "max-age=31536000; includeSubdomains; preload",
-              "_access-_control-_expose-_headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
-              "_content-_security-_policy": "default-src 'none'",
-              "_transfer-_encoding": "chunked",
-              "_e_tag": "W/\"7dc470913f1fe9bb6c7355b50a0737bc\"",
-              "_content-_type": "application/json; charset=utf-8",
-              "_access-_control-_allow-_origin": "*"
-            },
-            "time": "2019-07-09T06:14:58.626",
             "body": {},
-            "status": 200
+            "transfer_encoding": "json",
+            "status": 200,
+            "time": "2023-07-09T06:14:58.626",
+            "headers": {}
           },
           "id": "AWF5M-FDTqLFD8l5y2f4",
+          "event_type": "api_call",
           "session_token": "rdfmnw3fu24309efjc534nb421UZ9-]2JDO[ME",
           "metadata": {},
           "app_id": "198:3",
@@ -21683,9 +21657,10 @@ System.out.println(response.toString());
 {
   "_id": "AWF5M-FDTqLFD8l5y2f4",
   "_source": {
+    "company_id": "67890",
     "duration_ms": 76,
     "request": {
-      "body": {},
+      "body": "json",
       "uri": "https://api.github.com",
       "user_agent": {
         "patch": "1",
@@ -21715,34 +21690,20 @@ System.out.println(response.toString());
       "ip_address": "73.189.235.253",
       "verb": "GET",
       "route": "/",
-      "time": "2019-07-09T06:14:58.550",
-      "headers": {
-        "_accept-_encoding": "gzip, deflate",
-        "_connection": "close",
-        "_cache-_control": "no-cache",
-        "_user-_agent": "PostmanRuntime/7.1.1",
-        "_host": "api.github.com",
-        "_accept": "*/*"
-      }
+      "time": "2023-07-09T06:14:58.550",
+      "headers": {}
     },
     "user_id": "123454",
+    "company": {},
     "response": {
-      "headers": {
-        "_vary": "Accept",
-        "_cache-_control": "public, max-age=60, s-maxage=60",
-        "_strict-_transport-_security": "max-age=31536000; includeSubdomains; preload",
-        "_access-_control-_expose-_headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
-        "_content-_security-_policy": "default-src 'none'",
-        "_transfer-_encoding": "chunked",
-        "_e_tag": "W/\"7dc470913f1fe9bb6c7355b50a0737bc\"",
-        "_content-_type": "application/json; charset=utf-8",
-        "_access-_control-_allow-_origin": "*"
-      },
-      "time": "2019-07-09T06:14:58.626",
       "body": {},
-      "status": 200
+      "transfer_encoding": "json",
+      "status": 200,
+      "time": "2023-07-09T06:14:58.626",
+      "headers": {}
     },
     "id": "AWF5M-FDTqLFD8l5y2f4",
+    "event_type": "api_call",
     "session_token": "rdfmnw3fu24309efjc534nb421UZ9-]2JDO[ME",
     "metadata": {},
     "app_id": "198:3",
@@ -22240,7 +22201,7 @@ System.out.println(response.toString());
     "body": {},
     "name": "John Doe",
     "email": "john.doe@gmail.com",
-    "first_seen_time": "2019-07-27T21:52:58.0990000Z",
+    "first_seen_time": "2023-07-27T21:52:58.0990000Z",
     "user_agent": {
       "name": "Android",
       "os_major": "7",
@@ -22270,13 +22231,13 @@ System.out.println(response.toString());
       "country_code3": "US",
       "country_name": "United States"
     },
-    "modified_time": "2019-07-27T21:55:19.464",
+    "modified_time": "2023-07-27T21:55:19.464",
     "last_name": "Doe",
     "ip_address": "107.200.85.196",
     "session_token": [
       "e93u2jiry8fij8q09-tfZ9SIK9DERDXUYMF"
     ],
-    "last_seen_time": "2019-07-27T21:52:58.0990000Z",
+    "last_seen_time": "2023-07-27T21:52:58.0990000Z",
     "app_id": "198:3",
     "org_id": "177:3"
   },
@@ -22772,7 +22733,7 @@ System.out.println(response.toString());
     "body": {},
     "name": "John Doe",
     "email": "john.doe@gmail.com",
-    "first_seen_time": "2019-07-27T21:52:58.0990000Z",
+    "first_seen_time": "2023-07-27T21:52:58.0990000Z",
     "user_agent": {
       "name": "Android",
       "os_major": "7",
@@ -22802,13 +22763,13 @@ System.out.println(response.toString());
       "country_code3": "US",
       "country_name": "United States"
     },
-    "modified_time": "2019-07-27T21:55:19.464",
+    "modified_time": "2023-07-27T21:55:19.464",
     "last_name": "Doe",
     "ip_address": "107.200.85.196",
     "session_token": [
       "e93u2jiry8fij8q09-tfZ9SIK9DERDXUYMF"
     ],
-    "last_seen_time": "2019-07-27T21:52:58.0990000Z",
+    "last_seen_time": "2023-07-27T21:52:58.0990000Z",
     "app_id": "198:3",
     "org_id": "177:3"
   },
@@ -23050,7 +23011,7 @@ System.out.println(response.toString());
     "body": {},
     "name": "John Doe",
     "email": "john.doe@gmail.com",
-    "first_seen_time": "2019-07-27T21:52:58.0990000Z",
+    "first_seen_time": "2023-07-27T21:52:58.0990000Z",
     "user_agent": {
       "name": "Android",
       "os_major": "7",
@@ -23080,13 +23041,13 @@ System.out.println(response.toString());
       "country_code3": "US",
       "country_name": "United States"
     },
-    "modified_time": "2019-07-27T21:55:19.464",
+    "modified_time": "2023-07-27T21:55:19.464",
     "last_name": "Doe",
     "ip_address": "107.200.85.196",
     "session_token": [
       "e93u2jiry8fij8q09-tfZ9SIK9DERDXUYMF"
     ],
-    "last_seen_time": "2019-07-27T21:52:58.0990000Z",
+    "last_seen_time": "2023-07-27T21:52:58.0990000Z",
     "app_id": "198:3",
     "org_id": "177:3"
   },
@@ -25255,7 +25216,7 @@ managementAPIToken ( Scopes: delete:users )
           "body": {},
           "name": "John Doe",
           "email": "john.doe@gmail.com",
-          "first_seen_time": "2019-07-27T21:52:58.0990000Z",
+          "first_seen_time": "2023-07-27T21:52:58.0990000Z",
           "user_agent": {
             "name": "Android",
             "os_major": "7",
@@ -25285,13 +25246,13 @@ managementAPIToken ( Scopes: delete:users )
             "country_code3": "US",
             "country_name": "United States"
           },
-          "modified_time": "2019-07-27T21:55:19.464",
+          "modified_time": "2023-07-27T21:55:19.464",
           "last_name": "Doe",
           "ip_address": "107.200.85.196",
           "session_token": [
             "e93u2jiry8fij8q09-tfZ9SIK9DERDXUYMF"
           ],
-          "last_seen_time": "2019-07-27T21:52:58.0990000Z",
+          "last_seen_time": "2023-07-27T21:52:58.0990000Z",
           "app_id": "198:3",
           "org_id": "177:3"
         },
@@ -25404,9 +25365,10 @@ managementAPIToken ( Scopes: delete:users )
       {
         "_id": "AWF5M-FDTqLFD8l5y2f4",
         "_source": {
+          "company_id": "67890",
           "duration_ms": 76,
           "request": {
-            "body": {},
+            "body": "json",
             "uri": "https://api.github.com",
             "user_agent": {
               "patch": "1",
@@ -25436,34 +25398,20 @@ managementAPIToken ( Scopes: delete:users )
             "ip_address": "73.189.235.253",
             "verb": "GET",
             "route": "/",
-            "time": "2019-07-09T06:14:58.550",
-            "headers": {
-              "_accept-_encoding": "gzip, deflate",
-              "_connection": "close",
-              "_cache-_control": "no-cache",
-              "_user-_agent": "PostmanRuntime/7.1.1",
-              "_host": "api.github.com",
-              "_accept": "*/*"
-            }
+            "time": "2023-07-09T06:14:58.550",
+            "headers": {}
           },
           "user_id": "123454",
+          "company": {},
           "response": {
-            "headers": {
-              "_vary": "Accept",
-              "_cache-_control": "public, max-age=60, s-maxage=60",
-              "_strict-_transport-_security": "max-age=31536000; includeSubdomains; preload",
-              "_access-_control-_expose-_headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
-              "_content-_security-_policy": "default-src 'none'",
-              "_transfer-_encoding": "chunked",
-              "_e_tag": "W/\"7dc470913f1fe9bb6c7355b50a0737bc\"",
-              "_content-_type": "application/json; charset=utf-8",
-              "_access-_control-_allow-_origin": "*"
-            },
-            "time": "2019-07-09T06:14:58.626",
             "body": {},
-            "status": 200
+            "transfer_encoding": "json",
+            "status": 200,
+            "time": "2023-07-09T06:14:58.626",
+            "headers": {}
           },
           "id": "AWF5M-FDTqLFD8l5y2f4",
+          "event_type": "api_call",
           "session_token": "rdfmnw3fu24309efjc534nb421UZ9-]2JDO[ME",
           "metadata": {},
           "app_id": "198:3",
@@ -25608,7 +25556,7 @@ managementAPIToken ( Scopes: delete:users )
     "body": {},
     "name": "John Doe",
     "email": "john.doe@gmail.com",
-    "first_seen_time": "2019-07-27T21:52:58.0990000Z",
+    "first_seen_time": "2023-07-27T21:52:58.0990000Z",
     "user_agent": {
       "name": "Android",
       "os_major": "7",
@@ -25638,13 +25586,13 @@ managementAPIToken ( Scopes: delete:users )
       "country_code3": "US",
       "country_name": "United States"
     },
-    "modified_time": "2019-07-27T21:55:19.464",
+    "modified_time": "2023-07-27T21:55:19.464",
     "last_name": "Doe",
     "ip_address": "107.200.85.196",
     "session_token": [
       "e93u2jiry8fij8q09-tfZ9SIK9DERDXUYMF"
     ],
-    "last_seen_time": "2019-07-27T21:52:58.0990000Z",
+    "last_seen_time": "2023-07-27T21:52:58.0990000Z",
     "app_id": "198:3",
     "org_id": "177:3"
   },
@@ -25712,9 +25660,10 @@ managementAPIToken ( Scopes: delete:users )
 {
   "_id": "AWF5M-FDTqLFD8l5y2f4",
   "_source": {
+    "company_id": "67890",
     "duration_ms": 76,
     "request": {
-      "body": {},
+      "body": "json",
       "uri": "https://api.github.com",
       "user_agent": {
         "patch": "1",
@@ -25744,34 +25693,20 @@ managementAPIToken ( Scopes: delete:users )
       "ip_address": "73.189.235.253",
       "verb": "GET",
       "route": "/",
-      "time": "2019-07-09T06:14:58.550",
-      "headers": {
-        "_accept-_encoding": "gzip, deflate",
-        "_connection": "close",
-        "_cache-_control": "no-cache",
-        "_user-_agent": "PostmanRuntime/7.1.1",
-        "_host": "api.github.com",
-        "_accept": "*/*"
-      }
+      "time": "2023-07-09T06:14:58.550",
+      "headers": {}
     },
     "user_id": "123454",
+    "company": {},
     "response": {
-      "headers": {
-        "_vary": "Accept",
-        "_cache-_control": "public, max-age=60, s-maxage=60",
-        "_strict-_transport-_security": "max-age=31536000; includeSubdomains; preload",
-        "_access-_control-_expose-_headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
-        "_content-_security-_policy": "default-src 'none'",
-        "_transfer-_encoding": "chunked",
-        "_e_tag": "W/\"7dc470913f1fe9bb6c7355b50a0737bc\"",
-        "_content-_type": "application/json; charset=utf-8",
-        "_access-_control-_allow-_origin": "*"
-      },
-      "time": "2019-07-09T06:14:58.626",
       "body": {},
-      "status": 200
+      "transfer_encoding": "json",
+      "status": 200,
+      "time": "2023-07-09T06:14:58.626",
+      "headers": {}
     },
     "id": "AWF5M-FDTqLFD8l5y2f4",
+    "event_type": "api_call",
     "session_token": "rdfmnw3fu24309efjc534nb421UZ9-]2JDO[ME",
     "metadata": {},
     "app_id": "198:3",
@@ -25791,6 +25726,7 @@ managementAPIToken ( Scopes: delete:users )
 |---|---|---|---|---|
 |_id|string|false|none|none|
 |_source|object|false|none|none|
+|» company_id|string|false|none|none|
 |» duration_ms|integer|false|none|none|
 |» request|object|false|none|none|
 |»» body|object|false|none|none|
@@ -25821,28 +25757,16 @@ managementAPIToken ( Scopes: delete:users )
 |»» route|string|false|none|none|
 |»» time|string|false|none|none|
 |»» headers|object|false|none|none|
-|»»» _accept-_encoding|string|false|none|none|
-|»»» _connection|string|false|none|none|
-|»»» _cache-_control|string|false|none|none|
-|»»» _user-_agent|string|false|none|none|
-|»»» _host|string|false|none|none|
-|»»» _accept|string|false|none|none|
 |» user_id|string|false|none|none|
+|» company|object|false|none|none|
 |» response|object|false|none|none|
-|»» headers|object|false|none|none|
-|»»» _vary|string|false|none|none|
-|»»» _cache-_control|string|false|none|none|
-|»»» _strict-_transport-_security|string|false|none|none|
-|»»» _access-_control-_expose-_headers|string|false|none|none|
-|»»» _content-_security-_policy|string|false|none|none|
-|»»» _transfer-_encoding|string|false|none|none|
-|»»» _e_tag|string|false|none|none|
-|»»» _content-_type|string|false|none|none|
-|»»» _access-_control-_allow-_origin|string|false|none|none|
-|»» time|string|false|none|none|
 |»» body|object|false|none|none|
+|»» transfer_encoding|string|false|none|none|
 |»» status|integer|false|none|none|
+|»» time|string|false|none|none|
+|»» headers|object|false|none|none|
 |» id|string|false|none|none|
+|» event_type|string|false|none|none|
 |» session_token|string|false|none|none|
 |» metadata|object|false|none|none|
 |» app_id|string|false|none|none|
