@@ -110,7 +110,7 @@ html, body {
   }
   
   // TODO REMOVE?
-  img+.tocify {
+  img+.toc {
     margin-top: $logo-margin;
   }
 
@@ -144,13 +144,6 @@ html, body {
     }
   }
 
-  .tocify-item>a, .toc-footer li {
-    padding: $nav-padding 0;
-    display: block;
-    overflow-x: hidden;
-  }
-
-  // FIXME
   .toc-item>a, .toc-footer li {
     padding: $nav-padding 0;
     display: block;
@@ -195,14 +188,14 @@ html, body {
     display: none;
     background-color: $nav-subitem-bg;
     font-weight: 500;
-    .tocify-item>a {
+    .toc-item>a {
       padding-left: $nav-padding + $nav-indent;
       @extend %nav-font;
     }
   }
 
-  .tocify-subheader {
-      .tocify-item>a {
+  .toc-subheader {
+      .toc-item>a {
         // Styling here for a level 2 nesting. For example ->
         padding-left: $nav-padding + $nav-indent * 2;
         font-size: 12px;
@@ -381,7 +374,7 @@ html, body {
     padding-left: $main-padding + 15px;
   }
 
-  // the div is the tocify hidden div for placeholding stuff
+  // the div is the toc hidden div for placeholding stuff
   &>h1, &>h2, &>div {
     clear:both;
   }

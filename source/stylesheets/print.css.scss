@@ -27,11 +27,11 @@ body {
   @extend %default-font;
 }
 
-.tocify, .toc-footer, .lang-selector, .search, #nav-button {
+.toc, .toc-footer, .lang-selector, .search, #nav-button {
   display: none;
 }
 
-.tocify-wrapper>img {
+.toc-wrapper>img {
   margin: 0 auto;
   display: block;
 }
