@@ -1667,7 +1667,7 @@
                   "type": "string",
                   "default": "",
                   "examples": [
-                    "2019-07-27T21:52:58.0990000Z"
+                    "2023-07-27T21:52:58.0990000Z"
                   ]
                 },
                 "user_agent": {
@@ -1850,7 +1850,7 @@
                   "type": "string",
                   "default": "",
                   "examples": [
-                    "2019-07-27T21:55:19.464"
+                    "2023-07-27T21:55:19.464"
                   ]
                 },
                 "last_name": {
@@ -1881,7 +1881,7 @@
                   "type": "string",
                   "default": "",
                   "examples": [
-                    "2019-07-27T21:52:58.0990000Z"
+                    "2023-07-27T21:52:58.0990000Z"
                   ]
                 },
                 "app_id": {
@@ -2094,7 +2094,7 @@
                   "type": "string",
                   "default": "",
                   "examples": [
-                    "2019-07-27T21:52:58.0990000Z"
+                    "2023-07-27T21:52:58.0990000Z"
                   ]
                 },
                 "domain_name": {
@@ -2108,7 +2108,7 @@
                   "type": "string",
                   "default": "",
                   "examples": [
-                    "2019-07-27T21:55:19.464"
+                    "2023-07-27T21:55:19.464"
                   ]
                 },
                 "session_token": {
@@ -2248,7 +2248,7 @@
                 "type": "string",
                 "default": "",
                 "examples": [
-                  "2019-07-27T21:52:58.0990000Z"
+                  "2023-07-27T21:52:58.0990000Z"
                 ]
               },
               "user_agent": {
@@ -2431,7 +2431,7 @@
                 "type": "string",
                 "default": "",
                 "examples": [
-                  "2019-07-27T21:55:19.464"
+                  "2023-07-27T21:55:19.464"
                 ]
               },
               "last_name": {
@@ -2462,7 +2462,7 @@
                 "type": "string",
                 "default": "",
                 "examples": [
-                  "2019-07-27T21:52:58.0990000Z"
+                  "2023-07-27T21:52:58.0990000Z"
                 ]
               },
               "app_id": {
@@ -2505,6 +2505,13 @@
           "_source": {
             "type": "object",
             "properties": {
+              "company_id": {
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "67890"
+                ]
+              },
               "duration_ms": {
                 "type": "integer",
                 "default": 0,
@@ -2516,7 +2523,11 @@
                 "type": "object",
                 "properties": {
                   "body": {
-                    "type": "object"
+                    "type": "object",
+                    "examples": [
+                      "json",
+                      "base64"
+                    ]
                   },
                   "uri": {
                     "type": "string",
@@ -2697,55 +2708,11 @@
                     "type": "string",
                     "default": "",
                     "examples": [
-                      "2019-07-09T06:14:58.550"
+                      "2023-07-09T06:14:58.550"
                     ]
                   },
                   "headers": {
-                    "type": "object",
-                    "properties": {
-                      "_accept-_encoding": {
-                        "type": "string",
-                        "default": "",
-                        "examples": [
-                          "gzip, deflate"
-                        ]
-                      },
-                      "_connection": {
-                        "type": "string",
-                        "default": "",
-                        "examples": [
-                          "close"
-                        ]
-                      },
-                      "_cache-_control": {
-                        "type": "string",
-                        "default": "",
-                        "examples": [
-                          "no-cache"
-                        ]
-                      },
-                      "_user-_agent": {
-                        "type": "string",
-                        "default": "",
-                        "examples": [
-                          "PostmanRuntime/7.1.1"
-                        ]
-                      },
-                      "_host": {
-                        "type": "string",
-                        "default": "",
-                        "examples": [
-                          "api.github.com"
-                        ]
-                      },
-                      "_accept": {
-                        "type": "string",
-                        "default": "",
-                        "examples": [
-                          "*/*"
-                        ]
-                      }
-                    }
+                    "type": "object"
                   }
                 }
               },
@@ -2756,86 +2723,21 @@
                   "123454"
                 ]
               },
+              "company": {
+                "type": "object"
+              },
               "response": {
                 "type": "object",
                 "properties": {
-                  "headers": {
-                    "type": "object",
-                    "properties": {
-                      "_vary": {
-                        "type": "string",
-                        "default": "",
-                        "examples": [
-                          "Accept"
-                        ]
-                      },
-                      "_cache-_control": {
-                        "type": "string",
-                        "default": "",
-                        "examples": [
-                          "public, max-age=60, s-maxage=60"
-                        ]
-                      },
-                      "_strict-_transport-_security": {
-                        "type": "string",
-                        "default": "",
-                        "examples": [
-                          "max-age=31536000; includeSubdomains; preload"
-                        ]
-                      },
-                      "_access-_control-_expose-_headers": {
-                        "type": "string",
-                        "default": "",
-                        "examples": [
-                          "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval"
-                        ]
-                      },
-                      "_content-_security-_policy": {
-                        "type": "string",
-                        "default": "",
-                        "examples": [
-                          "default-src 'none'"
-                        ]
-                      },
-                      "_transfer-_encoding": {
-                        "type": "string",
-                        "default": "",
-                        "examples": [
-                          "chunked"
-                        ]
-                      },
-                      "_e_tag": {
-                        "type": "string",
-                        "default": "",
-                        "examples": [
-                          "W/\"7dc470913f1fe9bb6c7355b50a0737bc\""
-                        ]
-                      },
-                      "_content-_type": {
-                        "type": "string",
-                        "default": "",
-                        "examples": [
-                          "application/json; charset=utf-8"
-                        ]
-                      },
-                      "_access-_control-_allow-_origin": {
-                        "type": "string",
-                        "default": "",
-                        "examples": [
-                          "*"
-                        ]
-                      }
-                    }
-                  },
-                  "time": {
-                    "type": "string",
-                    "default": "",
-                    "examples": [
-                      "2019-07-09T06:14:58.626"
-                    ]
-                  },
                   "body": {
                     "type": "object"
+                  },
+                  "transfer_encoding": {
+                    "type": "string",
+                    "examples": [
+                      "json",
+                      "base64"
+                    ]
                   },
                   "status": {
                     "type": "integer",
@@ -2843,6 +2745,16 @@
                     "examples": [
                       200
                     ]
+                  },
+                  "time": {
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                      "2023-07-09T06:14:58.626"
+                    ]
+                  },
+                  "headers": {
+                    "type": "object"
                   }
                 }
               },
@@ -2851,6 +2763,13 @@
                 "default": "",
                 "examples": [
                   "AWF5M-FDTqLFD8l5y2f4"
+                ]
+              },
+              "event_type": {
+                "type": "string",
+                "examples": [
+                  "api_call",
+                  "user_action"
                 ]
               },
               "session_token": {

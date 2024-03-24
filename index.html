@@ -29930,9 +29930,10 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/search/~/search/e
       </span><span class="p">{</span><span class="w">
         </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWF5M-FDTqLFD8l5y2f4"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"_source"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"duration_ms"</span><span class="p">:</span><span class="w"> </span><span class="mi">76</span><span class="p">,</span><span class="w">
           </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+            </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"json"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"user_agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="nl">"patch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
@@ -29962,34 +29963,20 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/search/~/search/e
             </span><span class="nl">"ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73.189.235.253"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T06:14:58.550"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"_accept-_encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gzip, deflate"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_connection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"close"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_cache-_control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no-cache"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_user-_agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PostmanRuntime/7.1.1"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api.github.com"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_accept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*/*"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
+            </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-09T06:14:58.550"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123454"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
           </span><span class="nl">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"_vary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accept"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_cache-_control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public, max-age=60, s-maxage=60"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_strict-_transport-_security"</span><span class="p">:</span><span class="w"> </span><span class="s2">"max-age=31536000; includeSubdomains; preload"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_access-_control-_expose-_headers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_content-_security-_policy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default-src 'none'"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_transfer-_encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chunked"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_e_tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"W/</span><span class="se">\"</span><span class="s2">7dc470913f1fe9bb6c7355b50a0737bc</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_content-_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json; charset=utf-8"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_access-_control-_allow-_origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T06:14:58.626"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+            </span><span class="nl">"transfer_encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"json"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-09T06:14:58.626"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWF5M-FDTqLFD8l5y2f4"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api_call"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"session_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfmnw3fu24309efjc534nb421UZ9-]2JDO[ME"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
           </span><span class="nl">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"198:3"</span><span class="p">,</span><span class="w">
@@ -30295,9 +30282,10 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/search/~/workspac
       </span><span class="p">{</span><span class="w">
         </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWF5M-FDTqLFD8l5y2f4"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"_source"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"duration_ms"</span><span class="p">:</span><span class="w"> </span><span class="mi">76</span><span class="p">,</span><span class="w">
           </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+            </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"json"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"user_agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="nl">"patch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
@@ -30327,34 +30315,20 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/search/~/workspac
             </span><span class="nl">"ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73.189.235.253"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T06:14:58.550"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"_accept-_encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gzip, deflate"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_connection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"close"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_cache-_control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no-cache"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_user-_agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PostmanRuntime/7.1.1"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api.github.com"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_accept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*/*"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
+            </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-09T06:14:58.550"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123454"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
           </span><span class="nl">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"_vary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accept"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_cache-_control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public, max-age=60, s-maxage=60"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_strict-_transport-_security"</span><span class="p">:</span><span class="w"> </span><span class="s2">"max-age=31536000; includeSubdomains; preload"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_access-_control-_expose-_headers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_content-_security-_policy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default-src 'none'"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_transfer-_encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chunked"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_e_tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"W/</span><span class="se">\"</span><span class="s2">7dc470913f1fe9bb6c7355b50a0737bc</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_content-_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json; charset=utf-8"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_access-_control-_allow-_origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T06:14:58.626"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+            </span><span class="nl">"transfer_encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"json"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-09T06:14:58.626"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWF5M-FDTqLFD8l5y2f4"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api_call"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"session_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfmnw3fu24309efjc534nb421UZ9-]2JDO[ME"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
           </span><span class="nl">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"198:3"</span><span class="p">,</span><span class="w">
@@ -30609,9 +30583,10 @@ curl <span class="nt">-X</span> GET https://api.moesif.com/v1/search/~/events/<s
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWF5M-FDTqLFD8l5y2f4"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"_source"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"duration_ms"</span><span class="p">:</span><span class="w"> </span><span class="mi">76</span><span class="p">,</span><span class="w">
     </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"json"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"user_agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"patch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
@@ -30641,34 +30616,20 @@ curl <span class="nt">-X</span> GET https://api.moesif.com/v1/search/~/events/<s
       </span><span class="nl">"ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73.189.235.253"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T06:14:58.550"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"_accept-_encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gzip, deflate"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_connection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"close"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_cache-_control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no-cache"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_user-_agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PostmanRuntime/7.1.1"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api.github.com"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_accept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*/*"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-09T06:14:58.550"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123454"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
     </span><span class="nl">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"_vary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accept"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_cache-_control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public, max-age=60, s-maxage=60"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_strict-_transport-_security"</span><span class="p">:</span><span class="w"> </span><span class="s2">"max-age=31536000; includeSubdomains; preload"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_access-_control-_expose-_headers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_content-_security-_policy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default-src 'none'"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_transfer-_encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chunked"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_e_tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"W/</span><span class="se">\"</span><span class="s2">7dc470913f1fe9bb6c7355b50a0737bc</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_content-_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json; charset=utf-8"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_access-_control-_allow-_origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T06:14:58.626"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+      </span><span class="nl">"transfer_encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"json"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-09T06:14:58.626"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWF5M-FDTqLFD8l5y2f4"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api_call"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"session_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfmnw3fu24309efjc534nb421UZ9-]2JDO[ME"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
     </span><span class="nl">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"198:3"</span><span class="p">,</span><span class="w">
@@ -31171,7 +31132,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/search/~/users <s
     </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.doe@gmail.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"first_seen_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-27T21:52:58.0990000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_seen_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-27T21:52:58.0990000Z"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"user_agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Android"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"os_major"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
@@ -31201,13 +31162,13 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/search/~/users <s
       </span><span class="nl">"country_code3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"country_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"modified_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-27T21:55:19.464"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"modified_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-27T21:55:19.464"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"107.200.85.196"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"session_token"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="s2">"e93u2jiry8fij8q09-tfZ9SIK9DERDXUYMF"</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"last_seen_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-27T21:52:58.0990000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_seen_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-27T21:52:58.0990000Z"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"198:3"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"org_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"177:3"</span><span class="w">
   </span><span class="p">},</span><span class="w">
@@ -31720,7 +31681,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/search/~/users/ba
     </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.doe@gmail.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"first_seen_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-27T21:52:58.0990000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_seen_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-27T21:52:58.0990000Z"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"user_agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Android"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"os_major"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
@@ -31750,13 +31711,13 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/search/~/users/ba
       </span><span class="nl">"country_code3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"country_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"modified_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-27T21:55:19.464"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"modified_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-27T21:55:19.464"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"107.200.85.196"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"session_token"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="s2">"e93u2jiry8fij8q09-tfZ9SIK9DERDXUYMF"</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"last_seen_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-27T21:52:58.0990000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_seen_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-27T21:52:58.0990000Z"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"198:3"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"org_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"177:3"</span><span class="w">
   </span><span class="p">},</span><span class="w">
@@ -31999,7 +31960,7 @@ curl <span class="nt">-X</span> GET https://api.moesif.com/v1/search/~/users/<sp
     </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.doe@gmail.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"first_seen_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-27T21:52:58.0990000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_seen_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-27T21:52:58.0990000Z"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"user_agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Android"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"os_major"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
@@ -32029,13 +31990,13 @@ curl <span class="nt">-X</span> GET https://api.moesif.com/v1/search/~/users/<sp
       </span><span class="nl">"country_code3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"country_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"modified_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-27T21:55:19.464"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"modified_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-27T21:55:19.464"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"107.200.85.196"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"session_token"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="s2">"e93u2jiry8fij8q09-tfZ9SIK9DERDXUYMF"</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"last_seen_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-27T21:52:58.0990000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_seen_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-27T21:52:58.0990000Z"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"198:3"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"org_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"177:3"</span><span class="w">
   </span><span class="p">},</span><span class="w">
@@ -36310,7 +36271,7 @@ managementAPIToken ( Scopes: delete:users )
           </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
           </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.doe@gmail.com"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"first_seen_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-27T21:52:58.0990000Z"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"first_seen_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-27T21:52:58.0990000Z"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"user_agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Android"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"os_major"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
@@ -36340,13 +36301,13 @@ managementAPIToken ( Scopes: delete:users )
             </span><span class="nl">"country_code3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"country_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="w">
           </span><span class="p">},</span><span class="w">
-          </span><span class="nl">"modified_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-27T21:55:19.464"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"modified_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-27T21:55:19.464"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"107.200.85.196"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"session_token"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="s2">"e93u2jiry8fij8q09-tfZ9SIK9DERDXUYMF"</span><span class="w">
           </span><span class="p">],</span><span class="w">
-          </span><span class="nl">"last_seen_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-27T21:52:58.0990000Z"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"last_seen_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-27T21:52:58.0990000Z"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"198:3"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"org_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"177:3"</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -36627,9 +36588,10 @@ managementAPIToken ( Scopes: delete:users )
       </span><span class="p">{</span><span class="w">
         </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWF5M-FDTqLFD8l5y2f4"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"_source"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"duration_ms"</span><span class="p">:</span><span class="w"> </span><span class="mi">76</span><span class="p">,</span><span class="w">
           </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+            </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"json"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"user_agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="nl">"patch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
@@ -36659,34 +36621,20 @@ managementAPIToken ( Scopes: delete:users )
             </span><span class="nl">"ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73.189.235.253"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T06:14:58.550"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"_accept-_encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gzip, deflate"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_connection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"close"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_cache-_control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no-cache"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_user-_agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PostmanRuntime/7.1.1"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api.github.com"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_accept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*/*"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
+            </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-09T06:14:58.550"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123454"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
           </span><span class="nl">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"_vary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accept"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_cache-_control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public, max-age=60, s-maxage=60"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_strict-_transport-_security"</span><span class="p">:</span><span class="w"> </span><span class="s2">"max-age=31536000; includeSubdomains; preload"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_access-_control-_expose-_headers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_content-_security-_policy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default-src 'none'"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_transfer-_encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chunked"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_e_tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"W/</span><span class="se">\"</span><span class="s2">7dc470913f1fe9bb6c7355b50a0737bc</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_content-_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json; charset=utf-8"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"_access-_control-_allow-_origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T06:14:58.626"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+            </span><span class="nl">"transfer_encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"json"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-09T06:14:58.626"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWF5M-FDTqLFD8l5y2f4"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api_call"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"session_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfmnw3fu24309efjc534nb421UZ9-]2JDO[ME"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
           </span><span class="nl">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"198:3"</span><span class="p">,</span><span class="w">
@@ -37017,7 +36965,7 @@ managementAPIToken ( Scopes: delete:users )
     </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.doe@gmail.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"first_seen_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-27T21:52:58.0990000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_seen_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-27T21:52:58.0990000Z"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"user_agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Android"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"os_major"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
@@ -37047,13 +36995,13 @@ managementAPIToken ( Scopes: delete:users )
       </span><span class="nl">"country_code3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"country_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"modified_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-27T21:55:19.464"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"modified_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-27T21:55:19.464"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"107.200.85.196"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"session_token"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="s2">"e93u2jiry8fij8q09-tfZ9SIK9DERDXUYMF"</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"last_seen_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-27T21:52:58.0990000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_seen_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-27T21:52:58.0990000Z"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"198:3"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"org_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"177:3"</span><span class="w">
   </span><span class="p">},</span><span class="w">
@@ -37370,9 +37318,10 @@ managementAPIToken ( Scopes: delete:users )
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWF5M-FDTqLFD8l5y2f4"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"_source"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"duration_ms"</span><span class="p">:</span><span class="w"> </span><span class="mi">76</span><span class="p">,</span><span class="w">
     </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"json"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"user_agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"patch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
@@ -37402,34 +37351,20 @@ managementAPIToken ( Scopes: delete:users )
       </span><span class="nl">"ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73.189.235.253"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T06:14:58.550"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"_accept-_encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gzip, deflate"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_connection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"close"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_cache-_control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no-cache"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_user-_agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PostmanRuntime/7.1.1"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api.github.com"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_accept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*/*"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-09T06:14:58.550"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123454"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
     </span><span class="nl">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"_vary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accept"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_cache-_control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public, max-age=60, s-maxage=60"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_strict-_transport-_security"</span><span class="p">:</span><span class="w"> </span><span class="s2">"max-age=31536000; includeSubdomains; preload"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_access-_control-_expose-_headers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_content-_security-_policy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default-src 'none'"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_transfer-_encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chunked"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_e_tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"W/</span><span class="se">\"</span><span class="s2">7dc470913f1fe9bb6c7355b50a0737bc</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_content-_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json; charset=utf-8"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"_access-_control-_allow-_origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T06:14:58.626"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+      </span><span class="nl">"transfer_encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"json"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-09T06:14:58.626"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWF5M-FDTqLFD8l5y2f4"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api_call"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"session_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfmnw3fu24309efjc534nb421UZ9-]2JDO[ME"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
     </span><span class="nl">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"198:3"</span><span class="p">,</span><span class="w">
@@ -37461,6 +37396,13 @@ managementAPIToken ( Scopes: delete:users )
 <tr>
 <td>_source</td>
 <td>object</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» company_id</td>
+<td>string</td>
 <td>false</td>
 <td>none</td>
 <td>none</td>
@@ -37676,50 +37618,15 @@ managementAPIToken ( Scopes: delete:users )
 <td>none</td>
 </tr>
 <tr>
-<td>»»» _accept-_encoding</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>»»» _connection</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>»»» _cache-_control</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>»»» _user-_agent</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>»»» _host</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>»»» _accept</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
 <td>» user_id</td>
 <td>string</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» company</td>
+<td>object</td>
 <td>false</td>
 <td>none</td>
 <td>none</td>
@@ -37732,85 +37639,15 @@ managementAPIToken ( Scopes: delete:users )
 <td>none</td>
 </tr>
 <tr>
-<td>»» headers</td>
-<td>object</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>»»» _vary</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>»»» _cache-_control</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>»»» _strict-_transport-_security</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>»»» _access-_control-_expose-_headers</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>»»» _content-_security-_policy</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>»»» _transfer-_encoding</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>»»» _e_tag</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>»»» _content-_type</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>»»» _access-_control-_allow-_origin</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>»» time</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
 <td>»» body</td>
 <td>object</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» transfer_encoding</td>
+<td>string</td>
 <td>false</td>
 <td>none</td>
 <td>none</td>
@@ -37823,7 +37660,28 @@ managementAPIToken ( Scopes: delete:users )
 <td>none</td>
 </tr>
 <tr>
+<td>»» time</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» headers</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
 <td>» id</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» event_type</td>
 <td>string</td>
 <td>false</td>
 <td>none</td>
