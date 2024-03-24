@@ -66,6 +66,208 @@ If you're using the [Moesif secure proxy](https://www.moesif.com/docs/platform/s
 |create:eth_abi|Create/upload new Ethereum ABI Entries|
 |delete:users|Delete existing users and associated user metadata|
 
+<h1 id="management-api-routes">routes</h1>
+
+## createBalanceTransactionBillingReport
+
+<a id="opIdcreateBalanceTransactionBillingReport"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://api.moesif.com/v1/~/billing/reports/balance_transactions
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+fetch('https://api.moesif.com/v1/~/billing/reports/balance_transactions',
+{
+  method: 'POST'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+
+r = requests.post('https://api.moesif.com/v1/~/billing/reports/balance_transactions')
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+result = RestClient.post 'https://api.moesif.com/v1/~/billing/reports/balance_transactions',
+  params: {
+  }
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','https://api.moesif.com/v1/~/billing/reports/balance_transactions', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/~/billing/reports/balance_transactions", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    
+    /// Make a dummy request
+    public async Task MakePostRequest()
+    {
+      string url = "https://api.moesif.com/v1/~/billing/reports/balance_transactions";
+      
+      
+      await PostAsync(null, url);
+      
+    }
+
+    /// Performs a POST Request
+    public async Task PostAsync(undefined content, string url)
+    {
+        //Serialize Object
+        StringContent jsonContent = SerializeObject(content);
+
+        //Execute POST request
+        HttpResponseMessage response = await Client.PostAsync(url, jsonContent);
+    }
+    
+    
+    
+    /// Serialize an object to Json
+    private StringContent SerializeObject(undefined content)
+    {
+        //Serialize Object
+        string jsonObject = JsonConvert.SerializeObject(content);
+
+        //Create Json UTF8 String Content
+        return new StringContent(jsonObject, Encoding.UTF8, "application/json");
+    }
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/~/billing/reports/balance_transactions");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`POST /~/billing/reports/balance_transactions`
+
+<h3 id="createbalancetransactionbillingreport-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+
+<h3 id="createbalancetransactionbillingreport-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
 <h1 id="management-api-governance">Governance</h1>
 
 ## createGovernanceRule
@@ -279,7 +481,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/~/governance/rules`
+`POST /~/governance/rules`
 
 *Create New Governance Rules*
 
@@ -555,7 +757,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/~/governance/rules`
+`GET /~/governance/rules`
 
 *Get Governance Rules*
 
@@ -842,7 +1044,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/~/governance/rules/{id}`
+`POST /~/governance/rules/{id}`
 
 *Update a Governance Rule*
 
@@ -1119,7 +1321,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/~/governance/rules/{id}`
+`GET /~/governance/rules/{id}`
 
 *Get a Governance Rule*
 
@@ -1390,7 +1592,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE https://api.moesif.com/v1/~/governance/rules/{id}`
+`DELETE /~/governance/rules/{id}`
 
 *Delete a Governance Rule*
 
@@ -1618,7 +1820,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/~/dashboards/{dashId}`
+`POST /~/dashboards/{dashId}`
 
 *Update a Dashboard*
 
@@ -1833,7 +2035,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE https://api.moesif.com/v1/~/dashboards/{dashId}`
+`DELETE /~/dashboards/{dashId}`
 
 *Delete a Dashboard*
 
@@ -2048,7 +2250,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE https://api.moesif.com/v1/~/dashboards/{dashId}/cascade`
+`DELETE /~/dashboards/{dashId}/cascade`
 
 *Casccade delete a Dashboard*
 
@@ -2263,7 +2465,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE https://api.moesif.com/v1/~/dashboard/{dashId}`
+`DELETE /~/dashboard/{dashId}`
 
 *Delete a Dashboard*
 
@@ -2490,7 +2692,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/~/{appId}/{entity}/promotedashboard/{dashId}`
+`POST /~/{appId}/{entity}/promotedashboard/{dashId}`
 
 *Select Profile View Dashboard*
 
@@ -2718,7 +2920,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/~/dashboards/{id}/policy/acl`
+`POST /~/dashboards/{id}/policy/acl`
 
 *Add Dashboards ACL permission*
 
@@ -2938,7 +3140,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE https://api.moesif.com/v1/~/dashboards/{id}/policy/acl`
+`DELETE /~/dashboards/{id}/policy/acl`
 
 *Delete Dashboards ACL permission*
 
@@ -3165,7 +3367,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/~/dashboard/{id}/copy`
+`POST /~/dashboard/{id}/copy`
 
 *Copy Dashboard*
 
@@ -3395,7 +3597,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/~/dashboards/copy`
+`POST /~/dashboards/copy`
 
 *Copy All Dashboards*
 
@@ -3626,7 +3828,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/~/dashboards`
+`POST /~/dashboards`
 
 *Create New Dashboard*
 
@@ -3879,7 +4081,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/~/dashboards`
+`GET /~/dashboards`
 
 *Get a Dashboard*
 
@@ -4100,7 +4302,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/~/billing/reports`
+`GET /~/billing/reports`
 
 *Get BillingReports*
 
@@ -4119,6 +4321,7 @@ Query audit history of billing reports to external billing providers
 |success|query|boolean|false|none|
 |status_code|query|integer(int32)|false|none|
 |error_code|query|string|false|none|
+|`type`|query|string|false|none|
 
 > Example responses
 
@@ -4138,6 +4341,7 @@ Query audit history of billing reports to external billing providers
     "billing_meter_id": "string",
     "amount": 0,
     "usage_start_time": "2019-08-24T14:15:22Z",
+    "status": "string",
     "provider_requests": [
       null
     ],
@@ -4149,6 +4353,7 @@ Query audit history of billing reports to external billing providers
     "created_at": "2019-08-24T14:15:22Z",
     "app_id": "string",
     "subscription_id": "string",
+    "type": "string",
     "updated_at": "2019-08-24T14:15:22Z",
     "org_id": "string",
     "meter_metric": 0
@@ -4180,20 +4385,22 @@ Status Code **200**
 |» billing_meter_id|string|true|none|none|
 |» amount|number(double)|false|none|none|
 |» usage_start_time|string(date-time)|true|none|none|
+|» status|string|false|none|none|
 |» provider_requests|[providerrequest]|true|none|none|
 |» currency|string|false|none|none|
 |» report_total_usage|integer(int64)|true|none|none|
-|» channel_requests|[channelrequest]|true|none|none|
+|» channel_requests|[channelrequest]|false|none|none|
 |» created_at|string(date-time)|false|none|none|
 |» app_id|string|true|none|none|
 |» subscription_id|string|true|none|none|
+|» type|string|false|none|none|
 |» updated_at|string(date-time)|false|none|none|
 |» org_id|string|true|none|none|
 |» meter_metric|integer(int64)|true|none|none|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-managementAPIToken ( Scopes: read:billing_meters )
+managementAPIToken ( Scopes: read:billing_meters read:billing_reports )
 </aside>
 
 ## getBillingReportsMetrics
@@ -4394,7 +4601,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/~/billing/reports/metrics`
+`GET /~/billing/reports/metrics`
 
 *Get BillingReports' values for a given meter and time range for a single company or all companies*
 
@@ -4656,7 +4863,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/v1/~/keystore`
+`POST /v1/~/keystore`
 
 *Create New Encrypted key/s*
 
@@ -4895,7 +5102,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/v1/~/keystore`
+`GET /v1/~/keystore`
 
 *Get Encrypted keys*
 
@@ -5136,7 +5343,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/v1/~/keystore/{keyId}`
+`GET /v1/~/keystore/{keyId}`
 
 *Get Encrypted key*
 
@@ -5377,7 +5584,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/workspaces/access_token`
+`GET /workspaces/access_token`
 
 *Get new Workspace Token*
 
@@ -5605,7 +5812,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/~/workspaces/templates`
+`GET /~/workspaces/templates`
 
 *Get Workspace Templates*
 
@@ -6009,7 +6216,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/~/workspaces/{id}/comments/{commentId}`
+`POST /~/workspaces/{id}/comments/{commentId}`
 
 *Update Existing Comment*
 
@@ -6225,7 +6432,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE https://api.moesif.com/v1/~/workspaces/{id}/comments/{commentId}`
+`DELETE /~/workspaces/{id}/comments/{commentId}`
 
 *Delete a Comment*
 
@@ -6452,7 +6659,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/~/workspaces/{id}`
+`POST /~/workspaces/{id}`
 
 *Update a Workspace*
 
@@ -6672,7 +6879,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/~/workspaces/{id}`
+`GET /~/workspaces/{id}`
 
 *Get a Workspace*
 
@@ -6991,7 +7198,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE https://api.moesif.com/v1/~/workspaces/{id}`
+`DELETE /~/workspaces/{id}`
 
 *Delete a Workspace*
 
@@ -7211,7 +7418,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/workspaces/public/{id}`
+`GET /workspaces/public/{id}`
 
 *Get a Public Workspace*
 
@@ -7541,7 +7748,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/~/workspaces/{id}/policy/acl`
+`POST /~/workspaces/{id}/policy/acl`
 
 *Add ACL permission*
 
@@ -7761,7 +7968,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE https://api.moesif.com/v1/~/workspaces/{id}/policy/acl`
+`DELETE /~/workspaces/{id}/policy/acl`
 
 *Delete ACL permission*
 
@@ -7994,7 +8201,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/~/workspaces`
+`POST /~/workspaces`
 
 *Create New Workspace*
 
@@ -8324,7 +8531,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/~/workspaces`
+`GET /~/workspaces`
 
 *Get Workspaces*
 
@@ -8732,7 +8939,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/~/workspaces/{id}/comments`
+`POST /~/workspaces/{id}/comments`
 
 *Create a New Comment*
 
@@ -8946,7 +9153,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/~/workspaces/{id}/comments`
+`GET /~/workspaces/{id}/comments`
 
 *Get all Comments*
 
@@ -9174,7 +9381,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/~/cohorts/{cohortId}`
+`POST /~/cohorts/{cohortId}`
 
 *Update a Cohort*
 
@@ -9392,7 +9599,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/~/cohorts/{cohortId}`
+`GET /~/cohorts/{cohortId}`
 
 *Get Cohort*
 
@@ -9608,7 +9815,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE https://api.moesif.com/v1/~/cohorts/{cohortId}`
+`DELETE /~/cohorts/{cohortId}`
 
 *Delete Cohort*
 
@@ -9823,7 +10030,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE https://api.moesif.com/v1/~/cohorts/{cohortId}/sample_rate`
+`DELETE /~/cohorts/{cohortId}/sample_rate`
 
 *Delete Sample Rate for a Cohort*
 
@@ -10055,7 +10262,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/~/cohorts`
+`POST /~/cohorts`
 
 *Create New Cohort*
 
@@ -10306,7 +10513,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/~/cohorts`
+`GET /~/cohorts`
 
 *Get Cohorts*
 
@@ -10528,7 +10735,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/~/billing/meters/{meterId}`
+`GET /~/billing/meters/{meterId}`
 
 *Get Billing Meter by id*
 
@@ -10749,7 +10956,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE https://api.moesif.com/v1/~/billing/meters/{meterId}`
+`DELETE /~/billing/meters/{meterId}`
 
 *Delete Billing Meter by id*
 
@@ -10971,7 +11178,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/~/billing/meters`
+`GET /~/billing/meters`
 
 *List Billing Meters*
 
@@ -11213,7 +11420,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/~/oauth/tokeninfo`
+`GET /~/oauth/tokeninfo`
 
 *Get Token Info*
 
@@ -11443,7 +11650,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/~/oauth/access_tokens`
+`GET /~/oauth/access_tokens`
 
 *Get a new Access Token*
 
@@ -11695,7 +11902,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/~/profileviewconfigs`
+`POST /~/profileviewconfigs`
 
 *Create a new Profile View of a given entity type.  Note the compound index (orgId, appId, entity) is unique in this collection*
 
@@ -11923,7 +12130,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/~/profileviewconfigs`
+`GET /~/profileviewconfigs`
 
 *Get a Profile View*
 
@@ -12153,7 +12360,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE https://api.moesif.com/v1/~/profileviewconfigs`
+`DELETE /~/profileviewconfigs`
 
 *Delete a Profile View*
 
@@ -12397,7 +12604,7 @@ System.out.println(response.toString());
 
 ```
 
-`PUT https://api.moesif.com/v1/~/profileviewconfigs`
+`PUT /~/profileviewconfigs`
 
 *Update a Profile View*
 
@@ -12648,7 +12855,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/~/apps`
+`POST /~/apps`
 
 *Create a new App*
 
@@ -12890,7 +13097,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/~/apps`
+`GET /~/apps`
 
 *Gets Apps*
 
@@ -13160,7 +13367,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/~/apps/{id}`
+`POST /~/apps/{id}`
 
 *Update Apps*
 
@@ -13393,7 +13600,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE https://api.moesif.com/v1/~/apps/{id}`
+`DELETE /~/apps/{id}`
 
 *Delete Apps*
 
@@ -13620,7 +13827,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/~/billing/catalog/prices/{id}`
+`GET /~/billing/catalog/prices/{id}`
 
 *Get a Moesif Price*
 
@@ -13876,7 +14083,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE https://api.moesif.com/v1/~/billing/catalog/prices/{id}`
+`DELETE /~/billing/catalog/prices/{id}`
 
 *Delete a Moesif Price*
 
@@ -14117,7 +14324,7 @@ System.out.println(response.toString());
 
 ```
 
-`PUT https://api.moesif.com/v1/~/billing/catalog/prices/{id}`
+`PUT /~/billing/catalog/prices/{id}`
 
 *Update a Moesif Price*
 
@@ -14389,7 +14596,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/~/billing/catalog/plans`
+`POST /~/billing/catalog/plans`
 
 *Create a new Moesif Plan*
 
@@ -14407,6 +14614,36 @@ System.out.println(response.toString());
 ```json
 {
   "name": "string",
+  "prices": [
+    {
+      "name": "string",
+      "transform_quantity": {
+        "divide_by": 0,
+        "round": "string"
+      },
+      "provider": "string",
+      "price_in_decimal": "string",
+      "tiers": [
+        {
+          "up_to": null,
+          "unit_price_in_decimal": "string",
+          "flat_price_in_decimal": "string"
+        }
+      ],
+      "period_units": "string",
+      "plan_id": "string",
+      "id": "string",
+      "status": "string",
+      "pricing_model": "string",
+      "tax_behavior": "string",
+      "currency": "string",
+      "metadata": null,
+      "created_at": "2019-08-24T14:15:22Z",
+      "unit": "string",
+      "usage_aggregator": "string",
+      "period": 0
+    }
+  ],
   "provider": "string",
   "description": "string",
   "id": "string",
@@ -14629,7 +14866,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/~/billing/catalog/plans`
+`GET /~/billing/catalog/plans`
 
 *List all Moesif Plans*
 
@@ -14638,6 +14875,7 @@ System.out.println(response.toString());
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |provider|query|string|false|none|
+|includes|query|string|false|none|
 
 > Example responses
 
@@ -14647,6 +14885,36 @@ System.out.println(response.toString());
 [
   {
     "name": "string",
+    "prices": [
+      {
+        "name": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "provider": "string",
+        "price_in_decimal": "string",
+        "tiers": [
+          {
+            "up_to": null,
+            "unit_price_in_decimal": "string",
+            "flat_price_in_decimal": "string"
+          }
+        ],
+        "period_units": "string",
+        "plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "tax_behavior": "string",
+        "currency": "string",
+        "metadata": null,
+        "created_at": "2019-08-24T14:15:22Z",
+        "unit": "string",
+        "usage_aggregator": "string",
+        "period": 0
+      }
+    ],
     "provider": "string",
     "description": "string",
     "id": "string",
@@ -14674,6 +14942,29 @@ Status Code **200**
 |---|---|---|---|---|
 |*anonymous*|[[MoesifPlan](#schemamoesifplan)]|false|none|none|
 |» name|string|false|none|none|
+|» prices|[[MoesifPrice](#schemamoesifprice)]|false|none|none|
+|»» name|string|false|none|none|
+|»» transform_quantity|object|false|none|none|
+|»»» divide_by|integer(int64)|true|none|none|
+|»»» round|string|true|none|none|
+|»» provider|string|false|none|none|
+|»» price_in_decimal|string|false|none|none|
+|»» tiers|[[MoesifPriceTier](#schemamoesifpricetier)]|false|none|none|
+|»»» up_to|util.either[long,string]|true|none|none|
+|»»» unit_price_in_decimal|string|false|none|none|
+|»»» flat_price_in_decimal|string|false|none|none|
+|»» period_units|string|false|none|none|
+|»» plan_id|string|false|none|none|
+|»» id|string|false|none|none|
+|»» status|string|false|none|none|
+|»» pricing_model|string|false|none|none|
+|»» tax_behavior|string|false|none|none|
+|»» currency|string|false|none|none|
+|»» metadata|collection.immutable.map[string,string]|false|none|none|
+|»» created_at|string(date-time)|false|none|none|
+|»» unit|string|false|none|none|
+|»» usage_aggregator|string|false|none|none|
+|»» period|integer(int64)|false|none|none|
 |» provider|string|false|none|none|
 |» description|string|false|none|none|
 |» id|string|false|none|none|
@@ -14891,7 +15182,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/~/billing/catalog/plans/{id}`
+`GET /~/billing/catalog/plans/{id}`
 
 *Get a Moesif Plan*
 
@@ -14911,6 +15202,36 @@ Get the Moesif Plan for authenticated users
 ```json
 {
   "name": "string",
+  "prices": [
+    {
+      "name": "string",
+      "transform_quantity": {
+        "divide_by": 0,
+        "round": "string"
+      },
+      "provider": "string",
+      "price_in_decimal": "string",
+      "tiers": [
+        {
+          "up_to": null,
+          "unit_price_in_decimal": "string",
+          "flat_price_in_decimal": "string"
+        }
+      ],
+      "period_units": "string",
+      "plan_id": "string",
+      "id": "string",
+      "status": "string",
+      "pricing_model": "string",
+      "tax_behavior": "string",
+      "currency": "string",
+      "metadata": null,
+      "created_at": "2019-08-24T14:15:22Z",
+      "unit": "string",
+      "usage_aggregator": "string",
+      "period": 0
+    }
+  ],
   "provider": "string",
   "description": "string",
   "id": "string",
@@ -15131,7 +15452,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE https://api.moesif.com/v1/~/billing/catalog/plans/{id}`
+`DELETE /~/billing/catalog/plans/{id}`
 
 *Delete a Moesif Plan*
 
@@ -15372,7 +15693,7 @@ System.out.println(response.toString());
 
 ```
 
-`PUT https://api.moesif.com/v1/~/billing/catalog/plans/{id}`
+`PUT /~/billing/catalog/plans/{id}`
 
 *Update a Moesif Plan*
 
@@ -15391,6 +15712,36 @@ System.out.println(response.toString());
 ```json
 {
   "name": "string",
+  "prices": [
+    {
+      "name": "string",
+      "transform_quantity": {
+        "divide_by": 0,
+        "round": "string"
+      },
+      "provider": "string",
+      "price_in_decimal": "string",
+      "tiers": [
+        {
+          "up_to": null,
+          "unit_price_in_decimal": "string",
+          "flat_price_in_decimal": "string"
+        }
+      ],
+      "period_units": "string",
+      "plan_id": "string",
+      "id": "string",
+      "status": "string",
+      "pricing_model": "string",
+      "tax_behavior": "string",
+      "currency": "string",
+      "metadata": null,
+      "created_at": "2019-08-24T14:15:22Z",
+      "unit": "string",
+      "usage_aggregator": "string",
+      "period": 0
+    }
+  ],
   "provider": "string",
   "description": "string",
   "id": "string",
@@ -15628,7 +15979,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/~/billing/catalog/prices`
+`POST /~/billing/catalog/prices`
 
 *Create a new Moesif Price*
 
@@ -15884,7 +16235,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/~/billing/catalog/prices`
+`GET /~/billing/catalog/prices`
 
 *List all Moesif Prices for a specific Plan*
 
@@ -15951,7 +16302,7 @@ Status Code **200**
 |» provider|string|false|none|none|
 |» price_in_decimal|string|false|none|none|
 |» tiers|[[MoesifPriceTier](#schemamoesifpricetier)]|false|none|none|
-|»» up_to|util.either[scala.long,string]|true|none|none|
+|»» up_to|util.either[long,string]|true|none|none|
 |»» unit_price_in_decimal|string|false|none|none|
 |»» flat_price_in_decimal|string|false|none|none|
 |» period_units|string|false|none|none|
@@ -16185,7 +16536,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/~/emails/templates`
+`POST /~/emails/templates`
 
 *Create New Email Template*
 
@@ -16403,7 +16754,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/~/emails/templates`
+`GET /~/emails/templates`
 
 *Get Email Templates*
 
@@ -16629,7 +16980,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/~/emails/templates/{id}`
+`POST /~/emails/templates/{id}`
 
 *Update an Email Template*
 
@@ -16844,7 +17195,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/~/emails/templates/{id}`
+`GET /~/emails/templates/{id}`
 
 *Get Email Template*
 
@@ -17059,7 +17410,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE https://api.moesif.com/v1/~/emails/templates/{id}`
+`DELETE /~/emails/templates/{id}`
 
 *Delete Email Template*
 
@@ -17297,7 +17648,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/search/~/search/companymetrics/companies`
+`POST /search/~/search/companymetrics/companies`
 
 *Search CompanyMetrics/Companies*
 
@@ -17307,7 +17658,7 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |from|query|string(date-time)|false|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|false|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
-|body|body|[JsValue](#schemajsvalue)|false|The search definition using the Elasticsearch Query DSL|
+|body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
 
 > Example responses
 
@@ -17523,7 +17874,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/search/~/companies/{id}`
+`GET /search/~/companies/{id}`
 
 *Get a Company*
 
@@ -17742,7 +18093,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE https://api.moesif.com/v1/search/~/companies/{id}`
+`DELETE /search/~/companies/{id}`
 
 *Delete a Company*
 
@@ -17975,7 +18326,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/search/~/companies`
+`POST /search/~/companies`
 
 *Update a Company*
 
@@ -18211,7 +18562,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/search/~/companies/batch`
+`POST /search/~/companies/batch`
 
 *Update Companies in Batch*
 
@@ -18450,7 +18801,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/search/~/count/companies`
+`POST /search/~/count/companies`
 
 *Count Companies*
 
@@ -18458,21 +18809,17 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|[JsValue](#schemajsvalue)|false|A query to restrict the results specified with the Elasticsearch Query DSL|
+|body|body|undefined|false|A query to restrict the results specified with the Elasticsearch Query DSL|
 
 > Example responses
-
-> 200 Response
-
-```json
-{}
-```
 
 <h3 id="countcompanies-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[JsValue](#schemajsvalue)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+
+<h3 id="countcompanies-responseschema">Response Schema</h3>
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -18683,7 +19030,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/search/~/mappings/companymetrics/properties`
+`GET /search/~/mappings/companymetrics/properties`
 
 *Get Property Mapping for CompanyMetrics*
 
@@ -18695,19 +19042,13 @@ System.out.println(response.toString());
 
 > Example responses
 
-> 200 Response
-
-```json
-{
-  "underlying": {}
-}
-```
-
 <h3 id="getproperties-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[JsObject](#schemajsobject)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+
+<h3 id="getproperties-responseschema">Response Schema</h3>
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -18918,7 +19259,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/search/~/mappings/events/request/body/properties`
+`GET /search/~/mappings/events/request/body/properties`
 
 *Get Property Mapping for Events Request Body*
 
@@ -18933,19 +19274,13 @@ System.out.println(response.toString());
 
 > Example responses
 
-> 200 Response
-
-```json
-{
-  "underlying": {}
-}
-```
-
 <h3 id="getrequestbodyproperties-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[JsObject](#schemajsobject)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+
+<h3 id="getrequestbodyproperties-responseschema">Response Schema</h3>
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -19156,7 +19491,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/search/~/mappings/events/response/body/properties`
+`GET /search/~/mappings/events/response/body/properties`
 
 *Get Property Mapping for Events Response Body*
 
@@ -19171,19 +19506,13 @@ System.out.println(response.toString());
 
 > Example responses
 
-> 200 Response
-
-```json
-{
-  "underlying": {}
-}
-```
-
 <h3 id="getresponsebodyproperties-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[JsObject](#schemajsobject)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+
+<h3 id="getresponsebodyproperties-responseschema">Response Schema</h3>
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -19391,7 +19720,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/search/~/subscriptions/{id}`
+`GET /search/~/subscriptions/{id}`
 
 *Get a Subscription*
 
@@ -19431,9 +19760,7 @@ System.out.println(response.toString());
   "status": "string",
   "trial_end": "2019-08-24T14:15:22Z",
   "external_id": "string",
-  "metadata": {
-    "underlying": {}
-  },
+  "metadata": {},
   "app_id": "string",
   "subscription_id": "string",
   "version_id": "string",
@@ -19654,7 +19981,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/search/~/companies/{id}/subscriptions`
+`GET /search/~/companies/{id}/subscriptions`
 
 *Get the Subscriptions of a Company*
 
@@ -19890,7 +20217,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/search/~/subscriptions/batch`
+`POST /search/~/subscriptions/batch`
 
 *Create or Update Subscriptions in Batch*
 
@@ -19930,9 +20257,7 @@ System.out.println(response.toString());
   "status": "string",
   "trial_end": "2019-08-24T14:15:22Z",
   "external_id": "string",
-  "metadata": {
-    "underlying": {}
-  },
+  "metadata": {},
   "app_id": "string",
   "subscription_id": "string",
   "version_id": "string",
@@ -20165,7 +20490,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/search/~/subscriptions`
+`POST /search/~/subscriptions`
 
 *Create or Update a Subscription*
 
@@ -20205,9 +20530,7 @@ System.out.println(response.toString());
   "status": "string",
   "trial_end": "2019-08-24T14:15:22Z",
   "external_id": "string",
-  "metadata": {
-    "underlying": {}
-  },
+  "metadata": {},
   "app_id": "string",
   "subscription_id": "string",
   "version_id": "string",
@@ -20446,7 +20769,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/search/~/count/events`
+`POST /search/~/count/events`
 
 *Count Events*
 
@@ -20457,21 +20780,17 @@ System.out.println(response.toString());
 |from|query|string(date-time)|true|The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|true|The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now|
 |track_total_hits|query|boolean|false|none|
-|body|body|[JsValue](#schemajsvalue)|false|The search definition using the Elasticsearch Query DSL|
+|body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
 
 > Example responses
-
-> 200 Response
-
-```json
-{}
-```
 
 <h3 id="countevents-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[JsValue](#schemajsvalue)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+
+<h3 id="countevents-responseschema">Response Schema</h3>
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -20697,7 +21016,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/search/~/search/events`
+`POST /search/~/search/events`
 
 *Search Events*
 
@@ -20707,7 +21026,7 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |from|query|string(date-time)|true|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|true|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
-|body|body|[JsValue](#schemajsvalue)|false|The search definition using the Elasticsearch Query DSL|
+|body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
 
 > Example responses
 
@@ -21028,7 +21347,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search`
+`POST /search/~/workspaces/{workspaceId}/search`
 
 *Search Events in saved public Workspace*
 
@@ -21041,7 +21360,7 @@ System.out.println(response.toString());
 |workspaceId|path|string|true|none|
 |include_details|query|boolean|false|none|
 |take|query|integer(int32)|false|none|
-|body|body|[JsValue](#schemajsvalue)|false|The search definition using the Elasticsearch Query DSL|
+|body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
 
 > Example responses
 
@@ -21345,7 +21664,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/search/~/events/{id}`
+`GET /search/~/events/{id}`
 
 *Get an Event*
 
@@ -21663,7 +21982,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/search/~/count/users`
+`POST /search/~/count/users`
 
 *Count Users*
 
@@ -21671,21 +21990,17 @@ System.out.println(response.toString());
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|[JsValue](#schemajsvalue)|false|A query to restrict the results specified with the Elasticsearch Query DSL|
+|body|body|undefined|false|A query to restrict the results specified with the Elasticsearch Query DSL|
 
 > Example responses
-
-> 200 Response
-
-```json
-{}
-```
 
 <h3 id="countusers-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[JsValue](#schemajsvalue)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+
+<h3 id="countusers-responseschema">Response Schema</h3>
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -21903,7 +22218,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/search/~/users`
+`POST /search/~/users`
 
 *Update a User*
 
@@ -22197,7 +22512,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/search/~/search/usermetrics/users`
+`POST /search/~/search/usermetrics/users`
 
 *Search UserMetrics/Users*
 
@@ -22207,7 +22522,7 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |from|query|string(date-time)|false|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|false|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
-|body|body|[JsValue](#schemajsvalue)|false|The search definition using the Elasticsearch Query DSL|
+|body|body|undefined|false|The search definition using the Elasticsearch Query DSL|
 
 > Example responses
 
@@ -22435,7 +22750,7 @@ System.out.println(response.toString());
 
 ```
 
-`POST https://api.moesif.com/v1/search/~/users/batch`
+`POST /search/~/users/batch`
 
 *Update Users in Batch*
 
@@ -22713,7 +23028,7 @@ System.out.println(response.toString());
 
 ```
 
-`GET https://api.moesif.com/v1/search/~/users/{id}`
+`GET /search/~/users/{id}`
 
 *Get a User*
 
@@ -22986,7 +23301,7 @@ System.out.println(response.toString());
 
 ```
 
-`DELETE https://api.moesif.com/v1/search/~/users/{id}`
+`DELETE /search/~/users/{id}`
 
 *Delete a User*
 
@@ -23932,6 +24247,36 @@ managementAPIToken ( Scopes: delete:users )
 ```json
 {
   "name": "string",
+  "prices": [
+    {
+      "name": "string",
+      "transform_quantity": {
+        "divide_by": 0,
+        "round": "string"
+      },
+      "provider": "string",
+      "price_in_decimal": "string",
+      "tiers": [
+        {
+          "up_to": null,
+          "unit_price_in_decimal": "string",
+          "flat_price_in_decimal": "string"
+        }
+      ],
+      "period_units": "string",
+      "plan_id": "string",
+      "id": "string",
+      "status": "string",
+      "pricing_model": "string",
+      "tax_behavior": "string",
+      "currency": "string",
+      "metadata": null,
+      "created_at": "2019-08-24T14:15:22Z",
+      "unit": "string",
+      "usage_aggregator": "string",
+      "period": 0
+    }
+  ],
   "provider": "string",
   "description": "string",
   "id": "string",
@@ -23950,6 +24295,7 @@ managementAPIToken ( Scopes: delete:users )
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |name|string|false|none|none|
+|prices|[[MoesifPrice](#schemamoesifprice)]|false|none|none|
 |provider|string|false|none|none|
 |description|string|false|none|none|
 |id|string|false|none|none|
@@ -24124,6 +24470,7 @@ managementAPIToken ( Scopes: delete:users )
   "billing_meter_id": "string",
   "amount": 0,
   "usage_start_time": "2019-08-24T14:15:22Z",
+  "status": "string",
   "provider_requests": [
     null
   ],
@@ -24135,6 +24482,7 @@ managementAPIToken ( Scopes: delete:users )
   "created_at": "2019-08-24T14:15:22Z",
   "app_id": "string",
   "subscription_id": "string",
+  "type": "string",
   "updated_at": "2019-08-24T14:15:22Z",
   "org_id": "string",
   "meter_metric": 0
@@ -24157,13 +24505,15 @@ managementAPIToken ( Scopes: delete:users )
 |billing_meter_id|string|true|none|none|
 |amount|number(double)|false|none|none|
 |usage_start_time|string(date-time)|true|none|none|
+|status|string|false|none|none|
 |provider_requests|[providerrequest]|true|none|none|
 |currency|string|false|none|none|
 |report_total_usage|integer(int64)|true|none|none|
-|channel_requests|[channelrequest]|true|none|none|
+|channel_requests|[channelrequest]|false|none|none|
 |created_at|string(date-time)|false|none|none|
 |app_id|string|true|none|none|
 |subscription_id|string|true|none|none|
+|type|string|false|none|none|
 |updated_at|string(date-time)|false|none|none|
 |org_id|string|true|none|none|
 |meter_metric|integer(int64)|true|none|none|
@@ -24425,7 +24775,7 @@ managementAPIToken ( Scopes: delete:users )
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|up_to|util.either[scala.long,string]|true|none|none|
+|up_to|util.either[long,string]|true|none|none|
 |unit_price_in_decimal|string|false|none|none|
 |flat_price_in_decimal|string|false|none|none|
 
@@ -24510,6 +24860,7 @@ managementAPIToken ( Scopes: delete:users )
   "cohort_name": "string",
   "to": "string",
   "week_starts_on": 0,
+  "locked_by": "string",
   "from": "string",
   "cohort_type": "string",
   "time_zone": "string"
@@ -24530,6 +24881,7 @@ managementAPIToken ( Scopes: delete:users )
 |cohort_name|string|false|none|none|
 |to|string|false|none|none|
 |week_starts_on|integer(int32)|false|none|none|
+|locked_by|string|false|none|none|
 |from|string|false|none|none|
 |cohort_type|string|true|none|none|
 |time_zone|string|false|none|none|
@@ -24996,9 +25348,7 @@ managementAPIToken ( Scopes: delete:users )
   "status": "string",
   "trial_end": "2019-08-24T14:15:22Z",
   "external_id": "string",
-  "metadata": {
-    "underlying": {}
-  },
+  "metadata": {},
   "app_id": "string",
   "subscription_id": "string",
   "version_id": "string",
@@ -25028,7 +25378,7 @@ managementAPIToken ( Scopes: delete:users )
 |status|string|true|none|none|
 |trial_end|string(date-time)|false|none|none|
 |external_id|string|false|none|none|
-|metadata|[JsObject](#schemajsobject)|false|none|none|
+|metadata|object|false|none|none|
 |app_id|string|true|none|none|
 |subscription_id|string|true|none|none|
 |version_id|string|false|none|none|
@@ -25140,26 +25490,6 @@ managementAPIToken ( Scopes: delete:users )
 |» total|integer|false|none|none|
 |» hits|[[eventResponseDTO](#schemaeventresponsedto)]|false|none|none|
 
-<h2 id="tocS_JsObject">JsObject</h2>
-
-<a id="schemajsobject"></a>
-<a id="schema_JsObject"></a>
-<a id="tocSjsobject"></a>
-<a id="tocsjsobject"></a>
-
-```json
-{
-  "underlying": {}
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|underlying|object|true|none|none|
-
 <h2 id="tocS_searchcompanysResponseDTO">searchcompanysResponseDTO</h2>
 
 <a id="schemasearchcompanysresponsedto"></a>
@@ -25207,9 +25537,7 @@ managementAPIToken ( Scopes: delete:users )
   "modified_time": "2019-08-24T14:15:22Z",
   "last_name": "string",
   "session_token": {},
-  "metadata": {
-    "underlying": {}
-  },
+  "metadata": {},
   "user_name": "string",
   "phone": "string"
 }
@@ -25228,8 +25556,8 @@ managementAPIToken ( Scopes: delete:users )
 |user_id|string|true|none|none|
 |modified_time|string(date-time)|false|none|none|
 |last_name|string|false|none|none|
-|session_token|[JsValue](#schemajsvalue)|false|none|none|
-|metadata|[JsObject](#schemajsobject)|false|none|none|
+|session_token|object|false|none|none|
+|metadata|object|false|none|none|
 |user_name|string|false|none|none|
 |phone|string|false|none|none|
 
@@ -25554,9 +25882,7 @@ managementAPIToken ( Scopes: delete:users )
   "status": "string",
   "trial_end": "2019-08-24T14:15:22Z",
   "external_id": "string",
-  "metadata": {
-    "underlying": {}
-  },
+  "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
   "current_period_end": "2019-08-24T14:15:22Z",
@@ -25582,27 +25908,11 @@ managementAPIToken ( Scopes: delete:users )
 |status|string|true|none|none|
 |trial_end|string(date-time)|false|none|none|
 |external_id|string|false|none|none|
-|metadata|[JsObject](#schemajsobject)|false|none|none|
+|metadata|object|false|none|none|
 |subscription_id|string|true|none|none|
 |version_id|string|false|none|none|
 |current_period_end|string(date-time)|false|none|none|
 |created|string(date-time)|false|none|none|
-
-<h2 id="tocS_JsValue">JsValue</h2>
-
-<a id="schemajsvalue"></a>
-<a id="schema_JsValue"></a>
-<a id="tocSjsvalue"></a>
-<a id="tocsjsvalue"></a>
-
-```json
-{}
-
-```
-
-### Properties
-
-*None*
 
 <h2 id="tocS_CompanyUpdateDTO">CompanyUpdateDTO</h2>
 
@@ -25617,9 +25927,7 @@ managementAPIToken ( Scopes: delete:users )
   "modified_time": "2019-08-24T14:15:22Z",
   "session_token": "string",
   "company_domain": "string",
-  "metadata": {
-    "underlying": {}
-  }
+  "metadata": {}
 }
 
 ```
@@ -25632,5 +25940,5 @@ managementAPIToken ( Scopes: delete:users )
 |modified_time|string(date-time)|false|none|none|
 |session_token|string|false|none|none|
 |company_domain|string|false|none|none|
-|metadata|[JsObject](#schemajsobject)|false|none|none|
+|metadata|object|false|none|none|
 
