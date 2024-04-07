@@ -199,6 +199,24 @@
           }
         }
       },
+      "BillingReportUsageInvoice": {
+        "properties": {
+          "period_start": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "period_end": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
       "CohortCreateItem": {
         "properties": {
           "channels": {
@@ -246,11 +264,18 @@
           "criteria"
         ]
       },
+      "BillingReportUsage": {
+        "properties": {
+          "invoice": {
+            "$ref": "#/components/schemas/BillingReportUsageInvoice"
+          },
+          "aggregator": {
+            "type": "string"
+          }
+        }
+      },
       "BillingMetricResponse": {
         "properties": {
-          "billing_meter_id": {
-            "type": "string"
-          },
           "buckets": {
             "type": "array",
             "items": {
@@ -259,7 +284,6 @@
           }
         },
         "required": [
-          "billing_meter_id",
           "buckets"
         ]
       },
@@ -338,6 +362,17 @@
         "required": [
           "id",
           "type"
+        ]
+      },
+      "BalanceChange": {
+        "properties": {
+          "amount": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "required": [
+          "amount"
         ]
       },
       "RegexCondition": {
@@ -624,22 +659,18 @@
             "format": "date-time"
           },
           "metric": {
-            "type": "double"
+            "type": "number",
+            "format": "double"
           },
-          "usage": {
-            "type": "double"
+          "amounts": {
+            "type": "collection.immutable.map[string,scala.double]"
           },
-          "errors": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "ending_balance": {
+            "$ref": "#/components/schemas/CreditBalanceMetric"
           }
         },
         "required": [
-          "start",
-          "metric",
-          "usage"
+          "start"
         ]
       },
       "AccessTokenDTO": {
@@ -715,6 +746,27 @@
           "workspace_ids"
         ]
       },
+      "CreditBalanceMetric": {
+        "properties": {
+          "current_balance": {
+            "type": "number",
+            "format": "double"
+          },
+          "pending_activity": {
+            "type": "number",
+            "format": "double"
+          },
+          "available_balance": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "required": [
+          "current_balance",
+          "pending_activity",
+          "available_balance"
+        ]
+      },
       "CreateCommentItem": {
         "properties": {
           "auth_user_id": {
@@ -782,6 +834,32 @@
           "token",
           "field",
           "aggregator"
+        ]
+      },
+      "CreditBalance": {
+        "properties": {
+          "sequence_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "current_balance": {
+            "type": "number",
+            "format": "double"
+          },
+          "pending_activity": {
+            "type": "number",
+            "format": "double"
+          },
+          "available_balance": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "required": [
+          "sequence_id",
+          "current_balance",
+          "pending_activity",
+          "available_balance"
         ]
       },
       "MoesifPlan": {
@@ -962,6 +1040,9 @@
       },
       "BillingReport": {
         "properties": {
+          "ending_balance": {
+            "$ref": "#/components/schemas/CreditBalance"
+          },
           "company_id": {
             "type": "string"
           },
@@ -979,6 +1060,9 @@
             "type": "string",
             "format": "date-time"
           },
+          "usage": {
+            "$ref": "#/components/schemas/BillingReportUsage"
+          },
           "_id": {
             "type": "string"
           },
@@ -989,6 +1073,9 @@
           "last_success_time": {
             "type": "string",
             "format": "date-time"
+          },
+          "beginning_balance": {
+            "$ref": "#/components/schemas/CreditBalance"
           },
           "billing_meter_id": {
             "type": "string"
@@ -1007,7 +1094,7 @@
           "provider_requests": {
             "type": "array",
             "items": {
-              "type": "providerrequest"
+              "$ref": "#/components/schemas/ProviderRequest"
             }
           },
           "currency": {
@@ -1020,7 +1107,7 @@
           "channel_requests": {
             "type": "array",
             "items": {
-              "type": "channelrequest"
+              "$ref": "#/components/schemas/ChannelRequest"
             }
           },
           "created_at": {
@@ -1033,6 +1120,16 @@
           "subscription_id": {
             "type": "string"
           },
+          "subscription_period_start": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "balance_changes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BalanceChange"
+            }
+          },
           "type": {
             "type": "string"
           },
@@ -1042,6 +1139,10 @@
           },
           "org_id": {
             "type": "string"
+          },
+          "subscription_period_end": {
+            "type": "string",
+            "format": "date-time"
           },
           "meter_metric": {
             "type": "integer",
@@ -1143,6 +1244,27 @@
           "path"
         ]
       },
+      "ChannelRequest": {
+        "properties": {
+          "channel_id": {
+            "type": "string"
+          },
+          "channel_name": {
+            "type": "string"
+          },
+          "provider_requests": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProviderRequest"
+            }
+          }
+        },
+        "required": [
+          "channel_id",
+          "channel_name",
+          "provider_requests"
+        ]
+      },
       "WorkspaceDocument": {
         "properties": {
           "name": {
@@ -1230,7 +1352,7 @@
       "MoesifPriceTier": {
         "properties": {
           "up_to": {
-            "type": "util.either[long,string]"
+            "type": "util.either[scala.long,string]"
           },
           "unit_price_in_decimal": {
             "type": "string"
@@ -1479,6 +1601,38 @@
         "required": [
           "url",
           "verb"
+        ]
+      },
+      "ProviderRequest": {
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "status_code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "job_id": {
+            "type": "string"
+          },
+          "error_message": {
+            "type": "string"
+          },
+          "error_code": {
+            "type": "string"
+          },
+          "request_time": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "job_id",
+          "request_time",
+          "success",
+          "status_code",
+          "error_code",
+          "error_message"
         ]
       },
       "NotificationRule": {
@@ -3442,14 +3596,6 @@
           },
           {
             "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "billing_meter_id",
-            "required": true
-          },
-          {
-            "schema": {
               "type": "string",
               "format": "date-time"
             },
@@ -3465,6 +3611,14 @@
             "in": "query",
             "name": "to",
             "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "billing_meter_id",
+            "required": false
           },
           {
             "schema": {
@@ -3504,6 +3658,17 @@
             },
             "in": "query",
             "name": "subscription_id",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "in": "query",
+            "name": "`type`",
             "required": false
           }
         ],
