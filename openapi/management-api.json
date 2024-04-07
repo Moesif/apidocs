@@ -3571,6 +3571,14 @@
     },
     "/~/billing/reports/metrics": {
       "get": {
+        "security": [
+          {
+            "managementAPIToken": [
+              "create:billing_meters",
+              "create:billing_reports"
+            ]
+          }
+        ],
         "description": "Get BillingReports' values for a given meter and time range for a single company or all companies",
         "tags": [
           "Billing Reports"
@@ -3950,7 +3958,22 @@
     },
     "/~/billing/reports/balance_transactions": {
       "post": {
-        "operationId": "createBalanceTransactionBillingReport",
+        "security": [
+          {
+            "managementAPIToken": [
+              "create:billing_meters",
+              "create:billing_reports"
+            ]
+          }
+        ],
+        "description": "Post a billing report of type balance_transaction",
+        "tags": [
+          "Balance Transactions"
+        ],
+        "operationId": "createBalanceTransaction",
+        "consumes": [
+          "application/json"
+        ],
         "parameters": [
           {
             "schema": {
@@ -3968,11 +3991,21 @@
             "in": "query",
             "name": "app_id",
             "required": false
+          },
+          {
+            "schema": {
+              "$ref": "#/components/schemas/billingreports.BillingReportBalanceTransCreate"
+            },
+            "in": "body",
+            "name": "body"
           }
         ],
-        "tags": [
-          "routes"
-        ]
+        "summary": "Post BillingReports Balance Transactions",
+        "responses": {
+          "204": {
+            "description": "success, no content and BillingReports were created or updated"
+          }
+        }
       }
     },
     "/~/dashboards/{dashId}/cascade": {
