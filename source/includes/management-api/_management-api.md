@@ -4330,32 +4330,79 @@ Query audit history of billing reports to external billing providers
 ```json
 [
   {
+    "ending_balance": {
+      "sequence_id": 0,
+      "current_balance": 0,
+      "pending_activity": 0,
+      "available_balance": 0
+    },
     "company_id": "string",
     "success": true,
     "provider": "string",
     "report_version": 0,
     "usage_end_time": "2019-08-24T14:15:22Z",
+    "usage": {
+      "invoice": {
+        "period_start": "2019-08-24T14:15:22Z",
+        "period_end": "2019-08-24T14:15:22Z",
+        "id": "string"
+      },
+      "aggregator": "string"
+    },
     "_id": "string",
     "meter_usage": 0,
     "last_success_time": "2019-08-24T14:15:22Z",
+    "beginning_balance": {
+      "sequence_id": 0,
+      "current_balance": 0,
+      "pending_activity": 0,
+      "available_balance": 0
+    },
     "billing_meter_id": "string",
     "amount": 0,
     "usage_start_time": "2019-08-24T14:15:22Z",
     "status": "string",
     "provider_requests": [
-      null
+      {
+        "success": true,
+        "status_code": 0,
+        "job_id": "string",
+        "error_message": "string",
+        "error_code": "string",
+        "request_time": "2019-08-24T14:15:22Z"
+      }
     ],
     "currency": "string",
     "report_total_usage": 0,
     "channel_requests": [
-      null
+      {
+        "channel_id": "string",
+        "channel_name": "string",
+        "provider_requests": [
+          {
+            "success": true,
+            "status_code": 0,
+            "job_id": "string",
+            "error_message": "string",
+            "error_code": "string",
+            "request_time": "2019-08-24T14:15:22Z"
+          }
+        ]
+      }
     ],
     "created_at": "2019-08-24T14:15:22Z",
     "app_id": "string",
     "subscription_id": "string",
+    "subscription_period_start": "2019-08-24T14:15:22Z",
+    "balance_changes": [
+      {
+        "amount": 0
+      }
+    ],
     "type": "string",
     "updated_at": "2019-08-24T14:15:22Z",
     "org_id": "string",
+    "subscription_period_end": "2019-08-24T14:15:22Z",
     "meter_metric": 0
   }
 ]
@@ -4374,28 +4421,53 @@ Status Code **200**
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |*anonymous*|[[BillingReport](#schemabillingreport)]|false|none|none|
+|» ending_balance|object|false|none|none|
+|»» sequence_id|integer(int32)|true|none|none|
+|»» current_balance|number(double)|true|none|none|
+|»» pending_activity|number(double)|true|none|none|
+|»» available_balance|number(double)|true|none|none|
 |» company_id|string|true|none|none|
 |» success|boolean|true|none|none|
 |» provider|string|true|none|none|
 |» report_version|integer(int32)|false|none|none|
 |» usage_end_time|string(date-time)|true|none|none|
+|» usage|object|false|none|none|
+|»» invoice|object|false|none|none|
+|»»» period_start|string(date-time)|false|none|none|
+|»»» period_end|string(date-time)|false|none|none|
+|»»» id|string|true|none|none|
+|»» aggregator|string|false|none|none|
 |» _id|string|false|none|none|
 |» meter_usage|integer(int64)|true|none|none|
 |» last_success_time|string(date-time)|false|none|none|
+|» beginning_balance|object|false|none|none|
 |» billing_meter_id|string|true|none|none|
 |» amount|number(double)|false|none|none|
 |» usage_start_time|string(date-time)|true|none|none|
 |» status|string|false|none|none|
-|» provider_requests|[providerrequest]|true|none|none|
+|» provider_requests|[[ProviderRequest](#schemaproviderrequest)]|true|none|none|
+|»» success|boolean|true|none|none|
+|»» status_code|integer(int32)|true|none|none|
+|»» job_id|string|true|none|none|
+|»» error_message|string|true|none|none|
+|»» error_code|string|true|none|none|
+|»» request_time|string(date-time)|true|none|none|
 |» currency|string|false|none|none|
 |» report_total_usage|integer(int64)|true|none|none|
-|» channel_requests|[channelrequest]|false|none|none|
+|» channel_requests|[[ChannelRequest](#schemachannelrequest)]|false|none|none|
+|»» channel_id|string|true|none|none|
+|»» channel_name|string|true|none|none|
+|»» provider_requests|[[ProviderRequest](#schemaproviderrequest)]|true|none|none|
 |» created_at|string(date-time)|false|none|none|
 |» app_id|string|true|none|none|
 |» subscription_id|string|true|none|none|
+|» subscription_period_start|string(date-time)|false|none|none|
+|» balance_changes|[[BalanceChange](#schemabalancechange)]|false|none|none|
+|»» amount|number(double)|true|none|none|
 |» type|string|false|none|none|
 |» updated_at|string(date-time)|false|none|none|
 |» org_id|string|true|none|none|
+|» subscription_period_end|string(date-time)|false|none|none|
 |» meter_metric|integer(int64)|true|none|none|
 
 <aside class="warning">
@@ -4411,7 +4483,7 @@ managementAPIToken ( Scopes: read:billing_meters read:billing_reports )
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/~/billing/reports/metrics?billing_meter_id=string&from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z \
+curl -X GET https://api.moesif.com/v1/~/billing/reports/metrics?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z \
   -H 'Accept: application/json'
 
 ```
@@ -4423,7 +4495,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('https://api.moesif.com/v1/~/billing/reports/metrics?billing_meter_id=string&from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z',
+fetch('https://api.moesif.com/v1/~/billing/reports/metrics?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z',
 {
   method: 'GET',
 
@@ -4444,7 +4516,7 @@ headers = {
 }
 
 r = requests.get('https://api.moesif.com/v1/~/billing/reports/metrics', params={
-  'billing_meter_id': 'string',  'from': '2019-08-24T14:15:22Z',  'to': '2019-08-24T14:15:22Z'
+  'from': '2019-08-24T14:15:22Z',  'to': '2019-08-24T14:15:22Z'
 }, headers = headers)
 
 print(r.json())
@@ -4461,8 +4533,7 @@ headers = {
 
 result = RestClient.get 'https://api.moesif.com/v1/~/billing/reports/metrics',
   params: {
-  'billing_meter_id' => 'string',
-'from' => 'string(date-time)',
+  'from' => 'string(date-time)',
 'to' => 'string(date-time)'
 }, headers: headers
 
@@ -4585,7 +4656,7 @@ public class HttpExample
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/~/billing/reports/metrics?billing_meter_id=string&from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z");
+URL obj = new URL("https://api.moesif.com/v1/~/billing/reports/metrics?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -4611,14 +4682,15 @@ Get BillingReports' values for a given meter and time range for a single company
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|billing_meter_id|query|string|true|none|
 |from|query|string(date-time)|true|none|
 |to|query|string(date-time)|true|none|
+|billing_meter_id|query|string|false|none|
 |success|query|boolean|false|none|
 |aggregator|query|string|false|none|
 |interval|query|string|false|none|
 |company_id|query|string|false|none|
 |subscription_id|query|string|false|none|
+|`type`|query|array[string]|false|none|
 
 > Example responses
 
@@ -4626,15 +4698,16 @@ Get BillingReports' values for a given meter and time range for a single company
 
 ```json
 {
-  "billing_meter_id": "string",
   "buckets": [
     {
       "start": "2019-08-24T14:15:22Z",
-      "metric": null,
-      "usage": null,
-      "errors": [
-        "string"
-      ]
+      "metric": 0,
+      "amounts": null,
+      "ending_balance": {
+        "current_balance": 0,
+        "pending_activity": 0,
+        "available_balance": 0
+      }
     }
   ]
 }
@@ -14950,7 +15023,7 @@ Status Code **200**
 |»» provider|string|false|none|none|
 |»» price_in_decimal|string|false|none|none|
 |»» tiers|[[MoesifPriceTier](#schemamoesifpricetier)]|false|none|none|
-|»»» up_to|util.either[long,string]|true|none|none|
+|»»» up_to|util.either[scala.long,string]|true|none|none|
 |»»» unit_price_in_decimal|string|false|none|none|
 |»»» flat_price_in_decimal|string|false|none|none|
 |»» period_units|string|false|none|none|
@@ -16302,7 +16375,7 @@ Status Code **200**
 |» provider|string|false|none|none|
 |» price_in_decimal|string|false|none|none|
 |» tiers|[[MoesifPriceTier](#schemamoesifpricetier)]|false|none|none|
-|»» up_to|util.either[long,string]|true|none|none|
+|»» up_to|util.either[scala.long,string]|true|none|none|
 |»» unit_price_in_decimal|string|false|none|none|
 |»» flat_price_in_decimal|string|false|none|none|
 |» period_units|string|false|none|none|
@@ -23437,6 +23510,30 @@ managementAPIToken ( Scopes: delete:users )
 |secure_proxy|boolean|false|none|none|
 |time_zone|string|false|none|none|
 
+<h2 id="tocS_BillingReportUsageInvoice">BillingReportUsageInvoice</h2>
+
+<a id="schemabillingreportusageinvoice"></a>
+<a id="schema_BillingReportUsageInvoice"></a>
+<a id="tocSbillingreportusageinvoice"></a>
+<a id="tocsbillingreportusageinvoice"></a>
+
+```json
+{
+  "period_start": "2019-08-24T14:15:22Z",
+  "period_end": "2019-08-24T14:15:22Z",
+  "id": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|period_start|string(date-time)|false|none|none|
+|period_end|string(date-time)|false|none|none|
+|id|string|true|none|none|
+
 <h2 id="tocS_CohortCreateItem">CohortCreateItem</h2>
 
 <a id="schemacohortcreateitem"></a>
@@ -23486,6 +23583,32 @@ managementAPIToken ( Scopes: delete:users )
 |cohort_type|string|true|none|none|
 |time_zone|string|false|none|none|
 
+<h2 id="tocS_BillingReportUsage">BillingReportUsage</h2>
+
+<a id="schemabillingreportusage"></a>
+<a id="schema_BillingReportUsage"></a>
+<a id="tocSbillingreportusage"></a>
+<a id="tocsbillingreportusage"></a>
+
+```json
+{
+  "invoice": {
+    "period_start": "2019-08-24T14:15:22Z",
+    "period_end": "2019-08-24T14:15:22Z",
+    "id": "string"
+  },
+  "aggregator": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|invoice|[BillingReportUsageInvoice](#schemabillingreportusageinvoice)|false|none|none|
+|aggregator|string|false|none|none|
+
 <h2 id="tocS_BillingMetricResponse">BillingMetricResponse</h2>
 
 <a id="schemabillingmetricresponse"></a>
@@ -23495,15 +23618,16 @@ managementAPIToken ( Scopes: delete:users )
 
 ```json
 {
-  "billing_meter_id": "string",
   "buckets": [
     {
       "start": "2019-08-24T14:15:22Z",
-      "metric": null,
-      "usage": null,
-      "errors": [
-        "string"
-      ]
+      "metric": 0,
+      "amounts": null,
+      "ending_balance": {
+        "current_balance": 0,
+        "pending_activity": 0,
+        "available_balance": 0
+      }
     }
   ]
 }
@@ -23514,7 +23638,6 @@ managementAPIToken ( Scopes: delete:users )
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|billing_meter_id|string|true|none|none|
 |buckets|[[BillingMetricBucket](#schemabillingmetricbucket)]|true|none|none|
 
 <h2 id="tocS_EmailAddresses">EmailAddresses</h2>
@@ -23640,6 +23763,26 @@ managementAPIToken ( Scopes: delete:users )
 |id|string|true|none|none|
 |type|string|true|none|none|
 |config|[CohortConfig](#schemacohortconfig)|false|none|none|
+
+<h2 id="tocS_BalanceChange">BalanceChange</h2>
+
+<a id="schemabalancechange"></a>
+<a id="schema_BalanceChange"></a>
+<a id="tocSbalancechange"></a>
+<a id="tocsbalancechange"></a>
+
+```json
+{
+  "amount": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|amount|number(double)|true|none|none|
 
 <h2 id="tocS_RegexCondition">RegexCondition</h2>
 
@@ -24008,11 +24151,13 @@ managementAPIToken ( Scopes: delete:users )
 ```json
 {
   "start": "2019-08-24T14:15:22Z",
-  "metric": null,
-  "usage": null,
-  "errors": [
-    "string"
-  ]
+  "metric": 0,
+  "amounts": null,
+  "ending_balance": {
+    "current_balance": 0,
+    "pending_activity": 0,
+    "available_balance": 0
+  }
 }
 
 ```
@@ -24022,9 +24167,9 @@ managementAPIToken ( Scopes: delete:users )
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |start|string(date-time)|true|none|none|
-|metric|double|true|none|none|
-|usage|double|true|none|none|
-|errors|[string]|false|none|none|
+|metric|number(double)|false|none|none|
+|amounts|collection.immutable.map[string,scala.double]|false|none|none|
+|ending_balance|[CreditBalanceMetric](#schemacreditbalancemetric)|false|none|none|
 
 <h2 id="tocS_AccessTokenDTO">AccessTokenDTO</h2>
 
@@ -24107,6 +24252,30 @@ managementAPIToken ( Scopes: delete:users )
 |org_id|string|true|none|none|
 |migration|object|false|none|none|
 |created|string(date-time)|true|none|none|
+
+<h2 id="tocS_CreditBalanceMetric">CreditBalanceMetric</h2>
+
+<a id="schemacreditbalancemetric"></a>
+<a id="schema_CreditBalanceMetric"></a>
+<a id="tocScreditbalancemetric"></a>
+<a id="tocscreditbalancemetric"></a>
+
+```json
+{
+  "current_balance": 0,
+  "pending_activity": 0,
+  "available_balance": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|current_balance|number(double)|true|none|none|
+|pending_activity|number(double)|true|none|none|
+|available_balance|number(double)|true|none|none|
 
 <h2 id="tocS_CreateCommentItem">CreateCommentItem</h2>
 
@@ -24197,6 +24366,32 @@ managementAPIToken ( Scopes: delete:users )
 |aggregator|max|
 |aggregator|terms|
 |aggregator|sum|
+
+<h2 id="tocS_CreditBalance">CreditBalance</h2>
+
+<a id="schemacreditbalance"></a>
+<a id="schema_CreditBalance"></a>
+<a id="tocScreditbalance"></a>
+<a id="tocscreditbalance"></a>
+
+```json
+{
+  "sequence_id": 0,
+  "current_balance": 0,
+  "pending_activity": 0,
+  "available_balance": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|sequence_id|integer(int32)|true|none|none|
+|current_balance|number(double)|true|none|none|
+|pending_activity|number(double)|true|none|none|
+|available_balance|number(double)|true|none|none|
 
 <h2 id="tocS_MoesifPlan">MoesifPlan</h2>
 
@@ -24420,32 +24615,79 @@ managementAPIToken ( Scopes: delete:users )
 
 ```json
 {
+  "ending_balance": {
+    "sequence_id": 0,
+    "current_balance": 0,
+    "pending_activity": 0,
+    "available_balance": 0
+  },
   "company_id": "string",
   "success": true,
   "provider": "string",
   "report_version": 0,
   "usage_end_time": "2019-08-24T14:15:22Z",
+  "usage": {
+    "invoice": {
+      "period_start": "2019-08-24T14:15:22Z",
+      "period_end": "2019-08-24T14:15:22Z",
+      "id": "string"
+    },
+    "aggregator": "string"
+  },
   "_id": "string",
   "meter_usage": 0,
   "last_success_time": "2019-08-24T14:15:22Z",
+  "beginning_balance": {
+    "sequence_id": 0,
+    "current_balance": 0,
+    "pending_activity": 0,
+    "available_balance": 0
+  },
   "billing_meter_id": "string",
   "amount": 0,
   "usage_start_time": "2019-08-24T14:15:22Z",
   "status": "string",
   "provider_requests": [
-    null
+    {
+      "success": true,
+      "status_code": 0,
+      "job_id": "string",
+      "error_message": "string",
+      "error_code": "string",
+      "request_time": "2019-08-24T14:15:22Z"
+    }
   ],
   "currency": "string",
   "report_total_usage": 0,
   "channel_requests": [
-    null
+    {
+      "channel_id": "string",
+      "channel_name": "string",
+      "provider_requests": [
+        {
+          "success": true,
+          "status_code": 0,
+          "job_id": "string",
+          "error_message": "string",
+          "error_code": "string",
+          "request_time": "2019-08-24T14:15:22Z"
+        }
+      ]
+    }
   ],
   "created_at": "2019-08-24T14:15:22Z",
   "app_id": "string",
   "subscription_id": "string",
+  "subscription_period_start": "2019-08-24T14:15:22Z",
+  "balance_changes": [
+    {
+      "amount": 0
+    }
+  ],
   "type": "string",
   "updated_at": "2019-08-24T14:15:22Z",
   "org_id": "string",
+  "subscription_period_end": "2019-08-24T14:15:22Z",
   "meter_metric": 0
 }
 
@@ -24455,28 +24697,34 @@ managementAPIToken ( Scopes: delete:users )
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
+|ending_balance|[CreditBalance](#schemacreditbalance)|false|none|none|
 |company_id|string|true|none|none|
 |success|boolean|true|none|none|
 |provider|string|true|none|none|
 |report_version|integer(int32)|false|none|none|
 |usage_end_time|string(date-time)|true|none|none|
+|usage|[BillingReportUsage](#schemabillingreportusage)|false|none|none|
 |_id|string|false|none|none|
 |meter_usage|integer(int64)|true|none|none|
 |last_success_time|string(date-time)|false|none|none|
+|beginning_balance|[CreditBalance](#schemacreditbalance)|false|none|none|
 |billing_meter_id|string|true|none|none|
 |amount|number(double)|false|none|none|
 |usage_start_time|string(date-time)|true|none|none|
 |status|string|false|none|none|
-|provider_requests|[providerrequest]|true|none|none|
+|provider_requests|[[ProviderRequest](#schemaproviderrequest)]|true|none|none|
 |currency|string|false|none|none|
 |report_total_usage|integer(int64)|true|none|none|
-|channel_requests|[channelrequest]|false|none|none|
+|channel_requests|[[ChannelRequest](#schemachannelrequest)]|false|none|none|
 |created_at|string(date-time)|false|none|none|
 |app_id|string|true|none|none|
 |subscription_id|string|true|none|none|
+|subscription_period_start|string(date-time)|false|none|none|
+|balance_changes|[[BalanceChange](#schemabalancechange)]|false|none|none|
 |type|string|false|none|none|
 |updated_at|string(date-time)|false|none|none|
 |org_id|string|true|none|none|
+|subscription_period_end|string(date-time)|false|none|none|
 |meter_metric|integer(int64)|true|none|none|
 
 <h2 id="tocS_ACLItem">ACLItem</h2>
@@ -24581,6 +24829,39 @@ managementAPIToken ( Scopes: delete:users )
 |---|---|---|---|---|
 |name|string|true|none|none|
 |path|string|true|none|none|
+
+<h2 id="tocS_ChannelRequest">ChannelRequest</h2>
+
+<a id="schemachannelrequest"></a>
+<a id="schema_ChannelRequest"></a>
+<a id="tocSchannelrequest"></a>
+<a id="tocschannelrequest"></a>
+
+```json
+{
+  "channel_id": "string",
+  "channel_name": "string",
+  "provider_requests": [
+    {
+      "success": true,
+      "status_code": 0,
+      "job_id": "string",
+      "error_message": "string",
+      "error_code": "string",
+      "request_time": "2019-08-24T14:15:22Z"
+    }
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|channel_id|string|true|none|none|
+|channel_name|string|true|none|none|
+|provider_requests|[[ProviderRequest](#schemaproviderrequest)]|true|none|none|
 
 <h2 id="tocS_WorkspaceDocument">WorkspaceDocument</h2>
 
@@ -24736,7 +25017,7 @@ managementAPIToken ( Scopes: delete:users )
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|up_to|util.either[long,string]|true|none|none|
+|up_to|util.either[scala.long,string]|true|none|none|
 |unit_price_in_decimal|string|false|none|none|
 |flat_price_in_decimal|string|false|none|none|
 
@@ -25036,6 +25317,36 @@ managementAPIToken ( Scopes: delete:users )
 |params|[[KeyValuePair](#schemakeyvaluepair)]|false|none|none|
 |verb|string|true|none|none|
 |headers|[[KeyValuePair](#schemakeyvaluepair)]|false|none|none|
+
+<h2 id="tocS_ProviderRequest">ProviderRequest</h2>
+
+<a id="schemaproviderrequest"></a>
+<a id="schema_ProviderRequest"></a>
+<a id="tocSproviderrequest"></a>
+<a id="tocsproviderrequest"></a>
+
+```json
+{
+  "success": true,
+  "status_code": 0,
+  "job_id": "string",
+  "error_message": "string",
+  "error_code": "string",
+  "request_time": "2019-08-24T14:15:22Z"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|success|boolean|true|none|none|
+|status_code|integer(int32)|true|none|none|
+|job_id|string|true|none|none|
+|error_message|string|true|none|none|
+|error_code|string|true|none|none|
+|request_time|string(date-time)|true|none|none|
 
 <h2 id="tocS_NotificationRule">NotificationRule</h2>
 
