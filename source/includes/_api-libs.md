@@ -9,8 +9,8 @@ Pick a language at the bottom left
 ```
 
 <blockquote class="lang-specific java">
-<a href="https://bintray.com/moesif/maven/moesifapi/_latestVersion">
-  <img src="https://api.bintray.com/packages/moesif/maven/moesifapi/images/download.svg">
+<a href="https://search.maven.org/artifact/com.moesif.api/moesifapi">
+  <img src="https://img.shields.io/maven-central/v/com.moesif.api/moesifapi">
 </a>
 <br><br>
 Source Code:<br><br>
