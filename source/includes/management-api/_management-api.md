@@ -66,208 +66,6 @@ If you're using the [Moesif secure proxy](https://www.moesif.com/docs/platform/s
 |create:eth_abi|Create/upload new Ethereum ABI Entries|
 |delete:users|Delete existing users and associated user metadata|
 
-<h1 id="management-api-routes">routes</h1>
-
-## createBalanceTransactionBillingReport
-
-<a id="opIdcreateBalanceTransactionBillingReport"></a>
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X POST https://api.moesif.com/v1/~/billing/reports/balance_transactions
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-fetch('https://api.moesif.com/v1/~/billing/reports/balance_transactions',
-{
-  method: 'POST'
-
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```python
-import requests
-
-r = requests.post('https://api.moesif.com/v1/~/billing/reports/balance_transactions')
-
-print(r.json())
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-result = RestClient.post 'https://api.moesif.com/v1/~/billing/reports/balance_transactions',
-  params: {
-  }
-
-p JSON.parse(result)
-
-```
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-$client = new \GuzzleHttp\Client();
-
-// Define array of request body.
-$request_body = array();
-
-try {
-    $response = $client->request('POST','https://api.moesif.com/v1/~/billing/reports/balance_transactions', array(
-        'headers' => $headers,
-        'json' => $request_body,
-       )
-    );
-    print_r($response->getBody()->getContents());
- }
- catch (\GuzzleHttp\Exception\BadResponseException $e) {
-    // handle exception or api errors.
-    print_r($e->getMessage());
- }
-
- // ...
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/~/billing/reports/balance_transactions", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
-/// <<summary>>
-/// Example of Http Client
-/// <</summary>>
-public class HttpExample
-{
-    private HttpClient Client { get; set; }
-
-    /// <<summary>>
-    /// Setup http client
-    /// <</summary>>
-    public HttpExample()
-    {
-      Client = new HttpClient();
-    }
-    
-    
-    /// Make a dummy request
-    public async Task MakePostRequest()
-    {
-      string url = "https://api.moesif.com/v1/~/billing/reports/balance_transactions";
-      
-      
-      await PostAsync(null, url);
-      
-    }
-
-    /// Performs a POST Request
-    public async Task PostAsync(undefined content, string url)
-    {
-        //Serialize Object
-        StringContent jsonContent = SerializeObject(content);
-
-        //Execute POST request
-        HttpResponseMessage response = await Client.PostAsync(url, jsonContent);
-    }
-    
-    
-    
-    /// Serialize an object to Json
-    private StringContent SerializeObject(undefined content)
-    {
-        //Serialize Object
-        string jsonObject = JsonConvert.SerializeObject(content);
-
-        //Create Json UTF8 String Content
-        return new StringContent(jsonObject, Encoding.UTF8, "application/json");
-    }
-    
-    /// Deserialize object from request response
-    private async Task DeserializeObject(HttpResponseMessage response)
-    {
-        //Read body 
-        string responseBody = await response.Content.ReadAsStringAsync();
-
-        //Deserialize Body to object
-        var result = JsonConvert.DeserializeObject(responseBody);
-    }
-}
-
-```
-
-```java
-URL obj = new URL("https://api.moesif.com/v1/~/billing/reports/balance_transactions");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-`POST /~/billing/reports/balance_transactions`
-
-<h3 id="createbalancetransactionbillingreport-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-
-<h3 id="createbalancetransactionbillingreport-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
 <h1 id="management-api-governance">Governance</h1>
 
 ## createGovernanceRule
@@ -4484,7 +4282,8 @@ managementAPIToken ( Scopes: read:billing_meters read:billing_reports )
 ```shell
 # You can also use wget
 curl -X GET https://api.moesif.com/v1/~/billing/reports/metrics?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z \
-  -H 'Accept: application/json'
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
 
 ```
 
@@ -4492,7 +4291,8 @@ curl -X GET https://api.moesif.com/v1/~/billing/reports/metrics?from=2019-08-24T
 const fetch = require('node-fetch');
 
 const headers = {
-  'Accept':'application/json'
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
 };
 
 fetch('https://api.moesif.com/v1/~/billing/reports/metrics?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z',
@@ -4512,7 +4312,8 @@ fetch('https://api.moesif.com/v1/~/billing/reports/metrics?from=2019-08-24T14%3A
 ```python
 import requests
 headers = {
-  'Accept': 'application/json'
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
 }
 
 r = requests.get('https://api.moesif.com/v1/~/billing/reports/metrics', params={
@@ -4528,7 +4329,8 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Accept' => 'application/json'
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
 }
 
 result = RestClient.get 'https://api.moesif.com/v1/~/billing/reports/metrics',
@@ -4548,6 +4350,7 @@ require 'vendor/autoload.php';
 
 $headers = array(
     'Accept' => 'application/json',
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
 );
 
 $client = new \GuzzleHttp\Client();
@@ -4584,6 +4387,7 @@ func main() {
 
     headers := map[string][]string{
         "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -4719,8 +4523,9 @@ Get BillingReports' values for a given meter and time range for a single company
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|three buckets of aggregates for the given meter and time range including Metric Value, Reported Usage, and list of errors.|[BillingMetricResponse](#schemabillingmetricresponse)|
 
-<aside class="success">
-This operation does not require authentication
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: create:billing_meters create:billing_reports )
 </aside>
 
 <h1 id="management-api-keystore">Keystore</h1>
@@ -11287,6 +11092,236 @@ Status Code **200**
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 managementAPIToken ( Scopes: read:billing_meters )
+</aside>
+
+<h1 id="management-api-balance-transactions">Balance Transactions</h1>
+
+## createBalanceTransaction
+
+<a id="opIdcreateBalanceTransaction"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://api.moesif.com/v1/~/billing/reports/balance_transactions \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
+};
+
+fetch('https://api.moesif.com/v1/~/billing/reports/balance_transactions',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+r = requests.post('https://api.moesif.com/v1/~/billing/reports/balance_transactions', headers = headers)
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+result = RestClient.post 'https://api.moesif.com/v1/~/billing/reports/balance_transactions',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','https://api.moesif.com/v1/~/billing/reports/balance_transactions', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/~/billing/reports/balance_transactions", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    
+    /// Make a dummy request
+    public async Task MakePostRequest()
+    {
+      string url = "https://api.moesif.com/v1/~/billing/reports/balance_transactions";
+      
+      
+      await PostAsync(null, url);
+      
+    }
+
+    /// Performs a POST Request
+    public async Task PostAsync(undefined content, string url)
+    {
+        //Serialize Object
+        StringContent jsonContent = SerializeObject(content);
+
+        //Execute POST request
+        HttpResponseMessage response = await Client.PostAsync(url, jsonContent);
+    }
+    
+    
+    
+    /// Serialize an object to Json
+    private StringContent SerializeObject(undefined content)
+    {
+        //Serialize Object
+        string jsonObject = JsonConvert.SerializeObject(content);
+
+        //Create Json UTF8 String Content
+        return new StringContent(jsonObject, Encoding.UTF8, "application/json");
+    }
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/~/billing/reports/balance_transactions");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`POST /~/billing/reports/balance_transactions`
+
+*Post BillingReports Balance Transactions*
+
+Post a billing report of type balance_transaction
+
+<h3 id="createbalancetransaction-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|undefined|false|none|
+
+<h3 id="createbalancetransaction-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|success, no content and BillingReports were created or updated|None|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: create:billing_meters create:billing_reports )
 </aside>
 
 <h1 id="management-api-oauth">OAuth</h1>
