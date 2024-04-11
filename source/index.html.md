@@ -38,7 +38,7 @@ code_clipboard: true
 
 # Moesif API Reference
 
-Moesif is an API analytics and monetization service to grow your API products. With Moesif, you can quickly get started with API Observability, API monetization and usage-based billing.
+Moesif is an API analytics and monetization service to grow your API products. With Moesif, you can quickly get started with API observability, API monetization and usage-based billing.
 
  With Moesif, you cam This reference is for v1 of the Moesif APIs.
 For an overview on the Moesif platform, see the [developer docs](/docs) or [implementation guides](https://www.moesif.com/implementation)
