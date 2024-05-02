@@ -376,6 +376,9 @@
             <a href="#overview" class="toc-h1 toc-link" data-title="Overview">Overview</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#data-model" class="toc-h2 toc-link" data-title="Data Model">Data Model</a>
+                  </li>
+                  <li>
                     <a href="#filtering" class="toc-h2 toc-link" data-title="Filtering">Filtering</a>
                     <ul class="toc-list-h3">
                         <li>
@@ -2346,7 +2349,13 @@ For an overview on the Moesif platform, see the <a href="/docs">developer docs</
 <p>The <em>Collector API</em> enables you to log raw data to Moesif at high volume such as events and user profiles. It&#39;s a write-only, high-volume data collection network and is also used by the Moesif server integrations and plugins.</p>
 
 <p>The <em>Management API</em> enables you to query and manage data in your Moesif account such as to embed charts in customer-facing applications.</p>
-<h1 id='overview'>Overview</h1><h2 id='filtering'>Filtering</h2><h3 id='query-params'>Query Params</h3>
+<h1 id='overview'>Overview</h1><h3 id='data-model'>Data Model</h3>
+<p>The Moesif data model includes two types of events (API Calls and Custom Actions) and three type of entities (Users, Companies, and Subscriptions). A full diagram is below.</p>
+
+<p><img src="https://docs.moesif.com/images/illustration/product-data-model.svg" alt="Moesif Data Model" /></p>
+
+<p>For more info, <a href="https://www.moesif.com/docs/getting-started/overview/">view docs on Moesif data structure</a>.</p>
+<h2 id='filtering'>Filtering</h2><h3 id='query-params'>Query Params</h3>
 <p>Some endpoints require a date range for data to look at. This is done via the <code>from</code> and the <code>to</code>
 query parameters. There is also an optional <code>time_zone</code> query parameter if you want the calendar dates aligned to your local time zone. 
 Time zone is <code>UTC</code> by default and must be a <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">TZ Database Name</a> such as <code>America/Los_Angeles</code></p>
@@ -2942,8 +2951,8 @@ and selecting API keys from bottom left menu.
 <h2 id='api-calls'>API Calls</h2><h3 id='log-an-api-call'>Log an API Call</h3>
 <p><strong><code>POST https://api.moesif.net/v1/events</code></strong></p>
 
-<p>Log a single API call to Moesif.
-The request payload is a single API event model containing the API request, the API response, and any custom event metadata.</p>
+<p>Log a single API call to Moesif as an event.
+The request payload is a single API event containing the API request, the API response, and any custom event metadata.</p>
 
 <aside class="warning">
 For logging API calls at scale, most customers should integrate with one of Moesif's <a href="https://www.moesif.com/implementation">API monitoring agents</a> which instrument your API automatically and handle batching.
@@ -3083,7 +3092,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/events <span clas
         <span class="o">.</span><span class="na">response</span><span class="o">(</span><span class="n">eventRsp</span><span class="o">)</span>
         <span class="o">.</span><span class="na">userId</span><span class="o">(</span><span class="s">"12345"</span><span class="o">)</span>
         <span class="o">.</span><span class="na">companyId</span><span class="o">(</span><span class="s">"67890"</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">sessionToken</span><span class="o">(</span><span class="s">"XXXXXXXXX"</span><span class="o">)</span>
         <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
 <span class="c1">// Asynchronous Call to Create Event</span>
@@ -3172,8 +3180,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/events <span clas
     <span class="na">request</span><span class="p">:</span> <span class="nx">eventReq</span><span class="p">,</span>
     <span class="na">response</span><span class="p">:</span> <span class="nx">eventRsp</span><span class="p">,</span>
     <span class="na">userId</span><span class="p">:</span> <span class="dl">"</span><span class="s2">12345</span><span class="dl">"</span><span class="p">,</span>
-    <span class="na">companyId</span><span class="p">:</span> <span class="dl">"</span><span class="s2">67890</span><span class="dl">"</span><span class="p">,</span>
-    <span class="na">sessionToken</span><span class="p">:</span> <span class="dl">"</span><span class="s2">XXXXXXXXX</span><span class="dl">"</span>
+    <span class="na">companyId</span><span class="p">:</span> <span class="dl">"</span><span class="s2">67890</span><span class="dl">"</span>
 <span class="p">};</span>
 
 <span class="kd">var</span> <span class="nx">events</span> <span class="o">=</span> <span class="p">[</span><span class="k">new</span> <span class="nx">EventModel</span><span class="p">(</span><span class="nx">eventModel</span><span class="p">),</span>
@@ -3394,8 +3401,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/events <span clas
     <span class="n">Request</span> <span class="p">=</span> <span class="n">eventReq</span><span class="p">,</span>
     <span class="n">Response</span> <span class="p">=</span> <span class="n">eventRsp</span><span class="p">,</span>
     <span class="n">UserId</span> <span class="p">=</span> <span class="s">"12345"</span><span class="p">,</span>
-    <span class="n">CompanyId</span> <span class="p">=</span> <span class="s">"67890"</span><span class="p">,</span>
-    <span class="n">SessionToken</span> <span class="p">=</span> <span class="s">"XXXXXXXXX"</span>
+    <span class="n">CompanyId</span> <span class="p">=</span> <span class="s">"67890"</span>
 <span class="p">};</span>
 
 <span class="c1">//////////////////////////////////////</span>
@@ -3464,14 +3470,13 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/events <span clas
   <span class="p">},</span>
 <span class="p">}</span>
 
-<span class="n">sessionToken</span> <span class="o">:=</span> <span class="s">"XXXXXXXXX"</span>
 <span class="n">userId</span> <span class="o">:=</span> <span class="s">"12345"</span>
 <span class="n">companyId</span><span class="o">:</span> <span class="o">:=</span> <span class="s">"67890"</span>
 
 <span class="n">event</span> <span class="o">:=</span> <span class="n">models</span><span class="o">.</span><span class="n">EventModel</span><span class="p">{</span>
   <span class="n">Request</span><span class="o">:</span>      <span class="n">req</span><span class="p">,</span>
   <span class="n">Response</span><span class="o">:</span>     <span class="n">rsp</span><span class="p">,</span>
-  <span class="n">SessionToken</span><span class="o">:</span> <span class="o">&amp;</span><span class="n">sessionToken</span><span class="p">,</span>
+  <span class="n">SessionToken</span><span class="o">:</span> <span class="no">nil</span><span class="p">,</span>
   <span class="n">Tags</span><span class="o">:</span>         <span class="no">nil</span><span class="p">,</span>
   <span class="n">UserId</span><span class="o">:</span>       <span class="o">&amp;</span><span class="n">userId</span><span class="p">,</span>
   <span class="n">CompanyId</span><span class="o">:</span>    <span class="o">&amp;</span><span class="n">companyId</span><span class="p">,</span>
@@ -3685,13 +3690,19 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/events <span clas
 <td>user_id</td>
 <td>string</td>
 <td>false</td>
-<td>Associate this API call to a <a href="#users">user</a>.</td>
+<td>Associate this API call to a <a href="#users">user</a>. Typically, a real person.</td>
 </tr>
 <tr>
 <td>company_id</td>
 <td>string</td>
 <td>false</td>
-<td>Associate this API call to a <a href="#companies">company</a> (Helpful for B2B companies).</td>
+<td>Associate this API call to a <a href="#companies">company</a> (Required for metered billing).</td>
+</tr>
+<tr>
+<td>subscription_id</td>
+<td>string</td>
+<td>false</td>
+<td>Associate this API call to a specific <a href="#subscriptions">subscription</a> of a company. Not needed unless same company can have multiple subscriptions to the same plan. When set, usage will be reported to only this subscription.</td>
 </tr>
 <tr>
 <td>direction</td>
@@ -3853,7 +3864,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/events/batch <spa
         <span class="o">.</span><span class="na">response</span><span class="o">(</span><span class="n">eventRsp</span><span class="o">)</span>
         <span class="o">.</span><span class="na">userId</span><span class="o">(</span><span class="s">"12345"</span><span class="o">)</span>
         <span class="o">.</span><span class="na">companyId</span><span class="o">(</span><span class="s">"67890"</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">sessionToken</span><span class="o">(</span><span class="s">"XXXXXXXXX"</span><span class="o">)</span>
         <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
 <span class="nc">List</span><span class="o">&lt;</span><span class="nc">EventModel</span><span class="o">&gt;</span> <span class="n">events</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">EventModel</span><span class="o">&gt;();</span>
@@ -3946,8 +3956,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/events/batch <spa
     <span class="na">request</span><span class="p">:</span> <span class="nx">eventReq</span><span class="p">,</span>
     <span class="na">response</span><span class="p">:</span> <span class="nx">eventRsp</span><span class="p">,</span>
     <span class="na">userId</span><span class="p">:</span> <span class="dl">"</span><span class="s2">12345</span><span class="dl">"</span><span class="p">,</span>
-    <span class="na">companyId</span><span class="p">:</span> <span class="dl">"</span><span class="s2">67890</span><span class="dl">"</span><span class="p">,</span>
-    <span class="na">sessionToken</span><span class="p">:</span> <span class="dl">"</span><span class="s2">XXXXXXXXX</span><span class="dl">"</span>
+    <span class="na">companyId</span><span class="p">:</span> <span class="dl">"</span><span class="s2">67890</span><span class="dl">"</span>
 <span class="p">};</span>
 
 <span class="kd">var</span> <span class="nx">myEventModels</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">eventA</span> <span class="p">]</span>
@@ -4025,8 +4034,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/events/batch <spa
 <span class="n">event_a</span> <span class="o">=</span> <span class="n">EventModel</span><span class="p">(</span><span class="n">request</span> <span class="o">=</span> <span class="n">event_req</span><span class="p">,</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">event_rsp</span><span class="p">,</span>
     <span class="n">user_id</span> <span class="o">=</span> <span class="s">"12345"</span><span class="p">,</span>
-    <span class="n">company_id</span> <span class="o">=</span> <span class="s">"67890"</span><span class="p">,</span>
-    <span class="n">session_token</span> <span class="o">=</span> <span class="s">"XXXXXXXXX"</span><span class="p">)</span>
+    <span class="n">company_id</span> <span class="o">=</span> <span class="s">"67890"</span>
 
 <span class="n">my_events</span> <span class="o">=</span> <span class="p">[</span> <span class="n">event_a</span> <span class="p">]</span>
 
@@ -4118,8 +4126,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/events/batch <spa
     <span class="n">Request</span> <span class="p">=</span> <span class="n">eventReq</span><span class="p">,</span>
     <span class="n">Response</span> <span class="p">=</span> <span class="n">eventRsp</span><span class="p">,</span>
     <span class="n">UserId</span> <span class="p">=</span> <span class="s">"12345"</span><span class="p">,</span>
-    <span class="n">CompanyId</span> <span class="p">=</span> <span class="s">"67890"</span><span class="p">,</span>
-    <span class="n">SessionToken</span> <span class="p">=</span> <span class="s">"XXXXXXXXX"</span>
+    <span class="n">CompanyId</span> <span class="p">=</span> <span class="s">"67890"</span>
 <span class="p">};</span>
 
 <span class="c1">// Create a List</span>
@@ -4192,14 +4199,13 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/events/batch <spa
   <span class="p">},</span>
 <span class="p">}</span>
 
-<span class="n">sessionToken</span> <span class="o">:=</span> <span class="s">"XXXXXXXXX"</span>
 <span class="n">userId</span> <span class="o">:=</span> <span class="s">"12345"</span>
 <span class="n">companyId</span> <span class="o">:=</span> <span class="s">"6789"</span>
 
 <span class="n">event</span> <span class="o">:=</span> <span class="n">models</span><span class="o">.</span><span class="n">EventModel</span><span class="p">{</span>
   <span class="n">Request</span><span class="o">:</span>      <span class="n">req</span><span class="p">,</span>
   <span class="n">Response</span><span class="o">:</span>     <span class="n">rsp</span><span class="p">,</span>
-  <span class="n">SessionToken</span><span class="o">:</span> <span class="o">&amp;</span><span class="n">sessionToken</span><span class="p">,</span>
+  <span class="n">SessionToken</span><span class="o">:</span> <span class="no">nil</span><span class="p">,</span>
   <span class="n">Tags</span><span class="o">:</span>         <span class="no">nil</span><span class="p">,</span>
   <span class="n">UserId</span><span class="o">:</span>       <span class="o">&amp;</span><span class="n">userId</span><span class="p">,</span>
   <span class="n">CompanyId</span><span class="o">:</span>    <span class="o">&amp;</span><span class="n">companyId</span><span class="p">,</span>
@@ -4352,7 +4358,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/events/batch <spa
 <td>transaction_id</td>
 <td>string</td>
 <td>false</td>
-<td>A random 36 char UUID for this event. If set, Moesif will deduplicate events using this id and ensure idempotency. Moesif will still deduplicate even accross different size batches.</td>
+<td>A random 36 char UUID for this event. If set, Moesif will deduplicate events using this id and ensure idempotency. Moesif will still deduplicate even across different size batches.</td>
 </tr>
 <tr>
 <td>session_token</td>
@@ -4364,13 +4370,19 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/events/batch <spa
 <td>user_id</td>
 <td>string</td>
 <td>false</td>
-<td>Associate this API call to a <a href="#users">user</a>.</td>
+<td>Associate this API call to a <a href="#users">user</a>. Typically, a real person.</td>
 </tr>
 <tr>
 <td>company_id</td>
 <td>string</td>
 <td>false</td>
-<td>Associate this API call to a <a href="#companies">company</a> (Helpful for B2B companies).</td>
+<td>Associate this API call to a <a href="#companies">company</a> (Required for metered billing).</td>
+</tr>
+<tr>
+<td>subscription_id</td>
+<td>string</td>
+<td>false</td>
+<td>Associate this API call to a specific <a href="#subscriptions">subscription</a> of a company. Not needed unless same company can have multiple subscriptions to the same plan. When set, usage will be reported to only this subscription.</td>
 </tr>
 <tr>
 <td>direction</td>
@@ -4426,7 +4438,6 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
   </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3765025-46ec-45dd-bc83-b136c8d1d257"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"session_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXXX"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://acmeinc.com/pricing"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"user_agent_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"</span><span class="w">
@@ -4440,7 +4451,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 curl <span class="nt">-X</span> POST https://api.moesif.net/v1/actions <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'</span> <span class="se">\</span>
-  <span class="nt">-d</span> <span class="s1">'{"action_name":"Clicked Sign Up","user_id":"12345","company_id":"67890","session_token":"XXXXX","transaction_id": "a3765025-46ec-45dd-bc83-b136c8d1d257","request":{"uri":"https://acmeinc.com/pricing","user_agent_string":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"},"metadata":{"button_label":"Get Started","sign_up_method":"Google SSO"}}'</span>
+  <span class="nt">-d</span> <span class="s1">'{"action_name":"Clicked Sign Up","user_id":"12345","company_id":"67890","transaction_id": "a3765025-46ec-45dd-bc83-b136c8d1d257","request":{"uri":"https://acmeinc.com/pricing","user_agent_string":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"},"metadata":{"button_label":"Get Started","sign_up_method":"Google SSO"}}'</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--browser"><code><span class="kd">var</span> <span class="nx">moesif</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">moesif-browser-js</span><span class="dl">'</span><span class="p">);</span>
 
 <span class="nx">moesif</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
@@ -4484,13 +4495,19 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/actions <span cla
 <td>user_id</td>
 <td>string</td>
 <td>false</td>
-<td>The <a href="#users">user</a> identifier to associate this action with.</td>
+<td>Associate this API call to a <a href="#users">user</a>. Typically, a real person.</td>
 </tr>
 <tr>
 <td>company_id</td>
 <td>string</td>
 <td>false</td>
-<td>The <a href="#companies">company</a> identifier to associate this action with (Helpful for B2B companies).</td>
+<td>Associate this API call to a <a href="#companies">company</a> (Required for metered billing).</td>
+</tr>
+<tr>
+<td>subscription_id</td>
+<td>string</td>
+<td>false</td>
+<td>Associate this API call to a specific <a href="#subscriptions">subscription</a> of a company. Not needed unless same company can have multiple subscriptions to the same plan. When set, usage will be reported to only this subscription.</td>
 </tr>
 <tr>
 <td>metadata</td>
@@ -4573,7 +4590,6 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
     </span><span class="nl">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Clicked Sign Up"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"session_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXXX"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3765025-46ec-45dd-bc83-b136c8d1d257"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://acmeinc.com/pricing"</span><span class="p">,</span><span class="w">
@@ -4588,7 +4604,6 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
     </span><span class="nl">"action_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Purchased Subscription"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"session_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXXX"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a90cbabb-2dfc-4290-a368-48ce1a1af7ba"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://acmeinc.com/pricing"</span><span class="p">,</span><span class="w">
@@ -4604,7 +4619,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 curl <span class="nt">-X</span> POST https://api.moesif.net/v1/actions/batch <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'</span> <span class="se">\</span>
-  <span class="nt">-d</span> <span class="s1">'[{"action_name":"Clicked Sign Up","user_id":"12345","company_id":"67890","session_token":"XXXXX","transaction_id": "a3765025-46ec-45dd-bc83-b136c8d1d257","request":{"uri":"https://acmeinc.com/pricing","user_agent_string":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"},"metadata":{"button_label":"Get Started","sign_up_method":"Google SSO"}},{"action_name":"Purchased Subscription","user_id":"12345","company_id":"67890","session_token":"XXXXX","transaction_id": "a90cbabb-2dfc-4290-a368-48ce1a1af7ba","request":{"uri":"https://acmeinc.com/pricing","user_agent_string":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"},"metadata":{"plan_name":"Pay As You Go","plan_revenue":5000}}]'</span>
+  <span class="nt">-d</span> <span class="s1">'[{"action_name":"Clicked Sign Up","user_id":"12345","company_id":"67890","transaction_id": "a3765025-46ec-45dd-bc83-b136c8d1d257","request":{"uri":"https://acmeinc.com/pricing","user_agent_string":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"},"metadata":{"button_label":"Get Started","sign_up_method":"Google SSO"}},{"action_name":"Purchased Subscription","user_id":"12345","company_id":"67890","transaction_id": "a90cbabb-2dfc-4290-a368-48ce1a1af7ba","request":{"uri":"https://acmeinc.com/pricing","user_agent_string":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"},"metadata":{"plan_name":"Pay As You Go","plan_revenue":5000}}]'</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--browser"><code><span class="kd">var</span> <span class="nx">moesif</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">moesif-browser-js</span><span class="dl">'</span><span class="p">);</span>
 
 <span class="nx">moesif</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
@@ -4630,7 +4645,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/actions/batch <sp
 <td>transaction_id</td>
 <td>string</td>
 <td>false</td>
-<td>A random 36 char UUID for this event. If set, Moesif will deduplicate events using this id and ensure idempotency. Moesif will still deduplicate even accross different size batches.</td>
+<td>A random 36 char UUID for this event. If set, Moesif will deduplicate events using this id and ensure idempotency. Moesif will still deduplicate even across different size batches.</td>
 </tr>
 <tr>
 <td>action_name</td>
@@ -4648,13 +4663,19 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/actions/batch <sp
 <td>user_id</td>
 <td>string</td>
 <td>false</td>
-<td>The <a href="#users">user</a> identifier to associate this action with.</td>
+<td>Associate this API call to a <a href="#users">user</a>. Typically, a real person.</td>
 </tr>
 <tr>
 <td>company_id</td>
 <td>string</td>
 <td>false</td>
-<td>The <a href="#companies">company</a> identifier to associate this action with (Helpful for B2B companies).</td>
+<td>Associate this API call to a <a href="#companies">company</a> (Required for metered billing).</td>
+</tr>
+<tr>
+<td>subscription_id</td>
+<td>string</td>
+<td>false</td>
+<td>Associate this API call to a specific <a href="#subscriptions">subscription</a> of a company. Not needed unless same company can have multiple subscriptions to the same plan. When set, usage will be reported to only this subscription.</td>
 </tr>
 <tr>
 <td>metadata</td>
@@ -4696,17 +4717,14 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/actions/batch <sp
 <h2 id='users'>Users</h2><h3 id='update-a-user'>Update a User</h3>
 <p><strong><code>POST https://api.moesif.net/v1/users</code></strong></p>
 
-<p>Updates a user profile in Moesif, which can be a customer or API consumer.
-Adding user metadata enables you to understand API usage across different cohorts, 
-user demographics, acquisition channels, etc. </p>
+<p>Updates a user profile in Moesif, which is typically a single person or API consumer. For updating customer profiles such as for monetization use cases, see <a href="#companies">companies</a> and <a href="#subscriptions">subscriptions</a>.</p>
 
-<p>Moesif has client integrations like <a href="https://www.moesif.com/implementation/track-user-behaviors-with-browser?platform=browser">moesif-browser-js</a> or Segment to make this easy.</p>
+<p>You can also track users automatically using a Moesif client integration like <a href="https://www.moesif.com/implementation/track-user-behaviors-with-browser?platform=browser">moesif-browser-js</a> or Segment.</p>
 
 <p>User properties can be stored via the <code>metadata</code> object.</p>
 
 <p>We’ve reserved some <code>metadata</code> fields that have semantic meanings for users, and we handle them in special ways. 
-For example, we expect email to be a string containing the user’s email address which is used to look up a user&#39;s demographic enrichment data
-and send <a href="https://www.moesif.com/features/user-behavioral-emails">behavioral emails</a>.</p>
+For example, we expect email to be a string containing the user’s email address which is used to look up a user&#39;s demographic enrichment data and send <a href="https://www.moesif.com/features/user-behavioral-emails">behavioral emails</a>.</p>
 
 <p>Reserved metadata fields include:</p>
 
@@ -4741,14 +4759,6 @@ and selecting API keys from bottom left menu.
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
     </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"session_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXXXXXXXX"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"campaign"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"utm_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"utm_medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cpc"</span><span class="p">,</span><span class="w"> 
-      </span><span class="nl">"utm_campaign"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adwords"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"utm_term"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api+tooling"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"utm_content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"landing"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
     </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@acmeinc.com"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
@@ -4763,7 +4773,7 @@ and selecting API keys from bottom left menu.
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
 curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users <span class="se">\</span>
-  <span class="nt">-d</span> <span class="s1">'{"user_id":"12345","company_id":"67890","session_token":"XXXXXXXXXX","campaign":{"utm_source":"google","utm_medium":"cpc","utm_campaign":"adwords","utm_term":"api+tooling","utm_content":"landing"},"metadata":{"email":"john@acmeinc.com","first_name":"John","last_name":"Doe","title":"Software Engineer","sales_info":{"stage":"Customer","lifetime_value":24000,"account_owner":"mary@contoso.com"}}}'</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{"user_id":"12345","company_id":"67890","metadata":{"email":"john@acmeinc.com","first_name":"John","last_name":"Doe","title":"Software Engineer","sales_info":{"stage":"Customer","lifetime_value":24000,"account_owner":"mary@contoso.com"}}}'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kd">var</span> <span class="nx">moesifapi</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">moesifapi</span><span class="dl">'</span><span class="p">);</span>
@@ -4776,13 +4786,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users <span class
 <span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">userId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">12345</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">companyId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">67890</span><span class="dl">'</span>
-  <span class="na">campaign</span><span class="p">:</span> <span class="p">{</span>
-    <span class="na">utmSource</span><span class="p">:</span> <span class="dl">'</span><span class="s1">google</span><span class="dl">'</span><span class="p">,</span>
-    <span class="na">utmMedium</span><span class="p">:</span> <span class="dl">'</span><span class="s1">cpc</span><span class="dl">'</span><span class="p">,</span> 
-    <span class="na">utmCampaign</span><span class="p">:</span> <span class="dl">'</span><span class="s1">adwords</span><span class="dl">'</span><span class="p">,</span>
-    <span class="na">utmTerm</span><span class="p">:</span> <span class="dl">'</span><span class="s1">api+tooling</span><span class="dl">'</span><span class="p">,</span>
-    <span class="na">utmContent</span><span class="p">:</span> <span class="dl">'</span><span class="s1">landing</span><span class="dl">'</span>
-  <span class="p">},</span>
   <span class="na">metadata</span><span class="p">:</span> <span class="p">{</span>
     <span class="na">email</span><span class="p">:</span> <span class="dl">'</span><span class="s1">john@acmeinc.com</span><span class="dl">'</span><span class="p">,</span>
     <span class="na">firstName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">John</span><span class="dl">'</span><span class="p">,</span>
@@ -4805,20 +4808,11 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users <span class
 <span class="n">api_client</span> <span class="o">=</span> <span class="n">MoesifAPIClient</span><span class="p">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="p">).</span><span class="n">api</span>
 
 <span class="c1"># Only user_id is required.
-# Campaign object is optional, but useful if you want to track ROI of acquisition channels
-# See https://www.moesif.com/docs/api#users for campaign schema
 # metadata can be any custom object
 </span><span class="n">user</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s">'user_id'</span><span class="p">:</span> <span class="s">'12345'</span><span class="p">,</span>
   <span class="s">'company_id'</span><span class="p">:</span> <span class="s">'67890'</span><span class="p">,</span> <span class="c1"># If set, associate user with a company object
-</span>  <span class="s">'campaign'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s">'utm_source'</span><span class="p">:</span> <span class="s">'google'</span><span class="p">,</span>
-    <span class="s">'utm_medium'</span><span class="p">:</span> <span class="s">'cpc'</span><span class="p">,</span> 
-    <span class="s">'utm_campaign'</span><span class="p">:</span> <span class="s">'adwords'</span><span class="p">,</span>
-    <span class="s">'utm_term'</span><span class="p">:</span> <span class="s">'api+tooling'</span><span class="p">,</span>
-    <span class="s">'utm_content'</span><span class="p">:</span> <span class="s">'landing'</span>
-  <span class="p">},</span>
-  <span class="s">'metadata'</span><span class="p">:</span> <span class="p">{</span>
+</span>  <span class="s">'metadata'</span><span class="p">:</span> <span class="p">{</span>
     <span class="s">'email'</span><span class="p">:</span> <span class="s">'john@acmeinc.com'</span><span class="p">,</span>
     <span class="s">'first_name'</span><span class="p">:</span> <span class="s">'John'</span><span class="p">,</span>
     <span class="s">'last_name'</span><span class="p">:</span> <span class="s">'Doe'</span><span class="p">,</span>
@@ -4846,21 +4840,11 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users <span class
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="c1"># Campaign object is optional, but useful if you want to track ROI of acquisition channels</span>
-<span class="c1"># See https://www.moesif.com/docs/api#users for campaign schema</span>
-<span class="n">campaign</span> <span class="o">=</span> <span class="no">CampaignModel</span><span class="p">.</span><span class="nf">new</span><span class="p">()</span>
-<span class="n">campaign</span><span class="p">.</span><span class="nf">utm_source</span> <span class="o">=</span> <span class="s2">"google"</span>
-<span class="n">campaign</span><span class="p">.</span><span class="nf">utm_medium</span> <span class="o">=</span> <span class="s2">"cpc"</span>
-<span class="n">campaign</span><span class="p">.</span><span class="nf">utm_campaign</span> <span class="o">=</span> <span class="s2">"adwords"</span>
-<span class="n">campaign</span><span class="p">.</span><span class="nf">utm_term</span> <span class="o">=</span> <span class="s2">"api+tooling"</span>
-<span class="n">campaign</span><span class="p">.</span><span class="nf">utm_content</span> <span class="o">=</span> <span class="s2">"landing"</span>
-
 <span class="c1"># Only user_id is required.</span>
 <span class="c1"># metadata can be any custom object</span>
 <span class="n">user</span> <span class="o">=</span> <span class="no">UserModel</span><span class="p">.</span><span class="nf">new</span><span class="p">()</span>
 <span class="n">user</span><span class="p">.</span><span class="nf">user_id</span> <span class="o">=</span> <span class="s2">"12345"</span>
 <span class="n">user</span><span class="p">.</span><span class="nf">company_id</span> <span class="o">=</span> <span class="s2">"67890"</span> <span class="c1"># If set, associate user with a company object</span>
-<span class="n">user</span><span class="p">.</span><span class="nf">campaign</span> <span class="o">=</span> <span class="n">campaign</span>
 <span class="n">user</span><span class="p">.</span><span class="nf">metadata</span> <span class="o">=</span> <span class="n">metadata</span>
 
 <span class="n">update_user</span> <span class="o">=</span> <span class="n">api_client</span><span class="p">.</span><span class="nf">update_user</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
@@ -4872,15 +4856,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users <span class
 <span class="c1">// Import the SDK client in your project:</span>
 <span class="kn">use</span> <span class="nc">MoesifApi\MoesifApiClient</span><span class="p">;</span>
 <span class="nv">$apiClient</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MoesifApiClient</span><span class="p">(</span><span class="s2">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="p">)</span><span class="o">-&gt;</span><span class="nf">getApi</span><span class="p">();;</span>
-
-<span class="c1">// Campaign object is optional, but useful if you want to track ROI of acquisition channels</span>
-<span class="c1">// See https://www.moesif.com/docs/api#update-a-user for campaign schema</span>
-<span class="nv">$campaign</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Models\CampaignModel</span><span class="p">();</span>
-<span class="nv">$campaign</span><span class="o">-&gt;</span><span class="n">utmSource</span> <span class="o">=</span> <span class="s2">"google"</span><span class="p">;</span>
-<span class="nv">$campaign</span><span class="o">-&gt;</span><span class="n">utmCampaign</span> <span class="o">=</span> <span class="s2">"cpc"</span><span class="p">;</span>
-<span class="nv">$campaign</span><span class="o">-&gt;</span><span class="n">utmMedium</span> <span class="o">=</span> <span class="s2">"adwords"</span><span class="p">;</span>
-<span class="nv">$campaign</span><span class="o">-&gt;</span><span class="n">utmContent</span> <span class="o">=</span> <span class="s2">"api+tooling"</span><span class="p">;</span>
-<span class="nv">$campaign</span><span class="o">-&gt;</span><span class="n">utmTerm</span> <span class="o">=</span> <span class="s2">"landing"</span><span class="p">;</span>
 
 <span class="c1">// metadata can be any custom object</span>
 <span class="nv">$user</span><span class="o">-&gt;</span><span class="n">metadata</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
@@ -4898,7 +4873,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users <span class
 <span class="nv">$user</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Models\UserModel</span><span class="p">();</span>
 <span class="nv">$user</span><span class="o">-&gt;</span><span class="n">userId</span> <span class="o">=</span> <span class="s2">"12345"</span><span class="p">;</span>
 <span class="nv">$user</span><span class="o">-&gt;</span><span class="n">companyId</span> <span class="o">=</span> <span class="s2">"67890"</span><span class="p">;</span> <span class="c1">// If set, associate user with a company object</span>
-<span class="nv">$user</span><span class="o">-&gt;</span><span class="n">campaign</span> <span class="o">=</span> <span class="nv">$campaign</span><span class="p">;</span>
 <span class="nv">$user</span><span class="o">-&gt;</span><span class="n">metadata</span> <span class="o">=</span> <span class="nv">$metadata</span><span class="p">;</span>
 
 <span class="nv">$apiClient</span><span class="o">-&gt;</span><span class="nf">updateUser</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
@@ -4906,16 +4880,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users <span class
 <span class="k">import</span> <span class="s">"github.com/moesif/moesifapi-go/models"</span>
 
 <span class="n">apiClient</span> <span class="o">:=</span> <span class="n">moesifapi</span><span class="o">.</span><span class="n">NewAPI</span><span class="p">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="p">)</span>
-
-<span class="c">// Campaign object is optional, but useful if you want to track ROI of acquisition channels</span>
-<span class="c">// See https://www.moesif.com/docs/api#users for campaign schema</span>
-<span class="n">campaign</span> <span class="o">:=</span> <span class="n">models</span><span class="o">.</span><span class="n">CampaignModel</span> <span class="p">{</span>
-  <span class="n">UtmSource</span><span class="o">:</span> <span class="s">"google"</span><span class="p">,</span>
-  <span class="n">UtmMedium</span><span class="o">:</span> <span class="s">"cpc"</span><span class="p">,</span> 
-  <span class="n">UtmCampaign</span><span class="o">:</span> <span class="s">"adwords"</span><span class="p">,</span>
-  <span class="n">UtmTerm</span><span class="o">:</span> <span class="s">"api+tooling"</span><span class="p">,</span>
-  <span class="n">UtmContent</span><span class="o">:</span> <span class="s">"landing"</span><span class="p">,</span>
-<span class="p">}</span>
 
 <span class="c">// metadata can be any custom dictionary</span>
 <span class="n">metadata</span> <span class="o">:=</span> <span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span>
@@ -4934,7 +4898,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users <span class
 <span class="n">user</span> <span class="o">:=</span> <span class="n">models</span><span class="o">.</span><span class="n">UserModel</span><span class="p">{</span>
   <span class="n">UserId</span><span class="o">:</span>  <span class="s">"12345"</span><span class="p">,</span>
   <span class="n">CompanyId</span><span class="o">:</span>  <span class="s">"67890"</span><span class="p">,</span> <span class="c">// If set, associate user with a company object</span>
-  <span class="n">Campaign</span><span class="o">:</span>  <span class="o">&amp;</span><span class="n">campaign</span><span class="p">,</span>
   <span class="n">Metadata</span><span class="o">:</span>  <span class="o">&amp;</span><span class="n">metadata</span><span class="p">,</span>
 <span class="p">}</span>
 
@@ -4944,17 +4907,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users <span class
 <span class="c">// Update the user synchronously</span>
 <span class="n">err</span> <span class="o">:=</span> <span class="n">apiClient</span><span class="o">.</span><span class="n">UpdateUser</span><span class="p">(</span><span class="o">&amp;</span><span class="n">user</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight csharp tab-csharp"><code><span class="kt">var</span> <span class="n">apiClient</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">MoesifApiClient</span><span class="p">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="p">).</span><span class="n">Api</span><span class="p">;;</span>
-
-<span class="c1">// Campaign object is optional, but useful if you want to track ROI of acquisition channels</span>
-<span class="c1">// See https://www.moesif.com/docs/api#users for campaign schema</span>
-<span class="kt">var</span> <span class="n">campaign</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">CampaignModel</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">UtmSource</span> <span class="p">=</span> <span class="s">"google"</span><span class="p">,</span>
-    <span class="n">UtmMedium</span> <span class="p">=</span> <span class="s">"cpc"</span>
-  <span class="n">UtmCampaign</span> <span class="p">=</span> <span class="s">"adwords"</span>
-    <span class="n">UtmTerm</span> <span class="p">=</span> <span class="s">"api+tooling"</span>
-    <span class="n">UtmContent</span> <span class="p">=</span> <span class="s">"landing"</span>
-<span class="p">};</span>
 
 <span class="c1">// metadata can be any custom dictionary</span>
 <span class="kt">var</span> <span class="n">metadata</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">object</span><span class="p">&gt;</span>
@@ -4975,7 +4927,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users <span class
 <span class="p">{</span>
     <span class="n">UserId</span> <span class="p">=</span> <span class="s">"12345"</span><span class="p">,</span>
   <span class="n">CompanyId</span> <span class="p">=</span> <span class="s">"67890"</span><span class="p">,</span>
-  <span class="n">Campaign</span> <span class="p">=</span> <span class="n">campaign</span><span class="p">,</span>
     <span class="n">Metadata</span> <span class="p">=</span> <span class="n">metadata</span>
 <span class="p">};</span>
 
@@ -4986,22 +4937,11 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users <span class
 <span class="n">apiClient</span><span class="p">.</span><span class="nf">UpdateUser</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">MoesifAPIClient</span> <span class="n">apiClient</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MoesifAPIClient</span><span class="o">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="o">);</span>
 
-<span class="c1">// Campaign object is optional, but useful if you want to track ROI of acquisition channels</span>
-<span class="c1">// See https://www.moesif.com/docs/api#users for campaign schema</span>
-<span class="nc">CampaignModel</span> <span class="n">campaign</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CampaignBuilder</span><span class="o">()</span>
-        <span class="o">.</span><span class="na">utmSource</span><span class="o">(</span><span class="s">"google"</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">utmCampaign</span><span class="o">(</span><span class="s">"cpc"</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">utmMedium</span><span class="o">(</span><span class="s">"adwords"</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">utmTerm</span><span class="o">(</span><span class="s">"api+tooling"</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">utmContent</span><span class="o">(</span><span class="s">"landing"</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-
 <span class="c1">// Only userId is required</span>
 <span class="c1">// metadata can be any custom object</span>
 <span class="nc">UserModel</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UserBuilder</span><span class="o">()</span>
     <span class="o">.</span><span class="na">userId</span><span class="o">(</span><span class="s">"12345"</span><span class="o">)</span>
     <span class="o">.</span><span class="na">companyId</span><span class="o">(</span><span class="s">"67890"</span><span class="o">)</span> <span class="c1">// If set, associate user with a company object</span>
-    <span class="o">.</span><span class="na">campaign</span><span class="o">(</span><span class="n">campaign</span><span class="o">)</span>
     <span class="o">.</span><span class="na">metadata</span><span class="o">(</span><span class="nc">APIHelper</span><span class="o">.</span><span class="na">deserialize</span><span class="o">(</span><span class="s">"{"</span> <span class="o">+</span>
         <span class="s">"\"email\": \"johndoe@acmeinc.com\","</span> <span class="o">+</span>
         <span class="s">"\"first_name\": \"John\","</span> <span class="o">+</span>
@@ -5156,9 +5096,9 @@ individual users along with account-level usage. </p>
 <h3 id='update-users-in-batch'>Update Users in Batch</h3>
 <p><strong><code>POST https://api.moesif.net/v1/users/batch</code></strong></p>
 
-<p>Updates a list of user profiles in a single batch. Users can be customers or end users accessing the API.
-Adding user metadata enables you to understand API usage across different cohorts, 
-user demographics, acquisition channels, etc.</p>
+<p>Updates a list of user profiles in a single batch. Users are typically a single person or API consumer. For updating customer profiles such as for monetization use cases, see <a href="#companies">companies</a> and <a href="#subscriptions">subscriptions</a>.</p>
+
+<p>You can also track users automatically using a Moesif client integration like <a href="https://www.moesif.com/implementation/track-user-behaviors-with-browser?platform=browser">moesif-browser-js</a> or Segment.</p>
 
 <p>Any custom user properties can be stored via the <code>metadata</code> object.</p>
 
@@ -5196,14 +5136,6 @@ and selecting API keys from bottom left menu.
   </span><span class="p">{</span><span class="w">
     </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"session_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXXXXXXXX"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"campaign"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"utm_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"utm_medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cpc"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"utm_campaign"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adwords"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"utm_term"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api+tooling"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"utm_content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"landing"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
     </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@acmeinc.com"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
@@ -5219,14 +5151,6 @@ and selecting API keys from bottom left menu.
   </span><span class="p">{</span><span class="w">
     </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54321"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"session_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXXXXXXXX"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"campaign"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"utm_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"utm_medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cpc"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"utm_campaign"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adwords"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"utm_term"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api+tooling"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"utm_content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"landing"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
     </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mary@acmeinc.com"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mary"</span><span class="p">,</span><span class="w">
@@ -5242,7 +5166,7 @@ and selecting API keys from bottom left menu.
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
 curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users/batch <span class="se">\</span>
-  <span class="nt">-d</span> <span class="s1">'[{"user_id":"12345","company_id":"67890","session_token":"XXXXXXXXXX","campaign":{"utm_source":"google","utm_medium":"cpc","utm_campaign":"adwords","utm_term":"api+tooling","utm_content":"landing"},"metadata":{"email":"john@acmeinc.com","first_name":"John","last_name":"Doe","title":"Software Engineer","sales_info":{"stage":"Customer","lifetime_value":24000,"account_owner":"mary@contoso.com"}}},{"user_id":"54321","company_id":"67890","session_token":"XXXXXXXXXX","campaign":{"utm_source":"google","utm_medium":"cpc","utm_campaign":"adwords","utm_term":"api+tooling","utm_content":"landing"},"metadata":{"email":"mary@acmeinc.com","first_name":"Mary","last_name":"Jane","title":"Software Engineer","sales_info":{"stage":"Customer","lifetime_value":24000,"account_owner":"mary@contoso.com"}}}]'</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'[{"user_id":"12345","company_id":"67890","metadata":{"email":"john@acmeinc.com","first_name":"John","last_name":"Doe","title":"Software Engineer","sales_info":{"stage":"Customer","lifetime_value":24000,"account_owner":"mary@contoso.com"}}},{"user_id":"54321","company_id":"67890","metadata":{"email":"mary@acmeinc.com","first_name":"Mary","last_name":"Jane","title":"Software Engineer","sales_info":{"stage":"Customer","lifetime_value":24000,"account_owner":"mary@contoso.com"}}}]'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'</span>
 
@@ -5256,13 +5180,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users/batch <span
 <span class="kd">var</span> <span class="nx">userA</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">userId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">12345</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">companyId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">67890</span><span class="dl">'</span>
-  <span class="na">campaign</span><span class="p">:</span> <span class="p">{</span>
-    <span class="na">utmSource</span><span class="p">:</span> <span class="dl">'</span><span class="s1">google</span><span class="dl">'</span><span class="p">,</span>
-    <span class="na">utmMedium</span><span class="p">:</span> <span class="dl">'</span><span class="s1">cpc</span><span class="dl">'</span><span class="p">,</span> 
-    <span class="na">utmCampaign</span><span class="p">:</span> <span class="dl">'</span><span class="s1">adwords</span><span class="dl">'</span><span class="p">,</span>
-    <span class="na">utmTerm</span><span class="p">:</span> <span class="dl">'</span><span class="s1">api+tooling</span><span class="dl">'</span><span class="p">,</span>
-    <span class="na">utmContent</span><span class="p">:</span> <span class="dl">'</span><span class="s1">landing</span><span class="dl">'</span>
-  <span class="p">},</span>
   <span class="na">metadata</span><span class="p">:</span> <span class="p">{</span>
     <span class="na">email</span><span class="p">:</span> <span class="dl">'</span><span class="s1">john@acmeinc.com</span><span class="dl">'</span><span class="p">,</span>
     <span class="na">firstName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">John</span><span class="dl">'</span><span class="p">,</span>
@@ -5275,18 +5192,10 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users/batch <span
     <span class="p">},</span>
   <span class="p">}</span>
 <span class="p">};</span>
-<span class="p">};</span>
 
 <span class="kd">var</span> <span class="nx">userB</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">userId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">67890</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">companyId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">67890</span><span class="dl">'</span>
-  <span class="na">campaign</span><span class="p">:</span> <span class="p">{</span>
-    <span class="na">utmSource</span><span class="p">:</span> <span class="dl">'</span><span class="s1">google</span><span class="dl">'</span><span class="p">,</span>
-    <span class="na">utmMedium</span><span class="p">:</span> <span class="dl">'</span><span class="s1">cpc</span><span class="dl">'</span><span class="p">,</span> 
-    <span class="na">utmCampaign</span><span class="p">:</span> <span class="dl">'</span><span class="s1">adwords</span><span class="dl">'</span><span class="p">,</span>
-    <span class="na">utmTerm</span><span class="p">:</span> <span class="dl">'</span><span class="s1">api+tooling</span><span class="dl">'</span><span class="p">,</span>
-    <span class="na">utmContent</span><span class="p">:</span> <span class="dl">'</span><span class="s1">landing</span><span class="dl">'</span>
-  <span class="p">},</span>
   <span class="na">metadata</span><span class="p">:</span> <span class="p">{</span>
     <span class="na">email</span><span class="p">:</span> <span class="dl">'</span><span class="s1">mary@contoso.com</span><span class="dl">'</span><span class="p">,</span>
     <span class="na">firstName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Mary</span><span class="dl">'</span><span class="p">,</span>
@@ -5362,21 +5271,11 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users/batch <span
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="c1"># Campaign object is optional, but useful if you want to track ROI of acquisition channels</span>
-<span class="c1"># See https://www.moesif.com/docs/api#users for campaign schema</span>
-<span class="n">campaign</span> <span class="o">=</span> <span class="no">CampaignModel</span><span class="p">.</span><span class="nf">new</span><span class="p">()</span>
-<span class="n">campaign</span><span class="p">.</span><span class="nf">utm_source</span> <span class="o">=</span> <span class="s2">"google"</span>
-<span class="n">campaign</span><span class="p">.</span><span class="nf">utm_medium</span> <span class="o">=</span> <span class="s2">"cpc"</span>
-<span class="n">campaign</span><span class="p">.</span><span class="nf">utm_campaign</span> <span class="o">=</span> <span class="s2">"adwords"</span>
-<span class="n">campaign</span><span class="p">.</span><span class="nf">utm_term</span> <span class="o">=</span> <span class="s2">"api+tooling"</span>
-<span class="n">campaign</span><span class="p">.</span><span class="nf">utm_content</span> <span class="o">=</span> <span class="s2">"landing"</span>
-
 <span class="c1"># Only user_id is required.</span>
 <span class="c1"># metadata can be any custom object</span>
 <span class="n">user</span> <span class="o">=</span> <span class="no">UserModel</span><span class="p">.</span><span class="nf">new</span><span class="p">()</span>
 <span class="n">user</span><span class="p">.</span><span class="nf">user_id</span> <span class="o">=</span> <span class="s2">"12345"</span>
 <span class="n">user</span><span class="p">.</span><span class="nf">company_id</span> <span class="o">=</span> <span class="s2">"67890"</span> <span class="c1"># If set, associate user with a company object</span>
-<span class="n">user</span><span class="p">.</span><span class="nf">campaign</span> <span class="o">=</span> <span class="n">campaign</span>
 <span class="n">user</span><span class="p">.</span><span class="nf">metadata</span> <span class="o">=</span> <span class="n">metadata</span>
 
 <span class="n">users</span> <span class="o">&lt;&lt;</span> <span class="n">user</span>
@@ -5406,7 +5305,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users/batch <span
 <span class="nv">$userA</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Models\UserModel</span><span class="p">();</span>
 <span class="nv">$userA</span><span class="o">-&gt;</span><span class="n">userId</span> <span class="o">=</span> <span class="s2">"12345"</span><span class="p">;</span>
 <span class="nv">$userA</span><span class="o">-&gt;</span><span class="n">companyId</span> <span class="o">=</span> <span class="s2">"67890"</span><span class="p">;</span> <span class="c1">// If set, associate user with a company object</span>
-<span class="nv">$userA</span><span class="o">-&gt;</span><span class="n">campaign</span> <span class="o">=</span> <span class="nv">$campaign</span><span class="p">;</span>
 <span class="nv">$userA</span><span class="o">-&gt;</span><span class="n">metadata</span> <span class="o">=</span> <span class="nv">$metadata</span><span class="p">;</span>
 
 <span class="c1">// metadata can be any custom object</span>
@@ -5425,7 +5323,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users/batch <span
 <span class="nv">$userB</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Models\UserModel</span><span class="p">();</span>
 <span class="nv">$userB</span><span class="o">-&gt;</span><span class="n">userId</span> <span class="o">=</span> <span class="s2">"12345"</span><span class="p">;</span>
 <span class="nv">$userB</span><span class="o">-&gt;</span><span class="n">companyId</span> <span class="o">=</span> <span class="s2">"67890"</span><span class="p">;</span> <span class="c1">// If set, associate user with a company object</span>
-<span class="nv">$userB</span><span class="o">-&gt;</span><span class="n">campaign</span> <span class="o">=</span> <span class="nv">$campaign</span><span class="p">;</span>
 <span class="nv">$userB</span><span class="o">-&gt;</span><span class="n">metadata</span> <span class="o">=</span> <span class="nv">$metadata</span><span class="p">;</span>
 
 <span class="nv">$users</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="nv">$userA</span><span class="p">,</span> <span class="nv">$userB</span><span class="p">)</span>
@@ -5437,16 +5334,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users/batch <span
 
 <span class="c">// List of Users</span>
 <span class="k">var</span> <span class="n">users</span> <span class="p">[]</span><span class="o">*</span><span class="n">models</span><span class="o">.</span><span class="n">UserModel</span>
-
-<span class="c">// Campaign object is optional, but useful if you want to track ROI of acquisition channels</span>
-<span class="c">// See https://www.moesif.com/docs/api#users for campaign schema</span>
-<span class="n">campaign</span> <span class="o">:=</span> <span class="n">models</span><span class="o">.</span><span class="n">CampaignModel</span> <span class="p">{</span>
-  <span class="n">UtmSource</span><span class="o">:</span> <span class="s">"google"</span><span class="p">,</span>
-  <span class="n">UtmMedium</span><span class="o">:</span> <span class="s">"cpc"</span><span class="p">,</span> 
-  <span class="n">UtmCampaign</span><span class="o">:</span> <span class="s">"adwords"</span><span class="p">,</span>
-  <span class="n">UtmTerm</span><span class="o">:</span> <span class="s">"api+tooling"</span><span class="p">,</span>
-  <span class="n">UtmContent</span><span class="o">:</span> <span class="s">"landing"</span><span class="p">,</span>
-<span class="p">}</span>
 
 <span class="c">// metadata can be any custom dictionary</span>
 <span class="n">metadata</span> <span class="o">:=</span> <span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span>
@@ -5465,7 +5352,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users/batch <span
 <span class="n">userA</span> <span class="o">:=</span> <span class="n">models</span><span class="o">.</span><span class="n">UserModel</span><span class="p">{</span>
   <span class="n">UserId</span><span class="o">:</span>  <span class="s">"12345"</span><span class="p">,</span>
   <span class="n">CompanyId</span><span class="o">:</span>  <span class="s">"67890"</span><span class="p">,</span> <span class="c">// If set, associate user with a company object</span>
-  <span class="n">Campaign</span><span class="o">:</span>  <span class="o">&amp;</span><span class="n">campaign</span><span class="p">,</span>
   <span class="n">Metadata</span><span class="o">:</span>  <span class="o">&amp;</span><span class="n">metadata</span><span class="p">,</span>
 <span class="p">}</span>
 
@@ -5538,7 +5424,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users/batch <span
 <span class="nc">UserModel</span> <span class="n">userA</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UserBuilder</span><span class="o">()</span>
         <span class="o">.</span><span class="na">userId</span><span class="o">(</span><span class="s">"12345"</span><span class="o">)</span>
         <span class="o">.</span><span class="na">companyId</span><span class="o">(</span><span class="s">"67890"</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">campaign</span><span class="o">(</span><span class="n">campaign</span><span class="o">)</span>
         <span class="o">.</span><span class="na">metadata</span><span class="o">(</span><span class="nc">APIHelper</span><span class="o">.</span><span class="na">deserialize</span><span class="o">(</span><span class="s">"{"</span> <span class="o">+</span>
             <span class="s">"\"email\": \"johndoe@acmeinc.com\","</span> <span class="o">+</span>
             <span class="s">"\"first_name\": \"John\","</span> <span class="o">+</span>
@@ -5556,7 +5441,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users/batch <span
 <span class="nc">UserModel</span> <span class="n">userB</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UserBuilder</span><span class="o">()</span>
         <span class="o">.</span><span class="na">userId</span><span class="o">(</span><span class="s">"54321"</span><span class="o">)</span>
         <span class="o">.</span><span class="na">companyId</span><span class="o">(</span><span class="s">"67890"</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">campaign</span><span class="o">(</span><span class="n">campaign</span><span class="o">)</span>
         <span class="o">.</span><span class="na">metadata</span><span class="o">(</span><span class="nc">APIHelper</span><span class="o">.</span><span class="na">deserialize</span><span class="o">(</span><span class="s">"{"</span> <span class="o">+</span>
             <span class="s">"\"email\": \"johndoe@acmeinc.com\","</span> <span class="o">+</span>
             <span class="s">"\"first_name\": \"John\","</span> <span class="o">+</span>
@@ -5708,13 +5592,14 @@ individual users along with account-level usage. </p>
 <h2 id='companies'>Companies</h2><h3 id='update-a-company'>Update a Company</h3>
 <p><strong><code>POST https://api.moesif.net/v1/companies</code></strong></p>
 
-<p>Updates a company profile in Moesif. A company can be an enterprise account or a group of <a href="#update-a-user">users</a> accessing the API.
-Adding company metadata enables you to understand API usage across different cohorts, 
-company demographics, acquisition channels, etc.</p>
+<p>Updates a company profile in Moesif. A company is your direct customer paying for your service. A company can have one or more <a href="#update-a-user">users</a> and one or more <a href="#update-a-subscription">subscriptions</a>. <a href="https://www.moesif.com/docs/getting-started/overview/">More info on the Moesif data model</a>.</p>
 
-<p>Any custom company properties can be stored via the <code>metadata</code> object. 
-You can also set the company&#39;s website domain which enables Moesif to automatically your company profiles
-with publicly available information.</p>
+<p>You can save custom properties to a company via the <code>metadata</code> object. While optional, it&#39;s also recommended to set the <code>company_domain</code>. When set, Moesif will enrich the company with publicly available information.</p>
+
+<p>If company does not exist, a new one will be created.
+If a company exists, it will be merged on top of existing fields.
+Any new field set will override the existing fields.
+This is done via recursive merge which merges inner objects.</p>
 <h4 id='create-vs-update'>Create vs update</h4>
 <p>If the company does not exist, Moesif will create a new one. </p>
 
@@ -5740,13 +5625,6 @@ will automatically associate the user with the company.
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"company_domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"acmeinc.com"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"campaign"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"utm_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"utm_medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cpc"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"utm_campaign"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adwords"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"utm_term"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api+tooling"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"utm_content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"landing"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
   </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"org_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acme, Inc"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"plan_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Free"</span><span class="p">,</span><span class="w">
@@ -5758,10 +5636,9 @@ will automatically associate the user with the company.
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
 curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies <span class="se">\</span>
-  <span class="nt">-d</span> <span class="s1">'{"company_id":"12345","company_domain":"acmeinc.com","campaign":{"utm_source":"google","utm_medium":"cpc","utm_campaign":"adwords","utm_term":"api+tooling","utm_content":"landing"},"metadata":{"org_name":"Acme, Inc","plan_name":"Free","deal_stage":"Lead","mrr":24000,"demographics":{"alexa_ranking":500000,"employee_count":47}}}'</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{"company_id":"12345","company_domain":"acmeinc.com","metadata":{"org_name":"Acme, Inc","plan_name":"Free","deal_stage":"Lead","mrr":24000,"demographics":{"alexa_ranking":500000,"employee_count":47}}}'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kd">var</span> <span class="nx">moesifapi</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">moesifapi</span><span class="dl">'</span><span class="p">);</span>
@@ -5771,19 +5648,10 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies <span c
 
 
 <span class="c1">// Only companyId is required.</span>
-<span class="c1">// Campaign object is optional, but useful if you want to track ROI of acquisition channels</span>
-<span class="c1">// See https://www.moesif.com/docs/api#update-a-company for campaign schema</span>
 <span class="c1">// metadata can be any custom object</span>
 <span class="kd">var</span> <span class="nx">company</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">companyId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">67890</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">companyDomain</span><span class="p">:</span> <span class="dl">'</span><span class="s1">acmeinc.com</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// If domain is set, Moesif will enrich your profiles with publicly available info </span>
-  <span class="na">campaign</span><span class="p">:</span> <span class="p">{</span> 
-    <span class="na">utmSource</span><span class="p">:</span> <span class="dl">'</span><span class="s1">google</span><span class="dl">'</span><span class="p">,</span>
-    <span class="na">utmMedium</span><span class="p">:</span> <span class="dl">'</span><span class="s1">cpc</span><span class="dl">'</span><span class="p">,</span> 
-    <span class="na">utmCampaign</span><span class="p">:</span> <span class="dl">'</span><span class="s1">adwords</span><span class="dl">'</span><span class="p">,</span>
-    <span class="na">utmTerm</span><span class="p">:</span> <span class="dl">'</span><span class="s1">api+tooling</span><span class="dl">'</span><span class="p">,</span>
-    <span class="na">utmContent</span><span class="p">:</span> <span class="dl">'</span><span class="s1">landing</span><span class="dl">'</span>
-  <span class="p">},</span>
   <span class="na">metadata</span><span class="p">:</span> <span class="p">{</span>
     <span class="na">orgName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Acme, Inc</span><span class="dl">'</span><span class="p">,</span>
     <span class="na">planName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Free Plan</span><span class="dl">'</span><span class="p">,</span>
@@ -5805,20 +5673,11 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies <span c
 <span class="n">api_client</span> <span class="o">=</span> <span class="n">MoesifAPIClient</span><span class="p">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="p">).</span><span class="n">api</span>
 
 <span class="c1"># Only company_id is required.
-# Campaign object is optional, but useful if you want to track ROI of acquisition channels
-# See https://www.moesif.com/docs/api#update-a-company for campaign schema
 # metadata can be any custom object
 </span><span class="n">company</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s">'company_id'</span><span class="p">:</span> <span class="s">'12345'</span><span class="p">,</span>
   <span class="s">'company_domain'</span><span class="p">:</span> <span class="s">'acmeinc.com'</span><span class="p">,</span> <span class="c1"># If domain is set, Moesif will enrich your profiles with publicly available info 
-</span>  <span class="s">'campaign'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s">'utm_source'</span><span class="p">:</span> <span class="s">'google'</span><span class="p">,</span>
-    <span class="s">'utm_medium'</span><span class="p">:</span> <span class="s">'cpc'</span><span class="p">,</span> 
-    <span class="s">'utm_campaign'</span><span class="p">:</span> <span class="s">'adwords'</span><span class="p">,</span>
-    <span class="s">'utm_term'</span><span class="p">:</span> <span class="s">'api+tooling'</span><span class="p">,</span>
-    <span class="s">'utm_content'</span><span class="p">:</span> <span class="s">'landing'</span>
-  <span class="p">},</span>
-  <span class="s">'metadata'</span><span class="p">:</span> <span class="p">{</span>
+</span>  <span class="s">'metadata'</span><span class="p">:</span> <span class="p">{</span>
     <span class="s">'org_name'</span><span class="p">:</span> <span class="s">'Acme, Inc'</span><span class="p">,</span>
     <span class="s">'plan_name'</span><span class="p">:</span> <span class="s">'Free'</span><span class="p">,</span>
     <span class="s">'deal_stage'</span><span class="p">:</span> <span class="s">'Lead'</span><span class="p">,</span>
@@ -5844,21 +5703,11 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies <span c
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="c1"># Campaign object is optional, but useful if you want to track ROI of acquisition channels</span>
-<span class="c1"># See https://www.moesif.com/docs/api#update-a-company for campaign schema</span>
-<span class="n">campaign</span> <span class="o">=</span> <span class="no">CampaignModel</span><span class="p">.</span><span class="nf">new</span><span class="p">()</span>
-<span class="n">campaign</span><span class="p">.</span><span class="nf">utm_source</span> <span class="o">=</span> <span class="s2">"google"</span>
-<span class="n">campaign</span><span class="p">.</span><span class="nf">utm_medium</span> <span class="o">=</span> <span class="s2">"cpc"</span>
-<span class="n">campaign</span><span class="p">.</span><span class="nf">utm_campaign</span> <span class="o">=</span> <span class="s2">"adwords"</span>
-<span class="n">campaign</span><span class="p">.</span><span class="nf">utm_term</span> <span class="o">=</span> <span class="s2">"api+tooling"</span>
-<span class="n">campaign</span><span class="p">.</span><span class="nf">utm_content</span> <span class="o">=</span> <span class="s2">"landing"</span>
-
 <span class="c1"># Only company_id is required.</span>
 <span class="c1"># metadata can be any custom object</span>
 <span class="n">company</span> <span class="o">=</span> <span class="no">CompanyModel</span><span class="p">.</span><span class="nf">new</span><span class="p">()</span>
 <span class="n">company</span><span class="p">.</span><span class="nf">company_id</span> <span class="o">=</span> <span class="s2">"67890"</span>
 <span class="n">company</span><span class="p">.</span><span class="nf">company_domain</span> <span class="o">=</span> <span class="s2">"acmeinc.com"</span> <span class="c1"># If domain is set, Moesif will enrich your profiles with publicly available info </span>
-<span class="n">company</span><span class="p">.</span><span class="nf">campaign</span> <span class="o">=</span> <span class="n">campaign</span>
 <span class="n">company</span><span class="p">.</span><span class="nf">metadata</span> <span class="o">=</span> <span class="n">metadata</span>
 
 <span class="n">update_company</span> <span class="o">=</span> <span class="n">api_client</span><span class="p">.</span><span class="nf">update_company</span><span class="p">(</span><span class="n">company</span><span class="p">)</span>
@@ -5871,20 +5720,10 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies <span c
 <span class="kn">use</span> <span class="nc">MoesifApi\MoesifApiClient</span><span class="p">;</span>
 <span class="nv">$apiClient</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MoesifApiClient</span><span class="p">(</span><span class="s2">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="p">)</span><span class="o">-&gt;</span><span class="nf">getApi</span><span class="p">();</span>
 
-<span class="c1">// Campaign object is optional, but useful if you want to track ROI of acquisition channels</span>
-<span class="c1">// See https://www.moesif.com/docs/api#update-a-company for campaign schema</span>
-<span class="nv">$campaign</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Models\CampaignModel</span><span class="p">();</span>
-<span class="nv">$campaign</span><span class="o">-&gt;</span><span class="n">utmSource</span> <span class="o">=</span> <span class="s2">"google"</span><span class="p">;</span>
-<span class="nv">$campaign</span><span class="o">-&gt;</span><span class="n">utmCampaign</span> <span class="o">=</span> <span class="s2">"cpc"</span><span class="p">;</span>
-<span class="nv">$campaign</span><span class="o">-&gt;</span><span class="n">utmMedium</span> <span class="o">=</span> <span class="s2">"adwords"</span><span class="p">;</span>
-<span class="nv">$campaign</span><span class="o">-&gt;</span><span class="n">utmContent</span> <span class="o">=</span> <span class="s2">"api+tooling"</span><span class="p">;</span>
-<span class="nv">$campaign</span><span class="o">-&gt;</span><span class="n">utmTerm</span> <span class="o">=</span> <span class="s2">"landing"</span><span class="p">;</span>
-
 
 <span class="nv">$company</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Models\CompanyModel</span><span class="p">();</span>
 <span class="nv">$company</span><span class="o">-&gt;</span><span class="n">companyId</span> <span class="o">=</span> <span class="s2">"67890"</span><span class="p">;</span>
 <span class="nv">$company</span><span class="o">-&gt;</span><span class="n">companyDomain</span> <span class="o">=</span> <span class="s2">"acmeinc.com"</span><span class="p">;</span>
-<span class="nv">$company</span><span class="o">-&gt;</span><span class="n">campaign</span> <span class="o">=</span> <span class="nv">$campaign</span><span class="p">;</span>
 
 <span class="c1">// metadata can be any custom object</span>
 <span class="nv">$company</span><span class="o">-&gt;</span><span class="n">metadata</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
@@ -5904,16 +5743,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies <span c
 
 <span class="n">apiClient</span> <span class="o">:=</span> <span class="n">moesifapi</span><span class="o">.</span><span class="n">NewAPI</span><span class="p">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="p">)</span>
 
-<span class="c">// Campaign object is optional, but useful if you want to track ROI of acquisition channels</span>
-<span class="c">// See https://www.moesif.com/docs/api#update-a-company for campaign schema</span>
-<span class="n">campaign</span> <span class="o">:=</span> <span class="n">models</span><span class="o">.</span><span class="n">CampaignModel</span> <span class="p">{</span>
-  <span class="n">UtmSource</span><span class="o">:</span> <span class="s">"google"</span><span class="p">,</span>
-  <span class="n">UtmMedium</span><span class="o">:</span> <span class="s">"cpc"</span><span class="p">,</span> 
-  <span class="n">UtmCampaign</span><span class="o">:</span> <span class="s">"adwords"</span><span class="p">,</span>
-  <span class="n">UtmTerm</span><span class="o">:</span> <span class="s">"api+tooling"</span><span class="p">,</span>
-  <span class="n">UtmContent</span><span class="o">:</span> <span class="s">"landing"</span><span class="p">,</span>
-<span class="p">}</span>
-
 <span class="c">// metadata can be any custom dictionary</span>
 <span class="n">metadata</span> <span class="o">:=</span> <span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span>
   <span class="s">"org_name"</span><span class="p">,</span> <span class="s">"Acme, Inc"</span><span class="p">,</span>
@@ -5930,7 +5759,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies <span c
 <span class="n">company</span> <span class="o">:=</span> <span class="n">models</span><span class="o">.</span><span class="n">CompanyModel</span><span class="p">{</span>
     <span class="n">CompanyId</span><span class="o">:</span>        <span class="s">"67890"</span><span class="p">,</span>  <span class="c">// The only required field is your company id</span>
     <span class="n">CompanyDomain</span><span class="o">:</span>    <span class="s">"acmeinc.com"</span><span class="p">,</span> <span class="c">// If domain is set, Moesif will enrich your profiles with publicly available info </span>
-    <span class="n">Campaign</span><span class="o">:</span>         <span class="o">&amp;</span><span class="n">campaign</span><span class="p">,</span>
     <span class="n">Metadata</span><span class="o">:</span>         <span class="o">&amp;</span><span class="n">metadata</span><span class="p">,</span>
 <span class="p">}</span>
 
@@ -5940,17 +5768,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies <span c
 <span class="c">// Update the company synchronously</span>
 <span class="n">err</span> <span class="o">:=</span> <span class="n">apiClient</span><span class="o">.</span><span class="n">UpdateCompany</span><span class="p">(</span><span class="o">&amp;</span><span class="n">company</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight csharp tab-csharp"><code><span class="kt">var</span> <span class="n">apiClient</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">MoesifApiClient</span><span class="p">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="p">).</span><span class="n">Api</span><span class="p">;;</span>
-
-<span class="c1">// Campaign object is optional, but useful if you want to track ROI of acquisition channels</span>
-<span class="c1">// See https://www.moesif.com/docs/api#companies for campaign schema</span>
-<span class="kt">var</span> <span class="n">campaign</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">CampaignModel</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">UtmSource</span> <span class="p">=</span> <span class="s">"google"</span><span class="p">,</span>
-    <span class="n">UtmMedium</span> <span class="p">=</span> <span class="s">"cpc"</span>
-  <span class="n">UtmCampaign</span> <span class="p">=</span> <span class="s">"adwords"</span>
-    <span class="n">UtmTerm</span> <span class="p">=</span> <span class="s">"api+tooling"</span>
-    <span class="n">UtmContent</span> <span class="p">=</span> <span class="s">"landing"</span>
-<span class="p">};</span>
 
 <span class="c1">// metadata can be any custom dictionary</span>
 <span class="kt">var</span> <span class="n">metadata</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">object</span><span class="p">&gt;</span>
@@ -5970,7 +5787,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies <span c
 <span class="p">{</span>
   <span class="n">CompanyId</span> <span class="p">=</span> <span class="s">"67890"</span><span class="p">,</span>
   <span class="n">CompanyDomain</span> <span class="p">=</span> <span class="s">"acmeinc.com"</span><span class="p">,</span> <span class="c1">// If domain is set, Moesif will enrich your profiles with publicly available info </span>
-  <span class="n">Campaign</span> <span class="p">=</span> <span class="n">campaign</span><span class="p">,</span>
     <span class="n">Metadata</span> <span class="p">=</span> <span class="n">metadata</span>
 <span class="p">};</span>
 
@@ -5981,22 +5797,11 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies <span c
 <span class="n">apiClient</span><span class="p">.</span><span class="nf">UpdateCompany</span><span class="p">(</span><span class="n">company</span><span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">MoesifAPIClient</span> <span class="n">apiClient</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MoesifAPIClient</span><span class="o">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="o">).</span><span class="na">Api</span><span class="o">;</span>
 
-<span class="c1">// Campaign object is optional, but useful if you want to track ROI of acquisition channels</span>
-<span class="c1">// See https://www.moesif.com/docs/api#update-a-company for campaign schema</span>
-<span class="nc">CampaignModel</span> <span class="n">campaign</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CampaignBuilder</span><span class="o">()</span>
-        <span class="o">.</span><span class="na">utmSource</span><span class="o">(</span><span class="s">"google"</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">utmCampaign</span><span class="o">(</span><span class="s">"cpc"</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">utmMedium</span><span class="o">(</span><span class="s">"adwords"</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">utmTerm</span><span class="o">(</span><span class="s">"api+tooling"</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">utmContent</span><span class="o">(</span><span class="s">"landing"</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-
 <span class="c1">// Only companyId is required</span>
 <span class="c1">// metadata can be any custom object</span>
 <span class="nc">CompanyModel</span> <span class="n">company</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CompanyBuilder</span><span class="o">()</span>
     <span class="o">.</span><span class="na">companyId</span><span class="o">(</span><span class="s">"67890"</span><span class="o">)</span>
     <span class="o">.</span><span class="na">companyDomain</span><span class="o">(</span><span class="s">"acmeinc.com"</span><span class="o">)</span> <span class="c1">// If set, Moesif will enrich your profiles with publicly available info </span>
-    <span class="o">.</span><span class="na">campaign</span><span class="o">(</span><span class="n">campaign</span><span class="o">)</span> 
     <span class="o">.</span><span class="na">metadata</span><span class="o">(</span><span class="nc">APIHelper</span><span class="o">.</span><span class="na">deserialize</span><span class="o">(</span><span class="s">"{"</span> <span class="o">+</span>
         <span class="s">"\"org_name\": \"Acme, Inc\","</span> <span class="o">+</span>
         <span class="s">"\"plan_name\": \"Free\","</span> <span class="o">+</span>
@@ -6156,8 +5961,9 @@ individual users along with account-level usage. </p>
 <p>A custom JSON object can be placed in the <code>metadata</code> object of each company
 which will be stored as part of the company profile.</p>
 
-<p>While optional, you can set the <code>company_domain</code> field which enables Moesif
-to enrich your company profiles with stuff like company logo.</p>
+<p>A company is your direct customer paying for your service. A company can have one or more <a href="#update-a-user">users</a> and one or more <a href="#update-a-subscription">subscriptions</a>. <a href="https://www.moesif.com/docs/getting-started/overview/">More info on the Moesif data model</a>.</p>
+
+<p>You can save custom properties to a company via the <code>metadata</code> object. While optional, it&#39;s also recommended to set the <code>company_domain</code>. When set, Moesif will enrich the company with publicly available information.</p>
 
 <p>If company does not exist, a new one will be created.
 If a company exists, it will be merged on top of existing fields.
@@ -6176,13 +5982,6 @@ Replace <i>my_application_id</i> with your real Application Id
   </span><span class="p">{</span><span class="w">
     </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"company_domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"acmeinc.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"campaign"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"utm_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"utm_medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cpc"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"utm_campaign"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adwords"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"utm_term"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api+tooling"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"utm_content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"landing"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
     </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"org_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acme, Inc"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"plan_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Free"</span><span class="p">,</span><span class="w">
@@ -6197,11 +5996,6 @@ Replace <i>my_application_id</i> with your real Application Id
   </span><span class="p">{</span><span class="w">
     </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54321"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"company_domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contoso.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"campaign"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"utm_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facebook"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"utm_medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dislay"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"utm_campaign"</span><span class="p">:</span><span class="w"> </span><span class="s2">"retargeting"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
     </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"org_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contoso, Inc"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"plan_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paid"</span><span class="p">,</span><span class="w">
@@ -6216,7 +6010,7 @@ Replace <i>my_application_id</i> with your real Application Id
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
 curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies/batch <span class="se">\</span>
-  <span class="nt">-d</span> <span class="s1">'[{"company_id":"12345","company_domain":"acmeinc.com","campaign":{"utm_source":"google","utm_medium":"cpc","utm_campaign":"adwords","utm_term":"api+tooling","utm_content":"landing"},"metadata":{"org_name":"Acme, Inc","plan_name":"Free","deal_stage":"Lead","mrr":24000,"demographics":{"alexa_ranking":500000,"employee_count":47}}},{"company_id":"54321","company_domain":"contoso.com","campaign":{"utm_source":"facebook","utm_medium":"dislay","utm_campaign":"retargeting"},"metadata":{"org_name":"Contoso, Inc","plan_name":"Paid","deal_stage":"Lead","mrr":48000,"demographics":{"alexa_ranking":500000,"employee_count":47}}}]'</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'[{"company_id":"12345","company_domain":"acmeinc.com","metadata":{"org_name":"Acme, Inc","plan_name":"Free","deal_stage":"Lead","mrr":24000,"demographics":{"alexa_ranking":500000,"employee_count":47}}},{"company_id":"54321","company_domain":"contoso.com","metadata":{"org_name":"Contoso, Inc","plan_name":"Paid","deal_stage":"Lead","mrr":48000,"demographics":{"alexa_ranking":500000,"employee_count":47}}}]'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kd">var</span> <span class="nx">moesifapi</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">moesifapi</span><span class="dl">'</span><span class="p">);</span>
@@ -6226,19 +6020,10 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies/batch <
 
 
 <span class="c1">// Only companyId is required.</span>
-<span class="c1">// Campaign object is optional, but useful if you want to track ROI of acquisition channels</span>
-<span class="c1">// See https://www.moesif.com/docs/api#update-a-company for campaign schema</span>
 <span class="c1">// metadata can be any custom object</span>
 <span class="kd">var</span> <span class="nx">companies</span> <span class="o">=</span> <span class="p">[{</span>
     <span class="na">companyId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">67890</span><span class="dl">'</span><span class="p">,</span>
     <span class="na">companyDomain</span><span class="p">:</span> <span class="dl">'</span><span class="s1">acmeinc.com</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// If domain is set, Moesif will enrich your profiles with publicly available info </span>
-    <span class="na">campaign</span><span class="p">:</span> <span class="p">{</span> 
-      <span class="na">utmSource</span><span class="p">:</span> <span class="dl">'</span><span class="s1">google</span><span class="dl">'</span><span class="p">,</span>
-      <span class="na">utmMedium</span><span class="p">:</span> <span class="dl">'</span><span class="s1">cpc</span><span class="dl">'</span><span class="p">,</span> 
-      <span class="na">utmCampaign</span><span class="p">:</span> <span class="dl">'</span><span class="s1">adwords</span><span class="dl">'</span><span class="p">,</span>
-      <span class="na">utmTerm</span><span class="p">:</span> <span class="dl">'</span><span class="s1">api+tooling</span><span class="dl">'</span><span class="p">,</span>
-      <span class="na">utmContent</span><span class="p">:</span> <span class="dl">'</span><span class="s1">landing</span><span class="dl">'</span>
-    <span class="p">},</span>
     <span class="na">metadata</span><span class="p">:</span> <span class="p">{</span>
       <span class="na">orgName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Acme, Inc</span><span class="dl">'</span><span class="p">,</span>
       <span class="na">planName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Free Plan</span><span class="dl">'</span><span class="p">,</span>
@@ -6253,11 +6038,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies/batch <
   <span class="p">{</span>
     <span class="na">companyId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">09876</span><span class="dl">'</span><span class="p">,</span>
     <span class="na">companyDomain</span><span class="p">:</span> <span class="dl">'</span><span class="s1">contoso.com</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// If domain is set, Moesif will enrich your profiles with publicly available info </span>
-    <span class="na">campaign</span><span class="p">:</span> <span class="p">{</span> 
-      <span class="na">utmSource</span><span class="p">:</span> <span class="dl">'</span><span class="s1">facebook</span><span class="dl">'</span><span class="p">,</span>
-      <span class="na">utmMedium</span><span class="p">:</span> <span class="dl">'</span><span class="s1">cpc</span><span class="dl">'</span><span class="p">,</span> 
-      <span class="na">utmCampaign</span><span class="p">:</span> <span class="dl">'</span><span class="s1">retargeting</span><span class="dl">'</span>
-    <span class="p">},</span>
     <span class="na">metadata</span><span class="p">:</span> <span class="p">{</span>
       <span class="na">orgName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Contoso, Inc</span><span class="dl">'</span><span class="p">,</span>
       <span class="na">planName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Paid Plan</span><span class="dl">'</span><span class="p">,</span>
@@ -6280,20 +6060,11 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies/batch <
 <span class="n">api_client</span> <span class="o">=</span> <span class="n">MoesifAPIClient</span><span class="p">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="p">).</span><span class="n">api</span>
 
 <span class="c1"># Only company_id is required.
-# Campaign object is optional, but useful if you want to track ROI of acquisition channels
-# See https://www.moesif.com/docs/api#update-a-company for campaign schema
 # metadata can be any custom object
 </span><span class="n">companies</span> <span class="o">=</span> <span class="p">[{</span>
   <span class="s">'company_id'</span><span class="p">:</span> <span class="s">'67890'</span><span class="p">,</span>
   <span class="s">'company_domain'</span><span class="p">:</span> <span class="s">'acmeinc.com'</span><span class="p">,</span> <span class="c1"># If domain is set, Moesif will enrich your profiles with publicly available info 
-</span>  <span class="s">'campaign'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s">'utm_source'</span><span class="p">:</span> <span class="s">'google'</span><span class="p">,</span>
-    <span class="s">'utm_medium'</span><span class="p">:</span> <span class="s">'cpc'</span><span class="p">,</span> 
-    <span class="s">'utm_campaign'</span><span class="p">:</span> <span class="s">'adwords'</span><span class="p">,</span>
-    <span class="s">'utm_term'</span><span class="p">:</span> <span class="s">'api+tooling'</span><span class="p">,</span>
-    <span class="s">'utm_content'</span><span class="p">:</span> <span class="s">'landing'</span>
-  <span class="p">},</span>
-  <span class="s">'metadata'</span><span class="p">:</span> <span class="p">{</span>
+</span>  <span class="s">'metadata'</span><span class="p">:</span> <span class="p">{</span>
     <span class="s">'org_name'</span><span class="p">:</span> <span class="s">'Acme, Inc'</span><span class="p">,</span>
     <span class="s">'plan_name'</span><span class="p">:</span> <span class="s">'Free'</span><span class="p">,</span>
     <span class="s">'deal_stage'</span><span class="p">:</span> <span class="s">'Lead'</span><span class="p">,</span>
@@ -6307,12 +6078,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies/batch <
 <span class="p">{</span>
   <span class="s">'company_id'</span><span class="p">:</span> <span class="s">'09876'</span><span class="p">,</span>
   <span class="s">'company_domain'</span><span class="p">:</span> <span class="s">'contoso.com'</span><span class="p">,</span> <span class="c1"># If domain is set, Moesif will enrich your profiles with publicly available info 
-</span>  <span class="s">'campaign'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s">'utm_source'</span><span class="p">:</span> <span class="s">'facebook'</span><span class="p">,</span>
-    <span class="s">'utm_medium'</span><span class="p">:</span> <span class="s">'cpc'</span><span class="p">,</span> 
-    <span class="s">'utm_campaign'</span><span class="p">:</span> <span class="s">'retargeting'</span>
-  <span class="p">},</span>
-  <span class="s">'metadata'</span><span class="p">:</span> <span class="p">{</span>
+</span>  <span class="s">'metadata'</span><span class="p">:</span> <span class="p">{</span>
     <span class="s">'org_name'</span><span class="p">:</span> <span class="s">'Contoso, Inc'</span><span class="p">,</span>
     <span class="s">'plan_name'</span><span class="p">:</span> <span class="s">'Paid'</span><span class="p">,</span>
     <span class="s">'deal_stage'</span><span class="p">:</span> <span class="s">'Lead'</span><span class="p">,</span>
@@ -6340,21 +6106,11 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies/batch <
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="c1"># Campaign object is optional, but useful if you want to track ROI of acquisition channels</span>
-<span class="c1"># See https://www.moesif.com/docs/api#update-a-company for campaign schema</span>
-<span class="n">campaign</span> <span class="o">=</span> <span class="no">CampaignModel</span><span class="p">.</span><span class="nf">new</span><span class="p">()</span>
-<span class="n">campaign</span><span class="p">.</span><span class="nf">utm_source</span> <span class="o">=</span> <span class="s2">"google"</span>
-<span class="n">campaign</span><span class="p">.</span><span class="nf">utm_medium</span> <span class="o">=</span> <span class="s2">"cpc"</span>
-<span class="n">campaign</span><span class="p">.</span><span class="nf">utm_campaign</span> <span class="o">=</span> <span class="s2">"adwords"</span>
-<span class="n">campaign</span><span class="p">.</span><span class="nf">utm_term</span> <span class="o">=</span> <span class="s2">"api+tooling"</span>
-<span class="n">campaign</span><span class="p">.</span><span class="nf">utm_content</span> <span class="o">=</span> <span class="s2">"landing"</span>
-
 <span class="c1"># Only company_id is required.</span>
 <span class="c1"># metadata can be any custom object</span>
 <span class="n">company</span> <span class="o">=</span> <span class="no">CompanyModel</span><span class="p">.</span><span class="nf">new</span><span class="p">()</span>
 <span class="n">company</span><span class="p">.</span><span class="nf">company_id</span> <span class="o">=</span> <span class="s2">"67890"</span>
 <span class="n">company</span><span class="p">.</span><span class="nf">company_domain</span> <span class="o">=</span> <span class="s2">"acmeinc.com"</span> <span class="c1"># If domain is set, Moesif will enrich your profiles with publicly available info </span>
-<span class="n">company</span><span class="p">.</span><span class="nf">campaign</span> <span class="o">=</span> <span class="n">campaign</span>
 <span class="n">company</span><span class="p">.</span><span class="nf">metadata</span> <span class="o">=</span> <span class="n">metadata</span>
 
 <span class="n">companies</span> <span class="o">&lt;&lt;</span> <span class="n">company</span>
@@ -6369,20 +6125,9 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies/batch <
 <span class="kn">use</span> <span class="nc">MoesifApi\MoesifApiClient</span><span class="p">;</span>
 <span class="nv">$apiClient</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MoesifApiClient</span><span class="p">(</span><span class="s2">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="p">)</span><span class="o">-&gt;</span><span class="nf">getApi</span><span class="p">();</span>
 
-<span class="c1">// Campaign object is optional, but useful if you want to track ROI of acquisition channels</span>
-<span class="c1">// See https://www.moesif.com/docs/api#update-a-company for campaign schema</span>
-<span class="nv">$campaignA</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Models\CampaignModel</span><span class="p">();</span>
-<span class="nv">$campaignA</span><span class="o">-&gt;</span><span class="n">utmSource</span> <span class="o">=</span> <span class="s2">"google"</span><span class="p">;</span>
-<span class="nv">$campaignA</span><span class="o">-&gt;</span><span class="n">utmCampaign</span> <span class="o">=</span> <span class="s2">"cpc"</span><span class="p">;</span>
-<span class="nv">$campaignA</span><span class="o">-&gt;</span><span class="n">utmMedium</span> <span class="o">=</span> <span class="s2">"adwords"</span><span class="p">;</span>
-<span class="nv">$campaignA</span><span class="o">-&gt;</span><span class="n">utmContent</span> <span class="o">=</span> <span class="s2">"api+tooling"</span><span class="p">;</span>
-<span class="nv">$campaignA</span><span class="o">-&gt;</span><span class="n">utmTerm</span> <span class="o">=</span> <span class="s2">"landing"</span><span class="p">;</span>
-
-
 <span class="nv">$companyA</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Models\CompanyModel</span><span class="p">();</span>
 <span class="nv">$companyA</span><span class="o">-&gt;</span><span class="n">companyId</span> <span class="o">=</span> <span class="s2">"67890"</span><span class="p">;</span>
 <span class="nv">$companyA</span><span class="o">-&gt;</span><span class="n">companyDomain</span> <span class="o">=</span> <span class="s2">"acmeinc.com"</span><span class="p">;</span>
-<span class="nv">$companyA</span><span class="o">-&gt;</span><span class="n">campaign</span> <span class="o">=</span> <span class="nv">$campaign</span><span class="p">;</span>
 
 <span class="c1">// metadata can be any custom object</span>
 <span class="nv">$companyB</span><span class="o">-&gt;</span><span class="n">metadata</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
@@ -6399,7 +6144,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies/batch <
 <span class="nv">$companyB</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Models\CompanyModel</span><span class="p">();</span>
 <span class="nv">$companyB</span><span class="o">-&gt;</span><span class="n">companyId</span> <span class="o">=</span> <span class="s2">"67890"</span><span class="p">;</span>
 <span class="nv">$companyB</span><span class="o">-&gt;</span><span class="n">companyDomain</span> <span class="o">=</span> <span class="s2">"acmeinc.com"</span><span class="p">;</span>
-<span class="nv">$companyB</span><span class="o">-&gt;</span><span class="n">campaign</span> <span class="o">=</span> <span class="nv">$campaign</span><span class="p">;</span>
 
 <span class="c1">// metadata can be any custom object</span>
 <span class="nv">$companyB</span><span class="o">-&gt;</span><span class="n">metadata</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
@@ -6423,16 +6167,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies/batch <
 <span class="c">// List of Companies</span>
 <span class="k">var</span> <span class="n">companies</span> <span class="p">[]</span><span class="o">*</span><span class="n">models</span><span class="o">.</span><span class="n">CompanyModel</span>
 
-<span class="c">// Campaign object is optional, but useful if you want to track ROI of acquisition channels</span>
-<span class="c">// See https://www.moesif.com/docs/api#update-a-company for campaign schema</span>
-<span class="n">campaign</span> <span class="o">:=</span> <span class="n">models</span><span class="o">.</span><span class="n">CampaignModel</span> <span class="p">{</span>
-  <span class="n">UtmSource</span><span class="o">:</span> <span class="s">"google"</span><span class="p">,</span>
-  <span class="n">UtmMedium</span><span class="o">:</span> <span class="s">"cpc"</span><span class="p">,</span> 
-  <span class="n">UtmCampaign</span><span class="o">:</span> <span class="s">"adwords"</span><span class="p">,</span>
-  <span class="n">UtmTerm</span><span class="o">:</span> <span class="s">"api+tooling"</span><span class="p">,</span>
-  <span class="n">UtmContent</span><span class="o">:</span> <span class="s">"landing"</span><span class="p">,</span>
-<span class="p">}</span>
-
 <span class="c">// metadata can be any custom dictionary</span>
 <span class="n">metadata</span> <span class="o">:=</span> <span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{</span>
   <span class="s">"org_name"</span><span class="p">,</span> <span class="s">"Acme, Inc"</span><span class="p">,</span>
@@ -6449,7 +6183,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies/batch <
 <span class="n">companyA</span> <span class="o">:=</span> <span class="n">models</span><span class="o">.</span><span class="n">CompanyModel</span><span class="p">{</span>
     <span class="n">CompanyId</span><span class="o">:</span>        <span class="s">"67890"</span><span class="p">,</span>  <span class="c">// The only required field is your company id</span>
     <span class="n">CompanyDomain</span><span class="o">:</span>  <span class="s">"acmeinc.com"</span><span class="p">,</span> <span class="c">// If domain is set, Moesif will enrich your profiles with publicly available info </span>
-    <span class="n">Campaign</span><span class="o">:</span>         <span class="o">&amp;</span><span class="n">campaign</span><span class="p">,</span>
     <span class="n">Metadata</span><span class="o">:</span>           <span class="o">&amp;</span><span class="n">metadata</span><span class="p">,</span>
 <span class="p">}</span>
 
@@ -6463,17 +6196,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies/batch <
 </code></pre></div><div class="highlight"><pre class="highlight csharp tab-csharp"><code><span class="kt">var</span> <span class="n">apiClient</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">MoesifApiClient</span><span class="p">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="p">).</span><span class="n">Api</span><span class="p">;;</span>
 
 <span class="kt">var</span> <span class="n">companies</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">CompanyModel</span><span class="p">&gt;();</span>
-
-<span class="c1">// Campaign object is optional, but useful if you want to track ROI of acquisition channels</span>
-<span class="c1">// See https://www.moesif.com/docs/api#companies for campaign schema</span>
-<span class="kt">var</span> <span class="n">campaignA</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">CampaignModel</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">UtmSource</span> <span class="p">=</span> <span class="s">"google"</span><span class="p">,</span>
-    <span class="n">UtmMedium</span> <span class="p">=</span> <span class="s">"cpc"</span>
-  <span class="n">UtmCampaign</span> <span class="p">=</span> <span class="s">"adwords"</span>
-    <span class="n">UtmTerm</span> <span class="p">=</span> <span class="s">"api+tooling"</span>
-    <span class="n">UtmContent</span> <span class="p">=</span> <span class="s">"landing"</span>
-<span class="p">};</span>
 
 <span class="c1">// metadata can be any custom dictionary</span>
 <span class="kt">var</span> <span class="n">metadataA</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">object</span><span class="p">&gt;</span>
@@ -6493,7 +6215,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies/batch <
 <span class="p">{</span>
   <span class="n">CompanyId</span> <span class="p">=</span> <span class="s">"67890"</span><span class="p">,</span>
   <span class="n">CompanyDomain</span> <span class="p">=</span> <span class="s">"acmeinc.com"</span><span class="p">,</span> <span class="c1">// If domain is set, Moesif will enrich your profiles with publicly available info </span>
-  <span class="n">Campaign</span> <span class="p">=</span> <span class="n">campaign</span><span class="p">,</span>
     <span class="n">Metadata</span> <span class="p">=</span> <span class="n">metadata</span>
 <span class="p">};</span>
 
@@ -6515,7 +6236,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies/batch <
 <span class="p">{</span>
   <span class="n">CompanyId</span> <span class="p">=</span> <span class="s">"09876"</span><span class="p">,</span>
   <span class="n">CompanyDomain</span> <span class="p">=</span> <span class="s">"contoso.com"</span><span class="p">,</span> <span class="c1">// If domain is set, Moesif will enrich your profiles with publicly available info </span>
-  <span class="n">Campaign</span> <span class="p">=</span> <span class="n">campaign</span><span class="p">,</span>
     <span class="n">Metadata</span> <span class="p">=</span> <span class="n">metadata</span>
 <span class="p">};</span>
 
@@ -6530,22 +6250,11 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies/batch <
 <span class="n">apiClient</span><span class="p">.</span><span class="nf">UpdateCompaniesBatch</span><span class="p">(</span><span class="n">companies</span><span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">MoesifAPIClient</span> <span class="n">apiClient</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MoesifAPIClient</span><span class="o">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="o">).</span><span class="na">Api</span><span class="o">;</span>
 
-<span class="c1">// Campaign object is optional, but useful if you want to track ROI of acquisition channels</span>
-<span class="c1">// See https://www.moesif.com/docs/api#update-a-company for campaign schema</span>
-<span class="nc">CampaignModel</span> <span class="n">campaign</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CampaignBuilder</span><span class="o">()</span>
-        <span class="o">.</span><span class="na">utmSource</span><span class="o">(</span><span class="s">"google"</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">utmCampaign</span><span class="o">(</span><span class="s">"cpc"</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">utmMedium</span><span class="o">(</span><span class="s">"adwords"</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">utmTerm</span><span class="o">(</span><span class="s">"api+tooling"</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">utmContent</span><span class="o">(</span><span class="s">"landing"</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-
 <span class="c1">// Only companyId is required</span>
 <span class="c1">// metadata can be any custom object</span>
 <span class="nc">CompanyModel</span> <span class="n">company</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CompanyBuilder</span><span class="o">()</span>
     <span class="o">.</span><span class="na">companyId</span><span class="o">(</span><span class="s">"67890"</span><span class="o">)</span>
     <span class="o">.</span><span class="na">companyDomain</span><span class="o">(</span><span class="s">"acmeinc.com"</span><span class="o">)</span> <span class="c1">// If set, Moesif will enrich your profiles with publicly available info </span>
-    <span class="o">.</span><span class="na">campaign</span><span class="o">(</span><span class="n">campaign</span><span class="o">)</span> 
     <span class="o">.</span><span class="na">metadata</span><span class="o">(</span><span class="nc">APIHelper</span><span class="o">.</span><span class="na">deserialize</span><span class="o">(</span><span class="s">"{"</span> <span class="o">+</span>
         <span class="s">"\"org_name\": \"Acme, Inc\","</span> <span class="o">+</span>
         <span class="s">"\"plan_name\": \"Free\","</span> <span class="o">+</span>
