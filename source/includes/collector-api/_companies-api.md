@@ -4,13 +4,14 @@
 
 **`POST https://api.moesif.net/v1/companies`**
 
-Updates a company profile in Moesif. A company can be an enterprise account or a group of [users](#update-a-user) accessing the API.
-Adding company metadata enables you to understand API usage across different cohorts, 
-company demographics, acquisition channels, etc.
+Updates a company profile in Moesif. A company is your direct customer paying for your service. A company can have one or more [users](#update-a-user) and one or more [subscriptions](#update-a-subscription). [More info on the Moesif data model](https://www.moesif.com/docs/getting-started/overview/).
 
-Any custom company properties can be stored via the `metadata` object. 
-You can also set the company's website domain which enables Moesif to automatically your company profiles
-with publicly available information.
+You can save custom properties to a company via the `metadata` object. While optional, it's also recommended to set the `company_domain`. When set, Moesif will enrich the company with publicly available information.
+
+If company does not exist, a new one will be created.
+If a company exists, it will be merged on top of existing fields.
+Any new field set will override the existing fields.
+This is done via recursive merge which merges inner objects.
 
 #### Create vs update
 If the company does not exist, Moesif will create a new one. 
@@ -38,13 +39,6 @@ will automatically associate the user with the company.
 {
   "company_id": "12345",
   "company_domain": "acmeinc.com",
-  "campaign": {
-    "utm_source": "google",
-    "utm_medium": "cpc",
-    "utm_campaign": "adwords",
-    "utm_term": "api+tooling",
-    "utm_content": "landing"
-  },
   "metadata": {
     "org_name": "Acme, Inc",
     "plan_name": "Free",
@@ -56,13 +50,12 @@ will automatically associate the user with the company.
     }
   }
 }
-
 ```
 
 ```shell
 # You can also use wget
 curl -X POST https://api.moesif.net/v1/companies \
-  -d '{"company_id":"12345","company_domain":"acmeinc.com","campaign":{"utm_source":"google","utm_medium":"cpc","utm_campaign":"adwords","utm_term":"api+tooling","utm_content":"landing"},"metadata":{"org_name":"Acme, Inc","plan_name":"Free","deal_stage":"Lead","mrr":24000,"demographics":{"alexa_ranking":500000,"employee_count":47}}}' \
+  -d '{"company_id":"12345","company_domain":"acmeinc.com","metadata":{"org_name":"Acme, Inc","plan_name":"Free","deal_stage":"Lead","mrr":24000,"demographics":{"alexa_ranking":500000,"employee_count":47}}}' \
   -H 'Accept: application/json' \
   -H 'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'
 ```
@@ -75,19 +68,10 @@ moesifapi.configuration.ApplicationId = "YOUR_COLLECTOR_APPLICATION_ID";
 
 
 // Only companyId is required.
-// Campaign object is optional, but useful if you want to track ROI of acquisition channels
-// See https://www.moesif.com/docs/api#update-a-company for campaign schema
 // metadata can be any custom object
 var company = {
   companyId: '67890',
   companyDomain: 'acmeinc.com', // If domain is set, Moesif will enrich your profiles with publicly available info 
-  campaign: { 
-    utmSource: 'google',
-    utmMedium: 'cpc', 
-    utmCampaign: 'adwords',
-    utmTerm: 'api+tooling',
-    utmContent: 'landing'
-  },
   metadata: {
     orgName: 'Acme, Inc',
     planName: 'Free Plan',
@@ -112,19 +96,10 @@ from moesifapi.models import *
 api_client = MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID").api
 
 # Only company_id is required.
-# Campaign object is optional, but useful if you want to track ROI of acquisition channels
-# See https://www.moesif.com/docs/api#update-a-company for campaign schema
 # metadata can be any custom object
 company = {
   'company_id': '12345',
   'company_domain': 'acmeinc.com', # If domain is set, Moesif will enrich your profiles with publicly available info 
-  'campaign': {
-    'utm_source': 'google',
-    'utm_medium': 'cpc', 
-    'utm_campaign': 'adwords',
-    'utm_term': 'api+tooling',
-    'utm_content': 'landing'
-  },
   'metadata': {
     'org_name': 'Acme, Inc',
     'plan_name': 'Free',
@@ -154,21 +129,11 @@ metadata => {
   }
 }
 
-# Campaign object is optional, but useful if you want to track ROI of acquisition channels
-# See https://www.moesif.com/docs/api#update-a-company for campaign schema
-campaign = CampaignModel.new()
-campaign.utm_source = "google"
-campaign.utm_medium = "cpc"
-campaign.utm_campaign = "adwords"
-campaign.utm_term = "api+tooling"
-campaign.utm_content = "landing"
-
 # Only company_id is required.
 # metadata can be any custom object
 company = CompanyModel.new()
 company.company_id = "67890"
 company.company_domain = "acmeinc.com" # If domain is set, Moesif will enrich your profiles with publicly available info 
-company.campaign = campaign
 company.metadata = metadata
 
 update_company = api_client.update_company(company)
@@ -184,20 +149,10 @@ require_once "vendor/autoload.php";
 use MoesifApi\MoesifApiClient;
 $apiClient = new MoesifApiClient("YOUR_COLLECTOR_APPLICATION_ID")->getApi();
 
-// Campaign object is optional, but useful if you want to track ROI of acquisition channels
-// See https://www.moesif.com/docs/api#update-a-company for campaign schema
-$campaign = new Models\CampaignModel();
-$campaign->utmSource = "google";
-$campaign->utmCampaign = "cpc";
-$campaign->utmMedium = "adwords";
-$campaign->utmContent = "api+tooling";
-$campaign->utmTerm = "landing";
-
 
 $company = new Models\CompanyModel();
 $company->companyId = "67890";
 $company->companyDomain = "acmeinc.com";
-$company->campaign = $campaign;
 
 // metadata can be any custom object
 $company->metadata = array(
@@ -220,16 +175,6 @@ import "github.com/moesif/moesifapi-go/models"
 
 apiClient := moesifapi.NewAPI("YOUR_COLLECTOR_APPLICATION_ID")
 
-// Campaign object is optional, but useful if you want to track ROI of acquisition channels
-// See https://www.moesif.com/docs/api#update-a-company for campaign schema
-campaign := models.CampaignModel {
-  UtmSource: "google",
-  UtmMedium: "cpc", 
-  UtmCampaign: "adwords",
-  UtmTerm: "api+tooling",
-  UtmContent: "landing",
-}
-  
 // metadata can be any custom dictionary
 metadata := map[string]interface{}{
   "org_name", "Acme, Inc",
@@ -246,7 +191,6 @@ metadata := map[string]interface{}{
 company := models.CompanyModel{
     CompanyId:        "67890",  // The only required field is your company id
     CompanyDomain:    "acmeinc.com", // If domain is set, Moesif will enrich your profiles with publicly available info 
-    Campaign:         &campaign,
     Metadata:         &metadata,
 }
 
@@ -259,17 +203,6 @@ err := apiClient.UpdateCompany(&company)
 
 ```csharp
 var apiClient = new MoesifApiClient("YOUR_COLLECTOR_APPLICATION_ID").Api;;
-
-// Campaign object is optional, but useful if you want to track ROI of acquisition channels
-// See https://www.moesif.com/docs/api#companies for campaign schema
-var campaign = new CampaignModel()
-{
-	UtmSource = "google",
-	UtmMedium = "cpc"
-  UtmCampaign = "adwords"
-	UtmTerm = "api+tooling"
-	UtmContent = "landing"
-};
 
 // metadata can be any custom dictionary
 var metadata = new Dictionary<string, object>
@@ -289,7 +222,6 @@ var company = new CompanyModel()
 {
   CompanyId = "67890",
   CompanyDomain = "acmeinc.com", // If domain is set, Moesif will enrich your profiles with publicly available info 
-  Campaign = campaign,
 	Metadata = metadata
 };
 
@@ -303,22 +235,11 @@ apiClient.UpdateCompany(company);
 ```java
 MoesifAPIClient apiClient = new MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID").Api;
 
-// Campaign object is optional, but useful if you want to track ROI of acquisition channels
-// See https://www.moesif.com/docs/api#update-a-company for campaign schema
-CampaignModel campaign = new CampaignBuilder()
-        .utmSource("google")
-        .utmCampaign("cpc")
-        .utmMedium("adwords")
-        .utmTerm("api+tooling")
-        .utmContent("landing")
-        .build();
-
 // Only companyId is required
 // metadata can be any custom object
 CompanyModel company = new CompanyBuilder()
     .companyId("67890")
     .companyDomain("acmeinc.com") // If set, Moesif will enrich your profiles with publicly available info 
-    .campaign(campaign) 
     .metadata(APIHelper.deserialize("{" +
         "\"org_name\": \"Acme, Inc\"," +
         "\"plan_name\": \"Free\"," +
@@ -403,8 +324,9 @@ Updates a list of companies profile in Moesif.
 A custom JSON object can be placed in the `metadata` object of each company
 which will be stored as part of the company profile.
 
-While optional, you can set the `company_domain` field which enables Moesif
-to enrich your company profiles with stuff like company logo.
+A company is your direct customer paying for your service. A company can have one or more [users](#update-a-user) and one or more [subscriptions](#update-a-subscription). [More info on the Moesif data model](https://www.moesif.com/docs/getting-started/overview/).
+
+You can save custom properties to a company via the `metadata` object. While optional, it's also recommended to set the `company_domain`. When set, Moesif will enrich the company with publicly available information.
 
 If company does not exist, a new one will be created.
 If a company exists, it will be merged on top of existing fields.
@@ -424,13 +346,6 @@ Replace <i>my_application_id</i> with your real Application Id
   {
     "company_id": "12345",
     "company_domain": "acmeinc.com",
-    "campaign": {
-      "utm_source": "google",
-      "utm_medium": "cpc",
-      "utm_campaign": "adwords",
-      "utm_term": "api+tooling",
-      "utm_content": "landing"
-    },
     "metadata": {
       "org_name": "Acme, Inc",
       "plan_name": "Free",
@@ -445,11 +360,6 @@ Replace <i>my_application_id</i> with your real Application Id
   {
     "company_id": "54321",
     "company_domain": "contoso.com",
-    "campaign": {
-      "utm_source": "facebook",
-      "utm_medium": "dislay",
-      "utm_campaign": "retargeting"
-    },
     "metadata": {
       "org_name": "Contoso, Inc",
       "plan_name": "Paid",
@@ -467,7 +377,7 @@ Replace <i>my_application_id</i> with your real Application Id
 ```shell
 # You can also use wget
 curl -X POST https://api.moesif.net/v1/companies/batch \
-  -d '[{"company_id":"12345","company_domain":"acmeinc.com","campaign":{"utm_source":"google","utm_medium":"cpc","utm_campaign":"adwords","utm_term":"api+tooling","utm_content":"landing"},"metadata":{"org_name":"Acme, Inc","plan_name":"Free","deal_stage":"Lead","mrr":24000,"demographics":{"alexa_ranking":500000,"employee_count":47}}},{"company_id":"54321","company_domain":"contoso.com","campaign":{"utm_source":"facebook","utm_medium":"dislay","utm_campaign":"retargeting"},"metadata":{"org_name":"Contoso, Inc","plan_name":"Paid","deal_stage":"Lead","mrr":48000,"demographics":{"alexa_ranking":500000,"employee_count":47}}}]' \
+  -d '[{"company_id":"12345","company_domain":"acmeinc.com","metadata":{"org_name":"Acme, Inc","plan_name":"Free","deal_stage":"Lead","mrr":24000,"demographics":{"alexa_ranking":500000,"employee_count":47}}},{"company_id":"54321","company_domain":"contoso.com","metadata":{"org_name":"Contoso, Inc","plan_name":"Paid","deal_stage":"Lead","mrr":48000,"demographics":{"alexa_ranking":500000,"employee_count":47}}}]' \
   -H 'Accept: application/json' \
   -H 'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'
 ```
@@ -480,19 +390,10 @@ moesifapi.configuration.ApplicationId = "YOUR_COLLECTOR_APPLICATION_ID";
 
 
 // Only companyId is required.
-// Campaign object is optional, but useful if you want to track ROI of acquisition channels
-// See https://www.moesif.com/docs/api#update-a-company for campaign schema
 // metadata can be any custom object
 var companies = [{
     companyId: '67890',
     companyDomain: 'acmeinc.com', // If domain is set, Moesif will enrich your profiles with publicly available info 
-    campaign: { 
-      utmSource: 'google',
-      utmMedium: 'cpc', 
-      utmCampaign: 'adwords',
-      utmTerm: 'api+tooling',
-      utmContent: 'landing'
-    },
     metadata: {
       orgName: 'Acme, Inc',
       planName: 'Free Plan',
@@ -507,11 +408,6 @@ var companies = [{
   {
     companyId: '09876',
     companyDomain: 'contoso.com', // If domain is set, Moesif will enrich your profiles with publicly available info 
-    campaign: { 
-      utmSource: 'facebook',
-      utmMedium: 'cpc', 
-      utmCampaign: 'retargeting'
-    },
     metadata: {
       orgName: 'Contoso, Inc',
       planName: 'Paid Plan',
@@ -537,19 +433,10 @@ from moesifapi.models import *
 api_client = MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID").api
 
 # Only company_id is required.
-# Campaign object is optional, but useful if you want to track ROI of acquisition channels
-# See https://www.moesif.com/docs/api#update-a-company for campaign schema
 # metadata can be any custom object
 companies = [{
   'company_id': '67890',
   'company_domain': 'acmeinc.com', # If domain is set, Moesif will enrich your profiles with publicly available info 
-  'campaign': {
-    'utm_source': 'google',
-    'utm_medium': 'cpc', 
-    'utm_campaign': 'adwords',
-    'utm_term': 'api+tooling',
-    'utm_content': 'landing'
-  },
   'metadata': {
     'org_name': 'Acme, Inc',
     'plan_name': 'Free',
@@ -564,11 +451,6 @@ companies = [{
 {
   'company_id': '09876',
   'company_domain': 'contoso.com', # If domain is set, Moesif will enrich your profiles with publicly available info 
-  'campaign': {
-    'utm_source': 'facebook',
-    'utm_medium': 'cpc', 
-    'utm_campaign': 'retargeting'
-  },
   'metadata': {
     'org_name': 'Contoso, Inc',
     'plan_name': 'Paid',
@@ -600,21 +482,11 @@ metadata => {
   }
 }
 
-# Campaign object is optional, but useful if you want to track ROI of acquisition channels
-# See https://www.moesif.com/docs/api#update-a-company for campaign schema
-campaign = CampaignModel.new()
-campaign.utm_source = "google"
-campaign.utm_medium = "cpc"
-campaign.utm_campaign = "adwords"
-campaign.utm_term = "api+tooling"
-campaign.utm_content = "landing"
-
 # Only company_id is required.
 # metadata can be any custom object
 company = CompanyModel.new()
 company.company_id = "67890"
 company.company_domain = "acmeinc.com" # If domain is set, Moesif will enrich your profiles with publicly available info 
-company.campaign = campaign
 company.metadata = metadata
 
 companies << company
@@ -632,20 +504,9 @@ require_once "vendor/autoload.php";
 use MoesifApi\MoesifApiClient;
 $apiClient = new MoesifApiClient("YOUR_COLLECTOR_APPLICATION_ID")->getApi();
 
-// Campaign object is optional, but useful if you want to track ROI of acquisition channels
-// See https://www.moesif.com/docs/api#update-a-company for campaign schema
-$campaignA = new Models\CampaignModel();
-$campaignA->utmSource = "google";
-$campaignA->utmCampaign = "cpc";
-$campaignA->utmMedium = "adwords";
-$campaignA->utmContent = "api+tooling";
-$campaignA->utmTerm = "landing";
-
-
 $companyA = new Models\CompanyModel();
 $companyA->companyId = "67890";
 $companyA->companyDomain = "acmeinc.com";
-$companyA->campaign = $campaign;
 
 // metadata can be any custom object
 $companyB->metadata = array(
@@ -662,7 +523,6 @@ $companyB->metadata = array(
 $companyB = new Models\CompanyModel();
 $companyB->companyId = "67890";
 $companyB->companyDomain = "acmeinc.com";
-$companyB->campaign = $campaign;
 
 // metadata can be any custom object
 $companyB->metadata = array(
@@ -688,16 +548,6 @@ apiClient := moesifapi.NewAPI("YOUR_COLLECTOR_APPLICATION_ID")
 
 // List of Companies
 var companies []*models.CompanyModel
-
-// Campaign object is optional, but useful if you want to track ROI of acquisition channels
-// See https://www.moesif.com/docs/api#update-a-company for campaign schema
-campaign := models.CampaignModel {
-  UtmSource: "google",
-  UtmMedium: "cpc", 
-  UtmCampaign: "adwords",
-  UtmTerm: "api+tooling",
-  UtmContent: "landing",
-}
   
 // metadata can be any custom dictionary
 metadata := map[string]interface{}{
@@ -715,7 +565,6 @@ metadata := map[string]interface{}{
 companyA := models.CompanyModel{
 	CompanyId:		  "67890",	// The only required field is your company id
 	CompanyDomain:  "acmeinc.com", // If domain is set, Moesif will enrich your profiles with publicly available info 
-	Campaign: 		  &campaign,
 	Metadata:		    &metadata,
 }
 
@@ -732,17 +581,6 @@ err := apiClient.UpdateCompaniesBatch(&companies)
 var apiClient = new MoesifApiClient("YOUR_COLLECTOR_APPLICATION_ID").Api;;
 
 var companies = new List<CompanyModel>();
-
-// Campaign object is optional, but useful if you want to track ROI of acquisition channels
-// See https://www.moesif.com/docs/api#companies for campaign schema
-var campaignA = new CampaignModel()
-{
-	UtmSource = "google",
-	UtmMedium = "cpc"
-  UtmCampaign = "adwords"
-	UtmTerm = "api+tooling"
-	UtmContent = "landing"
-};
 
 // metadata can be any custom dictionary
 var metadataA = new Dictionary<string, object>
@@ -762,7 +600,6 @@ var companyA = new CompanyModel()
 {
   CompanyId = "67890",
   CompanyDomain = "acmeinc.com", // If domain is set, Moesif will enrich your profiles with publicly available info 
-  Campaign = campaign,
 	Metadata = metadata
 };
 
@@ -784,7 +621,6 @@ var companyB = new CompanyModel()
 {
   CompanyId = "09876",
   CompanyDomain = "contoso.com", // If domain is set, Moesif will enrich your profiles with publicly available info 
-  Campaign = campaign,
 	Metadata = metadata
 };
 
@@ -802,22 +638,11 @@ apiClient.UpdateCompaniesBatch(companies);
 ```java
 MoesifAPIClient apiClient = new MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID").Api;
 
-// Campaign object is optional, but useful if you want to track ROI of acquisition channels
-// See https://www.moesif.com/docs/api#update-a-company for campaign schema
-CampaignModel campaign = new CampaignBuilder()
-        .utmSource("google")
-        .utmCampaign("cpc")
-        .utmMedium("adwords")
-        .utmTerm("api+tooling")
-        .utmContent("landing")
-        .build();
-
 // Only companyId is required
 // metadata can be any custom object
 CompanyModel company = new CompanyBuilder()
     .companyId("67890")
     .companyDomain("acmeinc.com") // If set, Moesif will enrich your profiles with publicly available info 
-    .campaign(campaign) 
     .metadata(APIHelper.deserialize("{" +
         "\"org_name\": \"Acme, Inc\"," +
         "\"plan_name\": \"Free\"," +

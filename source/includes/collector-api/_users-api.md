@@ -4,17 +4,14 @@
 
 **`POST https://api.moesif.net/v1/users`**
 
-Updates a user profile in Moesif, which can be a customer or API consumer.
-Adding user metadata enables you to understand API usage across different cohorts, 
-user demographics, acquisition channels, etc. 
+Updates a user profile in Moesif, which is typically a single person or API consumer. For updating customer profiles such as for monetization use cases, see [companies](#companies) and [subscriptions](#subscriptions).
 
-Moesif has client integrations like [moesif-browser-js](https://www.moesif.com/implementation/track-user-behaviors-with-browser?platform=browser) or Segment to make this easy.
+You can also track users automatically using a Moesif client integration like [moesif-browser-js](https://www.moesif.com/implementation/track-user-behaviors-with-browser?platform=browser) or Segment.
 
 User properties can be stored via the `metadata` object.
 
 We’ve reserved some `metadata` fields that have semantic meanings for users, and we handle them in special ways. 
-For example, we expect email to be a string containing the user’s email address which is used to look up a user's demographic enrichment data
-and send [behavioral emails](https://www.moesif.com/features/user-behavioral-emails).
+For example, we expect email to be a string containing the user’s email address which is used to look up a user's demographic enrichment data and send [behavioral emails](https://www.moesif.com/features/user-behavioral-emails).
 
 Reserved metadata fields include:
 
@@ -49,14 +46,6 @@ and selecting API keys from bottom left menu.
   {
     "user_id": "12345",
     "company_id": "67890",
-    "session_token": "XXXXXXXXXX",
-    "campaign": {
-      "utm_source": "google",
-      "utm_medium": "cpc", 
-      "utm_campaign": "adwords",
-      "utm_term": "api+tooling",
-      "utm_content": "landing"
-    },
     "metadata": {
       "email": "john@acmeinc.com",
       "first_name": "John",
@@ -74,7 +63,7 @@ and selecting API keys from bottom left menu.
 ```shell
 # You can also use wget
 curl -X POST https://api.moesif.net/v1/users \
-  -d '{"user_id":"12345","company_id":"67890","session_token":"XXXXXXXXXX","campaign":{"utm_source":"google","utm_medium":"cpc","utm_campaign":"adwords","utm_term":"api+tooling","utm_content":"landing"},"metadata":{"email":"john@acmeinc.com","first_name":"John","last_name":"Doe","title":"Software Engineer","sales_info":{"stage":"Customer","lifetime_value":24000,"account_owner":"mary@contoso.com"}}}' \
+  -d '{"user_id":"12345","company_id":"67890","metadata":{"email":"john@acmeinc.com","first_name":"John","last_name":"Doe","title":"Software Engineer","sales_info":{"stage":"Customer","lifetime_value":24000,"account_owner":"mary@contoso.com"}}}' \
   -H 'Accept: application/json' \
   -H 'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'
 ```
@@ -90,13 +79,6 @@ moesifapi.configuration.ApplicationId = "YOUR_COLLECTOR_APPLICATION_ID";
 var user = {
   userId: '12345',
   companyId: '67890'
-  campaign: {
-    utmSource: 'google',
-    utmMedium: 'cpc', 
-    utmCampaign: 'adwords',
-    utmTerm: 'api+tooling',
-    utmContent: 'landing'
-  },
   metadata: {
     email: 'john@acmeinc.com',
     firstName: 'John',
@@ -122,19 +104,10 @@ from moesifapi.models import *
 api_client = MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID").api
 
 # Only user_id is required.
-# Campaign object is optional, but useful if you want to track ROI of acquisition channels
-# See https://www.moesif.com/docs/api#users for campaign schema
 # metadata can be any custom object
 user = {
   'user_id': '12345',
   'company_id': '67890', # If set, associate user with a company object
-  'campaign': {
-    'utm_source': 'google',
-    'utm_medium': 'cpc', 
-    'utm_campaign': 'adwords',
-    'utm_term': 'api+tooling',
-    'utm_content': 'landing'
-  },
   'metadata': {
     'email': 'john@acmeinc.com',
     'first_name': 'John',
@@ -166,21 +139,11 @@ metadata => {
   }
 }
 
-# Campaign object is optional, but useful if you want to track ROI of acquisition channels
-# See https://www.moesif.com/docs/api#users for campaign schema
-campaign = CampaignModel.new()
-campaign.utm_source = "google"
-campaign.utm_medium = "cpc"
-campaign.utm_campaign = "adwords"
-campaign.utm_term = "api+tooling"
-campaign.utm_content = "landing"
-
 # Only user_id is required.
 # metadata can be any custom object
 user = UserModel.new()
 user.user_id = "12345"
 user.company_id = "67890" # If set, associate user with a company object
-user.campaign = campaign
 user.metadata = metadata
 
 update_user = api_client.update_user(user)
@@ -195,15 +158,6 @@ require_once "vendor/autoload.php";
 // Import the SDK client in your project:
 use MoesifApi\MoesifApiClient;
 $apiClient = new MoesifApiClient("YOUR_COLLECTOR_APPLICATION_ID")->getApi();;
-
-// Campaign object is optional, but useful if you want to track ROI of acquisition channels
-// See https://www.moesif.com/docs/api#update-a-user for campaign schema
-$campaign = new Models\CampaignModel();
-$campaign->utmSource = "google";
-$campaign->utmCampaign = "cpc";
-$campaign->utmMedium = "adwords";
-$campaign->utmContent = "api+tooling";
-$campaign->utmTerm = "landing";
 
 // metadata can be any custom object
 $user->metadata = array(
@@ -221,7 +175,6 @@ $user->metadata = array(
 $user = new Models\UserModel();
 $user->userId = "12345";
 $user->companyId = "67890"; // If set, associate user with a company object
-$user->campaign = $campaign;
 $user->metadata = $metadata;
 
 $apiClient->updateUser($user);
@@ -233,16 +186,6 @@ import "github.com/moesif/moesifapi-go/models"
 
 apiClient := moesifapi.NewAPI("YOUR_COLLECTOR_APPLICATION_ID")
 
-// Campaign object is optional, but useful if you want to track ROI of acquisition channels
-// See https://www.moesif.com/docs/api#users for campaign schema
-campaign := models.CampaignModel {
-  UtmSource: "google",
-  UtmMedium: "cpc", 
-  UtmCampaign: "adwords",
-  UtmTerm: "api+tooling",
-  UtmContent: "landing",
-}
-  
 // metadata can be any custom dictionary
 metadata := map[string]interface{}{
   "email", "john@acmeinc.com",
@@ -260,7 +203,6 @@ metadata := map[string]interface{}{
 user := models.UserModel{
   UserId:  "12345",
   CompanyId:  "67890", // If set, associate user with a company object
-  Campaign:  &campaign,
   Metadata:  &metadata,
 }
 
@@ -273,17 +215,6 @@ err := apiClient.UpdateUser(&user)
 
 ```csharp
 var apiClient = new MoesifApiClient("YOUR_COLLECTOR_APPLICATION_ID").Api;;
-
-// Campaign object is optional, but useful if you want to track ROI of acquisition channels
-// See https://www.moesif.com/docs/api#users for campaign schema
-var campaign = new CampaignModel()
-{
-	UtmSource = "google",
-	UtmMedium = "cpc"
-  UtmCampaign = "adwords"
-	UtmTerm = "api+tooling"
-	UtmContent = "landing"
-};
 
 // metadata can be any custom dictionary
 var metadata = new Dictionary<string, object>
@@ -304,7 +235,6 @@ var user = new UserModel()
 {
 	UserId = "12345",
   CompanyId = "67890",
-  Campaign = campaign,
 	Metadata = metadata
 };
 
@@ -318,22 +248,11 @@ apiClient.UpdateUser(user);
 ```java
 MoesifAPIClient apiClient = new MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID");
 
-// Campaign object is optional, but useful if you want to track ROI of acquisition channels
-// See https://www.moesif.com/docs/api#users for campaign schema
-CampaignModel campaign = new CampaignBuilder()
-        .utmSource("google")
-        .utmCampaign("cpc")
-        .utmMedium("adwords")
-        .utmTerm("api+tooling")
-        .utmContent("landing")
-        .build();
-
 // Only userId is required
 // metadata can be any custom object
 UserModel user = new UserBuilder()
     .userId("12345")
     .companyId("67890") // If set, associate user with a company object
-    .campaign(campaign)
     .metadata(APIHelper.deserialize("{" +
         "\"email\": \"johndoe@acmeinc.com\"," +
         "\"first_name\": \"John\"," +
@@ -408,9 +327,9 @@ individual users along with account-level usage.
 
 **`POST https://api.moesif.net/v1/users/batch`**
 
-Updates a list of user profiles in a single batch. Users can be customers or end users accessing the API.
-Adding user metadata enables you to understand API usage across different cohorts, 
-user demographics, acquisition channels, etc.
+Updates a list of user profiles in a single batch. Users are typically a single person or API consumer. For updating customer profiles such as for monetization use cases, see [companies](#companies) and [subscriptions](#subscriptions).
+
+You can also track users automatically using a Moesif client integration like [moesif-browser-js](https://www.moesif.com/implementation/track-user-behaviors-with-browser?platform=browser) or Segment.
 
 Any custom user properties can be stored via the `metadata` object.
 
@@ -448,14 +367,6 @@ and selecting API keys from bottom left menu.
   {
     "user_id": "12345",
     "company_id": "67890",
-    "session_token": "XXXXXXXXXX",
-    "campaign": {
-      "utm_source": "google",
-      "utm_medium": "cpc",
-      "utm_campaign": "adwords",
-      "utm_term": "api+tooling",
-      "utm_content": "landing"
-    },
     "metadata": {
       "email": "john@acmeinc.com",
       "first_name": "John",
@@ -471,14 +382,6 @@ and selecting API keys from bottom left menu.
   {
     "user_id": "54321",
     "company_id": "67890",
-    "session_token": "XXXXXXXXXX",
-    "campaign": {
-      "utm_source": "google",
-      "utm_medium": "cpc",
-      "utm_campaign": "adwords",
-      "utm_term": "api+tooling",
-      "utm_content": "landing"
-    },
     "metadata": {
       "email": "mary@acmeinc.com",
       "first_name": "Mary",
@@ -497,7 +400,7 @@ and selecting API keys from bottom left menu.
 ```shell
 # You can also use wget
 curl -X POST https://api.moesif.net/v1/users/batch \
-  -d '[{"user_id":"12345","company_id":"67890","session_token":"XXXXXXXXXX","campaign":{"utm_source":"google","utm_medium":"cpc","utm_campaign":"adwords","utm_term":"api+tooling","utm_content":"landing"},"metadata":{"email":"john@acmeinc.com","first_name":"John","last_name":"Doe","title":"Software Engineer","sales_info":{"stage":"Customer","lifetime_value":24000,"account_owner":"mary@contoso.com"}}},{"user_id":"54321","company_id":"67890","session_token":"XXXXXXXXXX","campaign":{"utm_source":"google","utm_medium":"cpc","utm_campaign":"adwords","utm_term":"api+tooling","utm_content":"landing"},"metadata":{"email":"mary@acmeinc.com","first_name":"Mary","last_name":"Jane","title":"Software Engineer","sales_info":{"stage":"Customer","lifetime_value":24000,"account_owner":"mary@contoso.com"}}}]' \
+  -d '[{"user_id":"12345","company_id":"67890","metadata":{"email":"john@acmeinc.com","first_name":"John","last_name":"Doe","title":"Software Engineer","sales_info":{"stage":"Customer","lifetime_value":24000,"account_owner":"mary@contoso.com"}}},{"user_id":"54321","company_id":"67890","metadata":{"email":"mary@acmeinc.com","first_name":"Mary","last_name":"Jane","title":"Software Engineer","sales_info":{"stage":"Customer","lifetime_value":24000,"account_owner":"mary@contoso.com"}}}]' \
   -H 'Accept: application/json' \
   -H 'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'
 
@@ -514,13 +417,6 @@ moesifapi.configuration.ApplicationId = "YOUR_COLLECTOR_APPLICATION_ID";
 var userA = {
   userId: '12345',
   companyId: '67890'
-  campaign: {
-    utmSource: 'google',
-    utmMedium: 'cpc', 
-    utmCampaign: 'adwords',
-    utmTerm: 'api+tooling',
-    utmContent: 'landing'
-  },
   metadata: {
     email: 'john@acmeinc.com',
     firstName: 'John',
@@ -533,18 +429,10 @@ var userA = {
     },
   }
 };
-};
 
 var userB = {
   userId: '67890',
   companyId: '67890'
-  campaign: {
-    utmSource: 'google',
-    utmMedium: 'cpc', 
-    utmCampaign: 'adwords',
-    utmTerm: 'api+tooling',
-    utmContent: 'landing'
-  },
   metadata: {
     email: 'mary@contoso.com',
     firstName: 'Mary',
@@ -627,21 +515,11 @@ metadata => {
   }
 }
 
-# Campaign object is optional, but useful if you want to track ROI of acquisition channels
-# See https://www.moesif.com/docs/api#users for campaign schema
-campaign = CampaignModel.new()
-campaign.utm_source = "google"
-campaign.utm_medium = "cpc"
-campaign.utm_campaign = "adwords"
-campaign.utm_term = "api+tooling"
-campaign.utm_content = "landing"
-
 # Only user_id is required.
 # metadata can be any custom object
 user = UserModel.new()
 user.user_id = "12345"
 user.company_id = "67890" # If set, associate user with a company object
-user.campaign = campaign
 user.metadata = metadata
 
 users << user
@@ -674,7 +552,6 @@ $userA->metadata = array(
 $userA = new Models\UserModel();
 $userA->userId = "12345";
 $userA->companyId = "67890"; // If set, associate user with a company object
-$userA->campaign = $campaign;
 $userA->metadata = $metadata;
 
 // metadata can be any custom object
@@ -693,7 +570,6 @@ $userB->metadata = array(
 $userB = new Models\UserModel();
 $userB->userId = "12345";
 $userB->companyId = "67890"; // If set, associate user with a company object
-$userB->campaign = $campaign;
 $userB->metadata = $metadata;
 
 $users = array($userA, $userB)
@@ -708,16 +584,6 @@ apiClient := moesifapi.NewAPI("YOUR_COLLECTOR_APPLICATION_ID")
 
 // List of Users
 var users []*models.UserModel
-
-// Campaign object is optional, but useful if you want to track ROI of acquisition channels
-// See https://www.moesif.com/docs/api#users for campaign schema
-campaign := models.CampaignModel {
-  UtmSource: "google",
-  UtmMedium: "cpc", 
-  UtmCampaign: "adwords",
-  UtmTerm: "api+tooling",
-  UtmContent: "landing",
-}
   
 // metadata can be any custom dictionary
 metadata := map[string]interface{}{
@@ -736,7 +602,6 @@ metadata := map[string]interface{}{
 userA := models.UserModel{
   UserId:  "12345",
   CompanyId:  "67890", // If set, associate user with a company object
-  Campaign:  &campaign,
   Metadata:  &metadata,
 }
 
@@ -815,7 +680,6 @@ List<UserModel> users = new ArrayList<UserModel>();
 UserModel userA = new UserBuilder()
         .userId("12345")
         .companyId("67890")
-        .campaign(campaign)
         .metadata(APIHelper.deserialize("{" +
             "\"email\": \"johndoe@acmeinc.com\"," +
             "\"first_name\": \"John\"," +
@@ -833,7 +697,6 @@ users.add(userA);
 UserModel userB = new UserBuilder()
         .userId("54321")
         .companyId("67890")
-        .campaign(campaign)
         .metadata(APIHelper.deserialize("{" +
             "\"email\": \"johndoe@acmeinc.com\"," +
             "\"first_name\": \"John\"," +

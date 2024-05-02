@@ -4,8 +4,8 @@
 
 **`POST https://api.moesif.net/v1/events`**
 
-Log a single API call to Moesif.
-The request payload is a single API event model containing the API request, the API response, and any custom event metadata.
+Log a single API call to Moesif as an event.
+The request payload is a single API event containing the API request, the API response, and any custom event metadata.
 
 <aside class="warning">
 For logging API calls at scale, most customers should integrate with one of Moesif's <a href="https://www.moesif.com/implementation">API monitoring agents</a> which instrument your API automatically and handle batching.
@@ -152,7 +152,6 @@ EventModel eventModel = new EventBuilder()
         .response(eventRsp)
         .userId("12345")
         .companyId("67890")
-        .sessionToken("XXXXXXXXX")
         .build();
 
 // Asynchronous Call to Create Event
@@ -244,8 +243,7 @@ var eventModel = {
     request: eventReq,
     response: eventRsp,
     userId: "12345",
-    companyId: "67890",
-    sessionToken: "XXXXXXXXX"
+    companyId: "67890"
 };
 
 var events = [new EventModel(eventModel),
@@ -475,8 +473,7 @@ var eventModel = new EventModel()
     Request = eventReq,
     Response = eventRsp,
     UserId = "12345",
-    CompanyId = "67890",
-    SessionToken = "XXXXXXXXX"
+    CompanyId = "67890"
 };
 
 //////////////////////////////////////
@@ -548,14 +545,13 @@ rsp := models.EventResponseModel{
   },
 }
 
-sessionToken := "XXXXXXXXX"
 userId := "12345"
 companyId: := "67890"
 
 event := models.EventModel{
   Request:      req,
   Response:     rsp,
-  SessionToken: &sessionToken,
+  SessionToken: nil,
   Tags:         nil,
   UserId:       &userId,
   CompanyId:    &companyId,
@@ -663,8 +659,9 @@ response |object | false | The object that specifies the API response. The respo
 ||
 transaction_id | string | false | A random 36 char UUID for this event. If set, Moesif will deduplicate events using this id and ensure idempotency.
 session_token | string | false | Set the API key/session token used for this API call. Moesif will auto-detect API sessions if not set.
-user_id | string | false | Associate this API call to a [user](#users).
-company_id | string | false | Associate this API call to a [company](#companies) (Helpful for B2B companies).
+user_id | string | false | Associate this API call to a [user](#users). Typically, a real person.
+company_id | string | false | Associate this API call to a [company](#companies) (Required for metered billing).
+subscription_id | string | false | Associate this API call to a specific [subscription](#subscriptions) of a company. Not needed unless same company can have multiple subscriptions to the same plan. 
 direction | string | false | The direction of this API call which can be _Incoming_ or _Outgoing_.
 metadata | object | false | An object containing any custom event metadata you want to store with this event.
 
@@ -824,7 +821,6 @@ EventModel eventModel = new EventBuilder()
         .response(eventRsp)
         .userId("12345")
         .companyId("67890")
-        .sessionToken("XXXXXXXXX")
         .build();
 
 List<EventModel> events = new ArrayList<EventModel>();
@@ -920,8 +916,7 @@ var eventA = {
     request: eventReq,
     response: eventRsp,
     userId: "12345",
-    companyId: "67890",
-    sessionToken: "XXXXXXXXX"
+    companyId: "67890"
 };
 
 var myEventModels = [ eventA ]
@@ -1002,8 +997,7 @@ event_rsp = EventResponseModel(time = datetime.utcnow(),
 event_a = EventModel(request = event_req,
     response = event_rsp,
     user_id = "12345",
-    company_id = "67890",
-    session_token = "XXXXXXXXX")
+    company_id = "67890"
 
 my_events = [ event_a ]
 
@@ -1101,8 +1095,7 @@ var eventModel = new EventModel()
     Request = eventReq,
     Response = eventRsp,
     UserId = "12345",
-    CompanyId = "67890",
-    SessionToken = "XXXXXXXXX"
+    CompanyId = "67890"
 };
 
 // Create a List
@@ -1178,14 +1171,13 @@ rsp := models.EventResponseModel{
   },
 }
 
-sessionToken := "XXXXXXXXX"
 userId := "12345"
 companyId := "6789"
 
 event := models.EventModel{
   Request:      req,
   Response:     rsp,
-  SessionToken: &sessionToken,
+  SessionToken: nil,
   Tags:         nil,
   UserId:       &userId,
   CompanyId:    &companyId,
@@ -1242,9 +1234,10 @@ response |object | false | The object that specifies the API response. The respo
 <p style="margin-left:1.5em">body</p> |object | false | Payload of the response in either JSON or a base64 encoded string.
 <p style="margin-left:1.5em">transfer_encoding</p> | string | false | Specifies the transfer encoding of _response.body_ field. If set to _json_ then the response.body must be a JSON object. If set to _base64_, then _response.body_ must be a base64 encoded string. Helpful for binary payloads. If not set, the body is assumed to be _json_.
 ||
-transaction_id | string | false | A random 36 char UUID for this event. If set, Moesif will deduplicate events using this id and ensure idempotency. Moesif will still deduplicate even accross different size batches.
+transaction_id | string | false | A random 36 char UUID for this event. If set, Moesif will deduplicate events using this id and ensure idempotency. Moesif will still deduplicate even across different size batches.
 session_token | string | false | Set the API key/session token used for this API call. Moesif will auto-detect API sessions if not set.
-user_id | string | false | Associate this API call to a [user](#users).
-company_id | string | false | Associate this API call to a [company](#companies) (Helpful for B2B companies).
+user_id | string | false | Associate this API call to a [user](#users). Typically, a real person.
+company_id | string | false | Associate this API call to a [company](#companies) (Required for metered billing).
+subscription_id | string | false | Associate this API call to a specific [subscription](#subscriptions) of a company. Not needed unless same company can have multiple subscriptions to the same plan. 
 direction | string | false | The direction of this API call which can be _Incoming_ or _Outgoing_.
 metadata | object | false | An object containing any custom event metadata you want to store with this event.
