@@ -1,5 +1,13 @@
 # Overview
 
+### Data Model
+
+The Moesif data model includes two types of events (API Calls and Custom Actions) and three type of entities (Users, Companies, and Subscriptions). A full diagram is below.
+
+![Moesif Data Model](https://docs.moesif.com/images/illustration/product-data-model.svg)
+
+For more info, [view docs on Moesif data structure](https://www.moesif.com/docs/getting-started/overview/).
+
 ## Filtering
 
 ### Query Params

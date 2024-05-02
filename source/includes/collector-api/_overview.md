@@ -23,7 +23,6 @@ Moesif recommends using the same Application Id for all integrations within the 
 
 `X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID`
 
-
 <aside class="notice">
 Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id found by logging into Moesif
 and selecting API keys from bottom left menu.
