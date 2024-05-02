@@ -661,7 +661,7 @@ transaction_id | string | false | A random 36 char UUID for this event. If set, 
 session_token | string | false | Set the API key/session token used for this API call. Moesif will auto-detect API sessions if not set.
 user_id | string | false | Associate this API call to a [user](#users). Typically, a real person.
 company_id | string | false | Associate this API call to a [company](#companies) (Required for metered billing).
-subscription_id | string | false | Associate this API call to a specific [subscription](#subscriptions) of a company. Not needed unless same company can have multiple subscriptions to the same plan. 
+subscription_id | string | false | Associate this API call to a specific [subscription](#subscriptions) of a company. Not needed unless same company can have multiple subscriptions to the same plan. When set, usage will be reported to only this subscription.
 direction | string | false | The direction of this API call which can be _Incoming_ or _Outgoing_.
 metadata | object | false | An object containing any custom event metadata you want to store with this event.
 
@@ -1238,6 +1238,6 @@ transaction_id | string | false | A random 36 char UUID for this event. If set, 
 session_token | string | false | Set the API key/session token used for this API call. Moesif will auto-detect API sessions if not set.
 user_id | string | false | Associate this API call to a [user](#users). Typically, a real person.
 company_id | string | false | Associate this API call to a [company](#companies) (Required for metered billing).
-subscription_id | string | false | Associate this API call to a specific [subscription](#subscriptions) of a company. Not needed unless same company can have multiple subscriptions to the same plan. 
+subscription_id | string | false | Associate this API call to a specific [subscription](#subscriptions) of a company. Not needed unless same company can have multiple subscriptions to the same plan. When set, usage will be reported to only this subscription.
 direction | string | false | The direction of this API call which can be _Incoming_ or _Outgoing_.
 metadata | object | false | An object containing any custom event metadata you want to store with this event.

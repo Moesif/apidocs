@@ -86,7 +86,7 @@ action_name | string | __true__ | A recognizable name such as <i>Clicked Sign Up
 session_token | string | false | The customer's current session token as a string.
 user_id | string | false | Associate this API call to a [user](#users). Typically, a real person.
 company_id | string | false | Associate this API call to a [company](#companies) (Required for metered billing).
-subscription_id | string | false | Associate this API call to a specific [subscription](#subscriptions) of a company. Not needed unless same company can have multiple subscriptions to the same plan. 
+subscription_id | string | false | Associate this API call to a specific [subscription](#subscriptions) of a company. Not needed unless same company can have multiple subscriptions to the same plan. When set, usage will be reported to only this subscription.
 metadata | object | false | An object containing any custom event metadata you want to store with this event.
 request |object | __true__ | The object containing the action's request context.
 <p style="margin-left:1.5em">time</p> |string(date-time) | false | Timestamp for the action in ISO 8601 format. Set by server automatically if not set.
@@ -200,7 +200,7 @@ action_name | string | __true__ | A recognizable name such as <i>Clicked Sign Up
 session_token | string | false | The customer's current session token as a string.
 user_id | string | false | Associate this API call to a [user](#users). Typically, a real person.
 company_id | string | false | Associate this API call to a [company](#companies) (Required for metered billing).
-subscription_id | string | false | Associate this API call to a specific [subscription](#subscriptions) of a company. Not needed unless same company can have multiple subscriptions to the same plan. 
+subscription_id | string | false | Associate this API call to a specific [subscription](#subscriptions) of a company. Not needed unless same company can have multiple subscriptions to the same plan. When set, usage will be reported to only this subscription.
 metadata | object | false | An object containing any custom event metadata you want to store with this event.
 request |object | __true__ | The object containing the action's request context.
 <p style="margin-left:1.5em">time</p> |string(date-time) | false | Timestamp for the action in ISO 8601 format. Set by server automatically if not set.
