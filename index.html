@@ -6947,7 +6947,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/search/~/companie
   <span class="s">"metadata"</span><span class="p">:</span> <span class="p">{}</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/companies'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/companies'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -7282,7 +7282,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/search/~/companie
   <span class="p">}</span>
 <span class="p">]</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/companies/batch'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/companies/batch'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -8067,7 +8067,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/search/~/count/co
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/count/companies'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
   <span class="s">'app_id'</span><span class="p">:</span> <span class="s">'string'</span>
 
-<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -8338,7 +8338,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/search/~/search/c
 <span class="p">}</span>
 <span class="n">input_body</span> <span class="o">=</span> <span class="n">false</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/search/companymetrics/companies'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/search/companymetrics/companies'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -8939,7 +8939,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/search/~/subscrip
   <span class="s">"created"</span><span class="p">:</span> <span class="s">"2024-04-11T04:01:35.090Z"</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/subscriptions'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/subscriptions'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -9509,7 +9509,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/search/~/subscrip
   <span class="s">"created"</span><span class="p">:</span> <span class="s">"2024-04-11T04:01:35.090Z"</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/subscriptions/batch'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/subscriptions/batch'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -10263,7 +10263,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/search/~/count/ev
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/count/events'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
   <span class="s">'from'</span><span class="p">:</span> <span class="s">'2024-04-11T04:01:35.090Z'</span><span class="p">,</span>  <span class="s">'to'</span><span class="p">:</span> <span class="s">'2024-04-11T04:01:35.090Z'</span>
 
-<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -10862,7 +10862,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/search/~/search/e
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/search/events'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
   <span class="s">'from'</span><span class="p">:</span> <span class="s">'2024-04-11T04:01:35.090Z'</span><span class="p">,</span>  <span class="s">'to'</span><span class="p">:</span> <span class="s">'2024-04-11T04:01:35.090Z'</span>
 
-<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -11181,7 +11181,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/search/~/workspac
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
   <span class="s">'from'</span><span class="p">:</span> <span class="s">'2024-04-11T04:01:35.090Z'</span><span class="p">,</span>  <span class="s">'to'</span><span class="p">:</span> <span class="s">'2024-04-11T04:01:35.090Z'</span>
 
-<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -11519,7 +11519,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/search/~/count/us
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/count/users'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
   <span class="s">'app_id'</span><span class="p">:</span> <span class="s">'string'</span>
 
-<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -11790,7 +11790,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/search/~/search/u
 <span class="p">}</span>
 <span class="n">input_body</span> <span class="o">=</span> <span class="n">false</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/search/usermetrics/users'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/search/usermetrics/users'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -12106,7 +12106,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/search/~/users <s
   <span class="s">"phone"</span><span class="p">:</span> <span class="s">"string"</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/users'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/users'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -12546,7 +12546,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/search/~/users/ba
   <span class="p">}</span>
 <span class="p">]</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/users/batch'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/search/~/users/batch'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -14916,7 +14916,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/~/workspaces <spa
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/workspaces'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/workspaces'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -17364,7 +17364,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/~/workspaces/<spa
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/workspaces/{id}'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/workspaces/{id}'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -18479,7 +18479,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/~/workspaces/<spa
   <span class="p">]</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/workspaces/{id}/comments'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/workspaces/{id}/comments'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -19012,7 +19012,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/~/workspaces/<spa
   <span class="p">]</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/workspaces/{id}/comments/{commentId}'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/workspaces/{id}/comments/{commentId}'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -20041,7 +20041,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/~/apps <span clas
   <span class="s">"custom_app_id"</span><span class="p">:</span> <span class="s">"string"</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/apps'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/apps'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -20708,7 +20708,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/~/apps/<span clas
   <span class="s">"custom_app_id"</span><span class="p">:</span> <span class="s">"string"</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/apps/{id}'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/apps/{id}'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -21378,7 +21378,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/~/billing/catalog
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/billing/catalog/plans'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
   <span class="s">'provider'</span><span class="p">:</span> <span class="s">'string'</span>
 
-<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -23129,7 +23129,7 @@ curl <span class="nt">-X</span> PUT https://api.moesif.com/v1/~/billing/catalog/
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/billing/catalog/plans/{id}'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
   <span class="s">'provider'</span><span class="p">:</span> <span class="s">'string'</span>
 
-<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -23796,7 +23796,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/~/billing/catalog
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/billing/catalog/prices'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
   <span class="s">'provider'</span><span class="p">:</span> <span class="s">'string'</span>
 
-<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -25295,7 +25295,7 @@ curl <span class="nt">-X</span> PUT https://api.moesif.com/v1/~/billing/catalog/
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/billing/catalog/prices/{id}'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
   <span class="s">'provider'</span><span class="p">:</span> <span class="s">'string'</span>
 
-<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -28694,7 +28694,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/~/billing/reports
   <span class="s">"type"</span><span class="p">:</span> <span class="s">"string"</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/billing/reports/balance_transactions'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/billing/reports/balance_transactions'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -29077,7 +29077,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/~/cohorts <span c
   <span class="s">"time_zone"</span><span class="p">:</span> <span class="s">"string"</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/cohorts'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/cohorts'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -29782,7 +29782,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/~/cohorts/<span c
   <span class="s">"time_zone"</span><span class="p">:</span> <span class="s">"string"</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/cohorts/{cohortId}'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/cohorts/{cohortId}'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -32096,7 +32096,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/~/dashboards/<spa
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/dashboards/{dashId}'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/dashboards/{dashId}'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -33577,7 +33577,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/~/emails/template
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/emails/templates'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/emails/templates'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -34473,7 +34473,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/~/emails/template
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/emails/templates/{id}'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/emails/templates/{id}'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -35588,7 +35588,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/~/governance/rule
   <span class="s">"type"</span><span class="p">:</span> <span class="s">"string"</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/governance/rules'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/governance/rules'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -36582,7 +36582,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.com/v1/~/governance/rule
   <span class="s">"type"</span><span class="p">:</span> <span class="s">"string"</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/governance/rules/{id}'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.moesif.com/v1/~/governance/rules/{id}'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">input_body</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
