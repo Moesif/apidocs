@@ -134,7 +134,7 @@ input_body = {
   "metadata": {}
 }
 
-r = requests.post('https://api.moesif.com/v1/search/~/companies', headers = headers, json = input_data)
+r = requests.post('https://api.moesif.com/v1/search/~/companies', headers = headers, json = input_body)
 
 print(r.json())
 
@@ -466,7 +466,7 @@ input_body = [
   }
 ]
 
-r = requests.post('https://api.moesif.com/v1/search/~/companies/batch', headers = headers, json = input_data)
+r = requests.post('https://api.moesif.com/v1/search/~/companies/batch', headers = headers, json = input_body)
 
 print(r.json())
 
@@ -1232,7 +1232,7 @@ input_body = false
 r = requests.post('https://api.moesif.com/v1/search/~/count/companies', params={
   'app_id': 'string'
 
-}, headers = headers, json = input_data)
+}, headers = headers, json = input_body)
 
 print(r.json())
 
@@ -1506,7 +1506,7 @@ headers = {
 }
 input_body = false
 
-r = requests.post('https://api.moesif.com/v1/search/~/search/companymetrics/companies', headers = headers, json = input_data)
+r = requests.post('https://api.moesif.com/v1/search/~/search/companymetrics/companies', headers = headers, json = input_body)
 
 print(r.json())
 
@@ -2092,7 +2092,7 @@ input_body = {
   "created": "2024-04-11T04:01:35.090Z"
 }
 
-r = requests.post('https://api.moesif.com/v1/search/~/subscriptions', headers = headers, json = input_data)
+r = requests.post('https://api.moesif.com/v1/search/~/subscriptions', headers = headers, json = input_body)
 
 print(r.json())
 
@@ -2662,7 +2662,7 @@ input_body = {
   "created": "2024-04-11T04:01:35.090Z"
 }
 
-r = requests.post('https://api.moesif.com/v1/search/~/subscriptions/batch', headers = headers, json = input_data)
+r = requests.post('https://api.moesif.com/v1/search/~/subscriptions/batch', headers = headers, json = input_body)
 
 print(r.json())
 
@@ -3413,7 +3413,7 @@ input_body = false
 r = requests.post('https://api.moesif.com/v1/search/~/count/events', params={
   'from': '2024-04-11T04:01:35.090Z',  'to': '2024-04-11T04:01:35.090Z'
 
-}, headers = headers, json = input_data)
+}, headers = headers, json = input_body)
 
 print(r.json())
 
@@ -3988,7 +3988,7 @@ input_body = false
 r = requests.post('https://api.moesif.com/v1/search/~/search/events', params={
   'from': '2024-04-11T04:01:35.090Z',  'to': '2024-04-11T04:01:35.090Z'
 
-}, headers = headers, json = input_data)
+}, headers = headers, json = input_body)
 
 print(r.json())
 
@@ -4301,7 +4301,7 @@ input_body = false
 r = requests.post('https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search', params={
   'from': '2024-04-11T04:01:35.090Z',  'to': '2024-04-11T04:01:35.090Z'
 
-}, headers = headers, json = input_data)
+}, headers = headers, json = input_body)
 
 print(r.json())
 
@@ -4615,7 +4615,7 @@ input_body = false
 r = requests.post('https://api.moesif.com/v1/search/~/count/users', params={
   'app_id': 'string'
 
-}, headers = headers, json = input_data)
+}, headers = headers, json = input_body)
 
 print(r.json())
 
@@ -4889,7 +4889,7 @@ headers = {
 }
 input_body = false
 
-r = requests.post('https://api.moesif.com/v1/search/~/search/usermetrics/users', headers = headers, json = input_data)
+r = requests.post('https://api.moesif.com/v1/search/~/search/usermetrics/users', headers = headers, json = input_body)
 
 print(r.json())
 
@@ -5196,7 +5196,7 @@ input_body = {
   "phone": "string"
 }
 
-r = requests.post('https://api.moesif.com/v1/search/~/users', headers = headers, json = input_data)
+r = requests.post('https://api.moesif.com/v1/search/~/users', headers = headers, json = input_body)
 
 print(r.json())
 
@@ -5636,7 +5636,7 @@ input_body = [
   }
 ]
 
-r = requests.post('https://api.moesif.com/v1/search/~/users/batch', headers = headers, json = input_data)
+r = requests.post('https://api.moesif.com/v1/search/~/users/batch', headers = headers, json = input_body)
 
 print(r.json())
 
@@ -7955,7 +7955,7 @@ input_body = {
   }
 }
 
-r = requests.post('https://api.moesif.com/v1/~/workspaces', headers = headers, json = input_data)
+r = requests.post('https://api.moesif.com/v1/~/workspaces', headers = headers, json = input_body)
 
 print(r.json())
 
@@ -9571,7 +9571,7 @@ input_body = {
   }
 }
 
-r = requests.post('https://api.moesif.com/v1/~/workspaces/{id}', headers = headers, json = input_data)
+r = requests.post('https://api.moesif.com/v1/~/workspaces/{id}', headers = headers, json = input_body)
 
 print(r.json())
 
@@ -10672,7 +10672,7 @@ input_body = {
   ]
 }
 
-r = requests.post('https://api.moesif.com/v1/~/workspaces/{id}/comments', headers = headers, json = input_data)
+r = requests.post('https://api.moesif.com/v1/~/workspaces/{id}/comments', headers = headers, json = input_body)
 
 print(r.json())
 
@@ -11194,7 +11194,7 @@ input_body = {
   ]
 }
 
-r = requests.post('https://api.moesif.com/v1/~/workspaces/{id}/comments/{commentId}', headers = headers, json = input_data)
+r = requests.post('https://api.moesif.com/v1/~/workspaces/{id}/comments/{commentId}', headers = headers, json = input_body)
 
 print(r.json())
 
@@ -12174,7 +12174,7 @@ input_body = {
   "custom_app_id": "string"
 }
 
-r = requests.post('https://api.moesif.com/v1/~/apps', headers = headers, json = input_data)
+r = requests.post('https://api.moesif.com/v1/~/apps', headers = headers, json = input_body)
 
 print(r.json())
 
@@ -12770,7 +12770,7 @@ input_body = {
   "custom_app_id": "string"
 }
 
-r = requests.post('https://api.moesif.com/v1/~/apps/{id}', headers = headers, json = input_data)
+r = requests.post('https://api.moesif.com/v1/~/apps/{id}', headers = headers, json = input_body)
 
 print(r.json())
 
@@ -13430,7 +13430,7 @@ input_body = {
 r = requests.post('https://api.moesif.com/v1/~/billing/catalog/plans', params={
   'provider': 'string'
 
-}, headers = headers, json = input_data)
+}, headers = headers, json = input_body)
 
 print(r.json())
 
@@ -14935,7 +14935,7 @@ input_body = {
 r = requests.put('https://api.moesif.com/v1/~/billing/catalog/plans/{id}', params={
   'provider': 'string'
 
-}, headers = headers, json = input_data)
+}, headers = headers, json = input_body)
 
 print(r.json())
 
@@ -15590,7 +15590,7 @@ input_body = {
 r = requests.post('https://api.moesif.com/v1/~/billing/catalog/prices', params={
   'provider': 'string'
 
-}, headers = headers, json = input_data)
+}, headers = headers, json = input_body)
 
 print(r.json())
 
@@ -16915,7 +16915,7 @@ input_body = {
 r = requests.put('https://api.moesif.com/v1/~/billing/catalog/prices/{id}', params={
   'provider': 'string'
 
-}, headers = headers, json = input_data)
+}, headers = headers, json = input_body)
 
 print(r.json())
 
@@ -19070,7 +19070,7 @@ input_body = {
   "type": "string"
 }
 
-r = requests.post('https://api.moesif.com/v1/~/billing/reports/balance_transactions', headers = headers, json = input_data)
+r = requests.post('https://api.moesif.com/v1/~/billing/reports/balance_transactions', headers = headers, json = input_body)
 
 print(r.json())
 
@@ -19452,7 +19452,7 @@ input_body = {
   "time_zone": "string"
 }
 
-r = requests.post('https://api.moesif.com/v1/~/cohorts', headers = headers, json = input_data)
+r = requests.post('https://api.moesif.com/v1/~/cohorts', headers = headers, json = input_body)
 
 print(r.json())
 
@@ -20153,7 +20153,7 @@ input_body = {
   "time_zone": "string"
 }
 
-r = requests.post('https://api.moesif.com/v1/~/cohorts/{cohortId}', headers = headers, json = input_data)
+r = requests.post('https://api.moesif.com/v1/~/cohorts/{cohortId}', headers = headers, json = input_body)
 
 print(r.json())
 
@@ -22435,7 +22435,7 @@ input_body = {
   }
 }
 
-r = requests.post('https://api.moesif.com/v1/~/dashboards/{dashId}', headers = headers, json = input_data)
+r = requests.post('https://api.moesif.com/v1/~/dashboards/{dashId}', headers = headers, json = input_body)
 
 print(r.json())
 
@@ -23875,7 +23875,7 @@ input_body = {
   }
 }
 
-r = requests.post('https://api.moesif.com/v1/~/emails/templates', headers = headers, json = input_data)
+r = requests.post('https://api.moesif.com/v1/~/emails/templates', headers = headers, json = input_body)
 
 print(r.json())
 
@@ -24764,7 +24764,7 @@ input_body = {
   }
 }
 
-r = requests.post('https://api.moesif.com/v1/~/emails/templates/{id}', headers = headers, json = input_data)
+r = requests.post('https://api.moesif.com/v1/~/emails/templates/{id}', headers = headers, json = input_body)
 
 print(r.json())
 
@@ -25864,7 +25864,7 @@ input_body = {
   "type": "string"
 }
 
-r = requests.post('https://api.moesif.com/v1/~/governance/rules', headers = headers, json = input_data)
+r = requests.post('https://api.moesif.com/v1/~/governance/rules', headers = headers, json = input_body)
 
 print(r.json())
 
@@ -26861,7 +26861,7 @@ input_body = {
   "type": "string"
 }
 
-r = requests.post('https://api.moesif.com/v1/~/governance/rules/{id}', headers = headers, json = input_data)
+r = requests.post('https://api.moesif.com/v1/~/governance/rules/{id}', headers = headers, json = input_body)
 
 print(r.json())
 
