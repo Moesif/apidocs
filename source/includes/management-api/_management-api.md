@@ -17614,6 +17614,7 @@ List Billing Meters
     "modified_at": "2024-04-11T04:01:35.090Z",
     "es_query": "string",
     "created_at": "2024-04-11T04:01:35.090Z",
+    "zero_balance_behavior": "string",
     "app_id": "string",
     "org_id": "string"
   }
@@ -17765,6 +17766,7 @@ Status Code **200**
 |» modified_at|string(date-time)|true|none|none|
 |» es_query|string|true|none|none|
 |» created_at|string(date-time)|true|none|none|
+|» zero_balance_behavior|string|false|none|none
 |» app_id|string|true|none|none|
 |» org_id|string|true|none|none|
 
@@ -30480,6 +30482,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "modified_at": "2024-04-11T04:01:35.090Z",
   "es_query": "string",
   "created_at": "2024-04-11T04:01:35.090Z",
+  "zero_balance_behavior": "string",
   "app_id": "string",
   "org_id": "string"
 }
@@ -30499,6 +30502,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |modified_at|string(date-time)|true|none|none|
 |es_query|string|true|none|none|
 |created_at|string(date-time)|true|none|none|
+|zero_balance_behavior|string|false|none|none|
 |app_id|string|true|none|none|
 |org_id|string|true|none|none|
 
