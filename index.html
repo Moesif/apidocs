@@ -26000,6 +26000,7 @@ curl <span class="nt">-X</span> GET https://api.moesif.com/v1/~/billing/meters <
     </span><span class="nl">"modified_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-04-11T04:01:35.090Z"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"es_query"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-04-11T04:01:35.090Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"zero_balance_behavior"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"org_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -26964,6 +26965,13 @@ curl <span class="nt">-X</span> GET https://api.moesif.com/v1/~/billing/meters <
 <td>» created_at</td>
 <td>string(date-time)</td>
 <td>true</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» zero_balance_behavior</td>
+<td>string</td>
+<td>false</td>
 <td>none</td>
 <td>none</td>
 </tr>
@@ -42648,6 +42656,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   </span><span class="nl">"modified_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-04-11T04:01:35.090Z"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"es_query"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-04-11T04:01:35.090Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"zero_balance_behavior"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"org_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -42722,6 +42731,13 @@ managementAPIToken ( Scopes: delete:governance_rules )
 <td>created_at</td>
 <td>string(date-time)</td>
 <td>true</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>zero_balance_behavior</td>
+<td>string</td>
+<td>false</td>
 <td>none</td>
 <td>none</td>
 </tr>
