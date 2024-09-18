@@ -14158,6 +14158,7 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |provider|query|string|false|none|
 |includes|query|string|false|none|
+|limit|query|integer(int32)|false|A limit on the number of objects to be returned. Limit can range between `1` and `1000` (inclusive). Defaults to `1000`.|
 
 > Example responses
 
@@ -16219,6 +16220,7 @@ System.out.println(response.toString());
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |provider|query|string|false|none|
+|limit|query|integer(int32)|false|A limit on the number of objects to be returned. Limit can range between `1` and `1000` (inclusive). Defaults to `1000`.|
 
 > Example responses
 
