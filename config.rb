@@ -76,6 +76,9 @@ activate :autoprefixer do |config|
   config.inline   = true
 end
 
+# Activate LiveReload
+activate :livereload
+
 # Github pages require relative links
 #activate :relative_assets
 #set :relative_links, true
