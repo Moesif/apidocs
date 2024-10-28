@@ -1,14 +1,14 @@
 ## Actions
 
-### Track a User Action
+### Track a Custom Action
 
 **`POST https://api.moesif.net/v1/actions`**
 
-Log a single user action to Moesif. An action represents something a customer performed on your website
+Log a single custom action to Moesif. An action represents something a customer performed on your website
 such as _Sign In_ or _Purchased Subscription_. Each action consists of an _Action Name_ and optional _Metadata_.
 
 <aside class="warning">
-Currently only the moesif-browser-js SDK supports tracking actions. If you need to track user actions from your server, use the HTTP API directly.
+Currently only the moesif-browser-js SDK supports tracking actions. If you need to track custom actions from your server, use the HTTP API directly.
 </aside>
 
 **An example tracking actions using moesif-browser-js:**
@@ -94,11 +94,11 @@ request |object | __true__ | The object containing the action's request context.
 <p style="margin-left:1.5em">ip_address</p> | string| false | IP address of the customer, If not set, we extract the remote IP address.
 <p style="margin-left:1.5em">user_agent_string</p> | string | false | The customer's browser agent string for device context.
 
-### Track User Actions in Batch
+### Track Custom Actions in Batch
 
 **`POST https://api.moesif.net/v1/actions/batch`**
 
-Log a batch of user action to Moesif. An action represents something a customer performed on your website
+Log a batch of custom action to Moesif. An action represents something a customer performed on your website
 such as _Sign In_ or _Purchased Subscription_. Each action consists of an _Action Name_ and optional _Metadata_.
 
 This API takes an array form of the same model defined for track single action.
