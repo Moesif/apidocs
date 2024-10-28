@@ -30,7 +30,7 @@ Collected events have size limits to ensure performance and stability of the Moe
 |Maximum size of a batch of events|50MB|
 |Truncation size of request.body or response.body|450KB|
 
-The maximum size of an event (one API call or user action) is 1MB, which is a hard limit due to how the Moesif platform was architected for scale. Majority of APIs we see have an average event size of 1Kb to 5Kb so it would be unusual to reach this limit. With that said, there are a couple of things you can try:
+The maximum size of an event (one API call or custom action) is 1MB, which is a hard limit due to how the Moesif platform was architected for scale. Majority of APIs we see have an average event size of 1Kb to 5Kb so it would be unusual to reach this limit. With that said, there are a couple of things you can try:
 
 1. Don't log non API traffic using skip functionality (i.e. HTML, pictures, etc). Moesif is not designed for monitoring access to large files nor provides much usefulness. 
 2. Remove large keys from payload using mask data. This can be helpful if you have a JSON key that's large but not valuable. 
