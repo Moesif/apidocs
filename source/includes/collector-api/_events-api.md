@@ -22,7 +22,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 ```json
   {
     "request": {
-      "time": "2024-10-06T04:45:42.914",
+      "time": "2024-10-30T04:45:42.914",
       "uri": "https://api.acmeinc.com/items/12345/reviews/",
       "verb": "POST",
       "api_version": "1.1.0",
@@ -52,7 +52,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
       "transfer_encoding": ""
     },
     "response": {
-      "time": "2024-10-06T04:45:42.914",
+      "time": "2024-10-30T04:45:42.914",
       "status": 500,
       "headers": {
         "Vary": "Accept-Encoding",
@@ -85,49 +85,35 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 curl -X POST https://api.moesif.net/v1/events \
   -H 'Content-Type: application/json' \
   -H 'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'
-  -d '{"request":{"time":"2024-10-06T04:45:42.914","uri":"https://api.acmeinc.com/items/12345/reviews/","verb":"POST","api_version":"1.1.0","ip_address":"61.48.220.123","headers":{"Host":"api.acmeinc.com","Accept":"*/*","Connection":"Keep-Alive","Content-Type":"application/json","Content-Length":"126","Accept-Encoding":"gzip"},"body":{"items":[{"direction_type":1,"item_id":"hello","liked":false},{"direction_type":2,"item_id":"world","liked":true}]},"transfer_encoding":""},"response":{"time":"2024-10-06T04:45:42.914","status":500,"headers":{"Vary":"Accept-Encoding","Pragma":"no-cache","Expires":"-1","Content-Type":"application/json; charset=utf-8","Cache-Control":"no-cache"},"body":{"Error":"InvalidArgumentException","Message":"Missing field location"},"transfer_encoding":""},"user_id":"12345","company_id":"67890","transaction_id":"a3765025-46ec-45dd-bc83-b136c8d1d257","metadata":{"some_string":"I am a string","some_int":77,"some_object":{"some_sub_field":"some_value"}}}'
+  -d '{"request":{"time":"2024-10-30T04:45:42.914","uri":"https://api.acmeinc.com/items/12345/reviews/","verb":"POST","api_version":"1.1.0","ip_address":"61.48.220.123","headers":{"Host":"api.acmeinc.com","Accept":"*/*","Connection":"Keep-Alive","Content-Type":"application/json","Content-Length":"126","Accept-Encoding":"gzip"},"body":{"items":[{"direction_type":1,"item_id":"hello","liked":false},{"direction_type":2,"item_id":"world","liked":true}]},"transfer_encoding":""},"response":{"time":"2024-10-30T04:45:42.914","status":500,"headers":{"Vary":"Accept-Encoding","Pragma":"no-cache","Expires":"-1","Content-Type":"application/json; charset=utf-8","Cache-Control":"no-cache"},"body":{"Error":"InvalidArgumentException","Message":"Missing field location"},"transfer_encoding":""},"user_id":"12345","company_id":"67890","transaction_id":"a3765025-46ec-45dd-bc83-b136c8d1d257","metadata":{"some_string":"I am a string","some_int":77,"some_object":{"some_sub_field":"some_value"}}}'
 ```
 
 ```java
-// Import the Library
-MoesifAPIClient client = new MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID");
-APIController api = getClient().getAPI();
-
-// Generate the event
-Map<String, String> reqHeaders = new HashMap<String, String>();
-reqHeaders.put("Host", "api.acmeinc.com");
-reqHeaders.put("Accept", "*/*");
-reqHeaders.put("Connection", "Keep-Alive");
-reqHeaders.put("User-Agent", "Apache-HttpClient");
-reqHeaders.put("Content-Type", "application/json");
-reqHeaders.put("Content-Length", "126");
-reqHeaders.put("Accept-Encoding", "gzip");
-
-Object reqBody = APIHelper.deserialize("{" +
+String reqBody = "{" +
   "\"items\": [" +
     "{" +
       "\"type\": 1," +
       "\"id\": \"hello\"" +,
-    "}," +
-    "{" +
-      "\"type\": 2," +
-       "\"id\": \"world\"" +
-     "}" +
+    "}" +
   "]" +
-  "}");
+  "}";
 
-Map<String, String> rspHeaders = new HashMap<String, String>();
-rspHeaders.put("Vary", "Accept-Encoding");
-rspHeaders.put("Pragma", "no-cache");
-rspHeaders.put("Expires", "-1");
-rspHeaders.put("Content-Type", "application/json; charset=utf-8");
-rspHeaders.put("Cache-Control","no-cache");
-
-Object rspBody = APIHelper.deserialize("{" +
+String rspBody = "{" +
     "\"Error\": \"InvalidArgumentException\"," +
     "\"Message\": \"Missing field field_a\"" +
-  "}");
+  "}";
 
+// Generate the event
+Map<String, String> reqHeaders = new HashMap<String, String>();
+reqHeaders.put("Host", "api.acmeinc.com");
+reqHeaders.put("Content-Type", "application/json");
+reqHeaders.put("Accept-Encoding", "gzip");
+
+Map<String, String> rspHeaders = new HashMap<String, String>();
+rspHeaders.put("Content-Type", "application/json; charset=utf-8");
+
+BodyParser.BodyWrapper reqBodyWrapper = BodyParser.parseBody(reqHeaders, reqBody);
+BodyParser.BodyWrapper rspBodyWrapper = BodyParser.parseBody(rspHeaders, rspBody);
 
 EventRequestModel eventReq = new EventRequestBuilder()
         .time(new Date())
@@ -136,15 +122,16 @@ EventRequestModel eventReq = new EventRequestBuilder()
         .apiVersion("1.1.0")
         .ipAddress("61.48.220.123")
         .headers(reqHeaders)
-        .body(reqBody)
+        .body(reqBodyWrapper.body)
+        .transferEncoding(reqBodyWrapper.transferEncoding);
         .build();
-
 
 EventResponseModel eventRsp = new EventResponseBuilder()
         .time(new Date(System.currentTimeMillis() + 1000))
         .status(500)
         .headers(rspHeaders)
-        .body(rspBody)
+        .body(rspBodyWrapper.body)
+        .transferEncoding(rspBodyWrapper.transferEncoding);
         .build();
 
 EventModel eventModel = new EventBuilder()
@@ -160,18 +147,19 @@ APIController api = getClient().getAPI();
 
 APICallBack<Object> callBack = new APICallBack<Object>() {
     public void onSuccess(HttpContext context, Object response) {
-        // Do something
+        // Sent successfully!
     }
 
     public void onFailure(HttpContext context, Throwable error) {
-        // Do something else
+        // Log there was a failure
     }
 };
 
-api.createEventsBatchAsync(eventsList, callBack);
+// Async call to Send Event to Moesif
+api.createEventAsync(eventModel, callBack);
 
-// Synchronous Call to Create Event
-api.createEventsBatch(eventsList, callBack);
+// Synchronous call to Send Event to Moesif
+api.createEvent(eventModel, callBack);
 ```
 
 ```javascript--nodejs
@@ -376,7 +364,7 @@ rsp_body = JSON.parse('{'\
 
 
 event_req = EventRequestModel.new()
-event_req.time = "2024-10-06T04:45:42.914"
+event_req.time = "2024-10-30T04:45:42.914"
 event_req.uri = "https://api.acmeinc.com/items/reviews/"
 event_req.verb = "PATCH"
 event_req.api_version = "1.1.0"
@@ -385,7 +373,7 @@ event_req.headers = req_headers
 event_req.body = req_body
 
 event_rsp = EventResponseModel.new()
-event_rsp.time = "2024-10-06T04:45:42.914"
+event_rsp.time = "2024-10-30T04:45:42.914"
 event_rsp.status = 500
 event_rsp.headers = rsp_headers
 event_rsp.body = rsp_body
@@ -451,7 +439,7 @@ var rspBody = APIHelper.JsonDeserialize<object>(@" {
 
 var eventReq = new EventRequestModel()
 {
-    Time = DateTime.Parse("2024-10-06T04:45:42.914"),
+    Time = DateTime.Parse("2024-10-30T04:45:42.914"),
     Uri = "https://api.acmeinc.com/items/reviews/",
     Verb = "PATCH",
     ApiVersion = "1.1.0",
@@ -462,7 +450,7 @@ var eventReq = new EventRequestModel()
 
 var eventRsp = new EventResponseModel()
 {
-    Time = DateTime.Parse("2024-10-06T04:45:42.914"),
+    Time = DateTime.Parse("2024-10-30T04:45:42.914"),
     Status = 500,
     Headers = rspHeaders,
     Body = rspBody
@@ -689,7 +677,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
   [
     {
         "request": {
-          "time": "2024-10-06T04:45:42.914",
+          "time": "2024-10-30T04:45:42.914",
           "uri": "https://api.acmeinc.com/items/83738/reviews/",
           "verb": "POST",
           "api_version": "1.1.0",
@@ -719,7 +707,7 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
           "transfer_encoding": ""
         },
         "response": {
-          "time": "2024-10-06T04:45:42.914",
+          "time": "2024-10-30T04:45:42.914",
           "status": 500,
           "headers": {
             "Vary": "Accept-Encoding",
@@ -753,50 +741,35 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 curl -X POST https://api.moesif.net/v1/events/batch \
   -H 'Content-Type: application/json' \
   -H 'X-Moesif-Application-Id: YOUR_COLLECTOR_APPLICATION_ID'
-  -d '[{"request":{"time":"2024-10-06T04:45:42.914","uri":"https://api.acmeinc.com/items/83738/reviews/","verb":"POST","api_version":"1.1.0","ip_address":"61.48.220.123","headers":{"Host":"api.acmeinc.com","Accept":"*/*","Connection":"Keep-Alive","Content-Type":"application/json","Content-Length":"126","Accept-Encoding":"gzip"},"body":{"items":[{"direction_type":1,"item_id":"hello","liked":false},{"direction_type":2,"item_id":"world","liked":true}]},"transfer_encoding":""},"response":{"time":"2024-10-06T04:45:42.914","status":500,"headers":{"Vary":"Accept-Encoding","Pragma":"no-cache","Expires":"-1","Content-Type":"application/json; charset=utf-8","Cache-Control":"no-cache"},"body":{"Error":"InvalidArgumentException","Message":"Missing field location"},"transfer_encoding":""},"user_id":"12345","company_id":"67890","transaction_id":"a3765025-46ec-45dd-bc83-b136c8d1d257","metadata":{"some_string":"I am a string","some_int":77,"some_object":{"some_sub_field":"some_value"}}}]'
+  -d '[{"request":{"time":"2024-10-30T04:45:42.914","uri":"https://api.acmeinc.com/items/83738/reviews/","verb":"POST","api_version":"1.1.0","ip_address":"61.48.220.123","headers":{"Host":"api.acmeinc.com","Accept":"*/*","Connection":"Keep-Alive","Content-Type":"application/json","Content-Length":"126","Accept-Encoding":"gzip"},"body":{"items":[{"direction_type":1,"item_id":"hello","liked":false},{"direction_type":2,"item_id":"world","liked":true}]},"transfer_encoding":""},"response":{"time":"2024-10-30T04:45:42.914","status":500,"headers":{"Vary":"Accept-Encoding","Pragma":"no-cache","Expires":"-1","Content-Type":"application/json; charset=utf-8","Cache-Control":"no-cache"},"body":{"Error":"InvalidArgumentException","Message":"Missing field location"},"transfer_encoding":""},"user_id":"12345","company_id":"67890","transaction_id":"a3765025-46ec-45dd-bc83-b136c8d1d257","metadata":{"some_string":"I am a string","some_int":77,"some_object":{"some_sub_field":"some_value"}}}]'
 ```
 
 ```java
-// Import the Library
-MoesifAPIClient client = new MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID");
-APIController api = getClient().getAPI();
-
-// Generate the events
-Map<String, String> reqHeaders = new HashMap<String, String>();
-reqHeaders.put("Host", "api.acmeinc.com");
-reqHeaders.put("Accept", "*/*");
-reqHeaders.put("Connection", "Keep-Alive");
-reqHeaders.put("User-Agent", "Apache-HttpClient");
-reqHeaders.put("Content-Type", "application/json");
-reqHeaders.put("Content-Length", "126");
-reqHeaders.put("Accept-Encoding", "gzip");
-
-Object reqBody = APIHelper.deserialize("{" +
+String reqBody = "{" +
   "\"items\": [" +
     "{" +
       "\"type\": 1," +
-      "\"id\": \"hello\"" +
-    "}," +
-    "{" +
-      "\"type\": 2," +
-      "\"id\": \"world\"" +
+      "\"id\": \"hello\"" +,
     "}" +
   "]" +
-  "}");
+  "}";
 
-Map<String, String> rspHeaders = new HashMap<String, String>();
-rspHeaders.put("Date", "Mon, 05 Feb 2024 23:46:49 GMT");
-rspHeaders.put("Vary", "Accept-Encoding");
-rspHeaders.put("Pragma", "no-cache");
-rspHeaders.put("Expires", "-1");
-rspHeaders.put("Content-Type", "application/json; charset=utf-8");
-rspHeaders.put("Cache-Control","no-cache");
-
-Object rspBody = APIHelper.deserialize("{" +
+String rspBody = "{" +
     "\"Error\": \"InvalidArgumentException\"," +
     "\"Message\": \"Missing field field_a\"" +
-  "}");
+  "}";
 
+// Generate the event
+Map<String, String> reqHeaders = new HashMap<String, String>();
+reqHeaders.put("Host", "api.acmeinc.com");
+reqHeaders.put("Content-Type", "application/json");
+reqHeaders.put("Accept-Encoding", "gzip");
+
+Map<String, String> rspHeaders = new HashMap<String, String>();
+rspHeaders.put("Content-Type", "application/json; charset=utf-8");
+
+BodyParser.BodyWrapper reqBodyWrapper = BodyParser.parseBody(reqHeaders, reqBody);
+BodyParser.BodyWrapper rspBodyWrapper = BodyParser.parseBody(rspHeaders, rspBody);
 
 EventRequestModel eventReq = new EventRequestBuilder()
         .time(new Date())
@@ -805,15 +778,16 @@ EventRequestModel eventReq = new EventRequestBuilder()
         .apiVersion("1.1.0")
         .ipAddress("61.48.220.123")
         .headers(reqHeaders)
-        .body(reqBody)
+        .body(reqBodyWrapper.body)
+        .transferEncoding(reqBodyWrapper.transferEncoding);
         .build();
-
 
 EventResponseModel eventRsp = new EventResponseBuilder()
         .time(new Date(System.currentTimeMillis() + 1000))
         .status(500)
         .headers(rspHeaders)
-        .body(rspBody)
+        .body(rspBodyWrapper.body)
+        .transferEncoding(rspBodyWrapper.transferEncoding);
         .build();
 
 EventModel eventModel = new EventBuilder()
@@ -823,29 +797,28 @@ EventModel eventModel = new EventBuilder()
         .companyId("67890")
         .build();
 
-List<EventModel> events = new ArrayList<EventModel>();
-events.add(eventModel);
-events.add(eventModel);
-events.add(eventModel);
-events.add(eventModel);
-
-// Asynchronous Call to create new event
+// Asynchronous Call to Create Event
 MoesifAPIClient client = new MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID");
 APIController api = getClient().getAPI();
 
 APICallBack<Object> callBack = new APICallBack<Object>() {
     public void onSuccess(HttpContext context, Object response) {
-      // Do something
+        // Sent successfully!
     }
 
     public void onFailure(HttpContext context, Throwable error) {
-      // Do something else
+        // Log there was a failure
     }
 };
 
+// Create a batch of events
+List<EventModel> events = new ArrayList<EventModel>();
+events.add(eventModel);
+
+// Async Call to Send Event to Moesif
 api.createEventsBatchAsync(events, callBack);
 
-// Synchronous Call to create new event
+// Synchronous Call to Send Event to Moesif
 api.createEventsBatch(events, callBack);
 ```
 
@@ -1073,7 +1046,7 @@ var rspBody = APIHelper.JsonDeserialize<object>(@" {
 var reqDate = new Date();
 var eventReq = new EventRequestModel()
 {
-    Time = DateTime.Parse("2024-10-06T04:45:42.914"),
+    Time = DateTime.Parse("2024-10-30T04:45:42.914"),
     Uri = "https://api.acmeinc.com/items/reviews/",
     Verb = "PATCH",
     ApiVersion = "1.1.0",
@@ -1084,7 +1057,7 @@ var eventReq = new EventRequestModel()
 
 var eventRsp = new EventResponseModel()
 {
-    Time = DateTime.Parse("2024-10-06T04:45:42.914"),
+    Time = DateTime.Parse("2024-10-30T04:45:42.914"),
     Status = 500,
     Headers = rspHeaders,
     Body = rspBody
