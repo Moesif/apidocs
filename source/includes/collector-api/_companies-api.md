@@ -233,7 +233,7 @@ apiClient.UpdateCompany(company);
 ```
 
 ```java
-MoesifAPIClient apiClient = new MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID").Api;
+MoesifAPIClient client = new MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID").Api;
 
 // Only companyId is required
 // metadata can be any custom object
@@ -253,10 +253,10 @@ CompanyModel company = new CompanyBuilder()
     .build();
 
 // Asynchronous Call to update company
-apiClient.updateCompanyAsync(company, callBack);
+client.getAPI().updateCompanyAsync(company, callBack);
 
 // Synchronous Call to update company
-apiClient.updateCompany(company, callBack);
+client.getAPI().updateCompany(company, callBack);
 ```
 
 ```javascript--browser
@@ -636,7 +636,7 @@ apiClient.UpdateCompaniesBatch(companies);
 ```
 
 ```java
-MoesifAPIClient apiClient = new MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID").Api;
+MoesifAPIClient client = new MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID").Api;
 
 // Only companyId is required
 // metadata can be any custom object
@@ -655,11 +655,15 @@ CompanyModel company = new CompanyBuilder()
         "}"))
     .build();
 
-// Asynchronous Call to update company
-apiClient.updateCompanyAsync(company, callBack);
+// Create a batch of companies
+List<EventModel> events = new ArrayList<CompanyModel>();
+events.add(company);
 
-// Synchronous Call to update company
-apiClient.updateCompany(company, callBack);
+// Asynchronous Call to update companies
+client.getAPI().updateCompaniesBatchAsync(companies, callBack);
+
+// Synchronous Call to update companies
+client.getAPI().updateCompaniesBatch(companies);
 ```
 
 <blockquote class="lang-specific javascript--browser">

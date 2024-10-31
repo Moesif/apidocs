@@ -246,7 +246,7 @@ apiClient.UpdateUser(user);
 ```
 
 ```java
-MoesifAPIClient apiClient = new MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID");
+MoesifAPIClient client = new MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID");
 
 // Only userId is required
 // metadata can be any custom object
@@ -266,11 +266,11 @@ UserModel user = new UserBuilder()
         "}"))
     .build();
 
-// Synchronous Call to update user
-apiClient.updateUser(user);
-
 // Asynchronous Call to update user
-apiClient.updateUserAsync(user, callBack);
+client.getAPI().updateUserAsync(user, callBack);
+
+// Synchronous Call to update user
+client.getAPI().updateUser(user);
 ```
 
 ```javascript--browser
@@ -673,7 +673,7 @@ apiClient.UpdateUsersBatch(users);
 ```
 
 ```java
-MoesifAPIClient apiClient = new MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID");
+MoesifAPIClient client = new MoesifAPIClient("YOUR_COLLECTOR_APPLICATION_ID");
 
 List<UserModel> users = new ArrayList<UserModel>();
 
@@ -723,11 +723,11 @@ APICallBack<Object> callBack = new APICallBack<Object>() {
 };
 
 // Asynchronous call to update users
-apiClient.updateUsersBatchAsync(users, callBack);
+client.getAPI().updateUsersBatchAsync(users, callBack);
 
 
 // Synchronous call to update users
-apiClient.updateUsersBatch(users, callBack);
+client.getAPI().updateUsersBatch(users);
 ```
 
 <blockquote class="lang-specific javascript--browser">
