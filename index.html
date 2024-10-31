@@ -3099,7 +3099,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/events <span clas
 <span class="n">api</span><span class="o">.</span><span class="na">createEventAsync</span><span class="o">(</span><span class="n">eventModel</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
 
 <span class="c1">// Synchronous call to Send Event to Moesif</span>
-<span class="n">api</span><span class="o">.</span><span class="na">createEvent</span><span class="o">(</span><span class="n">eventModel</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
+<span class="n">api</span><span class="o">.</span><span class="na">createEvent</span><span class="o">(</span><span class="n">eventModel</span><span class="o">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--nodejs"><code><span class="c1">// 1. Import the module</span>
 <span class="kd">var</span> <span class="nx">moesifapi</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">moesifapi</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">EventModel</span> <span class="o">=</span> <span class="nx">moesifapi</span><span class="p">.</span><span class="nx">UserModel</span><span class="p">;</span>
@@ -3245,8 +3245,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/events <span clas
 <span class="n">event_model</span> <span class="o">=</span> <span class="n">EventModel</span><span class="p">(</span><span class="n">request</span> <span class="o">=</span> <span class="n">event_req</span><span class="p">,</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">event_rsp</span><span class="p">,</span>
     <span class="n">user_id</span> <span class="o">=</span> <span class="s">"12345"</span><span class="p">,</span>
-    <span class="n">company_id</span> <span class="o">=</span> <span class="s">"67890"</span><span class="p">,</span>
-     <span class="o">=</span> <span class="s">"XXXXXXXXX"</span><span class="p">)</span>
+    <span class="n">company_id</span> <span class="o">=</span> <span class="s">"67890"</span><span class="p">)</span>
 
 
 <span class="c1"># Perform the API call through the SDK function
@@ -3314,7 +3313,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/events <span clas
 <span class="n">event_model</span><span class="p">.</span><span class="nf">response</span> <span class="o">=</span> <span class="n">event_rsp</span>
 <span class="n">event_model</span><span class="p">.</span><span class="nf">user_id</span> <span class="o">=</span><span class="s2">"12345"</span>
 <span class="n">event_model</span><span class="p">.</span><span class="nf">company_id</span> <span class="o">=</span><span class="s2">"67890"</span>
-<span class="n">event_model</span><span class="p">.</span> <span class="nf">=</span> <span class="s2">"XXXXXXXXX"</span>
 
 <span class="c1"># Perform the API call through the SDK function</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">api</span><span class="p">.</span><span class="nf">create_event</span><span class="p">(</span><span class="n">event_model</span><span class="p">)</span>
@@ -3542,7 +3540,6 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/events <span clas
 
 <span class="nv">$event</span><span class="o">-&gt;</span><span class="n">user_id</span> <span class="o">=</span> <span class="s2">"12345"</span><span class="p">;</span>
 <span class="nv">$event</span><span class="o">-&gt;</span><span class="n">company_id</span> <span class="o">=</span> <span class="s2">"67890"</span><span class="p">;</span>
-<span class="nv">$event</span><span class="o">-&gt;</span> <span class="o">=</span> <span class="s2">"XXXXXXXXX"</span><span class="p">;</span>
 
 <span class="nv">$api</span><span class="o">-&gt;</span><span class="nf">createEvent</span><span class="p">(</span><span class="nv">$event</span><span class="p">);</span>
 </code></pre></div>
@@ -3862,7 +3859,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/events/batch <spa
 <span class="n">api</span><span class="o">.</span><span class="na">createEventsBatchAsync</span><span class="o">(</span><span class="n">events</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
 
 <span class="c1">// Synchronous Call to Send Event to Moesif</span>
-<span class="n">api</span><span class="o">.</span><span class="na">createEventsBatch</span><span class="o">(</span><span class="n">events</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
+<span class="n">api</span><span class="o">.</span><span class="na">createEventsBatch</span><span class="o">(</span><span class="n">events</span><span class="o">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--nodejs"><code><span class="c1">// Import the module:</span>
 <span class="kd">var</span> <span class="nx">moesifapi</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">moesifapi</span><span class="dl">'</span><span class="p">);</span>
 
@@ -4908,7 +4905,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users <span class
 
 <span class="c1">// Update the user synchronously</span>
 <span class="n">apiClient</span><span class="p">.</span><span class="nf">UpdateUser</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">MoesifAPIClient</span> <span class="n">apiClient</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MoesifAPIClient</span><span class="o">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">MoesifAPIClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MoesifAPIClient</span><span class="o">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="o">);</span>
 
 <span class="c1">// Only userId is required</span>
 <span class="c1">// metadata can be any custom object</span>
@@ -4928,11 +4925,11 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users <span class
         <span class="s">"}"</span><span class="o">))</span>
     <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
-<span class="c1">// Synchronous Call to update user</span>
-<span class="n">apiClient</span><span class="o">.</span><span class="na">updateUser</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
-
 <span class="c1">// Asynchronous Call to update user</span>
-<span class="n">apiClient</span><span class="o">.</span><span class="na">updateUserAsync</span><span class="o">(</span><span class="n">user</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
+<span class="n">client</span><span class="o">.</span><span class="na">getAPI</span><span class="o">().</span><span class="na">updateUserAsync</span><span class="o">(</span><span class="n">user</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
+
+<span class="c1">// Synchronous Call to update user</span>
+<span class="n">client</span><span class="o">.</span><span class="na">getAPI</span><span class="o">().</span><span class="na">updateUser</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--browser"><code><span class="kd">var</span> <span class="nx">moesif</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">moesif-browser-js</span><span class="dl">'</span><span class="p">);</span>
 
 <span class="nx">moesif</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
@@ -5390,7 +5387,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users/batch <span
 
 <span class="c1">// Update the users synchronously</span>
 <span class="n">apiClient</span><span class="p">.</span><span class="nf">UpdateUsersBatch</span><span class="p">(</span><span class="n">users</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">MoesifAPIClient</span> <span class="n">apiClient</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MoesifAPIClient</span><span class="o">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">MoesifAPIClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MoesifAPIClient</span><span class="o">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="o">);</span>
 
 <span class="nc">List</span><span class="o">&lt;</span><span class="nc">UserModel</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">UserModel</span><span class="o">&gt;();</span>
 
@@ -5440,11 +5437,11 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/users/batch <span
 <span class="o">};</span>
 
 <span class="c1">// Asynchronous call to update users</span>
-<span class="n">apiClient</span><span class="o">.</span><span class="na">updateUsersBatchAsync</span><span class="o">(</span><span class="n">users</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
+<span class="n">client</span><span class="o">.</span><span class="na">getAPI</span><span class="o">().</span><span class="na">updateUsersBatchAsync</span><span class="o">(</span><span class="n">users</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
 
 
 <span class="c1">// Synchronous call to update users</span>
-<span class="n">apiClient</span><span class="o">.</span><span class="na">updateUsersBatch</span><span class="o">(</span><span class="n">users</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
+<span class="n">client</span><span class="o">.</span><span class="na">getAPI</span><span class="o">().</span><span class="na">updateUsersBatch</span><span class="o">(</span><span class="n">users</span><span class="o">);</span>
 </code></pre></div>
 <blockquote class="lang-specific javascript--browser">
 <b>Since this is a client side SDK, you cannot save a batch of users with moesif-browser-js.</b>
@@ -5768,7 +5765,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies <span c
 
 <span class="c1">// Update the company synchronously</span>
 <span class="n">apiClient</span><span class="p">.</span><span class="nf">UpdateCompany</span><span class="p">(</span><span class="n">company</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">MoesifAPIClient</span> <span class="n">apiClient</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MoesifAPIClient</span><span class="o">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="o">).</span><span class="na">Api</span><span class="o">;</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">MoesifAPIClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MoesifAPIClient</span><span class="o">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="o">).</span><span class="na">Api</span><span class="o">;</span>
 
 <span class="c1">// Only companyId is required</span>
 <span class="c1">// metadata can be any custom object</span>
@@ -5788,10 +5785,10 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies <span c
     <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
 <span class="c1">// Asynchronous Call to update company</span>
-<span class="n">apiClient</span><span class="o">.</span><span class="na">updateCompanyAsync</span><span class="o">(</span><span class="n">company</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
+<span class="n">client</span><span class="o">.</span><span class="na">getAPI</span><span class="o">().</span><span class="na">updateCompanyAsync</span><span class="o">(</span><span class="n">company</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
 
 <span class="c1">// Synchronous Call to update company</span>
-<span class="n">apiClient</span><span class="o">.</span><span class="na">updateCompany</span><span class="o">(</span><span class="n">company</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
+<span class="n">client</span><span class="o">.</span><span class="na">getAPI</span><span class="o">().</span><span class="na">updateCompany</span><span class="o">(</span><span class="n">company</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--browser"><code><span class="kd">var</span> <span class="nx">moesif</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">moesif-browser-js</span><span class="dl">'</span><span class="p">);</span>
 
 <span class="nx">moesif</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
@@ -6221,7 +6218,7 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies/batch <
 
 <span class="c1">// Update the companies synchronously</span>
 <span class="n">apiClient</span><span class="p">.</span><span class="nf">UpdateCompaniesBatch</span><span class="p">(</span><span class="n">companies</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">MoesifAPIClient</span> <span class="n">apiClient</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MoesifAPIClient</span><span class="o">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="o">).</span><span class="na">Api</span><span class="o">;</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">MoesifAPIClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MoesifAPIClient</span><span class="o">(</span><span class="s">"YOUR_COLLECTOR_APPLICATION_ID"</span><span class="o">).</span><span class="na">Api</span><span class="o">;</span>
 
 <span class="c1">// Only companyId is required</span>
 <span class="c1">// metadata can be any custom object</span>
@@ -6240,11 +6237,15 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/companies/batch <
         <span class="s">"}"</span><span class="o">))</span>
     <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
-<span class="c1">// Asynchronous Call to update company</span>
-<span class="n">apiClient</span><span class="o">.</span><span class="na">updateCompanyAsync</span><span class="o">(</span><span class="n">company</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
+<span class="c1">// Create a batch of companies</span>
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">EventModel</span><span class="o">&gt;</span> <span class="n">events</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">CompanyModel</span><span class="o">&gt;();</span>
+<span class="n">events</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">company</span><span class="o">);</span>
 
-<span class="c1">// Synchronous Call to update company</span>
-<span class="n">apiClient</span><span class="o">.</span><span class="na">updateCompany</span><span class="o">(</span><span class="n">company</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
+<span class="c1">// Asynchronous Call to update companies</span>
+<span class="n">client</span><span class="o">.</span><span class="na">getAPI</span><span class="o">().</span><span class="na">updateCompaniesBatchAsync</span><span class="o">(</span><span class="n">companies</span><span class="o">,</span> <span class="n">callBack</span><span class="o">);</span>
+
+<span class="c1">// Synchronous Call to update companies</span>
+<span class="n">client</span><span class="o">.</span><span class="na">getAPI</span><span class="o">().</span><span class="na">updateCompaniesBatch</span><span class="o">(</span><span class="n">companies</span><span class="o">);</span>
 </code></pre></div>
 <blockquote class="lang-specific javascript--browser">
 <b>Since this is a client side SDK, you cannot save a batch of companies with moesif-browser-js.</b>
