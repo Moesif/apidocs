@@ -159,7 +159,7 @@ APICallBack<Object> callBack = new APICallBack<Object>() {
 api.createEventAsync(eventModel, callBack);
 
 // Synchronous call to Send Event to Moesif
-api.createEvent(eventModel, callBack);
+api.createEvent(eventModel);
 ```
 
 ```javascript--nodejs
@@ -311,8 +311,7 @@ event_rsp = EventResponseModel(time = datetime.utcnow(),
 event_model = EventModel(request = event_req,
     response = event_rsp,
     user_id = "12345",
-    company_id = "67890",
-     = "XXXXXXXXX")
+    company_id = "67890")
 
 
 # Perform the API call through the SDK function
@@ -383,7 +382,6 @@ event_model.request = event_req
 event_model.response = event_rsp
 event_model.user_id ="12345"
 event_model.company_id ="67890"
-event_model. = "XXXXXXXXX"
 
 # Perform the API call through the SDK function
 response = api.create_event(event_model)
@@ -620,7 +618,6 @@ $event->metadata = array(
 
 $event->user_id = "12345";
 $event->company_id = "67890";
-$event-> = "XXXXXXXXX";
 
 $api->createEvent($event);
 ```
@@ -819,7 +816,7 @@ events.add(eventModel);
 api.createEventsBatchAsync(events, callBack);
 
 // Synchronous Call to Send Event to Moesif
-api.createEventsBatch(events, callBack);
+api.createEventsBatch(events);
 ```
 
 ```javascript--nodejs
