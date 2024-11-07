@@ -4,11 +4,11 @@
 
 **`POST https://api.moesif.net/v1/actions`**
 
-Log a single custom action to Moesif. An action represents something a customer performed on your website
-such as _Sign In_ or _Purchased Subscription_. Each action consists of an _Action Name_ and optional _Metadata_.
+Log a single action to Moesif. 
+Actions represent events that occur within your application at a specific point in time. They can be tracked within your UI (such as "User Clicked Sign Up") or from your backend (such as "SMS Job Finished"). Each action consists of a required _Action Name_ and optional _Metadata_.
 
 <aside class="warning">
-Currently only the moesif-browser-js SDK supports tracking actions. If you need to track custom actions from your server, use the HTTP API directly.
+Actions can be tracked from your frontend app using moesif-browser-js or directly from your backend using this API.
 </aside>
 
 **An example tracking actions using moesif-browser-js:**
@@ -82,7 +82,7 @@ moesif.track('Clicked Sign Up', {
 |Name|Type|Required|Description|
 |-----------|-----------|-----------|-----------|
 transaction_id | string | false | A random 36 char UUID for this event. If set, Moesif will deduplicate events using this id and ensure idempotency.
-action_name | string | __true__ | A recognizable name such as <i>Clicked Sign Up</i> or <i>Purchased Subscription<i>
+action_name | string | __true__ | A recognizable name such as <i>Clicked Sign Up</i> or <i>SMS Job Finished<i>
 session_token | string | false | The customer's current session token as a string.
 user_id | string | false | Associate this API call to a [user](#users). Typically, a real person.
 company_id | string | false | Associate this API call to a [company](#companies) (Required for metered billing).
@@ -98,15 +98,14 @@ request |object | __true__ | The object containing the action's request context.
 
 **`POST https://api.moesif.net/v1/actions/batch`**
 
-Log a batch of custom action to Moesif. An action represents something a customer performed on your website
-such as _Sign In_ or _Purchased Subscription_. Each action consists of an _Action Name_ and optional _Metadata_.
+Log a batch of actions to Moesif. 
+Actions represent events that occur within your application at a specific point in time. They can be tracked within your UI (such as "User Clicked Sign Up") or from your backend (such as "SMS Job Finished"). Each action consists of a required _Action Name_ and optional _Metadata_.
 
-This API takes an array form of the same model defined for track single action.
-The maximum batch size is **12MB**. Break up larger batches.
-
+This API accepts an array of actions as the payload 
+The maximum batch size is **15MB**. Break up larger batches into smaller batches.
 
 <aside class="warning">
-Currently only the moesif-browser-js SDK supports tracking actions. if you need to track actions server-side, use the HTTP API directly.
+Actions can be tracked from your frontend app using moesif-browser-js or directly from your backend using this API.
 </aside>
 
 **An example tracking actions using moesif-browser-js:**
@@ -196,7 +195,7 @@ moesif.track('Clicked Sign Up', {
 |Name|Type|Required|Description|
 |-----------|-----------|-----------|-----------|
 transaction_id | string | false | A random 36 char UUID for this event. If set, Moesif will deduplicate events using this id and ensure idempotency. Moesif will still deduplicate even across different size batches.
-action_name | string | __true__ | A recognizable name such as <i>Clicked Sign Up</i> or <i>Purchased Subscription<i>
+action_name | string | __true__ | A recognizable name such as <i>Clicked Sign Up</i> or <i>SMS Job Finished<i>
 session_token | string | false | The customer's current session token as a string.
 user_id | string | false | Associate this API call to a [user](#users). Typically, a real person.
 company_id | string | false | Associate this API call to a [company](#companies) (Required for metered billing).

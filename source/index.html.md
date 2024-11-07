@@ -38,7 +38,7 @@ code_clipboard: true
 
 # Moesif API Reference
 
-Moesif is an API analytics and monetization service to grow your API products. With Moesif, you can quickly get started with API observability, API monetization and usage-based billing.
+Moesif is an API analytics and monetization service to build and grow better API products. With Moesif, you can quickly get started with API observability, API monetization and usage-based billing.
 
  With Moesif, you cam This reference is for v1 of the Moesif APIs.
 For an overview on the Moesif platform, see the [developer docs](/docs) or [implementation guides](https://www.moesif.com/implementation)
@@ -52,6 +52,6 @@ There are two APIs:
 
 ## API definitions
 
-The _Collector API_ enables you to log raw data to Moesif at high volume such as events and user profiles. It's a write-only, high-volume data collection network and is also used by the Moesif server integrations and plugins.
+The _Collector API_ enables you to log your raw event data to Moesif at high volume such as API calls and user profiles. It's a write-only, high-volume data collection network and is also used by the Moesif server integrations and plugins.
 
 The _Management API_ enables you to query and manage data in your Moesif account such as to embed charts in customer-facing applications.
