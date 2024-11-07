@@ -4,8 +4,8 @@
 
 **`POST https://api.moesif.net/v1/events`**
 
-Log a single API call to Moesif as an event.
-The request payload is a single API event containing the API request, the API response, and any custom event metadata.
+Log an API call to Moesif. API Calls in Moesif represent a full API operation or span (in OTel terminology).
+Each API call is a structured log containing the API request, the API response, start and end time, context, and any custom event metadata.
 
 <aside class="warning">
 For logging API calls at scale, most customers should integrate with one of Moesif's <a href="https://www.moesif.com/implementation">API monitoring agents</a> which instrument your API automatically and handle batching.
@@ -20,64 +20,69 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
 <br><br><i>Example Request</i><br>
 </blockquote>
 ```json
-  {
+{
     "request": {
-      "time": "2024-10-30T04:45:42.914",
-      "uri": "https://api.acmeinc.com/items/12345/reviews/",
-      "verb": "POST",
-      "api_version": "1.1.0",
-      "ip_address": "61.48.220.123",
-      "headers": {
-        "Host": "api.acmeinc.com",
-        "Accept": "*/*",
-        "Connection": "Keep-Alive",
-        "Content-Type": "application/json",
-        "Content-Length": "126",
-        "Accept-Encoding": "gzip"
-      },
-      "body": {
-        "items": [
-          {
-            "direction_type": 1,
-            "item_id": "hello",
-            "liked": false
-          },
-          {
-            "direction_type": 2,
-            "item_id": "world",
-            "liked": true
-          }
-        ]
-      },
-      "transfer_encoding": ""
+        "time": "2024-10-30T04:45:42.914",
+        "uri": "https://api.acmeinc.com/items/12345/reviews/",
+        "verb": "POST",
+        "api_version": "1.1.0",
+        "ip_address": "61.48.220.123",
+        "headers": {
+            "Host": "api.acmeinc.com",
+            "Accept": "*/*",
+            "Connection": "Keep-Alive",
+            "Content-Type": "application/json",
+            "Content-Length": "126",
+            "Accept-Encoding": "gzip"
+        },
+        "body": {
+            "items": [
+                {
+                    "direction_type": 1,
+                    "item_id": "hello",
+                    "liked": false
+                },
+                {
+                    "direction_type": 2,
+                    "item_id": "world",
+                    "liked": true
+                }
+            ]
+        },
+        "transfer_encoding": ""
     },
     "response": {
-      "time": "2024-10-30T04:45:42.914",
-      "status": 500,
-      "headers": {
-        "Vary": "Accept-Encoding",
-        "Pragma": "no-cache",
-        "Expires": "-1",
-        "Content-Type": "application/json; charset=utf-8",
-        "Cache-Control": "no-cache"
-      },
-      "body": {
-        "Error": "InvalidArgumentException",
-        "Message": "Missing field location"
-      },
-      "transfer_encoding": ""
+        "time": "2024-10-30T04:45:42.914",
+        "status": 500,
+        "headers": {
+            "Vary": "Accept-Encoding",
+            "Pragma": "no-cache",
+            "Expires": "-1",
+            "Content-Type": "application/json; charset=utf-8",
+            "Cache-Control": "no-cache"
+        },
+        "body": {
+            "Error": "InvalidArgumentException",
+            "Message": "Missing field location"
+        },
+        "transfer_encoding": ""
     },
     "user_id": "12345",
     "company_id": "67890",
     "transaction_id": "a3765025-46ec-45dd-bc83-b136c8d1d257",
+    "trace_id": "4bf92f3577b34da6a3ce929d0e0e4736",
+    "span": {
+        "id": "00f067aa0ba902b7",
+        "parent_span_id": "b3c3f3c3f3c3f3c3"
+    },
     "metadata": {
         "some_string": "I am a string",
         "some_int": 77,
         "some_object": {
-            "some_sub_field": "some_value"
+            "some_sub_field": "I am another string"
         }
     }
-  }
+}
 ```
 
 ```shell
@@ -597,7 +602,7 @@ $event->request = array(
            "time" => $rspdate->format(DateTime::ISO8601), 
            "status" => 500, 
            "headers" => array(
-             "Date" => "Tue, 1 Mar 2022 23:46:49 GMT", 
+             "Date" => "Tue, 1 Oct 2024 23:46:49 GMT", 
              "Vary" => "Accept-Encoding", 
              "Pragma" => "no-cache", 
              "Expires" => "-1", 
@@ -642,12 +647,21 @@ response |object | false | The object that specifies the API response. The respo
 <p style="margin-left:1.5em">body</p> |object | false | Payload of the response in either JSON or a base64 encoded string.
 <p style="margin-left:1.5em">transfer_encoding</p> | string | false | Specifies the transfer encoding of _response.body_ field. If set to _json_ then the response.body must be a JSON object. If set to _base64_, then _response.body_ must be a base64 encoded string. Helpful for binary payloads. If not set, the body is assumed to be _json_.
 ||
+span |object | false | The object that contains open telemetry span context
+<p style="margin-left:1.5em">id</p> |string | false | The open telemetry span id for this API call.
+<p style="margin-left:1.5em">parent_id</p> |string | false | The parent span id that comes before this API call.
+<p style="margin-left:1.5em">links</p> |array | false | List of links to related traces or spans
+<p style="margin-left:1.5em">status</p> |integer | false | The status of the span's operation
+||
+action_name | string | false | A recognizable operation name such as <i>Get Items</i> or <i>Triggered SMS Job<i>
+trace_id | string | false | The open telemetry trace_id that this API call is part of.
 transaction_id | string | false | A random 36 char UUID for this event. If set, Moesif will deduplicate events using this id and ensure idempotency.
 session_token | string | false | Set the API key/session token used for this API call. Moesif will auto-detect API sessions if not set.
 user_id | string | false | Associate this API call to a [user](#users). Typically, a real person.
 company_id | string | false | Associate this API call to a [company](#companies) (Required for metered billing).
 subscription_id | string | false | Associate this API call to a specific [subscription](#subscriptions) of a company. Not needed unless same company can have multiple subscriptions to the same plan. When set, usage will be reported to only this subscription.
-direction | string | false | The direction of this API call which can be _Incoming_ or _Outgoing_.
+direction | string | false | The direction of this API call which can be _Incoming_, _Outgoing_, or _Internal_
+weight|integer | 1 | The weight of this event which is 1/sampling rate. Moesif uses this to reweigh scalar values, like counts, ensuring they are accurate even when API calls are sampled.
 metadata | object | false | An object containing any custom event metadata you want to store with this event.
 
 
@@ -656,10 +670,10 @@ metadata | object | false | An object containing any custom event metadata you w
 **`POST https://api.moesif.net/v1/events/batch`**
 
 Creates and logs a batch of API calls to Moesif.
-The request payload is an array API calls entities, each consisting of the API request, the API response, and any custom event metadata.
+API Calls in Moesif represent a full API operation or span (in OTel terminology).
+Each API call is a structured log containing the API request, the API response, start and end time, context, and any custom event metadata.
 
-This API takes a list form of the same model defined in create single event.
-
+This API accepts an array of API calls as the payload 
 The maximum batch size is **50MB**. Break up larger batches into smaller batches.
 
 <aside class="info">
@@ -722,6 +736,11 @@ Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
         "user_id": "12345",
         "company_id": "67890",
         "transaction_id": "a3765025-46ec-45dd-bc83-b136c8d1d257",
+        "trace_id": "4bf92f3577b34da6a3ce929d0e0e4736",
+        "span": {
+            "id": "00f067aa0ba902b7",
+            "parent_span_id": "b3c3f3c3f3c3f3c3"
+        },
         "metadata": {
             "some_string": "I am a string",
             "some_int": 77,
@@ -1204,10 +1223,19 @@ response |object | false | The object that specifies the API response. The respo
 <p style="margin-left:1.5em">body</p> |object | false | Payload of the response in either JSON or a base64 encoded string.
 <p style="margin-left:1.5em">transfer_encoding</p> | string | false | Specifies the transfer encoding of _response.body_ field. If set to _json_ then the response.body must be a JSON object. If set to _base64_, then _response.body_ must be a base64 encoded string. Helpful for binary payloads. If not set, the body is assumed to be _json_.
 ||
+span |object | false | The object that contains open telemetry span context
+<p style="margin-left:1.5em">id</p> |string | false | The open telemetry span id for this API call.
+<p style="margin-left:1.5em">parent_id</p> |string | false | The parent span id that comes before this API call.
+<p style="margin-left:1.5em">links</p> |array | false | List of links to related traces or spans
+<p style="margin-left:1.5em">status</p> |integer | false | The status of the span's operation
+||
+action_name | string | false | A recognizable operation name such as <i>Get Items</i> or <i>Triggered SMS Job<i>
+trace_id | string | false | The open telemetry trace_id that this API call is part of.
 transaction_id | string | false | A random 36 char UUID for this event. If set, Moesif will deduplicate events using this id and ensure idempotency. Moesif will still deduplicate even across different size batches.
 session_token | string | false | Set the API key/session token used for this API call. Moesif will auto-detect API sessions if not set.
 user_id | string | false | Associate this API call to a [user](#users). Typically, a real person.
 company_id | string | false | Associate this API call to a [company](#companies) (Required for metered billing).
 subscription_id | string | false | Associate this API call to a specific [subscription](#subscriptions) of a company. Not needed unless same company can have multiple subscriptions to the same plan. When set, usage will be reported to only this subscription.
-direction | string | false | The direction of this API call which can be _Incoming_ or _Outgoing_.
+direction | string | false | The direction of this API call which can be _Incoming_, _Outgoing_, or _Internal_
+weight|integer | 1 | The weight of this event which is 1/sampling rate. Moesif uses this to reweigh scalar values, like counts, ensuring they are accurate even when API calls are sampled.
 metadata | object | false | An object containing any custom event metadata you want to store with this event.
