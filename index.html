@@ -4491,27 +4491,13 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/events/batch <spa
 <p>Log a single action to Moesif. 
 Actions represent events that occur within your application at a specific point in time. They can be tracked within your UI (such as &quot;User Clicked Sign Up&quot;) or from your backend (such as &quot;SMS Job Finished&quot;). Each action consists of a required <em>Action Name</em> and optional <em>Metadata</em>.</p>
 
-<aside class="warning">
-Actions can be tracked from your frontend app using moesif-browser-js or directly from your backend using this API.
+<aside class="notice">
+
+Actions can be tracked from your frontend app using <code>moesif-browser-js</code> or directly from your backend using this API. You can also use 
+<a href="https://github.com/Moesif/moesifapi-nodejs">Moesif API library for Node.js</a> and 
+<a href="https://github.com/Moesif/moesif-nodejs">Moesif Node.js middleware</a>.
+
 </aside>
-
-<p><strong>An example tracking actions using moesif-browser-js:</strong></p>
-
-<div class="center-column"></div>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">moesif</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">moesif-browser-js</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="nx">moesif</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
-  <span class="na">applicationId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_COLLECTOR_APPLICATION_ID</span><span class="dl">'</span>
-<span class="p">});</span>
-
-<span class="c1">// The first argument (required) contains the action name string. </span>
-<span class="c1">// The second argument (optional) contains event metadata.</span>
-<span class="nx">moesif</span><span class="p">.</span><span class="nx">track</span><span class="p">(</span><span class="dl">'</span><span class="s1">Clicked Sign Up</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
-  <span class="na">button_label</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Get Started</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">sign_up_method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Google SSO</span><span class="dl">'</span>
-<span class="p">});</span>
-</code></pre></div>
-<p></pre></p>
 
 <aside class="info">
 Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
@@ -4551,6 +4537,32 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/actions <span cla
 <span class="nx">moesif</span><span class="p">.</span><span class="nx">track</span><span class="p">(</span><span class="dl">'</span><span class="s1">Clicked Sign Up</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
   <span class="na">button_label</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Get Started</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">sign_up_method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Google SSO</span><span class="dl">'</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kd">var</span> <span class="nx">moesifapi</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">moesifapi</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">apiClient</span> <span class="o">=</span> <span class="nx">moesifapi</span><span class="p">.</span><span class="nx">ApiController</span><span class="p">;</span>
+
+<span class="nx">moesifapi</span><span class="p">.</span><span class="nx">configuration</span><span class="p">.</span><span class="nx">ApplicationId</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">YOUR_COLLECTOR_APPLICATION_ID</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">action</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">transactionId</span><span class="p">:</span> <span class="dl">"</span><span class="s2">a3765025-46ec-45dd-bc83-b136c8d1d257</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">actionName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Clicked Sign Up</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">sessionToken</span><span class="p">:</span> <span class="dl">"</span><span class="s2">23jdf0owekfmcn4u3qypxg08w4d8ayrcdx8nu2nz]s98y18cx98q3yhwmnhcfx43f</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">userId</span><span class="p">:</span> <span class="dl">"</span><span class="s2">12345</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">companyId</span><span class="p">:</span> <span class="dl">"</span><span class="s2">67890</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">metadata</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">email</span><span class="p">:</span> <span class="dl">"</span><span class="s2">johndoe@acmeinc.com</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">button_label</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Get Started</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">sign_up_method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Google SSO</span><span class="dl">'</span>
+  <span class="p">},</span>
+  <span class="na">request</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">time</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span>
+    <span class="na">uri</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.acmeinc.com/items/reviews/</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">ipAddress</span><span class="p">:</span> <span class="dl">"</span><span class="s2">61.48.220.123</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="c1">// Send the Action</span>
+<span class="nx">apiClient</span><span class="p">.</span><span class="nx">sendAction</span><span class="p">(</span><span class="k">new</span> <span class="nx">moesifapi</span><span class="p">.</span><span class="nx">ActionModel</span><span class="p">(</span><span class="nx">action</span><span class="p">),</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do Something</span>
 <span class="p">});</span>
 </code></pre></div>
 <table><thead>
@@ -4643,27 +4655,14 @@ Actions represent events that occur within your application at a specific point 
 <p>This API accepts an array of actions as the payload 
 The maximum batch size is <strong>15MB</strong>. Break up larger batches into smaller batches.</p>
 
-<aside class="warning">
-Actions can be tracked from your frontend app using moesif-browser-js or directly from your backend using this API.
+<aside class="notice">
+
+Actions can be tracked from your frontend app using <code>moesif-browser-js</code> 
+or directly from your backend using this API. You can also use 
+<a href="https://github.com/Moesif/moesifapi-nodejs">Moesif API library for Node.js</a> and 
+<a href="https://github.com/Moesif/moesif-nodejs">Moesif Node.js middleware</a>.
+
 </aside>
-
-<p><strong>An example tracking actions using moesif-browser-js:</strong></p>
-
-<div class="center-column"></div>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">moesif</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">moesif-browser-js</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="nx">moesif</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
-  <span class="na">applicationId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_COLLECTOR_APPLICATION_ID</span><span class="dl">'</span>
-<span class="p">});</span>
-
-<span class="c1">// The first argument (required) contains the action name string. </span>
-<span class="c1">// The second argument (optional) contains event metadata.</span>
-<span class="nx">moesif</span><span class="p">.</span><span class="nx">track</span><span class="p">(</span><span class="dl">'</span><span class="s1">Clicked Sign Up</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
-  <span class="na">button_label</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Get Started</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">sign_up_method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Google SSO</span><span class="dl">'</span>
-<span class="p">});</span>
-</code></pre></div>
-<p></pre></p>
 
 <aside class="info">
 Replace <i>YOUR_COLLECTOR_APPLICATION_ID</i> with your real Application Id
@@ -4719,6 +4718,63 @@ curl <span class="nt">-X</span> POST https://api.moesif.net/v1/actions/batch <sp
 <span class="nx">moesif</span><span class="p">.</span><span class="nx">track</span><span class="p">(</span><span class="dl">'</span><span class="s1">Clicked Sign Up</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
   <span class="na">button_label</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Get Started</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">sign_up_method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Google SSO</span><span class="dl">'</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kd">var</span> <span class="nx">moesifapi</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">moesifapi</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">apiClient</span> <span class="o">=</span> <span class="nx">moesifapi</span><span class="p">.</span><span class="nx">ApiController</span><span class="p">;</span>
+
+<span class="nx">moesifapi</span><span class="p">.</span><span class="nx">configuration</span><span class="p">.</span><span class="nx">ApplicationId</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">YOUR_COLLECTOR_APPLICATION_ID</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="c1">// Define the request context objects for each action.</span>
+<span class="kd">var</span> <span class="nx">req_contextA</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">time</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span>
+  <span class="na">uri</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.acmeinc.com/items/reviews/</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">ipAddress</span><span class="p">:</span> <span class="dl">"</span><span class="s2">61.48.220.123</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">userAgentString</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0</span><span class="dl">"</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">req_contextB</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">time</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span>
+  <span class="na">uri</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.acmeinc.com/pricing/</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">ipAddress</span><span class="p">:</span> <span class="dl">"</span><span class="s2">61.48.220.126</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">userAgentString</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PostmanRuntime/7.26.5</span><span class="dl">"</span>
+<span class="p">};</span>
+
+<span class="c1">// Define the actions.</span>
+<span class="kd">var</span> <span class="nx">actionA</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">transactionId</span><span class="p">:</span> <span class="dl">"</span><span class="s2">a3765025-46ec-45dd-bc83-b136a8d1d357</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">actionName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Clicked Sign Up</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">sessionToken</span><span class="p">:</span> <span class="dl">"</span><span class="s2">23abf0owekfmcn4u3qypxg09w4d8ayrcdx8nu2ng]s98y18cx98q3yhwmnhcfx43f</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">userId</span><span class="p">:</span> <span class="dl">"</span><span class="s2">18340</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">companyId</span><span class="p">:</span> <span class="dl">"</span><span class="s2">25100</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">metadata</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">email</span><span class="p">:</span> <span class="dl">"</span><span class="s2">alex@acmeinc.com</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">button_label</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Get Started</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">sign_up_method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Google SSO</span><span class="dl">'</span>
+  <span class="p">},</span>
+  <span class="na">request</span><span class="p">:</span> <span class="nx">req_contextA</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">actionB</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">transactionId</span><span class="p">:</span> <span class="dl">"</span><span class="s2">a3765024-46ee-45dd-bc83-b136c8d1d250</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">actionName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Viewed pricing</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">sessionToken</span><span class="p">:</span> <span class="dl">"</span><span class="s2">23jdf0owejfmbn4u3qypxg09w4d8ayrxdx8nu2ng]s98y18cx98q3yhwmnhcfx43f</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">userId</span><span class="p">:</span> <span class="dl">"</span><span class="s2">12390</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">companyId</span><span class="p">:</span> <span class="dl">"</span><span class="s2">97895</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">metadata</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">email</span><span class="p">:</span> <span class="dl">"</span><span class="s2">kim@acmeinc.com</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">button_label</span><span class="p">:</span> <span class="dl">'</span><span class="s1">See pricing</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">sign_up_method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Google SSO</span><span class="dl">'</span>
+  <span class="p">},</span>
+  <span class="na">request</span><span class="p">:</span> <span class="nx">req_contextB</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">actions</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="k">new</span> <span class="nx">moesifapi</span><span class="p">.</span><span class="nx">ActionModel</span><span class="p">(</span><span class="nx">actionA</span><span class="p">),</span>
+  <span class="k">new</span> <span class="nx">moesifapi</span><span class="p">.</span><span class="nx">ActionModel</span><span class="p">(</span><span class="nx">actionB</span><span class="p">)</span>
+<span class="p">];</span>
+<span class="c1">// Send the batch of Actions</span>
+<span class="nx">apiClient</span><span class="p">.</span><span class="nx">sendActionsBatch</span><span class="p">(</span><span class="nx">actions</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do Something</span>
 <span class="p">});</span>
 </code></pre></div>
 <table><thead>
