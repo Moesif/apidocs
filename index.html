@@ -6632,6 +6632,58 @@ curl <span class="nt">--location</span> <span class="s1">'https://api.moesif.net
 <td>false</td>
 <td>An object containing subscription demographics or other properties you want to store with this profile.</td>
 </tr>
+<tr>
+<td>items</td>
+<td>object[]</td>
+<td>false</td>
+<td>An array of items, each item represents an plan or price that the customer is subscribed to. See schema for subscription items below.</td>
+</tr>
+</tbody></table>
+<h5 id='items-subscription-items'>items (Subscription Items)</h5>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>plan_id</td>
+<td>string</td>
+<td><strong>true</strong></td>
+<td>The unique identifier the plan the customer subscribed to.</td>
+</tr>
+<tr>
+<td>subscription_item_id</td>
+<td>string</td>
+<td><strong>false</strong></td>
+<td>The unique identifier for this item instance if available</td>
+</tr>
+<tr>
+<td>price_id</td>
+<td>string</td>
+<td><strong>false</strong></td>
+<td>The unique identify for the price the customer subscribed to.</td>
+</tr>
+<tr>
+<td>unit_of_measure</td>
+<td>string</td>
+<td><strong>false</strong></td>
+<td>the unit of measure.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>string(date-time)</td>
+<td><strong>false</strong></td>
+<td>When this item is created.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>object</td>
+<td>false</td>
+<td>An object containing additional data</td>
+</tr>
 </tbody></table>
 <h3 id='update-subscriptions-in-batch'>Update Subscriptions in Batch</h3>
 <p><strong><code>POST https://api.moesif.net/v1/subscriptions/batch</code></strong></p>
@@ -6751,6 +6803,12 @@ curl <span class="nt">--location</span> <span class="s1">'https://api.moesif.net
 <td>object</td>
 <td>false</td>
 <td>An object containing subscription demographics or other properties you want to store with this profile.</td>
+</tr>
+<tr>
+<td>items</td>
+<td>object[]</td>
+<td>false</td>
+<td>An array of items, each item represents an plan or price that the customer is subscribed to. See schema for items above.</td>
 </tr>
 </tbody></table>
 <h2 id='config'>Config</h2><h3 id='get-config'>Get Config</h3>
