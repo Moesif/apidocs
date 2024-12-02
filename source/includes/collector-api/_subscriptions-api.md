@@ -118,6 +118,9 @@ Replace <i>my_application_id</i> with your real Application Id
     "current_period_start": "2024-10-21T17:32:28.000Z",
     "current_period_end": "2024-11-21T17:32:28.000Z",
     "status": "active",
+    "items": [{
+      "plan_id": "my_custom_plan"
+    }],
     "metadata": {
         "subscription_type": "PAYG",
         "subscription_tier": "Pro",
@@ -156,6 +159,9 @@ curl --location 'https://api.moesif.net/v1/subscriptions/batch' \
     "current_period_start": "2024-10-21T17:32:28.000Z",
     "current_period_end": "2024-11-21T17:32:28.000Z",
     "status": "active",
+    "items": [{
+      "plan_id": "my_custom_plan"
+    }],
     "metadata": {
         "subscription_type": "PAYG",
         "subscription_tier": "Pro",
