@@ -18,7 +18,7 @@ Error Code | Meaning
 
 Moesif has certain limits to ensure performance and stability for all Moesif customers. The Management APIs are rate limited to protect service degradation. Moesif also has limits on event size to ensure performance of your account.
 
-**Moesif does not rate limit data ingestion via the collector APIs. However, you can still be throttled due to security reasons to product Moesif infrastructure. This may happen when unusual behavior is detected such as exceeding your quota by a wide margin**
+**Moesif does not rate limit data ingestion via the collector APIs. However, you can still be throttled due to security reasons to protect Moesif infrastructure. This may happen when unusual behavior is detected such as exceeding your quota by a wide margin**
 
 ### Maximum Event Size
 
@@ -46,7 +46,7 @@ To ensure performance of search queries, the Management API has a rate limit of 
 The search APIs are intended for interactive workflows such as logging into Moesif UI or to integrate Moesif into your applications.
 If you need to transfer large amounts of data to cloud object storage (like Azure Storage) or to your data warehouse, you should use the bulk export APIs and not the search API.
 
-**Moesif does not rate limit data ingestion via the collector APIs. However, you can still be throttled due to security reasons to product Moesif infrastructure. This may happen when unusual behavior is detected such as exceeding your quota by a wide margin**
+**Moesif does not rate limit data ingestion via the collector APIs. However, you can still be throttled due to security reasons to protect Moesif infrastructure. This may happen when unusual behavior is detected such as exceeding your quota by a wide margin**
 
 ### Late Events
 
