@@ -80,7 +80,7 @@ Subscriptions in Moesif are identified via a `subscription_id` and should be a _
 
 |Name|Type|Required|Description|
 |-----------|-----------|-----------|-----------|
-|plan_id|string| __true__ | The unique identifier the plan the customer subscribed to.|
+|plan_id|string| __true__ | The unique identifier for the plan the customer subscribed to.|
 |subscription_item_id |string|false| The unique identifier for this item instance if available|
 |price_id|string|false| The unique identify for the price the customer subscribed to.|
 |unit_of_measure|string|false| the unit of measure.|
