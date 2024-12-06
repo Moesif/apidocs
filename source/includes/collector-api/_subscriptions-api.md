@@ -184,4 +184,4 @@ Subscriptions in Moesif are identified via a `subscription_id` and should be a _
 |current_period_end |string(date-time)| false | The end time of the current billing term. This can be yearly, monthly, or other billing term. Required for quota and billing management.|
 |status |string| false | One of [active, cancelled, paused, trialing, pending, draft, future]. This can be used to drive governance rules that the subscription status in Moesif such as blocking access to cancelled subscriptions.|
 |metadata |object| false | An object containing subscription demographics or other properties you want to store with this profile.|
-|items |object\[\]| false | An array of items, each item represents an plan or price that the customer is subscribed to. See schema for items above.
+|items |object\[\]| false | An array of items, each item represents a plan or price that the customer is subscribed to. See schema for items above.
