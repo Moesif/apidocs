@@ -1,5 +1,5 @@
 # API Libs
-THese are low-level libraries to access the Moesif Collector API directly. For logging API calls at scale, most 
+These are low-level libraries to access the Moesif Collector API directly. For logging API calls at scale, most
 customers should integrate with one of Moesif's <a href="https://www.moesif.com/implementation">API monitoring agents</a> which instrument your API automatically and handle batching. Likewise, Moesif has [client integrations](https://www.moesif.com/implementation/track-user-behaviors-with-browser?platform=browser) for tracking users and their actions in your UI.
 
 ## How to Install
@@ -140,6 +140,6 @@ Select your language on the right:
 The SDKs are open-source and available on GitHub.
 
 <aside class="notice">
-You can find your Application Id by logging into Moesif 
+You can find your Application Id by logging into Moesif
 and selecting API keys from bottom left menu.
 </aside>
