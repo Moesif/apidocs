@@ -2797,7 +2797,7 @@ If you need to transfer large amounts of data to cloud object storage (like Azur
 
 <p>While Moesif will process the events, events that are more than 5 minutes old are considered &quot;late events&quot;. Certain workflows with strict deadlines like alerting and billing may be impacted. If you&#39;re using a native Moesif server integrations, this shouldn&#39;t be an issue as they stream events to Moesif in real-time within milliseconds. If you have an ingestion delay in the minutes it likely implies something wrong with your server integration. Server clock can be another issue if incorrectly set. We do track ingestion delays internally, so we&#39;ll reach out if we see such issues happening on your account.</p>
 <h1 id='api-libs'>API Libs</h1>
-<p>THese are low-level libraries to access the Moesif Collector API directly. For logging API calls at scale, most 
+<p>These are low-level libraries to access the Moesif Collector API directly. For logging API calls at scale, most
 customers should integrate with one of Moesif&#39;s <a href="https://www.moesif.com/implementation">API monitoring agents</a> which instrument your API automatically and handle batching. Likewise, Moesif has <a href="https://www.moesif.com/implementation/track-user-behaviors-with-browser?platform=browser">client integrations</a> for tracking users and their actions in your UI.</p>
 <h2 id='how-to-install'>How to Install</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">Pick</span> <span class="n">a</span> <span class="n">language</span> <span class="n">at</span> <span class="n">the</span> <span class="n">bottom</span> <span class="n">left</span>
 </code></pre></div>
@@ -2909,7 +2909,7 @@ Install via CDN
 <p>The SDKs are open-source and available on GitHub.</p>
 
 <aside class="notice">
-You can find your Application Id by logging into Moesif 
+You can find your Application Id by logging into Moesif
 and selecting API keys from bottom left menu.
 </aside>
 <h1 id="collector-api">Collector API v1</h1>
@@ -6652,7 +6652,7 @@ curl <span class="nt">--location</span> <span class="s1">'https://api.moesif.net
 <td>plan_id</td>
 <td>string</td>
 <td><strong>true</strong></td>
-<td>The unique identifier the plan the customer subscribed to.</td>
+<td>The unique identifier for the plan the customer subscribed to.</td>
 </tr>
 <tr>
 <td>subscription_item_id</td>
@@ -6814,7 +6814,7 @@ curl <span class="nt">--location</span> <span class="s1">'https://api.moesif.net
 <td>items</td>
 <td>object[]</td>
 <td>false</td>
-<td>An array of items, each item represents an plan or price that the customer is subscribed to. See schema for items above.</td>
+<td>An array of items, each item represents a plan or price that the customer is subscribed to. See schema for items above.</td>
 </tr>
 </tbody></table>
 <h2 id='config'>Config</h2><h3 id='get-config'>Get Config</h3>
