@@ -18966,7 +18966,14 @@ Get BillingReports' values for a given meter and time range for a single company
 |interval|query|string|false|none|
 |company_id|query|string|false|none|
 |subscription_id|query|string|false|none|
-|`type`|query|array[string]|false|none|
+|subscription_item_id|query|string|false|none|
+|plan_id|query|string|false|none|
+|price_id|query|string|false|none|
+|provider|query|string|false|none|
+|currency|query|string|false|none|
+|status|query|array[string]|false|none|
+|group_by|query|string|false|none|
+|type|query|array[string]|false|none|
 
 > Example responses
 
@@ -18978,7 +18985,9 @@ Get BillingReports' values for a given meter and time range for a single company
     {
       "start": "2024-04-11T04:01:35.090Z",
       "metric": 0.1,
-      "amounts": null,
+      "amounts": {
+        "USD": 0
+      },
       "ending_balance": {
         "current_balance": 0.1,
         "pending_activity": 0.1,
