@@ -83,7 +83,7 @@ curl -X POST https://api.moesif.com/v1/search/~/companies \
 
   -d '{
   "company_id": "string",
-  "modified_time": "2024-04-11T04:01:35.090Z",
+  "modified_time": "2025-01-09T17:18:58.560Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
@@ -94,7 +94,7 @@ curl -X POST https://api.moesif.com/v1/search/~/companies \
 const fetch = require('node-fetch');
 const inputBody = {
   "company_id": "string",
-  "modified_time": "2024-04-11T04:01:35.090Z",
+  "modified_time": "2025-01-09T17:18:58.560Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
@@ -128,13 +128,13 @@ headers = {
 }
 input_body = {
   "company_id": "string",
-  "modified_time": "2024-04-11T04:01:35.090Z",
+  "modified_time": "2025-01-09T17:18:58.560Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
 }
 
-r = requests.post('https://api.moesif.com/v1/search/~/companies', headers = headers, json = input_body)
+r = requests.post('https://api.moesif.com/v1/search/~/companies', headers = headers, json = input_data)
 
 print(r.json())
 
@@ -152,7 +152,7 @@ headers = {
 
 input_payload = JSON.parse('{
   "company_id": "string",
-  "modified_time": "2024-04-11T04:01:35.090Z",
+  "modified_time": "2025-01-09T17:18:58.560Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
@@ -181,7 +181,7 @@ $headers = array(
 
 $inputPayload = json_decode('{
   "company_id": "string",
-  "modified_time": "2024-04-11T04:01:35.090Z",
+  "modified_time": "2025-01-09T17:18:58.560Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
@@ -223,7 +223,7 @@ func main() {
     }
     jsonPayload := `{
   "company_id": "string",
-  "modified_time": "2024-04-11T04:01:35.090Z",
+  "modified_time": "2025-01-09T17:18:58.560Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
@@ -271,7 +271,7 @@ public class HttpExample
       
       string json = @"{
   ""company_id"": ""string"",
-  ""modified_time"": ""2024-04-11T04:01:35.090Z"",
+  ""modified_time"": ""2025-01-09T17:18:58.560Z"",
   ""session_token"": ""string"",
   ""company_domain"": ""string"",
   ""metadata"": {}
@@ -331,7 +331,7 @@ con.setDoOutput(true);
 
 String jsonPayload = """{
   "company_id": "string",
-  "modified_time": "2024-04-11T04:01:35.090Z",
+  "modified_time": "2025-01-09T17:18:58.560Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
@@ -366,7 +366,7 @@ System.out.println(response.toString());
 ```json
 {
   "company_id": "string",
-  "modified_time": "2024-04-11T04:01:35.090Z",
+  "modified_time": "2025-01-09T17:18:58.560Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
@@ -410,7 +410,7 @@ curl -X POST https://api.moesif.com/v1/search/~/companies/batch \
   -d '[
   {
     "company_id": "string",
-    "modified_time": "2024-04-11T04:01:35.090Z",
+    "modified_time": "2025-01-09T17:18:58.560Z",
     "session_token": "string",
     "company_domain": "string",
     "metadata": {}
@@ -423,7 +423,7 @@ const fetch = require('node-fetch');
 const inputBody = [
   {
     "company_id": "string",
-    "modified_time": "2024-04-11T04:01:35.090Z",
+    "modified_time": "2025-01-09T17:18:58.560Z",
     "session_token": "string",
     "company_domain": "string",
     "metadata": {}
@@ -459,14 +459,14 @@ headers = {
 input_body = [
   {
     "company_id": "string",
-    "modified_time": "2024-04-11T04:01:35.090Z",
+    "modified_time": "2025-01-09T17:18:58.560Z",
     "session_token": "string",
     "company_domain": "string",
     "metadata": {}
   }
 ]
 
-r = requests.post('https://api.moesif.com/v1/search/~/companies/batch', headers = headers, json = input_body)
+r = requests.post('https://api.moesif.com/v1/search/~/companies/batch', headers = headers, json = input_data)
 
 print(r.json())
 
@@ -485,7 +485,7 @@ headers = {
 input_payload = JSON.parse('[
   {
     "company_id": "string",
-    "modified_time": "2024-04-11T04:01:35.090Z",
+    "modified_time": "2025-01-09T17:18:58.560Z",
     "session_token": "string",
     "company_domain": "string",
     "metadata": {}
@@ -516,7 +516,7 @@ $headers = array(
 $inputPayload = json_decode('[
   {
     "company_id": "string",
-    "modified_time": "2024-04-11T04:01:35.090Z",
+    "modified_time": "2025-01-09T17:18:58.560Z",
     "session_token": "string",
     "company_domain": "string",
     "metadata": {}
@@ -560,7 +560,7 @@ func main() {
     jsonPayload := `[
   {
     "company_id": "string",
-    "modified_time": "2024-04-11T04:01:35.090Z",
+    "modified_time": "2025-01-09T17:18:58.560Z",
     "session_token": "string",
     "company_domain": "string",
     "metadata": {}
@@ -610,7 +610,7 @@ public class HttpExample
       string json = @"[
   {
     ""company_id"": ""string"",
-    ""modified_time"": ""2024-04-11T04:01:35.090Z"",
+    ""modified_time"": ""2025-01-09T17:18:58.560Z"",
     ""session_token"": ""string"",
     ""company_domain"": ""string"",
     ""metadata"": {}
@@ -672,7 +672,7 @@ con.setDoOutput(true);
 String jsonPayload = """[
   {
     "company_id": "string",
-    "modified_time": "2024-04-11T04:01:35.090Z",
+    "modified_time": "2025-01-09T17:18:58.560Z",
     "session_token": "string",
     "company_domain": "string",
     "metadata": {}
@@ -709,7 +709,7 @@ System.out.println(response.toString());
 [
   {
     "company_id": "string",
-    "modified_time": "2024-04-11T04:01:35.090Z",
+    "modified_time": "2025-01-09T17:18:58.560Z",
     "session_token": "string",
     "company_domain": "string",
     "metadata": {}
@@ -1232,7 +1232,7 @@ input_body = false
 r = requests.post('https://api.moesif.com/v1/search/~/count/companies', params={
   'app_id': 'string'
 
-}, headers = headers, json = input_body)
+}, headers = headers, json = input_data)
 
 print(r.json())
 
@@ -1506,7 +1506,7 @@ headers = {
 }
 input_body = false
 
-r = requests.post('https://api.moesif.com/v1/search/~/search/companymetrics/companies', headers = headers, json = input_body)
+r = requests.post('https://api.moesif.com/v1/search/~/search/companymetrics/companies', headers = headers, json = input_data)
 
 print(r.json())
 
@@ -1971,9 +1971,9 @@ curl -X POST https://api.moesif.com/v1/search/~/subscriptions \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
 
   -d '{
-  "trial_start": "2024-04-11T04:01:35.090Z",
+  "trial_start": "2025-01-09T17:18:58.560Z",
   "company_id": "string",
-  "start_date": "2024-04-11T04:01:35.090Z",
+  "start_date": "2025-01-09T17:18:58.560Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -1987,27 +1987,27 @@ curl -X POST https://api.moesif.com/v1/search/~/subscriptions \
       "subscription_item_id": "string"
     }
   ],
-  "current_period_start": "2024-04-11T04:01:35.090Z",
+  "current_period_start": "2025-01-09T17:18:58.560Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2024-04-11T04:01:35.090Z",
+  "cancel_time": "2025-01-09T17:18:58.560Z",
   "status": "string",
-  "trial_end": "2024-04-11T04:01:35.090Z",
+  "trial_end": "2025-01-09T17:18:58.560Z",
   "external_id": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2024-04-11T04:01:35.090Z",
-  "created": "2024-04-11T04:01:35.090Z"
+  "current_period_end": "2025-01-09T17:18:58.560Z",
+  "created": "2025-01-09T17:18:58.560Z"
 }' 
 ```
 
 ```javascript--nodejs
 const fetch = require('node-fetch');
 const inputBody = {
-  "trial_start": "2024-04-11T04:01:35.090Z",
+  "trial_start": "2025-01-09T17:18:58.560Z",
   "company_id": "string",
-  "start_date": "2024-04-11T04:01:35.090Z",
+  "start_date": "2025-01-09T17:18:58.560Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -2021,18 +2021,18 @@ const inputBody = {
       "subscription_item_id": "string"
     }
   ],
-  "current_period_start": "2024-04-11T04:01:35.090Z",
+  "current_period_start": "2025-01-09T17:18:58.560Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2024-04-11T04:01:35.090Z",
+  "cancel_time": "2025-01-09T17:18:58.560Z",
   "status": "string",
-  "trial_end": "2024-04-11T04:01:35.090Z",
+  "trial_end": "2025-01-09T17:18:58.560Z",
   "external_id": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2024-04-11T04:01:35.090Z",
-  "created": "2024-04-11T04:01:35.090Z"
+  "current_period_end": "2025-01-09T17:18:58.560Z",
+  "created": "2025-01-09T17:18:58.560Z"
 };
 const headers = {
   'Content-Type':'application/json',
@@ -2062,9 +2062,9 @@ headers = {
   'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
 }
 input_body = {
-  "trial_start": "2024-04-11T04:01:35.090Z",
+  "trial_start": "2025-01-09T17:18:58.560Z",
   "company_id": "string",
-  "start_date": "2024-04-11T04:01:35.090Z",
+  "start_date": "2025-01-09T17:18:58.560Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -2078,21 +2078,21 @@ input_body = {
       "subscription_item_id": "string"
     }
   ],
-  "current_period_start": "2024-04-11T04:01:35.090Z",
+  "current_period_start": "2025-01-09T17:18:58.560Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2024-04-11T04:01:35.090Z",
+  "cancel_time": "2025-01-09T17:18:58.560Z",
   "status": "string",
-  "trial_end": "2024-04-11T04:01:35.090Z",
+  "trial_end": "2025-01-09T17:18:58.560Z",
   "external_id": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2024-04-11T04:01:35.090Z",
-  "created": "2024-04-11T04:01:35.090Z"
+  "current_period_end": "2025-01-09T17:18:58.560Z",
+  "created": "2025-01-09T17:18:58.560Z"
 }
 
-r = requests.post('https://api.moesif.com/v1/search/~/subscriptions', headers = headers, json = input_body)
+r = requests.post('https://api.moesif.com/v1/search/~/subscriptions', headers = headers, json = input_data)
 
 print(r.json())
 
@@ -2109,9 +2109,9 @@ headers = {
 }
 
 input_payload = JSON.parse('{
-  "trial_start": "2024-04-11T04:01:35.090Z",
+  "trial_start": "2025-01-09T17:18:58.560Z",
   "company_id": "string",
-  "start_date": "2024-04-11T04:01:35.090Z",
+  "start_date": "2025-01-09T17:18:58.560Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -2125,18 +2125,18 @@ input_payload = JSON.parse('{
       "subscription_item_id": "string"
     }
   ],
-  "current_period_start": "2024-04-11T04:01:35.090Z",
+  "current_period_start": "2025-01-09T17:18:58.560Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2024-04-11T04:01:35.090Z",
+  "cancel_time": "2025-01-09T17:18:58.560Z",
   "status": "string",
-  "trial_end": "2024-04-11T04:01:35.090Z",
+  "trial_end": "2025-01-09T17:18:58.560Z",
   "external_id": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2024-04-11T04:01:35.090Z",
-  "created": "2024-04-11T04:01:35.090Z"
+  "current_period_end": "2025-01-09T17:18:58.560Z",
+  "created": "2025-01-09T17:18:58.560Z"
 }')
 
 result = RestClient.post 'https://api.moesif.com/v1/search/~/subscriptions',
@@ -2161,9 +2161,9 @@ $headers = array(
 );
 
 $inputPayload = json_decode('{
-  "trial_start": "2024-04-11T04:01:35.090Z",
+  "trial_start": "2025-01-09T17:18:58.560Z",
   "company_id": "string",
-  "start_date": "2024-04-11T04:01:35.090Z",
+  "start_date": "2025-01-09T17:18:58.560Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -2177,18 +2177,18 @@ $inputPayload = json_decode('{
       "subscription_item_id": "string"
     }
   ],
-  "current_period_start": "2024-04-11T04:01:35.090Z",
+  "current_period_start": "2025-01-09T17:18:58.560Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2024-04-11T04:01:35.090Z",
+  "cancel_time": "2025-01-09T17:18:58.560Z",
   "status": "string",
-  "trial_end": "2024-04-11T04:01:35.090Z",
+  "trial_end": "2025-01-09T17:18:58.560Z",
   "external_id": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2024-04-11T04:01:35.090Z",
-  "created": "2024-04-11T04:01:35.090Z"
+  "current_period_end": "2025-01-09T17:18:58.560Z",
+  "created": "2025-01-09T17:18:58.560Z"
 }')
 
 $client = new \GuzzleHttp\Client();
@@ -2226,9 +2226,9 @@ func main() {
         "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
     }
     jsonPayload := `{
-  "trial_start": "2024-04-11T04:01:35.090Z",
+  "trial_start": "2025-01-09T17:18:58.560Z",
   "company_id": "string",
-  "start_date": "2024-04-11T04:01:35.090Z",
+  "start_date": "2025-01-09T17:18:58.560Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -2242,18 +2242,18 @@ func main() {
       "subscription_item_id": "string"
     }
   ],
-  "current_period_start": "2024-04-11T04:01:35.090Z",
+  "current_period_start": "2025-01-09T17:18:58.560Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2024-04-11T04:01:35.090Z",
+  "cancel_time": "2025-01-09T17:18:58.560Z",
   "status": "string",
-  "trial_end": "2024-04-11T04:01:35.090Z",
+  "trial_end": "2025-01-09T17:18:58.560Z",
   "external_id": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2024-04-11T04:01:35.090Z",
-  "created": "2024-04-11T04:01:35.090Z"
+  "current_period_end": "2025-01-09T17:18:58.560Z",
+  "created": "2025-01-09T17:18:58.560Z"
 }`
     data := bytes.NewBuffer([]byte(jsonPayload))
     req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/subscriptions", data)
@@ -2297,9 +2297,9 @@ public class HttpExample
       string url = "https://api.moesif.com/v1/search/~/subscriptions";
       
       string json = @"{
-  ""trial_start"": ""2024-04-11T04:01:35.090Z"",
+  ""trial_start"": ""2025-01-09T17:18:58.560Z"",
   ""company_id"": ""string"",
-  ""start_date"": ""2024-04-11T04:01:35.090Z"",
+  ""start_date"": ""2025-01-09T17:18:58.560Z"",
   ""collection_method"": ""string"",
   ""provider"": ""string"",
   ""items"": [
@@ -2313,18 +2313,18 @@ public class HttpExample
       ""subscription_item_id"": ""string""
     }
   ],
-  ""current_period_start"": ""2024-04-11T04:01:35.090Z"",
+  ""current_period_start"": ""2025-01-09T17:18:58.560Z"",
   ""company_external_id"": ""string"",
   ""payment_status"": ""string"",
-  ""cancel_time"": ""2024-04-11T04:01:35.090Z"",
+  ""cancel_time"": ""2025-01-09T17:18:58.560Z"",
   ""status"": ""string"",
-  ""trial_end"": ""2024-04-11T04:01:35.090Z"",
+  ""trial_end"": ""2025-01-09T17:18:58.560Z"",
   ""external_id"": ""string"",
   ""metadata"": {},
   ""subscription_id"": ""string"",
   ""version_id"": ""string"",
-  ""current_period_end"": ""2024-04-11T04:01:35.090Z"",
-  ""created"": ""2024-04-11T04:01:35.090Z""
+  ""current_period_end"": ""2025-01-09T17:18:58.560Z"",
+  ""created"": ""2025-01-09T17:18:58.560Z""
 }";
       var content = JsonConvert.DeserializeObject(json);
       await PostAsync(content, url);
@@ -2380,9 +2380,9 @@ con.setRequestProperty("Authorization",'Bearer YOUR_MANAGEMENT_API_KEY');
 con.setDoOutput(true);
 
 String jsonPayload = """{
-  "trial_start": "2024-04-11T04:01:35.090Z",
+  "trial_start": "2025-01-09T17:18:58.560Z",
   "company_id": "string",
-  "start_date": "2024-04-11T04:01:35.090Z",
+  "start_date": "2025-01-09T17:18:58.560Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -2396,18 +2396,18 @@ String jsonPayload = """{
       "subscription_item_id": "string"
     }
   ],
-  "current_period_start": "2024-04-11T04:01:35.090Z",
+  "current_period_start": "2025-01-09T17:18:58.560Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2024-04-11T04:01:35.090Z",
+  "cancel_time": "2025-01-09T17:18:58.560Z",
   "status": "string",
-  "trial_end": "2024-04-11T04:01:35.090Z",
+  "trial_end": "2025-01-09T17:18:58.560Z",
   "external_id": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2024-04-11T04:01:35.090Z",
-  "created": "2024-04-11T04:01:35.090Z"
+  "current_period_end": "2025-01-09T17:18:58.560Z",
+  "created": "2025-01-09T17:18:58.560Z"
 }""";
 
 // Write payload to the request
@@ -2438,9 +2438,9 @@ System.out.println(response.toString());
 
 ```json
 {
-  "trial_start": "2024-04-11T04:01:35.090Z",
+  "trial_start": "2025-01-09T17:18:58.560Z",
   "company_id": "string",
-  "start_date": "2024-04-11T04:01:35.090Z",
+  "start_date": "2025-01-09T17:18:58.560Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -2454,18 +2454,18 @@ System.out.println(response.toString());
       "subscription_item_id": "string"
     }
   ],
-  "current_period_start": "2024-04-11T04:01:35.090Z",
+  "current_period_start": "2025-01-09T17:18:58.560Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2024-04-11T04:01:35.090Z",
+  "cancel_time": "2025-01-09T17:18:58.560Z",
   "status": "string",
-  "trial_end": "2024-04-11T04:01:35.090Z",
+  "trial_end": "2025-01-09T17:18:58.560Z",
   "external_id": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2024-04-11T04:01:35.090Z",
-  "created": "2024-04-11T04:01:35.090Z"
+  "current_period_end": "2025-01-09T17:18:58.560Z",
+  "created": "2025-01-09T17:18:58.560Z"
 }
 ```
 
@@ -2481,9 +2481,9 @@ System.out.println(response.toString());
 
 ```json
 {
-  "trial_start": "2024-04-11T04:01:35.090Z",
+  "trial_start": "2025-01-09T17:18:58.560Z",
   "company_id": "string",
-  "start_date": "2024-04-11T04:01:35.090Z",
+  "start_date": "2025-01-09T17:18:58.560Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -2497,22 +2497,22 @@ System.out.println(response.toString());
       "subscription_item_id": "string"
     }
   ],
-  "current_period_start": "2024-04-11T04:01:35.090Z",
+  "current_period_start": "2025-01-09T17:18:58.560Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "modified_time": "2024-04-11T04:01:35.090Z",
-  "cancel_time": "2024-04-11T04:01:35.090Z",
+  "modified_time": "2025-01-09T17:18:58.560Z",
+  "cancel_time": "2025-01-09T17:18:58.560Z",
   "status": "string",
-  "trial_end": "2024-04-11T04:01:35.090Z",
+  "trial_end": "2025-01-09T17:18:58.560Z",
   "external_id": "string",
   "metadata": {},
   "app_id": "string",
   "subscription_id": "string",
   "version_id": "string",
   "type": "string",
-  "current_period_end": "2024-04-11T04:01:35.090Z",
+  "current_period_end": "2025-01-09T17:18:58.560Z",
   "org_id": "string",
-  "created": "2024-04-11T04:01:35.090Z"
+  "created": "2025-01-09T17:18:58.560Z"
 }
 ```
 
@@ -2541,9 +2541,9 @@ curl -X POST https://api.moesif.com/v1/search/~/subscriptions/batch \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
 
   -d '{
-  "trial_start": "2024-04-11T04:01:35.090Z",
+  "trial_start": "2025-01-09T17:18:58.560Z",
   "company_id": "string",
-  "start_date": "2024-04-11T04:01:35.090Z",
+  "start_date": "2025-01-09T17:18:58.560Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -2557,27 +2557,27 @@ curl -X POST https://api.moesif.com/v1/search/~/subscriptions/batch \
       "subscription_item_id": "string"
     }
   ],
-  "current_period_start": "2024-04-11T04:01:35.090Z",
+  "current_period_start": "2025-01-09T17:18:58.560Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2024-04-11T04:01:35.090Z",
+  "cancel_time": "2025-01-09T17:18:58.560Z",
   "status": "string",
-  "trial_end": "2024-04-11T04:01:35.090Z",
+  "trial_end": "2025-01-09T17:18:58.560Z",
   "external_id": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2024-04-11T04:01:35.090Z",
-  "created": "2024-04-11T04:01:35.090Z"
+  "current_period_end": "2025-01-09T17:18:58.560Z",
+  "created": "2025-01-09T17:18:58.560Z"
 }' 
 ```
 
 ```javascript--nodejs
 const fetch = require('node-fetch');
 const inputBody = {
-  "trial_start": "2024-04-11T04:01:35.090Z",
+  "trial_start": "2025-01-09T17:18:58.560Z",
   "company_id": "string",
-  "start_date": "2024-04-11T04:01:35.090Z",
+  "start_date": "2025-01-09T17:18:58.560Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -2591,18 +2591,18 @@ const inputBody = {
       "subscription_item_id": "string"
     }
   ],
-  "current_period_start": "2024-04-11T04:01:35.090Z",
+  "current_period_start": "2025-01-09T17:18:58.560Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2024-04-11T04:01:35.090Z",
+  "cancel_time": "2025-01-09T17:18:58.560Z",
   "status": "string",
-  "trial_end": "2024-04-11T04:01:35.090Z",
+  "trial_end": "2025-01-09T17:18:58.560Z",
   "external_id": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2024-04-11T04:01:35.090Z",
-  "created": "2024-04-11T04:01:35.090Z"
+  "current_period_end": "2025-01-09T17:18:58.560Z",
+  "created": "2025-01-09T17:18:58.560Z"
 };
 const headers = {
   'Content-Type':'application/json',
@@ -2632,9 +2632,9 @@ headers = {
   'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
 }
 input_body = {
-  "trial_start": "2024-04-11T04:01:35.090Z",
+  "trial_start": "2025-01-09T17:18:58.560Z",
   "company_id": "string",
-  "start_date": "2024-04-11T04:01:35.090Z",
+  "start_date": "2025-01-09T17:18:58.560Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -2648,21 +2648,21 @@ input_body = {
       "subscription_item_id": "string"
     }
   ],
-  "current_period_start": "2024-04-11T04:01:35.090Z",
+  "current_period_start": "2025-01-09T17:18:58.560Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2024-04-11T04:01:35.090Z",
+  "cancel_time": "2025-01-09T17:18:58.560Z",
   "status": "string",
-  "trial_end": "2024-04-11T04:01:35.090Z",
+  "trial_end": "2025-01-09T17:18:58.560Z",
   "external_id": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2024-04-11T04:01:35.090Z",
-  "created": "2024-04-11T04:01:35.090Z"
+  "current_period_end": "2025-01-09T17:18:58.560Z",
+  "created": "2025-01-09T17:18:58.560Z"
 }
 
-r = requests.post('https://api.moesif.com/v1/search/~/subscriptions/batch', headers = headers, json = input_body)
+r = requests.post('https://api.moesif.com/v1/search/~/subscriptions/batch', headers = headers, json = input_data)
 
 print(r.json())
 
@@ -2679,9 +2679,9 @@ headers = {
 }
 
 input_payload = JSON.parse('{
-  "trial_start": "2024-04-11T04:01:35.090Z",
+  "trial_start": "2025-01-09T17:18:58.560Z",
   "company_id": "string",
-  "start_date": "2024-04-11T04:01:35.090Z",
+  "start_date": "2025-01-09T17:18:58.560Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -2695,18 +2695,18 @@ input_payload = JSON.parse('{
       "subscription_item_id": "string"
     }
   ],
-  "current_period_start": "2024-04-11T04:01:35.090Z",
+  "current_period_start": "2025-01-09T17:18:58.560Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2024-04-11T04:01:35.090Z",
+  "cancel_time": "2025-01-09T17:18:58.560Z",
   "status": "string",
-  "trial_end": "2024-04-11T04:01:35.090Z",
+  "trial_end": "2025-01-09T17:18:58.560Z",
   "external_id": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2024-04-11T04:01:35.090Z",
-  "created": "2024-04-11T04:01:35.090Z"
+  "current_period_end": "2025-01-09T17:18:58.560Z",
+  "created": "2025-01-09T17:18:58.560Z"
 }')
 
 result = RestClient.post 'https://api.moesif.com/v1/search/~/subscriptions/batch',
@@ -2731,9 +2731,9 @@ $headers = array(
 );
 
 $inputPayload = json_decode('{
-  "trial_start": "2024-04-11T04:01:35.090Z",
+  "trial_start": "2025-01-09T17:18:58.560Z",
   "company_id": "string",
-  "start_date": "2024-04-11T04:01:35.090Z",
+  "start_date": "2025-01-09T17:18:58.560Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -2747,18 +2747,18 @@ $inputPayload = json_decode('{
       "subscription_item_id": "string"
     }
   ],
-  "current_period_start": "2024-04-11T04:01:35.090Z",
+  "current_period_start": "2025-01-09T17:18:58.560Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2024-04-11T04:01:35.090Z",
+  "cancel_time": "2025-01-09T17:18:58.560Z",
   "status": "string",
-  "trial_end": "2024-04-11T04:01:35.090Z",
+  "trial_end": "2025-01-09T17:18:58.560Z",
   "external_id": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2024-04-11T04:01:35.090Z",
-  "created": "2024-04-11T04:01:35.090Z"
+  "current_period_end": "2025-01-09T17:18:58.560Z",
+  "created": "2025-01-09T17:18:58.560Z"
 }')
 
 $client = new \GuzzleHttp\Client();
@@ -2796,9 +2796,9 @@ func main() {
         "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
     }
     jsonPayload := `{
-  "trial_start": "2024-04-11T04:01:35.090Z",
+  "trial_start": "2025-01-09T17:18:58.560Z",
   "company_id": "string",
-  "start_date": "2024-04-11T04:01:35.090Z",
+  "start_date": "2025-01-09T17:18:58.560Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -2812,18 +2812,18 @@ func main() {
       "subscription_item_id": "string"
     }
   ],
-  "current_period_start": "2024-04-11T04:01:35.090Z",
+  "current_period_start": "2025-01-09T17:18:58.560Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2024-04-11T04:01:35.090Z",
+  "cancel_time": "2025-01-09T17:18:58.560Z",
   "status": "string",
-  "trial_end": "2024-04-11T04:01:35.090Z",
+  "trial_end": "2025-01-09T17:18:58.560Z",
   "external_id": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2024-04-11T04:01:35.090Z",
-  "created": "2024-04-11T04:01:35.090Z"
+  "current_period_end": "2025-01-09T17:18:58.560Z",
+  "created": "2025-01-09T17:18:58.560Z"
 }`
     data := bytes.NewBuffer([]byte(jsonPayload))
     req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/subscriptions/batch", data)
@@ -2867,9 +2867,9 @@ public class HttpExample
       string url = "https://api.moesif.com/v1/search/~/subscriptions/batch";
       
       string json = @"{
-  ""trial_start"": ""2024-04-11T04:01:35.090Z"",
+  ""trial_start"": ""2025-01-09T17:18:58.560Z"",
   ""company_id"": ""string"",
-  ""start_date"": ""2024-04-11T04:01:35.090Z"",
+  ""start_date"": ""2025-01-09T17:18:58.560Z"",
   ""collection_method"": ""string"",
   ""provider"": ""string"",
   ""items"": [
@@ -2883,18 +2883,18 @@ public class HttpExample
       ""subscription_item_id"": ""string""
     }
   ],
-  ""current_period_start"": ""2024-04-11T04:01:35.090Z"",
+  ""current_period_start"": ""2025-01-09T17:18:58.560Z"",
   ""company_external_id"": ""string"",
   ""payment_status"": ""string"",
-  ""cancel_time"": ""2024-04-11T04:01:35.090Z"",
+  ""cancel_time"": ""2025-01-09T17:18:58.560Z"",
   ""status"": ""string"",
-  ""trial_end"": ""2024-04-11T04:01:35.090Z"",
+  ""trial_end"": ""2025-01-09T17:18:58.560Z"",
   ""external_id"": ""string"",
   ""metadata"": {},
   ""subscription_id"": ""string"",
   ""version_id"": ""string"",
-  ""current_period_end"": ""2024-04-11T04:01:35.090Z"",
-  ""created"": ""2024-04-11T04:01:35.090Z""
+  ""current_period_end"": ""2025-01-09T17:18:58.560Z"",
+  ""created"": ""2025-01-09T17:18:58.560Z""
 }";
       var content = JsonConvert.DeserializeObject(json);
       await PostAsync(content, url);
@@ -2950,9 +2950,9 @@ con.setRequestProperty("Authorization",'Bearer YOUR_MANAGEMENT_API_KEY');
 con.setDoOutput(true);
 
 String jsonPayload = """{
-  "trial_start": "2024-04-11T04:01:35.090Z",
+  "trial_start": "2025-01-09T17:18:58.560Z",
   "company_id": "string",
-  "start_date": "2024-04-11T04:01:35.090Z",
+  "start_date": "2025-01-09T17:18:58.560Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -2966,18 +2966,18 @@ String jsonPayload = """{
       "subscription_item_id": "string"
     }
   ],
-  "current_period_start": "2024-04-11T04:01:35.090Z",
+  "current_period_start": "2025-01-09T17:18:58.560Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2024-04-11T04:01:35.090Z",
+  "cancel_time": "2025-01-09T17:18:58.560Z",
   "status": "string",
-  "trial_end": "2024-04-11T04:01:35.090Z",
+  "trial_end": "2025-01-09T17:18:58.560Z",
   "external_id": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2024-04-11T04:01:35.090Z",
-  "created": "2024-04-11T04:01:35.090Z"
+  "current_period_end": "2025-01-09T17:18:58.560Z",
+  "created": "2025-01-09T17:18:58.560Z"
 }""";
 
 // Write payload to the request
@@ -3008,9 +3008,9 @@ System.out.println(response.toString());
 
 ```json
 {
-  "trial_start": "2024-04-11T04:01:35.090Z",
+  "trial_start": "2025-01-09T17:18:58.560Z",
   "company_id": "string",
-  "start_date": "2024-04-11T04:01:35.090Z",
+  "start_date": "2025-01-09T17:18:58.560Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -3024,18 +3024,18 @@ System.out.println(response.toString());
       "subscription_item_id": "string"
     }
   ],
-  "current_period_start": "2024-04-11T04:01:35.090Z",
+  "current_period_start": "2025-01-09T17:18:58.560Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2024-04-11T04:01:35.090Z",
+  "cancel_time": "2025-01-09T17:18:58.560Z",
   "status": "string",
-  "trial_end": "2024-04-11T04:01:35.090Z",
+  "trial_end": "2025-01-09T17:18:58.560Z",
   "external_id": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2024-04-11T04:01:35.090Z",
-  "created": "2024-04-11T04:01:35.090Z"
+  "current_period_end": "2025-01-09T17:18:58.560Z",
+  "created": "2025-01-09T17:18:58.560Z"
 }
 ```
 
@@ -3051,9 +3051,9 @@ System.out.println(response.toString());
 
 ```json
 {
-  "trial_start": "2024-04-11T04:01:35.090Z",
+  "trial_start": "2025-01-09T17:18:58.560Z",
   "company_id": "string",
-  "start_date": "2024-04-11T04:01:35.090Z",
+  "start_date": "2025-01-09T17:18:58.560Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -3067,22 +3067,22 @@ System.out.println(response.toString());
       "subscription_item_id": "string"
     }
   ],
-  "current_period_start": "2024-04-11T04:01:35.090Z",
+  "current_period_start": "2025-01-09T17:18:58.560Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "modified_time": "2024-04-11T04:01:35.090Z",
-  "cancel_time": "2024-04-11T04:01:35.090Z",
+  "modified_time": "2025-01-09T17:18:58.560Z",
+  "cancel_time": "2025-01-09T17:18:58.560Z",
   "status": "string",
-  "trial_end": "2024-04-11T04:01:35.090Z",
+  "trial_end": "2025-01-09T17:18:58.560Z",
   "external_id": "string",
   "metadata": {},
   "app_id": "string",
   "subscription_id": "string",
   "version_id": "string",
   "type": "string",
-  "current_period_end": "2024-04-11T04:01:35.090Z",
+  "current_period_end": "2025-01-09T17:18:58.560Z",
   "org_id": "string",
-  "created": "2024-04-11T04:01:35.090Z"
+  "created": "2025-01-09T17:18:58.560Z"
 }
 ```
 
@@ -3314,9 +3314,9 @@ System.out.println(response.toString());
 
 ```json
 {
-  "trial_start": "2024-04-11T04:01:35.090Z",
+  "trial_start": "2025-01-09T17:18:58.560Z",
   "company_id": "string",
-  "start_date": "2024-04-11T04:01:35.090Z",
+  "start_date": "2025-01-09T17:18:58.560Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -3330,22 +3330,22 @@ System.out.println(response.toString());
       "subscription_item_id": "string"
     }
   ],
-  "current_period_start": "2024-04-11T04:01:35.090Z",
+  "current_period_start": "2025-01-09T17:18:58.560Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "modified_time": "2024-04-11T04:01:35.090Z",
-  "cancel_time": "2024-04-11T04:01:35.090Z",
+  "modified_time": "2025-01-09T17:18:58.560Z",
+  "cancel_time": "2025-01-09T17:18:58.560Z",
   "status": "string",
-  "trial_end": "2024-04-11T04:01:35.090Z",
+  "trial_end": "2025-01-09T17:18:58.560Z",
   "external_id": "string",
   "metadata": {},
   "app_id": "string",
   "subscription_id": "string",
   "version_id": "string",
   "type": "string",
-  "current_period_end": "2024-04-11T04:01:35.090Z",
+  "current_period_end": "2025-01-09T17:18:58.560Z",
   "org_id": "string",
-  "created": "2024-04-11T04:01:35.090Z"
+  "created": "2025-01-09T17:18:58.560Z"
 }
 ```
 
@@ -3411,9 +3411,9 @@ headers = {
 input_body = false
 
 r = requests.post('https://api.moesif.com/v1/search/~/count/events', params={
-  'from': '2024-04-11T04:01:35.090Z',  'to': '2024-04-11T04:01:35.090Z'
+  'from': '2025-01-09T17:18:58.560Z',  'to': '2025-01-09T17:18:58.560Z'
 
-}, headers = headers, json = input_body)
+}, headers = headers, json = input_data)
 
 print(r.json())
 
@@ -3683,7 +3683,7 @@ headers = {
 }
 
 r = requests.get('https://api.moesif.com/v1/search/~/events/{id}', params={
-  'event_time': '2024-04-11T04:01:35.090Z'
+  'event_time': '2025-01-09T17:18:58.560Z'
 
 }, headers = headers)
 
@@ -3986,9 +3986,9 @@ headers = {
 input_body = false
 
 r = requests.post('https://api.moesif.com/v1/search/~/search/events', params={
-  'from': '2024-04-11T04:01:35.090Z',  'to': '2024-04-11T04:01:35.090Z'
+  'from': '2025-01-09T17:18:58.560Z',  'to': '2025-01-09T17:18:58.560Z'
 
-}, headers = headers, json = input_body)
+}, headers = headers, json = input_data)
 
 print(r.json())
 
@@ -4197,6 +4197,7 @@ false
 |---|---|---|---|---|
 |from|query|string(date-time)|true|The start date, which can be absolute such as 2023-07-01T00:00:00Z or relative such as -24h|
 |to|query|string(date-time)|true|The end date, which can be absolute such as 2023-07-02T00:00:00Z or relative such as now|
+|includes|query|string|false|none|
 
 > Example responses
 
@@ -4299,9 +4300,9 @@ headers = {
 input_body = false
 
 r = requests.post('https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search', params={
-  'from': '2024-04-11T04:01:35.090Z',  'to': '2024-04-11T04:01:35.090Z'
+  'from': '2025-01-09T17:18:58.560Z',  'to': '2025-01-09T17:18:58.560Z'
 
-}, headers = headers, json = input_body)
+}, headers = headers, json = input_data)
 
 print(r.json())
 
@@ -4513,6 +4514,7 @@ false
 |workspaceId|path|string|true|none|
 |include_details|query|boolean|false|none|
 |take|query|integer(int32)|false|none|
+|includes|query|string|false|none|
 
 > Example responses
 
@@ -4615,7 +4617,7 @@ input_body = false
 r = requests.post('https://api.moesif.com/v1/search/~/count/users', params={
   'app_id': 'string'
 
-}, headers = headers, json = input_body)
+}, headers = headers, json = input_data)
 
 print(r.json())
 
@@ -4889,7 +4891,7 @@ headers = {
 }
 input_body = false
 
-r = requests.post('https://api.moesif.com/v1/search/~/search/usermetrics/users', headers = headers, json = input_body)
+r = requests.post('https://api.moesif.com/v1/search/~/search/usermetrics/users', headers = headers, json = input_data)
 
 print(r.json())
 
@@ -5132,7 +5134,7 @@ curl -X POST https://api.moesif.com/v1/search/~/users \
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2024-04-11T04:01:35.090Z",
+  "modified_time": "2025-01-09T17:18:58.560Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -5149,7 +5151,7 @@ const inputBody = {
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2024-04-11T04:01:35.090Z",
+  "modified_time": "2025-01-09T17:18:58.560Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -5189,14 +5191,14 @@ input_body = {
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2024-04-11T04:01:35.090Z",
+  "modified_time": "2025-01-09T17:18:58.560Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
   "phone": "string"
 }
 
-r = requests.post('https://api.moesif.com/v1/search/~/users', headers = headers, json = input_body)
+r = requests.post('https://api.moesif.com/v1/search/~/users', headers = headers, json = input_data)
 
 print(r.json())
 
@@ -5219,7 +5221,7 @@ input_payload = JSON.parse('{
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2024-04-11T04:01:35.090Z",
+  "modified_time": "2025-01-09T17:18:58.560Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -5254,7 +5256,7 @@ $inputPayload = json_decode('{
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2024-04-11T04:01:35.090Z",
+  "modified_time": "2025-01-09T17:18:58.560Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -5302,7 +5304,7 @@ func main() {
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2024-04-11T04:01:35.090Z",
+  "modified_time": "2025-01-09T17:18:58.560Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -5356,7 +5358,7 @@ public class HttpExample
   ""email"": ""string"",
   ""photo_url"": ""string"",
   ""user_id"": ""string"",
-  ""modified_time"": ""2024-04-11T04:01:35.090Z"",
+  ""modified_time"": ""2025-01-09T17:18:58.560Z"",
   ""last_name"": ""string"",
   ""metadata"": {},
   ""user_name"": ""string"",
@@ -5422,7 +5424,7 @@ String jsonPayload = """{
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2024-04-11T04:01:35.090Z",
+  "modified_time": "2025-01-09T17:18:58.560Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -5463,7 +5465,7 @@ System.out.println(response.toString());
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2024-04-11T04:01:35.090Z",
+  "modified_time": "2025-01-09T17:18:58.560Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -5505,12 +5507,12 @@ System.out.println(response.toString());
       "region_name": "South Carolina",
       "continent_code": "NA",
       "location": {
-        "lon": -79.85489654541016,
-        "lat": 32.822898864746094
+        "lon": -79.8548965454102,
+        "lat": 32.8228988647461
       },
-      "latitude": 32.822898864746094,
+      "latitude": 32.8228988647461,
       "timezone": "America/New_York",
-      "longitude": -79.85489654541016,
+      "longitude": -79.8548965454102,
       "dma_code": 519,
       "postal_code": "29464",
       "region_code": "SC",
@@ -5567,7 +5569,7 @@ curl -X POST https://api.moesif.com/v1/search/~/users/batch \
     "email": "string",
     "photo_url": "string",
     "user_id": "string",
-    "modified_time": "2024-04-11T04:01:35.090Z",
+    "modified_time": "2025-01-09T17:18:58.560Z",
     "last_name": "string",
     "metadata": {},
     "user_name": "string",
@@ -5586,7 +5588,7 @@ const inputBody = [
     "email": "string",
     "photo_url": "string",
     "user_id": "string",
-    "modified_time": "2024-04-11T04:01:35.090Z",
+    "modified_time": "2025-01-09T17:18:58.560Z",
     "last_name": "string",
     "metadata": {},
     "user_name": "string",
@@ -5628,7 +5630,7 @@ input_body = [
     "email": "string",
     "photo_url": "string",
     "user_id": "string",
-    "modified_time": "2024-04-11T04:01:35.090Z",
+    "modified_time": "2025-01-09T17:18:58.560Z",
     "last_name": "string",
     "metadata": {},
     "user_name": "string",
@@ -5636,7 +5638,7 @@ input_body = [
   }
 ]
 
-r = requests.post('https://api.moesif.com/v1/search/~/users/batch', headers = headers, json = input_body)
+r = requests.post('https://api.moesif.com/v1/search/~/users/batch', headers = headers, json = input_data)
 
 print(r.json())
 
@@ -5660,7 +5662,7 @@ input_payload = JSON.parse('[
     "email": "string",
     "photo_url": "string",
     "user_id": "string",
-    "modified_time": "2024-04-11T04:01:35.090Z",
+    "modified_time": "2025-01-09T17:18:58.560Z",
     "last_name": "string",
     "metadata": {},
     "user_name": "string",
@@ -5697,7 +5699,7 @@ $inputPayload = json_decode('[
     "email": "string",
     "photo_url": "string",
     "user_id": "string",
-    "modified_time": "2024-04-11T04:01:35.090Z",
+    "modified_time": "2025-01-09T17:18:58.560Z",
     "last_name": "string",
     "metadata": {},
     "user_name": "string",
@@ -5747,7 +5749,7 @@ func main() {
     "email": "string",
     "photo_url": "string",
     "user_id": "string",
-    "modified_time": "2024-04-11T04:01:35.090Z",
+    "modified_time": "2025-01-09T17:18:58.560Z",
     "last_name": "string",
     "metadata": {},
     "user_name": "string",
@@ -5803,7 +5805,7 @@ public class HttpExample
     ""email"": ""string"",
     ""photo_url"": ""string"",
     ""user_id"": ""string"",
-    ""modified_time"": ""2024-04-11T04:01:35.090Z"",
+    ""modified_time"": ""2025-01-09T17:18:58.560Z"",
     ""last_name"": ""string"",
     ""metadata"": {},
     ""user_name"": ""string"",
@@ -5871,7 +5873,7 @@ String jsonPayload = """[
     "email": "string",
     "photo_url": "string",
     "user_id": "string",
-    "modified_time": "2024-04-11T04:01:35.090Z",
+    "modified_time": "2025-01-09T17:18:58.560Z",
     "last_name": "string",
     "metadata": {},
     "user_name": "string",
@@ -5914,7 +5916,7 @@ System.out.println(response.toString());
     "email": "string",
     "photo_url": "string",
     "user_id": "string",
-    "modified_time": "2024-04-11T04:01:35.090Z",
+    "modified_time": "2025-01-09T17:18:58.560Z",
     "last_name": "string",
     "metadata": {},
     "user_name": "string",
@@ -5957,12 +5959,12 @@ System.out.println(response.toString());
       "region_name": "South Carolina",
       "continent_code": "NA",
       "location": {
-        "lon": -79.85489654541016,
-        "lat": 32.822898864746094
+        "lon": -79.8548965454102,
+        "lat": 32.8228988647461
       },
-      "latitude": 32.822898864746094,
+      "latitude": 32.8228988647461,
       "timezone": "America/New_York",
-      "longitude": -79.85489654541016,
+      "longitude": -79.8548965454102,
       "dma_code": 519,
       "postal_code": "29464",
       "region_code": "SC",
@@ -6237,12 +6239,12 @@ System.out.println(response.toString());
       "region_name": "South Carolina",
       "continent_code": "NA",
       "location": {
-        "lon": -79.85489654541016,
-        "lat": 32.822898864746094
+        "lon": -79.8548965454102,
+        "lat": 32.8228988647461
       },
-      "latitude": 32.822898864746094,
+      "latitude": 32.8228988647461,
       "timezone": "America/New_York",
-      "longitude": -79.85489654541016,
+      "longitude": -79.8548965454102,
       "dma_code": 519,
       "postal_code": "29464",
       "region_code": "SC",
@@ -6770,7 +6772,7 @@ headers = {
 }
 
 r = requests.get('https://api.moesif.com/v1/search/~/mappings/events/request/body/properties', params={
-  'app_id': 'string',  'from': '2024-04-11T04:01:35.090Z',  'to': '2024-04-11T04:01:35.090Z'
+  'app_id': 'string',  'from': '2025-01-09T17:18:58.560Z',  'to': '2025-01-09T17:18:58.560Z'
 
 }, headers = headers)
 
@@ -7005,7 +7007,7 @@ headers = {
 }
 
 r = requests.get('https://api.moesif.com/v1/search/~/mappings/events/response/body/properties', params={
-  'app_id': 'string',  'from': '2024-04-11T04:01:35.090Z',  'to': '2024-04-11T04:01:35.090Z'
+  'app_id': 'string',  'from': '2025-01-09T17:18:58.560Z',  'to': '2025-01-09T17:18:58.560Z'
 
 }, headers = headers)
 
@@ -7651,6 +7653,7 @@ System.out.println(response.toString());
   "_id": "string",
   "is_template": true,
   "dashboard": {},
+  "height": 0.1,
   "auth_user_id": "string",
   "colors": {},
   "sequence": [
@@ -7723,7 +7726,7 @@ System.out.println(response.toString());
   },
   "org_id": "string",
   "migration": {},
-  "created": "2024-04-11T04:01:35.090Z",
+  "created": "2025-01-09T17:18:58.560Z",
   "comments": {
     "summary": {
       "count": 0,
@@ -7735,8 +7738,8 @@ System.out.println(response.toString());
         ],
         "partner_user_id": "string",
         "message": "string",
-        "created_at": "2024-04-11T04:01:35.090Z",
-        "updated_at": "2024-04-11T04:01:35.090Z"
+        "created_at": "2025-01-09T17:18:58.560Z",
+        "updated_at": "2025-01-09T17:18:58.560Z"
       }
     }
   }
@@ -7772,6 +7775,7 @@ curl -X POST https://api.moesif.com/v1/~/workspaces \
   "is_default": true,
   "view_count": 0,
   "dashboard": {},
+  "height": 0.1,
   "colors": {},
   "drawings": [
     {
@@ -7828,6 +7832,7 @@ const inputBody = {
   "is_default": true,
   "view_count": 0,
   "dashboard": {},
+  "height": 0.1,
   "colors": {},
   "drawings": [
     {
@@ -7907,6 +7912,7 @@ input_body = {
   "is_default": true,
   "view_count": 0,
   "dashboard": {},
+  "height": 0.1,
   "colors": {},
   "drawings": [
     {
@@ -7955,7 +7961,7 @@ input_body = {
   }
 }
 
-r = requests.post('https://api.moesif.com/v1/~/workspaces', headers = headers, json = input_body)
+r = requests.post('https://api.moesif.com/v1/~/workspaces', headers = headers, json = input_data)
 
 print(r.json())
 
@@ -7976,6 +7982,7 @@ input_payload = JSON.parse('{
   "is_default": true,
   "view_count": 0,
   "dashboard": {},
+  "height": 0.1,
   "colors": {},
   "drawings": [
     {
@@ -8050,6 +8057,7 @@ $inputPayload = json_decode('{
   "is_default": true,
   "view_count": 0,
   "dashboard": {},
+  "height": 0.1,
   "colors": {},
   "drawings": [
     {
@@ -8137,6 +8145,7 @@ func main() {
   "is_default": true,
   "view_count": 0,
   "dashboard": {},
+  "height": 0.1,
   "colors": {},
   "drawings": [
     {
@@ -8230,6 +8239,7 @@ public class HttpExample
   ""is_default"": true,
   ""view_count"": 0,
   ""dashboard"": {},
+  ""height"": 0.1,
   ""colors"": {},
   ""drawings"": [
     {
@@ -8335,6 +8345,7 @@ String jsonPayload = """{
   "is_default": true,
   "view_count": 0,
   "dashboard": {},
+  "height": 0.1,
   "colors": {},
   "drawings": [
     {
@@ -8415,6 +8426,7 @@ System.out.println(response.toString());
   "is_default": true,
   "view_count": 0,
   "dashboard": {},
+  "height": 0.1,
   "colors": {},
   "drawings": [
     {
@@ -8483,6 +8495,7 @@ System.out.println(response.toString());
   "_id": "string",
   "is_template": true,
   "dashboard": {},
+  "height": 0.1,
   "auth_user_id": "string",
   "colors": {},
   "sequence": [
@@ -8555,7 +8568,7 @@ System.out.println(response.toString());
   },
   "org_id": "string",
   "migration": {},
-  "created": "2024-04-11T04:01:35.090Z",
+  "created": "2025-01-09T17:18:58.560Z",
   "comments": {
     "summary": {
       "count": 0,
@@ -8567,8 +8580,8 @@ System.out.println(response.toString());
         ],
         "partner_user_id": "string",
         "message": "string",
-        "created_at": "2024-04-11T04:01:35.090Z",
-        "updated_at": "2024-04-11T04:01:35.090Z"
+        "created_at": "2025-01-09T17:18:58.560Z",
+        "updated_at": "2025-01-09T17:18:58.560Z"
       }
     }
   }
@@ -8820,6 +8833,7 @@ System.out.println(response.toString());
     "_id": "string",
     "is_template": true,
     "dashboard": {},
+    "height": 0.1,
     "auth_user_id": "string",
     "colors": {},
     "sequence": [
@@ -8886,7 +8900,7 @@ System.out.println(response.toString());
     },
     "org_id": "string",
     "migration": {},
-    "created": "2024-04-11T04:01:35.090Z",
+    "created": "2025-01-09T17:18:58.560Z",
     "comments": {
       "summary": {
         "count": 0,
@@ -8898,8 +8912,8 @@ System.out.println(response.toString());
           ],
           "partner_user_id": "string",
           "message": "string",
-          "created_at": "2024-04-11T04:01:35.090Z",
-          "updated_at": "2024-04-11T04:01:35.090Z"
+          "created_at": "2025-01-09T17:18:58.560Z",
+          "updated_at": "2025-01-09T17:18:58.560Z"
         }
       }
     }
@@ -8926,6 +8940,7 @@ Status Code **200**
 |» _id|string|false|none|none|
 |» is_template|boolean|false|none|none|
 |» dashboard|object|false|none|none|
+|» height|number(double)|false|none|none|
 |» auth_user_id|string|true|none|none|
 |» colors|object|false|none|none|
 |» sequence|[[SequenceItem](#schemasequenceitem)]|false|none|none|
@@ -9214,6 +9229,7 @@ System.out.println(response.toString());
     "_id": "string",
     "is_template": true,
     "dashboard": {},
+    "height": 0.1,
     "auth_user_id": "string",
     "colors": {},
     "sequence": [
@@ -9280,7 +9296,7 @@ System.out.println(response.toString());
     },
     "org_id": "string",
     "migration": {},
-    "created": "2024-04-11T04:01:35.090Z",
+    "created": "2025-01-09T17:18:58.560Z",
     "comments": {
       "summary": {
         "count": 0,
@@ -9292,8 +9308,8 @@ System.out.println(response.toString());
           ],
           "partner_user_id": "string",
           "message": "string",
-          "created_at": "2024-04-11T04:01:35.090Z",
-          "updated_at": "2024-04-11T04:01:35.090Z"
+          "created_at": "2025-01-09T17:18:58.560Z",
+          "updated_at": "2025-01-09T17:18:58.560Z"
         }
       }
     }
@@ -9320,6 +9336,7 @@ Status Code **200**
 |» _id|string|false|none|none|
 |» is_template|boolean|false|none|none|
 |» dashboard|object|false|none|none|
+|» height|number(double)|false|none|none|
 |» auth_user_id|string|true|none|none|
 |» colors|object|false|none|none|
 |» sequence|[[SequenceItem](#schemasequenceitem)]|false|none|none|
@@ -9399,6 +9416,7 @@ curl -X POST https://api.moesif.com/v1/~/workspaces/{id} \
 
   -d '{
   "name": "string",
+  "height": 0.1,
   "colors": {},
   "drawings": [
     {
@@ -9451,6 +9469,7 @@ curl -X POST https://api.moesif.com/v1/~/workspaces/{id} \
 const fetch = require('node-fetch');
 const inputBody = {
   "name": "string",
+  "height": 0.1,
   "colors": {},
   "drawings": [
     {
@@ -9524,6 +9543,7 @@ headers = {
 }
 input_body = {
   "name": "string",
+  "height": 0.1,
   "colors": {},
   "drawings": [
     {
@@ -9571,7 +9591,7 @@ input_body = {
   }
 }
 
-r = requests.post('https://api.moesif.com/v1/~/workspaces/{id}', headers = headers, json = input_body)
+r = requests.post('https://api.moesif.com/v1/~/workspaces/{id}', headers = headers, json = input_data)
 
 print(r.json())
 
@@ -9588,6 +9608,7 @@ headers = {
 
 input_payload = JSON.parse('{
   "name": "string",
+  "height": 0.1,
   "colors": {},
   "drawings": [
     {
@@ -9657,6 +9678,7 @@ $headers = array(
 
 $inputPayload = json_decode('{
   "name": "string",
+  "height": 0.1,
   "colors": {},
   "drawings": [
     {
@@ -9739,6 +9761,7 @@ func main() {
     }
     jsonPayload := `{
   "name": "string",
+  "height": 0.1,
   "colors": {},
   "drawings": [
     {
@@ -9828,6 +9851,7 @@ public class HttpExample
       
       string json = @"{
   ""name"": ""string"",
+  ""height"": 0.1,
   ""colors"": {},
   ""drawings"": [
     {
@@ -9928,6 +9952,7 @@ con.setDoOutput(true);
 
 String jsonPayload = """{
   "name": "string",
+  "height": 0.1,
   "colors": {},
   "drawings": [
     {
@@ -10004,6 +10029,7 @@ System.out.println(response.toString());
 ```json
 {
   "name": "string",
+  "height": 0.1,
   "colors": {},
   "drawings": [
     {
@@ -10293,6 +10319,7 @@ System.out.println(response.toString());
   "_id": "string",
   "is_template": true,
   "dashboard": {},
+  "height": 0.1,
   "auth_user_id": "string",
   "colors": {},
   "sequence": [
@@ -10365,7 +10392,7 @@ System.out.println(response.toString());
   },
   "org_id": "string",
   "migration": {},
-  "created": "2024-04-11T04:01:35.090Z",
+  "created": "2025-01-09T17:18:58.560Z",
   "comments": {
     "summary": {
       "count": 0,
@@ -10377,8 +10404,8 @@ System.out.println(response.toString());
         ],
         "partner_user_id": "string",
         "message": "string",
-        "created_at": "2024-04-11T04:01:35.090Z",
-        "updated_at": "2024-04-11T04:01:35.090Z"
+        "created_at": "2025-01-09T17:18:58.560Z",
+        "updated_at": "2025-01-09T17:18:58.560Z"
       }
     }
   }
@@ -10672,7 +10699,7 @@ input_body = {
   ]
 }
 
-r = requests.post('https://api.moesif.com/v1/~/workspaces/{id}/comments', headers = headers, json = input_body)
+r = requests.post('https://api.moesif.com/v1/~/workspaces/{id}/comments', headers = headers, json = input_data)
 
 print(r.json())
 
@@ -11194,7 +11221,7 @@ input_body = {
   ]
 }
 
-r = requests.post('https://api.moesif.com/v1/~/workspaces/{id}/comments/{commentId}', headers = headers, json = input_body)
+r = requests.post('https://api.moesif.com/v1/~/workspaces/{id}/comments/{commentId}', headers = headers, json = input_data)
 
 print(r.json())
 
@@ -12174,7 +12201,7 @@ input_body = {
   "custom_app_id": "string"
 }
 
-r = requests.post('https://api.moesif.com/v1/~/apps', headers = headers, json = input_body)
+r = requests.post('https://api.moesif.com/v1/~/apps', headers = headers, json = input_data)
 
 print(r.json())
 
@@ -12770,7 +12797,7 @@ input_body = {
   "custom_app_id": "string"
 }
 
-r = requests.post('https://api.moesif.com/v1/~/apps/{id}', headers = headers, json = input_body)
+r = requests.post('https://api.moesif.com/v1/~/apps/{id}', headers = headers, json = input_data)
 
 print(r.json())
 
@@ -13278,15 +13305,20 @@ curl -X POST https://api.moesif.com/v1/~/billing/catalog/plans?provider=string \
         "divide_by": 0,
         "round": "string"
       },
+      "currency_prices": null,
       "provider": "string",
+      "revenue_recognition_rule": "string",
       "price_in_decimal": "string",
       "tiers": [
         {
+          "flat_currency_prices": null,
           "up_to": null,
+          "flat_price_in_decimal": "string",
           "unit_price_in_decimal": "string",
-          "flat_price_in_decimal": "string"
+          "unit_currency_prices": null
         }
       ],
+      "recognized_revenue_accounting_code": "string",
       "period_units": "string",
       "plan_id": "string",
       "id": "string",
@@ -13295,21 +13327,26 @@ curl -X POST https://api.moesif.com/v1/~/billing/catalog/plans?provider=string \
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2024-04-11T04:01:35.090Z",
+      "created_at": "2025-01-09T17:18:58.560Z",
       "unit": "string",
+      "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
       "period": 0
     }
   ],
   "provider": "string",
+  "billing_type": "string",
   "description": "string",
+  "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
+  "billing_period": "string",
   "unit": "string",
-  "updated_at": "2024-04-11T04:01:35.090Z"
+  "updated_at": "2025-01-09T17:18:58.560Z",
+  "reporting_period": "string"
 }' 
 ```
 
@@ -13324,15 +13361,20 @@ const inputBody = {
         "divide_by": 0,
         "round": "string"
       },
+      "currency_prices": null,
       "provider": "string",
+      "revenue_recognition_rule": "string",
       "price_in_decimal": "string",
       "tiers": [
         {
+          "flat_currency_prices": null,
           "up_to": null,
+          "flat_price_in_decimal": "string",
           "unit_price_in_decimal": "string",
-          "flat_price_in_decimal": "string"
+          "unit_currency_prices": null
         }
       ],
+      "recognized_revenue_accounting_code": "string",
       "period_units": "string",
       "plan_id": "string",
       "id": "string",
@@ -13341,21 +13383,26 @@ const inputBody = {
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2024-04-11T04:01:35.090Z",
+      "created_at": "2025-01-09T17:18:58.560Z",
       "unit": "string",
+      "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
       "period": 0
     }
   ],
   "provider": "string",
+  "billing_type": "string",
   "description": "string",
+  "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
+  "billing_period": "string",
   "unit": "string",
-  "updated_at": "2024-04-11T04:01:35.090Z"
+  "updated_at": "2025-01-09T17:18:58.560Z",
+  "reporting_period": "string"
 };
 const headers = {
   'Content-Type':'application/json',
@@ -13393,15 +13440,20 @@ input_body = {
         "divide_by": 0,
         "round": "string"
       },
+      "currency_prices": null,
       "provider": "string",
+      "revenue_recognition_rule": "string",
       "price_in_decimal": "string",
       "tiers": [
         {
+          "flat_currency_prices": null,
           "up_to": null,
+          "flat_price_in_decimal": "string",
           "unit_price_in_decimal": "string",
-          "flat_price_in_decimal": "string"
+          "unit_currency_prices": null
         }
       ],
+      "recognized_revenue_accounting_code": "string",
       "period_units": "string",
       "plan_id": "string",
       "id": "string",
@@ -13410,27 +13462,32 @@ input_body = {
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2024-04-11T04:01:35.090Z",
+      "created_at": "2025-01-09T17:18:58.560Z",
       "unit": "string",
+      "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
       "period": 0
     }
   ],
   "provider": "string",
+  "billing_type": "string",
   "description": "string",
+  "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
+  "billing_period": "string",
   "unit": "string",
-  "updated_at": "2024-04-11T04:01:35.090Z"
+  "updated_at": "2025-01-09T17:18:58.560Z",
+  "reporting_period": "string"
 }
 
 r = requests.post('https://api.moesif.com/v1/~/billing/catalog/plans', params={
   'provider': 'string'
 
-}, headers = headers, json = input_body)
+}, headers = headers, json = input_data)
 
 print(r.json())
 
@@ -13455,15 +13512,20 @@ input_payload = JSON.parse('{
         "divide_by": 0,
         "round": "string"
       },
+      "currency_prices": null,
       "provider": "string",
+      "revenue_recognition_rule": "string",
       "price_in_decimal": "string",
       "tiers": [
         {
+          "flat_currency_prices": null,
           "up_to": null,
+          "flat_price_in_decimal": "string",
           "unit_price_in_decimal": "string",
-          "flat_price_in_decimal": "string"
+          "unit_currency_prices": null
         }
       ],
+      "recognized_revenue_accounting_code": "string",
       "period_units": "string",
       "plan_id": "string",
       "id": "string",
@@ -13472,21 +13534,26 @@ input_payload = JSON.parse('{
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2024-04-11T04:01:35.090Z",
+      "created_at": "2025-01-09T17:18:58.560Z",
       "unit": "string",
+      "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
       "period": 0
     }
   ],
   "provider": "string",
+  "billing_type": "string",
   "description": "string",
+  "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
+  "billing_period": "string",
   "unit": "string",
-  "updated_at": "2024-04-11T04:01:35.090Z"
+  "updated_at": "2025-01-09T17:18:58.560Z",
+  "reporting_period": "string"
 }')
 
 result = RestClient.post 'https://api.moesif.com/v1/~/billing/catalog/plans',
@@ -13520,15 +13587,20 @@ $inputPayload = json_decode('{
         "divide_by": 0,
         "round": "string"
       },
+      "currency_prices": null,
       "provider": "string",
+      "revenue_recognition_rule": "string",
       "price_in_decimal": "string",
       "tiers": [
         {
+          "flat_currency_prices": null,
           "up_to": null,
+          "flat_price_in_decimal": "string",
           "unit_price_in_decimal": "string",
-          "flat_price_in_decimal": "string"
+          "unit_currency_prices": null
         }
       ],
+      "recognized_revenue_accounting_code": "string",
       "period_units": "string",
       "plan_id": "string",
       "id": "string",
@@ -13537,21 +13609,26 @@ $inputPayload = json_decode('{
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2024-04-11T04:01:35.090Z",
+      "created_at": "2025-01-09T17:18:58.560Z",
       "unit": "string",
+      "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
       "period": 0
     }
   ],
   "provider": "string",
+  "billing_type": "string",
   "description": "string",
+  "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
+  "billing_period": "string",
   "unit": "string",
-  "updated_at": "2024-04-11T04:01:35.090Z"
+  "updated_at": "2025-01-09T17:18:58.560Z",
+  "reporting_period": "string"
 }')
 
 $client = new \GuzzleHttp\Client();
@@ -13597,15 +13674,20 @@ func main() {
         "divide_by": 0,
         "round": "string"
       },
+      "currency_prices": null,
       "provider": "string",
+      "revenue_recognition_rule": "string",
       "price_in_decimal": "string",
       "tiers": [
         {
+          "flat_currency_prices": null,
           "up_to": null,
+          "flat_price_in_decimal": "string",
           "unit_price_in_decimal": "string",
-          "flat_price_in_decimal": "string"
+          "unit_currency_prices": null
         }
       ],
+      "recognized_revenue_accounting_code": "string",
       "period_units": "string",
       "plan_id": "string",
       "id": "string",
@@ -13614,21 +13696,26 @@ func main() {
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2024-04-11T04:01:35.090Z",
+      "created_at": "2025-01-09T17:18:58.560Z",
       "unit": "string",
+      "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
       "period": 0
     }
   ],
   "provider": "string",
+  "billing_type": "string",
   "description": "string",
+  "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
+  "billing_period": "string",
   "unit": "string",
-  "updated_at": "2024-04-11T04:01:35.090Z"
+  "updated_at": "2025-01-09T17:18:58.560Z",
+  "reporting_period": "string"
 }`
     data := bytes.NewBuffer([]byte(jsonPayload))
     req, err := http.NewRequest("POST", "https://api.moesif.com/v1/~/billing/catalog/plans", data)
@@ -13680,15 +13767,20 @@ public class HttpExample
         ""divide_by"": 0,
         ""round"": ""string""
       },
+      ""currency_prices"": null,
       ""provider"": ""string"",
+      ""revenue_recognition_rule"": ""string"",
       ""price_in_decimal"": ""string"",
       ""tiers"": [
         {
+          ""flat_currency_prices"": null,
           ""up_to"": null,
+          ""flat_price_in_decimal"": ""string"",
           ""unit_price_in_decimal"": ""string"",
-          ""flat_price_in_decimal"": ""string""
+          ""unit_currency_prices"": null
         }
       ],
+      ""recognized_revenue_accounting_code"": ""string"",
       ""period_units"": ""string"",
       ""plan_id"": ""string"",
       ""id"": ""string"",
@@ -13697,21 +13789,26 @@ public class HttpExample
       ""tax_behavior"": ""string"",
       ""currency"": ""string"",
       ""metadata"": null,
-      ""created_at"": ""2024-04-11T04:01:35.090Z"",
+      ""created_at"": ""2025-01-09T17:18:58.560Z"",
       ""unit"": ""string"",
+      ""deferred_revenue_accounting_code"": ""string"",
       ""usage_aggregator"": ""string"",
       ""period"": 0
     }
   ],
   ""provider"": ""string"",
+  ""billing_type"": ""string"",
   ""description"": ""string"",
+  ""external_plan_id"": ""string"",
   ""id"": ""string"",
   ""status"": ""string"",
   ""product_id"": ""string"",
   ""metadata"": null,
-  ""created_at"": ""2024-04-11T04:01:35.090Z"",
+  ""created_at"": ""2025-01-09T17:18:58.560Z"",
+  ""billing_period"": ""string"",
   ""unit"": ""string"",
-  ""updated_at"": ""2024-04-11T04:01:35.090Z""
+  ""updated_at"": ""2025-01-09T17:18:58.560Z"",
+  ""reporting_period"": ""string""
 }";
       var content = JsonConvert.DeserializeObject(json);
       await PostAsync(content, url);
@@ -13775,15 +13872,20 @@ String jsonPayload = """{
         "divide_by": 0,
         "round": "string"
       },
+      "currency_prices": null,
       "provider": "string",
+      "revenue_recognition_rule": "string",
       "price_in_decimal": "string",
       "tiers": [
         {
+          "flat_currency_prices": null,
           "up_to": null,
+          "flat_price_in_decimal": "string",
           "unit_price_in_decimal": "string",
-          "flat_price_in_decimal": "string"
+          "unit_currency_prices": null
         }
       ],
+      "recognized_revenue_accounting_code": "string",
       "period_units": "string",
       "plan_id": "string",
       "id": "string",
@@ -13792,21 +13894,26 @@ String jsonPayload = """{
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2024-04-11T04:01:35.090Z",
+      "created_at": "2025-01-09T17:18:58.560Z",
       "unit": "string",
+      "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
       "period": 0
     }
   ],
   "provider": "string",
+  "billing_type": "string",
   "description": "string",
+  "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
+  "billing_period": "string",
   "unit": "string",
-  "updated_at": "2024-04-11T04:01:35.090Z"
+  "updated_at": "2025-01-09T17:18:58.560Z",
+  "reporting_period": "string"
 }""";
 
 // Write payload to the request
@@ -13845,15 +13952,20 @@ System.out.println(response.toString());
         "divide_by": 0,
         "round": "string"
       },
+      "currency_prices": null,
       "provider": "string",
+      "revenue_recognition_rule": "string",
       "price_in_decimal": "string",
       "tiers": [
         {
+          "flat_currency_prices": null,
           "up_to": null,
+          "flat_price_in_decimal": "string",
           "unit_price_in_decimal": "string",
-          "flat_price_in_decimal": "string"
+          "unit_currency_prices": null
         }
       ],
+      "recognized_revenue_accounting_code": "string",
       "period_units": "string",
       "plan_id": "string",
       "id": "string",
@@ -13862,21 +13974,26 @@ System.out.println(response.toString());
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2024-04-11T04:01:35.090Z",
+      "created_at": "2025-01-09T17:18:58.560Z",
       "unit": "string",
+      "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
       "period": 0
     }
   ],
   "provider": "string",
+  "billing_type": "string",
   "description": "string",
+  "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
+  "billing_period": "string",
   "unit": "string",
-  "updated_at": "2024-04-11T04:01:35.090Z"
+  "updated_at": "2025-01-09T17:18:58.560Z",
+  "reporting_period": "string"
 }
 ```
 
@@ -13901,15 +14018,20 @@ System.out.println(response.toString());
         "divide_by": 0,
         "round": "string"
       },
+      "currency_prices": null,
       "provider": "string",
+      "revenue_recognition_rule": "string",
       "price_in_decimal": "string",
       "tiers": [
         {
+          "flat_currency_prices": null,
           "up_to": null,
+          "flat_price_in_decimal": "string",
           "unit_price_in_decimal": "string",
-          "flat_price_in_decimal": "string"
+          "unit_currency_prices": null
         }
       ],
+      "recognized_revenue_accounting_code": "string",
       "period_units": "string",
       "plan_id": "string",
       "id": "string",
@@ -13918,21 +14040,26 @@ System.out.println(response.toString());
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2024-04-11T04:01:35.090Z",
+      "created_at": "2025-01-09T17:18:58.560Z",
       "unit": "string",
+      "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
       "period": 0
     }
   ],
   "provider": "string",
+  "billing_type": "string",
   "description": "string",
+  "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
+  "billing_period": "string",
   "unit": "string",
-  "updated_at": "2024-04-11T04:01:35.090Z"
+  "updated_at": "2025-01-09T17:18:58.560Z",
+  "reporting_period": "string"
 }
 ```
 
@@ -14158,7 +14285,7 @@ System.out.println(response.toString());
 |---|---|---|---|---|
 |provider|query|string|false|none|
 |includes|query|string|false|none|
-|limit|query|integer(int32)|false|A limit on the number of objects to be returned. Limit can range between `1` and `1000` (inclusive). Defaults to `1000`.|
+|limit|query|integer(int32)|false|none|
 
 > Example responses
 
@@ -14175,15 +14302,20 @@ System.out.println(response.toString());
           "divide_by": 0,
           "round": "string"
         },
+        "currency_prices": null,
         "provider": "string",
+        "revenue_recognition_rule": "string",
         "price_in_decimal": "string",
         "tiers": [
           {
+            "flat_currency_prices": null,
             "up_to": null,
+            "flat_price_in_decimal": "string",
             "unit_price_in_decimal": "string",
-            "flat_price_in_decimal": "string"
+            "unit_currency_prices": null
           }
         ],
+        "recognized_revenue_accounting_code": "string",
         "period_units": "string",
         "plan_id": "string",
         "id": "string",
@@ -14192,21 +14324,26 @@ System.out.println(response.toString());
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2024-04-11T04:01:35.090Z",
+        "created_at": "2025-01-09T17:18:58.560Z",
         "unit": "string",
+        "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
         "period": 0
       }
     ],
     "provider": "string",
+    "billing_type": "string",
     "description": "string",
+    "external_plan_id": "string",
     "id": "string",
     "status": "string",
     "product_id": "string",
     "metadata": null,
-    "created_at": "2024-04-11T04:01:35.090Z",
+    "created_at": "2025-01-09T17:18:58.560Z",
+    "billing_period": "string",
     "unit": "string",
-    "updated_at": "2024-04-11T04:01:35.090Z"
+    "updated_at": "2025-01-09T17:18:58.560Z",
+    "reporting_period": "string"
   }
 ]
 ```
@@ -14230,12 +14367,17 @@ Status Code **200**
 |»» transform_quantity|object|false|none|none|
 |»»» divide_by|integer(int64)|true|none|none|
 |»»» round|string|true|none|none|
+|»» currency_prices|.map[string,string]|false|none|none|
 |»» provider|string|false|none|none|
+|»» revenue_recognition_rule|string|false|none|none|
 |»» price_in_decimal|string|false|none|none|
 |»» tiers|[[MoesifPriceTier](#schemamoesifpricetier)]|false|none|none|
-|»»» up_to|util.either[scala.long,string]|true|none|none|
-|»»» unit_price_in_decimal|string|false|none|none|
+|»»» flat_currency_prices|.map[string,string]|false|none|none|
+|»»» up_to|util.either[long,string]|true|none|none|
 |»»» flat_price_in_decimal|string|false|none|none|
+|»»» unit_price_in_decimal|string|false|none|none|
+|»»» unit_currency_prices|.map[string,string]|false|none|none|
+|»» recognized_revenue_accounting_code|string|false|none|none|
 |»» period_units|string|false|none|none|
 |»» plan_id|string|false|none|none|
 |»» id|string|false|none|none|
@@ -14246,17 +14388,22 @@ Status Code **200**
 |»» metadata|.map[string,string]|false|none|none|
 |»» created_at|string(date-time)|false|none|none|
 |»» unit|string|false|none|none|
+|»» deferred_revenue_accounting_code|string|false|none|none|
 |»» usage_aggregator|string|false|none|none|
 |»» period|integer(int64)|false|none|none|
 |» provider|string|false|none|none|
+|» billing_type|string|false|none|none|
 |» description|string|false|none|none|
+|» external_plan_id|string|false|none|none|
 |» id|string|false|none|none|
 |» status|string|false|none|none|
 |» product_id|string|false|none|none|
 |» metadata|.map[string,string]|false|none|none|
 |» created_at|string(date-time)|false|none|none|
+|» billing_period|string|false|none|none|
 |» unit|string|false|none|none|
 |» updated_at|string(date-time)|false|none|none|
+|» reporting_period|string|false|none|none|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -14495,15 +14642,20 @@ Get the Moesif Plan for authenticated users
         "divide_by": 0,
         "round": "string"
       },
+      "currency_prices": null,
       "provider": "string",
+      "revenue_recognition_rule": "string",
       "price_in_decimal": "string",
       "tiers": [
         {
+          "flat_currency_prices": null,
           "up_to": null,
+          "flat_price_in_decimal": "string",
           "unit_price_in_decimal": "string",
-          "flat_price_in_decimal": "string"
+          "unit_currency_prices": null
         }
       ],
+      "recognized_revenue_accounting_code": "string",
       "period_units": "string",
       "plan_id": "string",
       "id": "string",
@@ -14512,21 +14664,26 @@ Get the Moesif Plan for authenticated users
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2024-04-11T04:01:35.090Z",
+      "created_at": "2025-01-09T17:18:58.560Z",
       "unit": "string",
+      "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
       "period": 0
     }
   ],
   "provider": "string",
+  "billing_type": "string",
   "description": "string",
+  "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
+  "billing_period": "string",
   "unit": "string",
-  "updated_at": "2024-04-11T04:01:35.090Z"
+  "updated_at": "2025-01-09T17:18:58.560Z",
+  "reporting_period": "string"
 }
 ```
 
@@ -14784,15 +14941,20 @@ curl -X PUT https://api.moesif.com/v1/~/billing/catalog/plans/{id}?provider=stri
         "divide_by": 0,
         "round": "string"
       },
+      "currency_prices": null,
       "provider": "string",
+      "revenue_recognition_rule": "string",
       "price_in_decimal": "string",
       "tiers": [
         {
+          "flat_currency_prices": null,
           "up_to": null,
+          "flat_price_in_decimal": "string",
           "unit_price_in_decimal": "string",
-          "flat_price_in_decimal": "string"
+          "unit_currency_prices": null
         }
       ],
+      "recognized_revenue_accounting_code": "string",
       "period_units": "string",
       "plan_id": "string",
       "id": "string",
@@ -14801,21 +14963,26 @@ curl -X PUT https://api.moesif.com/v1/~/billing/catalog/plans/{id}?provider=stri
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2024-04-11T04:01:35.090Z",
+      "created_at": "2025-01-09T17:18:58.560Z",
       "unit": "string",
+      "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
       "period": 0
     }
   ],
   "provider": "string",
+  "billing_type": "string",
   "description": "string",
+  "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
+  "billing_period": "string",
   "unit": "string",
-  "updated_at": "2024-04-11T04:01:35.090Z"
+  "updated_at": "2025-01-09T17:18:58.560Z",
+  "reporting_period": "string"
 }' 
 ```
 
@@ -14830,15 +14997,20 @@ const inputBody = {
         "divide_by": 0,
         "round": "string"
       },
+      "currency_prices": null,
       "provider": "string",
+      "revenue_recognition_rule": "string",
       "price_in_decimal": "string",
       "tiers": [
         {
+          "flat_currency_prices": null,
           "up_to": null,
+          "flat_price_in_decimal": "string",
           "unit_price_in_decimal": "string",
-          "flat_price_in_decimal": "string"
+          "unit_currency_prices": null
         }
       ],
+      "recognized_revenue_accounting_code": "string",
       "period_units": "string",
       "plan_id": "string",
       "id": "string",
@@ -14847,21 +15019,26 @@ const inputBody = {
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2024-04-11T04:01:35.090Z",
+      "created_at": "2025-01-09T17:18:58.560Z",
       "unit": "string",
+      "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
       "period": 0
     }
   ],
   "provider": "string",
+  "billing_type": "string",
   "description": "string",
+  "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
+  "billing_period": "string",
   "unit": "string",
-  "updated_at": "2024-04-11T04:01:35.090Z"
+  "updated_at": "2025-01-09T17:18:58.560Z",
+  "reporting_period": "string"
 };
 const headers = {
   'Content-Type':'application/json',
@@ -14899,15 +15076,20 @@ input_body = {
         "divide_by": 0,
         "round": "string"
       },
+      "currency_prices": null,
       "provider": "string",
+      "revenue_recognition_rule": "string",
       "price_in_decimal": "string",
       "tiers": [
         {
+          "flat_currency_prices": null,
           "up_to": null,
+          "flat_price_in_decimal": "string",
           "unit_price_in_decimal": "string",
-          "flat_price_in_decimal": "string"
+          "unit_currency_prices": null
         }
       ],
+      "recognized_revenue_accounting_code": "string",
       "period_units": "string",
       "plan_id": "string",
       "id": "string",
@@ -14916,27 +15098,32 @@ input_body = {
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2024-04-11T04:01:35.090Z",
+      "created_at": "2025-01-09T17:18:58.560Z",
       "unit": "string",
+      "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
       "period": 0
     }
   ],
   "provider": "string",
+  "billing_type": "string",
   "description": "string",
+  "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
+  "billing_period": "string",
   "unit": "string",
-  "updated_at": "2024-04-11T04:01:35.090Z"
+  "updated_at": "2025-01-09T17:18:58.560Z",
+  "reporting_period": "string"
 }
 
 r = requests.put('https://api.moesif.com/v1/~/billing/catalog/plans/{id}', params={
   'provider': 'string'
 
-}, headers = headers, json = input_body)
+}, headers = headers, json = input_data)
 
 print(r.json())
 
@@ -14961,15 +15148,20 @@ input_payload = JSON.parse('{
         "divide_by": 0,
         "round": "string"
       },
+      "currency_prices": null,
       "provider": "string",
+      "revenue_recognition_rule": "string",
       "price_in_decimal": "string",
       "tiers": [
         {
+          "flat_currency_prices": null,
           "up_to": null,
+          "flat_price_in_decimal": "string",
           "unit_price_in_decimal": "string",
-          "flat_price_in_decimal": "string"
+          "unit_currency_prices": null
         }
       ],
+      "recognized_revenue_accounting_code": "string",
       "period_units": "string",
       "plan_id": "string",
       "id": "string",
@@ -14978,21 +15170,26 @@ input_payload = JSON.parse('{
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2024-04-11T04:01:35.090Z",
+      "created_at": "2025-01-09T17:18:58.560Z",
       "unit": "string",
+      "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
       "period": 0
     }
   ],
   "provider": "string",
+  "billing_type": "string",
   "description": "string",
+  "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
+  "billing_period": "string",
   "unit": "string",
-  "updated_at": "2024-04-11T04:01:35.090Z"
+  "updated_at": "2025-01-09T17:18:58.560Z",
+  "reporting_period": "string"
 }')
 
 result = RestClient.put 'https://api.moesif.com/v1/~/billing/catalog/plans/{id}',
@@ -15026,15 +15223,20 @@ $inputPayload = json_decode('{
         "divide_by": 0,
         "round": "string"
       },
+      "currency_prices": null,
       "provider": "string",
+      "revenue_recognition_rule": "string",
       "price_in_decimal": "string",
       "tiers": [
         {
+          "flat_currency_prices": null,
           "up_to": null,
+          "flat_price_in_decimal": "string",
           "unit_price_in_decimal": "string",
-          "flat_price_in_decimal": "string"
+          "unit_currency_prices": null
         }
       ],
+      "recognized_revenue_accounting_code": "string",
       "period_units": "string",
       "plan_id": "string",
       "id": "string",
@@ -15043,21 +15245,26 @@ $inputPayload = json_decode('{
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2024-04-11T04:01:35.090Z",
+      "created_at": "2025-01-09T17:18:58.560Z",
       "unit": "string",
+      "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
       "period": 0
     }
   ],
   "provider": "string",
+  "billing_type": "string",
   "description": "string",
+  "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
+  "billing_period": "string",
   "unit": "string",
-  "updated_at": "2024-04-11T04:01:35.090Z"
+  "updated_at": "2025-01-09T17:18:58.560Z",
+  "reporting_period": "string"
 }')
 
 $client = new \GuzzleHttp\Client();
@@ -15103,15 +15310,20 @@ func main() {
         "divide_by": 0,
         "round": "string"
       },
+      "currency_prices": null,
       "provider": "string",
+      "revenue_recognition_rule": "string",
       "price_in_decimal": "string",
       "tiers": [
         {
+          "flat_currency_prices": null,
           "up_to": null,
+          "flat_price_in_decimal": "string",
           "unit_price_in_decimal": "string",
-          "flat_price_in_decimal": "string"
+          "unit_currency_prices": null
         }
       ],
+      "recognized_revenue_accounting_code": "string",
       "period_units": "string",
       "plan_id": "string",
       "id": "string",
@@ -15120,21 +15332,26 @@ func main() {
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2024-04-11T04:01:35.090Z",
+      "created_at": "2025-01-09T17:18:58.560Z",
       "unit": "string",
+      "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
       "period": 0
     }
   ],
   "provider": "string",
+  "billing_type": "string",
   "description": "string",
+  "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
+  "billing_period": "string",
   "unit": "string",
-  "updated_at": "2024-04-11T04:01:35.090Z"
+  "updated_at": "2025-01-09T17:18:58.560Z",
+  "reporting_period": "string"
 }`
     data := bytes.NewBuffer([]byte(jsonPayload))
     req, err := http.NewRequest("PUT", "https://api.moesif.com/v1/~/billing/catalog/plans/{id}", data)
@@ -15189,15 +15406,20 @@ public class HttpExample
         ""divide_by"": 0,
         ""round"": ""string""
       },
+      ""currency_prices"": null,
       ""provider"": ""string"",
+      ""revenue_recognition_rule"": ""string"",
       ""price_in_decimal"": ""string"",
       ""tiers"": [
         {
+          ""flat_currency_prices"": null,
           ""up_to"": null,
+          ""flat_price_in_decimal"": ""string"",
           ""unit_price_in_decimal"": ""string"",
-          ""flat_price_in_decimal"": ""string""
+          ""unit_currency_prices"": null
         }
       ],
+      ""recognized_revenue_accounting_code"": ""string"",
       ""period_units"": ""string"",
       ""plan_id"": ""string"",
       ""id"": ""string"",
@@ -15206,21 +15428,26 @@ public class HttpExample
       ""tax_behavior"": ""string"",
       ""currency"": ""string"",
       ""metadata"": null,
-      ""created_at"": ""2024-04-11T04:01:35.090Z"",
+      ""created_at"": ""2025-01-09T17:18:58.560Z"",
       ""unit"": ""string"",
+      ""deferred_revenue_accounting_code"": ""string"",
       ""usage_aggregator"": ""string"",
       ""period"": 0
     }
   ],
   ""provider"": ""string"",
+  ""billing_type"": ""string"",
   ""description"": ""string"",
+  ""external_plan_id"": ""string"",
   ""id"": ""string"",
   ""status"": ""string"",
   ""product_id"": ""string"",
   ""metadata"": null,
-  ""created_at"": ""2024-04-11T04:01:35.090Z"",
+  ""created_at"": ""2025-01-09T17:18:58.560Z"",
+  ""billing_period"": ""string"",
   ""unit"": ""string"",
-  ""updated_at"": ""2024-04-11T04:01:35.090Z""
+  ""updated_at"": ""2025-01-09T17:18:58.560Z"",
+  ""reporting_period"": ""string""
 }";
       var content = JsonConvert.DeserializeObject(json);
       var result = await PutAsync(id, content, url);
@@ -15286,15 +15513,20 @@ String jsonPayload = """{
         "divide_by": 0,
         "round": "string"
       },
+      "currency_prices": null,
       "provider": "string",
+      "revenue_recognition_rule": "string",
       "price_in_decimal": "string",
       "tiers": [
         {
+          "flat_currency_prices": null,
           "up_to": null,
+          "flat_price_in_decimal": "string",
           "unit_price_in_decimal": "string",
-          "flat_price_in_decimal": "string"
+          "unit_currency_prices": null
         }
       ],
+      "recognized_revenue_accounting_code": "string",
       "period_units": "string",
       "plan_id": "string",
       "id": "string",
@@ -15303,21 +15535,26 @@ String jsonPayload = """{
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2024-04-11T04:01:35.090Z",
+      "created_at": "2025-01-09T17:18:58.560Z",
       "unit": "string",
+      "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
       "period": 0
     }
   ],
   "provider": "string",
+  "billing_type": "string",
   "description": "string",
+  "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
+  "billing_period": "string",
   "unit": "string",
-  "updated_at": "2024-04-11T04:01:35.090Z"
+  "updated_at": "2025-01-09T17:18:58.560Z",
+  "reporting_period": "string"
 }""";
 
 // Write payload to the request
@@ -15356,15 +15593,20 @@ System.out.println(response.toString());
         "divide_by": 0,
         "round": "string"
       },
+      "currency_prices": null,
       "provider": "string",
+      "revenue_recognition_rule": "string",
       "price_in_decimal": "string",
       "tiers": [
         {
+          "flat_currency_prices": null,
           "up_to": null,
+          "flat_price_in_decimal": "string",
           "unit_price_in_decimal": "string",
-          "flat_price_in_decimal": "string"
+          "unit_currency_prices": null
         }
       ],
+      "recognized_revenue_accounting_code": "string",
       "period_units": "string",
       "plan_id": "string",
       "id": "string",
@@ -15373,21 +15615,26 @@ System.out.println(response.toString());
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2024-04-11T04:01:35.090Z",
+      "created_at": "2025-01-09T17:18:58.560Z",
       "unit": "string",
+      "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
       "period": 0
     }
   ],
   "provider": "string",
+  "billing_type": "string",
   "description": "string",
+  "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
+  "billing_period": "string",
   "unit": "string",
-  "updated_at": "2024-04-11T04:01:35.090Z"
+  "updated_at": "2025-01-09T17:18:58.560Z",
+  "reporting_period": "string"
 }
 ```
 
@@ -15413,15 +15660,20 @@ System.out.println(response.toString());
         "divide_by": 0,
         "round": "string"
       },
+      "currency_prices": null,
       "provider": "string",
+      "revenue_recognition_rule": "string",
       "price_in_decimal": "string",
       "tiers": [
         {
+          "flat_currency_prices": null,
           "up_to": null,
+          "flat_price_in_decimal": "string",
           "unit_price_in_decimal": "string",
-          "flat_price_in_decimal": "string"
+          "unit_currency_prices": null
         }
       ],
+      "recognized_revenue_accounting_code": "string",
       "period_units": "string",
       "plan_id": "string",
       "id": "string",
@@ -15430,21 +15682,26 @@ System.out.println(response.toString());
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2024-04-11T04:01:35.090Z",
+      "created_at": "2025-01-09T17:18:58.560Z",
       "unit": "string",
+      "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
       "period": 0
     }
   ],
   "provider": "string",
+  "billing_type": "string",
   "description": "string",
+  "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
+  "billing_period": "string",
   "unit": "string",
-  "updated_at": "2024-04-11T04:01:35.090Z"
+  "updated_at": "2025-01-09T17:18:58.560Z",
+  "reporting_period": "string"
 }
 ```
 
@@ -15478,15 +15735,20 @@ curl -X POST https://api.moesif.com/v1/~/billing/catalog/prices?provider=string 
     "divide_by": 0,
     "round": "string"
   },
+  "currency_prices": null,
   "provider": "string",
+  "revenue_recognition_rule": "string",
   "price_in_decimal": "string",
   "tiers": [
     {
+      "flat_currency_prices": null,
       "up_to": null,
+      "flat_price_in_decimal": "string",
       "unit_price_in_decimal": "string",
-      "flat_price_in_decimal": "string"
+      "unit_currency_prices": null
     }
   ],
+  "recognized_revenue_accounting_code": "string",
   "period_units": "string",
   "plan_id": "string",
   "id": "string",
@@ -15495,8 +15757,9 @@ curl -X POST https://api.moesif.com/v1/~/billing/catalog/prices?provider=string 
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "unit": "string",
+  "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
   "period": 0
 }' 
@@ -15510,15 +15773,20 @@ const inputBody = {
     "divide_by": 0,
     "round": "string"
   },
+  "currency_prices": null,
   "provider": "string",
+  "revenue_recognition_rule": "string",
   "price_in_decimal": "string",
   "tiers": [
     {
+      "flat_currency_prices": null,
       "up_to": null,
+      "flat_price_in_decimal": "string",
       "unit_price_in_decimal": "string",
-      "flat_price_in_decimal": "string"
+      "unit_currency_prices": null
     }
   ],
+  "recognized_revenue_accounting_code": "string",
   "period_units": "string",
   "plan_id": "string",
   "id": "string",
@@ -15527,8 +15795,9 @@ const inputBody = {
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "unit": "string",
+  "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
   "period": 0
 };
@@ -15565,15 +15834,20 @@ input_body = {
     "divide_by": 0,
     "round": "string"
   },
+  "currency_prices": null,
   "provider": "string",
+  "revenue_recognition_rule": "string",
   "price_in_decimal": "string",
   "tiers": [
     {
+      "flat_currency_prices": null,
       "up_to": null,
+      "flat_price_in_decimal": "string",
       "unit_price_in_decimal": "string",
-      "flat_price_in_decimal": "string"
+      "unit_currency_prices": null
     }
   ],
+  "recognized_revenue_accounting_code": "string",
   "period_units": "string",
   "plan_id": "string",
   "id": "string",
@@ -15582,8 +15856,9 @@ input_body = {
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "unit": "string",
+  "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
   "period": 0
 }
@@ -15591,7 +15866,7 @@ input_body = {
 r = requests.post('https://api.moesif.com/v1/~/billing/catalog/prices', params={
   'provider': 'string'
 
-}, headers = headers, json = input_body)
+}, headers = headers, json = input_data)
 
 print(r.json())
 
@@ -15613,15 +15888,20 @@ input_payload = JSON.parse('{
     "divide_by": 0,
     "round": "string"
   },
+  "currency_prices": null,
   "provider": "string",
+  "revenue_recognition_rule": "string",
   "price_in_decimal": "string",
   "tiers": [
     {
+      "flat_currency_prices": null,
       "up_to": null,
+      "flat_price_in_decimal": "string",
       "unit_price_in_decimal": "string",
-      "flat_price_in_decimal": "string"
+      "unit_currency_prices": null
     }
   ],
+  "recognized_revenue_accounting_code": "string",
   "period_units": "string",
   "plan_id": "string",
   "id": "string",
@@ -15630,8 +15910,9 @@ input_payload = JSON.parse('{
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "unit": "string",
+  "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
   "period": 0
 }')
@@ -15664,15 +15945,20 @@ $inputPayload = json_decode('{
     "divide_by": 0,
     "round": "string"
   },
+  "currency_prices": null,
   "provider": "string",
+  "revenue_recognition_rule": "string",
   "price_in_decimal": "string",
   "tiers": [
     {
+      "flat_currency_prices": null,
       "up_to": null,
+      "flat_price_in_decimal": "string",
       "unit_price_in_decimal": "string",
-      "flat_price_in_decimal": "string"
+      "unit_currency_prices": null
     }
   ],
+  "recognized_revenue_accounting_code": "string",
   "period_units": "string",
   "plan_id": "string",
   "id": "string",
@@ -15681,8 +15967,9 @@ $inputPayload = json_decode('{
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "unit": "string",
+  "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
   "period": 0
 }')
@@ -15727,15 +16014,20 @@ func main() {
     "divide_by": 0,
     "round": "string"
   },
+  "currency_prices": null,
   "provider": "string",
+  "revenue_recognition_rule": "string",
   "price_in_decimal": "string",
   "tiers": [
     {
+      "flat_currency_prices": null,
       "up_to": null,
+      "flat_price_in_decimal": "string",
       "unit_price_in_decimal": "string",
-      "flat_price_in_decimal": "string"
+      "unit_currency_prices": null
     }
   ],
+  "recognized_revenue_accounting_code": "string",
   "period_units": "string",
   "plan_id": "string",
   "id": "string",
@@ -15744,8 +16036,9 @@ func main() {
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "unit": "string",
+  "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
   "period": 0
 }`
@@ -15796,15 +16089,20 @@ public class HttpExample
     ""divide_by"": 0,
     ""round"": ""string""
   },
+  ""currency_prices"": null,
   ""provider"": ""string"",
+  ""revenue_recognition_rule"": ""string"",
   ""price_in_decimal"": ""string"",
   ""tiers"": [
     {
+      ""flat_currency_prices"": null,
       ""up_to"": null,
+      ""flat_price_in_decimal"": ""string"",
       ""unit_price_in_decimal"": ""string"",
-      ""flat_price_in_decimal"": ""string""
+      ""unit_currency_prices"": null
     }
   ],
+  ""recognized_revenue_accounting_code"": ""string"",
   ""period_units"": ""string"",
   ""plan_id"": ""string"",
   ""id"": ""string"",
@@ -15813,8 +16111,9 @@ public class HttpExample
   ""tax_behavior"": ""string"",
   ""currency"": ""string"",
   ""metadata"": null,
-  ""created_at"": ""2024-04-11T04:01:35.090Z"",
+  ""created_at"": ""2025-01-09T17:18:58.560Z"",
   ""unit"": ""string"",
+  ""deferred_revenue_accounting_code"": ""string"",
   ""usage_aggregator"": ""string"",
   ""period"": 0
 }";
@@ -15877,15 +16176,20 @@ String jsonPayload = """{
     "divide_by": 0,
     "round": "string"
   },
+  "currency_prices": null,
   "provider": "string",
+  "revenue_recognition_rule": "string",
   "price_in_decimal": "string",
   "tiers": [
     {
+      "flat_currency_prices": null,
       "up_to": null,
+      "flat_price_in_decimal": "string",
       "unit_price_in_decimal": "string",
-      "flat_price_in_decimal": "string"
+      "unit_currency_prices": null
     }
   ],
+  "recognized_revenue_accounting_code": "string",
   "period_units": "string",
   "plan_id": "string",
   "id": "string",
@@ -15894,8 +16198,9 @@ String jsonPayload = """{
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "unit": "string",
+  "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
   "period": 0
 }""";
@@ -15933,15 +16238,20 @@ System.out.println(response.toString());
     "divide_by": 0,
     "round": "string"
   },
+  "currency_prices": null,
   "provider": "string",
+  "revenue_recognition_rule": "string",
   "price_in_decimal": "string",
   "tiers": [
     {
+      "flat_currency_prices": null,
       "up_to": null,
+      "flat_price_in_decimal": "string",
       "unit_price_in_decimal": "string",
-      "flat_price_in_decimal": "string"
+      "unit_currency_prices": null
     }
   ],
+  "recognized_revenue_accounting_code": "string",
   "period_units": "string",
   "plan_id": "string",
   "id": "string",
@@ -15950,8 +16260,9 @@ System.out.println(response.toString());
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "unit": "string",
+  "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
   "period": 0
 }
@@ -15975,15 +16286,20 @@ System.out.println(response.toString());
     "divide_by": 0,
     "round": "string"
   },
+  "currency_prices": null,
   "provider": "string",
+  "revenue_recognition_rule": "string",
   "price_in_decimal": "string",
   "tiers": [
     {
+      "flat_currency_prices": null,
       "up_to": null,
+      "flat_price_in_decimal": "string",
       "unit_price_in_decimal": "string",
-      "flat_price_in_decimal": "string"
+      "unit_currency_prices": null
     }
   ],
+  "recognized_revenue_accounting_code": "string",
   "period_units": "string",
   "plan_id": "string",
   "id": "string",
@@ -15992,8 +16308,9 @@ System.out.println(response.toString());
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "unit": "string",
+  "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
   "period": 0
 }
@@ -16220,7 +16537,7 @@ System.out.println(response.toString());
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |provider|query|string|false|none|
-|limit|query|integer(int32)|false|A limit on the number of objects to be returned. Limit can range between `1` and `1000` (inclusive). Defaults to `1000`.|
+|limit|query|integer(int32)|false|none|
 
 > Example responses
 
@@ -16234,15 +16551,20 @@ System.out.println(response.toString());
       "divide_by": 0,
       "round": "string"
     },
+    "currency_prices": null,
     "provider": "string",
+    "revenue_recognition_rule": "string",
     "price_in_decimal": "string",
     "tiers": [
       {
+        "flat_currency_prices": null,
         "up_to": null,
+        "flat_price_in_decimal": "string",
         "unit_price_in_decimal": "string",
-        "flat_price_in_decimal": "string"
+        "unit_currency_prices": null
       }
     ],
+    "recognized_revenue_accounting_code": "string",
     "period_units": "string",
     "plan_id": "string",
     "id": "string",
@@ -16251,8 +16573,9 @@ System.out.println(response.toString());
     "tax_behavior": "string",
     "currency": "string",
     "metadata": null,
-    "created_at": "2024-04-11T04:01:35.090Z",
+    "created_at": "2025-01-09T17:18:58.560Z",
     "unit": "string",
+    "deferred_revenue_accounting_code": "string",
     "usage_aggregator": "string",
     "period": 0
   }
@@ -16276,12 +16599,17 @@ Status Code **200**
 |» transform_quantity|object|false|none|none|
 |»» divide_by|integer(int64)|true|none|none|
 |»» round|string|true|none|none|
+|» currency_prices|.map[string,string]|false|none|none|
 |» provider|string|false|none|none|
+|» revenue_recognition_rule|string|false|none|none|
 |» price_in_decimal|string|false|none|none|
 |» tiers|[[MoesifPriceTier](#schemamoesifpricetier)]|false|none|none|
-|»» up_to|util.either[scala.long,string]|true|none|none|
-|»» unit_price_in_decimal|string|false|none|none|
+|»» flat_currency_prices|.map[string,string]|false|none|none|
+|»» up_to|util.either[long,string]|true|none|none|
 |»» flat_price_in_decimal|string|false|none|none|
+|»» unit_price_in_decimal|string|false|none|none|
+|»» unit_currency_prices|.map[string,string]|false|none|none|
+|» recognized_revenue_accounting_code|string|false|none|none|
 |» period_units|string|false|none|none|
 |» plan_id|string|false|none|none|
 |» id|string|false|none|none|
@@ -16292,6 +16620,7 @@ Status Code **200**
 |» metadata|.map[string,string]|false|none|none|
 |» created_at|string(date-time)|false|none|none|
 |» unit|string|false|none|none|
+|» deferred_revenue_accounting_code|string|false|none|none|
 |» usage_aggregator|string|false|none|none|
 |» period|integer(int64)|false|none|none|
 
@@ -16529,15 +16858,20 @@ Get the Moesif Price for a specific Plan for authenticated users
     "divide_by": 0,
     "round": "string"
   },
+  "currency_prices": null,
   "provider": "string",
+  "revenue_recognition_rule": "string",
   "price_in_decimal": "string",
   "tiers": [
     {
+      "flat_currency_prices": null,
       "up_to": null,
+      "flat_price_in_decimal": "string",
       "unit_price_in_decimal": "string",
-      "flat_price_in_decimal": "string"
+      "unit_currency_prices": null
     }
   ],
+  "recognized_revenue_accounting_code": "string",
   "period_units": "string",
   "plan_id": "string",
   "id": "string",
@@ -16546,8 +16880,9 @@ Get the Moesif Price for a specific Plan for authenticated users
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "unit": "string",
+  "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
   "period": 0
 }
@@ -16804,15 +17139,20 @@ curl -X PUT https://api.moesif.com/v1/~/billing/catalog/prices/{id}?provider=str
     "divide_by": 0,
     "round": "string"
   },
+  "currency_prices": null,
   "provider": "string",
+  "revenue_recognition_rule": "string",
   "price_in_decimal": "string",
   "tiers": [
     {
+      "flat_currency_prices": null,
       "up_to": null,
+      "flat_price_in_decimal": "string",
       "unit_price_in_decimal": "string",
-      "flat_price_in_decimal": "string"
+      "unit_currency_prices": null
     }
   ],
+  "recognized_revenue_accounting_code": "string",
   "period_units": "string",
   "plan_id": "string",
   "id": "string",
@@ -16821,8 +17161,9 @@ curl -X PUT https://api.moesif.com/v1/~/billing/catalog/prices/{id}?provider=str
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "unit": "string",
+  "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
   "period": 0
 }' 
@@ -16836,15 +17177,20 @@ const inputBody = {
     "divide_by": 0,
     "round": "string"
   },
+  "currency_prices": null,
   "provider": "string",
+  "revenue_recognition_rule": "string",
   "price_in_decimal": "string",
   "tiers": [
     {
+      "flat_currency_prices": null,
       "up_to": null,
+      "flat_price_in_decimal": "string",
       "unit_price_in_decimal": "string",
-      "flat_price_in_decimal": "string"
+      "unit_currency_prices": null
     }
   ],
+  "recognized_revenue_accounting_code": "string",
   "period_units": "string",
   "plan_id": "string",
   "id": "string",
@@ -16853,8 +17199,9 @@ const inputBody = {
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "unit": "string",
+  "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
   "period": 0
 };
@@ -16891,15 +17238,20 @@ input_body = {
     "divide_by": 0,
     "round": "string"
   },
+  "currency_prices": null,
   "provider": "string",
+  "revenue_recognition_rule": "string",
   "price_in_decimal": "string",
   "tiers": [
     {
+      "flat_currency_prices": null,
       "up_to": null,
+      "flat_price_in_decimal": "string",
       "unit_price_in_decimal": "string",
-      "flat_price_in_decimal": "string"
+      "unit_currency_prices": null
     }
   ],
+  "recognized_revenue_accounting_code": "string",
   "period_units": "string",
   "plan_id": "string",
   "id": "string",
@@ -16908,8 +17260,9 @@ input_body = {
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "unit": "string",
+  "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
   "period": 0
 }
@@ -16917,7 +17270,7 @@ input_body = {
 r = requests.put('https://api.moesif.com/v1/~/billing/catalog/prices/{id}', params={
   'provider': 'string'
 
-}, headers = headers, json = input_body)
+}, headers = headers, json = input_data)
 
 print(r.json())
 
@@ -16939,15 +17292,20 @@ input_payload = JSON.parse('{
     "divide_by": 0,
     "round": "string"
   },
+  "currency_prices": null,
   "provider": "string",
+  "revenue_recognition_rule": "string",
   "price_in_decimal": "string",
   "tiers": [
     {
+      "flat_currency_prices": null,
       "up_to": null,
+      "flat_price_in_decimal": "string",
       "unit_price_in_decimal": "string",
-      "flat_price_in_decimal": "string"
+      "unit_currency_prices": null
     }
   ],
+  "recognized_revenue_accounting_code": "string",
   "period_units": "string",
   "plan_id": "string",
   "id": "string",
@@ -16956,8 +17314,9 @@ input_payload = JSON.parse('{
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "unit": "string",
+  "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
   "period": 0
 }')
@@ -16990,15 +17349,20 @@ $inputPayload = json_decode('{
     "divide_by": 0,
     "round": "string"
   },
+  "currency_prices": null,
   "provider": "string",
+  "revenue_recognition_rule": "string",
   "price_in_decimal": "string",
   "tiers": [
     {
+      "flat_currency_prices": null,
       "up_to": null,
+      "flat_price_in_decimal": "string",
       "unit_price_in_decimal": "string",
-      "flat_price_in_decimal": "string"
+      "unit_currency_prices": null
     }
   ],
+  "recognized_revenue_accounting_code": "string",
   "period_units": "string",
   "plan_id": "string",
   "id": "string",
@@ -17007,8 +17371,9 @@ $inputPayload = json_decode('{
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "unit": "string",
+  "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
   "period": 0
 }')
@@ -17053,15 +17418,20 @@ func main() {
     "divide_by": 0,
     "round": "string"
   },
+  "currency_prices": null,
   "provider": "string",
+  "revenue_recognition_rule": "string",
   "price_in_decimal": "string",
   "tiers": [
     {
+      "flat_currency_prices": null,
       "up_to": null,
+      "flat_price_in_decimal": "string",
       "unit_price_in_decimal": "string",
-      "flat_price_in_decimal": "string"
+      "unit_currency_prices": null
     }
   ],
+  "recognized_revenue_accounting_code": "string",
   "period_units": "string",
   "plan_id": "string",
   "id": "string",
@@ -17070,8 +17440,9 @@ func main() {
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "unit": "string",
+  "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
   "period": 0
 }`
@@ -17125,15 +17496,20 @@ public class HttpExample
     ""divide_by"": 0,
     ""round"": ""string""
   },
+  ""currency_prices"": null,
   ""provider"": ""string"",
+  ""revenue_recognition_rule"": ""string"",
   ""price_in_decimal"": ""string"",
   ""tiers"": [
     {
+      ""flat_currency_prices"": null,
       ""up_to"": null,
+      ""flat_price_in_decimal"": ""string"",
       ""unit_price_in_decimal"": ""string"",
-      ""flat_price_in_decimal"": ""string""
+      ""unit_currency_prices"": null
     }
   ],
+  ""recognized_revenue_accounting_code"": ""string"",
   ""period_units"": ""string"",
   ""plan_id"": ""string"",
   ""id"": ""string"",
@@ -17142,8 +17518,9 @@ public class HttpExample
   ""tax_behavior"": ""string"",
   ""currency"": ""string"",
   ""metadata"": null,
-  ""created_at"": ""2024-04-11T04:01:35.090Z"",
+  ""created_at"": ""2025-01-09T17:18:58.560Z"",
   ""unit"": ""string"",
+  ""deferred_revenue_accounting_code"": ""string"",
   ""usage_aggregator"": ""string"",
   ""period"": 0
 }";
@@ -17208,15 +17585,20 @@ String jsonPayload = """{
     "divide_by": 0,
     "round": "string"
   },
+  "currency_prices": null,
   "provider": "string",
+  "revenue_recognition_rule": "string",
   "price_in_decimal": "string",
   "tiers": [
     {
+      "flat_currency_prices": null,
       "up_to": null,
+      "flat_price_in_decimal": "string",
       "unit_price_in_decimal": "string",
-      "flat_price_in_decimal": "string"
+      "unit_currency_prices": null
     }
   ],
+  "recognized_revenue_accounting_code": "string",
   "period_units": "string",
   "plan_id": "string",
   "id": "string",
@@ -17225,8 +17607,9 @@ String jsonPayload = """{
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "unit": "string",
+  "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
   "period": 0
 }""";
@@ -17264,15 +17647,20 @@ System.out.println(response.toString());
     "divide_by": 0,
     "round": "string"
   },
+  "currency_prices": null,
   "provider": "string",
+  "revenue_recognition_rule": "string",
   "price_in_decimal": "string",
   "tiers": [
     {
+      "flat_currency_prices": null,
       "up_to": null,
+      "flat_price_in_decimal": "string",
       "unit_price_in_decimal": "string",
-      "flat_price_in_decimal": "string"
+      "unit_currency_prices": null
     }
   ],
+  "recognized_revenue_accounting_code": "string",
   "period_units": "string",
   "plan_id": "string",
   "id": "string",
@@ -17281,8 +17669,9 @@ System.out.println(response.toString());
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "unit": "string",
+  "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
   "period": 0
 }
@@ -17307,15 +17696,20 @@ System.out.println(response.toString());
     "divide_by": 0,
     "round": "string"
   },
+  "currency_prices": null,
   "provider": "string",
+  "revenue_recognition_rule": "string",
   "price_in_decimal": "string",
   "tiers": [
     {
+      "flat_currency_prices": null,
       "up_to": null,
+      "flat_price_in_decimal": "string",
       "unit_price_in_decimal": "string",
-      "flat_price_in_decimal": "string"
+      "unit_currency_prices": null
     }
   ],
+  "recognized_revenue_accounting_code": "string",
   "period_units": "string",
   "plan_id": "string",
   "id": "string",
@@ -17324,8 +17718,9 @@ System.out.println(response.toString());
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "unit": "string",
+  "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
   "period": 0
 }
@@ -17340,6 +17735,239 @@ System.out.println(response.toString());
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 managementAPIToken ( Scopes: update:prices )
+</aside>
+
+## listMoesifUom
+
+<a id="opIdlistMoesifUom"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.moesif.com/v1/~/billing/catalog/uom?provider=string \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
+};
+
+fetch('https://api.moesif.com/v1/~/billing/catalog/uom?provider=string',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+r = requests.get('https://api.moesif.com/v1/~/billing/catalog/uom', params={
+  'provider': 'string'
+
+}, headers = headers)
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+result = RestClient.get 'https://api.moesif.com/v1/~/billing/catalog/uom',
+  params: {
+  'provider' => 'string'
+  }, 
+  headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
+);
+
+$client = new \GuzzleHttp\Client();
+
+try {
+    $response = $client->request('GET','https://api.moesif.com/v1/~/billing/catalog/uom', array(
+        'headers' => $headers,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
+    }
+    
+    
+    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/~/billing/catalog/uom")
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    /// Make a dummy request
+    public async Task MakeGetRequest()
+    {
+      string url = "https://api.moesif.com/v1/~/billing/catalog/uom";
+      var result = await GetAsync(url);
+    }
+
+    /// Performs a GET Request
+    public async Task GetAsync(string url)
+    {
+        //Start the request
+        HttpResponseMessage response = await Client.GetAsync(url);
+
+        //Validate result
+        response.EnsureSuccessStatusCode();
+
+    }
+    
+    
+    
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/~/billing/catalog/uom?provider=string");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+
+con.setRequestProperty("Accept",'application/json');
+con.setRequestProperty("Authorization",'Bearer YOUR_MANAGEMENT_API_KEY');
+
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /~/billing/catalog/uom`
+
+*Get available Unit Of Measures Moesif Price*
+
+Get the available Unit Of Measures for Moesif Price
+
+> `GET https://api.moesif.com/v1/~/billing/catalog/uom`
+
+<h3 id="listmoesifuom-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|provider|query|string|true|none|
+|limit|query|integer(int32)|false|none|
+
+> Example responses
+
+<h3 id="listmoesifuom-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+
+<h3 id="listmoesifuom-responseschema">Response Schema</h3>
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: read:prices )
 </aside>
 
 <h1 id="management-api-billing-meters">Billing Meters</h1>
@@ -17613,11 +18241,11 @@ List Billing Meters
     "_id": "string",
     "slug": "string",
     "status": "string",
-    "modified_at": "2024-04-11T04:01:35.090Z",
+    "modified_at": "2025-01-09T17:18:58.560Z",
     "es_query": "string",
-    "created_at": "2024-04-11T04:01:35.090Z",
-    "zero_balance_behavior": "string",
+    "created_at": "2025-01-09T17:18:58.560Z",
     "app_id": "string",
+    "zero_balance_behavior": "string",
     "org_id": "string"
   }
 ]
@@ -17742,11 +18370,13 @@ Status Code **200**
 |»»»»»» flat_amount|integer(int64)|false|none|none|
 |»»»»»» unit_amount|integer(int64)|false|none|none|
 |»»»»» recurring|object|false|none|none|
+|»»»»»» meter_event_name|string|false|none|none|
 |»»»»»» trial_period_days|integer(int64)|false|none|none|
 |»»»»»» interval|string|false|none|none|
 |»»»»»» usage_type|string|false|none|none|
 |»»»»»» interval_count|integer(int64)|false|none|none|
 |»»»»»» aggregate_usage|string|false|none|none|
+|»»»»»» meter_unsupported|boolean|false|none|none|
 |»»»»» unit_amount_decimal|string|false|none|none|
 |»»»»» price_nickname|string|false|none|none|
 |»»»»» currency|string|false|none|none|
@@ -17768,8 +18398,8 @@ Status Code **200**
 |» modified_at|string(date-time)|true|none|none|
 |» es_query|string|true|none|none|
 |» created_at|string(date-time)|true|none|none|
-|» zero_balance_behavior|string|false|none|none
 |» app_id|string|true|none|none|
+|» zero_balance_behavior|string|false|none|none|
 |» org_id|string|true|none|none|
 
 <aside class="warning">
@@ -18129,10 +18759,11 @@ Get Billing Meter by id
   "_id": "string",
   "slug": "string",
   "status": "string",
-  "modified_at": "2024-04-11T04:01:35.090Z",
+  "modified_at": "2025-01-09T17:18:58.560Z",
   "es_query": "string",
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "app_id": "string",
+  "zero_balance_behavior": "string",
   "org_id": "string"
 }
 ```
@@ -18585,10 +19216,18 @@ Query audit history of billing reports to external billing providers
 |company_id|query|string|false|none|
 |provider|query|string|false|none|
 |subscription_id|query|string|false|none|
+|subscription_item_id|query|string|false|none|
+|plan_id|query|string|false|none|
+|price_id|query|string|false|none|
+|currency|query|string|false|none|
 |success|query|boolean|false|none|
 |status_code|query|integer(int32)|false|none|
 |error_code|query|string|false|none|
 |`type`|query|string|false|none|
+|status|query|array[string]|false|none|
+|amount|query|number(double)|false|none|
+|meter_metric|query|integer(int32)|false|none|
+|report_total_usage|query|integer(int32)|false|none|
 
 > Example responses
 
@@ -18604,21 +19243,24 @@ Query audit history of billing reports to external billing providers
       "available_balance": 0.1
     },
     "company_id": "string",
+    "transform_quantity": null,
     "success": true,
     "provider": "string",
     "report_version": 0,
-    "usage_end_time": "2024-04-11T04:01:35.090Z",
+    "usage_end_time": "2025-01-09T17:18:58.560Z",
     "usage": {
       "invoice": {
-        "period_start": "2024-04-11T04:01:35.090Z",
-        "period_end": "2024-04-11T04:01:35.090Z",
+        "period_start": "2025-01-09T17:18:58.560Z",
+        "period_end": "2025-01-09T17:18:58.560Z",
         "id": "string"
       },
       "aggregator": "string"
     },
     "_id": "string",
-    "meter_usage": 0,
-    "last_success_time": "2024-04-11T04:01:35.090Z",
+    "price_id": "string",
+    "price_in_decimal": 0.1,
+    "meter_usage": 0.1,
+    "last_success_time": "2025-01-09T17:18:58.560Z",
     "beginning_balance": {
       "sequence_id": 0,
       "current_balance": 0.1,
@@ -18627,7 +19269,8 @@ Query audit history of billing reports to external billing providers
     },
     "billing_meter_id": "string",
     "amount": 0.1,
-    "usage_start_time": "2024-04-11T04:01:35.090Z",
+    "plan_id": "string",
+    "usage_start_time": "2025-01-09T17:18:58.560Z",
     "status": "string",
     "provider_requests": [
       {
@@ -18636,11 +19279,11 @@ Query audit history of billing reports to external billing providers
         "job_id": "string",
         "error_message": "string",
         "error_code": "string",
-        "request_time": "2024-04-11T04:01:35.090Z"
+        "request_time": "2025-01-09T17:18:58.560Z"
       }
     ],
     "currency": "string",
-    "report_total_usage": 0,
+    "report_total_usage": 0.1,
     "channel_requests": [
       {
         "channel_id": "string",
@@ -18652,25 +19295,28 @@ Query audit history of billing reports to external billing providers
             "job_id": "string",
             "error_message": "string",
             "error_code": "string",
-            "request_time": "2024-04-11T04:01:35.090Z"
+            "request_time": "2025-01-09T17:18:58.560Z"
           }
         ]
       }
     ],
-    "created_at": "2024-04-11T04:01:35.090Z",
+    "created_at": "2025-01-09T17:18:58.560Z",
     "app_id": "string",
     "subscription_id": "string",
-    "subscription_period_start": "2024-04-11T04:01:35.090Z",
+    "subscription_period_start": "2025-01-09T17:18:58.560Z",
     "balance_changes": [
       {
-        "amount": 0.1
+        "amount": 0.1,
+        "grant_id": "string"
       }
     ],
     "type": "string",
-    "updated_at": "2024-04-11T04:01:35.090Z",
+    "updated_at": "2025-01-09T17:18:58.560Z",
+    "subscription_item_id": "string",
+    "zero_balance_behavior": "string",
     "org_id": "string",
-    "subscription_period_end": "2024-04-11T04:01:35.090Z",
-    "meter_metric": 0
+    "subscription_period_end": "2025-01-09T17:18:58.560Z",
+    "meter_metric": 0.1
   }
 ]
 ```
@@ -18694,6 +19340,7 @@ Status Code **200**
 |»» pending_activity|number(double)|true|none|none|
 |»» available_balance|number(double)|true|none|none|
 |» company_id|string|true|none|none|
+|» transform_quantity|com.moesif.billing.helpers.subscriptions.moesiftransformquantity|false|none|none|
 |» success|boolean|true|none|none|
 |» provider|string|true|none|none|
 |» report_version|integer(int32)|false|none|none|
@@ -18705,11 +19352,14 @@ Status Code **200**
 |»»» id|string|true|none|none|
 |»» aggregator|string|false|none|none|
 |» _id|string|false|none|none|
-|» meter_usage|integer(int64)|true|none|none|
+|» price_id|string|false|none|none|
+|» price_in_decimal|number(double)|false|none|none|
+|» meter_usage|number(double)|true|none|none|
 |» last_success_time|string(date-time)|false|none|none|
 |» beginning_balance|object|false|none|none|
 |» billing_meter_id|string|true|none|none|
 |» amount|number(double)|false|none|none|
+|» plan_id|string|false|none|none|
 |» usage_start_time|string(date-time)|true|none|none|
 |» status|string|false|none|none|
 |» provider_requests|[[ProviderRequest](#schemaproviderrequest)]|true|none|none|
@@ -18720,7 +19370,7 @@ Status Code **200**
 |»» error_code|string|true|none|none|
 |»» request_time|string(date-time)|true|none|none|
 |» currency|string|false|none|none|
-|» report_total_usage|integer(int64)|true|none|none|
+|» report_total_usage|number(double)|true|none|none|
 |» channel_requests|[[ChannelRequest](#schemachannelrequest)]|false|none|none|
 |»» channel_id|string|true|none|none|
 |»» channel_name|string|true|none|none|
@@ -18731,11 +19381,14 @@ Status Code **200**
 |» subscription_period_start|string(date-time)|false|none|none|
 |» balance_changes|[[BalanceChange](#schemabalancechange)]|false|none|none|
 |»» amount|number(double)|true|none|none|
+|»» grant_id|string|false|none|none|
 |» type|string|false|none|none|
 |» updated_at|string(date-time)|false|none|none|
+|» subscription_item_id|string|false|none|none|
+|» zero_balance_behavior|string|false|none|none|
 |» org_id|string|true|none|none|
 |» subscription_period_end|string(date-time)|false|none|none|
-|» meter_metric|integer(int64)|true|none|none|
+|» meter_metric|number(double)|true|none|none|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -18786,7 +19439,7 @@ headers = {
 }
 
 r = requests.get('https://api.moesif.com/v1/~/billing/reports/metrics', params={
-  'from': '2024-04-11T04:01:35.090Z',  'to': '2024-04-11T04:01:35.090Z'
+  'from': '2025-01-09T17:18:58.560Z',  'to': '2025-01-09T17:18:58.560Z'
 
 }, headers = headers)
 
@@ -18960,13 +19613,21 @@ Get BillingReports' values for a given meter and time range for a single company
 |---|---|---|---|---|
 |from|query|string(date-time)|true|none|
 |to|query|string(date-time)|true|none|
+|time_zone|query|string|false|none|
 |billing_meter_id|query|string|false|none|
 |success|query|boolean|false|none|
 |aggregator|query|string|false|none|
 |interval|query|string|false|none|
 |company_id|query|string|false|none|
 |subscription_id|query|string|false|none|
+|subscription_item_id|query|string|false|none|
+|plan_id|query|string|false|none|
+|price_id|query|string|false|none|
+|provider|query|string|false|none|
+|currency|query|string|false|none|
 |`type`|query|array[string]|false|none|
+|status|query|array[string]|false|none|
+|group_by|query|string|false|none|
 
 > Example responses
 
@@ -18976,7 +19637,7 @@ Get BillingReports' values for a given meter and time range for a single company
 {
   "buckets": [
     {
-      "start": "2024-04-11T04:01:35.090Z",
+      "start": "2025-01-09T17:18:58.560Z",
       "metric": 0.1,
       "amounts": null,
       "ending_balance": {
@@ -18984,6 +19645,23 @@ Get BillingReports' values for a given meter and time range for a single company
         "pending_activity": 0.1,
         "available_balance": 0.1
       }
+    }
+  ],
+  "group_by": [
+    {
+      "key": {},
+      "buckets": [
+        {
+          "start": "2025-01-09T17:18:58.560Z",
+          "metric": 0.1,
+          "amounts": null,
+          "ending_balance": {
+            "current_balance": null,
+            "pending_activity": null,
+            "available_balance": null
+          }
+        }
+      ]
     }
   ]
 }
@@ -18997,7 +19675,253 @@ Get BillingReports' values for a given meter and time range for a single company
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-managementAPIToken ( Scopes: create:billing_meters create:billing_reports )
+managementAPIToken ( Scopes: read:billing_meters read:billing_reports )
+</aside>
+
+## getBillingReportsProperties
+
+<a id="opIdgetBillingReportsProperties"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.moesif.com/v1/~/billing/reports/properties/{field}?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
+};
+
+fetch('https://api.moesif.com/v1/~/billing/reports/properties/{field}?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+r = requests.get('https://api.moesif.com/v1/~/billing/reports/properties/{field}', params={
+  'from': '2025-01-09T17:18:58.560Z',  'to': '2025-01-09T17:18:58.560Z'
+
+}, headers = headers)
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+result = RestClient.get 'https://api.moesif.com/v1/~/billing/reports/properties/{field}',
+  params: {
+  'from' => 'string(date-time)',
+  'to' => 'string(date-time)'
+  }, 
+  headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
+);
+
+$client = new \GuzzleHttp\Client();
+
+try {
+    $response = $client->request('GET','https://api.moesif.com/v1/~/billing/reports/properties/{field}', array(
+        'headers' => $headers,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
+    }
+    
+    
+    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/~/billing/reports/properties/{field}")
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    /// Make a dummy request
+    public async Task MakeGetRequest()
+    {
+      string url = "https://api.moesif.com/v1/~/billing/reports/properties/{field}";
+      var result = await GetAsync(url);
+    }
+
+    /// Performs a GET Request
+    public async Task GetAsync(string url)
+    {
+        //Start the request
+        HttpResponseMessage response = await Client.GetAsync(url);
+
+        //Validate result
+        response.EnsureSuccessStatusCode();
+
+    }
+    
+    
+    
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/~/billing/reports/properties/{field}?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+
+con.setRequestProperty("Accept",'application/json');
+con.setRequestProperty("Authorization",'Bearer YOUR_MANAGEMENT_API_KEY');
+
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /~/billing/reports/properties/{field}`
+
+*Get BillingReports' properties available values*
+
+Get BillingReports' properties available values
+
+> `GET https://api.moesif.com/v1/~/billing/reports/properties/{field}`
+
+<h3 id="getbillingreportsproperties-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|field|path|string|true|none|
+|from|query|string(date-time)|true|none|
+|to|query|string(date-time)|true|none|
+|time_zone|query|string|false|none|
+|take|query|integer(int32)|false|none|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "path": "string",
+  "values": [
+    {}
+  ]
+}
+```
+
+<h3 id="getbillingreportsproperties-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|for the property field, return available property values. Can be string, Int, Double, boolean etc|[BillingReportProperty](#schemabillingreportproperty)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: read:billing_meters read:billing_reports )
 </aside>
 
 <h1 id="management-api-balance-transactions">Balance Transactions</h1>
@@ -19017,8 +19941,8 @@ curl -X POST https://api.moesif.com/v1/~/billing/reports/balance_transactions \
   -d '{
   "company_id": "string",
   "description": "string",
-  "expire_at": "2024-04-11T04:01:35.090Z",
-  "active_at": "2024-04-11T04:01:35.090Z",
+  "expire_at": "2025-01-09T17:18:58.560Z",
+  "active_at": "2025-01-09T17:18:58.560Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -19031,8 +19955,8 @@ const fetch = require('node-fetch');
 const inputBody = {
   "company_id": "string",
   "description": "string",
-  "expire_at": "2024-04-11T04:01:35.090Z",
-  "active_at": "2024-04-11T04:01:35.090Z",
+  "expire_at": "2025-01-09T17:18:58.560Z",
+  "active_at": "2025-01-09T17:18:58.560Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -19066,15 +19990,15 @@ headers = {
 input_body = {
   "company_id": "string",
   "description": "string",
-  "expire_at": "2024-04-11T04:01:35.090Z",
-  "active_at": "2024-04-11T04:01:35.090Z",
+  "expire_at": "2025-01-09T17:18:58.560Z",
+  "active_at": "2025-01-09T17:18:58.560Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
   "type": "string"
 }
 
-r = requests.post('https://api.moesif.com/v1/~/billing/reports/balance_transactions', headers = headers, json = input_body)
+r = requests.post('https://api.moesif.com/v1/~/billing/reports/balance_transactions', headers = headers, json = input_data)
 
 print(r.json())
 
@@ -19092,8 +20016,8 @@ headers = {
 input_payload = JSON.parse('{
   "company_id": "string",
   "description": "string",
-  "expire_at": "2024-04-11T04:01:35.090Z",
-  "active_at": "2024-04-11T04:01:35.090Z",
+  "expire_at": "2025-01-09T17:18:58.560Z",
+  "active_at": "2025-01-09T17:18:58.560Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -19123,8 +20047,8 @@ $headers = array(
 $inputPayload = json_decode('{
   "company_id": "string",
   "description": "string",
-  "expire_at": "2024-04-11T04:01:35.090Z",
-  "active_at": "2024-04-11T04:01:35.090Z",
+  "expire_at": "2025-01-09T17:18:58.560Z",
+  "active_at": "2025-01-09T17:18:58.560Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -19167,8 +20091,8 @@ func main() {
     jsonPayload := `{
   "company_id": "string",
   "description": "string",
-  "expire_at": "2024-04-11T04:01:35.090Z",
-  "active_at": "2024-04-11T04:01:35.090Z",
+  "expire_at": "2025-01-09T17:18:58.560Z",
+  "active_at": "2025-01-09T17:18:58.560Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -19218,8 +20142,8 @@ public class HttpExample
       string json = @"{
   ""company_id"": ""string"",
   ""description"": ""string"",
-  ""expire_at"": ""2024-04-11T04:01:35.090Z"",
-  ""active_at"": ""2024-04-11T04:01:35.090Z"",
+  ""expire_at"": ""2025-01-09T17:18:58.560Z"",
+  ""active_at"": ""2025-01-09T17:18:58.560Z"",
   ""amount"": 0.1,
   ""transaction_id"": ""string"",
   ""subscription_id"": ""string"",
@@ -19280,8 +20204,8 @@ con.setDoOutput(true);
 String jsonPayload = """{
   "company_id": "string",
   "description": "string",
-  "expire_at": "2024-04-11T04:01:35.090Z",
-  "active_at": "2024-04-11T04:01:35.090Z",
+  "expire_at": "2025-01-09T17:18:58.560Z",
+  "active_at": "2025-01-09T17:18:58.560Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -19320,8 +20244,8 @@ Post a billing report of type balance_transaction
 {
   "company_id": "string",
   "description": "string",
-  "expire_at": "2024-04-11T04:01:35.090Z",
-  "active_at": "2024-04-11T04:01:35.090Z",
+  "expire_at": "2025-01-09T17:18:58.560Z",
+  "active_at": "2025-01-09T17:18:58.560Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -19344,6 +20268,1254 @@ Post a billing report of type balance_transaction
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 managementAPIToken ( Scopes: create:billing_meters create:billing_reports )
+</aside>
+
+<h1 id="management-api-chat-ask-question">Chat Ask Question</h1>
+
+## askQuestion
+
+<a id="opIdaskQuestion"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://api.moesif.com/v1/~/chats?app_id=string \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
+
+  
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = false;
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
+};
+
+fetch('https://api.moesif.com/v1/~/chats?app_id=string',
+{
+  method: 'POST',
+  body: JSON.stringify(inputBody),
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+input_body = false
+
+r = requests.post('https://api.moesif.com/v1/~/chats', params={
+  'app_id': 'string'
+
+}, headers = headers, json = input_data)
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+input_payload = JSON.parse('false')
+
+result = RestClient.post 'https://api.moesif.com/v1/~/chats',
+  params: {
+  'app_id' => 'string'
+  }, 
+  payload: input_payload.to_json, 
+  headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/json',
+    'Accept' => 'application/json',
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
+);
+
+$inputPayload = json_decode('false')
+
+$client = new \GuzzleHttp\Client();
+
+try {
+    $response = $client->request('POST','https://api.moesif.com/v1/~/chats', array(
+        'headers' => $headers,
+        'json' => $inputPayload,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
+    }
+    jsonPayload := `false`
+    data := bytes.NewBuffer([]byte(jsonPayload))
+    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/~/chats", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    
+    /// Make a dummy request
+    public async Task MakePostRequest()
+    {
+      string url = "https://api.moesif.com/v1/~/chats";
+      
+      
+      await PostAsync(null, url);
+      
+    }
+
+    /// Performs a POST Request
+    public async Task PostAsync(undefined content, string url)
+    {
+        //Serialize Object
+        StringContent jsonContent = SerializeObject(content);
+
+        //Execute POST request
+        HttpResponseMessage response = await Client.PostAsync(url, jsonContent);
+    }
+    
+    
+    
+    /// Serialize an object to Json
+    private StringContent SerializeObject(undefined content)
+    {
+        //Serialize Object
+        string jsonObject = JsonConvert.SerializeObject(content);
+
+        //Create Json UTF8 String Content
+        return new StringContent(jsonObject, Encoding.UTF8, "application/json");
+    }
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/~/chats?app_id=string");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+
+con.setRequestProperty("Content-Type",'application/json');
+con.setRequestProperty("Accept",'application/json');
+con.setRequestProperty("Authorization",'Bearer YOUR_MANAGEMENT_API_KEY');
+
+// Enable sending a request body
+con.setDoOutput(true);
+
+String jsonPayload = """false""";
+
+// Write payload to the request
+try(OutputStream os = con.getOutputStream()) {
+    byte[] input = jsonPayload.getBytes("utf-8");
+    os.write(input, 0, input.length);           
+}
+
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`POST /~/chats`
+
+*Chat ask a Question*
+
+> `POST https://api.moesif.com/v1/~/chats`
+
+> Example Request
+
+```json
+false
+```
+
+<h3 id="askquestion-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+
+> Example responses
+
+<h3 id="askquestion-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+
+<h3 id="askquestion-responseschema">Response Schema</h3>
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: create:chats update:chats read:events )
+</aside>
+
+<h1 id="management-api-list-chats">List Chats</h1>
+
+## listChats
+
+<a id="opIdlistChats"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.moesif.com/v1/~/chats?app_id=string \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
+};
+
+fetch('https://api.moesif.com/v1/~/chats?app_id=string',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+r = requests.get('https://api.moesif.com/v1/~/chats', params={
+  'app_id': 'string'
+
+}, headers = headers)
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+result = RestClient.get 'https://api.moesif.com/v1/~/chats',
+  params: {
+  'app_id' => 'string'
+  }, 
+  headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
+);
+
+$client = new \GuzzleHttp\Client();
+
+try {
+    $response = $client->request('GET','https://api.moesif.com/v1/~/chats', array(
+        'headers' => $headers,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
+    }
+    
+    
+    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/~/chats")
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    /// Make a dummy request
+    public async Task MakeGetRequest()
+    {
+      string url = "https://api.moesif.com/v1/~/chats";
+      var result = await GetAsync(url);
+    }
+
+    /// Performs a GET Request
+    public async Task GetAsync(string url)
+    {
+        //Start the request
+        HttpResponseMessage response = await Client.GetAsync(url);
+
+        //Validate result
+        response.EnsureSuccessStatusCode();
+
+    }
+    
+    
+    
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/~/chats?app_id=string");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+
+con.setRequestProperty("Accept",'application/json');
+con.setRequestProperty("Authorization",'Bearer YOUR_MANAGEMENT_API_KEY');
+
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /~/chats`
+
+*List all Chats*
+
+> `GET https://api.moesif.com/v1/~/chats`
+
+<h3 id="listchats-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+
+> Example responses
+
+> 200 Response
+
+```json
+[]
+```
+
+<h3 id="listchats-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+<h3 id="listchats-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» *anonymous*|any|false|none|none|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: read:chats read:events )
+</aside>
+
+<h1 id="management-api-update-chat">Update Chat</h1>
+
+## updateChat
+
+<a id="opIdupdateChat"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://api.moesif.com/v1/~/chats/{chat_id}?app_id=string \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
+
+  
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = false;
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
+};
+
+fetch('https://api.moesif.com/v1/~/chats/{chat_id}?app_id=string',
+{
+  method: 'POST',
+  body: JSON.stringify(inputBody),
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+input_body = false
+
+r = requests.post('https://api.moesif.com/v1/~/chats/{chat_id}', params={
+  'app_id': 'string'
+
+}, headers = headers, json = input_data)
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+input_payload = JSON.parse('false')
+
+result = RestClient.post 'https://api.moesif.com/v1/~/chats/{chat_id}',
+  params: {
+  'app_id' => 'string'
+  }, 
+  payload: input_payload.to_json, 
+  headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/json',
+    'Accept' => 'application/json',
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
+);
+
+$inputPayload = json_decode('false')
+
+$client = new \GuzzleHttp\Client();
+
+try {
+    $response = $client->request('POST','https://api.moesif.com/v1/~/chats/{chat_id}', array(
+        'headers' => $headers,
+        'json' => $inputPayload,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
+    }
+    jsonPayload := `false`
+    data := bytes.NewBuffer([]byte(jsonPayload))
+    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/~/chats/{chat_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    
+    /// Make a dummy request
+    public async Task MakePostRequest()
+    {
+      string url = "https://api.moesif.com/v1/~/chats/{chat_id}";
+      
+      
+      await PostAsync(null, url);
+      
+    }
+
+    /// Performs a POST Request
+    public async Task PostAsync(undefined content, string url)
+    {
+        //Serialize Object
+        StringContent jsonContent = SerializeObject(content);
+
+        //Execute POST request
+        HttpResponseMessage response = await Client.PostAsync(url, jsonContent);
+    }
+    
+    
+    
+    /// Serialize an object to Json
+    private StringContent SerializeObject(undefined content)
+    {
+        //Serialize Object
+        string jsonObject = JsonConvert.SerializeObject(content);
+
+        //Create Json UTF8 String Content
+        return new StringContent(jsonObject, Encoding.UTF8, "application/json");
+    }
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/~/chats/{chat_id}?app_id=string");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+
+con.setRequestProperty("Content-Type",'application/json');
+con.setRequestProperty("Accept",'application/json');
+con.setRequestProperty("Authorization",'Bearer YOUR_MANAGEMENT_API_KEY');
+
+// Enable sending a request body
+con.setDoOutput(true);
+
+String jsonPayload = """false""";
+
+// Write payload to the request
+try(OutputStream os = con.getOutputStream()) {
+    byte[] input = jsonPayload.getBytes("utf-8");
+    os.write(input, 0, input.length);           
+}
+
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`POST /~/chats/{chat_id}`
+
+*Update Chat*
+
+> `POST https://api.moesif.com/v1/~/chats/{chat_id}`
+
+> Example Request
+
+```json
+false
+```
+
+<h3 id="updatechat-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|chat_id|path|string|true|none|
+
+> Example responses
+
+<h3 id="updatechat-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+
+<h3 id="updatechat-responseschema">Response Schema</h3>
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: update:chats read:events )
+</aside>
+
+<h1 id="management-api-chat-by-id">Chat by Id</h1>
+
+## getChat
+
+<a id="opIdgetChat"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.moesif.com/v1/~/chats/{chat_id}?app_id=string \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
+};
+
+fetch('https://api.moesif.com/v1/~/chats/{chat_id}?app_id=string',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+r = requests.get('https://api.moesif.com/v1/~/chats/{chat_id}', params={
+  'app_id': 'string'
+
+}, headers = headers)
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+result = RestClient.get 'https://api.moesif.com/v1/~/chats/{chat_id}',
+  params: {
+  'app_id' => 'string'
+  }, 
+  headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
+);
+
+$client = new \GuzzleHttp\Client();
+
+try {
+    $response = $client->request('GET','https://api.moesif.com/v1/~/chats/{chat_id}', array(
+        'headers' => $headers,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
+    }
+    
+    
+    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/~/chats/{chat_id}")
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    /// Make a dummy request
+    public async Task MakeGetRequest()
+    {
+      string url = "https://api.moesif.com/v1/~/chats/{chat_id}";
+      var result = await GetAsync(url);
+    }
+
+    /// Performs a GET Request
+    public async Task GetAsync(string url)
+    {
+        //Start the request
+        HttpResponseMessage response = await Client.GetAsync(url);
+
+        //Validate result
+        response.EnsureSuccessStatusCode();
+
+    }
+    
+    
+    
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/~/chats/{chat_id}?app_id=string");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+
+con.setRequestProperty("Accept",'application/json');
+con.setRequestProperty("Authorization",'Bearer YOUR_MANAGEMENT_API_KEY');
+
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /~/chats/{chat_id}`
+
+*Get Chat by id*
+
+> `GET https://api.moesif.com/v1/~/chats/{chat_id}`
+
+<h3 id="getchat-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|chat_id|path|string|true|none|
+
+> Example responses
+
+<h3 id="getchat-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+
+<h3 id="getchat-responseschema">Response Schema</h3>
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: read:chats read:events )
+</aside>
+
+<h1 id="management-api-delete-chat">Delete Chat</h1>
+
+## deleteChat
+
+<a id="opIddeleteChat"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X DELETE https://api.moesif.com/v1/~/chats/{chat_id}?app_id=string \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
+};
+
+fetch('https://api.moesif.com/v1/~/chats/{chat_id}?app_id=string',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+r = requests.delete('https://api.moesif.com/v1/~/chats/{chat_id}', params={
+  'app_id': 'string'
+
+}, headers = headers)
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+result = RestClient.delete 'https://api.moesif.com/v1/~/chats/{chat_id}',
+  params: {
+  'app_id' => 'string'
+  }, 
+  headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
+);
+
+$client = new \GuzzleHttp\Client();
+
+try {
+    $response = $client->request('DELETE','https://api.moesif.com/v1/~/chats/{chat_id}', array(
+        'headers' => $headers,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
+    }
+    
+    
+    req, err := http.NewRequest("DELETE", "https://api.moesif.com/v1/~/chats/{chat_id}")
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    
+    
+    
+    /// Make a dummy request
+    public async Task MakeDeleteRequest()
+    {
+      int id = 1;
+      string url = "https://api.moesif.com/v1/~/chats/{chat_id}";
+
+      await DeleteAsync(id, url);
+    }
+
+    /// Performs a DELETE Request
+    public async Task DeleteAsync(int id, string url)
+    {
+        //Execute DELETE request
+        HttpResponseMessage response = await Client.DeleteAsync(url + $"/{id}");
+
+        //Return response
+        await DeserializeObject(response);
+    }
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/~/chats/{chat_id}?app_id=string");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("DELETE");
+
+con.setRequestProperty("Authorization",'Bearer YOUR_MANAGEMENT_API_KEY');
+
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`DELETE /~/chats/{chat_id}`
+
+*Delete Chat*
+
+> `DELETE https://api.moesif.com/v1/~/chats/{chat_id}`
+
+<h3 id="deletechat-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|chat_id|path|string|true|none|
+
+<h3 id="deletechat-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: delete:chats read:events )
 </aside>
 
 <h1 id="management-api-cohorts">Cohorts</h1>
@@ -19456,7 +21628,7 @@ input_body = {
   "time_zone": "string"
 }
 
-r = requests.post('https://api.moesif.com/v1/~/cohorts', headers = headers, json = input_body)
+r = requests.post('https://api.moesif.com/v1/~/cohorts', headers = headers, json = input_data)
 
 print(r.json())
 
@@ -19809,9 +21981,9 @@ System.out.println(response.toString());
   "to": "string",
   "week_starts_on": 0,
   "locked_by": "string",
-  "modified_at": "2024-04-11T04:01:35.090Z",
+  "modified_at": "2025-01-09T17:18:58.560Z",
   "from": "string",
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "app_id": "string",
   "cohort_type": "string",
   "time_zone": "string",
@@ -20157,7 +22329,7 @@ input_body = {
   "time_zone": "string"
 }
 
-r = requests.post('https://api.moesif.com/v1/~/cohorts/{cohortId}', headers = headers, json = input_body)
+r = requests.post('https://api.moesif.com/v1/~/cohorts/{cohortId}', headers = headers, json = input_data)
 
 print(r.json())
 
@@ -21856,7 +24028,7 @@ System.out.println(response.toString());
   },
   "org_id": "string",
   "migration": {},
-  "created": "2024-04-11T04:01:35.090Z"
+  "created": "2025-01-09T17:18:58.560Z"
 }
 ```
 
@@ -22439,7 +24611,7 @@ input_body = {
   }
 }
 
-r = requests.post('https://api.moesif.com/v1/~/dashboards/{dashId}', headers = headers, json = input_body)
+r = requests.post('https://api.moesif.com/v1/~/dashboards/{dashId}', headers = headers, json = input_data)
 
 print(r.json())
 
@@ -23879,7 +26051,7 @@ input_body = {
   }
 }
 
-r = requests.post('https://api.moesif.com/v1/~/emails/templates', headers = headers, json = input_body)
+r = requests.post('https://api.moesif.com/v1/~/emails/templates', headers = headers, json = input_data)
 
 print(r.json())
 
@@ -24768,7 +26940,7 @@ input_body = {
   }
 }
 
-r = requests.post('https://api.moesif.com/v1/~/emails/templates/{id}', headers = headers, json = input_body)
+r = requests.post('https://api.moesif.com/v1/~/emails/templates/{id}', headers = headers, json = input_data)
 
 print(r.json())
 
@@ -25686,6 +27858,364 @@ To perform this operation, you must be authenticated by means of one of the foll
 managementAPIToken ( Scopes: delete:email_templates )
 </aside>
 
+<h1 id="management-api-find-objects">Find Objects</h1>
+
+## findObjects
+
+<a id="opIdfindObjects"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://api.moesif.com/v1/~/find \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
+
+  -d '{
+  "query_string": "string",
+  "filters": {
+    "object": [
+      "string"
+    ],
+    "max_docs": 0
+  }
+}' 
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = {
+  "query_string": "string",
+  "filters": {
+    "object": [
+      "string"
+    ],
+    "max_docs": 0
+  }
+};
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
+};
+
+fetch('https://api.moesif.com/v1/~/find',
+{
+  method: 'POST',
+  body: JSON.stringify(inputBody),
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+input_body = {
+  "query_string": "string",
+  "filters": {
+    "object": [
+      "string"
+    ],
+    "max_docs": 0
+  }
+}
+
+r = requests.post('https://api.moesif.com/v1/~/find', headers = headers, json = input_data)
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+input_payload = JSON.parse('{
+  "query_string": "string",
+  "filters": {
+    "object": [
+      "string"
+    ],
+    "max_docs": 0
+  }
+}')
+
+result = RestClient.post 'https://api.moesif.com/v1/~/find',
+  params: {
+  }, 
+  payload: input_payload.to_json, 
+  headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/json',
+    'Accept' => 'application/json',
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
+);
+
+$inputPayload = json_decode('{
+  "query_string": "string",
+  "filters": {
+    "object": [
+      "string"
+    ],
+    "max_docs": 0
+  }
+}')
+
+$client = new \GuzzleHttp\Client();
+
+try {
+    $response = $client->request('POST','https://api.moesif.com/v1/~/find', array(
+        'headers' => $headers,
+        'json' => $inputPayload,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
+    }
+    jsonPayload := `{
+  "query_string": "string",
+  "filters": {
+    "object": [
+      "string"
+    ],
+    "max_docs": 0
+  }
+}`
+    data := bytes.NewBuffer([]byte(jsonPayload))
+    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/~/find", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    
+    /// Make a dummy request
+    public async Task MakePostRequest()
+    {
+      string url = "https://api.moesif.com/v1/~/find";
+      
+      string json = @"{
+  ""query_string"": ""string"",
+  ""filters"": {
+    ""object"": [
+      ""string""
+    ],
+    ""max_docs"": 0
+  }
+}";
+      var content = JsonConvert.DeserializeObject(json);
+      await PostAsync(content, url);
+      
+      
+    }
+
+    /// Performs a POST Request
+    public async Task PostAsync(.findobjects.FindObjectRequest content, string url)
+    {
+        //Serialize Object
+        StringContent jsonContent = SerializeObject(content);
+
+        //Execute POST request
+        HttpResponseMessage response = await Client.PostAsync(url, jsonContent);
+    }
+    
+    
+    
+    /// Serialize an object to Json
+    private StringContent SerializeObject(.findobjects.FindObjectRequest content)
+    {
+        //Serialize Object
+        string jsonObject = JsonConvert.SerializeObject(content);
+
+        //Create Json UTF8 String Content
+        return new StringContent(jsonObject, Encoding.UTF8, "application/json");
+    }
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/~/find");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+
+con.setRequestProperty("Content-Type",'application/json');
+con.setRequestProperty("Accept",'application/json');
+con.setRequestProperty("Authorization",'Bearer YOUR_MANAGEMENT_API_KEY');
+
+// Enable sending a request body
+con.setDoOutput(true);
+
+String jsonPayload = """{
+  "query_string": "string",
+  "filters": {
+    "object": [
+      "string"
+    ],
+    "max_docs": 0
+  }
+}""";
+
+// Write payload to the request
+try(OutputStream os = con.getOutputStream()) {
+    byte[] input = jsonPayload.getBytes("utf-8");
+    os.write(input, 0, input.length);           
+}
+
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`POST /~/find`
+
+*Find objects*
+
+> `POST https://api.moesif.com/v1/~/find`
+
+> Example Request
+
+```json
+{
+  "query_string": "string",
+  "filters": {
+    "object": [
+      "string"
+    ],
+    "max_docs": 0
+  }
+}
+```
+
+<h3 id="findobjects-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[.findobjects.FindObjectRequest](#schema.findobjects.findobjectrequestdto)|true|none|
+
+> Example responses
+
+> 200 Response
+
+```json
+[]
+```
+
+<h3 id="findobjects-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+<h3 id="findobjects-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» *anonymous*|any|false|none|none|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: read:alert_rules read:billing_meters read:cohorts read:dashboards read:workspaces )
+</aside>
+
 <h1 id="management-api-governance-rules">Governance Rules</h1>
 
 ## createGovernanceRule
@@ -25868,7 +28398,7 @@ input_body = {
   "type": "string"
 }
 
-r = requests.post('https://api.moesif.com/v1/~/governance/rules', headers = headers, json = input_body)
+r = requests.post('https://api.moesif.com/v1/~/governance/rules', headers = headers, json = input_data)
 
 print(r.json())
 
@@ -26381,7 +28911,7 @@ System.out.println(response.toString());
       "sample_rate": 0
     }
   ],
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "app_id": "string",
   "plans": [
     {
@@ -26658,7 +29188,7 @@ System.out.println(response.toString());
       "sample_rate": 0
     }
   ],
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "app_id": "string",
   "plans": [
     {
@@ -26865,7 +29395,7 @@ input_body = {
   "type": "string"
 }
 
-r = requests.post('https://api.moesif.com/v1/~/governance/rules/{id}', headers = headers, json = input_body)
+r = requests.post('https://api.moesif.com/v1/~/governance/rules/{id}', headers = headers, json = input_data)
 
 print(r.json())
 
@@ -27379,7 +29909,7 @@ System.out.println(response.toString());
       "sample_rate": 0
     }
   ],
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "app_id": "string",
   "plans": [
     {
@@ -27657,7 +30187,7 @@ System.out.println(response.toString());
       "sample_rate": 0
     }
   ],
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "app_id": "string",
   "plans": [
     {
@@ -27957,9 +30487,9 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "to": "string",
   "week_starts_on": 0,
   "locked_by": "string",
-  "modified_at": "2024-04-11T04:01:35.090Z",
+  "modified_at": "2025-01-09T17:18:58.560Z",
   "from": "string",
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "app_id": "string",
   "cohort_type": "string",
   "time_zone": "string",
@@ -28078,8 +30608,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
 
 ```json
 {
-  "period_start": "2024-04-11T04:01:35.090Z",
-  "period_end": "2024-04-11T04:01:35.090Z",
+  "period_start": "2025-01-09T17:18:58.560Z",
+  "period_end": "2025-01-09T17:18:58.560Z",
   "id": "string"
 }
 
@@ -28172,8 +30702,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
 ```json
 {
   "invoice": {
-    "period_start": "2024-04-11T04:01:35.090Z",
-    "period_end": "2024-04-11T04:01:35.090Z",
+    "period_start": "2025-01-09T17:18:58.560Z",
+    "period_end": "2025-01-09T17:18:58.560Z",
     "id": "string"
   },
   "aggregator": "string"
@@ -28199,7 +30729,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 {
   "buckets": [
     {
-      "start": "2024-04-11T04:01:35.090Z",
+      "start": "2025-01-09T17:18:58.560Z",
       "metric": 0.1,
       "amounts": null,
       "ending_balance": {
@@ -28207,6 +30737,23 @@ managementAPIToken ( Scopes: delete:governance_rules )
         "pending_activity": 0.1,
         "available_balance": 0.1
       }
+    }
+  ],
+  "group_by": [
+    {
+      "key": {},
+      "buckets": [
+        {
+          "start": "2025-01-09T17:18:58.560Z",
+          "metric": 0.1,
+          "amounts": null,
+          "ending_balance": {
+            "current_balance": null,
+            "pending_activity": null,
+            "available_balance": null
+          }
+        }
+      ]
     }
   ]
 }
@@ -28217,7 +30764,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|buckets|[[BillingMetricBucket](#schemabillingmetricbucket)]|true|none|none|
+|buckets|[[BillingMetricBucket](#schemabillingmetricbucket)]|false|none|none|
+|group_by|[[BillingMetricGroupBy](#schemabillingmetricgroupby)]|false|none|none|
 
 <h2 id="tocS_EmailAddresses">EmailAddresses</h2>
 
@@ -28352,7 +30900,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
 
 ```json
 {
-  "amount": 0.1
+  "amount": 0.1,
+  "grant_id": "string"
 }
 
 ```
@@ -28362,6 +30911,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |amount|number(double)|true|none|none|
+|grant_id|string|false|none|none|
 
 <h2 id="tocS_StripePrice">StripePrice</h2>
 
@@ -28388,11 +30938,13 @@ managementAPIToken ( Scopes: delete:governance_rules )
     }
   ],
   "recurring": {
+    "meter_event_name": "string",
     "trial_period_days": 0,
     "interval": "string",
     "usage_type": "string",
     "interval_count": 0,
-    "aggregate_usage": "string"
+    "aggregate_usage": "string",
+    "meter_unsupported": true
   },
   "unit_amount_decimal": "string",
   "price_nickname": "string",
@@ -28525,11 +31077,13 @@ managementAPIToken ( Scopes: delete:governance_rules )
 
 ```json
 {
+  "meter_event_name": "string",
   "trial_period_days": 0,
   "interval": "string",
   "usage_type": "string",
   "interval_count": 0,
-  "aggregate_usage": "string"
+  "aggregate_usage": "string",
+  "meter_unsupported": true
 }
 
 ```
@@ -28538,11 +31092,13 @@ managementAPIToken ( Scopes: delete:governance_rules )
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
+|meter_event_name|string|false|none|none|
 |trial_period_days|integer(int64)|false|none|none|
 |interval|string|false|none|none|
 |usage_type|string|false|none|none|
 |interval_count|integer(int64)|false|none|none|
 |aggregate_usage|string|false|none|none|
+|meter_unsupported|boolean|false|none|none|
 
 <h2 id="tocS_DashboardUpdateItem">DashboardUpdateItem</h2>
 
@@ -28613,8 +31169,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
       ],
       "partner_user_id": "string",
       "message": "string",
-      "created_at": "2024-04-11T04:01:35.090Z",
-      "updated_at": "2024-04-11T04:01:35.090Z"
+      "created_at": "2025-01-09T17:18:58.560Z",
+      "updated_at": "2025-01-09T17:18:58.560Z"
     }
   }
 }
@@ -28731,15 +31287,20 @@ managementAPIToken ( Scopes: delete:governance_rules )
     "divide_by": 0,
     "round": "string"
   },
+  "currency_prices": null,
   "provider": "string",
+  "revenue_recognition_rule": "string",
   "price_in_decimal": "string",
   "tiers": [
     {
+      "flat_currency_prices": null,
       "up_to": null,
+      "flat_price_in_decimal": "string",
       "unit_price_in_decimal": "string",
-      "flat_price_in_decimal": "string"
+      "unit_currency_prices": null
     }
   ],
+  "recognized_revenue_accounting_code": "string",
   "period_units": "string",
   "plan_id": "string",
   "id": "string",
@@ -28748,8 +31309,9 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "unit": "string",
+  "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
   "period": 0
 }
@@ -28762,9 +31324,12 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |---|---|---|---|---|
 |name|string|false|none|none|
 |transform_quantity|[MoesifTransformQuantity](#schemamoesiftransformquantity)|false|none|none|
+|currency_prices|.map[string,string]|false|none|none|
 |provider|string|false|none|none|
+|revenue_recognition_rule|string|false|none|none|
 |price_in_decimal|string|false|none|none|
 |tiers|[[MoesifPriceTier](#schemamoesifpricetier)]|false|none|none|
+|recognized_revenue_accounting_code|string|false|none|none|
 |period_units|string|false|none|none|
 |plan_id|string|false|none|none|
 |id|string|false|none|none|
@@ -28775,6 +31340,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |metadata|.map[string,string]|false|none|none|
 |created_at|string(date-time)|false|none|none|
 |unit|string|false|none|none|
+|deferred_revenue_accounting_code|string|false|none|none|
 |usage_aggregator|string|false|none|none|
 |period|integer(int64)|false|none|none|
 
@@ -28934,7 +31500,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 
 ```json
 {
-  "start": "2024-04-11T04:01:35.090Z",
+  "start": "2025-01-09T17:18:58.560Z",
   "metric": 0.1,
   "amounts": null,
   "ending_balance": {
@@ -28952,7 +31518,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |---|---|---|---|---|
 |start|string(date-time)|true|none|none|
 |metric|number(double)|false|none|none|
-|amounts|.map[string,scala.double]|false|none|none|
+|amounts|.map[string,double]|false|none|none|
 |ending_balance|[CreditBalanceMetric](#schemacreditbalancemetric)|false|none|none|
 
 <h2 id="tocS_DashboardDocument">DashboardDocument</h2>
@@ -28994,7 +31560,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   },
   "org_id": "string",
   "migration": {},
-  "created": "2024-04-11T04:01:35.090Z"
+  "created": "2025-01-09T17:18:58.560Z"
 }
 
 ```
@@ -29097,8 +31663,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
   ],
   "partner_user_id": "string",
   "message": "string",
-  "created_at": "2024-04-11T04:01:35.090Z",
-  "updated_at": "2024-04-11T04:01:35.090Z"
+  "created_at": "2025-01-09T17:18:58.560Z",
+  "updated_at": "2025-01-09T17:18:58.560Z"
 }
 
 ```
@@ -29148,11 +31714,13 @@ managementAPIToken ( Scopes: delete:governance_rules )
       }
     ],
     "recurring": {
+      "meter_event_name": "string",
       "trial_period_days": 0,
       "interval": "string",
       "usage_type": "string",
       "interval_count": 0,
-      "aggregate_usage": "string"
+      "aggregate_usage": "string",
+      "meter_unsupported": true
     },
     "unit_amount_decimal": "string",
     "price_nickname": "string",
@@ -29180,11 +31748,13 @@ managementAPIToken ( Scopes: delete:governance_rules )
         }
       ],
       "recurring": {
+        "meter_event_name": "string",
         "trial_period_days": 0,
         "interval": "string",
         "usage_type": "string",
         "interval_count": 0,
-        "aggregate_usage": "string"
+        "aggregate_usage": "string",
+        "meter_unsupported": true
       },
       "unit_amount_decimal": "string",
       "price_nickname": "string",
@@ -29210,6 +31780,38 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |price|[StripePrice](#schemastripeprice)|false|none|none|
 |prices|[[StripePrice](#schemastripeprice)]|false|none|none|
 |reporting|[ProviderReporting](#schemaproviderreporting)|false|none|none|
+
+<h2 id="tocS_MoesifPriceUnitOfMeasure">MoesifPriceUnitOfMeasure</h2>
+
+<a id="schemamoesifpriceunitofmeasure"></a>
+<a id="schema_MoesifPriceUnitOfMeasure"></a>
+<a id="tocSmoesifpriceunitofmeasure"></a>
+<a id="tocsmoesifpriceunitofmeasure"></a>
+
+```json
+{
+  "name": "string",
+  "precision": 0,
+  "rounding_mode": "string",
+  "id": "string",
+  "display_as": "string",
+  "usage_log_file_label": "string",
+  "active": true
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|false|none|none|
+|precision|integer(int64)|false|none|none|
+|rounding_mode|string|false|none|none|
+|id|string|false|none|none|
+|display_as|string|false|none|none|
+|usage_log_file_label|string|false|none|none|
+|active|boolean|false|none|none|
 
 <h2 id="tocS_TemplateContent">TemplateContent</h2>
 
@@ -29278,8 +31880,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
 {
   "company_id": "string",
   "description": "string",
-  "expire_at": "2024-04-11T04:01:35.090Z",
-  "active_at": "2024-04-11T04:01:35.090Z",
+  "expire_at": "2025-01-09T17:18:58.560Z",
+  "active_at": "2025-01-09T17:18:58.560Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -29314,6 +31916,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "is_default": true,
   "view_count": 0,
   "dashboard": {},
+  "height": 0.1,
   "colors": {},
   "drawings": [
     {
@@ -29372,6 +31975,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |is_default|boolean|false|none|none|
 |view_count|integer(int32)|false|none|none|
 |dashboard|object|false|none|none|
+|height|number(double)|false|none|none|
 |colors|object|false|none|none|
 |drawings|[[DrawingItem](#schemadrawingitem)]|false|none|none|
 |chart|[ChartItem](#schemachartitem)|true|none|none|
@@ -29476,15 +32080,20 @@ managementAPIToken ( Scopes: delete:governance_rules )
         "divide_by": 0,
         "round": "string"
       },
+      "currency_prices": null,
       "provider": "string",
+      "revenue_recognition_rule": "string",
       "price_in_decimal": "string",
       "tiers": [
         {
+          "flat_currency_prices": null,
           "up_to": null,
+          "flat_price_in_decimal": "string",
           "unit_price_in_decimal": "string",
-          "flat_price_in_decimal": "string"
+          "unit_currency_prices": null
         }
       ],
+      "recognized_revenue_accounting_code": "string",
       "period_units": "string",
       "plan_id": "string",
       "id": "string",
@@ -29493,21 +32102,26 @@ managementAPIToken ( Scopes: delete:governance_rules )
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2024-04-11T04:01:35.090Z",
+      "created_at": "2025-01-09T17:18:58.560Z",
       "unit": "string",
+      "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
       "period": 0
     }
   ],
   "provider": "string",
+  "billing_type": "string",
   "description": "string",
+  "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
+  "billing_period": "string",
   "unit": "string",
-  "updated_at": "2024-04-11T04:01:35.090Z"
+  "updated_at": "2025-01-09T17:18:58.560Z",
+  "reporting_period": "string"
 }
 
 ```
@@ -29519,14 +32133,18 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |name|string|false|none|none|
 |prices|[[MoesifPrice](#schemamoesifprice)]|false|none|none|
 |provider|string|false|none|none|
+|billing_type|string|false|none|none|
 |description|string|false|none|none|
+|external_plan_id|string|false|none|none|
 |id|string|false|none|none|
 |status|string|false|none|none|
 |product_id|string|false|none|none|
 |metadata|.map[string,string]|false|none|none|
 |created_at|string(date-time)|false|none|none|
+|billing_period|string|false|none|none|
 |unit|string|false|none|none|
 |updated_at|string(date-time)|false|none|none|
+|reporting_period|string|false|none|none|
 
 <h2 id="tocS_ChargebeeBillingParams">ChargebeeBillingParams</h2>
 
@@ -29914,21 +32532,24 @@ managementAPIToken ( Scopes: delete:governance_rules )
     "available_balance": 0.1
   },
   "company_id": "string",
+  "transform_quantity": null,
   "success": true,
   "provider": "string",
   "report_version": 0,
-  "usage_end_time": "2024-04-11T04:01:35.090Z",
+  "usage_end_time": "2025-01-09T17:18:58.560Z",
   "usage": {
     "invoice": {
-      "period_start": "2024-04-11T04:01:35.090Z",
-      "period_end": "2024-04-11T04:01:35.090Z",
+      "period_start": "2025-01-09T17:18:58.560Z",
+      "period_end": "2025-01-09T17:18:58.560Z",
       "id": "string"
     },
     "aggregator": "string"
   },
   "_id": "string",
-  "meter_usage": 0,
-  "last_success_time": "2024-04-11T04:01:35.090Z",
+  "price_id": "string",
+  "price_in_decimal": 0.1,
+  "meter_usage": 0.1,
+  "last_success_time": "2025-01-09T17:18:58.560Z",
   "beginning_balance": {
     "sequence_id": 0,
     "current_balance": 0.1,
@@ -29937,7 +32558,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
   },
   "billing_meter_id": "string",
   "amount": 0.1,
-  "usage_start_time": "2024-04-11T04:01:35.090Z",
+  "plan_id": "string",
+  "usage_start_time": "2025-01-09T17:18:58.560Z",
   "status": "string",
   "provider_requests": [
     {
@@ -29946,11 +32568,11 @@ managementAPIToken ( Scopes: delete:governance_rules )
       "job_id": "string",
       "error_message": "string",
       "error_code": "string",
-      "request_time": "2024-04-11T04:01:35.090Z"
+      "request_time": "2025-01-09T17:18:58.560Z"
     }
   ],
   "currency": "string",
-  "report_total_usage": 0,
+  "report_total_usage": 0.1,
   "channel_requests": [
     {
       "channel_id": "string",
@@ -29962,25 +32584,28 @@ managementAPIToken ( Scopes: delete:governance_rules )
           "job_id": "string",
           "error_message": "string",
           "error_code": "string",
-          "request_time": "2024-04-11T04:01:35.090Z"
+          "request_time": "2025-01-09T17:18:58.560Z"
         }
       ]
     }
   ],
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "app_id": "string",
   "subscription_id": "string",
-  "subscription_period_start": "2024-04-11T04:01:35.090Z",
+  "subscription_period_start": "2025-01-09T17:18:58.560Z",
   "balance_changes": [
     {
-      "amount": 0.1
+      "amount": 0.1,
+      "grant_id": "string"
     }
   ],
   "type": "string",
-  "updated_at": "2024-04-11T04:01:35.090Z",
+  "updated_at": "2025-01-09T17:18:58.560Z",
+  "subscription_item_id": "string",
+  "zero_balance_behavior": "string",
   "org_id": "string",
-  "subscription_period_end": "2024-04-11T04:01:35.090Z",
-  "meter_metric": 0
+  "subscription_period_end": "2025-01-09T17:18:58.560Z",
+  "meter_metric": 0.1
 }
 
 ```
@@ -29991,22 +32616,26 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |---|---|---|---|---|
 |ending_balance|[CreditBalance](#schemacreditbalance)|false|none|none|
 |company_id|string|true|none|none|
+|transform_quantity|com.moesif.billing.helpers.subscriptions.moesiftransformquantity|false|none|none|
 |success|boolean|true|none|none|
 |provider|string|true|none|none|
 |report_version|integer(int32)|false|none|none|
 |usage_end_time|string(date-time)|true|none|none|
 |usage|[BillingReportUsage](#schemabillingreportusage)|false|none|none|
 |_id|string|false|none|none|
-|meter_usage|integer(int64)|true|none|none|
+|price_id|string|false|none|none|
+|price_in_decimal|number(double)|false|none|none|
+|meter_usage|number(double)|true|none|none|
 |last_success_time|string(date-time)|false|none|none|
 |beginning_balance|[CreditBalance](#schemacreditbalance)|false|none|none|
 |billing_meter_id|string|true|none|none|
 |amount|number(double)|false|none|none|
+|plan_id|string|false|none|none|
 |usage_start_time|string(date-time)|true|none|none|
 |status|string|false|none|none|
 |provider_requests|[[ProviderRequest](#schemaproviderrequest)]|true|none|none|
 |currency|string|false|none|none|
-|report_total_usage|integer(int64)|true|none|none|
+|report_total_usage|number(double)|true|none|none|
 |channel_requests|[[ChannelRequest](#schemachannelrequest)]|false|none|none|
 |created_at|string(date-time)|false|none|none|
 |app_id|string|true|none|none|
@@ -30015,9 +32644,11 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |balance_changes|[[BalanceChange](#schemabalancechange)]|false|none|none|
 |type|string|false|none|none|
 |updated_at|string(date-time)|false|none|none|
+|subscription_item_id|string|false|none|none|
+|zero_balance_behavior|string|false|none|none|
 |org_id|string|true|none|none|
 |subscription_period_end|string(date-time)|false|none|none|
-|meter_metric|integer(int64)|true|none|none|
+|meter_metric|number(double)|true|none|none|
 
 <h2 id="tocS_ACLItem">ACLItem</h2>
 
@@ -30166,7 +32797,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
       "job_id": "string",
       "error_message": "string",
       "error_code": "string",
-      "request_time": "2024-04-11T04:01:35.090Z"
+      "request_time": "2025-01-09T17:18:58.560Z"
     }
   ]
 }
@@ -30196,6 +32827,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "_id": "string",
   "is_template": true,
   "dashboard": {},
+  "height": 0.1,
   "auth_user_id": "string",
   "colors": {},
   "sequence": [
@@ -30268,7 +32900,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   },
   "org_id": "string",
   "migration": {},
-  "created": "2024-04-11T04:01:35.090Z",
+  "created": "2025-01-09T17:18:58.560Z",
   "comments": {
     "summary": {
       "count": 0,
@@ -30280,8 +32912,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
         ],
         "partner_user_id": "string",
         "message": "string",
-        "created_at": "2024-04-11T04:01:35.090Z",
-        "updated_at": "2024-04-11T04:01:35.090Z"
+        "created_at": "2025-01-09T17:18:58.560Z",
+        "updated_at": "2025-01-09T17:18:58.560Z"
       }
     }
   }
@@ -30299,6 +32931,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |_id|string|false|none|none|
 |is_template|boolean|false|none|none|
 |dashboard|object|false|none|none|
+|height|number(double)|false|none|none|
 |auth_user_id|string|true|none|none|
 |colors|object|false|none|none|
 |sequence|[[SequenceItem](#schemasequenceitem)]|false|none|none|
@@ -30315,6 +32948,30 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |created|string(date-time)|true|none|none|
 |comments|[Comments](#schemacomments)|false|none|none|
 
+<h2 id="tocS_.findobjects.FindObjectFilters">.findobjects.FindObjectFilters</h2>
+
+<a id="schema.findobjects.findobjectfilters"></a>
+<a id="schema_.findobjects.FindObjectFilters"></a>
+<a id="tocS.findobjects.findobjectfilters"></a>
+<a id="tocs.findobjects.findobjectfilters"></a>
+
+```json
+{
+  "object": [
+    "string"
+  ],
+  "max_docs": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|object|[string]|false|none|none|
+|max_docs|integer(int32)|false|none|none|
+
 <h2 id="tocS_MoesifPriceTier">MoesifPriceTier</h2>
 
 <a id="schemamoesifpricetier"></a>
@@ -30324,9 +32981,11 @@ managementAPIToken ( Scopes: delete:governance_rules )
 
 ```json
 {
+  "flat_currency_prices": null,
   "up_to": null,
+  "flat_price_in_decimal": "string",
   "unit_price_in_decimal": "string",
-  "flat_price_in_decimal": "string"
+  "unit_currency_prices": null
 }
 
 ```
@@ -30335,9 +32994,11 @@ managementAPIToken ( Scopes: delete:governance_rules )
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|up_to|util.either[scala.long,string]|true|none|none|
-|unit_price_in_decimal|string|false|none|none|
+|flat_currency_prices|.map[string,string]|false|none|none|
+|up_to|util.either[long,string]|true|none|none|
 |flat_price_in_decimal|string|false|none|none|
+|unit_price_in_decimal|string|false|none|none|
+|unit_currency_prices|.map[string,string]|false|none|none|
 
 <h2 id="tocS_BillingMeterDocument">BillingMeterDocument</h2>
 
@@ -30481,11 +33142,11 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "_id": "string",
   "slug": "string",
   "status": "string",
-  "modified_at": "2024-04-11T04:01:35.090Z",
+  "modified_at": "2025-01-09T17:18:58.560Z",
   "es_query": "string",
-  "created_at": "2024-04-11T04:01:35.090Z",
-  "zero_balance_behavior": "string",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "app_id": "string",
+  "zero_balance_behavior": "string",
   "org_id": "string"
 }
 
@@ -30504,8 +33165,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |modified_at|string(date-time)|true|none|none|
 |es_query|string|true|none|none|
 |created_at|string(date-time)|true|none|none|
-|zero_balance_behavior|string|false|none|none|
 |app_id|string|true|none|none|
+|zero_balance_behavior|string|false|none|none|
 |org_id|string|true|none|none|
 
 <h2 id="tocS_KeyValuePair">KeyValuePair</h2>
@@ -30584,6 +33245,39 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |secure_proxy|boolean|false|none|none|
 |time_zone|string|false|none|none|
 
+<h2 id="tocS_BillingMetricGroupBy">BillingMetricGroupBy</h2>
+
+<a id="schemabillingmetricgroupby"></a>
+<a id="schema_BillingMetricGroupBy"></a>
+<a id="tocSbillingmetricgroupby"></a>
+<a id="tocsbillingmetricgroupby"></a>
+
+```json
+{
+  "key": {},
+  "buckets": [
+    {
+      "start": "2025-01-09T17:18:58.560Z",
+      "metric": 0.1,
+      "amounts": null,
+      "ending_balance": {
+        "current_balance": 0.1,
+        "pending_activity": 0.1,
+        "available_balance": 0.1
+      }
+    }
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|key|object|true|none|none|
+|buckets|[[BillingMetricBucket](#schemabillingmetricbucket)]|true|none|none|
+
 <h2 id="tocS_CohortUpdateItem">CohortUpdateItem</h2>
 
 <a id="schemacohortupdateitem"></a>
@@ -30634,6 +33328,33 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |from|string|false|none|none|
 |cohort_type|string|true|none|none|
 |time_zone|string|false|none|none|
+
+<h2 id="tocS_.findobjects.FindObjectRequest">.findobjects.FindObjectRequest</h2>
+
+<a id="schema.findobjects.findobjectrequestdto"></a>
+<a id="schema_.findobjects.FindObjectRequest"></a>
+<a id="tocS.findobjects.findobjectrequestdto"></a>
+<a id="tocs.findobjects.findobjectrequestdto"></a>
+
+```json
+{
+  "query_string": "string",
+  "filters": {
+    "object": [
+      "string"
+    ],
+    "max_docs": 0
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|query_string|string|true|none|none|
+|filters|[.findobjects.FindObjectFilters](#schema.findobjects.findobjectfilters)|false|none|none|
 
 <h2 id="tocS_EmailTemplateUpdateItem">EmailTemplateUpdateItem</h2>
 
@@ -30756,6 +33477,30 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |unit_label|string|false|none|none|
 |id|string|true|none|none|
 |usage_type|string|false|none|none|
+
+<h2 id="tocS_BillingReportProperty">BillingReportProperty</h2>
+
+<a id="schemabillingreportproperty"></a>
+<a id="schema_BillingReportProperty"></a>
+<a id="tocSbillingreportproperty"></a>
+<a id="tocsbillingreportproperty"></a>
+
+```json
+{
+  "path": "string",
+  "values": [
+    {}
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|path|string|true|none|none|
+|values|[object]|true|none|none|
 
 <h2 id="tocS_BillingParams">BillingParams</h2>
 
@@ -30966,11 +33711,13 @@ managementAPIToken ( Scopes: delete:governance_rules )
         }
       ],
       "recurring": {
+        "meter_event_name": "string",
         "trial_period_days": 0,
         "interval": "string",
         "usage_type": "string",
         "interval_count": 0,
-        "aggregate_usage": "string"
+        "aggregate_usage": "string",
+        "meter_unsupported": true
       },
       "unit_amount_decimal": "string",
       "price_nickname": "string",
@@ -30998,11 +33745,13 @@ managementAPIToken ( Scopes: delete:governance_rules )
           }
         ],
         "recurring": {
+          "meter_event_name": "string",
           "trial_period_days": 0,
           "interval": "string",
           "usage_type": "string",
           "interval_count": 0,
-          "aggregate_usage": "string"
+          "aggregate_usage": "string",
+          "meter_unsupported": true
         },
         "unit_amount_decimal": "string",
         "price_nickname": "string",
@@ -31197,7 +33946,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
       "sample_rate": 0
     }
   ],
-  "created_at": "2024-04-11T04:01:35.090Z",
+  "created_at": "2025-01-09T17:18:58.560Z",
   "app_id": "string",
   "plans": [
     {
@@ -31410,11 +34159,13 @@ managementAPIToken ( Scopes: delete:governance_rules )
           {}
         ],
         "recurring": {
+          "meter_event_name": null,
           "trial_period_days": null,
           "interval": null,
           "usage_type": null,
           "interval_count": null,
-          "aggregate_usage": null
+          "aggregate_usage": null,
+          "meter_unsupported": null
         },
         "unit_amount_decimal": "string",
         "price_nickname": "string",
@@ -31519,7 +34270,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "job_id": "string",
   "error_message": "string",
   "error_code": "string",
-  "request_time": "2024-04-11T04:01:35.090Z"
+  "request_time": "2025-01-09T17:18:58.560Z"
 }
 
 ```
@@ -31629,8 +34380,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
     ],
     "partner_user_id": "string",
     "message": "string",
-    "created_at": "2024-04-11T04:01:35.090Z",
-    "updated_at": "2024-04-11T04:01:35.090Z"
+    "created_at": "2025-01-09T17:18:58.560Z",
+    "updated_at": "2025-01-09T17:18:58.560Z"
   }
 }
 
@@ -31727,6 +34478,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 ```json
 {
   "name": "string",
+  "height": 0.1,
   "colors": {},
   "drawings": [
     {
@@ -31781,6 +34533,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |name|string|false|none|none|
+|height|number(double)|false|none|none|
 |colors|object|false|none|none|
 |drawings|[[DrawingItem](#schemadrawingitem)]|false|none|none|
 |chart|[ChartItem](#schemachartitem)|false|none|none|
@@ -31884,9 +34637,9 @@ managementAPIToken ( Scopes: delete:governance_rules )
 
 ```json
 {
-  "trial_start": "2024-04-11T04:01:35.090Z",
+  "trial_start": "2025-01-09T17:18:58.560Z",
   "company_id": "string",
-  "start_date": "2024-04-11T04:01:35.090Z",
+  "start_date": "2025-01-09T17:18:58.560Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -31900,22 +34653,22 @@ managementAPIToken ( Scopes: delete:governance_rules )
       "subscription_item_id": "string"
     }
   ],
-  "current_period_start": "2024-04-11T04:01:35.090Z",
+  "current_period_start": "2025-01-09T17:18:58.560Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "modified_time": "2024-04-11T04:01:35.090Z",
-  "cancel_time": "2024-04-11T04:01:35.090Z",
+  "modified_time": "2025-01-09T17:18:58.560Z",
+  "cancel_time": "2025-01-09T17:18:58.560Z",
   "status": "string",
-  "trial_end": "2024-04-11T04:01:35.090Z",
+  "trial_end": "2025-01-09T17:18:58.560Z",
   "external_id": "string",
   "metadata": {},
   "app_id": "string",
   "subscription_id": "string",
   "version_id": "string",
   "type": "string",
-  "current_period_end": "2024-04-11T04:01:35.090Z",
+  "current_period_end": "2025-01-09T17:18:58.560Z",
   "org_id": "string",
-  "created": "2024-04-11T04:01:35.090Z"
+  "created": "2025-01-09T17:18:58.560Z"
 }
 
 ```
@@ -32042,7 +34795,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2024-04-11T04:01:35.090Z",
+  "modified_time": "2025-01-09T17:18:58.560Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -32130,12 +34883,12 @@ managementAPIToken ( Scopes: delete:governance_rules )
       "region_name": "South Carolina",
       "continent_code": "NA",
       "location": {
-        "lon": -79.85489654541016,
-        "lat": 32.822898864746094
+        "lon": -79.8548965454102,
+        "lat": 32.8228988647461
       },
-      "latitude": 32.822898864746094,
+      "latitude": 32.8228988647461,
       "timezone": "America/New_York",
-      "longitude": -79.85489654541016,
+      "longitude": -79.8548965454102,
       "dma_code": 519,
       "postal_code": "29464",
       "region_code": "SC",
@@ -32341,9 +35094,9 @@ managementAPIToken ( Scopes: delete:governance_rules )
 
 ```json
 {
-  "trial_start": "2024-04-11T04:01:35.090Z",
+  "trial_start": "2025-01-09T17:18:58.560Z",
   "company_id": "string",
-  "start_date": "2024-04-11T04:01:35.090Z",
+  "start_date": "2025-01-09T17:18:58.560Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -32357,18 +35110,18 @@ managementAPIToken ( Scopes: delete:governance_rules )
       "subscription_item_id": "string"
     }
   ],
-  "current_period_start": "2024-04-11T04:01:35.090Z",
+  "current_period_start": "2025-01-09T17:18:58.560Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2024-04-11T04:01:35.090Z",
+  "cancel_time": "2025-01-09T17:18:58.560Z",
   "status": "string",
-  "trial_end": "2024-04-11T04:01:35.090Z",
+  "trial_end": "2025-01-09T17:18:58.560Z",
   "external_id": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2024-04-11T04:01:35.090Z",
-  "created": "2024-04-11T04:01:35.090Z"
+  "current_period_end": "2025-01-09T17:18:58.560Z",
+  "created": "2025-01-09T17:18:58.560Z"
 }
 
 ```
@@ -32406,7 +35159,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 ```json
 {
   "company_id": "string",
-  "modified_time": "2024-04-11T04:01:35.090Z",
+  "modified_time": "2025-01-09T17:18:58.560Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
