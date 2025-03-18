@@ -1,3 +1,26 @@
+---
+title: Management API v1
+language_tabs:
+  - json: JSON
+  - shell: Shell
+  - javascript--nodejs: Javascript
+  - python: Python
+  - ruby: Ruby
+  - php: PHP
+  - go: Go
+  - csharp: C#
+  - java: Java
+toc_footers:
+  - <a href="https://moesif.com/docs">Developer Docs</a>
+includes: []
+search: true
+code_clipboard: true
+highlight_theme: darkula
+headingLevel: 2
+generator: widdershins v4.0.1
+
+---
+
 <h1 id="management-api">Management API v1</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
@@ -66,6 +89,1159 @@ If you're using the [Moesif secure proxy](https://www.moesif.com/docs/platform/s
 |create:eth_abi|Create/upload new Ethereum ABI Entries|
 |delete:users|Delete existing users and associated user metadata|
 
+<h1 id="management-api-billing-reports">Billing Reports</h1>
+
+## getProperties
+
+<a id="opIdgetProperties"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.moesif.com/v1/search/~/billing/reports/properties \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
+};
+
+fetch('https://api.moesif.com/v1/search/~/billing/reports/properties',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+r = requests.get('https://api.moesif.com/v1/search/~/billing/reports/properties', headers = headers)
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+result = RestClient.get 'https://api.moesif.com/v1/search/~/billing/reports/properties',
+  params: {
+  }, 
+  headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
+);
+
+$client = new \GuzzleHttp\Client();
+
+try {
+    $response = $client->request('GET','https://api.moesif.com/v1/search/~/billing/reports/properties', array(
+        'headers' => $headers,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
+    }
+    
+    
+    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/search/~/billing/reports/properties")
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    /// Make a dummy request
+    public async Task MakeGetRequest()
+    {
+      string url = "https://api.moesif.com/v1/search/~/billing/reports/properties";
+      var result = await GetAsync(url);
+    }
+
+    /// Performs a GET Request
+    public async Task GetAsync(string url)
+    {
+        //Start the request
+        HttpResponseMessage response = await Client.GetAsync(url);
+
+        //Validate result
+        response.EnsureSuccessStatusCode();
+
+    }
+    
+    
+    
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/search/~/billing/reports/properties");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+
+con.setRequestProperty("Accept",'application/json');
+con.setRequestProperty("Authorization",'Bearer YOUR_MANAGEMENT_API_KEY');
+
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /search/~/billing/reports/properties`
+
+*Get Property Mapping for BillingReports*
+
+Get BillingReports properties
+
+> `GET https://api.moesif.com/v1/search/~/billing/reports/properties`
+
+<h3 id="getproperties-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+
+> Example responses
+
+<h3 id="getproperties-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+
+<h3 id="getproperties-responseschema">Response Schema</h3>
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: read:billing_reports read:companies )
+</aside>
+
+## getBillingReports
+
+<a id="opIdgetBillingReports"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.moesif.com/v1/~/billing/reports \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
+};
+
+fetch('https://api.moesif.com/v1/~/billing/reports',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+r = requests.get('https://api.moesif.com/v1/~/billing/reports', headers = headers)
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+result = RestClient.get 'https://api.moesif.com/v1/~/billing/reports',
+  params: {
+  }, 
+  headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
+);
+
+$client = new \GuzzleHttp\Client();
+
+try {
+    $response = $client->request('GET','https://api.moesif.com/v1/~/billing/reports', array(
+        'headers' => $headers,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
+    }
+    
+    
+    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/~/billing/reports")
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    /// Make a dummy request
+    public async Task MakeGetRequest()
+    {
+      string url = "https://api.moesif.com/v1/~/billing/reports";
+      var result = await GetAsync(url);
+    }
+
+    /// Performs a GET Request
+    public async Task GetAsync(string url)
+    {
+        //Start the request
+        HttpResponseMessage response = await Client.GetAsync(url);
+
+        //Validate result
+        response.EnsureSuccessStatusCode();
+
+    }
+    
+    
+    
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/~/billing/reports");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+
+con.setRequestProperty("Accept",'application/json');
+con.setRequestProperty("Authorization",'Bearer YOUR_MANAGEMENT_API_KEY');
+
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /~/billing/reports`
+
+*Get BillingReports*
+
+Query audit history of billing reports to external billing providers
+
+> `GET https://api.moesif.com/v1/~/billing/reports`
+
+<h3 id="getbillingreports-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|from|query|string(date-time)|false|none|
+|to|query|string(date-time)|false|none|
+|billing_meter_id|query|string|false|none|
+|company_id|query|string|false|none|
+|provider|query|string|false|none|
+|subscription_id|query|string|false|none|
+|subscription_item_id|query|string|false|none|
+|plan_id|query|string|false|none|
+|price_id|query|string|false|none|
+|currency|query|string|false|none|
+|success|query|boolean|false|none|
+|status_code|query|integer(int32)|false|none|
+|error_code|query|string|false|none|
+|`type`|query|string|false|none|
+|status|query|array[string]|false|none|
+|amount|query|number(double)|false|none|
+|meter_metric|query|integer(int32)|false|none|
+|report_total_usage|query|integer(int32)|false|none|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "ending_balance": {
+      "sequence_id": 0,
+      "current_balance": 0.1,
+      "pending_activity": 0.1,
+      "available_balance": 0.1
+    },
+    "company_id": "string",
+    "transform_quantity": null,
+    "success": true,
+    "provider": "string",
+    "report_version": 0,
+    "usage_end_time": "2025-03-18T20:21:32.116Z",
+    "usage": {
+      "invoice": {
+        "period_start": "2025-03-18T20:21:32.116Z",
+        "period_end": "2025-03-18T20:21:32.116Z",
+        "id": "string"
+      },
+      "aggregator": "string"
+    },
+    "_id": "string",
+    "price_id": "string",
+    "price_in_decimal": 0.1,
+    "meter_usage": 0.1,
+    "last_success_time": "2025-03-18T20:21:32.116Z",
+    "beginning_balance": {
+      "sequence_id": 0,
+      "current_balance": 0.1,
+      "pending_activity": 0.1,
+      "available_balance": 0.1
+    },
+    "billing_meter_id": "string",
+    "amount": 0.1,
+    "plan_id": "string",
+    "usage_start_time": "2025-03-18T20:21:32.116Z",
+    "status": "string",
+    "provider_requests": [
+      {
+        "success": true,
+        "status_code": 0,
+        "job_id": "string",
+        "error_message": "string",
+        "error_code": "string",
+        "request_time": "2025-03-18T20:21:32.116Z"
+      }
+    ],
+    "currency": "string",
+    "report_total_usage": 0.1,
+    "channel_requests": [
+      {
+        "channel_id": "string",
+        "channel_name": "string",
+        "provider_requests": [
+          {
+            "success": true,
+            "status_code": 0,
+            "job_id": "string",
+            "error_message": "string",
+            "error_code": "string",
+            "request_time": "2025-03-18T20:21:32.116Z"
+          }
+        ]
+      }
+    ],
+    "created_at": "2025-03-18T20:21:32.116Z",
+    "app_id": "string",
+    "subscription_id": "string",
+    "subscription_period_start": "2025-03-18T20:21:32.116Z",
+    "balance_changes": [
+      {
+        "amount": 0.1,
+        "grant_id": "string"
+      }
+    ],
+    "type": "string",
+    "updated_at": "2025-03-18T20:21:32.116Z",
+    "subscription_item_id": "string",
+    "zero_balance_behavior": "string",
+    "org_id": "string",
+    "subscription_period_end": "2025-03-18T20:21:32.116Z",
+    "meter_metric": 0.1
+  }
+]
+```
+
+<h3 id="getbillingreports-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
+
+<h3 id="getbillingreports-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[[BillingReport](#schemabillingreport)]|false|none|none|
+|» ending_balance|object|false|none|none|
+|»» sequence_id|integer(int32)|true|none|none|
+|»» current_balance|number(double)|true|none|none|
+|»» pending_activity|number(double)|true|none|none|
+|»» available_balance|number(double)|true|none|none|
+|» company_id|string|true|none|none|
+|» transform_quantity|com.moesif.billing.helpers.subscriptions.moesiftransformquantity|false|none|none|
+|» success|boolean|true|none|none|
+|» provider|string|true|none|none|
+|» report_version|integer(int32)|false|none|none|
+|» usage_end_time|string(date-time)|true|none|none|
+|» usage|object|false|none|none|
+|»» invoice|object|false|none|none|
+|»»» period_start|string(date-time)|false|none|none|
+|»»» period_end|string(date-time)|false|none|none|
+|»»» id|string|true|none|none|
+|»» aggregator|string|false|none|none|
+|» _id|string|false|none|none|
+|» price_id|string|false|none|none|
+|» price_in_decimal|number(double)|false|none|none|
+|» meter_usage|number(double)|true|none|none|
+|» last_success_time|string(date-time)|false|none|none|
+|» beginning_balance|object|false|none|none|
+|» billing_meter_id|string|true|none|none|
+|» amount|number(double)|false|none|none|
+|» plan_id|string|false|none|none|
+|» usage_start_time|string(date-time)|true|none|none|
+|» status|string|false|none|none|
+|» provider_requests|[[ProviderRequest](#schemaproviderrequest)]|true|none|none|
+|»» success|boolean|true|none|none|
+|»» status_code|integer(int32)|true|none|none|
+|»» job_id|string|true|none|none|
+|»» error_message|string|true|none|none|
+|»» error_code|string|true|none|none|
+|»» request_time|string(date-time)|true|none|none|
+|» currency|string|false|none|none|
+|» report_total_usage|number(double)|true|none|none|
+|» channel_requests|[[ChannelRequest](#schemachannelrequest)]|false|none|none|
+|»» channel_id|string|true|none|none|
+|»» channel_name|string|true|none|none|
+|»» provider_requests|[[ProviderRequest](#schemaproviderrequest)]|true|none|none|
+|» created_at|string(date-time)|false|none|none|
+|» app_id|string|true|none|none|
+|» subscription_id|string|true|none|none|
+|» subscription_period_start|string(date-time)|false|none|none|
+|» balance_changes|[[BalanceChange](#schemabalancechange)]|false|none|none|
+|»» amount|number(double)|true|none|none|
+|»» grant_id|string|false|none|none|
+|» type|string|false|none|none|
+|» updated_at|string(date-time)|false|none|none|
+|» subscription_item_id|string|false|none|none|
+|» zero_balance_behavior|string|false|none|none|
+|» org_id|string|true|none|none|
+|» subscription_period_end|string(date-time)|false|none|none|
+|» meter_metric|number(double)|true|none|none|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: read:billing_meters read:billing_reports )
+</aside>
+
+## getBillingReportsMetrics
+
+<a id="opIdgetBillingReportsMetrics"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.moesif.com/v1/~/billing/reports/metrics?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
+};
+
+fetch('https://api.moesif.com/v1/~/billing/reports/metrics?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+r = requests.get('https://api.moesif.com/v1/~/billing/reports/metrics', params={
+  'from': '2025-03-18T20:21:32.116Z',  'to': '2025-03-18T20:21:32.116Z'
+
+}, headers = headers)
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+result = RestClient.get 'https://api.moesif.com/v1/~/billing/reports/metrics',
+  params: {
+  'from' => 'string(date-time)',
+  'to' => 'string(date-time)'
+  }, 
+  headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
+);
+
+$client = new \GuzzleHttp\Client();
+
+try {
+    $response = $client->request('GET','https://api.moesif.com/v1/~/billing/reports/metrics', array(
+        'headers' => $headers,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
+    }
+    
+    
+    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/~/billing/reports/metrics")
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    /// Make a dummy request
+    public async Task MakeGetRequest()
+    {
+      string url = "https://api.moesif.com/v1/~/billing/reports/metrics";
+      var result = await GetAsync(url);
+    }
+
+    /// Performs a GET Request
+    public async Task GetAsync(string url)
+    {
+        //Start the request
+        HttpResponseMessage response = await Client.GetAsync(url);
+
+        //Validate result
+        response.EnsureSuccessStatusCode();
+
+    }
+    
+    
+    
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/~/billing/reports/metrics?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+
+con.setRequestProperty("Accept",'application/json');
+con.setRequestProperty("Authorization",'Bearer YOUR_MANAGEMENT_API_KEY');
+
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /~/billing/reports/metrics`
+
+*Get BillingReports' values for a given meter and time range for a single company or all companies*
+
+Get BillingReports' values for a given meter and time range for a single company or all companies
+
+> `GET https://api.moesif.com/v1/~/billing/reports/metrics`
+
+<h3 id="getbillingreportsmetrics-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|from|query|string(date-time)|true|none|
+|to|query|string(date-time)|true|none|
+|time_zone|query|string|false|none|
+|billing_meter_id|query|string|false|none|
+|success|query|boolean|false|none|
+|aggregator|query|string|false|none|
+|interval|query|string|false|none|
+|company_id|query|string|false|none|
+|subscription_id|query|string|false|none|
+|subscription_item_id|query|string|false|none|
+|plan_id|query|string|false|none|
+|price_id|query|string|false|none|
+|provider|query|string|false|none|
+|currency|query|string|false|none|
+|`type`|query|array[string]|false|none|
+|status|query|array[string]|false|none|
+|group_by|query|string|false|none|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "buckets": [
+    {
+      "start": "2025-03-18T20:21:32.116Z",
+      "metric": 0.1,
+      "amounts": null,
+      "ending_balance": {
+        "current_balance": 0.1,
+        "pending_activity": 0.1,
+        "available_balance": 0.1
+      }
+    }
+  ],
+  "group_by": [
+    {
+      "key": {},
+      "buckets": [
+        {
+          "start": "2025-03-18T20:21:32.116Z",
+          "metric": 0.1,
+          "amounts": null,
+          "ending_balance": {
+            "current_balance": null,
+            "pending_activity": null,
+            "available_balance": null
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+<h3 id="getbillingreportsmetrics-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|three buckets of aggregates for the given meter and time range including Metric Value, Reported Usage, and list of errors.|[BillingMetricResponse](#schemabillingmetricresponse)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: read:billing_meters read:billing_reports )
+</aside>
+
+## getBillingReportsProperties
+
+<a id="opIdgetBillingReportsProperties"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.moesif.com/v1/~/billing/reports/properties/{field}?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
+
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
+};
+
+fetch('https://api.moesif.com/v1/~/billing/reports/properties/{field}?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+r = requests.get('https://api.moesif.com/v1/~/billing/reports/properties/{field}', params={
+  'from': '2025-03-18T20:21:32.116Z',  'to': '2025-03-18T20:21:32.116Z'
+
+}, headers = headers)
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+result = RestClient.get 'https://api.moesif.com/v1/~/billing/reports/properties/{field}',
+  params: {
+  'from' => 'string(date-time)',
+  'to' => 'string(date-time)'
+  }, 
+  headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
+);
+
+$client = new \GuzzleHttp\Client();
+
+try {
+    $response = $client->request('GET','https://api.moesif.com/v1/~/billing/reports/properties/{field}', array(
+        'headers' => $headers,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
+    }
+    
+    
+    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/~/billing/reports/properties/{field}")
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    /// Make a dummy request
+    public async Task MakeGetRequest()
+    {
+      string url = "https://api.moesif.com/v1/~/billing/reports/properties/{field}";
+      var result = await GetAsync(url);
+    }
+
+    /// Performs a GET Request
+    public async Task GetAsync(string url)
+    {
+        //Start the request
+        HttpResponseMessage response = await Client.GetAsync(url);
+
+        //Validate result
+        response.EnsureSuccessStatusCode();
+
+    }
+    
+    
+    
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/~/billing/reports/properties/{field}?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+
+con.setRequestProperty("Accept",'application/json');
+con.setRequestProperty("Authorization",'Bearer YOUR_MANAGEMENT_API_KEY');
+
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`GET /~/billing/reports/properties/{field}`
+
+*Get BillingReports' properties available values*
+
+Get BillingReports' properties available values
+
+> `GET https://api.moesif.com/v1/~/billing/reports/properties/{field}`
+
+<h3 id="getbillingreportsproperties-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|field|path|string|true|none|
+|from|query|string(date-time)|true|none|
+|to|query|string(date-time)|true|none|
+|take|query|integer(int32)|false|none|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "path": "string",
+  "values": [
+    {}
+  ]
+}
+```
+
+<h3 id="getbillingreportsproperties-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|for the property field, return available property values. Can be string, Int, Double, boolean etc|[BillingReportProperty](#schemabillingreportproperty)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: read:billing_meters read:billing_reports )
+</aside>
+
 <h1 id="management-api-companies">Companies</h1>
 
 ## updateCompanies
@@ -83,7 +1259,7 @@ curl -X POST https://api.moesif.com/v1/search/~/companies \
 
   -d '{
   "company_id": "string",
-  "modified_time": "2025-01-09T17:18:58.560Z",
+  "modified_time": "2025-03-18T20:21:32.116Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
@@ -94,7 +1270,7 @@ curl -X POST https://api.moesif.com/v1/search/~/companies \
 const fetch = require('node-fetch');
 const inputBody = {
   "company_id": "string",
-  "modified_time": "2025-01-09T17:18:58.560Z",
+  "modified_time": "2025-03-18T20:21:32.116Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
@@ -128,7 +1304,7 @@ headers = {
 }
 input_body = {
   "company_id": "string",
-  "modified_time": "2025-01-09T17:18:58.560Z",
+  "modified_time": "2025-03-18T20:21:32.116Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
@@ -152,7 +1328,7 @@ headers = {
 
 input_payload = JSON.parse('{
   "company_id": "string",
-  "modified_time": "2025-01-09T17:18:58.560Z",
+  "modified_time": "2025-03-18T20:21:32.116Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
@@ -181,7 +1357,7 @@ $headers = array(
 
 $inputPayload = json_decode('{
   "company_id": "string",
-  "modified_time": "2025-01-09T17:18:58.560Z",
+  "modified_time": "2025-03-18T20:21:32.116Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
@@ -223,7 +1399,7 @@ func main() {
     }
     jsonPayload := `{
   "company_id": "string",
-  "modified_time": "2025-01-09T17:18:58.560Z",
+  "modified_time": "2025-03-18T20:21:32.116Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
@@ -271,7 +1447,7 @@ public class HttpExample
       
       string json = @"{
   ""company_id"": ""string"",
-  ""modified_time"": ""2025-01-09T17:18:58.560Z"",
+  ""modified_time"": ""2025-03-18T20:21:32.116Z"",
   ""session_token"": ""string"",
   ""company_domain"": ""string"",
   ""metadata"": {}
@@ -331,7 +1507,7 @@ con.setDoOutput(true);
 
 String jsonPayload = """{
   "company_id": "string",
-  "modified_time": "2025-01-09T17:18:58.560Z",
+  "modified_time": "2025-03-18T20:21:32.116Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
@@ -366,7 +1542,7 @@ System.out.println(response.toString());
 ```json
 {
   "company_id": "string",
-  "modified_time": "2025-01-09T17:18:58.560Z",
+  "modified_time": "2025-03-18T20:21:32.116Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
@@ -410,7 +1586,7 @@ curl -X POST https://api.moesif.com/v1/search/~/companies/batch \
   -d '[
   {
     "company_id": "string",
-    "modified_time": "2025-01-09T17:18:58.560Z",
+    "modified_time": "2025-03-18T20:21:32.116Z",
     "session_token": "string",
     "company_domain": "string",
     "metadata": {}
@@ -423,7 +1599,7 @@ const fetch = require('node-fetch');
 const inputBody = [
   {
     "company_id": "string",
-    "modified_time": "2025-01-09T17:18:58.560Z",
+    "modified_time": "2025-03-18T20:21:32.116Z",
     "session_token": "string",
     "company_domain": "string",
     "metadata": {}
@@ -459,7 +1635,7 @@ headers = {
 input_body = [
   {
     "company_id": "string",
-    "modified_time": "2025-01-09T17:18:58.560Z",
+    "modified_time": "2025-03-18T20:21:32.116Z",
     "session_token": "string",
     "company_domain": "string",
     "metadata": {}
@@ -485,7 +1661,7 @@ headers = {
 input_payload = JSON.parse('[
   {
     "company_id": "string",
-    "modified_time": "2025-01-09T17:18:58.560Z",
+    "modified_time": "2025-03-18T20:21:32.116Z",
     "session_token": "string",
     "company_domain": "string",
     "metadata": {}
@@ -516,7 +1692,7 @@ $headers = array(
 $inputPayload = json_decode('[
   {
     "company_id": "string",
-    "modified_time": "2025-01-09T17:18:58.560Z",
+    "modified_time": "2025-03-18T20:21:32.116Z",
     "session_token": "string",
     "company_domain": "string",
     "metadata": {}
@@ -560,7 +1736,7 @@ func main() {
     jsonPayload := `[
   {
     "company_id": "string",
-    "modified_time": "2025-01-09T17:18:58.560Z",
+    "modified_time": "2025-03-18T20:21:32.116Z",
     "session_token": "string",
     "company_domain": "string",
     "metadata": {}
@@ -610,7 +1786,7 @@ public class HttpExample
       string json = @"[
   {
     ""company_id"": ""string"",
-    ""modified_time"": ""2025-01-09T17:18:58.560Z"",
+    ""modified_time"": ""2025-03-18T20:21:32.116Z"",
     ""session_token"": ""string"",
     ""company_domain"": ""string"",
     ""metadata"": {}
@@ -672,7 +1848,7 @@ con.setDoOutput(true);
 String jsonPayload = """[
   {
     "company_id": "string",
-    "modified_time": "2025-01-09T17:18:58.560Z",
+    "modified_time": "2025-03-18T20:21:32.116Z",
     "session_token": "string",
     "company_domain": "string",
     "metadata": {}
@@ -709,7 +1885,7 @@ System.out.println(response.toString());
 [
   {
     "company_id": "string",
-    "modified_time": "2025-01-09T17:18:58.560Z",
+    "modified_time": "2025-03-18T20:21:32.116Z",
     "session_token": "string",
     "company_domain": "string",
     "metadata": {}
@@ -1971,68 +3147,234 @@ curl -X POST https://api.moesif.com/v1/search/~/subscriptions \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
 
   -d '{
-  "trial_start": "2025-01-09T17:18:58.560Z",
+  "trial_start": "2025-03-18T20:21:32.116Z",
   "company_id": "string",
-  "start_date": "2025-01-09T17:18:58.560Z",
+  "start_date": "2025-03-18T20:21:32.116Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
     {
       "item_price_id": "string",
+      "billing_thresholds": {
+        "usage_gte": 0
+      },
       "price_id": "string",
+      "price": {
+        "name": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "currency_prices": null,
+        "provider": "string",
+        "revenue_recognition_rule": "string",
+        "price_in_decimal": 0.1,
+        "tiers": [
+          {
+            "flat_currency_prices": null,
+            "up_to": null,
+            "flat_price_in_decimal": null,
+            "unit_price_in_decimal": null,
+            "unit_currency_prices": null
+          }
+        ],
+        "recognized_revenue_accounting_code": "string",
+        "period_units": "string",
+        "plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "tax_behavior": "string",
+        "currency": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "unit": "string",
+        "deferred_revenue_accounting_code": "string",
+        "usage_aggregator": "string",
+        "period": 0
+      },
+      "current_period_start": "2025-03-18T20:21:32.116Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
-      "subscription_item_id": "string"
+      "metadata": {},
+      "created_at": "string",
+      "current_period_end": "2025-03-18T20:21:32.116Z",
+      "subscription_item_id": "string",
+      "plan": {
+        "name": "string",
+        "prices": [
+          {
+            "name": null,
+            "transform_quantity": null,
+            "currency_prices": null,
+            "provider": null,
+            "revenue_recognition_rule": null,
+            "price_in_decimal": null,
+            "tiers": null,
+            "recognized_revenue_accounting_code": null,
+            "period_units": null,
+            "plan_id": null,
+            "id": null,
+            "status": null,
+            "pricing_model": null,
+            "tax_behavior": null,
+            "currency": null,
+            "metadata": null,
+            "created_at": null,
+            "unit": null,
+            "deferred_revenue_accounting_code": null,
+            "usage_aggregator": null,
+            "period": null
+          }
+        ],
+        "provider": "string",
+        "billing_type": "string",
+        "description": "string",
+        "external_plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "product_id": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "billing_period": "string",
+        "unit": "string",
+        "updated_at": "2025-03-18T20:21:32.116Z",
+        "reporting_period": "string"
+      }
     }
   ],
-  "current_period_start": "2025-01-09T17:18:58.560Z",
+  "current_period_start": "2025-03-18T20:21:32.116Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2025-01-09T17:18:58.560Z",
+  "cancel_time": "2025-03-18T20:21:32.116Z",
   "status": "string",
-  "trial_end": "2025-01-09T17:18:58.560Z",
+  "trial_end": "2025-03-18T20:21:32.116Z",
   "external_id": "string",
+  "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2025-01-09T17:18:58.560Z",
-  "created": "2025-01-09T17:18:58.560Z"
+  "current_period_end": "2025-03-18T20:21:32.116Z",
+  "created": "2025-03-18T20:21:32.116Z"
 }' 
 ```
 
 ```javascript--nodejs
 const fetch = require('node-fetch');
 const inputBody = {
-  "trial_start": "2025-01-09T17:18:58.560Z",
+  "trial_start": "2025-03-18T20:21:32.116Z",
   "company_id": "string",
-  "start_date": "2025-01-09T17:18:58.560Z",
+  "start_date": "2025-03-18T20:21:32.116Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
     {
       "item_price_id": "string",
+      "billing_thresholds": {
+        "usage_gte": 0
+      },
       "price_id": "string",
+      "price": {
+        "name": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "currency_prices": null,
+        "provider": "string",
+        "revenue_recognition_rule": "string",
+        "price_in_decimal": 0.1,
+        "tiers": [
+          {
+            "flat_currency_prices": null,
+            "up_to": null,
+            "flat_price_in_decimal": null,
+            "unit_price_in_decimal": null,
+            "unit_currency_prices": null
+          }
+        ],
+        "recognized_revenue_accounting_code": "string",
+        "period_units": "string",
+        "plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "tax_behavior": "string",
+        "currency": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "unit": "string",
+        "deferred_revenue_accounting_code": "string",
+        "usage_aggregator": "string",
+        "period": 0
+      },
+      "current_period_start": "2025-03-18T20:21:32.116Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
-      "subscription_item_id": "string"
+      "metadata": {},
+      "created_at": "string",
+      "current_period_end": "2025-03-18T20:21:32.116Z",
+      "subscription_item_id": "string",
+      "plan": {
+        "name": "string",
+        "prices": [
+          {
+            "name": null,
+            "transform_quantity": null,
+            "currency_prices": null,
+            "provider": null,
+            "revenue_recognition_rule": null,
+            "price_in_decimal": null,
+            "tiers": null,
+            "recognized_revenue_accounting_code": null,
+            "period_units": null,
+            "plan_id": null,
+            "id": null,
+            "status": null,
+            "pricing_model": null,
+            "tax_behavior": null,
+            "currency": null,
+            "metadata": null,
+            "created_at": null,
+            "unit": null,
+            "deferred_revenue_accounting_code": null,
+            "usage_aggregator": null,
+            "period": null
+          }
+        ],
+        "provider": "string",
+        "billing_type": "string",
+        "description": "string",
+        "external_plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "product_id": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "billing_period": "string",
+        "unit": "string",
+        "updated_at": "2025-03-18T20:21:32.116Z",
+        "reporting_period": "string"
+      }
     }
   ],
-  "current_period_start": "2025-01-09T17:18:58.560Z",
+  "current_period_start": "2025-03-18T20:21:32.116Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2025-01-09T17:18:58.560Z",
+  "cancel_time": "2025-03-18T20:21:32.116Z",
   "status": "string",
-  "trial_end": "2025-01-09T17:18:58.560Z",
+  "trial_end": "2025-03-18T20:21:32.116Z",
   "external_id": "string",
+  "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2025-01-09T17:18:58.560Z",
-  "created": "2025-01-09T17:18:58.560Z"
+  "current_period_end": "2025-03-18T20:21:32.116Z",
+  "created": "2025-03-18T20:21:32.116Z"
 };
 const headers = {
   'Content-Type':'application/json',
@@ -2062,34 +3404,117 @@ headers = {
   'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
 }
 input_body = {
-  "trial_start": "2025-01-09T17:18:58.560Z",
+  "trial_start": "2025-03-18T20:21:32.116Z",
   "company_id": "string",
-  "start_date": "2025-01-09T17:18:58.560Z",
+  "start_date": "2025-03-18T20:21:32.116Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
     {
       "item_price_id": "string",
+      "billing_thresholds": {
+        "usage_gte": 0
+      },
       "price_id": "string",
+      "price": {
+        "name": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "currency_prices": null,
+        "provider": "string",
+        "revenue_recognition_rule": "string",
+        "price_in_decimal": 0.1,
+        "tiers": [
+          {
+            "flat_currency_prices": null,
+            "up_to": null,
+            "flat_price_in_decimal": null,
+            "unit_price_in_decimal": null,
+            "unit_currency_prices": null
+          }
+        ],
+        "recognized_revenue_accounting_code": "string",
+        "period_units": "string",
+        "plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "tax_behavior": "string",
+        "currency": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "unit": "string",
+        "deferred_revenue_accounting_code": "string",
+        "usage_aggregator": "string",
+        "period": 0
+      },
+      "current_period_start": "2025-03-18T20:21:32.116Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
-      "subscription_item_id": "string"
+      "metadata": {},
+      "created_at": "string",
+      "current_period_end": "2025-03-18T20:21:32.116Z",
+      "subscription_item_id": "string",
+      "plan": {
+        "name": "string",
+        "prices": [
+          {
+            "name": null,
+            "transform_quantity": null,
+            "currency_prices": null,
+            "provider": null,
+            "revenue_recognition_rule": null,
+            "price_in_decimal": null,
+            "tiers": null,
+            "recognized_revenue_accounting_code": null,
+            "period_units": null,
+            "plan_id": null,
+            "id": null,
+            "status": null,
+            "pricing_model": null,
+            "tax_behavior": null,
+            "currency": null,
+            "metadata": null,
+            "created_at": null,
+            "unit": null,
+            "deferred_revenue_accounting_code": null,
+            "usage_aggregator": null,
+            "period": null
+          }
+        ],
+        "provider": "string",
+        "billing_type": "string",
+        "description": "string",
+        "external_plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "product_id": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "billing_period": "string",
+        "unit": "string",
+        "updated_at": "2025-03-18T20:21:32.116Z",
+        "reporting_period": "string"
+      }
     }
   ],
-  "current_period_start": "2025-01-09T17:18:58.560Z",
+  "current_period_start": "2025-03-18T20:21:32.116Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2025-01-09T17:18:58.560Z",
+  "cancel_time": "2025-03-18T20:21:32.116Z",
   "status": "string",
-  "trial_end": "2025-01-09T17:18:58.560Z",
+  "trial_end": "2025-03-18T20:21:32.116Z",
   "external_id": "string",
+  "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2025-01-09T17:18:58.560Z",
-  "created": "2025-01-09T17:18:58.560Z"
+  "current_period_end": "2025-03-18T20:21:32.116Z",
+  "created": "2025-03-18T20:21:32.116Z"
 }
 
 r = requests.post('https://api.moesif.com/v1/search/~/subscriptions', headers = headers, json = input_data)
@@ -2109,34 +3534,117 @@ headers = {
 }
 
 input_payload = JSON.parse('{
-  "trial_start": "2025-01-09T17:18:58.560Z",
+  "trial_start": "2025-03-18T20:21:32.116Z",
   "company_id": "string",
-  "start_date": "2025-01-09T17:18:58.560Z",
+  "start_date": "2025-03-18T20:21:32.116Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
     {
       "item_price_id": "string",
+      "billing_thresholds": {
+        "usage_gte": 0
+      },
       "price_id": "string",
+      "price": {
+        "name": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "currency_prices": null,
+        "provider": "string",
+        "revenue_recognition_rule": "string",
+        "price_in_decimal": 0.1,
+        "tiers": [
+          {
+            "flat_currency_prices": null,
+            "up_to": null,
+            "flat_price_in_decimal": null,
+            "unit_price_in_decimal": null,
+            "unit_currency_prices": null
+          }
+        ],
+        "recognized_revenue_accounting_code": "string",
+        "period_units": "string",
+        "plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "tax_behavior": "string",
+        "currency": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "unit": "string",
+        "deferred_revenue_accounting_code": "string",
+        "usage_aggregator": "string",
+        "period": 0
+      },
+      "current_period_start": "2025-03-18T20:21:32.116Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
-      "subscription_item_id": "string"
+      "metadata": {},
+      "created_at": "string",
+      "current_period_end": "2025-03-18T20:21:32.116Z",
+      "subscription_item_id": "string",
+      "plan": {
+        "name": "string",
+        "prices": [
+          {
+            "name": null,
+            "transform_quantity": null,
+            "currency_prices": null,
+            "provider": null,
+            "revenue_recognition_rule": null,
+            "price_in_decimal": null,
+            "tiers": null,
+            "recognized_revenue_accounting_code": null,
+            "period_units": null,
+            "plan_id": null,
+            "id": null,
+            "status": null,
+            "pricing_model": null,
+            "tax_behavior": null,
+            "currency": null,
+            "metadata": null,
+            "created_at": null,
+            "unit": null,
+            "deferred_revenue_accounting_code": null,
+            "usage_aggregator": null,
+            "period": null
+          }
+        ],
+        "provider": "string",
+        "billing_type": "string",
+        "description": "string",
+        "external_plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "product_id": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "billing_period": "string",
+        "unit": "string",
+        "updated_at": "2025-03-18T20:21:32.116Z",
+        "reporting_period": "string"
+      }
     }
   ],
-  "current_period_start": "2025-01-09T17:18:58.560Z",
+  "current_period_start": "2025-03-18T20:21:32.116Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2025-01-09T17:18:58.560Z",
+  "cancel_time": "2025-03-18T20:21:32.116Z",
   "status": "string",
-  "trial_end": "2025-01-09T17:18:58.560Z",
+  "trial_end": "2025-03-18T20:21:32.116Z",
   "external_id": "string",
+  "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2025-01-09T17:18:58.560Z",
-  "created": "2025-01-09T17:18:58.560Z"
+  "current_period_end": "2025-03-18T20:21:32.116Z",
+  "created": "2025-03-18T20:21:32.116Z"
 }')
 
 result = RestClient.post 'https://api.moesif.com/v1/search/~/subscriptions',
@@ -2161,34 +3669,117 @@ $headers = array(
 );
 
 $inputPayload = json_decode('{
-  "trial_start": "2025-01-09T17:18:58.560Z",
+  "trial_start": "2025-03-18T20:21:32.116Z",
   "company_id": "string",
-  "start_date": "2025-01-09T17:18:58.560Z",
+  "start_date": "2025-03-18T20:21:32.116Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
     {
       "item_price_id": "string",
+      "billing_thresholds": {
+        "usage_gte": 0
+      },
       "price_id": "string",
+      "price": {
+        "name": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "currency_prices": null,
+        "provider": "string",
+        "revenue_recognition_rule": "string",
+        "price_in_decimal": 0.1,
+        "tiers": [
+          {
+            "flat_currency_prices": null,
+            "up_to": null,
+            "flat_price_in_decimal": null,
+            "unit_price_in_decimal": null,
+            "unit_currency_prices": null
+          }
+        ],
+        "recognized_revenue_accounting_code": "string",
+        "period_units": "string",
+        "plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "tax_behavior": "string",
+        "currency": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "unit": "string",
+        "deferred_revenue_accounting_code": "string",
+        "usage_aggregator": "string",
+        "period": 0
+      },
+      "current_period_start": "2025-03-18T20:21:32.116Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
-      "subscription_item_id": "string"
+      "metadata": {},
+      "created_at": "string",
+      "current_period_end": "2025-03-18T20:21:32.116Z",
+      "subscription_item_id": "string",
+      "plan": {
+        "name": "string",
+        "prices": [
+          {
+            "name": null,
+            "transform_quantity": null,
+            "currency_prices": null,
+            "provider": null,
+            "revenue_recognition_rule": null,
+            "price_in_decimal": null,
+            "tiers": null,
+            "recognized_revenue_accounting_code": null,
+            "period_units": null,
+            "plan_id": null,
+            "id": null,
+            "status": null,
+            "pricing_model": null,
+            "tax_behavior": null,
+            "currency": null,
+            "metadata": null,
+            "created_at": null,
+            "unit": null,
+            "deferred_revenue_accounting_code": null,
+            "usage_aggregator": null,
+            "period": null
+          }
+        ],
+        "provider": "string",
+        "billing_type": "string",
+        "description": "string",
+        "external_plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "product_id": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "billing_period": "string",
+        "unit": "string",
+        "updated_at": "2025-03-18T20:21:32.116Z",
+        "reporting_period": "string"
+      }
     }
   ],
-  "current_period_start": "2025-01-09T17:18:58.560Z",
+  "current_period_start": "2025-03-18T20:21:32.116Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2025-01-09T17:18:58.560Z",
+  "cancel_time": "2025-03-18T20:21:32.116Z",
   "status": "string",
-  "trial_end": "2025-01-09T17:18:58.560Z",
+  "trial_end": "2025-03-18T20:21:32.116Z",
   "external_id": "string",
+  "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2025-01-09T17:18:58.560Z",
-  "created": "2025-01-09T17:18:58.560Z"
+  "current_period_end": "2025-03-18T20:21:32.116Z",
+  "created": "2025-03-18T20:21:32.116Z"
 }')
 
 $client = new \GuzzleHttp\Client();
@@ -2226,34 +3817,117 @@ func main() {
         "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
     }
     jsonPayload := `{
-  "trial_start": "2025-01-09T17:18:58.560Z",
+  "trial_start": "2025-03-18T20:21:32.116Z",
   "company_id": "string",
-  "start_date": "2025-01-09T17:18:58.560Z",
+  "start_date": "2025-03-18T20:21:32.116Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
     {
       "item_price_id": "string",
+      "billing_thresholds": {
+        "usage_gte": 0
+      },
       "price_id": "string",
+      "price": {
+        "name": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "currency_prices": null,
+        "provider": "string",
+        "revenue_recognition_rule": "string",
+        "price_in_decimal": 0.1,
+        "tiers": [
+          {
+            "flat_currency_prices": null,
+            "up_to": null,
+            "flat_price_in_decimal": null,
+            "unit_price_in_decimal": null,
+            "unit_currency_prices": null
+          }
+        ],
+        "recognized_revenue_accounting_code": "string",
+        "period_units": "string",
+        "plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "tax_behavior": "string",
+        "currency": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "unit": "string",
+        "deferred_revenue_accounting_code": "string",
+        "usage_aggregator": "string",
+        "period": 0
+      },
+      "current_period_start": "2025-03-18T20:21:32.116Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
-      "subscription_item_id": "string"
+      "metadata": {},
+      "created_at": "string",
+      "current_period_end": "2025-03-18T20:21:32.116Z",
+      "subscription_item_id": "string",
+      "plan": {
+        "name": "string",
+        "prices": [
+          {
+            "name": null,
+            "transform_quantity": null,
+            "currency_prices": null,
+            "provider": null,
+            "revenue_recognition_rule": null,
+            "price_in_decimal": null,
+            "tiers": null,
+            "recognized_revenue_accounting_code": null,
+            "period_units": null,
+            "plan_id": null,
+            "id": null,
+            "status": null,
+            "pricing_model": null,
+            "tax_behavior": null,
+            "currency": null,
+            "metadata": null,
+            "created_at": null,
+            "unit": null,
+            "deferred_revenue_accounting_code": null,
+            "usage_aggregator": null,
+            "period": null
+          }
+        ],
+        "provider": "string",
+        "billing_type": "string",
+        "description": "string",
+        "external_plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "product_id": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "billing_period": "string",
+        "unit": "string",
+        "updated_at": "2025-03-18T20:21:32.116Z",
+        "reporting_period": "string"
+      }
     }
   ],
-  "current_period_start": "2025-01-09T17:18:58.560Z",
+  "current_period_start": "2025-03-18T20:21:32.116Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2025-01-09T17:18:58.560Z",
+  "cancel_time": "2025-03-18T20:21:32.116Z",
   "status": "string",
-  "trial_end": "2025-01-09T17:18:58.560Z",
+  "trial_end": "2025-03-18T20:21:32.116Z",
   "external_id": "string",
+  "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2025-01-09T17:18:58.560Z",
-  "created": "2025-01-09T17:18:58.560Z"
+  "current_period_end": "2025-03-18T20:21:32.116Z",
+  "created": "2025-03-18T20:21:32.116Z"
 }`
     data := bytes.NewBuffer([]byte(jsonPayload))
     req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/subscriptions", data)
@@ -2297,34 +3971,117 @@ public class HttpExample
       string url = "https://api.moesif.com/v1/search/~/subscriptions";
       
       string json = @"{
-  ""trial_start"": ""2025-01-09T17:18:58.560Z"",
+  ""trial_start"": ""2025-03-18T20:21:32.116Z"",
   ""company_id"": ""string"",
-  ""start_date"": ""2025-01-09T17:18:58.560Z"",
+  ""start_date"": ""2025-03-18T20:21:32.116Z"",
   ""collection_method"": ""string"",
   ""provider"": ""string"",
   ""items"": [
     {
       ""item_price_id"": ""string"",
+      ""billing_thresholds"": {
+        ""usage_gte"": 0
+      },
       ""price_id"": ""string"",
+      ""price"": {
+        ""name"": ""string"",
+        ""transform_quantity"": {
+          ""divide_by"": 0,
+          ""round"": ""string""
+        },
+        ""currency_prices"": null,
+        ""provider"": ""string"",
+        ""revenue_recognition_rule"": ""string"",
+        ""price_in_decimal"": 0.1,
+        ""tiers"": [
+          {
+            ""flat_currency_prices"": null,
+            ""up_to"": null,
+            ""flat_price_in_decimal"": null,
+            ""unit_price_in_decimal"": null,
+            ""unit_currency_prices"": null
+          }
+        ],
+        ""recognized_revenue_accounting_code"": ""string"",
+        ""period_units"": ""string"",
+        ""plan_id"": ""string"",
+        ""id"": ""string"",
+        ""status"": ""string"",
+        ""pricing_model"": ""string"",
+        ""tax_behavior"": ""string"",
+        ""currency"": ""string"",
+        ""metadata"": null,
+        ""created_at"": ""2025-03-18T20:21:32.116Z"",
+        ""unit"": ""string"",
+        ""deferred_revenue_accounting_code"": ""string"",
+        ""usage_aggregator"": ""string"",
+        ""period"": 0
+      },
+      ""current_period_start"": ""2025-03-18T20:21:32.116Z"",
       ""is_metered"": true,
       ""plan_id"": ""string"",
       ""unit_of_measure"": ""string"",
       ""status"": ""string"",
-      ""subscription_item_id"": ""string""
+      ""metadata"": {},
+      ""created_at"": ""string"",
+      ""current_period_end"": ""2025-03-18T20:21:32.116Z"",
+      ""subscription_item_id"": ""string"",
+      ""plan"": {
+        ""name"": ""string"",
+        ""prices"": [
+          {
+            ""name"": null,
+            ""transform_quantity"": null,
+            ""currency_prices"": null,
+            ""provider"": null,
+            ""revenue_recognition_rule"": null,
+            ""price_in_decimal"": null,
+            ""tiers"": null,
+            ""recognized_revenue_accounting_code"": null,
+            ""period_units"": null,
+            ""plan_id"": null,
+            ""id"": null,
+            ""status"": null,
+            ""pricing_model"": null,
+            ""tax_behavior"": null,
+            ""currency"": null,
+            ""metadata"": null,
+            ""created_at"": null,
+            ""unit"": null,
+            ""deferred_revenue_accounting_code"": null,
+            ""usage_aggregator"": null,
+            ""period"": null
+          }
+        ],
+        ""provider"": ""string"",
+        ""billing_type"": ""string"",
+        ""description"": ""string"",
+        ""external_plan_id"": ""string"",
+        ""id"": ""string"",
+        ""status"": ""string"",
+        ""product_id"": ""string"",
+        ""metadata"": null,
+        ""created_at"": ""2025-03-18T20:21:32.116Z"",
+        ""billing_period"": ""string"",
+        ""unit"": ""string"",
+        ""updated_at"": ""2025-03-18T20:21:32.116Z"",
+        ""reporting_period"": ""string""
+      }
     }
   ],
-  ""current_period_start"": ""2025-01-09T17:18:58.560Z"",
+  ""current_period_start"": ""2025-03-18T20:21:32.116Z"",
   ""company_external_id"": ""string"",
   ""payment_status"": ""string"",
-  ""cancel_time"": ""2025-01-09T17:18:58.560Z"",
+  ""cancel_time"": ""2025-03-18T20:21:32.116Z"",
   ""status"": ""string"",
-  ""trial_end"": ""2025-01-09T17:18:58.560Z"",
+  ""trial_end"": ""2025-03-18T20:21:32.116Z"",
   ""external_id"": ""string"",
+  ""currency"": ""string"",
   ""metadata"": {},
   ""subscription_id"": ""string"",
   ""version_id"": ""string"",
-  ""current_period_end"": ""2025-01-09T17:18:58.560Z"",
-  ""created"": ""2025-01-09T17:18:58.560Z""
+  ""current_period_end"": ""2025-03-18T20:21:32.116Z"",
+  ""created"": ""2025-03-18T20:21:32.116Z""
 }";
       var content = JsonConvert.DeserializeObject(json);
       await PostAsync(content, url);
@@ -2380,34 +4137,117 @@ con.setRequestProperty("Authorization",'Bearer YOUR_MANAGEMENT_API_KEY');
 con.setDoOutput(true);
 
 String jsonPayload = """{
-  "trial_start": "2025-01-09T17:18:58.560Z",
+  "trial_start": "2025-03-18T20:21:32.116Z",
   "company_id": "string",
-  "start_date": "2025-01-09T17:18:58.560Z",
+  "start_date": "2025-03-18T20:21:32.116Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
     {
       "item_price_id": "string",
+      "billing_thresholds": {
+        "usage_gte": 0
+      },
       "price_id": "string",
+      "price": {
+        "name": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "currency_prices": null,
+        "provider": "string",
+        "revenue_recognition_rule": "string",
+        "price_in_decimal": 0.1,
+        "tiers": [
+          {
+            "flat_currency_prices": null,
+            "up_to": null,
+            "flat_price_in_decimal": null,
+            "unit_price_in_decimal": null,
+            "unit_currency_prices": null
+          }
+        ],
+        "recognized_revenue_accounting_code": "string",
+        "period_units": "string",
+        "plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "tax_behavior": "string",
+        "currency": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "unit": "string",
+        "deferred_revenue_accounting_code": "string",
+        "usage_aggregator": "string",
+        "period": 0
+      },
+      "current_period_start": "2025-03-18T20:21:32.116Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
-      "subscription_item_id": "string"
+      "metadata": {},
+      "created_at": "string",
+      "current_period_end": "2025-03-18T20:21:32.116Z",
+      "subscription_item_id": "string",
+      "plan": {
+        "name": "string",
+        "prices": [
+          {
+            "name": null,
+            "transform_quantity": null,
+            "currency_prices": null,
+            "provider": null,
+            "revenue_recognition_rule": null,
+            "price_in_decimal": null,
+            "tiers": null,
+            "recognized_revenue_accounting_code": null,
+            "period_units": null,
+            "plan_id": null,
+            "id": null,
+            "status": null,
+            "pricing_model": null,
+            "tax_behavior": null,
+            "currency": null,
+            "metadata": null,
+            "created_at": null,
+            "unit": null,
+            "deferred_revenue_accounting_code": null,
+            "usage_aggregator": null,
+            "period": null
+          }
+        ],
+        "provider": "string",
+        "billing_type": "string",
+        "description": "string",
+        "external_plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "product_id": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "billing_period": "string",
+        "unit": "string",
+        "updated_at": "2025-03-18T20:21:32.116Z",
+        "reporting_period": "string"
+      }
     }
   ],
-  "current_period_start": "2025-01-09T17:18:58.560Z",
+  "current_period_start": "2025-03-18T20:21:32.116Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2025-01-09T17:18:58.560Z",
+  "cancel_time": "2025-03-18T20:21:32.116Z",
   "status": "string",
-  "trial_end": "2025-01-09T17:18:58.560Z",
+  "trial_end": "2025-03-18T20:21:32.116Z",
   "external_id": "string",
+  "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2025-01-09T17:18:58.560Z",
-  "created": "2025-01-09T17:18:58.560Z"
+  "current_period_end": "2025-03-18T20:21:32.116Z",
+  "created": "2025-03-18T20:21:32.116Z"
 }""";
 
 // Write payload to the request
@@ -2438,34 +4278,117 @@ System.out.println(response.toString());
 
 ```json
 {
-  "trial_start": "2025-01-09T17:18:58.560Z",
+  "trial_start": "2025-03-18T20:21:32.116Z",
   "company_id": "string",
-  "start_date": "2025-01-09T17:18:58.560Z",
+  "start_date": "2025-03-18T20:21:32.116Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
     {
       "item_price_id": "string",
+      "billing_thresholds": {
+        "usage_gte": 0
+      },
       "price_id": "string",
+      "price": {
+        "name": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "currency_prices": null,
+        "provider": "string",
+        "revenue_recognition_rule": "string",
+        "price_in_decimal": 0.1,
+        "tiers": [
+          {
+            "flat_currency_prices": null,
+            "up_to": null,
+            "flat_price_in_decimal": null,
+            "unit_price_in_decimal": null,
+            "unit_currency_prices": null
+          }
+        ],
+        "recognized_revenue_accounting_code": "string",
+        "period_units": "string",
+        "plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "tax_behavior": "string",
+        "currency": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "unit": "string",
+        "deferred_revenue_accounting_code": "string",
+        "usage_aggregator": "string",
+        "period": 0
+      },
+      "current_period_start": "2025-03-18T20:21:32.116Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
-      "subscription_item_id": "string"
+      "metadata": {},
+      "created_at": "string",
+      "current_period_end": "2025-03-18T20:21:32.116Z",
+      "subscription_item_id": "string",
+      "plan": {
+        "name": "string",
+        "prices": [
+          {
+            "name": null,
+            "transform_quantity": null,
+            "currency_prices": null,
+            "provider": null,
+            "revenue_recognition_rule": null,
+            "price_in_decimal": null,
+            "tiers": null,
+            "recognized_revenue_accounting_code": null,
+            "period_units": null,
+            "plan_id": null,
+            "id": null,
+            "status": null,
+            "pricing_model": null,
+            "tax_behavior": null,
+            "currency": null,
+            "metadata": null,
+            "created_at": null,
+            "unit": null,
+            "deferred_revenue_accounting_code": null,
+            "usage_aggregator": null,
+            "period": null
+          }
+        ],
+        "provider": "string",
+        "billing_type": "string",
+        "description": "string",
+        "external_plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "product_id": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "billing_period": "string",
+        "unit": "string",
+        "updated_at": "2025-03-18T20:21:32.116Z",
+        "reporting_period": "string"
+      }
     }
   ],
-  "current_period_start": "2025-01-09T17:18:58.560Z",
+  "current_period_start": "2025-03-18T20:21:32.116Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2025-01-09T17:18:58.560Z",
+  "cancel_time": "2025-03-18T20:21:32.116Z",
   "status": "string",
-  "trial_end": "2025-01-09T17:18:58.560Z",
+  "trial_end": "2025-03-18T20:21:32.116Z",
   "external_id": "string",
+  "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2025-01-09T17:18:58.560Z",
-  "created": "2025-01-09T17:18:58.560Z"
+  "current_period_end": "2025-03-18T20:21:32.116Z",
+  "created": "2025-03-18T20:21:32.116Z"
 }
 ```
 
@@ -2481,38 +4404,127 @@ System.out.println(response.toString());
 
 ```json
 {
-  "trial_start": "2025-01-09T17:18:58.560Z",
+  "trial_start": "2025-03-18T20:21:32.116Z",
   "company_id": "string",
-  "start_date": "2025-01-09T17:18:58.560Z",
+  "start_date": "2025-03-18T20:21:32.116Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
     {
       "item_price_id": "string",
+      "billing_thresholds": {
+        "usage_gte": 0
+      },
       "price_id": "string",
+      "price": {
+        "name": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "currency_prices": null,
+        "provider": "string",
+        "revenue_recognition_rule": "string",
+        "price_in_decimal": 0.1,
+        "tiers": [
+          {
+            "flat_currency_prices": null,
+            "up_to": null,
+            "flat_price_in_decimal": null,
+            "unit_price_in_decimal": null,
+            "unit_currency_prices": null
+          }
+        ],
+        "recognized_revenue_accounting_code": "string",
+        "period_units": "string",
+        "plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "tax_behavior": "string",
+        "currency": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "unit": "string",
+        "deferred_revenue_accounting_code": "string",
+        "usage_aggregator": "string",
+        "period": 0
+      },
+      "current_period_start": "2025-03-18T20:21:32.116Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
-      "subscription_item_id": "string"
+      "metadata": {},
+      "created_at": "string",
+      "current_period_end": "2025-03-18T20:21:32.116Z",
+      "subscription_item_id": "string",
+      "plan": {
+        "name": "string",
+        "prices": [
+          {
+            "name": null,
+            "transform_quantity": null,
+            "currency_prices": null,
+            "provider": null,
+            "revenue_recognition_rule": null,
+            "price_in_decimal": null,
+            "tiers": null,
+            "recognized_revenue_accounting_code": null,
+            "period_units": null,
+            "plan_id": null,
+            "id": null,
+            "status": null,
+            "pricing_model": null,
+            "tax_behavior": null,
+            "currency": null,
+            "metadata": null,
+            "created_at": null,
+            "unit": null,
+            "deferred_revenue_accounting_code": null,
+            "usage_aggregator": null,
+            "period": null
+          }
+        ],
+        "provider": "string",
+        "billing_type": "string",
+        "description": "string",
+        "external_plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "product_id": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "billing_period": "string",
+        "unit": "string",
+        "updated_at": "2025-03-18T20:21:32.116Z",
+        "reporting_period": "string"
+      }
     }
   ],
-  "current_period_start": "2025-01-09T17:18:58.560Z",
+  "current_period_start": "2025-03-18T20:21:32.116Z",
+  "balance": {
+    "available_balance": 0.1,
+    "current_balance": 0.1,
+    "pending_activity": 0.1,
+    "last_modified": "2025-03-18T20:21:32.116Z"
+  },
   "company_external_id": "string",
   "payment_status": "string",
-  "modified_time": "2025-01-09T17:18:58.560Z",
-  "cancel_time": "2025-01-09T17:18:58.560Z",
+  "modified_time": "2025-03-18T20:21:32.116Z",
+  "cancel_time": "2025-03-18T20:21:32.116Z",
   "status": "string",
-  "trial_end": "2025-01-09T17:18:58.560Z",
+  "trial_end": "2025-03-18T20:21:32.116Z",
   "external_id": "string",
+  "currency": "string",
   "metadata": {},
   "app_id": "string",
   "subscription_id": "string",
   "version_id": "string",
   "type": "string",
-  "current_period_end": "2025-01-09T17:18:58.560Z",
+  "current_period_end": "2025-03-18T20:21:32.116Z",
   "org_id": "string",
-  "created": "2025-01-09T17:18:58.560Z"
+  "created": "2025-03-18T20:21:32.116Z"
 }
 ```
 
@@ -2541,68 +4553,234 @@ curl -X POST https://api.moesif.com/v1/search/~/subscriptions/batch \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
 
   -d '{
-  "trial_start": "2025-01-09T17:18:58.560Z",
+  "trial_start": "2025-03-18T20:21:32.116Z",
   "company_id": "string",
-  "start_date": "2025-01-09T17:18:58.560Z",
+  "start_date": "2025-03-18T20:21:32.116Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
     {
       "item_price_id": "string",
+      "billing_thresholds": {
+        "usage_gte": 0
+      },
       "price_id": "string",
+      "price": {
+        "name": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "currency_prices": null,
+        "provider": "string",
+        "revenue_recognition_rule": "string",
+        "price_in_decimal": 0.1,
+        "tiers": [
+          {
+            "flat_currency_prices": null,
+            "up_to": null,
+            "flat_price_in_decimal": null,
+            "unit_price_in_decimal": null,
+            "unit_currency_prices": null
+          }
+        ],
+        "recognized_revenue_accounting_code": "string",
+        "period_units": "string",
+        "plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "tax_behavior": "string",
+        "currency": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "unit": "string",
+        "deferred_revenue_accounting_code": "string",
+        "usage_aggregator": "string",
+        "period": 0
+      },
+      "current_period_start": "2025-03-18T20:21:32.116Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
-      "subscription_item_id": "string"
+      "metadata": {},
+      "created_at": "string",
+      "current_period_end": "2025-03-18T20:21:32.116Z",
+      "subscription_item_id": "string",
+      "plan": {
+        "name": "string",
+        "prices": [
+          {
+            "name": null,
+            "transform_quantity": null,
+            "currency_prices": null,
+            "provider": null,
+            "revenue_recognition_rule": null,
+            "price_in_decimal": null,
+            "tiers": null,
+            "recognized_revenue_accounting_code": null,
+            "period_units": null,
+            "plan_id": null,
+            "id": null,
+            "status": null,
+            "pricing_model": null,
+            "tax_behavior": null,
+            "currency": null,
+            "metadata": null,
+            "created_at": null,
+            "unit": null,
+            "deferred_revenue_accounting_code": null,
+            "usage_aggregator": null,
+            "period": null
+          }
+        ],
+        "provider": "string",
+        "billing_type": "string",
+        "description": "string",
+        "external_plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "product_id": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "billing_period": "string",
+        "unit": "string",
+        "updated_at": "2025-03-18T20:21:32.116Z",
+        "reporting_period": "string"
+      }
     }
   ],
-  "current_period_start": "2025-01-09T17:18:58.560Z",
+  "current_period_start": "2025-03-18T20:21:32.116Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2025-01-09T17:18:58.560Z",
+  "cancel_time": "2025-03-18T20:21:32.116Z",
   "status": "string",
-  "trial_end": "2025-01-09T17:18:58.560Z",
+  "trial_end": "2025-03-18T20:21:32.116Z",
   "external_id": "string",
+  "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2025-01-09T17:18:58.560Z",
-  "created": "2025-01-09T17:18:58.560Z"
+  "current_period_end": "2025-03-18T20:21:32.116Z",
+  "created": "2025-03-18T20:21:32.116Z"
 }' 
 ```
 
 ```javascript--nodejs
 const fetch = require('node-fetch');
 const inputBody = {
-  "trial_start": "2025-01-09T17:18:58.560Z",
+  "trial_start": "2025-03-18T20:21:32.116Z",
   "company_id": "string",
-  "start_date": "2025-01-09T17:18:58.560Z",
+  "start_date": "2025-03-18T20:21:32.116Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
     {
       "item_price_id": "string",
+      "billing_thresholds": {
+        "usage_gte": 0
+      },
       "price_id": "string",
+      "price": {
+        "name": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "currency_prices": null,
+        "provider": "string",
+        "revenue_recognition_rule": "string",
+        "price_in_decimal": 0.1,
+        "tiers": [
+          {
+            "flat_currency_prices": null,
+            "up_to": null,
+            "flat_price_in_decimal": null,
+            "unit_price_in_decimal": null,
+            "unit_currency_prices": null
+          }
+        ],
+        "recognized_revenue_accounting_code": "string",
+        "period_units": "string",
+        "plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "tax_behavior": "string",
+        "currency": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "unit": "string",
+        "deferred_revenue_accounting_code": "string",
+        "usage_aggregator": "string",
+        "period": 0
+      },
+      "current_period_start": "2025-03-18T20:21:32.116Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
-      "subscription_item_id": "string"
+      "metadata": {},
+      "created_at": "string",
+      "current_period_end": "2025-03-18T20:21:32.116Z",
+      "subscription_item_id": "string",
+      "plan": {
+        "name": "string",
+        "prices": [
+          {
+            "name": null,
+            "transform_quantity": null,
+            "currency_prices": null,
+            "provider": null,
+            "revenue_recognition_rule": null,
+            "price_in_decimal": null,
+            "tiers": null,
+            "recognized_revenue_accounting_code": null,
+            "period_units": null,
+            "plan_id": null,
+            "id": null,
+            "status": null,
+            "pricing_model": null,
+            "tax_behavior": null,
+            "currency": null,
+            "metadata": null,
+            "created_at": null,
+            "unit": null,
+            "deferred_revenue_accounting_code": null,
+            "usage_aggregator": null,
+            "period": null
+          }
+        ],
+        "provider": "string",
+        "billing_type": "string",
+        "description": "string",
+        "external_plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "product_id": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "billing_period": "string",
+        "unit": "string",
+        "updated_at": "2025-03-18T20:21:32.116Z",
+        "reporting_period": "string"
+      }
     }
   ],
-  "current_period_start": "2025-01-09T17:18:58.560Z",
+  "current_period_start": "2025-03-18T20:21:32.116Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2025-01-09T17:18:58.560Z",
+  "cancel_time": "2025-03-18T20:21:32.116Z",
   "status": "string",
-  "trial_end": "2025-01-09T17:18:58.560Z",
+  "trial_end": "2025-03-18T20:21:32.116Z",
   "external_id": "string",
+  "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2025-01-09T17:18:58.560Z",
-  "created": "2025-01-09T17:18:58.560Z"
+  "current_period_end": "2025-03-18T20:21:32.116Z",
+  "created": "2025-03-18T20:21:32.116Z"
 };
 const headers = {
   'Content-Type':'application/json',
@@ -2632,34 +4810,117 @@ headers = {
   'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
 }
 input_body = {
-  "trial_start": "2025-01-09T17:18:58.560Z",
+  "trial_start": "2025-03-18T20:21:32.116Z",
   "company_id": "string",
-  "start_date": "2025-01-09T17:18:58.560Z",
+  "start_date": "2025-03-18T20:21:32.116Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
     {
       "item_price_id": "string",
+      "billing_thresholds": {
+        "usage_gte": 0
+      },
       "price_id": "string",
+      "price": {
+        "name": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "currency_prices": null,
+        "provider": "string",
+        "revenue_recognition_rule": "string",
+        "price_in_decimal": 0.1,
+        "tiers": [
+          {
+            "flat_currency_prices": null,
+            "up_to": null,
+            "flat_price_in_decimal": null,
+            "unit_price_in_decimal": null,
+            "unit_currency_prices": null
+          }
+        ],
+        "recognized_revenue_accounting_code": "string",
+        "period_units": "string",
+        "plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "tax_behavior": "string",
+        "currency": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "unit": "string",
+        "deferred_revenue_accounting_code": "string",
+        "usage_aggregator": "string",
+        "period": 0
+      },
+      "current_period_start": "2025-03-18T20:21:32.116Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
-      "subscription_item_id": "string"
+      "metadata": {},
+      "created_at": "string",
+      "current_period_end": "2025-03-18T20:21:32.116Z",
+      "subscription_item_id": "string",
+      "plan": {
+        "name": "string",
+        "prices": [
+          {
+            "name": null,
+            "transform_quantity": null,
+            "currency_prices": null,
+            "provider": null,
+            "revenue_recognition_rule": null,
+            "price_in_decimal": null,
+            "tiers": null,
+            "recognized_revenue_accounting_code": null,
+            "period_units": null,
+            "plan_id": null,
+            "id": null,
+            "status": null,
+            "pricing_model": null,
+            "tax_behavior": null,
+            "currency": null,
+            "metadata": null,
+            "created_at": null,
+            "unit": null,
+            "deferred_revenue_accounting_code": null,
+            "usage_aggregator": null,
+            "period": null
+          }
+        ],
+        "provider": "string",
+        "billing_type": "string",
+        "description": "string",
+        "external_plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "product_id": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "billing_period": "string",
+        "unit": "string",
+        "updated_at": "2025-03-18T20:21:32.116Z",
+        "reporting_period": "string"
+      }
     }
   ],
-  "current_period_start": "2025-01-09T17:18:58.560Z",
+  "current_period_start": "2025-03-18T20:21:32.116Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2025-01-09T17:18:58.560Z",
+  "cancel_time": "2025-03-18T20:21:32.116Z",
   "status": "string",
-  "trial_end": "2025-01-09T17:18:58.560Z",
+  "trial_end": "2025-03-18T20:21:32.116Z",
   "external_id": "string",
+  "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2025-01-09T17:18:58.560Z",
-  "created": "2025-01-09T17:18:58.560Z"
+  "current_period_end": "2025-03-18T20:21:32.116Z",
+  "created": "2025-03-18T20:21:32.116Z"
 }
 
 r = requests.post('https://api.moesif.com/v1/search/~/subscriptions/batch', headers = headers, json = input_data)
@@ -2679,34 +4940,117 @@ headers = {
 }
 
 input_payload = JSON.parse('{
-  "trial_start": "2025-01-09T17:18:58.560Z",
+  "trial_start": "2025-03-18T20:21:32.116Z",
   "company_id": "string",
-  "start_date": "2025-01-09T17:18:58.560Z",
+  "start_date": "2025-03-18T20:21:32.116Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
     {
       "item_price_id": "string",
+      "billing_thresholds": {
+        "usage_gte": 0
+      },
       "price_id": "string",
+      "price": {
+        "name": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "currency_prices": null,
+        "provider": "string",
+        "revenue_recognition_rule": "string",
+        "price_in_decimal": 0.1,
+        "tiers": [
+          {
+            "flat_currency_prices": null,
+            "up_to": null,
+            "flat_price_in_decimal": null,
+            "unit_price_in_decimal": null,
+            "unit_currency_prices": null
+          }
+        ],
+        "recognized_revenue_accounting_code": "string",
+        "period_units": "string",
+        "plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "tax_behavior": "string",
+        "currency": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "unit": "string",
+        "deferred_revenue_accounting_code": "string",
+        "usage_aggregator": "string",
+        "period": 0
+      },
+      "current_period_start": "2025-03-18T20:21:32.116Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
-      "subscription_item_id": "string"
+      "metadata": {},
+      "created_at": "string",
+      "current_period_end": "2025-03-18T20:21:32.116Z",
+      "subscription_item_id": "string",
+      "plan": {
+        "name": "string",
+        "prices": [
+          {
+            "name": null,
+            "transform_quantity": null,
+            "currency_prices": null,
+            "provider": null,
+            "revenue_recognition_rule": null,
+            "price_in_decimal": null,
+            "tiers": null,
+            "recognized_revenue_accounting_code": null,
+            "period_units": null,
+            "plan_id": null,
+            "id": null,
+            "status": null,
+            "pricing_model": null,
+            "tax_behavior": null,
+            "currency": null,
+            "metadata": null,
+            "created_at": null,
+            "unit": null,
+            "deferred_revenue_accounting_code": null,
+            "usage_aggregator": null,
+            "period": null
+          }
+        ],
+        "provider": "string",
+        "billing_type": "string",
+        "description": "string",
+        "external_plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "product_id": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "billing_period": "string",
+        "unit": "string",
+        "updated_at": "2025-03-18T20:21:32.116Z",
+        "reporting_period": "string"
+      }
     }
   ],
-  "current_period_start": "2025-01-09T17:18:58.560Z",
+  "current_period_start": "2025-03-18T20:21:32.116Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2025-01-09T17:18:58.560Z",
+  "cancel_time": "2025-03-18T20:21:32.116Z",
   "status": "string",
-  "trial_end": "2025-01-09T17:18:58.560Z",
+  "trial_end": "2025-03-18T20:21:32.116Z",
   "external_id": "string",
+  "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2025-01-09T17:18:58.560Z",
-  "created": "2025-01-09T17:18:58.560Z"
+  "current_period_end": "2025-03-18T20:21:32.116Z",
+  "created": "2025-03-18T20:21:32.116Z"
 }')
 
 result = RestClient.post 'https://api.moesif.com/v1/search/~/subscriptions/batch',
@@ -2731,34 +5075,117 @@ $headers = array(
 );
 
 $inputPayload = json_decode('{
-  "trial_start": "2025-01-09T17:18:58.560Z",
+  "trial_start": "2025-03-18T20:21:32.116Z",
   "company_id": "string",
-  "start_date": "2025-01-09T17:18:58.560Z",
+  "start_date": "2025-03-18T20:21:32.116Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
     {
       "item_price_id": "string",
+      "billing_thresholds": {
+        "usage_gte": 0
+      },
       "price_id": "string",
+      "price": {
+        "name": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "currency_prices": null,
+        "provider": "string",
+        "revenue_recognition_rule": "string",
+        "price_in_decimal": 0.1,
+        "tiers": [
+          {
+            "flat_currency_prices": null,
+            "up_to": null,
+            "flat_price_in_decimal": null,
+            "unit_price_in_decimal": null,
+            "unit_currency_prices": null
+          }
+        ],
+        "recognized_revenue_accounting_code": "string",
+        "period_units": "string",
+        "plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "tax_behavior": "string",
+        "currency": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "unit": "string",
+        "deferred_revenue_accounting_code": "string",
+        "usage_aggregator": "string",
+        "period": 0
+      },
+      "current_period_start": "2025-03-18T20:21:32.116Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
-      "subscription_item_id": "string"
+      "metadata": {},
+      "created_at": "string",
+      "current_period_end": "2025-03-18T20:21:32.116Z",
+      "subscription_item_id": "string",
+      "plan": {
+        "name": "string",
+        "prices": [
+          {
+            "name": null,
+            "transform_quantity": null,
+            "currency_prices": null,
+            "provider": null,
+            "revenue_recognition_rule": null,
+            "price_in_decimal": null,
+            "tiers": null,
+            "recognized_revenue_accounting_code": null,
+            "period_units": null,
+            "plan_id": null,
+            "id": null,
+            "status": null,
+            "pricing_model": null,
+            "tax_behavior": null,
+            "currency": null,
+            "metadata": null,
+            "created_at": null,
+            "unit": null,
+            "deferred_revenue_accounting_code": null,
+            "usage_aggregator": null,
+            "period": null
+          }
+        ],
+        "provider": "string",
+        "billing_type": "string",
+        "description": "string",
+        "external_plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "product_id": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "billing_period": "string",
+        "unit": "string",
+        "updated_at": "2025-03-18T20:21:32.116Z",
+        "reporting_period": "string"
+      }
     }
   ],
-  "current_period_start": "2025-01-09T17:18:58.560Z",
+  "current_period_start": "2025-03-18T20:21:32.116Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2025-01-09T17:18:58.560Z",
+  "cancel_time": "2025-03-18T20:21:32.116Z",
   "status": "string",
-  "trial_end": "2025-01-09T17:18:58.560Z",
+  "trial_end": "2025-03-18T20:21:32.116Z",
   "external_id": "string",
+  "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2025-01-09T17:18:58.560Z",
-  "created": "2025-01-09T17:18:58.560Z"
+  "current_period_end": "2025-03-18T20:21:32.116Z",
+  "created": "2025-03-18T20:21:32.116Z"
 }')
 
 $client = new \GuzzleHttp\Client();
@@ -2796,34 +5223,117 @@ func main() {
         "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
     }
     jsonPayload := `{
-  "trial_start": "2025-01-09T17:18:58.560Z",
+  "trial_start": "2025-03-18T20:21:32.116Z",
   "company_id": "string",
-  "start_date": "2025-01-09T17:18:58.560Z",
+  "start_date": "2025-03-18T20:21:32.116Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
     {
       "item_price_id": "string",
+      "billing_thresholds": {
+        "usage_gte": 0
+      },
       "price_id": "string",
+      "price": {
+        "name": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "currency_prices": null,
+        "provider": "string",
+        "revenue_recognition_rule": "string",
+        "price_in_decimal": 0.1,
+        "tiers": [
+          {
+            "flat_currency_prices": null,
+            "up_to": null,
+            "flat_price_in_decimal": null,
+            "unit_price_in_decimal": null,
+            "unit_currency_prices": null
+          }
+        ],
+        "recognized_revenue_accounting_code": "string",
+        "period_units": "string",
+        "plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "tax_behavior": "string",
+        "currency": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "unit": "string",
+        "deferred_revenue_accounting_code": "string",
+        "usage_aggregator": "string",
+        "period": 0
+      },
+      "current_period_start": "2025-03-18T20:21:32.116Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
-      "subscription_item_id": "string"
+      "metadata": {},
+      "created_at": "string",
+      "current_period_end": "2025-03-18T20:21:32.116Z",
+      "subscription_item_id": "string",
+      "plan": {
+        "name": "string",
+        "prices": [
+          {
+            "name": null,
+            "transform_quantity": null,
+            "currency_prices": null,
+            "provider": null,
+            "revenue_recognition_rule": null,
+            "price_in_decimal": null,
+            "tiers": null,
+            "recognized_revenue_accounting_code": null,
+            "period_units": null,
+            "plan_id": null,
+            "id": null,
+            "status": null,
+            "pricing_model": null,
+            "tax_behavior": null,
+            "currency": null,
+            "metadata": null,
+            "created_at": null,
+            "unit": null,
+            "deferred_revenue_accounting_code": null,
+            "usage_aggregator": null,
+            "period": null
+          }
+        ],
+        "provider": "string",
+        "billing_type": "string",
+        "description": "string",
+        "external_plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "product_id": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "billing_period": "string",
+        "unit": "string",
+        "updated_at": "2025-03-18T20:21:32.116Z",
+        "reporting_period": "string"
+      }
     }
   ],
-  "current_period_start": "2025-01-09T17:18:58.560Z",
+  "current_period_start": "2025-03-18T20:21:32.116Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2025-01-09T17:18:58.560Z",
+  "cancel_time": "2025-03-18T20:21:32.116Z",
   "status": "string",
-  "trial_end": "2025-01-09T17:18:58.560Z",
+  "trial_end": "2025-03-18T20:21:32.116Z",
   "external_id": "string",
+  "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2025-01-09T17:18:58.560Z",
-  "created": "2025-01-09T17:18:58.560Z"
+  "current_period_end": "2025-03-18T20:21:32.116Z",
+  "created": "2025-03-18T20:21:32.116Z"
 }`
     data := bytes.NewBuffer([]byte(jsonPayload))
     req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/subscriptions/batch", data)
@@ -2867,34 +5377,117 @@ public class HttpExample
       string url = "https://api.moesif.com/v1/search/~/subscriptions/batch";
       
       string json = @"{
-  ""trial_start"": ""2025-01-09T17:18:58.560Z"",
+  ""trial_start"": ""2025-03-18T20:21:32.116Z"",
   ""company_id"": ""string"",
-  ""start_date"": ""2025-01-09T17:18:58.560Z"",
+  ""start_date"": ""2025-03-18T20:21:32.116Z"",
   ""collection_method"": ""string"",
   ""provider"": ""string"",
   ""items"": [
     {
       ""item_price_id"": ""string"",
+      ""billing_thresholds"": {
+        ""usage_gte"": 0
+      },
       ""price_id"": ""string"",
+      ""price"": {
+        ""name"": ""string"",
+        ""transform_quantity"": {
+          ""divide_by"": 0,
+          ""round"": ""string""
+        },
+        ""currency_prices"": null,
+        ""provider"": ""string"",
+        ""revenue_recognition_rule"": ""string"",
+        ""price_in_decimal"": 0.1,
+        ""tiers"": [
+          {
+            ""flat_currency_prices"": null,
+            ""up_to"": null,
+            ""flat_price_in_decimal"": null,
+            ""unit_price_in_decimal"": null,
+            ""unit_currency_prices"": null
+          }
+        ],
+        ""recognized_revenue_accounting_code"": ""string"",
+        ""period_units"": ""string"",
+        ""plan_id"": ""string"",
+        ""id"": ""string"",
+        ""status"": ""string"",
+        ""pricing_model"": ""string"",
+        ""tax_behavior"": ""string"",
+        ""currency"": ""string"",
+        ""metadata"": null,
+        ""created_at"": ""2025-03-18T20:21:32.116Z"",
+        ""unit"": ""string"",
+        ""deferred_revenue_accounting_code"": ""string"",
+        ""usage_aggregator"": ""string"",
+        ""period"": 0
+      },
+      ""current_period_start"": ""2025-03-18T20:21:32.116Z"",
       ""is_metered"": true,
       ""plan_id"": ""string"",
       ""unit_of_measure"": ""string"",
       ""status"": ""string"",
-      ""subscription_item_id"": ""string""
+      ""metadata"": {},
+      ""created_at"": ""string"",
+      ""current_period_end"": ""2025-03-18T20:21:32.116Z"",
+      ""subscription_item_id"": ""string"",
+      ""plan"": {
+        ""name"": ""string"",
+        ""prices"": [
+          {
+            ""name"": null,
+            ""transform_quantity"": null,
+            ""currency_prices"": null,
+            ""provider"": null,
+            ""revenue_recognition_rule"": null,
+            ""price_in_decimal"": null,
+            ""tiers"": null,
+            ""recognized_revenue_accounting_code"": null,
+            ""period_units"": null,
+            ""plan_id"": null,
+            ""id"": null,
+            ""status"": null,
+            ""pricing_model"": null,
+            ""tax_behavior"": null,
+            ""currency"": null,
+            ""metadata"": null,
+            ""created_at"": null,
+            ""unit"": null,
+            ""deferred_revenue_accounting_code"": null,
+            ""usage_aggregator"": null,
+            ""period"": null
+          }
+        ],
+        ""provider"": ""string"",
+        ""billing_type"": ""string"",
+        ""description"": ""string"",
+        ""external_plan_id"": ""string"",
+        ""id"": ""string"",
+        ""status"": ""string"",
+        ""product_id"": ""string"",
+        ""metadata"": null,
+        ""created_at"": ""2025-03-18T20:21:32.116Z"",
+        ""billing_period"": ""string"",
+        ""unit"": ""string"",
+        ""updated_at"": ""2025-03-18T20:21:32.116Z"",
+        ""reporting_period"": ""string""
+      }
     }
   ],
-  ""current_period_start"": ""2025-01-09T17:18:58.560Z"",
+  ""current_period_start"": ""2025-03-18T20:21:32.116Z"",
   ""company_external_id"": ""string"",
   ""payment_status"": ""string"",
-  ""cancel_time"": ""2025-01-09T17:18:58.560Z"",
+  ""cancel_time"": ""2025-03-18T20:21:32.116Z"",
   ""status"": ""string"",
-  ""trial_end"": ""2025-01-09T17:18:58.560Z"",
+  ""trial_end"": ""2025-03-18T20:21:32.116Z"",
   ""external_id"": ""string"",
+  ""currency"": ""string"",
   ""metadata"": {},
   ""subscription_id"": ""string"",
   ""version_id"": ""string"",
-  ""current_period_end"": ""2025-01-09T17:18:58.560Z"",
-  ""created"": ""2025-01-09T17:18:58.560Z""
+  ""current_period_end"": ""2025-03-18T20:21:32.116Z"",
+  ""created"": ""2025-03-18T20:21:32.116Z""
 }";
       var content = JsonConvert.DeserializeObject(json);
       await PostAsync(content, url);
@@ -2950,34 +5543,117 @@ con.setRequestProperty("Authorization",'Bearer YOUR_MANAGEMENT_API_KEY');
 con.setDoOutput(true);
 
 String jsonPayload = """{
-  "trial_start": "2025-01-09T17:18:58.560Z",
+  "trial_start": "2025-03-18T20:21:32.116Z",
   "company_id": "string",
-  "start_date": "2025-01-09T17:18:58.560Z",
+  "start_date": "2025-03-18T20:21:32.116Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
     {
       "item_price_id": "string",
+      "billing_thresholds": {
+        "usage_gte": 0
+      },
       "price_id": "string",
+      "price": {
+        "name": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "currency_prices": null,
+        "provider": "string",
+        "revenue_recognition_rule": "string",
+        "price_in_decimal": 0.1,
+        "tiers": [
+          {
+            "flat_currency_prices": null,
+            "up_to": null,
+            "flat_price_in_decimal": null,
+            "unit_price_in_decimal": null,
+            "unit_currency_prices": null
+          }
+        ],
+        "recognized_revenue_accounting_code": "string",
+        "period_units": "string",
+        "plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "tax_behavior": "string",
+        "currency": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "unit": "string",
+        "deferred_revenue_accounting_code": "string",
+        "usage_aggregator": "string",
+        "period": 0
+      },
+      "current_period_start": "2025-03-18T20:21:32.116Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
-      "subscription_item_id": "string"
+      "metadata": {},
+      "created_at": "string",
+      "current_period_end": "2025-03-18T20:21:32.116Z",
+      "subscription_item_id": "string",
+      "plan": {
+        "name": "string",
+        "prices": [
+          {
+            "name": null,
+            "transform_quantity": null,
+            "currency_prices": null,
+            "provider": null,
+            "revenue_recognition_rule": null,
+            "price_in_decimal": null,
+            "tiers": null,
+            "recognized_revenue_accounting_code": null,
+            "period_units": null,
+            "plan_id": null,
+            "id": null,
+            "status": null,
+            "pricing_model": null,
+            "tax_behavior": null,
+            "currency": null,
+            "metadata": null,
+            "created_at": null,
+            "unit": null,
+            "deferred_revenue_accounting_code": null,
+            "usage_aggregator": null,
+            "period": null
+          }
+        ],
+        "provider": "string",
+        "billing_type": "string",
+        "description": "string",
+        "external_plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "product_id": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "billing_period": "string",
+        "unit": "string",
+        "updated_at": "2025-03-18T20:21:32.116Z",
+        "reporting_period": "string"
+      }
     }
   ],
-  "current_period_start": "2025-01-09T17:18:58.560Z",
+  "current_period_start": "2025-03-18T20:21:32.116Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2025-01-09T17:18:58.560Z",
+  "cancel_time": "2025-03-18T20:21:32.116Z",
   "status": "string",
-  "trial_end": "2025-01-09T17:18:58.560Z",
+  "trial_end": "2025-03-18T20:21:32.116Z",
   "external_id": "string",
+  "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2025-01-09T17:18:58.560Z",
-  "created": "2025-01-09T17:18:58.560Z"
+  "current_period_end": "2025-03-18T20:21:32.116Z",
+  "created": "2025-03-18T20:21:32.116Z"
 }""";
 
 // Write payload to the request
@@ -3008,34 +5684,117 @@ System.out.println(response.toString());
 
 ```json
 {
-  "trial_start": "2025-01-09T17:18:58.560Z",
+  "trial_start": "2025-03-18T20:21:32.116Z",
   "company_id": "string",
-  "start_date": "2025-01-09T17:18:58.560Z",
+  "start_date": "2025-03-18T20:21:32.116Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
     {
       "item_price_id": "string",
+      "billing_thresholds": {
+        "usage_gte": 0
+      },
       "price_id": "string",
+      "price": {
+        "name": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "currency_prices": null,
+        "provider": "string",
+        "revenue_recognition_rule": "string",
+        "price_in_decimal": 0.1,
+        "tiers": [
+          {
+            "flat_currency_prices": null,
+            "up_to": null,
+            "flat_price_in_decimal": null,
+            "unit_price_in_decimal": null,
+            "unit_currency_prices": null
+          }
+        ],
+        "recognized_revenue_accounting_code": "string",
+        "period_units": "string",
+        "plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "tax_behavior": "string",
+        "currency": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "unit": "string",
+        "deferred_revenue_accounting_code": "string",
+        "usage_aggregator": "string",
+        "period": 0
+      },
+      "current_period_start": "2025-03-18T20:21:32.116Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
-      "subscription_item_id": "string"
+      "metadata": {},
+      "created_at": "string",
+      "current_period_end": "2025-03-18T20:21:32.116Z",
+      "subscription_item_id": "string",
+      "plan": {
+        "name": "string",
+        "prices": [
+          {
+            "name": null,
+            "transform_quantity": null,
+            "currency_prices": null,
+            "provider": null,
+            "revenue_recognition_rule": null,
+            "price_in_decimal": null,
+            "tiers": null,
+            "recognized_revenue_accounting_code": null,
+            "period_units": null,
+            "plan_id": null,
+            "id": null,
+            "status": null,
+            "pricing_model": null,
+            "tax_behavior": null,
+            "currency": null,
+            "metadata": null,
+            "created_at": null,
+            "unit": null,
+            "deferred_revenue_accounting_code": null,
+            "usage_aggregator": null,
+            "period": null
+          }
+        ],
+        "provider": "string",
+        "billing_type": "string",
+        "description": "string",
+        "external_plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "product_id": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "billing_period": "string",
+        "unit": "string",
+        "updated_at": "2025-03-18T20:21:32.116Z",
+        "reporting_period": "string"
+      }
     }
   ],
-  "current_period_start": "2025-01-09T17:18:58.560Z",
+  "current_period_start": "2025-03-18T20:21:32.116Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2025-01-09T17:18:58.560Z",
+  "cancel_time": "2025-03-18T20:21:32.116Z",
   "status": "string",
-  "trial_end": "2025-01-09T17:18:58.560Z",
+  "trial_end": "2025-03-18T20:21:32.116Z",
   "external_id": "string",
+  "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2025-01-09T17:18:58.560Z",
-  "created": "2025-01-09T17:18:58.560Z"
+  "current_period_end": "2025-03-18T20:21:32.116Z",
+  "created": "2025-03-18T20:21:32.116Z"
 }
 ```
 
@@ -3051,38 +5810,127 @@ System.out.println(response.toString());
 
 ```json
 {
-  "trial_start": "2025-01-09T17:18:58.560Z",
+  "trial_start": "2025-03-18T20:21:32.116Z",
   "company_id": "string",
-  "start_date": "2025-01-09T17:18:58.560Z",
+  "start_date": "2025-03-18T20:21:32.116Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
     {
       "item_price_id": "string",
+      "billing_thresholds": {
+        "usage_gte": 0
+      },
       "price_id": "string",
+      "price": {
+        "name": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "currency_prices": null,
+        "provider": "string",
+        "revenue_recognition_rule": "string",
+        "price_in_decimal": 0.1,
+        "tiers": [
+          {
+            "flat_currency_prices": null,
+            "up_to": null,
+            "flat_price_in_decimal": null,
+            "unit_price_in_decimal": null,
+            "unit_currency_prices": null
+          }
+        ],
+        "recognized_revenue_accounting_code": "string",
+        "period_units": "string",
+        "plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "tax_behavior": "string",
+        "currency": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "unit": "string",
+        "deferred_revenue_accounting_code": "string",
+        "usage_aggregator": "string",
+        "period": 0
+      },
+      "current_period_start": "2025-03-18T20:21:32.116Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
-      "subscription_item_id": "string"
+      "metadata": {},
+      "created_at": "string",
+      "current_period_end": "2025-03-18T20:21:32.116Z",
+      "subscription_item_id": "string",
+      "plan": {
+        "name": "string",
+        "prices": [
+          {
+            "name": null,
+            "transform_quantity": null,
+            "currency_prices": null,
+            "provider": null,
+            "revenue_recognition_rule": null,
+            "price_in_decimal": null,
+            "tiers": null,
+            "recognized_revenue_accounting_code": null,
+            "period_units": null,
+            "plan_id": null,
+            "id": null,
+            "status": null,
+            "pricing_model": null,
+            "tax_behavior": null,
+            "currency": null,
+            "metadata": null,
+            "created_at": null,
+            "unit": null,
+            "deferred_revenue_accounting_code": null,
+            "usage_aggregator": null,
+            "period": null
+          }
+        ],
+        "provider": "string",
+        "billing_type": "string",
+        "description": "string",
+        "external_plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "product_id": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "billing_period": "string",
+        "unit": "string",
+        "updated_at": "2025-03-18T20:21:32.116Z",
+        "reporting_period": "string"
+      }
     }
   ],
-  "current_period_start": "2025-01-09T17:18:58.560Z",
+  "current_period_start": "2025-03-18T20:21:32.116Z",
+  "balance": {
+    "available_balance": 0.1,
+    "current_balance": 0.1,
+    "pending_activity": 0.1,
+    "last_modified": "2025-03-18T20:21:32.116Z"
+  },
   "company_external_id": "string",
   "payment_status": "string",
-  "modified_time": "2025-01-09T17:18:58.560Z",
-  "cancel_time": "2025-01-09T17:18:58.560Z",
+  "modified_time": "2025-03-18T20:21:32.116Z",
+  "cancel_time": "2025-03-18T20:21:32.116Z",
   "status": "string",
-  "trial_end": "2025-01-09T17:18:58.560Z",
+  "trial_end": "2025-03-18T20:21:32.116Z",
   "external_id": "string",
+  "currency": "string",
   "metadata": {},
   "app_id": "string",
   "subscription_id": "string",
   "version_id": "string",
   "type": "string",
-  "current_period_end": "2025-01-09T17:18:58.560Z",
+  "current_period_end": "2025-03-18T20:21:32.116Z",
   "org_id": "string",
-  "created": "2025-01-09T17:18:58.560Z"
+  "created": "2025-03-18T20:21:32.116Z"
 }
 ```
 
@@ -3314,38 +6162,127 @@ System.out.println(response.toString());
 
 ```json
 {
-  "trial_start": "2025-01-09T17:18:58.560Z",
+  "trial_start": "2025-03-18T20:21:32.116Z",
   "company_id": "string",
-  "start_date": "2025-01-09T17:18:58.560Z",
+  "start_date": "2025-03-18T20:21:32.116Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
     {
       "item_price_id": "string",
+      "billing_thresholds": {
+        "usage_gte": 0
+      },
       "price_id": "string",
+      "price": {
+        "name": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "currency_prices": null,
+        "provider": "string",
+        "revenue_recognition_rule": "string",
+        "price_in_decimal": 0.1,
+        "tiers": [
+          {
+            "flat_currency_prices": null,
+            "up_to": null,
+            "flat_price_in_decimal": null,
+            "unit_price_in_decimal": null,
+            "unit_currency_prices": null
+          }
+        ],
+        "recognized_revenue_accounting_code": "string",
+        "period_units": "string",
+        "plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "tax_behavior": "string",
+        "currency": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "unit": "string",
+        "deferred_revenue_accounting_code": "string",
+        "usage_aggregator": "string",
+        "period": 0
+      },
+      "current_period_start": "2025-03-18T20:21:32.116Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
-      "subscription_item_id": "string"
+      "metadata": {},
+      "created_at": "string",
+      "current_period_end": "2025-03-18T20:21:32.116Z",
+      "subscription_item_id": "string",
+      "plan": {
+        "name": "string",
+        "prices": [
+          {
+            "name": null,
+            "transform_quantity": null,
+            "currency_prices": null,
+            "provider": null,
+            "revenue_recognition_rule": null,
+            "price_in_decimal": null,
+            "tiers": null,
+            "recognized_revenue_accounting_code": null,
+            "period_units": null,
+            "plan_id": null,
+            "id": null,
+            "status": null,
+            "pricing_model": null,
+            "tax_behavior": null,
+            "currency": null,
+            "metadata": null,
+            "created_at": null,
+            "unit": null,
+            "deferred_revenue_accounting_code": null,
+            "usage_aggregator": null,
+            "period": null
+          }
+        ],
+        "provider": "string",
+        "billing_type": "string",
+        "description": "string",
+        "external_plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "product_id": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "billing_period": "string",
+        "unit": "string",
+        "updated_at": "2025-03-18T20:21:32.116Z",
+        "reporting_period": "string"
+      }
     }
   ],
-  "current_period_start": "2025-01-09T17:18:58.560Z",
+  "current_period_start": "2025-03-18T20:21:32.116Z",
+  "balance": {
+    "available_balance": 0.1,
+    "current_balance": 0.1,
+    "pending_activity": 0.1,
+    "last_modified": "2025-03-18T20:21:32.116Z"
+  },
   "company_external_id": "string",
   "payment_status": "string",
-  "modified_time": "2025-01-09T17:18:58.560Z",
-  "cancel_time": "2025-01-09T17:18:58.560Z",
+  "modified_time": "2025-03-18T20:21:32.116Z",
+  "cancel_time": "2025-03-18T20:21:32.116Z",
   "status": "string",
-  "trial_end": "2025-01-09T17:18:58.560Z",
+  "trial_end": "2025-03-18T20:21:32.116Z",
   "external_id": "string",
+  "currency": "string",
   "metadata": {},
   "app_id": "string",
   "subscription_id": "string",
   "version_id": "string",
   "type": "string",
-  "current_period_end": "2025-01-09T17:18:58.560Z",
+  "current_period_end": "2025-03-18T20:21:32.116Z",
   "org_id": "string",
-  "created": "2025-01-09T17:18:58.560Z"
+  "created": "2025-03-18T20:21:32.116Z"
 }
 ```
 
@@ -3411,7 +6348,7 @@ headers = {
 input_body = false
 
 r = requests.post('https://api.moesif.com/v1/search/~/count/events', params={
-  'from': '2025-01-09T17:18:58.560Z',  'to': '2025-01-09T17:18:58.560Z'
+  'from': '2025-03-18T20:21:32.116Z',  'to': '2025-03-18T20:21:32.116Z'
 
 }, headers = headers, json = input_data)
 
@@ -3683,7 +6620,7 @@ headers = {
 }
 
 r = requests.get('https://api.moesif.com/v1/search/~/events/{id}', params={
-  'event_time': '2025-01-09T17:18:58.560Z'
+  'event_time': '2025-03-18T20:21:32.116Z'
 
 }, headers = headers)
 
@@ -3986,7 +6923,7 @@ headers = {
 input_body = false
 
 r = requests.post('https://api.moesif.com/v1/search/~/search/events', params={
-  'from': '2025-01-09T17:18:58.560Z',  'to': '2025-01-09T17:18:58.560Z'
+  'from': '2025-03-18T20:21:32.116Z',  'to': '2025-03-18T20:21:32.116Z'
 
 }, headers = headers, json = input_data)
 
@@ -4300,7 +7237,7 @@ headers = {
 input_body = false
 
 r = requests.post('https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search', params={
-  'from': '2025-01-09T17:18:58.560Z',  'to': '2025-01-09T17:18:58.560Z'
+  'from': '2025-03-18T20:21:32.116Z',  'to': '2025-03-18T20:21:32.116Z'
 
 }, headers = headers, json = input_data)
 
@@ -5134,7 +8071,7 @@ curl -X POST https://api.moesif.com/v1/search/~/users \
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2025-01-09T17:18:58.560Z",
+  "modified_time": "2025-03-18T20:21:32.116Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -5151,7 +8088,7 @@ const inputBody = {
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2025-01-09T17:18:58.560Z",
+  "modified_time": "2025-03-18T20:21:32.116Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -5191,7 +8128,7 @@ input_body = {
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2025-01-09T17:18:58.560Z",
+  "modified_time": "2025-03-18T20:21:32.116Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -5221,7 +8158,7 @@ input_payload = JSON.parse('{
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2025-01-09T17:18:58.560Z",
+  "modified_time": "2025-03-18T20:21:32.116Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -5256,7 +8193,7 @@ $inputPayload = json_decode('{
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2025-01-09T17:18:58.560Z",
+  "modified_time": "2025-03-18T20:21:32.116Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -5304,7 +8241,7 @@ func main() {
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2025-01-09T17:18:58.560Z",
+  "modified_time": "2025-03-18T20:21:32.116Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -5358,7 +8295,7 @@ public class HttpExample
   ""email"": ""string"",
   ""photo_url"": ""string"",
   ""user_id"": ""string"",
-  ""modified_time"": ""2025-01-09T17:18:58.560Z"",
+  ""modified_time"": ""2025-03-18T20:21:32.116Z"",
   ""last_name"": ""string"",
   ""metadata"": {},
   ""user_name"": ""string"",
@@ -5424,7 +8361,7 @@ String jsonPayload = """{
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2025-01-09T17:18:58.560Z",
+  "modified_time": "2025-03-18T20:21:32.116Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -5465,7 +8402,7 @@ System.out.println(response.toString());
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2025-01-09T17:18:58.560Z",
+  "modified_time": "2025-03-18T20:21:32.116Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -5507,12 +8444,12 @@ System.out.println(response.toString());
       "region_name": "South Carolina",
       "continent_code": "NA",
       "location": {
-        "lon": -79.8548965454102,
-        "lat": 32.8228988647461
+        "lon": -79.85489654541016,
+        "lat": 32.822898864746094
       },
-      "latitude": 32.8228988647461,
+      "latitude": 32.822898864746094,
       "timezone": "America/New_York",
-      "longitude": -79.8548965454102,
+      "longitude": -79.85489654541016,
       "dma_code": 519,
       "postal_code": "29464",
       "region_code": "SC",
@@ -5569,7 +8506,7 @@ curl -X POST https://api.moesif.com/v1/search/~/users/batch \
     "email": "string",
     "photo_url": "string",
     "user_id": "string",
-    "modified_time": "2025-01-09T17:18:58.560Z",
+    "modified_time": "2025-03-18T20:21:32.116Z",
     "last_name": "string",
     "metadata": {},
     "user_name": "string",
@@ -5588,7 +8525,7 @@ const inputBody = [
     "email": "string",
     "photo_url": "string",
     "user_id": "string",
-    "modified_time": "2025-01-09T17:18:58.560Z",
+    "modified_time": "2025-03-18T20:21:32.116Z",
     "last_name": "string",
     "metadata": {},
     "user_name": "string",
@@ -5630,7 +8567,7 @@ input_body = [
     "email": "string",
     "photo_url": "string",
     "user_id": "string",
-    "modified_time": "2025-01-09T17:18:58.560Z",
+    "modified_time": "2025-03-18T20:21:32.116Z",
     "last_name": "string",
     "metadata": {},
     "user_name": "string",
@@ -5662,7 +8599,7 @@ input_payload = JSON.parse('[
     "email": "string",
     "photo_url": "string",
     "user_id": "string",
-    "modified_time": "2025-01-09T17:18:58.560Z",
+    "modified_time": "2025-03-18T20:21:32.116Z",
     "last_name": "string",
     "metadata": {},
     "user_name": "string",
@@ -5699,7 +8636,7 @@ $inputPayload = json_decode('[
     "email": "string",
     "photo_url": "string",
     "user_id": "string",
-    "modified_time": "2025-01-09T17:18:58.560Z",
+    "modified_time": "2025-03-18T20:21:32.116Z",
     "last_name": "string",
     "metadata": {},
     "user_name": "string",
@@ -5749,7 +8686,7 @@ func main() {
     "email": "string",
     "photo_url": "string",
     "user_id": "string",
-    "modified_time": "2025-01-09T17:18:58.560Z",
+    "modified_time": "2025-03-18T20:21:32.116Z",
     "last_name": "string",
     "metadata": {},
     "user_name": "string",
@@ -5805,7 +8742,7 @@ public class HttpExample
     ""email"": ""string"",
     ""photo_url"": ""string"",
     ""user_id"": ""string"",
-    ""modified_time"": ""2025-01-09T17:18:58.560Z"",
+    ""modified_time"": ""2025-03-18T20:21:32.116Z"",
     ""last_name"": ""string"",
     ""metadata"": {},
     ""user_name"": ""string"",
@@ -5873,7 +8810,7 @@ String jsonPayload = """[
     "email": "string",
     "photo_url": "string",
     "user_id": "string",
-    "modified_time": "2025-01-09T17:18:58.560Z",
+    "modified_time": "2025-03-18T20:21:32.116Z",
     "last_name": "string",
     "metadata": {},
     "user_name": "string",
@@ -5916,7 +8853,7 @@ System.out.println(response.toString());
     "email": "string",
     "photo_url": "string",
     "user_id": "string",
-    "modified_time": "2025-01-09T17:18:58.560Z",
+    "modified_time": "2025-03-18T20:21:32.116Z",
     "last_name": "string",
     "metadata": {},
     "user_name": "string",
@@ -5959,12 +8896,12 @@ System.out.println(response.toString());
       "region_name": "South Carolina",
       "continent_code": "NA",
       "location": {
-        "lon": -79.8548965454102,
-        "lat": 32.8228988647461
+        "lon": -79.85489654541016,
+        "lat": 32.822898864746094
       },
-      "latitude": 32.8228988647461,
+      "latitude": 32.822898864746094,
       "timezone": "America/New_York",
-      "longitude": -79.8548965454102,
+      "longitude": -79.85489654541016,
       "dma_code": 519,
       "postal_code": "29464",
       "region_code": "SC",
@@ -6239,12 +9176,12 @@ System.out.println(response.toString());
       "region_name": "South Carolina",
       "continent_code": "NA",
       "location": {
-        "lon": -79.8548965454102,
-        "lat": 32.8228988647461
+        "lon": -79.85489654541016,
+        "lat": 32.822898864746094
       },
-      "latitude": 32.8228988647461,
+      "latitude": 32.822898864746094,
       "timezone": "America/New_York",
-      "longitude": -79.8548965454102,
+      "longitude": -79.85489654541016,
       "dma_code": 519,
       "postal_code": "29464",
       "region_code": "SC",
@@ -6772,7 +9709,7 @@ headers = {
 }
 
 r = requests.get('https://api.moesif.com/v1/search/~/mappings/events/request/body/properties', params={
-  'app_id': 'string',  'from': '2025-01-09T17:18:58.560Z',  'to': '2025-01-09T17:18:58.560Z'
+  'app_id': 'string',  'from': '2025-03-18T20:21:32.116Z',  'to': '2025-03-18T20:21:32.116Z'
 
 }, headers = headers)
 
@@ -7007,7 +9944,7 @@ headers = {
 }
 
 r = requests.get('https://api.moesif.com/v1/search/~/mappings/events/response/body/properties', params={
-  'app_id': 'string',  'from': '2025-01-09T17:18:58.560Z',  'to': '2025-01-09T17:18:58.560Z'
+  'app_id': 'string',  'from': '2025-03-18T20:21:32.116Z',  'to': '2025-03-18T20:21:32.116Z'
 
 }, headers = headers)
 
@@ -7655,6 +10592,7 @@ System.out.println(response.toString());
   "dashboard": {},
   "height": 0.1,
   "auth_user_id": "string",
+  "modified": "2025-03-18T20:21:32.116Z",
   "colors": {},
   "sequence": [
     {
@@ -7726,7 +10664,7 @@ System.out.println(response.toString());
   },
   "org_id": "string",
   "migration": {},
-  "created": "2025-01-09T17:18:58.560Z",
+  "created": "2025-03-18T20:21:32.116Z",
   "comments": {
     "summary": {
       "count": 0,
@@ -7738,8 +10676,8 @@ System.out.println(response.toString());
         ],
         "partner_user_id": "string",
         "message": "string",
-        "created_at": "2025-01-09T17:18:58.560Z",
-        "updated_at": "2025-01-09T17:18:58.560Z"
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "updated_at": "2025-03-18T20:21:32.116Z"
       }
     }
   }
@@ -8497,6 +11435,7 @@ System.out.println(response.toString());
   "dashboard": {},
   "height": 0.1,
   "auth_user_id": "string",
+  "modified": "2025-03-18T20:21:32.116Z",
   "colors": {},
   "sequence": [
     {
@@ -8568,7 +11507,7 @@ System.out.println(response.toString());
   },
   "org_id": "string",
   "migration": {},
-  "created": "2025-01-09T17:18:58.560Z",
+  "created": "2025-03-18T20:21:32.116Z",
   "comments": {
     "summary": {
       "count": 0,
@@ -8580,8 +11519,8 @@ System.out.println(response.toString());
         ],
         "partner_user_id": "string",
         "message": "string",
-        "created_at": "2025-01-09T17:18:58.560Z",
-        "updated_at": "2025-01-09T17:18:58.560Z"
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "updated_at": "2025-03-18T20:21:32.116Z"
       }
     }
   }
@@ -8835,6 +11774,7 @@ System.out.println(response.toString());
     "dashboard": {},
     "height": 0.1,
     "auth_user_id": "string",
+    "modified": "2025-03-18T20:21:32.116Z",
     "colors": {},
     "sequence": [
       {
@@ -8900,7 +11840,7 @@ System.out.println(response.toString());
     },
     "org_id": "string",
     "migration": {},
-    "created": "2025-01-09T17:18:58.560Z",
+    "created": "2025-03-18T20:21:32.116Z",
     "comments": {
       "summary": {
         "count": 0,
@@ -8912,8 +11852,8 @@ System.out.println(response.toString());
           ],
           "partner_user_id": "string",
           "message": "string",
-          "created_at": "2025-01-09T17:18:58.560Z",
-          "updated_at": "2025-01-09T17:18:58.560Z"
+          "created_at": "2025-03-18T20:21:32.116Z",
+          "updated_at": "2025-03-18T20:21:32.116Z"
         }
       }
     }
@@ -8942,6 +11882,7 @@ Status Code **200**
 |» dashboard|object|false|none|none|
 |» height|number(double)|false|none|none|
 |» auth_user_id|string|true|none|none|
+|» modified|string(date-time)|false|none|none|
 |» colors|object|false|none|none|
 |» sequence|[[SequenceItem](#schemasequenceitem)]|false|none|none|
 |»» delay|integer(int32)|true|none|none|
@@ -9231,6 +12172,7 @@ System.out.println(response.toString());
     "dashboard": {},
     "height": 0.1,
     "auth_user_id": "string",
+    "modified": "2025-03-18T20:21:32.116Z",
     "colors": {},
     "sequence": [
       {
@@ -9296,7 +12238,7 @@ System.out.println(response.toString());
     },
     "org_id": "string",
     "migration": {},
-    "created": "2025-01-09T17:18:58.560Z",
+    "created": "2025-03-18T20:21:32.116Z",
     "comments": {
       "summary": {
         "count": 0,
@@ -9308,8 +12250,8 @@ System.out.println(response.toString());
           ],
           "partner_user_id": "string",
           "message": "string",
-          "created_at": "2025-01-09T17:18:58.560Z",
-          "updated_at": "2025-01-09T17:18:58.560Z"
+          "created_at": "2025-03-18T20:21:32.116Z",
+          "updated_at": "2025-03-18T20:21:32.116Z"
         }
       }
     }
@@ -9338,6 +12280,7 @@ Status Code **200**
 |» dashboard|object|false|none|none|
 |» height|number(double)|false|none|none|
 |» auth_user_id|string|true|none|none|
+|» modified|string(date-time)|false|none|none|
 |» colors|object|false|none|none|
 |» sequence|[[SequenceItem](#schemasequenceitem)]|false|none|none|
 |»» delay|integer(int32)|true|none|none|
@@ -10321,6 +13264,7 @@ System.out.println(response.toString());
   "dashboard": {},
   "height": 0.1,
   "auth_user_id": "string",
+  "modified": "2025-03-18T20:21:32.116Z",
   "colors": {},
   "sequence": [
     {
@@ -10392,7 +13336,7 @@ System.out.println(response.toString());
   },
   "org_id": "string",
   "migration": {},
-  "created": "2025-01-09T17:18:58.560Z",
+  "created": "2025-03-18T20:21:32.116Z",
   "comments": {
     "summary": {
       "count": 0,
@@ -10404,8 +13348,8 @@ System.out.println(response.toString());
         ],
         "partner_user_id": "string",
         "message": "string",
-        "created_at": "2025-01-09T17:18:58.560Z",
-        "updated_at": "2025-01-09T17:18:58.560Z"
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "updated_at": "2025-03-18T20:21:32.116Z"
       }
     }
   }
@@ -13308,13 +16252,13 @@ curl -X POST https://api.moesif.com/v1/~/billing/catalog/plans?provider=string \
       "currency_prices": null,
       "provider": "string",
       "revenue_recognition_rule": "string",
-      "price_in_decimal": "string",
+      "price_in_decimal": 0.1,
       "tiers": [
         {
           "flat_currency_prices": null,
-          "up_to": null,
-          "flat_price_in_decimal": "string",
-          "unit_price_in_decimal": "string",
+          "up_to": 0,
+          "flat_price_in_decimal": 0.1,
+          "unit_price_in_decimal": 0.1,
           "unit_currency_prices": null
         }
       ],
@@ -13327,7 +16271,7 @@ curl -X POST https://api.moesif.com/v1/~/billing/catalog/plans?provider=string \
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2025-01-09T17:18:58.560Z",
+      "created_at": "2025-03-18T20:21:32.116Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -13342,10 +16286,10 @@ curl -X POST https://api.moesif.com/v1/~/billing/catalog/plans?provider=string \
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2025-01-09T17:18:58.560Z",
+  "updated_at": "2025-03-18T20:21:32.116Z",
   "reporting_period": "string"
 }' 
 ```
@@ -13364,13 +16308,13 @@ const inputBody = {
       "currency_prices": null,
       "provider": "string",
       "revenue_recognition_rule": "string",
-      "price_in_decimal": "string",
+      "price_in_decimal": 0.1,
       "tiers": [
         {
           "flat_currency_prices": null,
-          "up_to": null,
-          "flat_price_in_decimal": "string",
-          "unit_price_in_decimal": "string",
+          "up_to": 0,
+          "flat_price_in_decimal": 0.1,
+          "unit_price_in_decimal": 0.1,
           "unit_currency_prices": null
         }
       ],
@@ -13383,7 +16327,7 @@ const inputBody = {
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2025-01-09T17:18:58.560Z",
+      "created_at": "2025-03-18T20:21:32.116Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -13398,10 +16342,10 @@ const inputBody = {
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2025-01-09T17:18:58.560Z",
+  "updated_at": "2025-03-18T20:21:32.116Z",
   "reporting_period": "string"
 };
 const headers = {
@@ -13443,13 +16387,13 @@ input_body = {
       "currency_prices": null,
       "provider": "string",
       "revenue_recognition_rule": "string",
-      "price_in_decimal": "string",
+      "price_in_decimal": 0.1,
       "tiers": [
         {
           "flat_currency_prices": null,
-          "up_to": null,
-          "flat_price_in_decimal": "string",
-          "unit_price_in_decimal": "string",
+          "up_to": 0,
+          "flat_price_in_decimal": 0.1,
+          "unit_price_in_decimal": 0.1,
           "unit_currency_prices": null
         }
       ],
@@ -13462,7 +16406,7 @@ input_body = {
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2025-01-09T17:18:58.560Z",
+      "created_at": "2025-03-18T20:21:32.116Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -13477,10 +16421,10 @@ input_body = {
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2025-01-09T17:18:58.560Z",
+  "updated_at": "2025-03-18T20:21:32.116Z",
   "reporting_period": "string"
 }
 
@@ -13515,13 +16459,13 @@ input_payload = JSON.parse('{
       "currency_prices": null,
       "provider": "string",
       "revenue_recognition_rule": "string",
-      "price_in_decimal": "string",
+      "price_in_decimal": 0.1,
       "tiers": [
         {
           "flat_currency_prices": null,
-          "up_to": null,
-          "flat_price_in_decimal": "string",
-          "unit_price_in_decimal": "string",
+          "up_to": 0,
+          "flat_price_in_decimal": 0.1,
+          "unit_price_in_decimal": 0.1,
           "unit_currency_prices": null
         }
       ],
@@ -13534,7 +16478,7 @@ input_payload = JSON.parse('{
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2025-01-09T17:18:58.560Z",
+      "created_at": "2025-03-18T20:21:32.116Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -13549,10 +16493,10 @@ input_payload = JSON.parse('{
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2025-01-09T17:18:58.560Z",
+  "updated_at": "2025-03-18T20:21:32.116Z",
   "reporting_period": "string"
 }')
 
@@ -13590,13 +16534,13 @@ $inputPayload = json_decode('{
       "currency_prices": null,
       "provider": "string",
       "revenue_recognition_rule": "string",
-      "price_in_decimal": "string",
+      "price_in_decimal": 0.1,
       "tiers": [
         {
           "flat_currency_prices": null,
-          "up_to": null,
-          "flat_price_in_decimal": "string",
-          "unit_price_in_decimal": "string",
+          "up_to": 0,
+          "flat_price_in_decimal": 0.1,
+          "unit_price_in_decimal": 0.1,
           "unit_currency_prices": null
         }
       ],
@@ -13609,7 +16553,7 @@ $inputPayload = json_decode('{
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2025-01-09T17:18:58.560Z",
+      "created_at": "2025-03-18T20:21:32.116Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -13624,10 +16568,10 @@ $inputPayload = json_decode('{
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2025-01-09T17:18:58.560Z",
+  "updated_at": "2025-03-18T20:21:32.116Z",
   "reporting_period": "string"
 }')
 
@@ -13677,13 +16621,13 @@ func main() {
       "currency_prices": null,
       "provider": "string",
       "revenue_recognition_rule": "string",
-      "price_in_decimal": "string",
+      "price_in_decimal": 0.1,
       "tiers": [
         {
           "flat_currency_prices": null,
-          "up_to": null,
-          "flat_price_in_decimal": "string",
-          "unit_price_in_decimal": "string",
+          "up_to": 0,
+          "flat_price_in_decimal": 0.1,
+          "unit_price_in_decimal": 0.1,
           "unit_currency_prices": null
         }
       ],
@@ -13696,7 +16640,7 @@ func main() {
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2025-01-09T17:18:58.560Z",
+      "created_at": "2025-03-18T20:21:32.116Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -13711,10 +16655,10 @@ func main() {
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2025-01-09T17:18:58.560Z",
+  "updated_at": "2025-03-18T20:21:32.116Z",
   "reporting_period": "string"
 }`
     data := bytes.NewBuffer([]byte(jsonPayload))
@@ -13770,13 +16714,13 @@ public class HttpExample
       ""currency_prices"": null,
       ""provider"": ""string"",
       ""revenue_recognition_rule"": ""string"",
-      ""price_in_decimal"": ""string"",
+      ""price_in_decimal"": 0.1,
       ""tiers"": [
         {
           ""flat_currency_prices"": null,
-          ""up_to"": null,
-          ""flat_price_in_decimal"": ""string"",
-          ""unit_price_in_decimal"": ""string"",
+          ""up_to"": 0,
+          ""flat_price_in_decimal"": 0.1,
+          ""unit_price_in_decimal"": 0.1,
           ""unit_currency_prices"": null
         }
       ],
@@ -13789,7 +16733,7 @@ public class HttpExample
       ""tax_behavior"": ""string"",
       ""currency"": ""string"",
       ""metadata"": null,
-      ""created_at"": ""2025-01-09T17:18:58.560Z"",
+      ""created_at"": ""2025-03-18T20:21:32.116Z"",
       ""unit"": ""string"",
       ""deferred_revenue_accounting_code"": ""string"",
       ""usage_aggregator"": ""string"",
@@ -13804,10 +16748,10 @@ public class HttpExample
   ""status"": ""string"",
   ""product_id"": ""string"",
   ""metadata"": null,
-  ""created_at"": ""2025-01-09T17:18:58.560Z"",
+  ""created_at"": ""2025-03-18T20:21:32.116Z"",
   ""billing_period"": ""string"",
   ""unit"": ""string"",
-  ""updated_at"": ""2025-01-09T17:18:58.560Z"",
+  ""updated_at"": ""2025-03-18T20:21:32.116Z"",
   ""reporting_period"": ""string""
 }";
       var content = JsonConvert.DeserializeObject(json);
@@ -13875,13 +16819,13 @@ String jsonPayload = """{
       "currency_prices": null,
       "provider": "string",
       "revenue_recognition_rule": "string",
-      "price_in_decimal": "string",
+      "price_in_decimal": 0.1,
       "tiers": [
         {
           "flat_currency_prices": null,
-          "up_to": null,
-          "flat_price_in_decimal": "string",
-          "unit_price_in_decimal": "string",
+          "up_to": 0,
+          "flat_price_in_decimal": 0.1,
+          "unit_price_in_decimal": 0.1,
           "unit_currency_prices": null
         }
       ],
@@ -13894,7 +16838,7 @@ String jsonPayload = """{
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2025-01-09T17:18:58.560Z",
+      "created_at": "2025-03-18T20:21:32.116Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -13909,10 +16853,10 @@ String jsonPayload = """{
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2025-01-09T17:18:58.560Z",
+  "updated_at": "2025-03-18T20:21:32.116Z",
   "reporting_period": "string"
 }""";
 
@@ -13955,13 +16899,13 @@ System.out.println(response.toString());
       "currency_prices": null,
       "provider": "string",
       "revenue_recognition_rule": "string",
-      "price_in_decimal": "string",
+      "price_in_decimal": 0.1,
       "tiers": [
         {
           "flat_currency_prices": null,
-          "up_to": null,
-          "flat_price_in_decimal": "string",
-          "unit_price_in_decimal": "string",
+          "up_to": 0,
+          "flat_price_in_decimal": 0.1,
+          "unit_price_in_decimal": 0.1,
           "unit_currency_prices": null
         }
       ],
@@ -13974,7 +16918,7 @@ System.out.println(response.toString());
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2025-01-09T17:18:58.560Z",
+      "created_at": "2025-03-18T20:21:32.116Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -13989,10 +16933,10 @@ System.out.println(response.toString());
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2025-01-09T17:18:58.560Z",
+  "updated_at": "2025-03-18T20:21:32.116Z",
   "reporting_period": "string"
 }
 ```
@@ -14021,13 +16965,13 @@ System.out.println(response.toString());
       "currency_prices": null,
       "provider": "string",
       "revenue_recognition_rule": "string",
-      "price_in_decimal": "string",
+      "price_in_decimal": 0.1,
       "tiers": [
         {
           "flat_currency_prices": null,
-          "up_to": null,
-          "flat_price_in_decimal": "string",
-          "unit_price_in_decimal": "string",
+          "up_to": 0,
+          "flat_price_in_decimal": 0.1,
+          "unit_price_in_decimal": 0.1,
           "unit_currency_prices": null
         }
       ],
@@ -14040,7 +16984,7 @@ System.out.println(response.toString());
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2025-01-09T17:18:58.560Z",
+      "created_at": "2025-03-18T20:21:32.116Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -14055,10 +16999,10 @@ System.out.println(response.toString());
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2025-01-09T17:18:58.560Z",
+  "updated_at": "2025-03-18T20:21:32.116Z",
   "reporting_period": "string"
 }
 ```
@@ -14305,13 +17249,13 @@ System.out.println(response.toString());
         "currency_prices": null,
         "provider": "string",
         "revenue_recognition_rule": "string",
-        "price_in_decimal": "string",
+        "price_in_decimal": 0.1,
         "tiers": [
           {
             "flat_currency_prices": null,
-            "up_to": null,
-            "flat_price_in_decimal": "string",
-            "unit_price_in_decimal": "string",
+            "up_to": 0,
+            "flat_price_in_decimal": 0.1,
+            "unit_price_in_decimal": 0.1,
             "unit_currency_prices": null
           }
         ],
@@ -14324,7 +17268,7 @@ System.out.println(response.toString());
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2025-01-09T17:18:58.560Z",
+        "created_at": "2025-03-18T20:21:32.116Z",
         "unit": "string",
         "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
@@ -14339,10 +17283,10 @@ System.out.println(response.toString());
     "status": "string",
     "product_id": "string",
     "metadata": null,
-    "created_at": "2025-01-09T17:18:58.560Z",
+    "created_at": "2025-03-18T20:21:32.116Z",
     "billing_period": "string",
     "unit": "string",
-    "updated_at": "2025-01-09T17:18:58.560Z",
+    "updated_at": "2025-03-18T20:21:32.116Z",
     "reporting_period": "string"
   }
 ]
@@ -14370,12 +17314,12 @@ Status Code **200**
 |»» currency_prices|.map[string,string]|false|none|none|
 |»» provider|string|false|none|none|
 |»» revenue_recognition_rule|string|false|none|none|
-|»» price_in_decimal|string|false|none|none|
+|»» price_in_decimal|number(double)|false|none|none|
 |»» tiers|[[MoesifPriceTier](#schemamoesifpricetier)]|false|none|none|
 |»»» flat_currency_prices|.map[string,string]|false|none|none|
-|»»» up_to|util.either[long,string]|true|none|none|
-|»»» flat_price_in_decimal|string|false|none|none|
-|»»» unit_price_in_decimal|string|false|none|none|
+|»»» up_to|integer(int64)|true|none|none|
+|»»» flat_price_in_decimal|number(double)|false|none|none|
+|»»» unit_price_in_decimal|number(double)|false|none|none|
 |»»» unit_currency_prices|.map[string,string]|false|none|none|
 |»» recognized_revenue_accounting_code|string|false|none|none|
 |»» period_units|string|false|none|none|
@@ -14645,13 +17589,13 @@ Get the Moesif Plan for authenticated users
       "currency_prices": null,
       "provider": "string",
       "revenue_recognition_rule": "string",
-      "price_in_decimal": "string",
+      "price_in_decimal": 0.1,
       "tiers": [
         {
           "flat_currency_prices": null,
-          "up_to": null,
-          "flat_price_in_decimal": "string",
-          "unit_price_in_decimal": "string",
+          "up_to": 0,
+          "flat_price_in_decimal": 0.1,
+          "unit_price_in_decimal": 0.1,
           "unit_currency_prices": null
         }
       ],
@@ -14664,7 +17608,7 @@ Get the Moesif Plan for authenticated users
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2025-01-09T17:18:58.560Z",
+      "created_at": "2025-03-18T20:21:32.116Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -14679,10 +17623,10 @@ Get the Moesif Plan for authenticated users
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2025-01-09T17:18:58.560Z",
+  "updated_at": "2025-03-18T20:21:32.116Z",
   "reporting_period": "string"
 }
 ```
@@ -14944,13 +17888,13 @@ curl -X PUT https://api.moesif.com/v1/~/billing/catalog/plans/{id}?provider=stri
       "currency_prices": null,
       "provider": "string",
       "revenue_recognition_rule": "string",
-      "price_in_decimal": "string",
+      "price_in_decimal": 0.1,
       "tiers": [
         {
           "flat_currency_prices": null,
-          "up_to": null,
-          "flat_price_in_decimal": "string",
-          "unit_price_in_decimal": "string",
+          "up_to": 0,
+          "flat_price_in_decimal": 0.1,
+          "unit_price_in_decimal": 0.1,
           "unit_currency_prices": null
         }
       ],
@@ -14963,7 +17907,7 @@ curl -X PUT https://api.moesif.com/v1/~/billing/catalog/plans/{id}?provider=stri
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2025-01-09T17:18:58.560Z",
+      "created_at": "2025-03-18T20:21:32.116Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -14978,10 +17922,10 @@ curl -X PUT https://api.moesif.com/v1/~/billing/catalog/plans/{id}?provider=stri
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2025-01-09T17:18:58.560Z",
+  "updated_at": "2025-03-18T20:21:32.116Z",
   "reporting_period": "string"
 }' 
 ```
@@ -15000,13 +17944,13 @@ const inputBody = {
       "currency_prices": null,
       "provider": "string",
       "revenue_recognition_rule": "string",
-      "price_in_decimal": "string",
+      "price_in_decimal": 0.1,
       "tiers": [
         {
           "flat_currency_prices": null,
-          "up_to": null,
-          "flat_price_in_decimal": "string",
-          "unit_price_in_decimal": "string",
+          "up_to": 0,
+          "flat_price_in_decimal": 0.1,
+          "unit_price_in_decimal": 0.1,
           "unit_currency_prices": null
         }
       ],
@@ -15019,7 +17963,7 @@ const inputBody = {
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2025-01-09T17:18:58.560Z",
+      "created_at": "2025-03-18T20:21:32.116Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -15034,10 +17978,10 @@ const inputBody = {
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2025-01-09T17:18:58.560Z",
+  "updated_at": "2025-03-18T20:21:32.116Z",
   "reporting_period": "string"
 };
 const headers = {
@@ -15079,13 +18023,13 @@ input_body = {
       "currency_prices": null,
       "provider": "string",
       "revenue_recognition_rule": "string",
-      "price_in_decimal": "string",
+      "price_in_decimal": 0.1,
       "tiers": [
         {
           "flat_currency_prices": null,
-          "up_to": null,
-          "flat_price_in_decimal": "string",
-          "unit_price_in_decimal": "string",
+          "up_to": 0,
+          "flat_price_in_decimal": 0.1,
+          "unit_price_in_decimal": 0.1,
           "unit_currency_prices": null
         }
       ],
@@ -15098,7 +18042,7 @@ input_body = {
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2025-01-09T17:18:58.560Z",
+      "created_at": "2025-03-18T20:21:32.116Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -15113,10 +18057,10 @@ input_body = {
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2025-01-09T17:18:58.560Z",
+  "updated_at": "2025-03-18T20:21:32.116Z",
   "reporting_period": "string"
 }
 
@@ -15151,13 +18095,13 @@ input_payload = JSON.parse('{
       "currency_prices": null,
       "provider": "string",
       "revenue_recognition_rule": "string",
-      "price_in_decimal": "string",
+      "price_in_decimal": 0.1,
       "tiers": [
         {
           "flat_currency_prices": null,
-          "up_to": null,
-          "flat_price_in_decimal": "string",
-          "unit_price_in_decimal": "string",
+          "up_to": 0,
+          "flat_price_in_decimal": 0.1,
+          "unit_price_in_decimal": 0.1,
           "unit_currency_prices": null
         }
       ],
@@ -15170,7 +18114,7 @@ input_payload = JSON.parse('{
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2025-01-09T17:18:58.560Z",
+      "created_at": "2025-03-18T20:21:32.116Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -15185,10 +18129,10 @@ input_payload = JSON.parse('{
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2025-01-09T17:18:58.560Z",
+  "updated_at": "2025-03-18T20:21:32.116Z",
   "reporting_period": "string"
 }')
 
@@ -15226,13 +18170,13 @@ $inputPayload = json_decode('{
       "currency_prices": null,
       "provider": "string",
       "revenue_recognition_rule": "string",
-      "price_in_decimal": "string",
+      "price_in_decimal": 0.1,
       "tiers": [
         {
           "flat_currency_prices": null,
-          "up_to": null,
-          "flat_price_in_decimal": "string",
-          "unit_price_in_decimal": "string",
+          "up_to": 0,
+          "flat_price_in_decimal": 0.1,
+          "unit_price_in_decimal": 0.1,
           "unit_currency_prices": null
         }
       ],
@@ -15245,7 +18189,7 @@ $inputPayload = json_decode('{
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2025-01-09T17:18:58.560Z",
+      "created_at": "2025-03-18T20:21:32.116Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -15260,10 +18204,10 @@ $inputPayload = json_decode('{
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2025-01-09T17:18:58.560Z",
+  "updated_at": "2025-03-18T20:21:32.116Z",
   "reporting_period": "string"
 }')
 
@@ -15313,13 +18257,13 @@ func main() {
       "currency_prices": null,
       "provider": "string",
       "revenue_recognition_rule": "string",
-      "price_in_decimal": "string",
+      "price_in_decimal": 0.1,
       "tiers": [
         {
           "flat_currency_prices": null,
-          "up_to": null,
-          "flat_price_in_decimal": "string",
-          "unit_price_in_decimal": "string",
+          "up_to": 0,
+          "flat_price_in_decimal": 0.1,
+          "unit_price_in_decimal": 0.1,
           "unit_currency_prices": null
         }
       ],
@@ -15332,7 +18276,7 @@ func main() {
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2025-01-09T17:18:58.560Z",
+      "created_at": "2025-03-18T20:21:32.116Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -15347,10 +18291,10 @@ func main() {
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2025-01-09T17:18:58.560Z",
+  "updated_at": "2025-03-18T20:21:32.116Z",
   "reporting_period": "string"
 }`
     data := bytes.NewBuffer([]byte(jsonPayload))
@@ -15409,13 +18353,13 @@ public class HttpExample
       ""currency_prices"": null,
       ""provider"": ""string"",
       ""revenue_recognition_rule"": ""string"",
-      ""price_in_decimal"": ""string"",
+      ""price_in_decimal"": 0.1,
       ""tiers"": [
         {
           ""flat_currency_prices"": null,
-          ""up_to"": null,
-          ""flat_price_in_decimal"": ""string"",
-          ""unit_price_in_decimal"": ""string"",
+          ""up_to"": 0,
+          ""flat_price_in_decimal"": 0.1,
+          ""unit_price_in_decimal"": 0.1,
           ""unit_currency_prices"": null
         }
       ],
@@ -15428,7 +18372,7 @@ public class HttpExample
       ""tax_behavior"": ""string"",
       ""currency"": ""string"",
       ""metadata"": null,
-      ""created_at"": ""2025-01-09T17:18:58.560Z"",
+      ""created_at"": ""2025-03-18T20:21:32.116Z"",
       ""unit"": ""string"",
       ""deferred_revenue_accounting_code"": ""string"",
       ""usage_aggregator"": ""string"",
@@ -15443,10 +18387,10 @@ public class HttpExample
   ""status"": ""string"",
   ""product_id"": ""string"",
   ""metadata"": null,
-  ""created_at"": ""2025-01-09T17:18:58.560Z"",
+  ""created_at"": ""2025-03-18T20:21:32.116Z"",
   ""billing_period"": ""string"",
   ""unit"": ""string"",
-  ""updated_at"": ""2025-01-09T17:18:58.560Z"",
+  ""updated_at"": ""2025-03-18T20:21:32.116Z"",
   ""reporting_period"": ""string""
 }";
       var content = JsonConvert.DeserializeObject(json);
@@ -15516,13 +18460,13 @@ String jsonPayload = """{
       "currency_prices": null,
       "provider": "string",
       "revenue_recognition_rule": "string",
-      "price_in_decimal": "string",
+      "price_in_decimal": 0.1,
       "tiers": [
         {
           "flat_currency_prices": null,
-          "up_to": null,
-          "flat_price_in_decimal": "string",
-          "unit_price_in_decimal": "string",
+          "up_to": 0,
+          "flat_price_in_decimal": 0.1,
+          "unit_price_in_decimal": 0.1,
           "unit_currency_prices": null
         }
       ],
@@ -15535,7 +18479,7 @@ String jsonPayload = """{
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2025-01-09T17:18:58.560Z",
+      "created_at": "2025-03-18T20:21:32.116Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -15550,10 +18494,10 @@ String jsonPayload = """{
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2025-01-09T17:18:58.560Z",
+  "updated_at": "2025-03-18T20:21:32.116Z",
   "reporting_period": "string"
 }""";
 
@@ -15596,13 +18540,13 @@ System.out.println(response.toString());
       "currency_prices": null,
       "provider": "string",
       "revenue_recognition_rule": "string",
-      "price_in_decimal": "string",
+      "price_in_decimal": 0.1,
       "tiers": [
         {
           "flat_currency_prices": null,
-          "up_to": null,
-          "flat_price_in_decimal": "string",
-          "unit_price_in_decimal": "string",
+          "up_to": 0,
+          "flat_price_in_decimal": 0.1,
+          "unit_price_in_decimal": 0.1,
           "unit_currency_prices": null
         }
       ],
@@ -15615,7 +18559,7 @@ System.out.println(response.toString());
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2025-01-09T17:18:58.560Z",
+      "created_at": "2025-03-18T20:21:32.116Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -15630,10 +18574,10 @@ System.out.println(response.toString());
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2025-01-09T17:18:58.560Z",
+  "updated_at": "2025-03-18T20:21:32.116Z",
   "reporting_period": "string"
 }
 ```
@@ -15663,13 +18607,13 @@ System.out.println(response.toString());
       "currency_prices": null,
       "provider": "string",
       "revenue_recognition_rule": "string",
-      "price_in_decimal": "string",
+      "price_in_decimal": 0.1,
       "tiers": [
         {
           "flat_currency_prices": null,
-          "up_to": null,
-          "flat_price_in_decimal": "string",
-          "unit_price_in_decimal": "string",
+          "up_to": 0,
+          "flat_price_in_decimal": 0.1,
+          "unit_price_in_decimal": 0.1,
           "unit_currency_prices": null
         }
       ],
@@ -15682,7 +18626,7 @@ System.out.println(response.toString());
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2025-01-09T17:18:58.560Z",
+      "created_at": "2025-03-18T20:21:32.116Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -15697,10 +18641,10 @@ System.out.println(response.toString());
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2025-01-09T17:18:58.560Z",
+  "updated_at": "2025-03-18T20:21:32.116Z",
   "reporting_period": "string"
 }
 ```
@@ -15738,13 +18682,13 @@ curl -X POST https://api.moesif.com/v1/~/billing/catalog/prices?provider=string 
   "currency_prices": null,
   "provider": "string",
   "revenue_recognition_rule": "string",
-  "price_in_decimal": "string",
+  "price_in_decimal": 0.1,
   "tiers": [
     {
       "flat_currency_prices": null,
-      "up_to": null,
-      "flat_price_in_decimal": "string",
-      "unit_price_in_decimal": "string",
+      "up_to": 0,
+      "flat_price_in_decimal": 0.1,
+      "unit_price_in_decimal": 0.1,
       "unit_currency_prices": null
     }
   ],
@@ -15757,7 +18701,7 @@ curl -X POST https://api.moesif.com/v1/~/billing/catalog/prices?provider=string 
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -15776,13 +18720,13 @@ const inputBody = {
   "currency_prices": null,
   "provider": "string",
   "revenue_recognition_rule": "string",
-  "price_in_decimal": "string",
+  "price_in_decimal": 0.1,
   "tiers": [
     {
       "flat_currency_prices": null,
-      "up_to": null,
-      "flat_price_in_decimal": "string",
-      "unit_price_in_decimal": "string",
+      "up_to": 0,
+      "flat_price_in_decimal": 0.1,
+      "unit_price_in_decimal": 0.1,
       "unit_currency_prices": null
     }
   ],
@@ -15795,7 +18739,7 @@ const inputBody = {
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -15837,13 +18781,13 @@ input_body = {
   "currency_prices": null,
   "provider": "string",
   "revenue_recognition_rule": "string",
-  "price_in_decimal": "string",
+  "price_in_decimal": 0.1,
   "tiers": [
     {
       "flat_currency_prices": null,
-      "up_to": null,
-      "flat_price_in_decimal": "string",
-      "unit_price_in_decimal": "string",
+      "up_to": 0,
+      "flat_price_in_decimal": 0.1,
+      "unit_price_in_decimal": 0.1,
       "unit_currency_prices": null
     }
   ],
@@ -15856,7 +18800,7 @@ input_body = {
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -15891,13 +18835,13 @@ input_payload = JSON.parse('{
   "currency_prices": null,
   "provider": "string",
   "revenue_recognition_rule": "string",
-  "price_in_decimal": "string",
+  "price_in_decimal": 0.1,
   "tiers": [
     {
       "flat_currency_prices": null,
-      "up_to": null,
-      "flat_price_in_decimal": "string",
-      "unit_price_in_decimal": "string",
+      "up_to": 0,
+      "flat_price_in_decimal": 0.1,
+      "unit_price_in_decimal": 0.1,
       "unit_currency_prices": null
     }
   ],
@@ -15910,7 +18854,7 @@ input_payload = JSON.parse('{
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -15948,13 +18892,13 @@ $inputPayload = json_decode('{
   "currency_prices": null,
   "provider": "string",
   "revenue_recognition_rule": "string",
-  "price_in_decimal": "string",
+  "price_in_decimal": 0.1,
   "tiers": [
     {
       "flat_currency_prices": null,
-      "up_to": null,
-      "flat_price_in_decimal": "string",
-      "unit_price_in_decimal": "string",
+      "up_to": 0,
+      "flat_price_in_decimal": 0.1,
+      "unit_price_in_decimal": 0.1,
       "unit_currency_prices": null
     }
   ],
@@ -15967,7 +18911,7 @@ $inputPayload = json_decode('{
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -16017,13 +18961,13 @@ func main() {
   "currency_prices": null,
   "provider": "string",
   "revenue_recognition_rule": "string",
-  "price_in_decimal": "string",
+  "price_in_decimal": 0.1,
   "tiers": [
     {
       "flat_currency_prices": null,
-      "up_to": null,
-      "flat_price_in_decimal": "string",
-      "unit_price_in_decimal": "string",
+      "up_to": 0,
+      "flat_price_in_decimal": 0.1,
+      "unit_price_in_decimal": 0.1,
       "unit_currency_prices": null
     }
   ],
@@ -16036,7 +18980,7 @@ func main() {
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -16092,13 +19036,13 @@ public class HttpExample
   ""currency_prices"": null,
   ""provider"": ""string"",
   ""revenue_recognition_rule"": ""string"",
-  ""price_in_decimal"": ""string"",
+  ""price_in_decimal"": 0.1,
   ""tiers"": [
     {
       ""flat_currency_prices"": null,
-      ""up_to"": null,
-      ""flat_price_in_decimal"": ""string"",
-      ""unit_price_in_decimal"": ""string"",
+      ""up_to"": 0,
+      ""flat_price_in_decimal"": 0.1,
+      ""unit_price_in_decimal"": 0.1,
       ""unit_currency_prices"": null
     }
   ],
@@ -16111,7 +19055,7 @@ public class HttpExample
   ""tax_behavior"": ""string"",
   ""currency"": ""string"",
   ""metadata"": null,
-  ""created_at"": ""2025-01-09T17:18:58.560Z"",
+  ""created_at"": ""2025-03-18T20:21:32.116Z"",
   ""unit"": ""string"",
   ""deferred_revenue_accounting_code"": ""string"",
   ""usage_aggregator"": ""string"",
@@ -16179,13 +19123,13 @@ String jsonPayload = """{
   "currency_prices": null,
   "provider": "string",
   "revenue_recognition_rule": "string",
-  "price_in_decimal": "string",
+  "price_in_decimal": 0.1,
   "tiers": [
     {
       "flat_currency_prices": null,
-      "up_to": null,
-      "flat_price_in_decimal": "string",
-      "unit_price_in_decimal": "string",
+      "up_to": 0,
+      "flat_price_in_decimal": 0.1,
+      "unit_price_in_decimal": 0.1,
       "unit_currency_prices": null
     }
   ],
@@ -16198,7 +19142,7 @@ String jsonPayload = """{
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -16241,13 +19185,13 @@ System.out.println(response.toString());
   "currency_prices": null,
   "provider": "string",
   "revenue_recognition_rule": "string",
-  "price_in_decimal": "string",
+  "price_in_decimal": 0.1,
   "tiers": [
     {
       "flat_currency_prices": null,
-      "up_to": null,
-      "flat_price_in_decimal": "string",
-      "unit_price_in_decimal": "string",
+      "up_to": 0,
+      "flat_price_in_decimal": 0.1,
+      "unit_price_in_decimal": 0.1,
       "unit_currency_prices": null
     }
   ],
@@ -16260,7 +19204,7 @@ System.out.println(response.toString());
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -16289,13 +19233,13 @@ System.out.println(response.toString());
   "currency_prices": null,
   "provider": "string",
   "revenue_recognition_rule": "string",
-  "price_in_decimal": "string",
+  "price_in_decimal": 0.1,
   "tiers": [
     {
       "flat_currency_prices": null,
-      "up_to": null,
-      "flat_price_in_decimal": "string",
-      "unit_price_in_decimal": "string",
+      "up_to": 0,
+      "flat_price_in_decimal": 0.1,
+      "unit_price_in_decimal": 0.1,
       "unit_currency_prices": null
     }
   ],
@@ -16308,7 +19252,7 @@ System.out.println(response.toString());
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -16554,13 +19498,13 @@ System.out.println(response.toString());
     "currency_prices": null,
     "provider": "string",
     "revenue_recognition_rule": "string",
-    "price_in_decimal": "string",
+    "price_in_decimal": 0.1,
     "tiers": [
       {
         "flat_currency_prices": null,
-        "up_to": null,
-        "flat_price_in_decimal": "string",
-        "unit_price_in_decimal": "string",
+        "up_to": 0,
+        "flat_price_in_decimal": 0.1,
+        "unit_price_in_decimal": 0.1,
         "unit_currency_prices": null
       }
     ],
@@ -16573,7 +19517,7 @@ System.out.println(response.toString());
     "tax_behavior": "string",
     "currency": "string",
     "metadata": null,
-    "created_at": "2025-01-09T17:18:58.560Z",
+    "created_at": "2025-03-18T20:21:32.116Z",
     "unit": "string",
     "deferred_revenue_accounting_code": "string",
     "usage_aggregator": "string",
@@ -16602,12 +19546,12 @@ Status Code **200**
 |» currency_prices|.map[string,string]|false|none|none|
 |» provider|string|false|none|none|
 |» revenue_recognition_rule|string|false|none|none|
-|» price_in_decimal|string|false|none|none|
+|» price_in_decimal|number(double)|false|none|none|
 |» tiers|[[MoesifPriceTier](#schemamoesifpricetier)]|false|none|none|
 |»» flat_currency_prices|.map[string,string]|false|none|none|
-|»» up_to|util.either[long,string]|true|none|none|
-|»» flat_price_in_decimal|string|false|none|none|
-|»» unit_price_in_decimal|string|false|none|none|
+|»» up_to|integer(int64)|true|none|none|
+|»» flat_price_in_decimal|number(double)|false|none|none|
+|»» unit_price_in_decimal|number(double)|false|none|none|
 |»» unit_currency_prices|.map[string,string]|false|none|none|
 |» recognized_revenue_accounting_code|string|false|none|none|
 |» period_units|string|false|none|none|
@@ -16861,13 +19805,13 @@ Get the Moesif Price for a specific Plan for authenticated users
   "currency_prices": null,
   "provider": "string",
   "revenue_recognition_rule": "string",
-  "price_in_decimal": "string",
+  "price_in_decimal": 0.1,
   "tiers": [
     {
       "flat_currency_prices": null,
-      "up_to": null,
-      "flat_price_in_decimal": "string",
-      "unit_price_in_decimal": "string",
+      "up_to": 0,
+      "flat_price_in_decimal": 0.1,
+      "unit_price_in_decimal": 0.1,
       "unit_currency_prices": null
     }
   ],
@@ -16880,7 +19824,7 @@ Get the Moesif Price for a specific Plan for authenticated users
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -17142,13 +20086,13 @@ curl -X PUT https://api.moesif.com/v1/~/billing/catalog/prices/{id}?provider=str
   "currency_prices": null,
   "provider": "string",
   "revenue_recognition_rule": "string",
-  "price_in_decimal": "string",
+  "price_in_decimal": 0.1,
   "tiers": [
     {
       "flat_currency_prices": null,
-      "up_to": null,
-      "flat_price_in_decimal": "string",
-      "unit_price_in_decimal": "string",
+      "up_to": 0,
+      "flat_price_in_decimal": 0.1,
+      "unit_price_in_decimal": 0.1,
       "unit_currency_prices": null
     }
   ],
@@ -17161,7 +20105,7 @@ curl -X PUT https://api.moesif.com/v1/~/billing/catalog/prices/{id}?provider=str
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -17180,13 +20124,13 @@ const inputBody = {
   "currency_prices": null,
   "provider": "string",
   "revenue_recognition_rule": "string",
-  "price_in_decimal": "string",
+  "price_in_decimal": 0.1,
   "tiers": [
     {
       "flat_currency_prices": null,
-      "up_to": null,
-      "flat_price_in_decimal": "string",
-      "unit_price_in_decimal": "string",
+      "up_to": 0,
+      "flat_price_in_decimal": 0.1,
+      "unit_price_in_decimal": 0.1,
       "unit_currency_prices": null
     }
   ],
@@ -17199,7 +20143,7 @@ const inputBody = {
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -17241,13 +20185,13 @@ input_body = {
   "currency_prices": null,
   "provider": "string",
   "revenue_recognition_rule": "string",
-  "price_in_decimal": "string",
+  "price_in_decimal": 0.1,
   "tiers": [
     {
       "flat_currency_prices": null,
-      "up_to": null,
-      "flat_price_in_decimal": "string",
-      "unit_price_in_decimal": "string",
+      "up_to": 0,
+      "flat_price_in_decimal": 0.1,
+      "unit_price_in_decimal": 0.1,
       "unit_currency_prices": null
     }
   ],
@@ -17260,7 +20204,7 @@ input_body = {
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -17295,13 +20239,13 @@ input_payload = JSON.parse('{
   "currency_prices": null,
   "provider": "string",
   "revenue_recognition_rule": "string",
-  "price_in_decimal": "string",
+  "price_in_decimal": 0.1,
   "tiers": [
     {
       "flat_currency_prices": null,
-      "up_to": null,
-      "flat_price_in_decimal": "string",
-      "unit_price_in_decimal": "string",
+      "up_to": 0,
+      "flat_price_in_decimal": 0.1,
+      "unit_price_in_decimal": 0.1,
       "unit_currency_prices": null
     }
   ],
@@ -17314,7 +20258,7 @@ input_payload = JSON.parse('{
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -17352,13 +20296,13 @@ $inputPayload = json_decode('{
   "currency_prices": null,
   "provider": "string",
   "revenue_recognition_rule": "string",
-  "price_in_decimal": "string",
+  "price_in_decimal": 0.1,
   "tiers": [
     {
       "flat_currency_prices": null,
-      "up_to": null,
-      "flat_price_in_decimal": "string",
-      "unit_price_in_decimal": "string",
+      "up_to": 0,
+      "flat_price_in_decimal": 0.1,
+      "unit_price_in_decimal": 0.1,
       "unit_currency_prices": null
     }
   ],
@@ -17371,7 +20315,7 @@ $inputPayload = json_decode('{
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -17421,13 +20365,13 @@ func main() {
   "currency_prices": null,
   "provider": "string",
   "revenue_recognition_rule": "string",
-  "price_in_decimal": "string",
+  "price_in_decimal": 0.1,
   "tiers": [
     {
       "flat_currency_prices": null,
-      "up_to": null,
-      "flat_price_in_decimal": "string",
-      "unit_price_in_decimal": "string",
+      "up_to": 0,
+      "flat_price_in_decimal": 0.1,
+      "unit_price_in_decimal": 0.1,
       "unit_currency_prices": null
     }
   ],
@@ -17440,7 +20384,7 @@ func main() {
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -17499,13 +20443,13 @@ public class HttpExample
   ""currency_prices"": null,
   ""provider"": ""string"",
   ""revenue_recognition_rule"": ""string"",
-  ""price_in_decimal"": ""string"",
+  ""price_in_decimal"": 0.1,
   ""tiers"": [
     {
       ""flat_currency_prices"": null,
-      ""up_to"": null,
-      ""flat_price_in_decimal"": ""string"",
-      ""unit_price_in_decimal"": ""string"",
+      ""up_to"": 0,
+      ""flat_price_in_decimal"": 0.1,
+      ""unit_price_in_decimal"": 0.1,
       ""unit_currency_prices"": null
     }
   ],
@@ -17518,7 +20462,7 @@ public class HttpExample
   ""tax_behavior"": ""string"",
   ""currency"": ""string"",
   ""metadata"": null,
-  ""created_at"": ""2025-01-09T17:18:58.560Z"",
+  ""created_at"": ""2025-03-18T20:21:32.116Z"",
   ""unit"": ""string"",
   ""deferred_revenue_accounting_code"": ""string"",
   ""usage_aggregator"": ""string"",
@@ -17588,13 +20532,13 @@ String jsonPayload = """{
   "currency_prices": null,
   "provider": "string",
   "revenue_recognition_rule": "string",
-  "price_in_decimal": "string",
+  "price_in_decimal": 0.1,
   "tiers": [
     {
       "flat_currency_prices": null,
-      "up_to": null,
-      "flat_price_in_decimal": "string",
-      "unit_price_in_decimal": "string",
+      "up_to": 0,
+      "flat_price_in_decimal": 0.1,
+      "unit_price_in_decimal": 0.1,
       "unit_currency_prices": null
     }
   ],
@@ -17607,7 +20551,7 @@ String jsonPayload = """{
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -17650,13 +20594,13 @@ System.out.println(response.toString());
   "currency_prices": null,
   "provider": "string",
   "revenue_recognition_rule": "string",
-  "price_in_decimal": "string",
+  "price_in_decimal": 0.1,
   "tiers": [
     {
       "flat_currency_prices": null,
-      "up_to": null,
-      "flat_price_in_decimal": "string",
-      "unit_price_in_decimal": "string",
+      "up_to": 0,
+      "flat_price_in_decimal": 0.1,
+      "unit_price_in_decimal": 0.1,
       "unit_currency_prices": null
     }
   ],
@@ -17669,7 +20613,7 @@ System.out.println(response.toString());
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -17699,13 +20643,13 @@ System.out.println(response.toString());
   "currency_prices": null,
   "provider": "string",
   "revenue_recognition_rule": "string",
-  "price_in_decimal": "string",
+  "price_in_decimal": 0.1,
   "tiers": [
     {
       "flat_currency_prices": null,
-      "up_to": null,
-      "flat_price_in_decimal": "string",
-      "unit_price_in_decimal": "string",
+      "up_to": 0,
+      "flat_price_in_decimal": 0.1,
+      "unit_price_in_decimal": 0.1,
       "unit_currency_prices": null
     }
   ],
@@ -17718,7 +20662,7 @@ System.out.println(response.toString());
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -17972,6 +20916,1511 @@ managementAPIToken ( Scopes: read:prices )
 
 <h1 id="management-api-billing-meters">Billing Meters</h1>
 
+## createMeter
+
+<a id="opIdcreateMeter"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://api.moesif.com/v1/~/billing/meters \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
+
+  -d '{
+  "name": "string",
+  "billing_plan": {
+    "provider_slug": "string",
+    "friendly_name": "string",
+    "params": {
+      "usage_rounding_mode": "string",
+      "webhook_params": {
+        "reporting": {
+          "report_when": null
+        },
+        "channel_ids": [
+          "string"
+        ],
+        "custom_plan": {
+          "plan_id": null
+        },
+        "custom_prices": [
+          {}
+        ]
+      },
+      "recurly_params": {
+        "plan": {
+          "name": null,
+          "id": null,
+          "code": null
+        },
+        "add_on": {
+          "name": null,
+          "currencies": null,
+          "usage_percentage": null,
+          "add_on_type": null,
+          "external_sku": null,
+          "state": null,
+          "tiers": null,
+          "tier_type": null,
+          "code": null,
+          "plan_id": null,
+          "id": null,
+          "percentage_tiers": null,
+          "usage_type": null,
+          "created_at": null,
+          "usage_calculation_type": null,
+          "updated_at": null,
+          "deleted_at": null
+        },
+        "add_ons": [
+          {}
+        ]
+      },
+      "chargebee_params": {
+        "item_plan": {
+          "name": null,
+          "item_family_id": null,
+          "description": null,
+          "usage_calculation": null,
+          "external_name": null,
+          "metered": null,
+          "id": null,
+          "status": null,
+          "unit": null,
+          "updated_at": null,
+          "archived_at": null
+        },
+        "item_price": {
+          "name": null,
+          "item_id": null,
+          "description": null,
+          "price": null,
+          "price_in_decimal": null,
+          "external_name": null,
+          "tiers": null,
+          "trial_end_action": null,
+          "trial_period": null,
+          "id": null,
+          "status": null,
+          "pricing_model": null,
+          "created_at": null,
+          "period_unit": null,
+          "updated_at": null,
+          "trial_period_unit": null,
+          "item_type": null,
+          "currency_code": null,
+          "archived_at": null,
+          "free_quantity": null,
+          "period": null
+        },
+        "item_prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "stripe_params": {
+        "product": {
+          "name": null,
+          "description": null,
+          "unit_label": null,
+          "id": null,
+          "usage_type": null
+        },
+        "price": {
+          "tiers_mode": null,
+          "transform_quantity": null,
+          "price_id": null,
+          "tiers": null,
+          "recurring": null,
+          "unit_amount_decimal": null,
+          "price_nickname": null,
+          "currency": null,
+          "billing_scheme": null,
+          "unit_amount": null,
+          "created": null,
+          "active": null
+        },
+        "prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "zuora_params": {
+        "plan_id": "string",
+        "price_id": "string",
+        "price_ids": [
+          "string"
+        ]
+      },
+      "usage_multiplier": null
+    }
+  },
+  "url_query": "string",
+  "slug": "string",
+  "status": "string",
+  "es_query": {},
+  "zero_balance_behavior": "string"
+}' 
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = {
+  "name": "string",
+  "billing_plan": {
+    "provider_slug": "string",
+    "friendly_name": "string",
+    "params": {
+      "usage_rounding_mode": "string",
+      "webhook_params": {
+        "reporting": {
+          "report_when": null
+        },
+        "channel_ids": [
+          "string"
+        ],
+        "custom_plan": {
+          "plan_id": null
+        },
+        "custom_prices": [
+          {}
+        ]
+      },
+      "recurly_params": {
+        "plan": {
+          "name": null,
+          "id": null,
+          "code": null
+        },
+        "add_on": {
+          "name": null,
+          "currencies": null,
+          "usage_percentage": null,
+          "add_on_type": null,
+          "external_sku": null,
+          "state": null,
+          "tiers": null,
+          "tier_type": null,
+          "code": null,
+          "plan_id": null,
+          "id": null,
+          "percentage_tiers": null,
+          "usage_type": null,
+          "created_at": null,
+          "usage_calculation_type": null,
+          "updated_at": null,
+          "deleted_at": null
+        },
+        "add_ons": [
+          {}
+        ]
+      },
+      "chargebee_params": {
+        "item_plan": {
+          "name": null,
+          "item_family_id": null,
+          "description": null,
+          "usage_calculation": null,
+          "external_name": null,
+          "metered": null,
+          "id": null,
+          "status": null,
+          "unit": null,
+          "updated_at": null,
+          "archived_at": null
+        },
+        "item_price": {
+          "name": null,
+          "item_id": null,
+          "description": null,
+          "price": null,
+          "price_in_decimal": null,
+          "external_name": null,
+          "tiers": null,
+          "trial_end_action": null,
+          "trial_period": null,
+          "id": null,
+          "status": null,
+          "pricing_model": null,
+          "created_at": null,
+          "period_unit": null,
+          "updated_at": null,
+          "trial_period_unit": null,
+          "item_type": null,
+          "currency_code": null,
+          "archived_at": null,
+          "free_quantity": null,
+          "period": null
+        },
+        "item_prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "stripe_params": {
+        "product": {
+          "name": null,
+          "description": null,
+          "unit_label": null,
+          "id": null,
+          "usage_type": null
+        },
+        "price": {
+          "tiers_mode": null,
+          "transform_quantity": null,
+          "price_id": null,
+          "tiers": null,
+          "recurring": null,
+          "unit_amount_decimal": null,
+          "price_nickname": null,
+          "currency": null,
+          "billing_scheme": null,
+          "unit_amount": null,
+          "created": null,
+          "active": null
+        },
+        "prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "zuora_params": {
+        "plan_id": "string",
+        "price_id": "string",
+        "price_ids": [
+          "string"
+        ]
+      },
+      "usage_multiplier": null
+    }
+  },
+  "url_query": "string",
+  "slug": "string",
+  "status": "string",
+  "es_query": {},
+  "zero_balance_behavior": "string"
+};
+const headers = {
+  'Content-Type':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
+};
+
+fetch('https://api.moesif.com/v1/~/billing/meters',
+{
+  method: 'POST',
+  body: JSON.stringify(inputBody),
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+input_body = {
+  "name": "string",
+  "billing_plan": {
+    "provider_slug": "string",
+    "friendly_name": "string",
+    "params": {
+      "usage_rounding_mode": "string",
+      "webhook_params": {
+        "reporting": {
+          "report_when": null
+        },
+        "channel_ids": [
+          "string"
+        ],
+        "custom_plan": {
+          "plan_id": null
+        },
+        "custom_prices": [
+          {}
+        ]
+      },
+      "recurly_params": {
+        "plan": {
+          "name": null,
+          "id": null,
+          "code": null
+        },
+        "add_on": {
+          "name": null,
+          "currencies": null,
+          "usage_percentage": null,
+          "add_on_type": null,
+          "external_sku": null,
+          "state": null,
+          "tiers": null,
+          "tier_type": null,
+          "code": null,
+          "plan_id": null,
+          "id": null,
+          "percentage_tiers": null,
+          "usage_type": null,
+          "created_at": null,
+          "usage_calculation_type": null,
+          "updated_at": null,
+          "deleted_at": null
+        },
+        "add_ons": [
+          {}
+        ]
+      },
+      "chargebee_params": {
+        "item_plan": {
+          "name": null,
+          "item_family_id": null,
+          "description": null,
+          "usage_calculation": null,
+          "external_name": null,
+          "metered": null,
+          "id": null,
+          "status": null,
+          "unit": null,
+          "updated_at": null,
+          "archived_at": null
+        },
+        "item_price": {
+          "name": null,
+          "item_id": null,
+          "description": null,
+          "price": null,
+          "price_in_decimal": null,
+          "external_name": null,
+          "tiers": null,
+          "trial_end_action": null,
+          "trial_period": null,
+          "id": null,
+          "status": null,
+          "pricing_model": null,
+          "created_at": null,
+          "period_unit": null,
+          "updated_at": null,
+          "trial_period_unit": null,
+          "item_type": null,
+          "currency_code": null,
+          "archived_at": null,
+          "free_quantity": null,
+          "period": null
+        },
+        "item_prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "stripe_params": {
+        "product": {
+          "name": null,
+          "description": null,
+          "unit_label": null,
+          "id": null,
+          "usage_type": null
+        },
+        "price": {
+          "tiers_mode": null,
+          "transform_quantity": null,
+          "price_id": null,
+          "tiers": null,
+          "recurring": null,
+          "unit_amount_decimal": null,
+          "price_nickname": null,
+          "currency": null,
+          "billing_scheme": null,
+          "unit_amount": null,
+          "created": null,
+          "active": null
+        },
+        "prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "zuora_params": {
+        "plan_id": "string",
+        "price_id": "string",
+        "price_ids": [
+          "string"
+        ]
+      },
+      "usage_multiplier": null
+    }
+  },
+  "url_query": "string",
+  "slug": "string",
+  "status": "string",
+  "es_query": {},
+  "zero_balance_behavior": "string"
+}
+
+r = requests.post('https://api.moesif.com/v1/~/billing/meters', headers = headers, json = input_data)
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+input_payload = JSON.parse('{
+  "name": "string",
+  "billing_plan": {
+    "provider_slug": "string",
+    "friendly_name": "string",
+    "params": {
+      "usage_rounding_mode": "string",
+      "webhook_params": {
+        "reporting": {
+          "report_when": null
+        },
+        "channel_ids": [
+          "string"
+        ],
+        "custom_plan": {
+          "plan_id": null
+        },
+        "custom_prices": [
+          {}
+        ]
+      },
+      "recurly_params": {
+        "plan": {
+          "name": null,
+          "id": null,
+          "code": null
+        },
+        "add_on": {
+          "name": null,
+          "currencies": null,
+          "usage_percentage": null,
+          "add_on_type": null,
+          "external_sku": null,
+          "state": null,
+          "tiers": null,
+          "tier_type": null,
+          "code": null,
+          "plan_id": null,
+          "id": null,
+          "percentage_tiers": null,
+          "usage_type": null,
+          "created_at": null,
+          "usage_calculation_type": null,
+          "updated_at": null,
+          "deleted_at": null
+        },
+        "add_ons": [
+          {}
+        ]
+      },
+      "chargebee_params": {
+        "item_plan": {
+          "name": null,
+          "item_family_id": null,
+          "description": null,
+          "usage_calculation": null,
+          "external_name": null,
+          "metered": null,
+          "id": null,
+          "status": null,
+          "unit": null,
+          "updated_at": null,
+          "archived_at": null
+        },
+        "item_price": {
+          "name": null,
+          "item_id": null,
+          "description": null,
+          "price": null,
+          "price_in_decimal": null,
+          "external_name": null,
+          "tiers": null,
+          "trial_end_action": null,
+          "trial_period": null,
+          "id": null,
+          "status": null,
+          "pricing_model": null,
+          "created_at": null,
+          "period_unit": null,
+          "updated_at": null,
+          "trial_period_unit": null,
+          "item_type": null,
+          "currency_code": null,
+          "archived_at": null,
+          "free_quantity": null,
+          "period": null
+        },
+        "item_prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "stripe_params": {
+        "product": {
+          "name": null,
+          "description": null,
+          "unit_label": null,
+          "id": null,
+          "usage_type": null
+        },
+        "price": {
+          "tiers_mode": null,
+          "transform_quantity": null,
+          "price_id": null,
+          "tiers": null,
+          "recurring": null,
+          "unit_amount_decimal": null,
+          "price_nickname": null,
+          "currency": null,
+          "billing_scheme": null,
+          "unit_amount": null,
+          "created": null,
+          "active": null
+        },
+        "prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "zuora_params": {
+        "plan_id": "string",
+        "price_id": "string",
+        "price_ids": [
+          "string"
+        ]
+      },
+      "usage_multiplier": null
+    }
+  },
+  "url_query": "string",
+  "slug": "string",
+  "status": "string",
+  "es_query": {},
+  "zero_balance_behavior": "string"
+}')
+
+result = RestClient.post 'https://api.moesif.com/v1/~/billing/meters',
+  params: {
+  }, 
+  payload: input_payload.to_json, 
+  headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/json',
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
+);
+
+$inputPayload = json_decode('{
+  "name": "string",
+  "billing_plan": {
+    "provider_slug": "string",
+    "friendly_name": "string",
+    "params": {
+      "usage_rounding_mode": "string",
+      "webhook_params": {
+        "reporting": {
+          "report_when": null
+        },
+        "channel_ids": [
+          "string"
+        ],
+        "custom_plan": {
+          "plan_id": null
+        },
+        "custom_prices": [
+          {}
+        ]
+      },
+      "recurly_params": {
+        "plan": {
+          "name": null,
+          "id": null,
+          "code": null
+        },
+        "add_on": {
+          "name": null,
+          "currencies": null,
+          "usage_percentage": null,
+          "add_on_type": null,
+          "external_sku": null,
+          "state": null,
+          "tiers": null,
+          "tier_type": null,
+          "code": null,
+          "plan_id": null,
+          "id": null,
+          "percentage_tiers": null,
+          "usage_type": null,
+          "created_at": null,
+          "usage_calculation_type": null,
+          "updated_at": null,
+          "deleted_at": null
+        },
+        "add_ons": [
+          {}
+        ]
+      },
+      "chargebee_params": {
+        "item_plan": {
+          "name": null,
+          "item_family_id": null,
+          "description": null,
+          "usage_calculation": null,
+          "external_name": null,
+          "metered": null,
+          "id": null,
+          "status": null,
+          "unit": null,
+          "updated_at": null,
+          "archived_at": null
+        },
+        "item_price": {
+          "name": null,
+          "item_id": null,
+          "description": null,
+          "price": null,
+          "price_in_decimal": null,
+          "external_name": null,
+          "tiers": null,
+          "trial_end_action": null,
+          "trial_period": null,
+          "id": null,
+          "status": null,
+          "pricing_model": null,
+          "created_at": null,
+          "period_unit": null,
+          "updated_at": null,
+          "trial_period_unit": null,
+          "item_type": null,
+          "currency_code": null,
+          "archived_at": null,
+          "free_quantity": null,
+          "period": null
+        },
+        "item_prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "stripe_params": {
+        "product": {
+          "name": null,
+          "description": null,
+          "unit_label": null,
+          "id": null,
+          "usage_type": null
+        },
+        "price": {
+          "tiers_mode": null,
+          "transform_quantity": null,
+          "price_id": null,
+          "tiers": null,
+          "recurring": null,
+          "unit_amount_decimal": null,
+          "price_nickname": null,
+          "currency": null,
+          "billing_scheme": null,
+          "unit_amount": null,
+          "created": null,
+          "active": null
+        },
+        "prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "zuora_params": {
+        "plan_id": "string",
+        "price_id": "string",
+        "price_ids": [
+          "string"
+        ]
+      },
+      "usage_multiplier": null
+    }
+  },
+  "url_query": "string",
+  "slug": "string",
+  "status": "string",
+  "es_query": {},
+  "zero_balance_behavior": "string"
+}')
+
+$client = new \GuzzleHttp\Client();
+
+try {
+    $response = $client->request('POST','https://api.moesif.com/v1/~/billing/meters', array(
+        'headers' => $headers,
+        'json' => $inputPayload,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
+    }
+    jsonPayload := `{
+  "name": "string",
+  "billing_plan": {
+    "provider_slug": "string",
+    "friendly_name": "string",
+    "params": {
+      "usage_rounding_mode": "string",
+      "webhook_params": {
+        "reporting": {
+          "report_when": null
+        },
+        "channel_ids": [
+          "string"
+        ],
+        "custom_plan": {
+          "plan_id": null
+        },
+        "custom_prices": [
+          {}
+        ]
+      },
+      "recurly_params": {
+        "plan": {
+          "name": null,
+          "id": null,
+          "code": null
+        },
+        "add_on": {
+          "name": null,
+          "currencies": null,
+          "usage_percentage": null,
+          "add_on_type": null,
+          "external_sku": null,
+          "state": null,
+          "tiers": null,
+          "tier_type": null,
+          "code": null,
+          "plan_id": null,
+          "id": null,
+          "percentage_tiers": null,
+          "usage_type": null,
+          "created_at": null,
+          "usage_calculation_type": null,
+          "updated_at": null,
+          "deleted_at": null
+        },
+        "add_ons": [
+          {}
+        ]
+      },
+      "chargebee_params": {
+        "item_plan": {
+          "name": null,
+          "item_family_id": null,
+          "description": null,
+          "usage_calculation": null,
+          "external_name": null,
+          "metered": null,
+          "id": null,
+          "status": null,
+          "unit": null,
+          "updated_at": null,
+          "archived_at": null
+        },
+        "item_price": {
+          "name": null,
+          "item_id": null,
+          "description": null,
+          "price": null,
+          "price_in_decimal": null,
+          "external_name": null,
+          "tiers": null,
+          "trial_end_action": null,
+          "trial_period": null,
+          "id": null,
+          "status": null,
+          "pricing_model": null,
+          "created_at": null,
+          "period_unit": null,
+          "updated_at": null,
+          "trial_period_unit": null,
+          "item_type": null,
+          "currency_code": null,
+          "archived_at": null,
+          "free_quantity": null,
+          "period": null
+        },
+        "item_prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "stripe_params": {
+        "product": {
+          "name": null,
+          "description": null,
+          "unit_label": null,
+          "id": null,
+          "usage_type": null
+        },
+        "price": {
+          "tiers_mode": null,
+          "transform_quantity": null,
+          "price_id": null,
+          "tiers": null,
+          "recurring": null,
+          "unit_amount_decimal": null,
+          "price_nickname": null,
+          "currency": null,
+          "billing_scheme": null,
+          "unit_amount": null,
+          "created": null,
+          "active": null
+        },
+        "prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "zuora_params": {
+        "plan_id": "string",
+        "price_id": "string",
+        "price_ids": [
+          "string"
+        ]
+      },
+      "usage_multiplier": null
+    }
+  },
+  "url_query": "string",
+  "slug": "string",
+  "status": "string",
+  "es_query": {},
+  "zero_balance_behavior": "string"
+}`
+    data := bytes.NewBuffer([]byte(jsonPayload))
+    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/~/billing/meters", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    
+    /// Make a dummy request
+    public async Task MakePostRequest()
+    {
+      string url = "https://api.moesif.com/v1/~/billing/meters";
+      
+      string json = @"{
+  ""name"": ""string"",
+  ""billing_plan"": {
+    ""provider_slug"": ""string"",
+    ""friendly_name"": ""string"",
+    ""params"": {
+      ""usage_rounding_mode"": ""string"",
+      ""webhook_params"": {
+        ""reporting"": {
+          ""report_when"": null
+        },
+        ""channel_ids"": [
+          ""string""
+        ],
+        ""custom_plan"": {
+          ""plan_id"": null
+        },
+        ""custom_prices"": [
+          {}
+        ]
+      },
+      ""recurly_params"": {
+        ""plan"": {
+          ""name"": null,
+          ""id"": null,
+          ""code"": null
+        },
+        ""add_on"": {
+          ""name"": null,
+          ""currencies"": null,
+          ""usage_percentage"": null,
+          ""add_on_type"": null,
+          ""external_sku"": null,
+          ""state"": null,
+          ""tiers"": null,
+          ""tier_type"": null,
+          ""code"": null,
+          ""plan_id"": null,
+          ""id"": null,
+          ""percentage_tiers"": null,
+          ""usage_type"": null,
+          ""created_at"": null,
+          ""usage_calculation_type"": null,
+          ""updated_at"": null,
+          ""deleted_at"": null
+        },
+        ""add_ons"": [
+          {}
+        ]
+      },
+      ""chargebee_params"": {
+        ""item_plan"": {
+          ""name"": null,
+          ""item_family_id"": null,
+          ""description"": null,
+          ""usage_calculation"": null,
+          ""external_name"": null,
+          ""metered"": null,
+          ""id"": null,
+          ""status"": null,
+          ""unit"": null,
+          ""updated_at"": null,
+          ""archived_at"": null
+        },
+        ""item_price"": {
+          ""name"": null,
+          ""item_id"": null,
+          ""description"": null,
+          ""price"": null,
+          ""price_in_decimal"": null,
+          ""external_name"": null,
+          ""tiers"": null,
+          ""trial_end_action"": null,
+          ""trial_period"": null,
+          ""id"": null,
+          ""status"": null,
+          ""pricing_model"": null,
+          ""created_at"": null,
+          ""period_unit"": null,
+          ""updated_at"": null,
+          ""trial_period_unit"": null,
+          ""item_type"": null,
+          ""currency_code"": null,
+          ""archived_at"": null,
+          ""free_quantity"": null,
+          ""period"": null
+        },
+        ""item_prices"": [
+          {}
+        ],
+        ""reporting"": {
+          ""reporting_period"": null
+        }
+      },
+      ""stripe_params"": {
+        ""product"": {
+          ""name"": null,
+          ""description"": null,
+          ""unit_label"": null,
+          ""id"": null,
+          ""usage_type"": null
+        },
+        ""price"": {
+          ""tiers_mode"": null,
+          ""transform_quantity"": null,
+          ""price_id"": null,
+          ""tiers"": null,
+          ""recurring"": null,
+          ""unit_amount_decimal"": null,
+          ""price_nickname"": null,
+          ""currency"": null,
+          ""billing_scheme"": null,
+          ""unit_amount"": null,
+          ""created"": null,
+          ""active"": null
+        },
+        ""prices"": [
+          {}
+        ],
+        ""reporting"": {
+          ""reporting_period"": null
+        }
+      },
+      ""zuora_params"": {
+        ""plan_id"": ""string"",
+        ""price_id"": ""string"",
+        ""price_ids"": [
+          ""string""
+        ]
+      },
+      ""usage_multiplier"": null
+    }
+  },
+  ""url_query"": ""string"",
+  ""slug"": ""string"",
+  ""status"": ""string"",
+  ""es_query"": {},
+  ""zero_balance_behavior"": ""string""
+}";
+      var content = JsonConvert.DeserializeObject(json);
+      await PostAsync(content, url);
+      
+      
+    }
+
+    /// Performs a POST Request
+    public async Task PostAsync(BillingMeterCreateItem content, string url)
+    {
+        //Serialize Object
+        StringContent jsonContent = SerializeObject(content);
+
+        //Execute POST request
+        HttpResponseMessage response = await Client.PostAsync(url, jsonContent);
+    }
+    
+    
+    
+    /// Serialize an object to Json
+    private StringContent SerializeObject(BillingMeterCreateItem content)
+    {
+        //Serialize Object
+        string jsonObject = JsonConvert.SerializeObject(content);
+
+        //Create Json UTF8 String Content
+        return new StringContent(jsonObject, Encoding.UTF8, "application/json");
+    }
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/~/billing/meters");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+
+con.setRequestProperty("Content-Type",'application/json');
+con.setRequestProperty("Authorization",'Bearer YOUR_MANAGEMENT_API_KEY');
+
+// Enable sending a request body
+con.setDoOutput(true);
+
+String jsonPayload = """{
+  "name": "string",
+  "billing_plan": {
+    "provider_slug": "string",
+    "friendly_name": "string",
+    "params": {
+      "usage_rounding_mode": "string",
+      "webhook_params": {
+        "reporting": {
+          "report_when": null
+        },
+        "channel_ids": [
+          "string"
+        ],
+        "custom_plan": {
+          "plan_id": null
+        },
+        "custom_prices": [
+          {}
+        ]
+      },
+      "recurly_params": {
+        "plan": {
+          "name": null,
+          "id": null,
+          "code": null
+        },
+        "add_on": {
+          "name": null,
+          "currencies": null,
+          "usage_percentage": null,
+          "add_on_type": null,
+          "external_sku": null,
+          "state": null,
+          "tiers": null,
+          "tier_type": null,
+          "code": null,
+          "plan_id": null,
+          "id": null,
+          "percentage_tiers": null,
+          "usage_type": null,
+          "created_at": null,
+          "usage_calculation_type": null,
+          "updated_at": null,
+          "deleted_at": null
+        },
+        "add_ons": [
+          {}
+        ]
+      },
+      "chargebee_params": {
+        "item_plan": {
+          "name": null,
+          "item_family_id": null,
+          "description": null,
+          "usage_calculation": null,
+          "external_name": null,
+          "metered": null,
+          "id": null,
+          "status": null,
+          "unit": null,
+          "updated_at": null,
+          "archived_at": null
+        },
+        "item_price": {
+          "name": null,
+          "item_id": null,
+          "description": null,
+          "price": null,
+          "price_in_decimal": null,
+          "external_name": null,
+          "tiers": null,
+          "trial_end_action": null,
+          "trial_period": null,
+          "id": null,
+          "status": null,
+          "pricing_model": null,
+          "created_at": null,
+          "period_unit": null,
+          "updated_at": null,
+          "trial_period_unit": null,
+          "item_type": null,
+          "currency_code": null,
+          "archived_at": null,
+          "free_quantity": null,
+          "period": null
+        },
+        "item_prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "stripe_params": {
+        "product": {
+          "name": null,
+          "description": null,
+          "unit_label": null,
+          "id": null,
+          "usage_type": null
+        },
+        "price": {
+          "tiers_mode": null,
+          "transform_quantity": null,
+          "price_id": null,
+          "tiers": null,
+          "recurring": null,
+          "unit_amount_decimal": null,
+          "price_nickname": null,
+          "currency": null,
+          "billing_scheme": null,
+          "unit_amount": null,
+          "created": null,
+          "active": null
+        },
+        "prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "zuora_params": {
+        "plan_id": "string",
+        "price_id": "string",
+        "price_ids": [
+          "string"
+        ]
+      },
+      "usage_multiplier": null
+    }
+  },
+  "url_query": "string",
+  "slug": "string",
+  "status": "string",
+  "es_query": {},
+  "zero_balance_behavior": "string"
+}""";
+
+// Write payload to the request
+try(OutputStream os = con.getOutputStream()) {
+    byte[] input = jsonPayload.getBytes("utf-8");
+    os.write(input, 0, input.length);           
+}
+
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`POST /~/billing/meters`
+
+*Create new Billing Meter*
+
+Create new Billing Meter
+
+> `POST https://api.moesif.com/v1/~/billing/meters`
+
+> Example Request
+
+```json
+{
+  "name": "string",
+  "billing_plan": {
+    "provider_slug": "string",
+    "friendly_name": "string",
+    "params": {
+      "usage_rounding_mode": "string",
+      "webhook_params": {
+        "reporting": {
+          "report_when": null
+        },
+        "channel_ids": [
+          "string"
+        ],
+        "custom_plan": {
+          "plan_id": null
+        },
+        "custom_prices": [
+          {}
+        ]
+      },
+      "recurly_params": {
+        "plan": {
+          "name": null,
+          "id": null,
+          "code": null
+        },
+        "add_on": {
+          "name": null,
+          "currencies": null,
+          "usage_percentage": null,
+          "add_on_type": null,
+          "external_sku": null,
+          "state": null,
+          "tiers": null,
+          "tier_type": null,
+          "code": null,
+          "plan_id": null,
+          "id": null,
+          "percentage_tiers": null,
+          "usage_type": null,
+          "created_at": null,
+          "usage_calculation_type": null,
+          "updated_at": null,
+          "deleted_at": null
+        },
+        "add_ons": [
+          {}
+        ]
+      },
+      "chargebee_params": {
+        "item_plan": {
+          "name": null,
+          "item_family_id": null,
+          "description": null,
+          "usage_calculation": null,
+          "external_name": null,
+          "metered": null,
+          "id": null,
+          "status": null,
+          "unit": null,
+          "updated_at": null,
+          "archived_at": null
+        },
+        "item_price": {
+          "name": null,
+          "item_id": null,
+          "description": null,
+          "price": null,
+          "price_in_decimal": null,
+          "external_name": null,
+          "tiers": null,
+          "trial_end_action": null,
+          "trial_period": null,
+          "id": null,
+          "status": null,
+          "pricing_model": null,
+          "created_at": null,
+          "period_unit": null,
+          "updated_at": null,
+          "trial_period_unit": null,
+          "item_type": null,
+          "currency_code": null,
+          "archived_at": null,
+          "free_quantity": null,
+          "period": null
+        },
+        "item_prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "stripe_params": {
+        "product": {
+          "name": null,
+          "description": null,
+          "unit_label": null,
+          "id": null,
+          "usage_type": null
+        },
+        "price": {
+          "tiers_mode": null,
+          "transform_quantity": null,
+          "price_id": null,
+          "tiers": null,
+          "recurring": null,
+          "unit_amount_decimal": null,
+          "price_nickname": null,
+          "currency": null,
+          "billing_scheme": null,
+          "unit_amount": null,
+          "created": null,
+          "active": null
+        },
+        "prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "zuora_params": {
+        "plan_id": "string",
+        "price_id": "string",
+        "price_ids": [
+          "string"
+        ]
+      },
+      "usage_multiplier": null
+    }
+  },
+  "url_query": "string",
+  "slug": "string",
+  "status": "string",
+  "es_query": {},
+  "zero_balance_behavior": "string"
+}
+```
+
+<h3 id="createmeter-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[BillingMeterCreateItem](#schemabillingmetercreateitem)|true|none|
+
+<h3 id="createmeter-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|None|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: create:billing_meters )
+</aside>
+
 ## listMeters
 
 <a id="opIdlistMeters"></a>
@@ -18202,7 +22651,10 @@ List Billing Meters
           "channel_ids": [
             null
           ],
-          "custom_plan": {}
+          "custom_plan": {},
+          "custom_prices": [
+            null
+          ]
         },
         "recurly_params": {
           "plan": {},
@@ -18241,9 +22693,9 @@ List Billing Meters
     "_id": "string",
     "slug": "string",
     "status": "string",
-    "modified_at": "2025-01-09T17:18:58.560Z",
+    "modified_at": "2025-03-18T20:21:32.116Z",
     "es_query": "string",
-    "created_at": "2025-01-09T17:18:58.560Z",
+    "created_at": "2025-03-18T20:21:32.116Z",
     "app_id": "string",
     "zero_balance_behavior": "string",
     "org_id": "string"
@@ -18276,6 +22728,13 @@ Status Code **200**
 |»»»» channel_ids|[string]|true|none|none|
 |»»»» custom_plan|object|true|none|none|
 |»»»»» plan_id|string|true|none|none|
+|»»»» custom_prices|[[CustomBillingPrice](#schemacustombillingprice)]|false|none|none|
+|»»»»» price_id|string|true|none|none|
+|»»»»» currency|string|false|none|none|
+|»»»»» transform_quantity|object|false|none|none|
+|»»»»»» divide_by|integer(int32)|true|none|none|
+|»»»»»» round|string|true|none|none|
+|»»»»» price_in_decimal|number(double)|false|none|none|
 |»»» recurly_params|object|false|none|none|
 |»»»» plan|object|false|none|none|
 |»»»»» name|string|false|none|none|
@@ -18405,6 +22864,1494 @@ Status Code **200**
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 managementAPIToken ( Scopes: read:billing_meters )
+</aside>
+
+## updateMeter
+
+<a id="opIdupdateMeter"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://api.moesif.com/v1/~/billing/meters/{meterId} \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
+
+  -d '{
+  "name": "string",
+  "billing_plan": {
+    "params": {
+      "usage_rounding_mode": "string",
+      "webhook_params": {
+        "reporting": {
+          "report_when": null
+        },
+        "channel_ids": [
+          "string"
+        ],
+        "custom_plan": {
+          "plan_id": null
+        },
+        "custom_prices": [
+          {}
+        ]
+      },
+      "recurly_params": {
+        "plan": {
+          "name": null,
+          "id": null,
+          "code": null
+        },
+        "add_on": {
+          "name": null,
+          "currencies": null,
+          "usage_percentage": null,
+          "add_on_type": null,
+          "external_sku": null,
+          "state": null,
+          "tiers": null,
+          "tier_type": null,
+          "code": null,
+          "plan_id": null,
+          "id": null,
+          "percentage_tiers": null,
+          "usage_type": null,
+          "created_at": null,
+          "usage_calculation_type": null,
+          "updated_at": null,
+          "deleted_at": null
+        },
+        "add_ons": [
+          {}
+        ]
+      },
+      "chargebee_params": {
+        "item_plan": {
+          "name": null,
+          "item_family_id": null,
+          "description": null,
+          "usage_calculation": null,
+          "external_name": null,
+          "metered": null,
+          "id": null,
+          "status": null,
+          "unit": null,
+          "updated_at": null,
+          "archived_at": null
+        },
+        "item_price": {
+          "name": null,
+          "item_id": null,
+          "description": null,
+          "price": null,
+          "price_in_decimal": null,
+          "external_name": null,
+          "tiers": null,
+          "trial_end_action": null,
+          "trial_period": null,
+          "id": null,
+          "status": null,
+          "pricing_model": null,
+          "created_at": null,
+          "period_unit": null,
+          "updated_at": null,
+          "trial_period_unit": null,
+          "item_type": null,
+          "currency_code": null,
+          "archived_at": null,
+          "free_quantity": null,
+          "period": null
+        },
+        "item_prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "stripe_params": {
+        "product": {
+          "name": null,
+          "description": null,
+          "unit_label": null,
+          "id": null,
+          "usage_type": null
+        },
+        "price": {
+          "tiers_mode": null,
+          "transform_quantity": null,
+          "price_id": null,
+          "tiers": null,
+          "recurring": null,
+          "unit_amount_decimal": null,
+          "price_nickname": null,
+          "currency": null,
+          "billing_scheme": null,
+          "unit_amount": null,
+          "created": null,
+          "active": null
+        },
+        "prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "zuora_params": {
+        "plan_id": "string",
+        "price_id": "string",
+        "price_ids": [
+          "string"
+        ]
+      },
+      "usage_multiplier": null
+    }
+  },
+  "url_query": "string",
+  "_id": "string",
+  "status": "string",
+  "es_query": {},
+  "zero_balance_behavior": "string"
+}' 
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = {
+  "name": "string",
+  "billing_plan": {
+    "params": {
+      "usage_rounding_mode": "string",
+      "webhook_params": {
+        "reporting": {
+          "report_when": null
+        },
+        "channel_ids": [
+          "string"
+        ],
+        "custom_plan": {
+          "plan_id": null
+        },
+        "custom_prices": [
+          {}
+        ]
+      },
+      "recurly_params": {
+        "plan": {
+          "name": null,
+          "id": null,
+          "code": null
+        },
+        "add_on": {
+          "name": null,
+          "currencies": null,
+          "usage_percentage": null,
+          "add_on_type": null,
+          "external_sku": null,
+          "state": null,
+          "tiers": null,
+          "tier_type": null,
+          "code": null,
+          "plan_id": null,
+          "id": null,
+          "percentage_tiers": null,
+          "usage_type": null,
+          "created_at": null,
+          "usage_calculation_type": null,
+          "updated_at": null,
+          "deleted_at": null
+        },
+        "add_ons": [
+          {}
+        ]
+      },
+      "chargebee_params": {
+        "item_plan": {
+          "name": null,
+          "item_family_id": null,
+          "description": null,
+          "usage_calculation": null,
+          "external_name": null,
+          "metered": null,
+          "id": null,
+          "status": null,
+          "unit": null,
+          "updated_at": null,
+          "archived_at": null
+        },
+        "item_price": {
+          "name": null,
+          "item_id": null,
+          "description": null,
+          "price": null,
+          "price_in_decimal": null,
+          "external_name": null,
+          "tiers": null,
+          "trial_end_action": null,
+          "trial_period": null,
+          "id": null,
+          "status": null,
+          "pricing_model": null,
+          "created_at": null,
+          "period_unit": null,
+          "updated_at": null,
+          "trial_period_unit": null,
+          "item_type": null,
+          "currency_code": null,
+          "archived_at": null,
+          "free_quantity": null,
+          "period": null
+        },
+        "item_prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "stripe_params": {
+        "product": {
+          "name": null,
+          "description": null,
+          "unit_label": null,
+          "id": null,
+          "usage_type": null
+        },
+        "price": {
+          "tiers_mode": null,
+          "transform_quantity": null,
+          "price_id": null,
+          "tiers": null,
+          "recurring": null,
+          "unit_amount_decimal": null,
+          "price_nickname": null,
+          "currency": null,
+          "billing_scheme": null,
+          "unit_amount": null,
+          "created": null,
+          "active": null
+        },
+        "prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "zuora_params": {
+        "plan_id": "string",
+        "price_id": "string",
+        "price_ids": [
+          "string"
+        ]
+      },
+      "usage_multiplier": null
+    }
+  },
+  "url_query": "string",
+  "_id": "string",
+  "status": "string",
+  "es_query": {},
+  "zero_balance_behavior": "string"
+};
+const headers = {
+  'Content-Type':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
+};
+
+fetch('https://api.moesif.com/v1/~/billing/meters/{meterId}',
+{
+  method: 'POST',
+  body: JSON.stringify(inputBody),
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+input_body = {
+  "name": "string",
+  "billing_plan": {
+    "params": {
+      "usage_rounding_mode": "string",
+      "webhook_params": {
+        "reporting": {
+          "report_when": null
+        },
+        "channel_ids": [
+          "string"
+        ],
+        "custom_plan": {
+          "plan_id": null
+        },
+        "custom_prices": [
+          {}
+        ]
+      },
+      "recurly_params": {
+        "plan": {
+          "name": null,
+          "id": null,
+          "code": null
+        },
+        "add_on": {
+          "name": null,
+          "currencies": null,
+          "usage_percentage": null,
+          "add_on_type": null,
+          "external_sku": null,
+          "state": null,
+          "tiers": null,
+          "tier_type": null,
+          "code": null,
+          "plan_id": null,
+          "id": null,
+          "percentage_tiers": null,
+          "usage_type": null,
+          "created_at": null,
+          "usage_calculation_type": null,
+          "updated_at": null,
+          "deleted_at": null
+        },
+        "add_ons": [
+          {}
+        ]
+      },
+      "chargebee_params": {
+        "item_plan": {
+          "name": null,
+          "item_family_id": null,
+          "description": null,
+          "usage_calculation": null,
+          "external_name": null,
+          "metered": null,
+          "id": null,
+          "status": null,
+          "unit": null,
+          "updated_at": null,
+          "archived_at": null
+        },
+        "item_price": {
+          "name": null,
+          "item_id": null,
+          "description": null,
+          "price": null,
+          "price_in_decimal": null,
+          "external_name": null,
+          "tiers": null,
+          "trial_end_action": null,
+          "trial_period": null,
+          "id": null,
+          "status": null,
+          "pricing_model": null,
+          "created_at": null,
+          "period_unit": null,
+          "updated_at": null,
+          "trial_period_unit": null,
+          "item_type": null,
+          "currency_code": null,
+          "archived_at": null,
+          "free_quantity": null,
+          "period": null
+        },
+        "item_prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "stripe_params": {
+        "product": {
+          "name": null,
+          "description": null,
+          "unit_label": null,
+          "id": null,
+          "usage_type": null
+        },
+        "price": {
+          "tiers_mode": null,
+          "transform_quantity": null,
+          "price_id": null,
+          "tiers": null,
+          "recurring": null,
+          "unit_amount_decimal": null,
+          "price_nickname": null,
+          "currency": null,
+          "billing_scheme": null,
+          "unit_amount": null,
+          "created": null,
+          "active": null
+        },
+        "prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "zuora_params": {
+        "plan_id": "string",
+        "price_id": "string",
+        "price_ids": [
+          "string"
+        ]
+      },
+      "usage_multiplier": null
+    }
+  },
+  "url_query": "string",
+  "_id": "string",
+  "status": "string",
+  "es_query": {},
+  "zero_balance_behavior": "string"
+}
+
+r = requests.post('https://api.moesif.com/v1/~/billing/meters/{meterId}', headers = headers, json = input_data)
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+input_payload = JSON.parse('{
+  "name": "string",
+  "billing_plan": {
+    "params": {
+      "usage_rounding_mode": "string",
+      "webhook_params": {
+        "reporting": {
+          "report_when": null
+        },
+        "channel_ids": [
+          "string"
+        ],
+        "custom_plan": {
+          "plan_id": null
+        },
+        "custom_prices": [
+          {}
+        ]
+      },
+      "recurly_params": {
+        "plan": {
+          "name": null,
+          "id": null,
+          "code": null
+        },
+        "add_on": {
+          "name": null,
+          "currencies": null,
+          "usage_percentage": null,
+          "add_on_type": null,
+          "external_sku": null,
+          "state": null,
+          "tiers": null,
+          "tier_type": null,
+          "code": null,
+          "plan_id": null,
+          "id": null,
+          "percentage_tiers": null,
+          "usage_type": null,
+          "created_at": null,
+          "usage_calculation_type": null,
+          "updated_at": null,
+          "deleted_at": null
+        },
+        "add_ons": [
+          {}
+        ]
+      },
+      "chargebee_params": {
+        "item_plan": {
+          "name": null,
+          "item_family_id": null,
+          "description": null,
+          "usage_calculation": null,
+          "external_name": null,
+          "metered": null,
+          "id": null,
+          "status": null,
+          "unit": null,
+          "updated_at": null,
+          "archived_at": null
+        },
+        "item_price": {
+          "name": null,
+          "item_id": null,
+          "description": null,
+          "price": null,
+          "price_in_decimal": null,
+          "external_name": null,
+          "tiers": null,
+          "trial_end_action": null,
+          "trial_period": null,
+          "id": null,
+          "status": null,
+          "pricing_model": null,
+          "created_at": null,
+          "period_unit": null,
+          "updated_at": null,
+          "trial_period_unit": null,
+          "item_type": null,
+          "currency_code": null,
+          "archived_at": null,
+          "free_quantity": null,
+          "period": null
+        },
+        "item_prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "stripe_params": {
+        "product": {
+          "name": null,
+          "description": null,
+          "unit_label": null,
+          "id": null,
+          "usage_type": null
+        },
+        "price": {
+          "tiers_mode": null,
+          "transform_quantity": null,
+          "price_id": null,
+          "tiers": null,
+          "recurring": null,
+          "unit_amount_decimal": null,
+          "price_nickname": null,
+          "currency": null,
+          "billing_scheme": null,
+          "unit_amount": null,
+          "created": null,
+          "active": null
+        },
+        "prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "zuora_params": {
+        "plan_id": "string",
+        "price_id": "string",
+        "price_ids": [
+          "string"
+        ]
+      },
+      "usage_multiplier": null
+    }
+  },
+  "url_query": "string",
+  "_id": "string",
+  "status": "string",
+  "es_query": {},
+  "zero_balance_behavior": "string"
+}')
+
+result = RestClient.post 'https://api.moesif.com/v1/~/billing/meters/{meterId}',
+  params: {
+  }, 
+  payload: input_payload.to_json, 
+  headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/json',
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
+);
+
+$inputPayload = json_decode('{
+  "name": "string",
+  "billing_plan": {
+    "params": {
+      "usage_rounding_mode": "string",
+      "webhook_params": {
+        "reporting": {
+          "report_when": null
+        },
+        "channel_ids": [
+          "string"
+        ],
+        "custom_plan": {
+          "plan_id": null
+        },
+        "custom_prices": [
+          {}
+        ]
+      },
+      "recurly_params": {
+        "plan": {
+          "name": null,
+          "id": null,
+          "code": null
+        },
+        "add_on": {
+          "name": null,
+          "currencies": null,
+          "usage_percentage": null,
+          "add_on_type": null,
+          "external_sku": null,
+          "state": null,
+          "tiers": null,
+          "tier_type": null,
+          "code": null,
+          "plan_id": null,
+          "id": null,
+          "percentage_tiers": null,
+          "usage_type": null,
+          "created_at": null,
+          "usage_calculation_type": null,
+          "updated_at": null,
+          "deleted_at": null
+        },
+        "add_ons": [
+          {}
+        ]
+      },
+      "chargebee_params": {
+        "item_plan": {
+          "name": null,
+          "item_family_id": null,
+          "description": null,
+          "usage_calculation": null,
+          "external_name": null,
+          "metered": null,
+          "id": null,
+          "status": null,
+          "unit": null,
+          "updated_at": null,
+          "archived_at": null
+        },
+        "item_price": {
+          "name": null,
+          "item_id": null,
+          "description": null,
+          "price": null,
+          "price_in_decimal": null,
+          "external_name": null,
+          "tiers": null,
+          "trial_end_action": null,
+          "trial_period": null,
+          "id": null,
+          "status": null,
+          "pricing_model": null,
+          "created_at": null,
+          "period_unit": null,
+          "updated_at": null,
+          "trial_period_unit": null,
+          "item_type": null,
+          "currency_code": null,
+          "archived_at": null,
+          "free_quantity": null,
+          "period": null
+        },
+        "item_prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "stripe_params": {
+        "product": {
+          "name": null,
+          "description": null,
+          "unit_label": null,
+          "id": null,
+          "usage_type": null
+        },
+        "price": {
+          "tiers_mode": null,
+          "transform_quantity": null,
+          "price_id": null,
+          "tiers": null,
+          "recurring": null,
+          "unit_amount_decimal": null,
+          "price_nickname": null,
+          "currency": null,
+          "billing_scheme": null,
+          "unit_amount": null,
+          "created": null,
+          "active": null
+        },
+        "prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "zuora_params": {
+        "plan_id": "string",
+        "price_id": "string",
+        "price_ids": [
+          "string"
+        ]
+      },
+      "usage_multiplier": null
+    }
+  },
+  "url_query": "string",
+  "_id": "string",
+  "status": "string",
+  "es_query": {},
+  "zero_balance_behavior": "string"
+}')
+
+$client = new \GuzzleHttp\Client();
+
+try {
+    $response = $client->request('POST','https://api.moesif.com/v1/~/billing/meters/{meterId}', array(
+        'headers' => $headers,
+        'json' => $inputPayload,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
+    }
+    jsonPayload := `{
+  "name": "string",
+  "billing_plan": {
+    "params": {
+      "usage_rounding_mode": "string",
+      "webhook_params": {
+        "reporting": {
+          "report_when": null
+        },
+        "channel_ids": [
+          "string"
+        ],
+        "custom_plan": {
+          "plan_id": null
+        },
+        "custom_prices": [
+          {}
+        ]
+      },
+      "recurly_params": {
+        "plan": {
+          "name": null,
+          "id": null,
+          "code": null
+        },
+        "add_on": {
+          "name": null,
+          "currencies": null,
+          "usage_percentage": null,
+          "add_on_type": null,
+          "external_sku": null,
+          "state": null,
+          "tiers": null,
+          "tier_type": null,
+          "code": null,
+          "plan_id": null,
+          "id": null,
+          "percentage_tiers": null,
+          "usage_type": null,
+          "created_at": null,
+          "usage_calculation_type": null,
+          "updated_at": null,
+          "deleted_at": null
+        },
+        "add_ons": [
+          {}
+        ]
+      },
+      "chargebee_params": {
+        "item_plan": {
+          "name": null,
+          "item_family_id": null,
+          "description": null,
+          "usage_calculation": null,
+          "external_name": null,
+          "metered": null,
+          "id": null,
+          "status": null,
+          "unit": null,
+          "updated_at": null,
+          "archived_at": null
+        },
+        "item_price": {
+          "name": null,
+          "item_id": null,
+          "description": null,
+          "price": null,
+          "price_in_decimal": null,
+          "external_name": null,
+          "tiers": null,
+          "trial_end_action": null,
+          "trial_period": null,
+          "id": null,
+          "status": null,
+          "pricing_model": null,
+          "created_at": null,
+          "period_unit": null,
+          "updated_at": null,
+          "trial_period_unit": null,
+          "item_type": null,
+          "currency_code": null,
+          "archived_at": null,
+          "free_quantity": null,
+          "period": null
+        },
+        "item_prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "stripe_params": {
+        "product": {
+          "name": null,
+          "description": null,
+          "unit_label": null,
+          "id": null,
+          "usage_type": null
+        },
+        "price": {
+          "tiers_mode": null,
+          "transform_quantity": null,
+          "price_id": null,
+          "tiers": null,
+          "recurring": null,
+          "unit_amount_decimal": null,
+          "price_nickname": null,
+          "currency": null,
+          "billing_scheme": null,
+          "unit_amount": null,
+          "created": null,
+          "active": null
+        },
+        "prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "zuora_params": {
+        "plan_id": "string",
+        "price_id": "string",
+        "price_ids": [
+          "string"
+        ]
+      },
+      "usage_multiplier": null
+    }
+  },
+  "url_query": "string",
+  "_id": "string",
+  "status": "string",
+  "es_query": {},
+  "zero_balance_behavior": "string"
+}`
+    data := bytes.NewBuffer([]byte(jsonPayload))
+    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/~/billing/meters/{meterId}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    
+    /// Make a dummy request
+    public async Task MakePostRequest()
+    {
+      string url = "https://api.moesif.com/v1/~/billing/meters/{meterId}";
+      
+      string json = @"{
+  ""name"": ""string"",
+  ""billing_plan"": {
+    ""params"": {
+      ""usage_rounding_mode"": ""string"",
+      ""webhook_params"": {
+        ""reporting"": {
+          ""report_when"": null
+        },
+        ""channel_ids"": [
+          ""string""
+        ],
+        ""custom_plan"": {
+          ""plan_id"": null
+        },
+        ""custom_prices"": [
+          {}
+        ]
+      },
+      ""recurly_params"": {
+        ""plan"": {
+          ""name"": null,
+          ""id"": null,
+          ""code"": null
+        },
+        ""add_on"": {
+          ""name"": null,
+          ""currencies"": null,
+          ""usage_percentage"": null,
+          ""add_on_type"": null,
+          ""external_sku"": null,
+          ""state"": null,
+          ""tiers"": null,
+          ""tier_type"": null,
+          ""code"": null,
+          ""plan_id"": null,
+          ""id"": null,
+          ""percentage_tiers"": null,
+          ""usage_type"": null,
+          ""created_at"": null,
+          ""usage_calculation_type"": null,
+          ""updated_at"": null,
+          ""deleted_at"": null
+        },
+        ""add_ons"": [
+          {}
+        ]
+      },
+      ""chargebee_params"": {
+        ""item_plan"": {
+          ""name"": null,
+          ""item_family_id"": null,
+          ""description"": null,
+          ""usage_calculation"": null,
+          ""external_name"": null,
+          ""metered"": null,
+          ""id"": null,
+          ""status"": null,
+          ""unit"": null,
+          ""updated_at"": null,
+          ""archived_at"": null
+        },
+        ""item_price"": {
+          ""name"": null,
+          ""item_id"": null,
+          ""description"": null,
+          ""price"": null,
+          ""price_in_decimal"": null,
+          ""external_name"": null,
+          ""tiers"": null,
+          ""trial_end_action"": null,
+          ""trial_period"": null,
+          ""id"": null,
+          ""status"": null,
+          ""pricing_model"": null,
+          ""created_at"": null,
+          ""period_unit"": null,
+          ""updated_at"": null,
+          ""trial_period_unit"": null,
+          ""item_type"": null,
+          ""currency_code"": null,
+          ""archived_at"": null,
+          ""free_quantity"": null,
+          ""period"": null
+        },
+        ""item_prices"": [
+          {}
+        ],
+        ""reporting"": {
+          ""reporting_period"": null
+        }
+      },
+      ""stripe_params"": {
+        ""product"": {
+          ""name"": null,
+          ""description"": null,
+          ""unit_label"": null,
+          ""id"": null,
+          ""usage_type"": null
+        },
+        ""price"": {
+          ""tiers_mode"": null,
+          ""transform_quantity"": null,
+          ""price_id"": null,
+          ""tiers"": null,
+          ""recurring"": null,
+          ""unit_amount_decimal"": null,
+          ""price_nickname"": null,
+          ""currency"": null,
+          ""billing_scheme"": null,
+          ""unit_amount"": null,
+          ""created"": null,
+          ""active"": null
+        },
+        ""prices"": [
+          {}
+        ],
+        ""reporting"": {
+          ""reporting_period"": null
+        }
+      },
+      ""zuora_params"": {
+        ""plan_id"": ""string"",
+        ""price_id"": ""string"",
+        ""price_ids"": [
+          ""string""
+        ]
+      },
+      ""usage_multiplier"": null
+    }
+  },
+  ""url_query"": ""string"",
+  ""_id"": ""string"",
+  ""status"": ""string"",
+  ""es_query"": {},
+  ""zero_balance_behavior"": ""string""
+}";
+      var content = JsonConvert.DeserializeObject(json);
+      await PostAsync(content, url);
+      
+      
+    }
+
+    /// Performs a POST Request
+    public async Task PostAsync(BillingMeterUpdateItem content, string url)
+    {
+        //Serialize Object
+        StringContent jsonContent = SerializeObject(content);
+
+        //Execute POST request
+        HttpResponseMessage response = await Client.PostAsync(url, jsonContent);
+    }
+    
+    
+    
+    /// Serialize an object to Json
+    private StringContent SerializeObject(BillingMeterUpdateItem content)
+    {
+        //Serialize Object
+        string jsonObject = JsonConvert.SerializeObject(content);
+
+        //Create Json UTF8 String Content
+        return new StringContent(jsonObject, Encoding.UTF8, "application/json");
+    }
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/~/billing/meters/{meterId}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+
+con.setRequestProperty("Content-Type",'application/json');
+con.setRequestProperty("Authorization",'Bearer YOUR_MANAGEMENT_API_KEY');
+
+// Enable sending a request body
+con.setDoOutput(true);
+
+String jsonPayload = """{
+  "name": "string",
+  "billing_plan": {
+    "params": {
+      "usage_rounding_mode": "string",
+      "webhook_params": {
+        "reporting": {
+          "report_when": null
+        },
+        "channel_ids": [
+          "string"
+        ],
+        "custom_plan": {
+          "plan_id": null
+        },
+        "custom_prices": [
+          {}
+        ]
+      },
+      "recurly_params": {
+        "plan": {
+          "name": null,
+          "id": null,
+          "code": null
+        },
+        "add_on": {
+          "name": null,
+          "currencies": null,
+          "usage_percentage": null,
+          "add_on_type": null,
+          "external_sku": null,
+          "state": null,
+          "tiers": null,
+          "tier_type": null,
+          "code": null,
+          "plan_id": null,
+          "id": null,
+          "percentage_tiers": null,
+          "usage_type": null,
+          "created_at": null,
+          "usage_calculation_type": null,
+          "updated_at": null,
+          "deleted_at": null
+        },
+        "add_ons": [
+          {}
+        ]
+      },
+      "chargebee_params": {
+        "item_plan": {
+          "name": null,
+          "item_family_id": null,
+          "description": null,
+          "usage_calculation": null,
+          "external_name": null,
+          "metered": null,
+          "id": null,
+          "status": null,
+          "unit": null,
+          "updated_at": null,
+          "archived_at": null
+        },
+        "item_price": {
+          "name": null,
+          "item_id": null,
+          "description": null,
+          "price": null,
+          "price_in_decimal": null,
+          "external_name": null,
+          "tiers": null,
+          "trial_end_action": null,
+          "trial_period": null,
+          "id": null,
+          "status": null,
+          "pricing_model": null,
+          "created_at": null,
+          "period_unit": null,
+          "updated_at": null,
+          "trial_period_unit": null,
+          "item_type": null,
+          "currency_code": null,
+          "archived_at": null,
+          "free_quantity": null,
+          "period": null
+        },
+        "item_prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "stripe_params": {
+        "product": {
+          "name": null,
+          "description": null,
+          "unit_label": null,
+          "id": null,
+          "usage_type": null
+        },
+        "price": {
+          "tiers_mode": null,
+          "transform_quantity": null,
+          "price_id": null,
+          "tiers": null,
+          "recurring": null,
+          "unit_amount_decimal": null,
+          "price_nickname": null,
+          "currency": null,
+          "billing_scheme": null,
+          "unit_amount": null,
+          "created": null,
+          "active": null
+        },
+        "prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "zuora_params": {
+        "plan_id": "string",
+        "price_id": "string",
+        "price_ids": [
+          "string"
+        ]
+      },
+      "usage_multiplier": null
+    }
+  },
+  "url_query": "string",
+  "_id": "string",
+  "status": "string",
+  "es_query": {},
+  "zero_balance_behavior": "string"
+}""";
+
+// Write payload to the request
+try(OutputStream os = con.getOutputStream()) {
+    byte[] input = jsonPayload.getBytes("utf-8");
+    os.write(input, 0, input.length);           
+}
+
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`POST /~/billing/meters/{meterId}`
+
+*Update Billing Meter*
+
+Update new Billing Meter
+
+> `POST https://api.moesif.com/v1/~/billing/meters/{meterId}`
+
+> Example Request
+
+```json
+{
+  "name": "string",
+  "billing_plan": {
+    "params": {
+      "usage_rounding_mode": "string",
+      "webhook_params": {
+        "reporting": {
+          "report_when": null
+        },
+        "channel_ids": [
+          "string"
+        ],
+        "custom_plan": {
+          "plan_id": null
+        },
+        "custom_prices": [
+          {}
+        ]
+      },
+      "recurly_params": {
+        "plan": {
+          "name": null,
+          "id": null,
+          "code": null
+        },
+        "add_on": {
+          "name": null,
+          "currencies": null,
+          "usage_percentage": null,
+          "add_on_type": null,
+          "external_sku": null,
+          "state": null,
+          "tiers": null,
+          "tier_type": null,
+          "code": null,
+          "plan_id": null,
+          "id": null,
+          "percentage_tiers": null,
+          "usage_type": null,
+          "created_at": null,
+          "usage_calculation_type": null,
+          "updated_at": null,
+          "deleted_at": null
+        },
+        "add_ons": [
+          {}
+        ]
+      },
+      "chargebee_params": {
+        "item_plan": {
+          "name": null,
+          "item_family_id": null,
+          "description": null,
+          "usage_calculation": null,
+          "external_name": null,
+          "metered": null,
+          "id": null,
+          "status": null,
+          "unit": null,
+          "updated_at": null,
+          "archived_at": null
+        },
+        "item_price": {
+          "name": null,
+          "item_id": null,
+          "description": null,
+          "price": null,
+          "price_in_decimal": null,
+          "external_name": null,
+          "tiers": null,
+          "trial_end_action": null,
+          "trial_period": null,
+          "id": null,
+          "status": null,
+          "pricing_model": null,
+          "created_at": null,
+          "period_unit": null,
+          "updated_at": null,
+          "trial_period_unit": null,
+          "item_type": null,
+          "currency_code": null,
+          "archived_at": null,
+          "free_quantity": null,
+          "period": null
+        },
+        "item_prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "stripe_params": {
+        "product": {
+          "name": null,
+          "description": null,
+          "unit_label": null,
+          "id": null,
+          "usage_type": null
+        },
+        "price": {
+          "tiers_mode": null,
+          "transform_quantity": null,
+          "price_id": null,
+          "tiers": null,
+          "recurring": null,
+          "unit_amount_decimal": null,
+          "price_nickname": null,
+          "currency": null,
+          "billing_scheme": null,
+          "unit_amount": null,
+          "created": null,
+          "active": null
+        },
+        "prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "zuora_params": {
+        "plan_id": "string",
+        "price_id": "string",
+        "price_ids": [
+          "string"
+        ]
+      },
+      "usage_multiplier": null
+    }
+  },
+  "url_query": "string",
+  "_id": "string",
+  "status": "string",
+  "es_query": {},
+  "zero_balance_behavior": "string"
+}
+```
+
+<h3 id="updatemeter-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|meterId|path|string|true|none|
+|body|body|[BillingMeterUpdateItem](#schemabillingmeterupdateitem)|true|none|
+
+<h3 id="updatemeter-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: update:billing_meters )
 </aside>
 
 ## getMeter
@@ -18641,7 +24588,10 @@ Get Billing Meter by id
         ],
         "custom_plan": {
           "plan_id": null
-        }
+        },
+        "custom_prices": [
+          {}
+        ]
       },
       "recurly_params": {
         "plan": {
@@ -18759,9 +24709,9 @@ Get Billing Meter by id
   "_id": "string",
   "slug": "string",
   "status": "string",
-  "modified_at": "2025-01-09T17:18:58.560Z",
+  "modified_at": "2025-03-18T20:21:32.116Z",
   "es_query": "string",
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "app_id": "string",
   "zero_balance_behavior": "string",
   "org_id": "string"
@@ -18997,17 +24947,693 @@ To perform this operation, you must be authenticated by means of one of the foll
 managementAPIToken ( Scopes: delete:billing_meters )
 </aside>
 
-<h1 id="management-api-billing-reports">Billing Reports</h1>
+## webhookNotificationsValidation
 
-## getBillingReports
-
-<a id="opIdgetBillingReports"></a>
+<a id="opIdwebhookNotificationsValidation"></a>
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/~/billing/reports \
+curl -X POST https://api.moesif.com/v1/~/billing/meters/{meterId}/webhooks/channels/test \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
+
+  -d '{
+  "company_id": "string",
+  "quantity": 0,
+  "start_time": "2025-03-18T20:21:32.116Z",
+  "end_time": "2025-03-18T20:21:32.116Z",
+  "subscription_id": "string"
+}' 
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = {
+  "company_id": "string",
+  "quantity": 0,
+  "start_time": "2025-03-18T20:21:32.116Z",
+  "end_time": "2025-03-18T20:21:32.116Z",
+  "subscription_id": "string"
+};
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
+};
+
+fetch('https://api.moesif.com/v1/~/billing/meters/{meterId}/webhooks/channels/test',
+{
+  method: 'POST',
+  body: JSON.stringify(inputBody),
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+input_body = {
+  "company_id": "string",
+  "quantity": 0,
+  "start_time": "2025-03-18T20:21:32.116Z",
+  "end_time": "2025-03-18T20:21:32.116Z",
+  "subscription_id": "string"
+}
+
+r = requests.post('https://api.moesif.com/v1/~/billing/meters/{meterId}/webhooks/channels/test', headers = headers, json = input_data)
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+input_payload = JSON.parse('{
+  "company_id": "string",
+  "quantity": 0,
+  "start_time": "2025-03-18T20:21:32.116Z",
+  "end_time": "2025-03-18T20:21:32.116Z",
+  "subscription_id": "string"
+}')
+
+result = RestClient.post 'https://api.moesif.com/v1/~/billing/meters/{meterId}/webhooks/channels/test',
+  params: {
+  }, 
+  payload: input_payload.to_json, 
+  headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/json',
+    'Accept' => 'application/json',
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
+);
+
+$inputPayload = json_decode('{
+  "company_id": "string",
+  "quantity": 0,
+  "start_time": "2025-03-18T20:21:32.116Z",
+  "end_time": "2025-03-18T20:21:32.116Z",
+  "subscription_id": "string"
+}')
+
+$client = new \GuzzleHttp\Client();
+
+try {
+    $response = $client->request('POST','https://api.moesif.com/v1/~/billing/meters/{meterId}/webhooks/channels/test', array(
+        'headers' => $headers,
+        'json' => $inputPayload,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
+    }
+    jsonPayload := `{
+  "company_id": "string",
+  "quantity": 0,
+  "start_time": "2025-03-18T20:21:32.116Z",
+  "end_time": "2025-03-18T20:21:32.116Z",
+  "subscription_id": "string"
+}`
+    data := bytes.NewBuffer([]byte(jsonPayload))
+    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/~/billing/meters/{meterId}/webhooks/channels/test", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    
+    /// Make a dummy request
+    public async Task MakePostRequest()
+    {
+      string url = "https://api.moesif.com/v1/~/billing/meters/{meterId}/webhooks/channels/test";
+      
+      string json = @"{
+  ""company_id"": ""string"",
+  ""quantity"": 0,
+  ""start_time"": ""2025-03-18T20:21:32.116Z"",
+  ""end_time"": ""2025-03-18T20:21:32.116Z"",
+  ""subscription_id"": ""string""
+}";
+      var content = JsonConvert.DeserializeObject(json);
+      await PostAsync(content, url);
+      
+      
+    }
+
+    /// Performs a POST Request
+    public async Task PostAsync(billing.webhook.WebhookValidationRequest content, string url)
+    {
+        //Serialize Object
+        StringContent jsonContent = SerializeObject(content);
+
+        //Execute POST request
+        HttpResponseMessage response = await Client.PostAsync(url, jsonContent);
+    }
+    
+    
+    
+    /// Serialize an object to Json
+    private StringContent SerializeObject(billing.webhook.WebhookValidationRequest content)
+    {
+        //Serialize Object
+        string jsonObject = JsonConvert.SerializeObject(content);
+
+        //Create Json UTF8 String Content
+        return new StringContent(jsonObject, Encoding.UTF8, "application/json");
+    }
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/~/billing/meters/{meterId}/webhooks/channels/test");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+
+con.setRequestProperty("Content-Type",'application/json');
+con.setRequestProperty("Accept",'application/json');
+con.setRequestProperty("Authorization",'Bearer YOUR_MANAGEMENT_API_KEY');
+
+// Enable sending a request body
+con.setDoOutput(true);
+
+String jsonPayload = """{
+  "company_id": "string",
+  "quantity": 0,
+  "start_time": "2025-03-18T20:21:32.116Z",
+  "end_time": "2025-03-18T20:21:32.116Z",
+  "subscription_id": "string"
+}""";
+
+// Write payload to the request
+try(OutputStream os = con.getOutputStream()) {
+    byte[] input = jsonPayload.getBytes("utf-8");
+    os.write(input, 0, input.length);           
+}
+
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`POST /~/billing/meters/{meterId}/webhooks/channels/test`
+
+*Test Billing Meter webhook channels*
+
+Test the channels for Webhook Billing Meters
+
+> `POST https://api.moesif.com/v1/~/billing/meters/{meterId}/webhooks/channels/test`
+
+> Example Request
+
+```json
+{
+  "company_id": "string",
+  "quantity": 0,
+  "start_time": "2025-03-18T20:21:32.116Z",
+  "end_time": "2025-03-18T20:21:32.116Z",
+  "subscription_id": "string"
+}
+```
+
+<h3 id="webhooknotificationsvalidation-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|meterId|path|string|true|none|
+|body|body|[billing.webhook.WebhookValidationRequest](#schemabilling.webhook.webhookvalidationrequestdto)|true|none|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "response_body": "string",
+  "success": true,
+  "channel_name": "string",
+  "status_code": 0,
+  "channel_id": "string",
+  "error_message": "string",
+  "error_code": "string"
+}
+```
+
+<h3 id="webhooknotificationsvalidation-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[billing.webhook.WebhookValidationResponse](#schemabilling.webhook.webhookvalidationresponsedto)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: read:billing_meters )
+</aside>
+
+<h1 id="management-api-billing-custom">Billing Custom</h1>
+
+## createPlan
+
+<a id="opIdcreatePlan"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://api.moesif.com/v1/~/billing/plans \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
+
+  -d '{
+  "name": "string",
+  "billing_type": "string",
+  "external_plan_id": "string",
+  "status": "string",
+  "metadata": null,
+  "billing_period": "string",
+  "reporting_period": "string"
+}' 
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = {
+  "name": "string",
+  "billing_type": "string",
+  "external_plan_id": "string",
+  "status": "string",
+  "metadata": null,
+  "billing_period": "string",
+  "reporting_period": "string"
+};
+const headers = {
+  'Content-Type':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
+};
+
+fetch('https://api.moesif.com/v1/~/billing/plans',
+{
+  method: 'POST',
+  body: JSON.stringify(inputBody),
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+input_body = {
+  "name": "string",
+  "billing_type": "string",
+  "external_plan_id": "string",
+  "status": "string",
+  "metadata": null,
+  "billing_period": "string",
+  "reporting_period": "string"
+}
+
+r = requests.post('https://api.moesif.com/v1/~/billing/plans', headers = headers, json = input_data)
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+input_payload = JSON.parse('{
+  "name": "string",
+  "billing_type": "string",
+  "external_plan_id": "string",
+  "status": "string",
+  "metadata": null,
+  "billing_period": "string",
+  "reporting_period": "string"
+}')
+
+result = RestClient.post 'https://api.moesif.com/v1/~/billing/plans',
+  params: {
+  }, 
+  payload: input_payload.to_json, 
+  headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/json',
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
+);
+
+$inputPayload = json_decode('{
+  "name": "string",
+  "billing_type": "string",
+  "external_plan_id": "string",
+  "status": "string",
+  "metadata": null,
+  "billing_period": "string",
+  "reporting_period": "string"
+}')
+
+$client = new \GuzzleHttp\Client();
+
+try {
+    $response = $client->request('POST','https://api.moesif.com/v1/~/billing/plans', array(
+        'headers' => $headers,
+        'json' => $inputPayload,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
+    }
+    jsonPayload := `{
+  "name": "string",
+  "billing_type": "string",
+  "external_plan_id": "string",
+  "status": "string",
+  "metadata": null,
+  "billing_period": "string",
+  "reporting_period": "string"
+}`
+    data := bytes.NewBuffer([]byte(jsonPayload))
+    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/~/billing/plans", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    
+    /// Make a dummy request
+    public async Task MakePostRequest()
+    {
+      string url = "https://api.moesif.com/v1/~/billing/plans";
+      
+      string json = @"{
+  ""name"": ""string"",
+  ""billing_type"": ""string"",
+  ""external_plan_id"": ""string"",
+  ""status"": ""string"",
+  ""metadata"": null,
+  ""billing_period"": ""string"",
+  ""reporting_period"": ""string""
+}";
+      var content = JsonConvert.DeserializeObject(json);
+      await PostAsync(content, url);
+      
+      
+    }
+
+    /// Performs a POST Request
+    public async Task PostAsync(BillingCustomPlanCreateItem content, string url)
+    {
+        //Serialize Object
+        StringContent jsonContent = SerializeObject(content);
+
+        //Execute POST request
+        HttpResponseMessage response = await Client.PostAsync(url, jsonContent);
+    }
+    
+    
+    
+    /// Serialize an object to Json
+    private StringContent SerializeObject(BillingCustomPlanCreateItem content)
+    {
+        //Serialize Object
+        string jsonObject = JsonConvert.SerializeObject(content);
+
+        //Create Json UTF8 String Content
+        return new StringContent(jsonObject, Encoding.UTF8, "application/json");
+    }
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/~/billing/plans");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+
+con.setRequestProperty("Content-Type",'application/json');
+con.setRequestProperty("Authorization",'Bearer YOUR_MANAGEMENT_API_KEY');
+
+// Enable sending a request body
+con.setDoOutput(true);
+
+String jsonPayload = """{
+  "name": "string",
+  "billing_type": "string",
+  "external_plan_id": "string",
+  "status": "string",
+  "metadata": null,
+  "billing_period": "string",
+  "reporting_period": "string"
+}""";
+
+// Write payload to the request
+try(OutputStream os = con.getOutputStream()) {
+    byte[] input = jsonPayload.getBytes("utf-8");
+    os.write(input, 0, input.length);           
+}
+
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`POST /~/billing/plans`
+
+*Create new Billing Custom Plan*
+
+Create new Billing Custom Plan
+
+> `POST https://api.moesif.com/v1/~/billing/plans`
+
+> Example Request
+
+```json
+{
+  "name": "string",
+  "billing_type": "string",
+  "external_plan_id": "string",
+  "status": "string",
+  "metadata": null,
+  "billing_period": "string",
+  "reporting_period": "string"
+}
+```
+
+<h3 id="createplan-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[BillingCustomPlanCreateItem](#schemabillingcustomplancreateitem)|true|none|
+
+<h3 id="createplan-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|success|None|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: create:billing_meters )
+</aside>
+
+## listPlans
+
+<a id="opIdlistPlans"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.moesif.com/v1/~/billing/plans \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
 
@@ -19021,7 +25647,7 @@ const headers = {
   'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
 };
 
-fetch('https://api.moesif.com/v1/~/billing/reports',
+fetch('https://api.moesif.com/v1/~/billing/plans',
 {
   method: 'GET',
 
@@ -19042,7 +25668,7 @@ headers = {
   'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
 }
 
-r = requests.get('https://api.moesif.com/v1/~/billing/reports', headers = headers)
+r = requests.get('https://api.moesif.com/v1/~/billing/plans', headers = headers)
 
 print(r.json())
 
@@ -19057,7 +25683,7 @@ headers = {
   'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
 }
 
-result = RestClient.get 'https://api.moesif.com/v1/~/billing/reports',
+result = RestClient.get 'https://api.moesif.com/v1/~/billing/plans',
   params: {
   }, 
   headers: headers
@@ -19079,7 +25705,7 @@ $headers = array(
 $client = new \GuzzleHttp\Client();
 
 try {
-    $response = $client->request('GET','https://api.moesif.com/v1/~/billing/reports', array(
+    $response = $client->request('GET','https://api.moesif.com/v1/~/billing/plans', array(
         'headers' => $headers,
        )
     );
@@ -19110,7 +25736,7 @@ func main() {
     }
     
     
-    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/~/billing/reports")
+    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/~/billing/plans")
     req.Header = headers
 
     client := &http.Client{}
@@ -19147,7 +25773,7 @@ public class HttpExample
     /// Make a dummy request
     public async Task MakeGetRequest()
     {
-      string url = "https://api.moesif.com/v1/~/billing/reports";
+      string url = "https://api.moesif.com/v1/~/billing/plans";
       var result = await GetAsync(url);
     }
 
@@ -19179,7 +25805,7 @@ public class HttpExample
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/~/billing/reports");
+URL obj = new URL("https://api.moesif.com/v1/~/billing/plans");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 
@@ -19198,36 +25824,18 @@ System.out.println(response.toString());
 
 ```
 
-`GET /~/billing/reports`
+`GET /~/billing/plans`
 
-*Get BillingReports*
+*List Billing Custom Plan*
 
-Query audit history of billing reports to external billing providers
+List Billing Custom Plan
 
-> `GET https://api.moesif.com/v1/~/billing/reports`
+> `GET https://api.moesif.com/v1/~/billing/plans`
 
-<h3 id="getbillingreports-parameters">Parameters</h3>
+<h3 id="listplans-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|from|query|string(date-time)|false|none|
-|to|query|string(date-time)|false|none|
-|billing_meter_id|query|string|false|none|
-|company_id|query|string|false|none|
-|provider|query|string|false|none|
-|subscription_id|query|string|false|none|
-|subscription_item_id|query|string|false|none|
-|plan_id|query|string|false|none|
-|price_id|query|string|false|none|
-|currency|query|string|false|none|
-|success|query|boolean|false|none|
-|status_code|query|integer(int32)|false|none|
-|error_code|query|string|false|none|
-|`type`|query|string|false|none|
-|status|query|array[string]|false|none|
-|amount|query|number(double)|false|none|
-|meter_metric|query|integer(int32)|false|none|
-|report_total_usage|query|integer(int32)|false|none|
 
 > Example responses
 
@@ -19236,174 +25844,373 @@ Query audit history of billing reports to external billing providers
 ```json
 [
   {
-    "ending_balance": {
-      "sequence_id": 0,
-      "current_balance": 0.1,
-      "pending_activity": 0.1,
-      "available_balance": 0.1
-    },
-    "company_id": "string",
-    "transform_quantity": null,
-    "success": true,
-    "provider": "string",
-    "report_version": 0,
-    "usage_end_time": "2025-01-09T17:18:58.560Z",
-    "usage": {
-      "invoice": {
-        "period_start": "2025-01-09T17:18:58.560Z",
-        "period_end": "2025-01-09T17:18:58.560Z",
-        "id": "string"
-      },
-      "aggregator": "string"
-    },
+    "name": "string",
+    "billing_type": "string",
     "_id": "string",
-    "price_id": "string",
-    "price_in_decimal": 0.1,
-    "meter_usage": 0.1,
-    "last_success_time": "2025-01-09T17:18:58.560Z",
-    "beginning_balance": {
-      "sequence_id": 0,
-      "current_balance": 0.1,
-      "pending_activity": 0.1,
-      "available_balance": 0.1
-    },
-    "billing_meter_id": "string",
-    "amount": 0.1,
-    "plan_id": "string",
-    "usage_start_time": "2025-01-09T17:18:58.560Z",
+    "slug": "string",
+    "external_plan_id": "string",
     "status": "string",
-    "provider_requests": [
-      {
-        "success": true,
-        "status_code": 0,
-        "job_id": "string",
-        "error_message": "string",
-        "error_code": "string",
-        "request_time": "2025-01-09T17:18:58.560Z"
-      }
-    ],
-    "currency": "string",
-    "report_total_usage": 0.1,
-    "channel_requests": [
-      {
-        "channel_id": "string",
-        "channel_name": "string",
-        "provider_requests": [
-          {
-            "success": true,
-            "status_code": 0,
-            "job_id": "string",
-            "error_message": "string",
-            "error_code": "string",
-            "request_time": "2025-01-09T17:18:58.560Z"
-          }
-        ]
-      }
-    ],
-    "created_at": "2025-01-09T17:18:58.560Z",
+    "modified_at": "2025-03-18T20:21:32.116Z",
+    "metadata": null,
+    "created_at": "2025-03-18T20:21:32.116Z",
+    "billing_period": "string",
     "app_id": "string",
-    "subscription_id": "string",
-    "subscription_period_start": "2025-01-09T17:18:58.560Z",
-    "balance_changes": [
-      {
-        "amount": 0.1,
-        "grant_id": "string"
-      }
-    ],
-    "type": "string",
-    "updated_at": "2025-01-09T17:18:58.560Z",
-    "subscription_item_id": "string",
-    "zero_balance_behavior": "string",
-    "org_id": "string",
-    "subscription_period_end": "2025-01-09T17:18:58.560Z",
-    "meter_metric": 0.1
+    "reporting_period": "string",
+    "org_id": "string"
   }
 ]
 ```
 
-<h3 id="getbillingreports-responses">Responses</h3>
+<h3 id="listplans-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|Inline|
 
-<h3 id="getbillingreports-responseschema">Response Schema</h3>
+<h3 id="listplans-responseschema">Response Schema</h3>
 
 Status Code **200**
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|*anonymous*|[[BillingReport](#schemabillingreport)]|false|none|none|
-|» ending_balance|object|false|none|none|
-|»» sequence_id|integer(int32)|true|none|none|
-|»» current_balance|number(double)|true|none|none|
-|»» pending_activity|number(double)|true|none|none|
-|»» available_balance|number(double)|true|none|none|
-|» company_id|string|true|none|none|
-|» transform_quantity|com.moesif.billing.helpers.subscriptions.moesiftransformquantity|false|none|none|
-|» success|boolean|true|none|none|
-|» provider|string|true|none|none|
-|» report_version|integer(int32)|false|none|none|
-|» usage_end_time|string(date-time)|true|none|none|
-|» usage|object|false|none|none|
-|»» invoice|object|false|none|none|
-|»»» period_start|string(date-time)|false|none|none|
-|»»» period_end|string(date-time)|false|none|none|
-|»»» id|string|true|none|none|
-|»» aggregator|string|false|none|none|
+|*anonymous*|[[BillingCustomPlanDocument](#schemabillingcustomplandocument)]|false|none|none|
+|» name|string|true|none|none|
+|» billing_type|string|true|none|none|
 |» _id|string|false|none|none|
-|» price_id|string|false|none|none|
-|» price_in_decimal|number(double)|false|none|none|
-|» meter_usage|number(double)|true|none|none|
-|» last_success_time|string(date-time)|false|none|none|
-|» beginning_balance|object|false|none|none|
-|» billing_meter_id|string|true|none|none|
-|» amount|number(double)|false|none|none|
-|» plan_id|string|false|none|none|
-|» usage_start_time|string(date-time)|true|none|none|
-|» status|string|false|none|none|
-|» provider_requests|[[ProviderRequest](#schemaproviderrequest)]|true|none|none|
-|»» success|boolean|true|none|none|
-|»» status_code|integer(int32)|true|none|none|
-|»» job_id|string|true|none|none|
-|»» error_message|string|true|none|none|
-|»» error_code|string|true|none|none|
-|»» request_time|string(date-time)|true|none|none|
-|» currency|string|false|none|none|
-|» report_total_usage|number(double)|true|none|none|
-|» channel_requests|[[ChannelRequest](#schemachannelrequest)]|false|none|none|
-|»» channel_id|string|true|none|none|
-|»» channel_name|string|true|none|none|
-|»» provider_requests|[[ProviderRequest](#schemaproviderrequest)]|true|none|none|
-|» created_at|string(date-time)|false|none|none|
+|» slug|string|true|none|none|
+|» external_plan_id|string|false|none|none|
+|» status|string|true|none|none|
+|» modified_at|string(date-time)|true|none|none|
+|» metadata|.map[string,string]|false|none|none|
+|» created_at|string(date-time)|true|none|none|
+|» billing_period|string|false|none|none|
 |» app_id|string|true|none|none|
-|» subscription_id|string|true|none|none|
-|» subscription_period_start|string(date-time)|false|none|none|
-|» balance_changes|[[BalanceChange](#schemabalancechange)]|false|none|none|
-|»» amount|number(double)|true|none|none|
-|»» grant_id|string|false|none|none|
-|» type|string|false|none|none|
-|» updated_at|string(date-time)|false|none|none|
-|» subscription_item_id|string|false|none|none|
-|» zero_balance_behavior|string|false|none|none|
+|» reporting_period|string|false|none|none|
 |» org_id|string|true|none|none|
-|» subscription_period_end|string(date-time)|false|none|none|
-|» meter_metric|number(double)|true|none|none|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-managementAPIToken ( Scopes: read:billing_meters read:billing_reports )
+managementAPIToken ( Scopes: read:billing_meters )
 </aside>
 
-## getBillingReportsMetrics
+## updatePlan
 
-<a id="opIdgetBillingReportsMetrics"></a>
+<a id="opIdupdatePlan"></a>
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/~/billing/reports/metrics?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z \
+curl -X POST https://api.moesif.com/v1/~/billing/plans/{planId} \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
+
+  -d '{
+  "_id": "string",
+  "name": "string",
+  "status": "string",
+  "metadata": null
+}' 
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+const inputBody = {
+  "_id": "string",
+  "name": "string",
+  "status": "string",
+  "metadata": null
+};
+const headers = {
+  'Content-Type':'application/json',
+  'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
+};
+
+fetch('https://api.moesif.com/v1/~/billing/plans/{planId}',
+{
+  method: 'POST',
+  body: JSON.stringify(inputBody),
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+input_body = {
+  "_id": "string",
+  "name": "string",
+  "status": "string",
+  "metadata": null
+}
+
+r = requests.post('https://api.moesif.com/v1/~/billing/plans/{planId}', headers = headers, json = input_data)
+
+print(r.json())
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
+}
+
+input_payload = JSON.parse('{
+  "_id": "string",
+  "name": "string",
+  "status": "string",
+  "metadata": null
+}')
+
+result = RestClient.post 'https://api.moesif.com/v1/~/billing/plans/{planId}',
+  params: {
+  }, 
+  payload: input_payload.to_json, 
+  headers: headers
+
+p JSON.parse(result)
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/json',
+    'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
+);
+
+$inputPayload = json_decode('{
+  "_id": "string",
+  "name": "string",
+  "status": "string",
+  "metadata": null
+}')
+
+$client = new \GuzzleHttp\Client();
+
+try {
+    $response = $client->request('POST','https://api.moesif.com/v1/~/billing/plans/{planId}', array(
+        'headers' => $headers,
+        'json' => $inputPayload,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
+    }
+    jsonPayload := `{
+  "_id": "string",
+  "name": "string",
+  "status": "string",
+  "metadata": null
+}`
+    data := bytes.NewBuffer([]byte(jsonPayload))
+    req, err := http.NewRequest("POST", "https://api.moesif.com/v1/~/billing/plans/{planId}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+/// <<summary>>
+/// Example of Http Client
+/// <</summary>>
+public class HttpExample
+{
+    private HttpClient Client { get; set; }
+
+    /// <<summary>>
+    /// Setup http client
+    /// <</summary>>
+    public HttpExample()
+    {
+      Client = new HttpClient();
+    }
+    
+    
+    /// Make a dummy request
+    public async Task MakePostRequest()
+    {
+      string url = "https://api.moesif.com/v1/~/billing/plans/{planId}";
+      
+      string json = @"{
+  ""_id"": ""string"",
+  ""name"": ""string"",
+  ""status"": ""string"",
+  ""metadata"": null
+}";
+      var content = JsonConvert.DeserializeObject(json);
+      await PostAsync(content, url);
+      
+      
+    }
+
+    /// Performs a POST Request
+    public async Task PostAsync(BillingCustomPlanUpdateItem content, string url)
+    {
+        //Serialize Object
+        StringContent jsonContent = SerializeObject(content);
+
+        //Execute POST request
+        HttpResponseMessage response = await Client.PostAsync(url, jsonContent);
+    }
+    
+    
+    
+    /// Serialize an object to Json
+    private StringContent SerializeObject(BillingCustomPlanUpdateItem content)
+    {
+        //Serialize Object
+        string jsonObject = JsonConvert.SerializeObject(content);
+
+        //Create Json UTF8 String Content
+        return new StringContent(jsonObject, Encoding.UTF8, "application/json");
+    }
+    
+    /// Deserialize object from request response
+    private async Task DeserializeObject(HttpResponseMessage response)
+    {
+        //Read body 
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        //Deserialize Body to object
+        var result = JsonConvert.DeserializeObject(responseBody);
+    }
+}
+
+```
+
+```java
+URL obj = new URL("https://api.moesif.com/v1/~/billing/plans/{planId}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+
+con.setRequestProperty("Content-Type",'application/json');
+con.setRequestProperty("Authorization",'Bearer YOUR_MANAGEMENT_API_KEY');
+
+// Enable sending a request body
+con.setDoOutput(true);
+
+String jsonPayload = """{
+  "_id": "string",
+  "name": "string",
+  "status": "string",
+  "metadata": null
+}""";
+
+// Write payload to the request
+try(OutputStream os = con.getOutputStream()) {
+    byte[] input = jsonPayload.getBytes("utf-8");
+    os.write(input, 0, input.length);           
+}
+
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+`POST /~/billing/plans/{planId}`
+
+*Update Billing Custom Plan*
+
+Update new Billing Custom Plan
+
+> `POST https://api.moesif.com/v1/~/billing/plans/{planId}`
+
+> Example Request
+
+```json
+{
+  "_id": "string",
+  "name": "string",
+  "status": "string",
+  "metadata": null
+}
+```
+
+<h3 id="updateplan-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|planId|path|string|true|none|
+|body|body|[BillingCustomPlanUpdateItem](#schemabillingcustomplanupdateitem)|true|none|
+
+<h3 id="updateplan-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+managementAPIToken ( Scopes: update:billing_meters )
+</aside>
+
+## getPlan
+
+<a id="opIdgetPlan"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.moesif.com/v1/~/billing/plans/{planId} \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
 
@@ -19417,7 +26224,7 @@ const headers = {
   'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
 };
 
-fetch('https://api.moesif.com/v1/~/billing/reports/metrics?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z',
+fetch('https://api.moesif.com/v1/~/billing/plans/{planId}',
 {
   method: 'GET',
 
@@ -19438,10 +26245,7 @@ headers = {
   'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
 }
 
-r = requests.get('https://api.moesif.com/v1/~/billing/reports/metrics', params={
-  'from': '2025-01-09T17:18:58.560Z',  'to': '2025-01-09T17:18:58.560Z'
-
-}, headers = headers)
+r = requests.get('https://api.moesif.com/v1/~/billing/plans/{planId}', headers = headers)
 
 print(r.json())
 
@@ -19456,10 +26260,8 @@ headers = {
   'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
 }
 
-result = RestClient.get 'https://api.moesif.com/v1/~/billing/reports/metrics',
+result = RestClient.get 'https://api.moesif.com/v1/~/billing/plans/{planId}',
   params: {
-  'from' => 'string(date-time)',
-  'to' => 'string(date-time)'
   }, 
   headers: headers
 
@@ -19480,7 +26282,7 @@ $headers = array(
 $client = new \GuzzleHttp\Client();
 
 try {
-    $response = $client->request('GET','https://api.moesif.com/v1/~/billing/reports/metrics', array(
+    $response = $client->request('GET','https://api.moesif.com/v1/~/billing/plans/{planId}', array(
         'headers' => $headers,
        )
     );
@@ -19511,7 +26313,7 @@ func main() {
     }
     
     
-    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/~/billing/reports/metrics")
+    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/~/billing/plans/{planId}")
     req.Header = headers
 
     client := &http.Client{}
@@ -19548,7 +26350,7 @@ public class HttpExample
     /// Make a dummy request
     public async Task MakeGetRequest()
     {
-      string url = "https://api.moesif.com/v1/~/billing/reports/metrics";
+      string url = "https://api.moesif.com/v1/~/billing/plans/{planId}";
       var result = await GetAsync(url);
     }
 
@@ -19580,7 +26382,7 @@ public class HttpExample
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/~/billing/reports/metrics?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z");
+URL obj = new URL("https://api.moesif.com/v1/~/billing/plans/{planId}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 
@@ -19599,35 +26401,19 @@ System.out.println(response.toString());
 
 ```
 
-`GET /~/billing/reports/metrics`
+`GET /~/billing/plans/{planId}`
 
-*Get BillingReports' values for a given meter and time range for a single company or all companies*
+*Get Billing Custom Plan by id*
 
-Get BillingReports' values for a given meter and time range for a single company or all companies
+Get Billing Custom Plan by id
 
-> `GET https://api.moesif.com/v1/~/billing/reports/metrics`
+> `GET https://api.moesif.com/v1/~/billing/plans/{planId}`
 
-<h3 id="getbillingreportsmetrics-parameters">Parameters</h3>
+<h3 id="getplan-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|from|query|string(date-time)|true|none|
-|to|query|string(date-time)|true|none|
-|time_zone|query|string|false|none|
-|billing_meter_id|query|string|false|none|
-|success|query|boolean|false|none|
-|aggregator|query|string|false|none|
-|interval|query|string|false|none|
-|company_id|query|string|false|none|
-|subscription_id|query|string|false|none|
-|subscription_item_id|query|string|false|none|
-|plan_id|query|string|false|none|
-|price_id|query|string|false|none|
-|provider|query|string|false|none|
-|currency|query|string|false|none|
-|`type`|query|array[string]|false|none|
-|status|query|array[string]|false|none|
-|group_by|query|string|false|none|
+|planId|path|string|true|none|
 
 > Example responses
 
@@ -19635,59 +26421,42 @@ Get BillingReports' values for a given meter and time range for a single company
 
 ```json
 {
-  "buckets": [
-    {
-      "start": "2025-01-09T17:18:58.560Z",
-      "metric": 0.1,
-      "amounts": null,
-      "ending_balance": {
-        "current_balance": 0.1,
-        "pending_activity": 0.1,
-        "available_balance": 0.1
-      }
-    }
-  ],
-  "group_by": [
-    {
-      "key": {},
-      "buckets": [
-        {
-          "start": "2025-01-09T17:18:58.560Z",
-          "metric": 0.1,
-          "amounts": null,
-          "ending_balance": {
-            "current_balance": null,
-            "pending_activity": null,
-            "available_balance": null
-          }
-        }
-      ]
-    }
-  ]
+  "name": "string",
+  "billing_type": "string",
+  "_id": "string",
+  "slug": "string",
+  "external_plan_id": "string",
+  "status": "string",
+  "modified_at": "2025-03-18T20:21:32.116Z",
+  "metadata": null,
+  "created_at": "2025-03-18T20:21:32.116Z",
+  "billing_period": "string",
+  "app_id": "string",
+  "reporting_period": "string",
+  "org_id": "string"
 }
 ```
 
-<h3 id="getbillingreportsmetrics-responses">Responses</h3>
+<h3 id="getplan-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|three buckets of aggregates for the given meter and time range including Metric Value, Reported Usage, and list of errors.|[BillingMetricResponse](#schemabillingmetricresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|[BillingCustomPlanDocument](#schemabillingcustomplandocument)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-managementAPIToken ( Scopes: read:billing_meters read:billing_reports )
+managementAPIToken ( Scopes: read:billing_meters )
 </aside>
 
-## getBillingReportsProperties
+## deletePlan
 
-<a id="opIdgetBillingReportsProperties"></a>
+<a id="opIddeletePlan"></a>
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://api.moesif.com/v1/~/billing/reports/properties/{field}?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z \
-  -H 'Accept: application/json' \
+curl -X DELETE https://api.moesif.com/v1/~/billing/plans/{planId} \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
 
 ```
@@ -19696,13 +26465,12 @@ curl -X GET https://api.moesif.com/v1/~/billing/reports/properties/{field}?from=
 const fetch = require('node-fetch');
 
 const headers = {
-  'Accept':'application/json',
   'Authorization':'Bearer YOUR_MANAGEMENT_API_KEY'
 };
 
-fetch('https://api.moesif.com/v1/~/billing/reports/properties/{field}?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z',
+fetch('https://api.moesif.com/v1/~/billing/plans/{planId}',
 {
-  method: 'GET',
+  method: 'DELETE',
 
   headers: headers
 })
@@ -19717,14 +26485,10 @@ fetch('https://api.moesif.com/v1/~/billing/reports/properties/{field}?from=2019-
 ```python
 import requests
 headers = {
-  'Accept': 'application/json',
   'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
 }
 
-r = requests.get('https://api.moesif.com/v1/~/billing/reports/properties/{field}', params={
-  'from': '2025-01-09T17:18:58.560Z',  'to': '2025-01-09T17:18:58.560Z'
-
-}, headers = headers)
+r = requests.delete('https://api.moesif.com/v1/~/billing/plans/{planId}', headers = headers)
 
 print(r.json())
 
@@ -19735,14 +26499,11 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Accept' => 'application/json',
   'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY'
 }
 
-result = RestClient.get 'https://api.moesif.com/v1/~/billing/reports/properties/{field}',
+result = RestClient.delete 'https://api.moesif.com/v1/~/billing/plans/{planId}',
   params: {
-  'from' => 'string(date-time)',
-  'to' => 'string(date-time)'
   }, 
   headers: headers
 
@@ -19756,14 +26517,13 @@ p JSON.parse(result)
 require 'vendor/autoload.php';
 
 $headers = array(
-    'Accept' => 'application/json',
     'Authorization' => 'Bearer YOUR_MANAGEMENT_API_KEY',
 );
 
 $client = new \GuzzleHttp\Client();
 
 try {
-    $response = $client->request('GET','https://api.moesif.com/v1/~/billing/reports/properties/{field}', array(
+    $response = $client->request('DELETE','https://api.moesif.com/v1/~/billing/plans/{planId}', array(
         'headers' => $headers,
        )
     );
@@ -19789,12 +26549,11 @@ import (
 func main() {
 
     headers := map[string][]string{
-        "Accept": []string{"application/json"},
         "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
     }
     
     
-    req, err := http.NewRequest("GET", "https://api.moesif.com/v1/~/billing/reports/properties/{field}")
+    req, err := http.NewRequest("DELETE", "https://api.moesif.com/v1/~/billing/plans/{planId}")
     req.Header = headers
 
     client := &http.Client{}
@@ -19828,26 +26587,27 @@ public class HttpExample
       Client = new HttpClient();
     }
     
+    
+    
+    
     /// Make a dummy request
-    public async Task MakeGetRequest()
+    public async Task MakeDeleteRequest()
     {
-      string url = "https://api.moesif.com/v1/~/billing/reports/properties/{field}";
-      var result = await GetAsync(url);
+      int id = 1;
+      string url = "https://api.moesif.com/v1/~/billing/plans/{planId}";
+
+      await DeleteAsync(id, url);
     }
 
-    /// Performs a GET Request
-    public async Task GetAsync(string url)
+    /// Performs a DELETE Request
+    public async Task DeleteAsync(int id, string url)
     {
-        //Start the request
-        HttpResponseMessage response = await Client.GetAsync(url);
+        //Execute DELETE request
+        HttpResponseMessage response = await Client.DeleteAsync(url + $"/{id}");
 
-        //Validate result
-        response.EnsureSuccessStatusCode();
-
+        //Return response
+        await DeserializeObject(response);
     }
-    
-    
-    
     
     /// Deserialize object from request response
     private async Task DeserializeObject(HttpResponseMessage response)
@@ -19863,11 +26623,10 @@ public class HttpExample
 ```
 
 ```java
-URL obj = new URL("https://api.moesif.com/v1/~/billing/reports/properties/{field}?from=2019-08-24T14%3A15%3A22Z&to=2019-08-24T14%3A15%3A22Z");
+URL obj = new URL("https://api.moesif.com/v1/~/billing/plans/{planId}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
+con.setRequestMethod("DELETE");
 
-con.setRequestProperty("Accept",'application/json');
 con.setRequestProperty("Authorization",'Bearer YOUR_MANAGEMENT_API_KEY');
 
 int responseCode = con.getResponseCode();
@@ -19882,46 +26641,29 @@ System.out.println(response.toString());
 
 ```
 
-`GET /~/billing/reports/properties/{field}`
+`DELETE /~/billing/plans/{planId}`
 
-*Get BillingReports' properties available values*
+*Delete Billing Custom Plan by id*
 
-Get BillingReports' properties available values
+Delete Billing Custom Plan by id
 
-> `GET https://api.moesif.com/v1/~/billing/reports/properties/{field}`
+> `DELETE https://api.moesif.com/v1/~/billing/plans/{planId}`
 
-<h3 id="getbillingreportsproperties-parameters">Parameters</h3>
+<h3 id="deleteplan-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|field|path|string|true|none|
-|from|query|string(date-time)|true|none|
-|to|query|string(date-time)|true|none|
-|time_zone|query|string|false|none|
-|take|query|integer(int32)|false|none|
+|planId|path|string|true|none|
 
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "path": "string",
-  "values": [
-    {}
-  ]
-}
-```
-
-<h3 id="getbillingreportsproperties-responses">Responses</h3>
+<h3 id="deleteplan-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|for the property field, return available property values. Can be string, Int, Double, boolean etc|[BillingReportProperty](#schemabillingreportproperty)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|success|None|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-managementAPIToken ( Scopes: read:billing_meters read:billing_reports )
+managementAPIToken ( Scopes: delete:billing_meters )
 </aside>
 
 <h1 id="management-api-balance-transactions">Balance Transactions</h1>
@@ -19941,8 +26683,8 @@ curl -X POST https://api.moesif.com/v1/~/billing/reports/balance_transactions \
   -d '{
   "company_id": "string",
   "description": "string",
-  "expire_at": "2025-01-09T17:18:58.560Z",
-  "active_at": "2025-01-09T17:18:58.560Z",
+  "expire_at": "2025-03-18T20:21:32.116Z",
+  "active_at": "2025-03-18T20:21:32.116Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -19955,8 +26697,8 @@ const fetch = require('node-fetch');
 const inputBody = {
   "company_id": "string",
   "description": "string",
-  "expire_at": "2025-01-09T17:18:58.560Z",
-  "active_at": "2025-01-09T17:18:58.560Z",
+  "expire_at": "2025-03-18T20:21:32.116Z",
+  "active_at": "2025-03-18T20:21:32.116Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -19990,8 +26732,8 @@ headers = {
 input_body = {
   "company_id": "string",
   "description": "string",
-  "expire_at": "2025-01-09T17:18:58.560Z",
-  "active_at": "2025-01-09T17:18:58.560Z",
+  "expire_at": "2025-03-18T20:21:32.116Z",
+  "active_at": "2025-03-18T20:21:32.116Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -20016,8 +26758,8 @@ headers = {
 input_payload = JSON.parse('{
   "company_id": "string",
   "description": "string",
-  "expire_at": "2025-01-09T17:18:58.560Z",
-  "active_at": "2025-01-09T17:18:58.560Z",
+  "expire_at": "2025-03-18T20:21:32.116Z",
+  "active_at": "2025-03-18T20:21:32.116Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -20047,8 +26789,8 @@ $headers = array(
 $inputPayload = json_decode('{
   "company_id": "string",
   "description": "string",
-  "expire_at": "2025-01-09T17:18:58.560Z",
-  "active_at": "2025-01-09T17:18:58.560Z",
+  "expire_at": "2025-03-18T20:21:32.116Z",
+  "active_at": "2025-03-18T20:21:32.116Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -20091,8 +26833,8 @@ func main() {
     jsonPayload := `{
   "company_id": "string",
   "description": "string",
-  "expire_at": "2025-01-09T17:18:58.560Z",
-  "active_at": "2025-01-09T17:18:58.560Z",
+  "expire_at": "2025-03-18T20:21:32.116Z",
+  "active_at": "2025-03-18T20:21:32.116Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -20142,8 +26884,8 @@ public class HttpExample
       string json = @"{
   ""company_id"": ""string"",
   ""description"": ""string"",
-  ""expire_at"": ""2025-01-09T17:18:58.560Z"",
-  ""active_at"": ""2025-01-09T17:18:58.560Z"",
+  ""expire_at"": ""2025-03-18T20:21:32.116Z"",
+  ""active_at"": ""2025-03-18T20:21:32.116Z"",
   ""amount"": 0.1,
   ""transaction_id"": ""string"",
   ""subscription_id"": ""string"",
@@ -20204,8 +26946,8 @@ con.setDoOutput(true);
 String jsonPayload = """{
   "company_id": "string",
   "description": "string",
-  "expire_at": "2025-01-09T17:18:58.560Z",
-  "active_at": "2025-01-09T17:18:58.560Z",
+  "expire_at": "2025-03-18T20:21:32.116Z",
+  "active_at": "2025-03-18T20:21:32.116Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -20244,8 +26986,8 @@ Post a billing report of type balance_transaction
 {
   "company_id": "string",
   "description": "string",
-  "expire_at": "2025-01-09T17:18:58.560Z",
-  "active_at": "2025-01-09T17:18:58.560Z",
+  "expire_at": "2025-03-18T20:21:32.116Z",
+  "active_at": "2025-03-18T20:21:32.116Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -21981,9 +28723,9 @@ System.out.println(response.toString());
   "to": "string",
   "week_starts_on": 0,
   "locked_by": "string",
-  "modified_at": "2025-01-09T17:18:58.560Z",
+  "modified_at": "2025-03-18T20:21:32.116Z",
   "from": "string",
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "app_id": "string",
   "cohort_type": "string",
   "time_zone": "string",
@@ -24002,6 +30744,7 @@ System.out.println(response.toString());
   "name": "string",
   "_id": "string",
   "auth_user_id": "string",
+  "modified": "2025-03-18T20:21:32.116Z",
   "profile_view_promotion": "string",
   "app_id": "string",
   "workspace_ids": [
@@ -24028,7 +30771,7 @@ System.out.println(response.toString());
   },
   "org_id": "string",
   "migration": {},
-  "created": "2025-01-09T17:18:58.560Z"
+  "created": "2025-03-18T20:21:32.116Z"
 }
 ```
 
@@ -28911,7 +35654,7 @@ System.out.println(response.toString());
       "sample_rate": 0
     }
   ],
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "app_id": "string",
   "plans": [
     {
@@ -29188,7 +35931,7 @@ System.out.println(response.toString());
       "sample_rate": 0
     }
   ],
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "app_id": "string",
   "plans": [
     {
@@ -29909,7 +36652,7 @@ System.out.println(response.toString());
       "sample_rate": 0
     }
   ],
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "app_id": "string",
   "plans": [
     {
@@ -30187,7 +36930,7 @@ System.out.println(response.toString());
       "sample_rate": 0
     }
   ],
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "app_id": "string",
   "plans": [
     {
@@ -30487,9 +37230,9 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "to": "string",
   "week_starts_on": 0,
   "locked_by": "string",
-  "modified_at": "2025-01-09T17:18:58.560Z",
+  "modified_at": "2025-03-18T20:21:32.116Z",
   "from": "string",
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "app_id": "string",
   "cohort_type": "string",
   "time_zone": "string",
@@ -30573,6 +37316,35 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |week_starts_on|integer(int32)|false|none|none|
 |custom_app_id|string|false|none|none|
 
+<h2 id="tocS_CustomBillingPrice">CustomBillingPrice</h2>
+
+<a id="schemacustombillingprice"></a>
+<a id="schema_CustomBillingPrice"></a>
+<a id="tocScustombillingprice"></a>
+<a id="tocscustombillingprice"></a>
+
+```json
+{
+  "price_id": "string",
+  "currency": "string",
+  "transform_quantity": {
+    "divide_by": 0,
+    "round": "string"
+  },
+  "price_in_decimal": 0.1
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|price_id|string|true|none|none|
+|currency|string|false|none|none|
+|transform_quantity|[TransformQuantity](#schematransformquantity)|false|none|none|
+|price_in_decimal|number(double)|false|none|none|
+
 <h2 id="tocS_AppUpdate">AppUpdate</h2>
 
 <a id="schemaappupdatedto"></a>
@@ -30608,8 +37380,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
 
 ```json
 {
-  "period_start": "2025-01-09T17:18:58.560Z",
-  "period_end": "2025-01-09T17:18:58.560Z",
+  "period_start": "2025-03-18T20:21:32.116Z",
+  "period_end": "2025-03-18T20:21:32.116Z",
   "id": "string"
 }
 
@@ -30672,26 +37444,6 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |cohort_type|string|true|none|none|
 |time_zone|string|false|none|none|
 
-<h2 id="tocS_CustomReportPlan">CustomReportPlan</h2>
-
-<a id="schemacustomreportplan"></a>
-<a id="schema_CustomReportPlan"></a>
-<a id="tocScustomreportplan"></a>
-<a id="tocscustomreportplan"></a>
-
-```json
-{
-  "plan_id": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|plan_id|string|true|none|none|
-
 <h2 id="tocS_BillingReportUsage">BillingReportUsage</h2>
 
 <a id="schemabillingreportusage"></a>
@@ -30702,8 +37454,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
 ```json
 {
   "invoice": {
-    "period_start": "2025-01-09T17:18:58.560Z",
-    "period_end": "2025-01-09T17:18:58.560Z",
+    "period_start": "2025-03-18T20:21:32.116Z",
+    "period_end": "2025-03-18T20:21:32.116Z",
     "id": "string"
   },
   "aggregator": "string"
@@ -30729,7 +37481,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 {
   "buckets": [
     {
-      "start": "2025-01-09T17:18:58.560Z",
+      "start": "2025-03-18T20:21:32.116Z",
       "metric": 0.1,
       "amounts": null,
       "ending_balance": {
@@ -30744,7 +37496,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
       "key": {},
       "buckets": [
         {
-          "start": "2025-01-09T17:18:58.560Z",
+          "start": "2025-03-18T20:21:32.116Z",
           "metric": 0.1,
           "amounts": null,
           "ending_balance": {
@@ -30974,6 +37726,26 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |created|integer(int64)|false|none|none|
 |active|boolean|false|none|none|
 
+<h2 id="tocS_CustomBillingPlan">CustomBillingPlan</h2>
+
+<a id="schemacustombillingplan"></a>
+<a id="schema_CustomBillingPlan"></a>
+<a id="tocScustombillingplan"></a>
+<a id="tocscustombillingplan"></a>
+
+```json
+{
+  "plan_id": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|plan_id|string|true|none|none|
+
 <h2 id="tocS_RegexCondition">RegexCondition</h2>
 
 <a id="schemaregexcondition"></a>
@@ -31169,8 +37941,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
       ],
       "partner_user_id": "string",
       "message": "string",
-      "created_at": "2025-01-09T17:18:58.560Z",
-      "updated_at": "2025-01-09T17:18:58.560Z"
+      "created_at": "2025-03-18T20:21:32.116Z",
+      "updated_at": "2025-03-18T20:21:32.116Z"
     }
   }
 }
@@ -31273,6 +38045,243 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |free_quantity|integer(int64)|false|none|none|
 |period|integer(int64)|false|none|none|
 
+<h2 id="tocS_BillingPlanUpdate">BillingPlanUpdate</h2>
+
+<a id="schemabillingplanupdate"></a>
+<a id="schema_BillingPlanUpdate"></a>
+<a id="tocSbillingplanupdate"></a>
+<a id="tocsbillingplanupdate"></a>
+
+```json
+{
+  "params": {
+    "usage_rounding_mode": "string",
+    "webhook_params": {
+      "reporting": {
+        "report_when": [
+          "string"
+        ]
+      },
+      "channel_ids": [
+        "string"
+      ],
+      "custom_plan": {
+        "plan_id": "string"
+      },
+      "custom_prices": [
+        {
+          "price_id": "string",
+          "currency": "string",
+          "transform_quantity": {},
+          "price_in_decimal": 0.1
+        }
+      ]
+    },
+    "recurly_params": {
+      "plan": {
+        "name": "string",
+        "id": "string",
+        "code": "string"
+      },
+      "add_on": {
+        "name": "string",
+        "currencies": [
+          {}
+        ],
+        "usage_percentage": null,
+        "add_on_type": "string",
+        "external_sku": "string",
+        "state": "string",
+        "tiers": [
+          {}
+        ],
+        "tier_type": "string",
+        "code": "string",
+        "plan_id": "string",
+        "id": "string",
+        "percentage_tiers": [
+          {}
+        ],
+        "usage_type": "string",
+        "created_at": "string",
+        "usage_calculation_type": "string",
+        "updated_at": "string",
+        "deleted_at": "string"
+      },
+      "add_ons": [
+        {
+          "name": "string",
+          "currencies": [
+            null
+          ],
+          "usage_percentage": null,
+          "add_on_type": "string",
+          "external_sku": "string",
+          "state": "string",
+          "tiers": [
+            null
+          ],
+          "tier_type": "string",
+          "code": "string",
+          "plan_id": "string",
+          "id": "string",
+          "percentage_tiers": [
+            null
+          ],
+          "usage_type": "string",
+          "created_at": "string",
+          "usage_calculation_type": "string",
+          "updated_at": "string",
+          "deleted_at": "string"
+        }
+      ]
+    },
+    "chargebee_params": {
+      "item_plan": {
+        "name": "string",
+        "item_family_id": "string",
+        "description": "string",
+        "usage_calculation": "string",
+        "external_name": "string",
+        "metered": true,
+        "id": "string",
+        "status": "string",
+        "unit": "string",
+        "updated_at": 0,
+        "archived_at": 0
+      },
+      "item_price": {
+        "name": "string",
+        "item_id": "string",
+        "description": "string",
+        "price": 0,
+        "price_in_decimal": "string",
+        "external_name": "string",
+        "tiers": [
+          {}
+        ],
+        "trial_end_action": "string",
+        "trial_period": 0,
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "created_at": 0,
+        "period_unit": "string",
+        "updated_at": 0,
+        "trial_period_unit": "string",
+        "item_type": "string",
+        "currency_code": "string",
+        "archived_at": 0,
+        "free_quantity": 0,
+        "period": 0
+      },
+      "item_prices": [
+        {
+          "name": "string",
+          "item_id": "string",
+          "description": "string",
+          "price": 0,
+          "price_in_decimal": "string",
+          "external_name": "string",
+          "tiers": [
+            null
+          ],
+          "trial_end_action": "string",
+          "trial_period": 0,
+          "id": "string",
+          "status": "string",
+          "pricing_model": "string",
+          "created_at": 0,
+          "period_unit": "string",
+          "updated_at": 0,
+          "trial_period_unit": "string",
+          "item_type": "string",
+          "currency_code": "string",
+          "archived_at": 0,
+          "free_quantity": 0,
+          "period": 0
+        }
+      ],
+      "reporting": {
+        "reporting_period": "string"
+      }
+    },
+    "stripe_params": {
+      "product": {
+        "name": "string",
+        "description": "string",
+        "unit_label": "string",
+        "id": "string",
+        "usage_type": "string"
+      },
+      "price": {
+        "tiers_mode": "string",
+        "transform_quantity": {
+          "divide_by": null,
+          "round": null
+        },
+        "price_id": "string",
+        "tiers": [
+          {}
+        ],
+        "recurring": {
+          "meter_event_name": null,
+          "trial_period_days": null,
+          "interval": null,
+          "usage_type": null,
+          "interval_count": null,
+          "aggregate_usage": null,
+          "meter_unsupported": null
+        },
+        "unit_amount_decimal": "string",
+        "price_nickname": "string",
+        "currency": "string",
+        "billing_scheme": "string",
+        "unit_amount": 0,
+        "created": 0,
+        "active": true
+      },
+      "prices": [
+        {
+          "tiers_mode": "string",
+          "transform_quantity": {},
+          "price_id": "string",
+          "tiers": [
+            null
+          ],
+          "recurring": {},
+          "unit_amount_decimal": "string",
+          "price_nickname": "string",
+          "currency": "string",
+          "billing_scheme": "string",
+          "unit_amount": 0,
+          "created": 0,
+          "active": true
+        }
+      ],
+      "reporting": {
+        "reporting_period": "string"
+      }
+    },
+    "zuora_params": {
+      "plan_id": "string",
+      "price_id": "string",
+      "price_ids": [
+        "string"
+      ]
+    },
+    "usage_multiplier": null
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|params|[BillingParams](#schemabillingparams)|false|none|none|
+
 <h2 id="tocS_MoesifPrice">MoesifPrice</h2>
 
 <a id="schemamoesifprice"></a>
@@ -31290,13 +38299,13 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "currency_prices": null,
   "provider": "string",
   "revenue_recognition_rule": "string",
-  "price_in_decimal": "string",
+  "price_in_decimal": 0.1,
   "tiers": [
     {
       "flat_currency_prices": null,
-      "up_to": null,
-      "flat_price_in_decimal": "string",
-      "unit_price_in_decimal": "string",
+      "up_to": 0,
+      "flat_price_in_decimal": 0.1,
+      "unit_price_in_decimal": 0.1,
       "unit_currency_prices": null
     }
   ],
@@ -31309,7 +38318,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -31327,7 +38336,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |currency_prices|.map[string,string]|false|none|none|
 |provider|string|false|none|none|
 |revenue_recognition_rule|string|false|none|none|
-|price_in_decimal|string|false|none|none|
+|price_in_decimal|number(double)|false|none|none|
 |tiers|[[MoesifPriceTier](#schemamoesifpricetier)]|false|none|none|
 |recognized_revenue_accounting_code|string|false|none|none|
 |period_units|string|false|none|none|
@@ -31343,6 +38352,34 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |deferred_revenue_accounting_code|string|false|none|none|
 |usage_aggregator|string|false|none|none|
 |period|integer(int64)|false|none|none|
+
+<h2 id="tocS_billing.webhook.WebhookValidationRequest">billing.webhook.WebhookValidationRequest</h2>
+
+<a id="schemabilling.webhook.webhookvalidationrequestdto"></a>
+<a id="schema_billing.webhook.WebhookValidationRequest"></a>
+<a id="tocSbilling.webhook.webhookvalidationrequestdto"></a>
+<a id="tocsbilling.webhook.webhookvalidationrequestdto"></a>
+
+```json
+{
+  "company_id": "string",
+  "quantity": 0,
+  "start_time": "2025-03-18T20:21:32.116Z",
+  "end_time": "2025-03-18T20:21:32.116Z",
+  "subscription_id": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|company_id|string|true|none|none|
+|quantity|integer(int64)|true|none|none|
+|start_time|string(date-time)|true|none|none|
+|end_time|string(date-time)|true|none|none|
+|subscription_id|string|true|none|none|
 
 <h2 id="tocS_EmailTemplateCreateItem">EmailTemplateCreateItem</h2>
 
@@ -31500,7 +38537,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 
 ```json
 {
-  "start": "2025-01-09T17:18:58.560Z",
+  "start": "2025-03-18T20:21:32.116Z",
   "metric": 0.1,
   "amounts": null,
   "ending_balance": {
@@ -31521,6 +38558,232 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |amounts|.map[string,double]|false|none|none|
 |ending_balance|[CreditBalanceMetric](#schemacreditbalancemetric)|false|none|none|
 
+<h2 id="tocS_BillingCustomPlanDocument">BillingCustomPlanDocument</h2>
+
+<a id="schemabillingcustomplandocument"></a>
+<a id="schema_BillingCustomPlanDocument"></a>
+<a id="tocSbillingcustomplandocument"></a>
+<a id="tocsbillingcustomplandocument"></a>
+
+```json
+{
+  "name": "string",
+  "billing_type": "string",
+  "_id": "string",
+  "slug": "string",
+  "external_plan_id": "string",
+  "status": "string",
+  "modified_at": "2025-03-18T20:21:32.116Z",
+  "metadata": null,
+  "created_at": "2025-03-18T20:21:32.116Z",
+  "billing_period": "string",
+  "app_id": "string",
+  "reporting_period": "string",
+  "org_id": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|true|none|none|
+|billing_type|string|true|none|none|
+|_id|string|false|none|none|
+|slug|string|true|none|none|
+|external_plan_id|string|false|none|none|
+|status|string|true|none|none|
+|modified_at|string(date-time)|true|none|none|
+|metadata|.map[string,string]|false|none|none|
+|created_at|string(date-time)|true|none|none|
+|billing_period|string|false|none|none|
+|app_id|string|true|none|none|
+|reporting_period|string|false|none|none|
+|org_id|string|true|none|none|
+
+<h2 id="tocS_CustomBillingReporting">CustomBillingReporting</h2>
+
+<a id="schemacustombillingreporting"></a>
+<a id="schema_CustomBillingReporting"></a>
+<a id="tocScustombillingreporting"></a>
+<a id="tocscustombillingreporting"></a>
+
+```json
+{
+  "report_when": [
+    "string"
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|report_when|[string]|true|none|none|
+
+<h2 id="tocS_BillingMeterUpdateItem">BillingMeterUpdateItem</h2>
+
+<a id="schemabillingmeterupdateitem"></a>
+<a id="schema_BillingMeterUpdateItem"></a>
+<a id="tocSbillingmeterupdateitem"></a>
+<a id="tocsbillingmeterupdateitem"></a>
+
+```json
+{
+  "name": "string",
+  "billing_plan": {
+    "params": {
+      "usage_rounding_mode": "string",
+      "webhook_params": {
+        "reporting": {
+          "report_when": null
+        },
+        "channel_ids": [
+          "string"
+        ],
+        "custom_plan": {
+          "plan_id": null
+        },
+        "custom_prices": [
+          {}
+        ]
+      },
+      "recurly_params": {
+        "plan": {
+          "name": null,
+          "id": null,
+          "code": null
+        },
+        "add_on": {
+          "name": null,
+          "currencies": null,
+          "usage_percentage": null,
+          "add_on_type": null,
+          "external_sku": null,
+          "state": null,
+          "tiers": null,
+          "tier_type": null,
+          "code": null,
+          "plan_id": null,
+          "id": null,
+          "percentage_tiers": null,
+          "usage_type": null,
+          "created_at": null,
+          "usage_calculation_type": null,
+          "updated_at": null,
+          "deleted_at": null
+        },
+        "add_ons": [
+          {}
+        ]
+      },
+      "chargebee_params": {
+        "item_plan": {
+          "name": null,
+          "item_family_id": null,
+          "description": null,
+          "usage_calculation": null,
+          "external_name": null,
+          "metered": null,
+          "id": null,
+          "status": null,
+          "unit": null,
+          "updated_at": null,
+          "archived_at": null
+        },
+        "item_price": {
+          "name": null,
+          "item_id": null,
+          "description": null,
+          "price": null,
+          "price_in_decimal": null,
+          "external_name": null,
+          "tiers": null,
+          "trial_end_action": null,
+          "trial_period": null,
+          "id": null,
+          "status": null,
+          "pricing_model": null,
+          "created_at": null,
+          "period_unit": null,
+          "updated_at": null,
+          "trial_period_unit": null,
+          "item_type": null,
+          "currency_code": null,
+          "archived_at": null,
+          "free_quantity": null,
+          "period": null
+        },
+        "item_prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "stripe_params": {
+        "product": {
+          "name": null,
+          "description": null,
+          "unit_label": null,
+          "id": null,
+          "usage_type": null
+        },
+        "price": {
+          "tiers_mode": null,
+          "transform_quantity": null,
+          "price_id": null,
+          "tiers": null,
+          "recurring": null,
+          "unit_amount_decimal": null,
+          "price_nickname": null,
+          "currency": null,
+          "billing_scheme": null,
+          "unit_amount": null,
+          "created": null,
+          "active": null
+        },
+        "prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "zuora_params": {
+        "plan_id": "string",
+        "price_id": "string",
+        "price_ids": [
+          "string"
+        ]
+      },
+      "usage_multiplier": null
+    }
+  },
+  "url_query": "string",
+  "_id": "string",
+  "status": "string",
+  "es_query": {},
+  "zero_balance_behavior": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|false|none|none|
+|billing_plan|[BillingPlanUpdate](#schemabillingplanupdate)|false|none|none|
+|url_query|string|false|none|none|
+|_id|string|false|none|none|
+|status|string|false|none|none|
+|es_query|object|false|none|none|
+|zero_balance_behavior|string|false|none|none|
+
 <h2 id="tocS_DashboardDocument">DashboardDocument</h2>
 
 <a id="schemadashboarddocument"></a>
@@ -31534,6 +38797,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "name": "string",
   "_id": "string",
   "auth_user_id": "string",
+  "modified": "2025-03-18T20:21:32.116Z",
   "profile_view_promotion": "string",
   "app_id": "string",
   "workspace_ids": [
@@ -31560,7 +38824,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   },
   "org_id": "string",
   "migration": {},
-  "created": "2025-01-09T17:18:58.560Z"
+  "created": "2025-03-18T20:21:32.116Z"
 }
 
 ```
@@ -31573,6 +38837,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |name|string|true|none|none|
 |_id|string|false|none|none|
 |auth_user_id|string|true|none|none|
+|modified|string(date-time)|false|none|none|
 |profile_view_promotion|string|false|none|none|
 |app_id|string|true|none|none|
 |workspace_ids|[array]|true|none|none|
@@ -31647,6 +38912,32 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |pending_activity|number(double)|true|none|none|
 |available_balance|number(double)|true|none|none|
 
+<h2 id="tocS_BillingCustomPlanUpdateItem">BillingCustomPlanUpdateItem</h2>
+
+<a id="schemabillingcustomplanupdateitem"></a>
+<a id="schema_BillingCustomPlanUpdateItem"></a>
+<a id="tocSbillingcustomplanupdateitem"></a>
+<a id="tocsbillingcustomplanupdateitem"></a>
+
+```json
+{
+  "_id": "string",
+  "name": "string",
+  "status": "string",
+  "metadata": null
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|_id|string|false|none|none|
+|name|string|false|none|none|
+|status|string|false|none|none|
+|metadata|.map[string,string]|false|none|none|
+
 <h2 id="tocS_CreateCommentItem">CreateCommentItem</h2>
 
 <a id="schemacreatecommentitem"></a>
@@ -31663,8 +38954,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
   ],
   "partner_user_id": "string",
   "message": "string",
-  "created_at": "2025-01-09T17:18:58.560Z",
-  "updated_at": "2025-01-09T17:18:58.560Z"
+  "created_at": "2025-03-18T20:21:32.116Z",
+  "updated_at": "2025-03-18T20:21:32.116Z"
 }
 
 ```
@@ -31880,8 +39171,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
 {
   "company_id": "string",
   "description": "string",
-  "expire_at": "2025-01-09T17:18:58.560Z",
-  "active_at": "2025-01-09T17:18:58.560Z",
+  "expire_at": "2025-03-18T20:21:32.116Z",
+  "active_at": "2025-03-18T20:21:32.116Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -32083,13 +39374,13 @@ managementAPIToken ( Scopes: delete:governance_rules )
       "currency_prices": null,
       "provider": "string",
       "revenue_recognition_rule": "string",
-      "price_in_decimal": "string",
+      "price_in_decimal": 0.1,
       "tiers": [
         {
           "flat_currency_prices": null,
-          "up_to": null,
-          "flat_price_in_decimal": "string",
-          "unit_price_in_decimal": "string",
+          "up_to": 0,
+          "flat_price_in_decimal": 0.1,
+          "unit_price_in_decimal": 0.1,
           "unit_currency_prices": null
         }
       ],
@@ -32102,7 +39393,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2025-01-09T17:18:58.560Z",
+      "created_at": "2025-03-18T20:21:32.116Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -32117,10 +39408,10 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2025-01-09T17:18:58.560Z",
+  "updated_at": "2025-03-18T20:21:32.116Z",
   "reporting_period": "string"
 }
 
@@ -32494,28 +39785,6 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |tiers|[[RecurlyAddOnPercentageTier](#schemarecurlyaddonpercentagetier)]|false|none|none|
 |currency|string|false|none|none|
 
-<h2 id="tocS_CustomReporting">CustomReporting</h2>
-
-<a id="schemacustomreporting"></a>
-<a id="schema_CustomReporting"></a>
-<a id="tocScustomreporting"></a>
-<a id="tocscustomreporting"></a>
-
-```json
-{
-  "report_when": [
-    "string"
-  ]
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|report_when|[string]|true|none|none|
-
 <h2 id="tocS_BillingReport">BillingReport</h2>
 
 <a id="schemabillingreport"></a>
@@ -32536,11 +39805,11 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "success": true,
   "provider": "string",
   "report_version": 0,
-  "usage_end_time": "2025-01-09T17:18:58.560Z",
+  "usage_end_time": "2025-03-18T20:21:32.116Z",
   "usage": {
     "invoice": {
-      "period_start": "2025-01-09T17:18:58.560Z",
-      "period_end": "2025-01-09T17:18:58.560Z",
+      "period_start": "2025-03-18T20:21:32.116Z",
+      "period_end": "2025-03-18T20:21:32.116Z",
       "id": "string"
     },
     "aggregator": "string"
@@ -32549,7 +39818,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "price_id": "string",
   "price_in_decimal": 0.1,
   "meter_usage": 0.1,
-  "last_success_time": "2025-01-09T17:18:58.560Z",
+  "last_success_time": "2025-03-18T20:21:32.116Z",
   "beginning_balance": {
     "sequence_id": 0,
     "current_balance": 0.1,
@@ -32559,7 +39828,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "billing_meter_id": "string",
   "amount": 0.1,
   "plan_id": "string",
-  "usage_start_time": "2025-01-09T17:18:58.560Z",
+  "usage_start_time": "2025-03-18T20:21:32.116Z",
   "status": "string",
   "provider_requests": [
     {
@@ -32568,7 +39837,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
       "job_id": "string",
       "error_message": "string",
       "error_code": "string",
-      "request_time": "2025-01-09T17:18:58.560Z"
+      "request_time": "2025-03-18T20:21:32.116Z"
     }
   ],
   "currency": "string",
@@ -32584,15 +39853,15 @@ managementAPIToken ( Scopes: delete:governance_rules )
           "job_id": "string",
           "error_message": "string",
           "error_code": "string",
-          "request_time": "2025-01-09T17:18:58.560Z"
+          "request_time": "2025-03-18T20:21:32.116Z"
         }
       ]
     }
   ],
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "app_id": "string",
   "subscription_id": "string",
-  "subscription_period_start": "2025-01-09T17:18:58.560Z",
+  "subscription_period_start": "2025-03-18T20:21:32.116Z",
   "balance_changes": [
     {
       "amount": 0.1,
@@ -32600,11 +39869,11 @@ managementAPIToken ( Scopes: delete:governance_rules )
     }
   ],
   "type": "string",
-  "updated_at": "2025-01-09T17:18:58.560Z",
+  "updated_at": "2025-03-18T20:21:32.116Z",
   "subscription_item_id": "string",
   "zero_balance_behavior": "string",
   "org_id": "string",
-  "subscription_period_end": "2025-01-09T17:18:58.560Z",
+  "subscription_period_end": "2025-03-18T20:21:32.116Z",
   "meter_metric": 0.1
 }
 
@@ -32779,6 +40048,28 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |name|string|true|none|none|
 |path|string|true|none|none|
 
+<h2 id="tocS_TransformQuantity">TransformQuantity</h2>
+
+<a id="schematransformquantity"></a>
+<a id="schema_TransformQuantity"></a>
+<a id="tocStransformquantity"></a>
+<a id="tocstransformquantity"></a>
+
+```json
+{
+  "divide_by": 0,
+  "round": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|divide_by|integer(int32)|true|none|none|
+|round|string|true|none|none|
+
 <h2 id="tocS_ChannelRequest">ChannelRequest</h2>
 
 <a id="schemachannelrequest"></a>
@@ -32797,7 +40088,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
       "job_id": "string",
       "error_message": "string",
       "error_code": "string",
-      "request_time": "2025-01-09T17:18:58.560Z"
+      "request_time": "2025-03-18T20:21:32.116Z"
     }
   ]
 }
@@ -32829,6 +40120,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "dashboard": {},
   "height": 0.1,
   "auth_user_id": "string",
+  "modified": "2025-03-18T20:21:32.116Z",
   "colors": {},
   "sequence": [
     {
@@ -32900,7 +40192,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   },
   "org_id": "string",
   "migration": {},
-  "created": "2025-01-09T17:18:58.560Z",
+  "created": "2025-03-18T20:21:32.116Z",
   "comments": {
     "summary": {
       "count": 0,
@@ -32912,8 +40204,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
         ],
         "partner_user_id": "string",
         "message": "string",
-        "created_at": "2025-01-09T17:18:58.560Z",
-        "updated_at": "2025-01-09T17:18:58.560Z"
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "updated_at": "2025-03-18T20:21:32.116Z"
       }
     }
   }
@@ -32933,6 +40225,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |dashboard|object|false|none|none|
 |height|number(double)|false|none|none|
 |auth_user_id|string|true|none|none|
+|modified|string(date-time)|false|none|none|
 |colors|object|false|none|none|
 |sequence|[[SequenceItem](#schemasequenceitem)]|false|none|none|
 |drawings|[[DrawingItem](#schemadrawingitem)]|false|none|none|
@@ -32982,9 +40275,9 @@ managementAPIToken ( Scopes: delete:governance_rules )
 ```json
 {
   "flat_currency_prices": null,
-  "up_to": null,
-  "flat_price_in_decimal": "string",
-  "unit_price_in_decimal": "string",
+  "up_to": 0,
+  "flat_price_in_decimal": 0.1,
+  "unit_price_in_decimal": 0.1,
   "unit_currency_prices": null
 }
 
@@ -32995,9 +40288,9 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |flat_currency_prices|.map[string,string]|false|none|none|
-|up_to|util.either[long,string]|true|none|none|
-|flat_price_in_decimal|string|false|none|none|
-|unit_price_in_decimal|string|false|none|none|
+|up_to|integer(int64)|true|none|none|
+|flat_price_in_decimal|number(double)|false|none|none|
+|unit_price_in_decimal|number(double)|false|none|none|
 |unit_currency_prices|.map[string,string]|false|none|none|
 
 <h2 id="tocS_BillingMeterDocument">BillingMeterDocument</h2>
@@ -33024,7 +40317,10 @@ managementAPIToken ( Scopes: delete:governance_rules )
         ],
         "custom_plan": {
           "plan_id": null
-        }
+        },
+        "custom_prices": [
+          {}
+        ]
       },
       "recurly_params": {
         "plan": {
@@ -33142,9 +40438,9 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "_id": "string",
   "slug": "string",
   "status": "string",
-  "modified_at": "2025-01-09T17:18:58.560Z",
+  "modified_at": "2025-03-18T20:21:32.116Z",
   "es_query": "string",
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "app_id": "string",
   "zero_balance_behavior": "string",
   "org_id": "string"
@@ -33245,6 +40541,168 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |secure_proxy|boolean|false|none|none|
 |time_zone|string|false|none|none|
 
+<h2 id="tocS_BillingMeterCreateItem">BillingMeterCreateItem</h2>
+
+<a id="schemabillingmetercreateitem"></a>
+<a id="schema_BillingMeterCreateItem"></a>
+<a id="tocSbillingmetercreateitem"></a>
+<a id="tocsbillingmetercreateitem"></a>
+
+```json
+{
+  "name": "string",
+  "billing_plan": {
+    "provider_slug": "string",
+    "friendly_name": "string",
+    "params": {
+      "usage_rounding_mode": "string",
+      "webhook_params": {
+        "reporting": {
+          "report_when": null
+        },
+        "channel_ids": [
+          "string"
+        ],
+        "custom_plan": {
+          "plan_id": null
+        },
+        "custom_prices": [
+          {}
+        ]
+      },
+      "recurly_params": {
+        "plan": {
+          "name": null,
+          "id": null,
+          "code": null
+        },
+        "add_on": {
+          "name": null,
+          "currencies": null,
+          "usage_percentage": null,
+          "add_on_type": null,
+          "external_sku": null,
+          "state": null,
+          "tiers": null,
+          "tier_type": null,
+          "code": null,
+          "plan_id": null,
+          "id": null,
+          "percentage_tiers": null,
+          "usage_type": null,
+          "created_at": null,
+          "usage_calculation_type": null,
+          "updated_at": null,
+          "deleted_at": null
+        },
+        "add_ons": [
+          {}
+        ]
+      },
+      "chargebee_params": {
+        "item_plan": {
+          "name": null,
+          "item_family_id": null,
+          "description": null,
+          "usage_calculation": null,
+          "external_name": null,
+          "metered": null,
+          "id": null,
+          "status": null,
+          "unit": null,
+          "updated_at": null,
+          "archived_at": null
+        },
+        "item_price": {
+          "name": null,
+          "item_id": null,
+          "description": null,
+          "price": null,
+          "price_in_decimal": null,
+          "external_name": null,
+          "tiers": null,
+          "trial_end_action": null,
+          "trial_period": null,
+          "id": null,
+          "status": null,
+          "pricing_model": null,
+          "created_at": null,
+          "period_unit": null,
+          "updated_at": null,
+          "trial_period_unit": null,
+          "item_type": null,
+          "currency_code": null,
+          "archived_at": null,
+          "free_quantity": null,
+          "period": null
+        },
+        "item_prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "stripe_params": {
+        "product": {
+          "name": null,
+          "description": null,
+          "unit_label": null,
+          "id": null,
+          "usage_type": null
+        },
+        "price": {
+          "tiers_mode": null,
+          "transform_quantity": null,
+          "price_id": null,
+          "tiers": null,
+          "recurring": null,
+          "unit_amount_decimal": null,
+          "price_nickname": null,
+          "currency": null,
+          "billing_scheme": null,
+          "unit_amount": null,
+          "created": null,
+          "active": null
+        },
+        "prices": [
+          {}
+        ],
+        "reporting": {
+          "reporting_period": null
+        }
+      },
+      "zuora_params": {
+        "plan_id": "string",
+        "price_id": "string",
+        "price_ids": [
+          "string"
+        ]
+      },
+      "usage_multiplier": null
+    }
+  },
+  "url_query": "string",
+  "slug": "string",
+  "status": "string",
+  "es_query": {},
+  "zero_balance_behavior": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|true|none|none|
+|billing_plan|[BillingPlan](#schemabillingplan)|true|none|none|
+|url_query|string|true|none|none|
+|slug|string|true|none|none|
+|status|string|true|none|none|
+|es_query|object|true|none|none|
+|zero_balance_behavior|string|false|none|none|
+
 <h2 id="tocS_BillingMetricGroupBy">BillingMetricGroupBy</h2>
 
 <a id="schemabillingmetricgroupby"></a>
@@ -33257,7 +40715,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "key": {},
   "buckets": [
     {
-      "start": "2025-01-09T17:18:58.560Z",
+      "start": "2025-03-18T20:21:32.116Z",
       "metric": 0.1,
       "amounts": null,
       "ending_balance": {
@@ -33523,7 +40981,18 @@ managementAPIToken ( Scopes: delete:governance_rules )
     ],
     "custom_plan": {
       "plan_id": "string"
-    }
+    },
+    "custom_prices": [
+      {
+        "price_id": "string",
+        "currency": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "price_in_decimal": 0.1
+      }
+    ]
   },
   "recurly_params": {
     "plan": {
@@ -33946,7 +41415,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
       "sample_rate": 0
     }
   ],
-  "created_at": "2025-01-09T17:18:58.560Z",
+  "created_at": "2025-03-18T20:21:32.116Z",
   "app_id": "string",
   "plans": [
     {
@@ -34009,7 +41478,15 @@ managementAPIToken ( Scopes: delete:governance_rules )
       ],
       "custom_plan": {
         "plan_id": "string"
-      }
+      },
+      "custom_prices": [
+        {
+          "price_id": "string",
+          "currency": "string",
+          "transform_quantity": {},
+          "price_in_decimal": 0.1
+        }
+      ]
     },
     "recurly_params": {
       "plan": {
@@ -34270,7 +41747,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "job_id": "string",
   "error_message": "string",
   "error_code": "string",
-  "request_time": "2025-01-09T17:18:58.560Z"
+  "request_time": "2025-03-18T20:21:32.116Z"
 }
 
 ```
@@ -34338,6 +41815,38 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |period|string|false|none|none|
 |fields|[string]|false|none|none|
 
+<h2 id="tocS_billing.webhook.WebhookValidationResponse">billing.webhook.WebhookValidationResponse</h2>
+
+<a id="schemabilling.webhook.webhookvalidationresponsedto"></a>
+<a id="schema_billing.webhook.WebhookValidationResponse"></a>
+<a id="tocSbilling.webhook.webhookvalidationresponsedto"></a>
+<a id="tocsbilling.webhook.webhookvalidationresponsedto"></a>
+
+```json
+{
+  "response_body": "string",
+  "success": true,
+  "channel_name": "string",
+  "status_code": 0,
+  "channel_id": "string",
+  "error_message": "string",
+  "error_code": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|response_body|string|false|none|none|
+|success|boolean|true|none|none|
+|channel_name|string|false|none|none|
+|status_code|integer(int32)|false|none|none|
+|channel_id|string|true|none|none|
+|error_message|string|false|none|none|
+|error_code|string|false|none|none|
+
 <h2 id="tocS_TemplateItem">TemplateItem</h2>
 
 <a id="schematemplateitem"></a>
@@ -34380,8 +41889,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
     ],
     "partner_user_id": "string",
     "message": "string",
-    "created_at": "2025-01-09T17:18:58.560Z",
-    "updated_at": "2025-01-09T17:18:58.560Z"
+    "created_at": "2025-03-18T20:21:32.116Z",
+    "updated_at": "2025-03-18T20:21:32.116Z"
   }
 }
 
@@ -34467,6 +41976,38 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |regex_config|[[RegexRule](#schemaregexrule)]|false|none|none|
 |plans|[[Plan](#schemaplan)]|false|none|none|
 |type|string|false|none|none|
+
+<h2 id="tocS_BillingCustomPlanCreateItem">BillingCustomPlanCreateItem</h2>
+
+<a id="schemabillingcustomplancreateitem"></a>
+<a id="schema_BillingCustomPlanCreateItem"></a>
+<a id="tocSbillingcustomplancreateitem"></a>
+<a id="tocsbillingcustomplancreateitem"></a>
+
+```json
+{
+  "name": "string",
+  "billing_type": "string",
+  "external_plan_id": "string",
+  "status": "string",
+  "metadata": null,
+  "billing_period": "string",
+  "reporting_period": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|true|none|none|
+|billing_type|string|true|none|none|
+|external_plan_id|string|false|none|none|
+|status|string|true|none|none|
+|metadata|.map[string,string]|false|none|none|
+|billing_period|string|false|none|none|
+|reporting_period|string|false|none|none|
 
 <h2 id="tocS_WorkspaceUpdateItem">WorkspaceUpdateItem</h2>
 
@@ -34561,7 +42102,18 @@ managementAPIToken ( Scopes: delete:governance_rules )
   ],
   "custom_plan": {
     "plan_id": "string"
-  }
+  },
+  "custom_prices": [
+    {
+      "price_id": "string",
+      "currency": "string",
+      "transform_quantity": {
+        "divide_by": 0,
+        "round": "string"
+      },
+      "price_in_decimal": 0.1
+    }
+  ]
 }
 
 ```
@@ -34570,9 +42122,10 @@ managementAPIToken ( Scopes: delete:governance_rules )
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|reporting|[CustomReporting](#schemacustomreporting)|false|none|none|
+|reporting|[CustomBillingReporting](#schemacustombillingreporting)|false|none|none|
 |channel_ids|[string]|true|none|none|
-|custom_plan|[CustomReportPlan](#schemacustomreportplan)|true|none|none|
+|custom_plan|[CustomBillingPlan](#schemacustombillingplan)|true|none|none|
+|custom_prices|[[CustomBillingPrice](#schemacustombillingprice)]|false|none|none|
 
 <h2 id="tocS_searchUsersResponse">searchUsersResponse</h2>
 
@@ -34637,38 +42190,127 @@ managementAPIToken ( Scopes: delete:governance_rules )
 
 ```json
 {
-  "trial_start": "2025-01-09T17:18:58.560Z",
+  "trial_start": "2025-03-18T20:21:32.116Z",
   "company_id": "string",
-  "start_date": "2025-01-09T17:18:58.560Z",
+  "start_date": "2025-03-18T20:21:32.116Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
     {
       "item_price_id": "string",
+      "billing_thresholds": {
+        "usage_gte": 0
+      },
       "price_id": "string",
+      "price": {
+        "name": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "currency_prices": null,
+        "provider": "string",
+        "revenue_recognition_rule": "string",
+        "price_in_decimal": 0.1,
+        "tiers": [
+          {
+            "flat_currency_prices": null,
+            "up_to": null,
+            "flat_price_in_decimal": null,
+            "unit_price_in_decimal": null,
+            "unit_currency_prices": null
+          }
+        ],
+        "recognized_revenue_accounting_code": "string",
+        "period_units": "string",
+        "plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "tax_behavior": "string",
+        "currency": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "unit": "string",
+        "deferred_revenue_accounting_code": "string",
+        "usage_aggregator": "string",
+        "period": 0
+      },
+      "current_period_start": "2025-03-18T20:21:32.116Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
-      "subscription_item_id": "string"
+      "metadata": {},
+      "created_at": "string",
+      "current_period_end": "2025-03-18T20:21:32.116Z",
+      "subscription_item_id": "string",
+      "plan": {
+        "name": "string",
+        "prices": [
+          {
+            "name": null,
+            "transform_quantity": null,
+            "currency_prices": null,
+            "provider": null,
+            "revenue_recognition_rule": null,
+            "price_in_decimal": null,
+            "tiers": null,
+            "recognized_revenue_accounting_code": null,
+            "period_units": null,
+            "plan_id": null,
+            "id": null,
+            "status": null,
+            "pricing_model": null,
+            "tax_behavior": null,
+            "currency": null,
+            "metadata": null,
+            "created_at": null,
+            "unit": null,
+            "deferred_revenue_accounting_code": null,
+            "usage_aggregator": null,
+            "period": null
+          }
+        ],
+        "provider": "string",
+        "billing_type": "string",
+        "description": "string",
+        "external_plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "product_id": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "billing_period": "string",
+        "unit": "string",
+        "updated_at": "2025-03-18T20:21:32.116Z",
+        "reporting_period": "string"
+      }
     }
   ],
-  "current_period_start": "2025-01-09T17:18:58.560Z",
+  "current_period_start": "2025-03-18T20:21:32.116Z",
+  "balance": {
+    "available_balance": 0.1,
+    "current_balance": 0.1,
+    "pending_activity": 0.1,
+    "last_modified": "2025-03-18T20:21:32.116Z"
+  },
   "company_external_id": "string",
   "payment_status": "string",
-  "modified_time": "2025-01-09T17:18:58.560Z",
-  "cancel_time": "2025-01-09T17:18:58.560Z",
+  "modified_time": "2025-03-18T20:21:32.116Z",
+  "cancel_time": "2025-03-18T20:21:32.116Z",
   "status": "string",
-  "trial_end": "2025-01-09T17:18:58.560Z",
+  "trial_end": "2025-03-18T20:21:32.116Z",
   "external_id": "string",
+  "currency": "string",
   "metadata": {},
   "app_id": "string",
   "subscription_id": "string",
   "version_id": "string",
   "type": "string",
-  "current_period_end": "2025-01-09T17:18:58.560Z",
+  "current_period_end": "2025-03-18T20:21:32.116Z",
   "org_id": "string",
-  "created": "2025-01-09T17:18:58.560Z"
+  "created": "2025-03-18T20:21:32.116Z"
 }
 
 ```
@@ -34684,6 +42326,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |provider|string|false|none|none|
 |items|[[SubscriptionItem](#schemasubscriptionitem)]|false|none|none|
 |current_period_start|string(date-time)|false|none|none|
+|balance|[SubscriptionBalance](#schemasubscriptionbalance)|false|none|none|
 |company_external_id|string|false|none|none|
 |payment_status|string|false|none|none|
 |modified_time|string(date-time)|false|none|none|
@@ -34691,6 +42334,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |status|string|true|none|none|
 |trial_end|string(date-time)|false|none|none|
 |external_id|string|false|none|none|
+|currency|string|false|none|none|
 |metadata|object|false|none|none|
 |app_id|string|true|none|none|
 |subscription_id|string|true|none|none|
@@ -34795,7 +42439,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2025-01-09T17:18:58.560Z",
+  "modified_time": "2025-03-18T20:21:32.116Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -34830,12 +42474,105 @@ managementAPIToken ( Scopes: delete:governance_rules )
 ```json
 {
   "item_price_id": "string",
+  "billing_thresholds": {
+    "usage_gte": 0
+  },
   "price_id": "string",
+  "price": {
+    "name": "string",
+    "transform_quantity": {
+      "divide_by": 0,
+      "round": "string"
+    },
+    "currency_prices": null,
+    "provider": "string",
+    "revenue_recognition_rule": "string",
+    "price_in_decimal": 0.1,
+    "tiers": [
+      {
+        "flat_currency_prices": null,
+        "up_to": 0,
+        "flat_price_in_decimal": 0.1,
+        "unit_price_in_decimal": 0.1,
+        "unit_currency_prices": null
+      }
+    ],
+    "recognized_revenue_accounting_code": "string",
+    "period_units": "string",
+    "plan_id": "string",
+    "id": "string",
+    "status": "string",
+    "pricing_model": "string",
+    "tax_behavior": "string",
+    "currency": "string",
+    "metadata": null,
+    "created_at": "2025-03-18T20:21:32.116Z",
+    "unit": "string",
+    "deferred_revenue_accounting_code": "string",
+    "usage_aggregator": "string",
+    "period": 0
+  },
+  "current_period_start": "2025-03-18T20:21:32.116Z",
   "is_metered": true,
   "plan_id": "string",
   "unit_of_measure": "string",
   "status": "string",
-  "subscription_item_id": "string"
+  "metadata": {},
+  "created_at": "string",
+  "current_period_end": "2025-03-18T20:21:32.116Z",
+  "subscription_item_id": "string",
+  "plan": {
+    "name": "string",
+    "prices": [
+      {
+        "name": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "currency_prices": null,
+        "provider": "string",
+        "revenue_recognition_rule": "string",
+        "price_in_decimal": 0.1,
+        "tiers": [
+          {
+            "flat_currency_prices": null,
+            "up_to": null,
+            "flat_price_in_decimal": null,
+            "unit_price_in_decimal": null,
+            "unit_currency_prices": null
+          }
+        ],
+        "recognized_revenue_accounting_code": "string",
+        "period_units": "string",
+        "plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "tax_behavior": "string",
+        "currency": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "unit": "string",
+        "deferred_revenue_accounting_code": "string",
+        "usage_aggregator": "string",
+        "period": 0
+      }
+    ],
+    "provider": "string",
+    "billing_type": "string",
+    "description": "string",
+    "external_plan_id": "string",
+    "id": "string",
+    "status": "string",
+    "product_id": "string",
+    "metadata": null,
+    "created_at": "2025-03-18T20:21:32.116Z",
+    "billing_period": "string",
+    "unit": "string",
+    "updated_at": "2025-03-18T20:21:32.116Z",
+    "reporting_period": "string"
+  }
 }
 
 ```
@@ -34845,12 +42582,19 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |item_price_id|string|false|none|none|
+|billing_thresholds|[BillingThresholds](#schemabillingthresholds)|false|none|none|
 |price_id|string|false|none|none|
+|price|[MoesifPrice](#schemamoesifprice)|false|none|none|
+|current_period_start|string(date-time)|false|none|none|
 |is_metered|boolean|false|none|none|
 |plan_id|string|true|none|none|
 |unit_of_measure|string|false|none|none|
 |status|string|false|none|none|
+|metadata|object|false|none|none|
+|created_at|string|false|none|none|
+|current_period_end|string(date-time)|false|none|none|
 |subscription_item_id|string|false|none|none|
+|plan|[MoesifPlan](#schemamoesifplan)|false|none|none|
 
 <h2 id="tocS_userResponse">userResponse</h2>
 
@@ -34883,12 +42627,12 @@ managementAPIToken ( Scopes: delete:governance_rules )
       "region_name": "South Carolina",
       "continent_code": "NA",
       "location": {
-        "lon": -79.8548965454102,
-        "lat": 32.8228988647461
+        "lon": -79.85489654541016,
+        "lat": 32.822898864746094
       },
-      "latitude": 32.8228988647461,
+      "latitude": 32.822898864746094,
       "timezone": "America/New_York",
-      "longitude": -79.8548965454102,
+      "longitude": -79.85489654541016,
       "dma_code": 519,
       "postal_code": "29464",
       "region_code": "SC",
@@ -34959,6 +42703,32 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |» app_id|string|false|none|none|
 |» org_id|string|false|none|none|
 |sort|[integer]|false|none|none|
+
+<h2 id="tocS_SubscriptionBalance">SubscriptionBalance</h2>
+
+<a id="schemasubscriptionbalance"></a>
+<a id="schema_SubscriptionBalance"></a>
+<a id="tocSsubscriptionbalance"></a>
+<a id="tocssubscriptionbalance"></a>
+
+```json
+{
+  "available_balance": 0.1,
+  "current_balance": 0.1,
+  "pending_activity": 0.1,
+  "last_modified": "2025-03-18T20:21:32.116Z"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|available_balance|number(double)|true|none|none|
+|current_balance|number(double)|true|none|none|
+|pending_activity|number(double)|true|none|none|
+|last_modified|string(date-time)|false|none|none|
 
 <h2 id="tocS_eventResponse">eventResponse</h2>
 
@@ -35094,34 +42864,117 @@ managementAPIToken ( Scopes: delete:governance_rules )
 
 ```json
 {
-  "trial_start": "2025-01-09T17:18:58.560Z",
+  "trial_start": "2025-03-18T20:21:32.116Z",
   "company_id": "string",
-  "start_date": "2025-01-09T17:18:58.560Z",
+  "start_date": "2025-03-18T20:21:32.116Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
     {
       "item_price_id": "string",
+      "billing_thresholds": {
+        "usage_gte": 0
+      },
       "price_id": "string",
+      "price": {
+        "name": "string",
+        "transform_quantity": {
+          "divide_by": 0,
+          "round": "string"
+        },
+        "currency_prices": null,
+        "provider": "string",
+        "revenue_recognition_rule": "string",
+        "price_in_decimal": 0.1,
+        "tiers": [
+          {
+            "flat_currency_prices": null,
+            "up_to": null,
+            "flat_price_in_decimal": null,
+            "unit_price_in_decimal": null,
+            "unit_currency_prices": null
+          }
+        ],
+        "recognized_revenue_accounting_code": "string",
+        "period_units": "string",
+        "plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "pricing_model": "string",
+        "tax_behavior": "string",
+        "currency": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "unit": "string",
+        "deferred_revenue_accounting_code": "string",
+        "usage_aggregator": "string",
+        "period": 0
+      },
+      "current_period_start": "2025-03-18T20:21:32.116Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
-      "subscription_item_id": "string"
+      "metadata": {},
+      "created_at": "string",
+      "current_period_end": "2025-03-18T20:21:32.116Z",
+      "subscription_item_id": "string",
+      "plan": {
+        "name": "string",
+        "prices": [
+          {
+            "name": null,
+            "transform_quantity": null,
+            "currency_prices": null,
+            "provider": null,
+            "revenue_recognition_rule": null,
+            "price_in_decimal": null,
+            "tiers": null,
+            "recognized_revenue_accounting_code": null,
+            "period_units": null,
+            "plan_id": null,
+            "id": null,
+            "status": null,
+            "pricing_model": null,
+            "tax_behavior": null,
+            "currency": null,
+            "metadata": null,
+            "created_at": null,
+            "unit": null,
+            "deferred_revenue_accounting_code": null,
+            "usage_aggregator": null,
+            "period": null
+          }
+        ],
+        "provider": "string",
+        "billing_type": "string",
+        "description": "string",
+        "external_plan_id": "string",
+        "id": "string",
+        "status": "string",
+        "product_id": "string",
+        "metadata": null,
+        "created_at": "2025-03-18T20:21:32.116Z",
+        "billing_period": "string",
+        "unit": "string",
+        "updated_at": "2025-03-18T20:21:32.116Z",
+        "reporting_period": "string"
+      }
     }
   ],
-  "current_period_start": "2025-01-09T17:18:58.560Z",
+  "current_period_start": "2025-03-18T20:21:32.116Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2025-01-09T17:18:58.560Z",
+  "cancel_time": "2025-03-18T20:21:32.116Z",
   "status": "string",
-  "trial_end": "2025-01-09T17:18:58.560Z",
+  "trial_end": "2025-03-18T20:21:32.116Z",
   "external_id": "string",
+  "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2025-01-09T17:18:58.560Z",
-  "created": "2025-01-09T17:18:58.560Z"
+  "current_period_end": "2025-03-18T20:21:32.116Z",
+  "created": "2025-03-18T20:21:32.116Z"
 }
 
 ```
@@ -35143,11 +42996,32 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |status|string|true|none|none|
 |trial_end|string(date-time)|false|none|none|
 |external_id|string|false|none|none|
+|currency|string|false|none|none|
 |metadata|object|false|none|none|
 |subscription_id|string|true|none|none|
 |version_id|string|false|none|none|
 |current_period_end|string(date-time)|false|none|none|
 |created|string(date-time)|false|none|none|
+
+<h2 id="tocS_BillingThresholds">BillingThresholds</h2>
+
+<a id="schemabillingthresholds"></a>
+<a id="schema_BillingThresholds"></a>
+<a id="tocSbillingthresholds"></a>
+<a id="tocsbillingthresholds"></a>
+
+```json
+{
+  "usage_gte": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|usage_gte|integer(int32)|false|none|none|
 
 <h2 id="tocS_CompanyUpdate">CompanyUpdate</h2>
 
@@ -35159,7 +43033,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 ```json
 {
   "company_id": "string",
-  "modified_time": "2025-01-09T17:18:58.560Z",
+  "modified_time": "2025-03-18T20:21:32.116Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
