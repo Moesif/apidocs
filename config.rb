@@ -96,6 +96,8 @@ configure :build do
   activate :minify_css
   activate :minify_javascript
   activate :asset_host, :host => '//apidocs.moesif.com'
+  # Ignore all .sh files from build/deployment
+  ignore '*.sh'
   # activate :gzip
 end
 
