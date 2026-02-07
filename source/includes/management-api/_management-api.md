@@ -567,11 +567,11 @@ Query audit history of billing reports to external billing providers
     "provider": "string",
     "invoice_credit_behavior": "string",
     "report_version": 0,
-    "usage_end_time": "2026-02-06T04:42:03.051Z",
+    "usage_end_time": "2026-02-07T08:44:23.873Z",
     "usage": {
       "invoice": {
-        "period_start": "2026-02-06T04:42:03.051Z",
-        "period_end": "2026-02-06T04:42:03.051Z",
+        "period_start": "2026-02-07T08:44:23.873Z",
+        "period_end": "2026-02-07T08:44:23.873Z",
         "id": "string"
       },
       "aggregator": "string"
@@ -580,7 +580,7 @@ Query audit history of billing reports to external billing providers
     "price_id": "string",
     "price_in_decimal": 0.1,
     "meter_usage": 0.1,
-    "last_success_time": "2026-02-06T04:42:03.051Z",
+    "last_success_time": "2026-02-07T08:44:23.873Z",
     "beginning_balance": {
       "sequence_id": 0,
       "current_balance": 0.1,
@@ -590,7 +590,7 @@ Query audit history of billing reports to external billing providers
     "billing_meter_id": "string",
     "amount": 0.1,
     "plan_id": "string",
-    "usage_start_time": "2026-02-06T04:42:03.051Z",
+    "usage_start_time": "2026-02-07T08:44:23.873Z",
     "status": "string",
     "provider_requests": [
       {
@@ -601,7 +601,7 @@ Query audit history of billing reports to external billing providers
         "response": "string",
         "error_message": "string",
         "error_code": "string",
-        "request_time": "2026-02-06T04:42:03.051Z"
+        "request_time": "2026-02-07T08:44:23.873Z"
       }
     ],
     "currency": "string",
@@ -619,15 +619,15 @@ Query audit history of billing reports to external billing providers
             "response": "string",
             "error_message": "string",
             "error_code": "string",
-            "request_time": "2026-02-06T04:42:03.051Z"
+            "request_time": "2026-02-07T08:44:23.873Z"
           }
         ]
       }
     ],
-    "created_at": "2026-02-06T04:42:03.051Z",
+    "created_at": "2026-02-07T08:44:23.873Z",
     "app_id": "string",
     "subscription_id": "string",
-    "subscription_period_start": "2026-02-06T04:42:03.051Z",
+    "subscription_period_start": "2026-02-07T08:44:23.873Z",
     "balance_changes": [
       {
         "amount": 0.1,
@@ -635,11 +635,11 @@ Query audit history of billing reports to external billing providers
       }
     ],
     "type": "string",
-    "updated_at": "2026-02-06T04:42:03.051Z",
+    "updated_at": "2026-02-07T08:44:23.873Z",
     "subscription_item_id": "string",
     "zero_balance_behavior": "string",
     "org_id": "string",
-    "subscription_period_end": "2026-02-06T04:42:03.051Z",
+    "subscription_period_end": "2026-02-07T08:44:23.873Z",
     "meter_metric": 0.1
   }
 ]
@@ -766,7 +766,7 @@ headers = {
 }
 
 r = requests.get('https://api.moesif.com/v1/~/billing/reports/metrics', params={
-  'from': '2026-02-06T04:42:03.051Z',  'to': '2026-02-06T04:42:03.051Z'
+  'from': '2026-02-07T08:44:23.873Z',  'to': '2026-02-07T08:44:23.873Z'
 
 }, headers = headers)
 
@@ -964,7 +964,7 @@ Get BillingReports' values for a given meter and time range for a single company
 {
   "buckets": [
     {
-      "start": "2026-02-06T04:42:03.051Z",
+      "start": "2026-02-07T08:44:23.873Z",
       "metric": 0.1,
       "amounts": null,
       "ending_balance": {
@@ -979,7 +979,7 @@ Get BillingReports' values for a given meter and time range for a single company
       "key": {},
       "buckets": [
         {
-          "start": "2026-02-06T04:42:03.051Z",
+          "start": "2026-02-07T08:44:23.873Z",
           "metric": 0.1,
           "amounts": null,
           "ending_balance": {
@@ -1049,7 +1049,7 @@ headers = {
 }
 
 r = requests.get('https://api.moesif.com/v1/~/billing/reports/properties/{field}', params={
-  'from': '2026-02-06T04:42:03.051Z',  'to': '2026-02-06T04:42:03.051Z'
+  'from': '2026-02-07T08:44:23.873Z',  'to': '2026-02-07T08:44:23.873Z'
 
 }, headers = headers)
 
@@ -1267,7 +1267,7 @@ curl -X POST https://api.moesif.com/v1/search/~/companies \
 
   -d '{
   "company_id": "string",
-  "modified_time": "2026-02-06T04:42:03.051Z",
+  "modified_time": "2026-02-07T08:44:23.873Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
@@ -1278,7 +1278,7 @@ curl -X POST https://api.moesif.com/v1/search/~/companies \
 const fetch = require('node-fetch');
 const inputBody = {
   "company_id": "string",
-  "modified_time": "2026-02-06T04:42:03.051Z",
+  "modified_time": "2026-02-07T08:44:23.873Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
@@ -1312,7 +1312,7 @@ headers = {
 }
 input_body = {
   "company_id": "string",
-  "modified_time": "2026-02-06T04:42:03.051Z",
+  "modified_time": "2026-02-07T08:44:23.873Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
@@ -1336,7 +1336,7 @@ headers = {
 
 input_payload = JSON.parse('{
   "company_id": "string",
-  "modified_time": "2026-02-06T04:42:03.051Z",
+  "modified_time": "2026-02-07T08:44:23.873Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
@@ -1365,7 +1365,7 @@ $headers = array(
 
 $inputPayload = json_decode('{
   "company_id": "string",
-  "modified_time": "2026-02-06T04:42:03.051Z",
+  "modified_time": "2026-02-07T08:44:23.873Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
@@ -1407,7 +1407,7 @@ func main() {
     }
     jsonPayload := `{
   "company_id": "string",
-  "modified_time": "2026-02-06T04:42:03.051Z",
+  "modified_time": "2026-02-07T08:44:23.873Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
@@ -1455,7 +1455,7 @@ public class HttpExample
       
       string json = @"{
   ""company_id"": ""string"",
-  ""modified_time"": ""2026-02-06T04:42:03.051Z"",
+  ""modified_time"": ""2026-02-07T08:44:23.873Z"",
   ""session_token"": ""string"",
   ""company_domain"": ""string"",
   ""metadata"": {}
@@ -1515,7 +1515,7 @@ con.setDoOutput(true);
 
 String jsonPayload = """{
   "company_id": "string",
-  "modified_time": "2026-02-06T04:42:03.051Z",
+  "modified_time": "2026-02-07T08:44:23.873Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
@@ -1550,7 +1550,7 @@ System.out.println(response.toString());
 ```json
 {
   "company_id": "string",
-  "modified_time": "2026-02-06T04:42:03.051Z",
+  "modified_time": "2026-02-07T08:44:23.873Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
@@ -1594,7 +1594,7 @@ curl -X POST https://api.moesif.com/v1/search/~/companies/batch \
   -d '[
   {
     "company_id": "string",
-    "modified_time": "2026-02-06T04:42:03.051Z",
+    "modified_time": "2026-02-07T08:44:23.873Z",
     "session_token": "string",
     "company_domain": "string",
     "metadata": {}
@@ -1607,7 +1607,7 @@ const fetch = require('node-fetch');
 const inputBody = [
   {
     "company_id": "string",
-    "modified_time": "2026-02-06T04:42:03.051Z",
+    "modified_time": "2026-02-07T08:44:23.873Z",
     "session_token": "string",
     "company_domain": "string",
     "metadata": {}
@@ -1643,7 +1643,7 @@ headers = {
 input_body = [
   {
     "company_id": "string",
-    "modified_time": "2026-02-06T04:42:03.051Z",
+    "modified_time": "2026-02-07T08:44:23.873Z",
     "session_token": "string",
     "company_domain": "string",
     "metadata": {}
@@ -1669,7 +1669,7 @@ headers = {
 input_payload = JSON.parse('[
   {
     "company_id": "string",
-    "modified_time": "2026-02-06T04:42:03.051Z",
+    "modified_time": "2026-02-07T08:44:23.873Z",
     "session_token": "string",
     "company_domain": "string",
     "metadata": {}
@@ -1700,7 +1700,7 @@ $headers = array(
 $inputPayload = json_decode('[
   {
     "company_id": "string",
-    "modified_time": "2026-02-06T04:42:03.051Z",
+    "modified_time": "2026-02-07T08:44:23.873Z",
     "session_token": "string",
     "company_domain": "string",
     "metadata": {}
@@ -1744,7 +1744,7 @@ func main() {
     jsonPayload := `[
   {
     "company_id": "string",
-    "modified_time": "2026-02-06T04:42:03.051Z",
+    "modified_time": "2026-02-07T08:44:23.873Z",
     "session_token": "string",
     "company_domain": "string",
     "metadata": {}
@@ -1794,7 +1794,7 @@ public class HttpExample
       string json = @"[
   {
     ""company_id"": ""string"",
-    ""modified_time"": ""2026-02-06T04:42:03.051Z"",
+    ""modified_time"": ""2026-02-07T08:44:23.873Z"",
     ""session_token"": ""string"",
     ""company_domain"": ""string"",
     ""metadata"": {}
@@ -1856,7 +1856,7 @@ con.setDoOutput(true);
 String jsonPayload = """[
   {
     "company_id": "string",
-    "modified_time": "2026-02-06T04:42:03.051Z",
+    "modified_time": "2026-02-07T08:44:23.873Z",
     "session_token": "string",
     "company_domain": "string",
     "metadata": {}
@@ -1893,7 +1893,7 @@ System.out.println(response.toString());
 [
   {
     "company_id": "string",
-    "modified_time": "2026-02-06T04:42:03.051Z",
+    "modified_time": "2026-02-07T08:44:23.873Z",
     "session_token": "string",
     "company_domain": "string",
     "metadata": {}
@@ -3155,9 +3155,9 @@ curl -X POST https://api.moesif.com/v1/search/~/subscriptions \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
 
   -d '{
-  "trial_start": "2026-02-06T04:42:03.051Z",
+  "trial_start": "2026-02-07T08:44:23.873Z",
   "company_id": "string",
-  "start_date": "2026-02-06T04:42:03.051Z",
+  "start_date": "2026-02-07T08:44:23.873Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -3183,6 +3183,7 @@ curl -X POST https://api.moesif.com/v1/search/~/subscriptions \
             "up_to": null,
             "flat_price_in_decimal": null,
             "unit_price_in_decimal": null,
+            "from": null,
             "unit_currency_prices": null
           }
         ],
@@ -3195,7 +3196,7 @@ curl -X POST https://api.moesif.com/v1/search/~/subscriptions \
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "unit": "string",
         "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
@@ -3208,20 +3209,20 @@ curl -X POST https://api.moesif.com/v1/search/~/subscriptions \
           "event_time_window": "string",
           "id": "string",
           "customer_mapping": {},
-          "updated": "2026-02-06T04:42:03.051Z",
+          "updated": "2026-02-07T08:44:23.873Z",
           "status": "string",
-          "created": "2026-02-06T04:42:03.051Z",
+          "created": "2026-02-07T08:44:23.873Z",
           "default_aggregation": {}
         }
       },
-      "current_period_start": "2026-02-06T04:42:03.051Z",
+      "current_period_start": "2026-02-07T08:44:23.873Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
       "metadata": {},
       "created_at": "string",
-      "current_period_end": "2026-02-06T04:42:03.051Z",
+      "current_period_end": "2026-02-07T08:44:23.873Z",
       "subscription_item_id": "string",
       "plan": {
         "name": "string",
@@ -3254,41 +3255,43 @@ curl -X POST https://api.moesif.com/v1/search/~/subscriptions \
         "provider": "string",
         "billing_type": "string",
         "description": "string",
+        "family_id": "string",
         "external_plan_id": "string",
         "id": "string",
         "status": "string",
         "product_id": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "billing_period": "string",
         "unit": "string",
-        "updated_at": "2026-02-06T04:42:03.051Z",
+        "updated_at": "2026-02-07T08:44:23.873Z",
+        "usage_aggregator": "string",
         "reporting_period": "string"
       }
     }
   ],
-  "current_period_start": "2026-02-06T04:42:03.051Z",
+  "current_period_start": "2026-02-07T08:44:23.873Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2026-02-06T04:42:03.051Z",
+  "cancel_time": "2026-02-07T08:44:23.873Z",
   "status": "string",
-  "trial_end": "2026-02-06T04:42:03.051Z",
+  "trial_end": "2026-02-07T08:44:23.873Z",
   "external_id": "string",
   "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2026-02-06T04:42:03.051Z",
-  "created": "2026-02-06T04:42:03.051Z"
+  "current_period_end": "2026-02-07T08:44:23.873Z",
+  "created": "2026-02-07T08:44:23.873Z"
 }' 
 ```
 
 ```javascript--nodejs
 const fetch = require('node-fetch');
 const inputBody = {
-  "trial_start": "2026-02-06T04:42:03.051Z",
+  "trial_start": "2026-02-07T08:44:23.873Z",
   "company_id": "string",
-  "start_date": "2026-02-06T04:42:03.051Z",
+  "start_date": "2026-02-07T08:44:23.873Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -3314,6 +3317,7 @@ const inputBody = {
             "up_to": null,
             "flat_price_in_decimal": null,
             "unit_price_in_decimal": null,
+            "from": null,
             "unit_currency_prices": null
           }
         ],
@@ -3326,7 +3330,7 @@ const inputBody = {
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "unit": "string",
         "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
@@ -3339,20 +3343,20 @@ const inputBody = {
           "event_time_window": "string",
           "id": "string",
           "customer_mapping": {},
-          "updated": "2026-02-06T04:42:03.051Z",
+          "updated": "2026-02-07T08:44:23.873Z",
           "status": "string",
-          "created": "2026-02-06T04:42:03.051Z",
+          "created": "2026-02-07T08:44:23.873Z",
           "default_aggregation": {}
         }
       },
-      "current_period_start": "2026-02-06T04:42:03.051Z",
+      "current_period_start": "2026-02-07T08:44:23.873Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
       "metadata": {},
       "created_at": "string",
-      "current_period_end": "2026-02-06T04:42:03.051Z",
+      "current_period_end": "2026-02-07T08:44:23.873Z",
       "subscription_item_id": "string",
       "plan": {
         "name": "string",
@@ -3385,32 +3389,34 @@ const inputBody = {
         "provider": "string",
         "billing_type": "string",
         "description": "string",
+        "family_id": "string",
         "external_plan_id": "string",
         "id": "string",
         "status": "string",
         "product_id": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "billing_period": "string",
         "unit": "string",
-        "updated_at": "2026-02-06T04:42:03.051Z",
+        "updated_at": "2026-02-07T08:44:23.873Z",
+        "usage_aggregator": "string",
         "reporting_period": "string"
       }
     }
   ],
-  "current_period_start": "2026-02-06T04:42:03.051Z",
+  "current_period_start": "2026-02-07T08:44:23.873Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2026-02-06T04:42:03.051Z",
+  "cancel_time": "2026-02-07T08:44:23.873Z",
   "status": "string",
-  "trial_end": "2026-02-06T04:42:03.051Z",
+  "trial_end": "2026-02-07T08:44:23.873Z",
   "external_id": "string",
   "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2026-02-06T04:42:03.051Z",
-  "created": "2026-02-06T04:42:03.051Z"
+  "current_period_end": "2026-02-07T08:44:23.873Z",
+  "created": "2026-02-07T08:44:23.873Z"
 };
 const headers = {
   'Content-Type':'application/json',
@@ -3440,9 +3446,9 @@ headers = {
   'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
 }
 input_body = {
-  "trial_start": "2026-02-06T04:42:03.051Z",
+  "trial_start": "2026-02-07T08:44:23.873Z",
   "company_id": "string",
-  "start_date": "2026-02-06T04:42:03.051Z",
+  "start_date": "2026-02-07T08:44:23.873Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -3468,6 +3474,7 @@ input_body = {
             "up_to": null,
             "flat_price_in_decimal": null,
             "unit_price_in_decimal": null,
+            "from": null,
             "unit_currency_prices": null
           }
         ],
@@ -3480,7 +3487,7 @@ input_body = {
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "unit": "string",
         "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
@@ -3493,20 +3500,20 @@ input_body = {
           "event_time_window": "string",
           "id": "string",
           "customer_mapping": {},
-          "updated": "2026-02-06T04:42:03.051Z",
+          "updated": "2026-02-07T08:44:23.873Z",
           "status": "string",
-          "created": "2026-02-06T04:42:03.051Z",
+          "created": "2026-02-07T08:44:23.873Z",
           "default_aggregation": {}
         }
       },
-      "current_period_start": "2026-02-06T04:42:03.051Z",
+      "current_period_start": "2026-02-07T08:44:23.873Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
       "metadata": {},
       "created_at": "string",
-      "current_period_end": "2026-02-06T04:42:03.051Z",
+      "current_period_end": "2026-02-07T08:44:23.873Z",
       "subscription_item_id": "string",
       "plan": {
         "name": "string",
@@ -3539,32 +3546,34 @@ input_body = {
         "provider": "string",
         "billing_type": "string",
         "description": "string",
+        "family_id": "string",
         "external_plan_id": "string",
         "id": "string",
         "status": "string",
         "product_id": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "billing_period": "string",
         "unit": "string",
-        "updated_at": "2026-02-06T04:42:03.051Z",
+        "updated_at": "2026-02-07T08:44:23.873Z",
+        "usage_aggregator": "string",
         "reporting_period": "string"
       }
     }
   ],
-  "current_period_start": "2026-02-06T04:42:03.051Z",
+  "current_period_start": "2026-02-07T08:44:23.873Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2026-02-06T04:42:03.051Z",
+  "cancel_time": "2026-02-07T08:44:23.873Z",
   "status": "string",
-  "trial_end": "2026-02-06T04:42:03.051Z",
+  "trial_end": "2026-02-07T08:44:23.873Z",
   "external_id": "string",
   "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2026-02-06T04:42:03.051Z",
-  "created": "2026-02-06T04:42:03.051Z"
+  "current_period_end": "2026-02-07T08:44:23.873Z",
+  "created": "2026-02-07T08:44:23.873Z"
 }
 
 r = requests.post('https://api.moesif.com/v1/search/~/subscriptions', headers = headers, json = input_data)
@@ -3584,9 +3593,9 @@ headers = {
 }
 
 input_payload = JSON.parse('{
-  "trial_start": "2026-02-06T04:42:03.051Z",
+  "trial_start": "2026-02-07T08:44:23.873Z",
   "company_id": "string",
-  "start_date": "2026-02-06T04:42:03.051Z",
+  "start_date": "2026-02-07T08:44:23.873Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -3612,6 +3621,7 @@ input_payload = JSON.parse('{
             "up_to": null,
             "flat_price_in_decimal": null,
             "unit_price_in_decimal": null,
+            "from": null,
             "unit_currency_prices": null
           }
         ],
@@ -3624,7 +3634,7 @@ input_payload = JSON.parse('{
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "unit": "string",
         "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
@@ -3637,20 +3647,20 @@ input_payload = JSON.parse('{
           "event_time_window": "string",
           "id": "string",
           "customer_mapping": {},
-          "updated": "2026-02-06T04:42:03.051Z",
+          "updated": "2026-02-07T08:44:23.873Z",
           "status": "string",
-          "created": "2026-02-06T04:42:03.051Z",
+          "created": "2026-02-07T08:44:23.873Z",
           "default_aggregation": {}
         }
       },
-      "current_period_start": "2026-02-06T04:42:03.051Z",
+      "current_period_start": "2026-02-07T08:44:23.873Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
       "metadata": {},
       "created_at": "string",
-      "current_period_end": "2026-02-06T04:42:03.051Z",
+      "current_period_end": "2026-02-07T08:44:23.873Z",
       "subscription_item_id": "string",
       "plan": {
         "name": "string",
@@ -3683,32 +3693,34 @@ input_payload = JSON.parse('{
         "provider": "string",
         "billing_type": "string",
         "description": "string",
+        "family_id": "string",
         "external_plan_id": "string",
         "id": "string",
         "status": "string",
         "product_id": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "billing_period": "string",
         "unit": "string",
-        "updated_at": "2026-02-06T04:42:03.051Z",
+        "updated_at": "2026-02-07T08:44:23.873Z",
+        "usage_aggregator": "string",
         "reporting_period": "string"
       }
     }
   ],
-  "current_period_start": "2026-02-06T04:42:03.051Z",
+  "current_period_start": "2026-02-07T08:44:23.873Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2026-02-06T04:42:03.051Z",
+  "cancel_time": "2026-02-07T08:44:23.873Z",
   "status": "string",
-  "trial_end": "2026-02-06T04:42:03.051Z",
+  "trial_end": "2026-02-07T08:44:23.873Z",
   "external_id": "string",
   "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2026-02-06T04:42:03.051Z",
-  "created": "2026-02-06T04:42:03.051Z"
+  "current_period_end": "2026-02-07T08:44:23.873Z",
+  "created": "2026-02-07T08:44:23.873Z"
 }')
 
 result = RestClient.post 'https://api.moesif.com/v1/search/~/subscriptions',
@@ -3733,9 +3745,9 @@ $headers = array(
 );
 
 $inputPayload = json_decode('{
-  "trial_start": "2026-02-06T04:42:03.051Z",
+  "trial_start": "2026-02-07T08:44:23.873Z",
   "company_id": "string",
-  "start_date": "2026-02-06T04:42:03.051Z",
+  "start_date": "2026-02-07T08:44:23.873Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -3761,6 +3773,7 @@ $inputPayload = json_decode('{
             "up_to": null,
             "flat_price_in_decimal": null,
             "unit_price_in_decimal": null,
+            "from": null,
             "unit_currency_prices": null
           }
         ],
@@ -3773,7 +3786,7 @@ $inputPayload = json_decode('{
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "unit": "string",
         "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
@@ -3786,20 +3799,20 @@ $inputPayload = json_decode('{
           "event_time_window": "string",
           "id": "string",
           "customer_mapping": {},
-          "updated": "2026-02-06T04:42:03.051Z",
+          "updated": "2026-02-07T08:44:23.873Z",
           "status": "string",
-          "created": "2026-02-06T04:42:03.051Z",
+          "created": "2026-02-07T08:44:23.873Z",
           "default_aggregation": {}
         }
       },
-      "current_period_start": "2026-02-06T04:42:03.051Z",
+      "current_period_start": "2026-02-07T08:44:23.873Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
       "metadata": {},
       "created_at": "string",
-      "current_period_end": "2026-02-06T04:42:03.051Z",
+      "current_period_end": "2026-02-07T08:44:23.873Z",
       "subscription_item_id": "string",
       "plan": {
         "name": "string",
@@ -3832,32 +3845,34 @@ $inputPayload = json_decode('{
         "provider": "string",
         "billing_type": "string",
         "description": "string",
+        "family_id": "string",
         "external_plan_id": "string",
         "id": "string",
         "status": "string",
         "product_id": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "billing_period": "string",
         "unit": "string",
-        "updated_at": "2026-02-06T04:42:03.051Z",
+        "updated_at": "2026-02-07T08:44:23.873Z",
+        "usage_aggregator": "string",
         "reporting_period": "string"
       }
     }
   ],
-  "current_period_start": "2026-02-06T04:42:03.051Z",
+  "current_period_start": "2026-02-07T08:44:23.873Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2026-02-06T04:42:03.051Z",
+  "cancel_time": "2026-02-07T08:44:23.873Z",
   "status": "string",
-  "trial_end": "2026-02-06T04:42:03.051Z",
+  "trial_end": "2026-02-07T08:44:23.873Z",
   "external_id": "string",
   "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2026-02-06T04:42:03.051Z",
-  "created": "2026-02-06T04:42:03.051Z"
+  "current_period_end": "2026-02-07T08:44:23.873Z",
+  "created": "2026-02-07T08:44:23.873Z"
 }')
 
 $client = new \GuzzleHttp\Client();
@@ -3895,9 +3910,9 @@ func main() {
         "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
     }
     jsonPayload := `{
-  "trial_start": "2026-02-06T04:42:03.051Z",
+  "trial_start": "2026-02-07T08:44:23.873Z",
   "company_id": "string",
-  "start_date": "2026-02-06T04:42:03.051Z",
+  "start_date": "2026-02-07T08:44:23.873Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -3923,6 +3938,7 @@ func main() {
             "up_to": null,
             "flat_price_in_decimal": null,
             "unit_price_in_decimal": null,
+            "from": null,
             "unit_currency_prices": null
           }
         ],
@@ -3935,7 +3951,7 @@ func main() {
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "unit": "string",
         "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
@@ -3948,20 +3964,20 @@ func main() {
           "event_time_window": "string",
           "id": "string",
           "customer_mapping": {},
-          "updated": "2026-02-06T04:42:03.051Z",
+          "updated": "2026-02-07T08:44:23.873Z",
           "status": "string",
-          "created": "2026-02-06T04:42:03.051Z",
+          "created": "2026-02-07T08:44:23.873Z",
           "default_aggregation": {}
         }
       },
-      "current_period_start": "2026-02-06T04:42:03.051Z",
+      "current_period_start": "2026-02-07T08:44:23.873Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
       "metadata": {},
       "created_at": "string",
-      "current_period_end": "2026-02-06T04:42:03.051Z",
+      "current_period_end": "2026-02-07T08:44:23.873Z",
       "subscription_item_id": "string",
       "plan": {
         "name": "string",
@@ -3994,32 +4010,34 @@ func main() {
         "provider": "string",
         "billing_type": "string",
         "description": "string",
+        "family_id": "string",
         "external_plan_id": "string",
         "id": "string",
         "status": "string",
         "product_id": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "billing_period": "string",
         "unit": "string",
-        "updated_at": "2026-02-06T04:42:03.051Z",
+        "updated_at": "2026-02-07T08:44:23.873Z",
+        "usage_aggregator": "string",
         "reporting_period": "string"
       }
     }
   ],
-  "current_period_start": "2026-02-06T04:42:03.051Z",
+  "current_period_start": "2026-02-07T08:44:23.873Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2026-02-06T04:42:03.051Z",
+  "cancel_time": "2026-02-07T08:44:23.873Z",
   "status": "string",
-  "trial_end": "2026-02-06T04:42:03.051Z",
+  "trial_end": "2026-02-07T08:44:23.873Z",
   "external_id": "string",
   "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2026-02-06T04:42:03.051Z",
-  "created": "2026-02-06T04:42:03.051Z"
+  "current_period_end": "2026-02-07T08:44:23.873Z",
+  "created": "2026-02-07T08:44:23.873Z"
 }`
     data := bytes.NewBuffer([]byte(jsonPayload))
     req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/subscriptions", data)
@@ -4063,9 +4081,9 @@ public class HttpExample
       string url = "https://api.moesif.com/v1/search/~/subscriptions";
       
       string json = @"{
-  ""trial_start"": ""2026-02-06T04:42:03.051Z"",
+  ""trial_start"": ""2026-02-07T08:44:23.873Z"",
   ""company_id"": ""string"",
-  ""start_date"": ""2026-02-06T04:42:03.051Z"",
+  ""start_date"": ""2026-02-07T08:44:23.873Z"",
   ""collection_method"": ""string"",
   ""provider"": ""string"",
   ""items"": [
@@ -4091,6 +4109,7 @@ public class HttpExample
             ""up_to"": null,
             ""flat_price_in_decimal"": null,
             ""unit_price_in_decimal"": null,
+            ""from"": null,
             ""unit_currency_prices"": null
           }
         ],
@@ -4103,7 +4122,7 @@ public class HttpExample
         ""tax_behavior"": ""string"",
         ""currency"": ""string"",
         ""metadata"": null,
-        ""created_at"": ""2026-02-06T04:42:03.051Z"",
+        ""created_at"": ""2026-02-07T08:44:23.873Z"",
         ""unit"": ""string"",
         ""deferred_revenue_accounting_code"": ""string"",
         ""usage_aggregator"": ""string"",
@@ -4116,20 +4135,20 @@ public class HttpExample
           ""event_time_window"": ""string"",
           ""id"": ""string"",
           ""customer_mapping"": {},
-          ""updated"": ""2026-02-06T04:42:03.051Z"",
+          ""updated"": ""2026-02-07T08:44:23.873Z"",
           ""status"": ""string"",
-          ""created"": ""2026-02-06T04:42:03.051Z"",
+          ""created"": ""2026-02-07T08:44:23.873Z"",
           ""default_aggregation"": {}
         }
       },
-      ""current_period_start"": ""2026-02-06T04:42:03.051Z"",
+      ""current_period_start"": ""2026-02-07T08:44:23.873Z"",
       ""is_metered"": true,
       ""plan_id"": ""string"",
       ""unit_of_measure"": ""string"",
       ""status"": ""string"",
       ""metadata"": {},
       ""created_at"": ""string"",
-      ""current_period_end"": ""2026-02-06T04:42:03.051Z"",
+      ""current_period_end"": ""2026-02-07T08:44:23.873Z"",
       ""subscription_item_id"": ""string"",
       ""plan"": {
         ""name"": ""string"",
@@ -4162,32 +4181,34 @@ public class HttpExample
         ""provider"": ""string"",
         ""billing_type"": ""string"",
         ""description"": ""string"",
+        ""family_id"": ""string"",
         ""external_plan_id"": ""string"",
         ""id"": ""string"",
         ""status"": ""string"",
         ""product_id"": ""string"",
         ""metadata"": null,
-        ""created_at"": ""2026-02-06T04:42:03.051Z"",
+        ""created_at"": ""2026-02-07T08:44:23.873Z"",
         ""billing_period"": ""string"",
         ""unit"": ""string"",
-        ""updated_at"": ""2026-02-06T04:42:03.051Z"",
+        ""updated_at"": ""2026-02-07T08:44:23.873Z"",
+        ""usage_aggregator"": ""string"",
         ""reporting_period"": ""string""
       }
     }
   ],
-  ""current_period_start"": ""2026-02-06T04:42:03.051Z"",
+  ""current_period_start"": ""2026-02-07T08:44:23.873Z"",
   ""company_external_id"": ""string"",
   ""payment_status"": ""string"",
-  ""cancel_time"": ""2026-02-06T04:42:03.051Z"",
+  ""cancel_time"": ""2026-02-07T08:44:23.873Z"",
   ""status"": ""string"",
-  ""trial_end"": ""2026-02-06T04:42:03.051Z"",
+  ""trial_end"": ""2026-02-07T08:44:23.873Z"",
   ""external_id"": ""string"",
   ""currency"": ""string"",
   ""metadata"": {},
   ""subscription_id"": ""string"",
   ""version_id"": ""string"",
-  ""current_period_end"": ""2026-02-06T04:42:03.051Z"",
-  ""created"": ""2026-02-06T04:42:03.051Z""
+  ""current_period_end"": ""2026-02-07T08:44:23.873Z"",
+  ""created"": ""2026-02-07T08:44:23.873Z""
 }";
       var content = JsonConvert.DeserializeObject(json);
       await PostAsync(content, url);
@@ -4243,9 +4264,9 @@ con.setRequestProperty("Authorization",'Bearer YOUR_MANAGEMENT_API_KEY');
 con.setDoOutput(true);
 
 String jsonPayload = """{
-  "trial_start": "2026-02-06T04:42:03.051Z",
+  "trial_start": "2026-02-07T08:44:23.873Z",
   "company_id": "string",
-  "start_date": "2026-02-06T04:42:03.051Z",
+  "start_date": "2026-02-07T08:44:23.873Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -4271,6 +4292,7 @@ String jsonPayload = """{
             "up_to": null,
             "flat_price_in_decimal": null,
             "unit_price_in_decimal": null,
+            "from": null,
             "unit_currency_prices": null
           }
         ],
@@ -4283,7 +4305,7 @@ String jsonPayload = """{
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "unit": "string",
         "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
@@ -4296,20 +4318,20 @@ String jsonPayload = """{
           "event_time_window": "string",
           "id": "string",
           "customer_mapping": {},
-          "updated": "2026-02-06T04:42:03.051Z",
+          "updated": "2026-02-07T08:44:23.873Z",
           "status": "string",
-          "created": "2026-02-06T04:42:03.051Z",
+          "created": "2026-02-07T08:44:23.873Z",
           "default_aggregation": {}
         }
       },
-      "current_period_start": "2026-02-06T04:42:03.051Z",
+      "current_period_start": "2026-02-07T08:44:23.873Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
       "metadata": {},
       "created_at": "string",
-      "current_period_end": "2026-02-06T04:42:03.051Z",
+      "current_period_end": "2026-02-07T08:44:23.873Z",
       "subscription_item_id": "string",
       "plan": {
         "name": "string",
@@ -4342,32 +4364,34 @@ String jsonPayload = """{
         "provider": "string",
         "billing_type": "string",
         "description": "string",
+        "family_id": "string",
         "external_plan_id": "string",
         "id": "string",
         "status": "string",
         "product_id": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "billing_period": "string",
         "unit": "string",
-        "updated_at": "2026-02-06T04:42:03.051Z",
+        "updated_at": "2026-02-07T08:44:23.873Z",
+        "usage_aggregator": "string",
         "reporting_period": "string"
       }
     }
   ],
-  "current_period_start": "2026-02-06T04:42:03.051Z",
+  "current_period_start": "2026-02-07T08:44:23.873Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2026-02-06T04:42:03.051Z",
+  "cancel_time": "2026-02-07T08:44:23.873Z",
   "status": "string",
-  "trial_end": "2026-02-06T04:42:03.051Z",
+  "trial_end": "2026-02-07T08:44:23.873Z",
   "external_id": "string",
   "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2026-02-06T04:42:03.051Z",
-  "created": "2026-02-06T04:42:03.051Z"
+  "current_period_end": "2026-02-07T08:44:23.873Z",
+  "created": "2026-02-07T08:44:23.873Z"
 }""";
 
 // Write payload to the request
@@ -4398,9 +4422,9 @@ System.out.println(response.toString());
 
 ```json
 {
-  "trial_start": "2026-02-06T04:42:03.051Z",
+  "trial_start": "2026-02-07T08:44:23.873Z",
   "company_id": "string",
-  "start_date": "2026-02-06T04:42:03.051Z",
+  "start_date": "2026-02-07T08:44:23.873Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -4426,6 +4450,7 @@ System.out.println(response.toString());
             "up_to": null,
             "flat_price_in_decimal": null,
             "unit_price_in_decimal": null,
+            "from": null,
             "unit_currency_prices": null
           }
         ],
@@ -4438,7 +4463,7 @@ System.out.println(response.toString());
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "unit": "string",
         "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
@@ -4451,20 +4476,20 @@ System.out.println(response.toString());
           "event_time_window": "string",
           "id": "string",
           "customer_mapping": {},
-          "updated": "2026-02-06T04:42:03.051Z",
+          "updated": "2026-02-07T08:44:23.873Z",
           "status": "string",
-          "created": "2026-02-06T04:42:03.051Z",
+          "created": "2026-02-07T08:44:23.873Z",
           "default_aggregation": {}
         }
       },
-      "current_period_start": "2026-02-06T04:42:03.051Z",
+      "current_period_start": "2026-02-07T08:44:23.873Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
       "metadata": {},
       "created_at": "string",
-      "current_period_end": "2026-02-06T04:42:03.051Z",
+      "current_period_end": "2026-02-07T08:44:23.873Z",
       "subscription_item_id": "string",
       "plan": {
         "name": "string",
@@ -4497,32 +4522,34 @@ System.out.println(response.toString());
         "provider": "string",
         "billing_type": "string",
         "description": "string",
+        "family_id": "string",
         "external_plan_id": "string",
         "id": "string",
         "status": "string",
         "product_id": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "billing_period": "string",
         "unit": "string",
-        "updated_at": "2026-02-06T04:42:03.051Z",
+        "updated_at": "2026-02-07T08:44:23.873Z",
+        "usage_aggregator": "string",
         "reporting_period": "string"
       }
     }
   ],
-  "current_period_start": "2026-02-06T04:42:03.051Z",
+  "current_period_start": "2026-02-07T08:44:23.873Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2026-02-06T04:42:03.051Z",
+  "cancel_time": "2026-02-07T08:44:23.873Z",
   "status": "string",
-  "trial_end": "2026-02-06T04:42:03.051Z",
+  "trial_end": "2026-02-07T08:44:23.873Z",
   "external_id": "string",
   "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2026-02-06T04:42:03.051Z",
-  "created": "2026-02-06T04:42:03.051Z"
+  "current_period_end": "2026-02-07T08:44:23.873Z",
+  "created": "2026-02-07T08:44:23.873Z"
 }
 ```
 
@@ -4538,9 +4565,9 @@ System.out.println(response.toString());
 
 ```json
 {
-  "trial_start": "2026-02-06T04:42:03.051Z",
+  "trial_start": "2026-02-07T08:44:23.873Z",
   "company_id": "string",
-  "start_date": "2026-02-06T04:42:03.051Z",
+  "start_date": "2026-02-07T08:44:23.873Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -4566,6 +4593,7 @@ System.out.println(response.toString());
             "up_to": null,
             "flat_price_in_decimal": null,
             "unit_price_in_decimal": null,
+            "from": null,
             "unit_currency_prices": null
           }
         ],
@@ -4578,7 +4606,7 @@ System.out.println(response.toString());
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "unit": "string",
         "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
@@ -4591,20 +4619,20 @@ System.out.println(response.toString());
           "event_time_window": "string",
           "id": "string",
           "customer_mapping": {},
-          "updated": "2026-02-06T04:42:03.051Z",
+          "updated": "2026-02-07T08:44:23.873Z",
           "status": "string",
-          "created": "2026-02-06T04:42:03.051Z",
+          "created": "2026-02-07T08:44:23.873Z",
           "default_aggregation": {}
         }
       },
-      "current_period_start": "2026-02-06T04:42:03.051Z",
+      "current_period_start": "2026-02-07T08:44:23.873Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
       "metadata": {},
       "created_at": "string",
-      "current_period_end": "2026-02-06T04:42:03.051Z",
+      "current_period_end": "2026-02-07T08:44:23.873Z",
       "subscription_item_id": "string",
       "plan": {
         "name": "string",
@@ -4637,32 +4665,34 @@ System.out.println(response.toString());
         "provider": "string",
         "billing_type": "string",
         "description": "string",
+        "family_id": "string",
         "external_plan_id": "string",
         "id": "string",
         "status": "string",
         "product_id": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "billing_period": "string",
         "unit": "string",
-        "updated_at": "2026-02-06T04:42:03.051Z",
+        "updated_at": "2026-02-07T08:44:23.873Z",
+        "usage_aggregator": "string",
         "reporting_period": "string"
       }
     }
   ],
-  "current_period_start": "2026-02-06T04:42:03.051Z",
+  "current_period_start": "2026-02-07T08:44:23.873Z",
   "balance": {
     "available_balance": 0.1,
     "current_balance": 0.1,
     "pending_activity": 0.1,
-    "last_modified": "2026-02-06T04:42:03.051Z"
+    "last_modified": "2026-02-07T08:44:23.873Z"
   },
   "company_external_id": "string",
   "payment_status": "string",
-  "modified_time": "2026-02-06T04:42:03.051Z",
-  "cancel_time": "2026-02-06T04:42:03.051Z",
+  "modified_time": "2026-02-07T08:44:23.873Z",
+  "cancel_time": "2026-02-07T08:44:23.873Z",
   "status": "string",
-  "trial_end": "2026-02-06T04:42:03.051Z",
+  "trial_end": "2026-02-07T08:44:23.873Z",
   "external_id": "string",
   "currency": "string",
   "metadata": {},
@@ -4670,9 +4700,9 @@ System.out.println(response.toString());
   "subscription_id": "string",
   "version_id": "string",
   "type": "string",
-  "current_period_end": "2026-02-06T04:42:03.051Z",
+  "current_period_end": "2026-02-07T08:44:23.873Z",
   "org_id": "string",
-  "created": "2026-02-06T04:42:03.051Z"
+  "created": "2026-02-07T08:44:23.873Z"
 }
 ```
 
@@ -4701,9 +4731,9 @@ curl -X POST https://api.moesif.com/v1/search/~/subscriptions/batch \
   -H 'Authorization: Bearer YOUR_MANAGEMENT_API_KEY'
 
   -d '{
-  "trial_start": "2026-02-06T04:42:03.051Z",
+  "trial_start": "2026-02-07T08:44:23.873Z",
   "company_id": "string",
-  "start_date": "2026-02-06T04:42:03.051Z",
+  "start_date": "2026-02-07T08:44:23.873Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -4729,6 +4759,7 @@ curl -X POST https://api.moesif.com/v1/search/~/subscriptions/batch \
             "up_to": null,
             "flat_price_in_decimal": null,
             "unit_price_in_decimal": null,
+            "from": null,
             "unit_currency_prices": null
           }
         ],
@@ -4741,7 +4772,7 @@ curl -X POST https://api.moesif.com/v1/search/~/subscriptions/batch \
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "unit": "string",
         "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
@@ -4754,20 +4785,20 @@ curl -X POST https://api.moesif.com/v1/search/~/subscriptions/batch \
           "event_time_window": "string",
           "id": "string",
           "customer_mapping": {},
-          "updated": "2026-02-06T04:42:03.051Z",
+          "updated": "2026-02-07T08:44:23.873Z",
           "status": "string",
-          "created": "2026-02-06T04:42:03.051Z",
+          "created": "2026-02-07T08:44:23.873Z",
           "default_aggregation": {}
         }
       },
-      "current_period_start": "2026-02-06T04:42:03.051Z",
+      "current_period_start": "2026-02-07T08:44:23.873Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
       "metadata": {},
       "created_at": "string",
-      "current_period_end": "2026-02-06T04:42:03.051Z",
+      "current_period_end": "2026-02-07T08:44:23.873Z",
       "subscription_item_id": "string",
       "plan": {
         "name": "string",
@@ -4800,41 +4831,43 @@ curl -X POST https://api.moesif.com/v1/search/~/subscriptions/batch \
         "provider": "string",
         "billing_type": "string",
         "description": "string",
+        "family_id": "string",
         "external_plan_id": "string",
         "id": "string",
         "status": "string",
         "product_id": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "billing_period": "string",
         "unit": "string",
-        "updated_at": "2026-02-06T04:42:03.051Z",
+        "updated_at": "2026-02-07T08:44:23.873Z",
+        "usage_aggregator": "string",
         "reporting_period": "string"
       }
     }
   ],
-  "current_period_start": "2026-02-06T04:42:03.051Z",
+  "current_period_start": "2026-02-07T08:44:23.873Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2026-02-06T04:42:03.051Z",
+  "cancel_time": "2026-02-07T08:44:23.873Z",
   "status": "string",
-  "trial_end": "2026-02-06T04:42:03.051Z",
+  "trial_end": "2026-02-07T08:44:23.873Z",
   "external_id": "string",
   "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2026-02-06T04:42:03.051Z",
-  "created": "2026-02-06T04:42:03.051Z"
+  "current_period_end": "2026-02-07T08:44:23.873Z",
+  "created": "2026-02-07T08:44:23.873Z"
 }' 
 ```
 
 ```javascript--nodejs
 const fetch = require('node-fetch');
 const inputBody = {
-  "trial_start": "2026-02-06T04:42:03.051Z",
+  "trial_start": "2026-02-07T08:44:23.873Z",
   "company_id": "string",
-  "start_date": "2026-02-06T04:42:03.051Z",
+  "start_date": "2026-02-07T08:44:23.873Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -4860,6 +4893,7 @@ const inputBody = {
             "up_to": null,
             "flat_price_in_decimal": null,
             "unit_price_in_decimal": null,
+            "from": null,
             "unit_currency_prices": null
           }
         ],
@@ -4872,7 +4906,7 @@ const inputBody = {
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "unit": "string",
         "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
@@ -4885,20 +4919,20 @@ const inputBody = {
           "event_time_window": "string",
           "id": "string",
           "customer_mapping": {},
-          "updated": "2026-02-06T04:42:03.051Z",
+          "updated": "2026-02-07T08:44:23.873Z",
           "status": "string",
-          "created": "2026-02-06T04:42:03.051Z",
+          "created": "2026-02-07T08:44:23.873Z",
           "default_aggregation": {}
         }
       },
-      "current_period_start": "2026-02-06T04:42:03.051Z",
+      "current_period_start": "2026-02-07T08:44:23.873Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
       "metadata": {},
       "created_at": "string",
-      "current_period_end": "2026-02-06T04:42:03.051Z",
+      "current_period_end": "2026-02-07T08:44:23.873Z",
       "subscription_item_id": "string",
       "plan": {
         "name": "string",
@@ -4931,32 +4965,34 @@ const inputBody = {
         "provider": "string",
         "billing_type": "string",
         "description": "string",
+        "family_id": "string",
         "external_plan_id": "string",
         "id": "string",
         "status": "string",
         "product_id": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "billing_period": "string",
         "unit": "string",
-        "updated_at": "2026-02-06T04:42:03.051Z",
+        "updated_at": "2026-02-07T08:44:23.873Z",
+        "usage_aggregator": "string",
         "reporting_period": "string"
       }
     }
   ],
-  "current_period_start": "2026-02-06T04:42:03.051Z",
+  "current_period_start": "2026-02-07T08:44:23.873Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2026-02-06T04:42:03.051Z",
+  "cancel_time": "2026-02-07T08:44:23.873Z",
   "status": "string",
-  "trial_end": "2026-02-06T04:42:03.051Z",
+  "trial_end": "2026-02-07T08:44:23.873Z",
   "external_id": "string",
   "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2026-02-06T04:42:03.051Z",
-  "created": "2026-02-06T04:42:03.051Z"
+  "current_period_end": "2026-02-07T08:44:23.873Z",
+  "created": "2026-02-07T08:44:23.873Z"
 };
 const headers = {
   'Content-Type':'application/json',
@@ -4986,9 +5022,9 @@ headers = {
   'Authorization': 'Bearer YOUR_MANAGEMENT_API_KEY'
 }
 input_body = {
-  "trial_start": "2026-02-06T04:42:03.051Z",
+  "trial_start": "2026-02-07T08:44:23.873Z",
   "company_id": "string",
-  "start_date": "2026-02-06T04:42:03.051Z",
+  "start_date": "2026-02-07T08:44:23.873Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -5014,6 +5050,7 @@ input_body = {
             "up_to": null,
             "flat_price_in_decimal": null,
             "unit_price_in_decimal": null,
+            "from": null,
             "unit_currency_prices": null
           }
         ],
@@ -5026,7 +5063,7 @@ input_body = {
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "unit": "string",
         "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
@@ -5039,20 +5076,20 @@ input_body = {
           "event_time_window": "string",
           "id": "string",
           "customer_mapping": {},
-          "updated": "2026-02-06T04:42:03.051Z",
+          "updated": "2026-02-07T08:44:23.873Z",
           "status": "string",
-          "created": "2026-02-06T04:42:03.051Z",
+          "created": "2026-02-07T08:44:23.873Z",
           "default_aggregation": {}
         }
       },
-      "current_period_start": "2026-02-06T04:42:03.051Z",
+      "current_period_start": "2026-02-07T08:44:23.873Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
       "metadata": {},
       "created_at": "string",
-      "current_period_end": "2026-02-06T04:42:03.051Z",
+      "current_period_end": "2026-02-07T08:44:23.873Z",
       "subscription_item_id": "string",
       "plan": {
         "name": "string",
@@ -5085,32 +5122,34 @@ input_body = {
         "provider": "string",
         "billing_type": "string",
         "description": "string",
+        "family_id": "string",
         "external_plan_id": "string",
         "id": "string",
         "status": "string",
         "product_id": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "billing_period": "string",
         "unit": "string",
-        "updated_at": "2026-02-06T04:42:03.051Z",
+        "updated_at": "2026-02-07T08:44:23.873Z",
+        "usage_aggregator": "string",
         "reporting_period": "string"
       }
     }
   ],
-  "current_period_start": "2026-02-06T04:42:03.051Z",
+  "current_period_start": "2026-02-07T08:44:23.873Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2026-02-06T04:42:03.051Z",
+  "cancel_time": "2026-02-07T08:44:23.873Z",
   "status": "string",
-  "trial_end": "2026-02-06T04:42:03.051Z",
+  "trial_end": "2026-02-07T08:44:23.873Z",
   "external_id": "string",
   "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2026-02-06T04:42:03.051Z",
-  "created": "2026-02-06T04:42:03.051Z"
+  "current_period_end": "2026-02-07T08:44:23.873Z",
+  "created": "2026-02-07T08:44:23.873Z"
 }
 
 r = requests.post('https://api.moesif.com/v1/search/~/subscriptions/batch', headers = headers, json = input_data)
@@ -5130,9 +5169,9 @@ headers = {
 }
 
 input_payload = JSON.parse('{
-  "trial_start": "2026-02-06T04:42:03.051Z",
+  "trial_start": "2026-02-07T08:44:23.873Z",
   "company_id": "string",
-  "start_date": "2026-02-06T04:42:03.051Z",
+  "start_date": "2026-02-07T08:44:23.873Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -5158,6 +5197,7 @@ input_payload = JSON.parse('{
             "up_to": null,
             "flat_price_in_decimal": null,
             "unit_price_in_decimal": null,
+            "from": null,
             "unit_currency_prices": null
           }
         ],
@@ -5170,7 +5210,7 @@ input_payload = JSON.parse('{
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "unit": "string",
         "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
@@ -5183,20 +5223,20 @@ input_payload = JSON.parse('{
           "event_time_window": "string",
           "id": "string",
           "customer_mapping": {},
-          "updated": "2026-02-06T04:42:03.051Z",
+          "updated": "2026-02-07T08:44:23.873Z",
           "status": "string",
-          "created": "2026-02-06T04:42:03.051Z",
+          "created": "2026-02-07T08:44:23.873Z",
           "default_aggregation": {}
         }
       },
-      "current_period_start": "2026-02-06T04:42:03.051Z",
+      "current_period_start": "2026-02-07T08:44:23.873Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
       "metadata": {},
       "created_at": "string",
-      "current_period_end": "2026-02-06T04:42:03.051Z",
+      "current_period_end": "2026-02-07T08:44:23.873Z",
       "subscription_item_id": "string",
       "plan": {
         "name": "string",
@@ -5229,32 +5269,34 @@ input_payload = JSON.parse('{
         "provider": "string",
         "billing_type": "string",
         "description": "string",
+        "family_id": "string",
         "external_plan_id": "string",
         "id": "string",
         "status": "string",
         "product_id": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "billing_period": "string",
         "unit": "string",
-        "updated_at": "2026-02-06T04:42:03.051Z",
+        "updated_at": "2026-02-07T08:44:23.873Z",
+        "usage_aggregator": "string",
         "reporting_period": "string"
       }
     }
   ],
-  "current_period_start": "2026-02-06T04:42:03.051Z",
+  "current_period_start": "2026-02-07T08:44:23.873Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2026-02-06T04:42:03.051Z",
+  "cancel_time": "2026-02-07T08:44:23.873Z",
   "status": "string",
-  "trial_end": "2026-02-06T04:42:03.051Z",
+  "trial_end": "2026-02-07T08:44:23.873Z",
   "external_id": "string",
   "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2026-02-06T04:42:03.051Z",
-  "created": "2026-02-06T04:42:03.051Z"
+  "current_period_end": "2026-02-07T08:44:23.873Z",
+  "created": "2026-02-07T08:44:23.873Z"
 }')
 
 result = RestClient.post 'https://api.moesif.com/v1/search/~/subscriptions/batch',
@@ -5279,9 +5321,9 @@ $headers = array(
 );
 
 $inputPayload = json_decode('{
-  "trial_start": "2026-02-06T04:42:03.051Z",
+  "trial_start": "2026-02-07T08:44:23.873Z",
   "company_id": "string",
-  "start_date": "2026-02-06T04:42:03.051Z",
+  "start_date": "2026-02-07T08:44:23.873Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -5307,6 +5349,7 @@ $inputPayload = json_decode('{
             "up_to": null,
             "flat_price_in_decimal": null,
             "unit_price_in_decimal": null,
+            "from": null,
             "unit_currency_prices": null
           }
         ],
@@ -5319,7 +5362,7 @@ $inputPayload = json_decode('{
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "unit": "string",
         "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
@@ -5332,20 +5375,20 @@ $inputPayload = json_decode('{
           "event_time_window": "string",
           "id": "string",
           "customer_mapping": {},
-          "updated": "2026-02-06T04:42:03.051Z",
+          "updated": "2026-02-07T08:44:23.873Z",
           "status": "string",
-          "created": "2026-02-06T04:42:03.051Z",
+          "created": "2026-02-07T08:44:23.873Z",
           "default_aggregation": {}
         }
       },
-      "current_period_start": "2026-02-06T04:42:03.051Z",
+      "current_period_start": "2026-02-07T08:44:23.873Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
       "metadata": {},
       "created_at": "string",
-      "current_period_end": "2026-02-06T04:42:03.051Z",
+      "current_period_end": "2026-02-07T08:44:23.873Z",
       "subscription_item_id": "string",
       "plan": {
         "name": "string",
@@ -5378,32 +5421,34 @@ $inputPayload = json_decode('{
         "provider": "string",
         "billing_type": "string",
         "description": "string",
+        "family_id": "string",
         "external_plan_id": "string",
         "id": "string",
         "status": "string",
         "product_id": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "billing_period": "string",
         "unit": "string",
-        "updated_at": "2026-02-06T04:42:03.051Z",
+        "updated_at": "2026-02-07T08:44:23.873Z",
+        "usage_aggregator": "string",
         "reporting_period": "string"
       }
     }
   ],
-  "current_period_start": "2026-02-06T04:42:03.051Z",
+  "current_period_start": "2026-02-07T08:44:23.873Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2026-02-06T04:42:03.051Z",
+  "cancel_time": "2026-02-07T08:44:23.873Z",
   "status": "string",
-  "trial_end": "2026-02-06T04:42:03.051Z",
+  "trial_end": "2026-02-07T08:44:23.873Z",
   "external_id": "string",
   "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2026-02-06T04:42:03.051Z",
-  "created": "2026-02-06T04:42:03.051Z"
+  "current_period_end": "2026-02-07T08:44:23.873Z",
+  "created": "2026-02-07T08:44:23.873Z"
 }')
 
 $client = new \GuzzleHttp\Client();
@@ -5441,9 +5486,9 @@ func main() {
         "Authorization": []string{"Bearer YOUR_MANAGEMENT_API_KEY"},
     }
     jsonPayload := `{
-  "trial_start": "2026-02-06T04:42:03.051Z",
+  "trial_start": "2026-02-07T08:44:23.873Z",
   "company_id": "string",
-  "start_date": "2026-02-06T04:42:03.051Z",
+  "start_date": "2026-02-07T08:44:23.873Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -5469,6 +5514,7 @@ func main() {
             "up_to": null,
             "flat_price_in_decimal": null,
             "unit_price_in_decimal": null,
+            "from": null,
             "unit_currency_prices": null
           }
         ],
@@ -5481,7 +5527,7 @@ func main() {
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "unit": "string",
         "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
@@ -5494,20 +5540,20 @@ func main() {
           "event_time_window": "string",
           "id": "string",
           "customer_mapping": {},
-          "updated": "2026-02-06T04:42:03.051Z",
+          "updated": "2026-02-07T08:44:23.873Z",
           "status": "string",
-          "created": "2026-02-06T04:42:03.051Z",
+          "created": "2026-02-07T08:44:23.873Z",
           "default_aggregation": {}
         }
       },
-      "current_period_start": "2026-02-06T04:42:03.051Z",
+      "current_period_start": "2026-02-07T08:44:23.873Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
       "metadata": {},
       "created_at": "string",
-      "current_period_end": "2026-02-06T04:42:03.051Z",
+      "current_period_end": "2026-02-07T08:44:23.873Z",
       "subscription_item_id": "string",
       "plan": {
         "name": "string",
@@ -5540,32 +5586,34 @@ func main() {
         "provider": "string",
         "billing_type": "string",
         "description": "string",
+        "family_id": "string",
         "external_plan_id": "string",
         "id": "string",
         "status": "string",
         "product_id": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "billing_period": "string",
         "unit": "string",
-        "updated_at": "2026-02-06T04:42:03.051Z",
+        "updated_at": "2026-02-07T08:44:23.873Z",
+        "usage_aggregator": "string",
         "reporting_period": "string"
       }
     }
   ],
-  "current_period_start": "2026-02-06T04:42:03.051Z",
+  "current_period_start": "2026-02-07T08:44:23.873Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2026-02-06T04:42:03.051Z",
+  "cancel_time": "2026-02-07T08:44:23.873Z",
   "status": "string",
-  "trial_end": "2026-02-06T04:42:03.051Z",
+  "trial_end": "2026-02-07T08:44:23.873Z",
   "external_id": "string",
   "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2026-02-06T04:42:03.051Z",
-  "created": "2026-02-06T04:42:03.051Z"
+  "current_period_end": "2026-02-07T08:44:23.873Z",
+  "created": "2026-02-07T08:44:23.873Z"
 }`
     data := bytes.NewBuffer([]byte(jsonPayload))
     req, err := http.NewRequest("POST", "https://api.moesif.com/v1/search/~/subscriptions/batch", data)
@@ -5609,9 +5657,9 @@ public class HttpExample
       string url = "https://api.moesif.com/v1/search/~/subscriptions/batch";
       
       string json = @"{
-  ""trial_start"": ""2026-02-06T04:42:03.051Z"",
+  ""trial_start"": ""2026-02-07T08:44:23.873Z"",
   ""company_id"": ""string"",
-  ""start_date"": ""2026-02-06T04:42:03.051Z"",
+  ""start_date"": ""2026-02-07T08:44:23.873Z"",
   ""collection_method"": ""string"",
   ""provider"": ""string"",
   ""items"": [
@@ -5637,6 +5685,7 @@ public class HttpExample
             ""up_to"": null,
             ""flat_price_in_decimal"": null,
             ""unit_price_in_decimal"": null,
+            ""from"": null,
             ""unit_currency_prices"": null
           }
         ],
@@ -5649,7 +5698,7 @@ public class HttpExample
         ""tax_behavior"": ""string"",
         ""currency"": ""string"",
         ""metadata"": null,
-        ""created_at"": ""2026-02-06T04:42:03.051Z"",
+        ""created_at"": ""2026-02-07T08:44:23.873Z"",
         ""unit"": ""string"",
         ""deferred_revenue_accounting_code"": ""string"",
         ""usage_aggregator"": ""string"",
@@ -5662,20 +5711,20 @@ public class HttpExample
           ""event_time_window"": ""string"",
           ""id"": ""string"",
           ""customer_mapping"": {},
-          ""updated"": ""2026-02-06T04:42:03.051Z"",
+          ""updated"": ""2026-02-07T08:44:23.873Z"",
           ""status"": ""string"",
-          ""created"": ""2026-02-06T04:42:03.051Z"",
+          ""created"": ""2026-02-07T08:44:23.873Z"",
           ""default_aggregation"": {}
         }
       },
-      ""current_period_start"": ""2026-02-06T04:42:03.051Z"",
+      ""current_period_start"": ""2026-02-07T08:44:23.873Z"",
       ""is_metered"": true,
       ""plan_id"": ""string"",
       ""unit_of_measure"": ""string"",
       ""status"": ""string"",
       ""metadata"": {},
       ""created_at"": ""string"",
-      ""current_period_end"": ""2026-02-06T04:42:03.051Z"",
+      ""current_period_end"": ""2026-02-07T08:44:23.873Z"",
       ""subscription_item_id"": ""string"",
       ""plan"": {
         ""name"": ""string"",
@@ -5708,32 +5757,34 @@ public class HttpExample
         ""provider"": ""string"",
         ""billing_type"": ""string"",
         ""description"": ""string"",
+        ""family_id"": ""string"",
         ""external_plan_id"": ""string"",
         ""id"": ""string"",
         ""status"": ""string"",
         ""product_id"": ""string"",
         ""metadata"": null,
-        ""created_at"": ""2026-02-06T04:42:03.051Z"",
+        ""created_at"": ""2026-02-07T08:44:23.873Z"",
         ""billing_period"": ""string"",
         ""unit"": ""string"",
-        ""updated_at"": ""2026-02-06T04:42:03.051Z"",
+        ""updated_at"": ""2026-02-07T08:44:23.873Z"",
+        ""usage_aggregator"": ""string"",
         ""reporting_period"": ""string""
       }
     }
   ],
-  ""current_period_start"": ""2026-02-06T04:42:03.051Z"",
+  ""current_period_start"": ""2026-02-07T08:44:23.873Z"",
   ""company_external_id"": ""string"",
   ""payment_status"": ""string"",
-  ""cancel_time"": ""2026-02-06T04:42:03.051Z"",
+  ""cancel_time"": ""2026-02-07T08:44:23.873Z"",
   ""status"": ""string"",
-  ""trial_end"": ""2026-02-06T04:42:03.051Z"",
+  ""trial_end"": ""2026-02-07T08:44:23.873Z"",
   ""external_id"": ""string"",
   ""currency"": ""string"",
   ""metadata"": {},
   ""subscription_id"": ""string"",
   ""version_id"": ""string"",
-  ""current_period_end"": ""2026-02-06T04:42:03.051Z"",
-  ""created"": ""2026-02-06T04:42:03.051Z""
+  ""current_period_end"": ""2026-02-07T08:44:23.873Z"",
+  ""created"": ""2026-02-07T08:44:23.873Z""
 }";
       var content = JsonConvert.DeserializeObject(json);
       await PostAsync(content, url);
@@ -5789,9 +5840,9 @@ con.setRequestProperty("Authorization",'Bearer YOUR_MANAGEMENT_API_KEY');
 con.setDoOutput(true);
 
 String jsonPayload = """{
-  "trial_start": "2026-02-06T04:42:03.051Z",
+  "trial_start": "2026-02-07T08:44:23.873Z",
   "company_id": "string",
-  "start_date": "2026-02-06T04:42:03.051Z",
+  "start_date": "2026-02-07T08:44:23.873Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -5817,6 +5868,7 @@ String jsonPayload = """{
             "up_to": null,
             "flat_price_in_decimal": null,
             "unit_price_in_decimal": null,
+            "from": null,
             "unit_currency_prices": null
           }
         ],
@@ -5829,7 +5881,7 @@ String jsonPayload = """{
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "unit": "string",
         "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
@@ -5842,20 +5894,20 @@ String jsonPayload = """{
           "event_time_window": "string",
           "id": "string",
           "customer_mapping": {},
-          "updated": "2026-02-06T04:42:03.051Z",
+          "updated": "2026-02-07T08:44:23.873Z",
           "status": "string",
-          "created": "2026-02-06T04:42:03.051Z",
+          "created": "2026-02-07T08:44:23.873Z",
           "default_aggregation": {}
         }
       },
-      "current_period_start": "2026-02-06T04:42:03.051Z",
+      "current_period_start": "2026-02-07T08:44:23.873Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
       "metadata": {},
       "created_at": "string",
-      "current_period_end": "2026-02-06T04:42:03.051Z",
+      "current_period_end": "2026-02-07T08:44:23.873Z",
       "subscription_item_id": "string",
       "plan": {
         "name": "string",
@@ -5888,32 +5940,34 @@ String jsonPayload = """{
         "provider": "string",
         "billing_type": "string",
         "description": "string",
+        "family_id": "string",
         "external_plan_id": "string",
         "id": "string",
         "status": "string",
         "product_id": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "billing_period": "string",
         "unit": "string",
-        "updated_at": "2026-02-06T04:42:03.051Z",
+        "updated_at": "2026-02-07T08:44:23.873Z",
+        "usage_aggregator": "string",
         "reporting_period": "string"
       }
     }
   ],
-  "current_period_start": "2026-02-06T04:42:03.051Z",
+  "current_period_start": "2026-02-07T08:44:23.873Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2026-02-06T04:42:03.051Z",
+  "cancel_time": "2026-02-07T08:44:23.873Z",
   "status": "string",
-  "trial_end": "2026-02-06T04:42:03.051Z",
+  "trial_end": "2026-02-07T08:44:23.873Z",
   "external_id": "string",
   "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2026-02-06T04:42:03.051Z",
-  "created": "2026-02-06T04:42:03.051Z"
+  "current_period_end": "2026-02-07T08:44:23.873Z",
+  "created": "2026-02-07T08:44:23.873Z"
 }""";
 
 // Write payload to the request
@@ -5944,9 +5998,9 @@ System.out.println(response.toString());
 
 ```json
 {
-  "trial_start": "2026-02-06T04:42:03.051Z",
+  "trial_start": "2026-02-07T08:44:23.873Z",
   "company_id": "string",
-  "start_date": "2026-02-06T04:42:03.051Z",
+  "start_date": "2026-02-07T08:44:23.873Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -5972,6 +6026,7 @@ System.out.println(response.toString());
             "up_to": null,
             "flat_price_in_decimal": null,
             "unit_price_in_decimal": null,
+            "from": null,
             "unit_currency_prices": null
           }
         ],
@@ -5984,7 +6039,7 @@ System.out.println(response.toString());
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "unit": "string",
         "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
@@ -5997,20 +6052,20 @@ System.out.println(response.toString());
           "event_time_window": "string",
           "id": "string",
           "customer_mapping": {},
-          "updated": "2026-02-06T04:42:03.051Z",
+          "updated": "2026-02-07T08:44:23.873Z",
           "status": "string",
-          "created": "2026-02-06T04:42:03.051Z",
+          "created": "2026-02-07T08:44:23.873Z",
           "default_aggregation": {}
         }
       },
-      "current_period_start": "2026-02-06T04:42:03.051Z",
+      "current_period_start": "2026-02-07T08:44:23.873Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
       "metadata": {},
       "created_at": "string",
-      "current_period_end": "2026-02-06T04:42:03.051Z",
+      "current_period_end": "2026-02-07T08:44:23.873Z",
       "subscription_item_id": "string",
       "plan": {
         "name": "string",
@@ -6043,32 +6098,34 @@ System.out.println(response.toString());
         "provider": "string",
         "billing_type": "string",
         "description": "string",
+        "family_id": "string",
         "external_plan_id": "string",
         "id": "string",
         "status": "string",
         "product_id": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "billing_period": "string",
         "unit": "string",
-        "updated_at": "2026-02-06T04:42:03.051Z",
+        "updated_at": "2026-02-07T08:44:23.873Z",
+        "usage_aggregator": "string",
         "reporting_period": "string"
       }
     }
   ],
-  "current_period_start": "2026-02-06T04:42:03.051Z",
+  "current_period_start": "2026-02-07T08:44:23.873Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2026-02-06T04:42:03.051Z",
+  "cancel_time": "2026-02-07T08:44:23.873Z",
   "status": "string",
-  "trial_end": "2026-02-06T04:42:03.051Z",
+  "trial_end": "2026-02-07T08:44:23.873Z",
   "external_id": "string",
   "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2026-02-06T04:42:03.051Z",
-  "created": "2026-02-06T04:42:03.051Z"
+  "current_period_end": "2026-02-07T08:44:23.873Z",
+  "created": "2026-02-07T08:44:23.873Z"
 }
 ```
 
@@ -6084,9 +6141,9 @@ System.out.println(response.toString());
 
 ```json
 {
-  "trial_start": "2026-02-06T04:42:03.051Z",
+  "trial_start": "2026-02-07T08:44:23.873Z",
   "company_id": "string",
-  "start_date": "2026-02-06T04:42:03.051Z",
+  "start_date": "2026-02-07T08:44:23.873Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -6112,6 +6169,7 @@ System.out.println(response.toString());
             "up_to": null,
             "flat_price_in_decimal": null,
             "unit_price_in_decimal": null,
+            "from": null,
             "unit_currency_prices": null
           }
         ],
@@ -6124,7 +6182,7 @@ System.out.println(response.toString());
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "unit": "string",
         "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
@@ -6137,20 +6195,20 @@ System.out.println(response.toString());
           "event_time_window": "string",
           "id": "string",
           "customer_mapping": {},
-          "updated": "2026-02-06T04:42:03.051Z",
+          "updated": "2026-02-07T08:44:23.873Z",
           "status": "string",
-          "created": "2026-02-06T04:42:03.051Z",
+          "created": "2026-02-07T08:44:23.873Z",
           "default_aggregation": {}
         }
       },
-      "current_period_start": "2026-02-06T04:42:03.051Z",
+      "current_period_start": "2026-02-07T08:44:23.873Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
       "metadata": {},
       "created_at": "string",
-      "current_period_end": "2026-02-06T04:42:03.051Z",
+      "current_period_end": "2026-02-07T08:44:23.873Z",
       "subscription_item_id": "string",
       "plan": {
         "name": "string",
@@ -6183,32 +6241,34 @@ System.out.println(response.toString());
         "provider": "string",
         "billing_type": "string",
         "description": "string",
+        "family_id": "string",
         "external_plan_id": "string",
         "id": "string",
         "status": "string",
         "product_id": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "billing_period": "string",
         "unit": "string",
-        "updated_at": "2026-02-06T04:42:03.051Z",
+        "updated_at": "2026-02-07T08:44:23.873Z",
+        "usage_aggregator": "string",
         "reporting_period": "string"
       }
     }
   ],
-  "current_period_start": "2026-02-06T04:42:03.051Z",
+  "current_period_start": "2026-02-07T08:44:23.873Z",
   "balance": {
     "available_balance": 0.1,
     "current_balance": 0.1,
     "pending_activity": 0.1,
-    "last_modified": "2026-02-06T04:42:03.051Z"
+    "last_modified": "2026-02-07T08:44:23.873Z"
   },
   "company_external_id": "string",
   "payment_status": "string",
-  "modified_time": "2026-02-06T04:42:03.051Z",
-  "cancel_time": "2026-02-06T04:42:03.051Z",
+  "modified_time": "2026-02-07T08:44:23.873Z",
+  "cancel_time": "2026-02-07T08:44:23.873Z",
   "status": "string",
-  "trial_end": "2026-02-06T04:42:03.051Z",
+  "trial_end": "2026-02-07T08:44:23.873Z",
   "external_id": "string",
   "currency": "string",
   "metadata": {},
@@ -6216,9 +6276,9 @@ System.out.println(response.toString());
   "subscription_id": "string",
   "version_id": "string",
   "type": "string",
-  "current_period_end": "2026-02-06T04:42:03.051Z",
+  "current_period_end": "2026-02-07T08:44:23.873Z",
   "org_id": "string",
-  "created": "2026-02-06T04:42:03.051Z"
+  "created": "2026-02-07T08:44:23.873Z"
 }
 ```
 
@@ -6450,9 +6510,9 @@ System.out.println(response.toString());
 
 ```json
 {
-  "trial_start": "2026-02-06T04:42:03.051Z",
+  "trial_start": "2026-02-07T08:44:23.873Z",
   "company_id": "string",
-  "start_date": "2026-02-06T04:42:03.051Z",
+  "start_date": "2026-02-07T08:44:23.873Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -6478,6 +6538,7 @@ System.out.println(response.toString());
             "up_to": null,
             "flat_price_in_decimal": null,
             "unit_price_in_decimal": null,
+            "from": null,
             "unit_currency_prices": null
           }
         ],
@@ -6490,7 +6551,7 @@ System.out.println(response.toString());
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "unit": "string",
         "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
@@ -6503,20 +6564,20 @@ System.out.println(response.toString());
           "event_time_window": "string",
           "id": "string",
           "customer_mapping": {},
-          "updated": "2026-02-06T04:42:03.051Z",
+          "updated": "2026-02-07T08:44:23.873Z",
           "status": "string",
-          "created": "2026-02-06T04:42:03.051Z",
+          "created": "2026-02-07T08:44:23.873Z",
           "default_aggregation": {}
         }
       },
-      "current_period_start": "2026-02-06T04:42:03.051Z",
+      "current_period_start": "2026-02-07T08:44:23.873Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
       "metadata": {},
       "created_at": "string",
-      "current_period_end": "2026-02-06T04:42:03.051Z",
+      "current_period_end": "2026-02-07T08:44:23.873Z",
       "subscription_item_id": "string",
       "plan": {
         "name": "string",
@@ -6549,32 +6610,34 @@ System.out.println(response.toString());
         "provider": "string",
         "billing_type": "string",
         "description": "string",
+        "family_id": "string",
         "external_plan_id": "string",
         "id": "string",
         "status": "string",
         "product_id": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "billing_period": "string",
         "unit": "string",
-        "updated_at": "2026-02-06T04:42:03.051Z",
+        "updated_at": "2026-02-07T08:44:23.873Z",
+        "usage_aggregator": "string",
         "reporting_period": "string"
       }
     }
   ],
-  "current_period_start": "2026-02-06T04:42:03.051Z",
+  "current_period_start": "2026-02-07T08:44:23.873Z",
   "balance": {
     "available_balance": 0.1,
     "current_balance": 0.1,
     "pending_activity": 0.1,
-    "last_modified": "2026-02-06T04:42:03.051Z"
+    "last_modified": "2026-02-07T08:44:23.873Z"
   },
   "company_external_id": "string",
   "payment_status": "string",
-  "modified_time": "2026-02-06T04:42:03.051Z",
-  "cancel_time": "2026-02-06T04:42:03.051Z",
+  "modified_time": "2026-02-07T08:44:23.873Z",
+  "cancel_time": "2026-02-07T08:44:23.873Z",
   "status": "string",
-  "trial_end": "2026-02-06T04:42:03.051Z",
+  "trial_end": "2026-02-07T08:44:23.873Z",
   "external_id": "string",
   "currency": "string",
   "metadata": {},
@@ -6582,9 +6645,9 @@ System.out.println(response.toString());
   "subscription_id": "string",
   "version_id": "string",
   "type": "string",
-  "current_period_end": "2026-02-06T04:42:03.051Z",
+  "current_period_end": "2026-02-07T08:44:23.873Z",
   "org_id": "string",
-  "created": "2026-02-06T04:42:03.051Z"
+  "created": "2026-02-07T08:44:23.873Z"
 }
 ```
 
@@ -6826,13 +6889,8 @@ true
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Subscription deleted successfully. Returns true in the following cases:
-- Subscription was found and deleted successfully
-- Subscription was already deleted.|boolean|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad request. Possible reasons:
-- Failed to remove subscription from company records
-- ElasticSearch connection error
-- Invalid request parameters|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Subscription deleted successfully. Returns true in the following cases:<br><ul><li>Subscription was found and deleted successfully</li><li>Subscription was already deleted.</li></ul>|boolean|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad request. Possible reasons:<br><ul><li>Failed to remove subscription from company records</li><li>ElasticSearch connection error</li><li>Invalid request parameters</li></ul>|Inline|
 
 <h3 id="deletesubscription-responseschema">Response Schema</h3>
 
@@ -6898,7 +6956,7 @@ headers = {
 input_body = false
 
 r = requests.post('https://api.moesif.com/v1/search/~/count/events', params={
-  'from': '2026-02-06T04:42:03.051Z',  'to': '2026-02-06T04:42:03.051Z'
+  'from': '2026-02-07T08:44:23.873Z',  'to': '2026-02-07T08:44:23.873Z'
 
 }, headers = headers, json = input_data)
 
@@ -7170,7 +7228,7 @@ headers = {
 }
 
 r = requests.get('https://api.moesif.com/v1/search/~/events/{id}', params={
-  'event_time': '2026-02-06T04:42:03.051Z'
+  'event_time': '2026-02-07T08:44:23.873Z'
 
 }, headers = headers)
 
@@ -7473,7 +7531,7 @@ headers = {
 input_body = false
 
 r = requests.post('https://api.moesif.com/v1/search/~/search/events', params={
-  'from': '2026-02-06T04:42:03.051Z',  'to': '2026-02-06T04:42:03.051Z'
+  'from': '2026-02-07T08:44:23.873Z',  'to': '2026-02-07T08:44:23.873Z'
 
 }, headers = headers, json = input_data)
 
@@ -7787,7 +7845,7 @@ headers = {
 input_body = false
 
 r = requests.post('https://api.moesif.com/v1/search/~/workspaces/{workspaceId}/search', params={
-  'from': '2026-02-06T04:42:03.051Z',  'to': '2026-02-06T04:42:03.051Z'
+  'from': '2026-02-07T08:44:23.873Z',  'to': '2026-02-07T08:44:23.873Z'
 
 }, headers = headers, json = input_data)
 
@@ -8621,7 +8679,7 @@ curl -X POST https://api.moesif.com/v1/search/~/users \
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2026-02-06T04:42:03.051Z",
+  "modified_time": "2026-02-07T08:44:23.873Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -8638,7 +8696,7 @@ const inputBody = {
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2026-02-06T04:42:03.051Z",
+  "modified_time": "2026-02-07T08:44:23.873Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -8678,7 +8736,7 @@ input_body = {
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2026-02-06T04:42:03.051Z",
+  "modified_time": "2026-02-07T08:44:23.873Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -8708,7 +8766,7 @@ input_payload = JSON.parse('{
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2026-02-06T04:42:03.051Z",
+  "modified_time": "2026-02-07T08:44:23.873Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -8743,7 +8801,7 @@ $inputPayload = json_decode('{
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2026-02-06T04:42:03.051Z",
+  "modified_time": "2026-02-07T08:44:23.873Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -8791,7 +8849,7 @@ func main() {
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2026-02-06T04:42:03.051Z",
+  "modified_time": "2026-02-07T08:44:23.873Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -8845,7 +8903,7 @@ public class HttpExample
   ""email"": ""string"",
   ""photo_url"": ""string"",
   ""user_id"": ""string"",
-  ""modified_time"": ""2026-02-06T04:42:03.051Z"",
+  ""modified_time"": ""2026-02-07T08:44:23.873Z"",
   ""last_name"": ""string"",
   ""metadata"": {},
   ""user_name"": ""string"",
@@ -8911,7 +8969,7 @@ String jsonPayload = """{
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2026-02-06T04:42:03.051Z",
+  "modified_time": "2026-02-07T08:44:23.873Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -8952,7 +9010,7 @@ System.out.println(response.toString());
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2026-02-06T04:42:03.051Z",
+  "modified_time": "2026-02-07T08:44:23.873Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -9056,7 +9114,7 @@ curl -X POST https://api.moesif.com/v1/search/~/users/batch \
     "email": "string",
     "photo_url": "string",
     "user_id": "string",
-    "modified_time": "2026-02-06T04:42:03.051Z",
+    "modified_time": "2026-02-07T08:44:23.873Z",
     "last_name": "string",
     "metadata": {},
     "user_name": "string",
@@ -9075,7 +9133,7 @@ const inputBody = [
     "email": "string",
     "photo_url": "string",
     "user_id": "string",
-    "modified_time": "2026-02-06T04:42:03.051Z",
+    "modified_time": "2026-02-07T08:44:23.873Z",
     "last_name": "string",
     "metadata": {},
     "user_name": "string",
@@ -9117,7 +9175,7 @@ input_body = [
     "email": "string",
     "photo_url": "string",
     "user_id": "string",
-    "modified_time": "2026-02-06T04:42:03.051Z",
+    "modified_time": "2026-02-07T08:44:23.873Z",
     "last_name": "string",
     "metadata": {},
     "user_name": "string",
@@ -9149,7 +9207,7 @@ input_payload = JSON.parse('[
     "email": "string",
     "photo_url": "string",
     "user_id": "string",
-    "modified_time": "2026-02-06T04:42:03.051Z",
+    "modified_time": "2026-02-07T08:44:23.873Z",
     "last_name": "string",
     "metadata": {},
     "user_name": "string",
@@ -9186,7 +9244,7 @@ $inputPayload = json_decode('[
     "email": "string",
     "photo_url": "string",
     "user_id": "string",
-    "modified_time": "2026-02-06T04:42:03.051Z",
+    "modified_time": "2026-02-07T08:44:23.873Z",
     "last_name": "string",
     "metadata": {},
     "user_name": "string",
@@ -9236,7 +9294,7 @@ func main() {
     "email": "string",
     "photo_url": "string",
     "user_id": "string",
-    "modified_time": "2026-02-06T04:42:03.051Z",
+    "modified_time": "2026-02-07T08:44:23.873Z",
     "last_name": "string",
     "metadata": {},
     "user_name": "string",
@@ -9292,7 +9350,7 @@ public class HttpExample
     ""email"": ""string"",
     ""photo_url"": ""string"",
     ""user_id"": ""string"",
-    ""modified_time"": ""2026-02-06T04:42:03.051Z"",
+    ""modified_time"": ""2026-02-07T08:44:23.873Z"",
     ""last_name"": ""string"",
     ""metadata"": {},
     ""user_name"": ""string"",
@@ -9360,7 +9418,7 @@ String jsonPayload = """[
     "email": "string",
     "photo_url": "string",
     "user_id": "string",
-    "modified_time": "2026-02-06T04:42:03.051Z",
+    "modified_time": "2026-02-07T08:44:23.873Z",
     "last_name": "string",
     "metadata": {},
     "user_name": "string",
@@ -9403,7 +9461,7 @@ System.out.println(response.toString());
     "email": "string",
     "photo_url": "string",
     "user_id": "string",
-    "modified_time": "2026-02-06T04:42:03.051Z",
+    "modified_time": "2026-02-07T08:44:23.873Z",
     "last_name": "string",
     "metadata": {},
     "user_name": "string",
@@ -10259,7 +10317,7 @@ headers = {
 }
 
 r = requests.get('https://api.moesif.com/v1/search/~/mappings/events/request/body/properties', params={
-  'app_id': 'string',  'from': '2026-02-06T04:42:03.051Z',  'to': '2026-02-06T04:42:03.051Z'
+  'app_id': 'string',  'from': '2026-02-07T08:44:23.873Z',  'to': '2026-02-07T08:44:23.873Z'
 
 }, headers = headers)
 
@@ -10494,7 +10552,7 @@ headers = {
 }
 
 r = requests.get('https://api.moesif.com/v1/search/~/mappings/events/response/body/properties', params={
-  'app_id': 'string',  'from': '2026-02-06T04:42:03.051Z',  'to': '2026-02-06T04:42:03.051Z'
+  'app_id': 'string',  'from': '2026-02-07T08:44:23.873Z',  'to': '2026-02-07T08:44:23.873Z'
 
 }, headers = headers)
 
@@ -11142,7 +11200,7 @@ System.out.println(response.toString());
   "dashboard": {},
   "height": 0.1,
   "auth_user_id": "string",
-  "modified": "2026-02-06T04:42:03.051Z",
+  "modified": "2026-02-07T08:44:23.873Z",
   "colors": {},
   "sequence": [
     {
@@ -11214,7 +11272,7 @@ System.out.println(response.toString());
   },
   "org_id": "string",
   "migration": {},
-  "created": "2026-02-06T04:42:03.051Z",
+  "created": "2026-02-07T08:44:23.873Z",
   "comments": {
     "summary": {
       "count": 0,
@@ -11226,8 +11284,8 @@ System.out.println(response.toString());
         ],
         "partner_user_id": "string",
         "message": "string",
-        "created_at": "2026-02-06T04:42:03.051Z",
-        "updated_at": "2026-02-06T04:42:03.051Z"
+        "created_at": "2026-02-07T08:44:23.873Z",
+        "updated_at": "2026-02-07T08:44:23.873Z"
       }
     }
   }
@@ -11985,7 +12043,7 @@ System.out.println(response.toString());
   "dashboard": {},
   "height": 0.1,
   "auth_user_id": "string",
-  "modified": "2026-02-06T04:42:03.051Z",
+  "modified": "2026-02-07T08:44:23.873Z",
   "colors": {},
   "sequence": [
     {
@@ -12057,7 +12115,7 @@ System.out.println(response.toString());
   },
   "org_id": "string",
   "migration": {},
-  "created": "2026-02-06T04:42:03.051Z",
+  "created": "2026-02-07T08:44:23.873Z",
   "comments": {
     "summary": {
       "count": 0,
@@ -12069,8 +12127,8 @@ System.out.println(response.toString());
         ],
         "partner_user_id": "string",
         "message": "string",
-        "created_at": "2026-02-06T04:42:03.051Z",
-        "updated_at": "2026-02-06T04:42:03.051Z"
+        "created_at": "2026-02-07T08:44:23.873Z",
+        "updated_at": "2026-02-07T08:44:23.873Z"
       }
     }
   }
@@ -12324,7 +12382,7 @@ System.out.println(response.toString());
     "dashboard": {},
     "height": 0.1,
     "auth_user_id": "string",
-    "modified": "2026-02-06T04:42:03.051Z",
+    "modified": "2026-02-07T08:44:23.873Z",
     "colors": {},
     "sequence": [
       {
@@ -12390,7 +12448,7 @@ System.out.println(response.toString());
     },
     "org_id": "string",
     "migration": {},
-    "created": "2026-02-06T04:42:03.051Z",
+    "created": "2026-02-07T08:44:23.873Z",
     "comments": {
       "summary": {
         "count": 0,
@@ -12402,8 +12460,8 @@ System.out.println(response.toString());
           ],
           "partner_user_id": "string",
           "message": "string",
-          "created_at": "2026-02-06T04:42:03.051Z",
-          "updated_at": "2026-02-06T04:42:03.051Z"
+          "created_at": "2026-02-07T08:44:23.873Z",
+          "updated_at": "2026-02-07T08:44:23.873Z"
         }
       }
     }
@@ -12722,7 +12780,7 @@ System.out.println(response.toString());
     "dashboard": {},
     "height": 0.1,
     "auth_user_id": "string",
-    "modified": "2026-02-06T04:42:03.051Z",
+    "modified": "2026-02-07T08:44:23.873Z",
     "colors": {},
     "sequence": [
       {
@@ -12788,7 +12846,7 @@ System.out.println(response.toString());
     },
     "org_id": "string",
     "migration": {},
-    "created": "2026-02-06T04:42:03.051Z",
+    "created": "2026-02-07T08:44:23.873Z",
     "comments": {
       "summary": {
         "count": 0,
@@ -12800,8 +12858,8 @@ System.out.println(response.toString());
           ],
           "partner_user_id": "string",
           "message": "string",
-          "created_at": "2026-02-06T04:42:03.051Z",
-          "updated_at": "2026-02-06T04:42:03.051Z"
+          "created_at": "2026-02-07T08:44:23.873Z",
+          "updated_at": "2026-02-07T08:44:23.873Z"
         }
       }
     }
@@ -13814,7 +13872,7 @@ System.out.println(response.toString());
   "dashboard": {},
   "height": 0.1,
   "auth_user_id": "string",
-  "modified": "2026-02-06T04:42:03.051Z",
+  "modified": "2026-02-07T08:44:23.873Z",
   "colors": {},
   "sequence": [
     {
@@ -13886,7 +13944,7 @@ System.out.println(response.toString());
   },
   "org_id": "string",
   "migration": {},
-  "created": "2026-02-06T04:42:03.051Z",
+  "created": "2026-02-07T08:44:23.873Z",
   "comments": {
     "summary": {
       "count": 0,
@@ -13898,8 +13956,8 @@ System.out.println(response.toString());
         ],
         "partner_user_id": "string",
         "message": "string",
-        "created_at": "2026-02-06T04:42:03.051Z",
-        "updated_at": "2026-02-06T04:42:03.051Z"
+        "created_at": "2026-02-07T08:44:23.873Z",
+        "updated_at": "2026-02-07T08:44:23.873Z"
       }
     }
   }
@@ -16809,6 +16867,7 @@ curl -X POST https://api.moesif.com/v1/~/billing/catalog/plans?provider=string \
           "up_to": 0,
           "flat_price_in_decimal": 0.1,
           "unit_price_in_decimal": 0.1,
+          "from": 0,
           "unit_currency_prices": null
         }
       ],
@@ -16821,7 +16880,7 @@ curl -X POST https://api.moesif.com/v1/~/billing/catalog/plans?provider=string \
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2026-02-06T04:42:03.051Z",
+      "created_at": "2026-02-07T08:44:23.873Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -16841,9 +16900,9 @@ curl -X POST https://api.moesif.com/v1/~/billing/catalog/plans?provider=string \
           "event_payload_key": "string",
           "type": "string"
         },
-        "updated": "2026-02-06T04:42:03.051Z",
+        "updated": "2026-02-07T08:44:23.873Z",
         "status": "string",
-        "created": "2026-02-06T04:42:03.051Z",
+        "created": "2026-02-07T08:44:23.873Z",
         "default_aggregation": {
           "formula": "string"
         }
@@ -16853,15 +16912,17 @@ curl -X POST https://api.moesif.com/v1/~/billing/catalog/plans?provider=string \
   "provider": "string",
   "billing_type": "string",
   "description": "string",
+  "family_id": "string",
   "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2026-02-06T04:42:03.051Z",
+  "updated_at": "2026-02-07T08:44:23.873Z",
+  "usage_aggregator": "string",
   "reporting_period": "string"
 }' 
 ```
@@ -16887,6 +16948,7 @@ const inputBody = {
           "up_to": 0,
           "flat_price_in_decimal": 0.1,
           "unit_price_in_decimal": 0.1,
+          "from": 0,
           "unit_currency_prices": null
         }
       ],
@@ -16899,7 +16961,7 @@ const inputBody = {
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2026-02-06T04:42:03.051Z",
+      "created_at": "2026-02-07T08:44:23.873Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -16919,9 +16981,9 @@ const inputBody = {
           "event_payload_key": "string",
           "type": "string"
         },
-        "updated": "2026-02-06T04:42:03.051Z",
+        "updated": "2026-02-07T08:44:23.873Z",
         "status": "string",
-        "created": "2026-02-06T04:42:03.051Z",
+        "created": "2026-02-07T08:44:23.873Z",
         "default_aggregation": {
           "formula": "string"
         }
@@ -16931,15 +16993,17 @@ const inputBody = {
   "provider": "string",
   "billing_type": "string",
   "description": "string",
+  "family_id": "string",
   "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2026-02-06T04:42:03.051Z",
+  "updated_at": "2026-02-07T08:44:23.873Z",
+  "usage_aggregator": "string",
   "reporting_period": "string"
 };
 const headers = {
@@ -16988,6 +17052,7 @@ input_body = {
           "up_to": 0,
           "flat_price_in_decimal": 0.1,
           "unit_price_in_decimal": 0.1,
+          "from": 0,
           "unit_currency_prices": null
         }
       ],
@@ -17000,7 +17065,7 @@ input_body = {
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2026-02-06T04:42:03.051Z",
+      "created_at": "2026-02-07T08:44:23.873Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -17020,9 +17085,9 @@ input_body = {
           "event_payload_key": "string",
           "type": "string"
         },
-        "updated": "2026-02-06T04:42:03.051Z",
+        "updated": "2026-02-07T08:44:23.873Z",
         "status": "string",
-        "created": "2026-02-06T04:42:03.051Z",
+        "created": "2026-02-07T08:44:23.873Z",
         "default_aggregation": {
           "formula": "string"
         }
@@ -17032,15 +17097,17 @@ input_body = {
   "provider": "string",
   "billing_type": "string",
   "description": "string",
+  "family_id": "string",
   "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2026-02-06T04:42:03.051Z",
+  "updated_at": "2026-02-07T08:44:23.873Z",
+  "usage_aggregator": "string",
   "reporting_period": "string"
 }
 
@@ -17082,6 +17149,7 @@ input_payload = JSON.parse('{
           "up_to": 0,
           "flat_price_in_decimal": 0.1,
           "unit_price_in_decimal": 0.1,
+          "from": 0,
           "unit_currency_prices": null
         }
       ],
@@ -17094,7 +17162,7 @@ input_payload = JSON.parse('{
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2026-02-06T04:42:03.051Z",
+      "created_at": "2026-02-07T08:44:23.873Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -17114,9 +17182,9 @@ input_payload = JSON.parse('{
           "event_payload_key": "string",
           "type": "string"
         },
-        "updated": "2026-02-06T04:42:03.051Z",
+        "updated": "2026-02-07T08:44:23.873Z",
         "status": "string",
-        "created": "2026-02-06T04:42:03.051Z",
+        "created": "2026-02-07T08:44:23.873Z",
         "default_aggregation": {
           "formula": "string"
         }
@@ -17126,15 +17194,17 @@ input_payload = JSON.parse('{
   "provider": "string",
   "billing_type": "string",
   "description": "string",
+  "family_id": "string",
   "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2026-02-06T04:42:03.051Z",
+  "updated_at": "2026-02-07T08:44:23.873Z",
+  "usage_aggregator": "string",
   "reporting_period": "string"
 }')
 
@@ -17179,6 +17249,7 @@ $inputPayload = json_decode('{
           "up_to": 0,
           "flat_price_in_decimal": 0.1,
           "unit_price_in_decimal": 0.1,
+          "from": 0,
           "unit_currency_prices": null
         }
       ],
@@ -17191,7 +17262,7 @@ $inputPayload = json_decode('{
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2026-02-06T04:42:03.051Z",
+      "created_at": "2026-02-07T08:44:23.873Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -17211,9 +17282,9 @@ $inputPayload = json_decode('{
           "event_payload_key": "string",
           "type": "string"
         },
-        "updated": "2026-02-06T04:42:03.051Z",
+        "updated": "2026-02-07T08:44:23.873Z",
         "status": "string",
-        "created": "2026-02-06T04:42:03.051Z",
+        "created": "2026-02-07T08:44:23.873Z",
         "default_aggregation": {
           "formula": "string"
         }
@@ -17223,15 +17294,17 @@ $inputPayload = json_decode('{
   "provider": "string",
   "billing_type": "string",
   "description": "string",
+  "family_id": "string",
   "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2026-02-06T04:42:03.051Z",
+  "updated_at": "2026-02-07T08:44:23.873Z",
+  "usage_aggregator": "string",
   "reporting_period": "string"
 }')
 
@@ -17288,6 +17361,7 @@ func main() {
           "up_to": 0,
           "flat_price_in_decimal": 0.1,
           "unit_price_in_decimal": 0.1,
+          "from": 0,
           "unit_currency_prices": null
         }
       ],
@@ -17300,7 +17374,7 @@ func main() {
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2026-02-06T04:42:03.051Z",
+      "created_at": "2026-02-07T08:44:23.873Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -17320,9 +17394,9 @@ func main() {
           "event_payload_key": "string",
           "type": "string"
         },
-        "updated": "2026-02-06T04:42:03.051Z",
+        "updated": "2026-02-07T08:44:23.873Z",
         "status": "string",
-        "created": "2026-02-06T04:42:03.051Z",
+        "created": "2026-02-07T08:44:23.873Z",
         "default_aggregation": {
           "formula": "string"
         }
@@ -17332,15 +17406,17 @@ func main() {
   "provider": "string",
   "billing_type": "string",
   "description": "string",
+  "family_id": "string",
   "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2026-02-06T04:42:03.051Z",
+  "updated_at": "2026-02-07T08:44:23.873Z",
+  "usage_aggregator": "string",
   "reporting_period": "string"
 }`
     data := bytes.NewBuffer([]byte(jsonPayload))
@@ -17403,6 +17479,7 @@ public class HttpExample
           ""up_to"": 0,
           ""flat_price_in_decimal"": 0.1,
           ""unit_price_in_decimal"": 0.1,
+          ""from"": 0,
           ""unit_currency_prices"": null
         }
       ],
@@ -17415,7 +17492,7 @@ public class HttpExample
       ""tax_behavior"": ""string"",
       ""currency"": ""string"",
       ""metadata"": null,
-      ""created_at"": ""2026-02-06T04:42:03.051Z"",
+      ""created_at"": ""2026-02-07T08:44:23.873Z"",
       ""unit"": ""string"",
       ""deferred_revenue_accounting_code"": ""string"",
       ""usage_aggregator"": ""string"",
@@ -17435,9 +17512,9 @@ public class HttpExample
           ""event_payload_key"": ""string"",
           ""type"": ""string""
         },
-        ""updated"": ""2026-02-06T04:42:03.051Z"",
+        ""updated"": ""2026-02-07T08:44:23.873Z"",
         ""status"": ""string"",
-        ""created"": ""2026-02-06T04:42:03.051Z"",
+        ""created"": ""2026-02-07T08:44:23.873Z"",
         ""default_aggregation"": {
           ""formula"": ""string""
         }
@@ -17447,15 +17524,17 @@ public class HttpExample
   ""provider"": ""string"",
   ""billing_type"": ""string"",
   ""description"": ""string"",
+  ""family_id"": ""string"",
   ""external_plan_id"": ""string"",
   ""id"": ""string"",
   ""status"": ""string"",
   ""product_id"": ""string"",
   ""metadata"": null,
-  ""created_at"": ""2026-02-06T04:42:03.051Z"",
+  ""created_at"": ""2026-02-07T08:44:23.873Z"",
   ""billing_period"": ""string"",
   ""unit"": ""string"",
-  ""updated_at"": ""2026-02-06T04:42:03.051Z"",
+  ""updated_at"": ""2026-02-07T08:44:23.873Z"",
+  ""usage_aggregator"": ""string"",
   ""reporting_period"": ""string""
 }";
       var content = JsonConvert.DeserializeObject(json);
@@ -17530,6 +17609,7 @@ String jsonPayload = """{
           "up_to": 0,
           "flat_price_in_decimal": 0.1,
           "unit_price_in_decimal": 0.1,
+          "from": 0,
           "unit_currency_prices": null
         }
       ],
@@ -17542,7 +17622,7 @@ String jsonPayload = """{
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2026-02-06T04:42:03.051Z",
+      "created_at": "2026-02-07T08:44:23.873Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -17562,9 +17642,9 @@ String jsonPayload = """{
           "event_payload_key": "string",
           "type": "string"
         },
-        "updated": "2026-02-06T04:42:03.051Z",
+        "updated": "2026-02-07T08:44:23.873Z",
         "status": "string",
-        "created": "2026-02-06T04:42:03.051Z",
+        "created": "2026-02-07T08:44:23.873Z",
         "default_aggregation": {
           "formula": "string"
         }
@@ -17574,15 +17654,17 @@ String jsonPayload = """{
   "provider": "string",
   "billing_type": "string",
   "description": "string",
+  "family_id": "string",
   "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2026-02-06T04:42:03.051Z",
+  "updated_at": "2026-02-07T08:44:23.873Z",
+  "usage_aggregator": "string",
   "reporting_period": "string"
 }""";
 
@@ -17632,6 +17714,7 @@ System.out.println(response.toString());
           "up_to": 0,
           "flat_price_in_decimal": 0.1,
           "unit_price_in_decimal": 0.1,
+          "from": 0,
           "unit_currency_prices": null
         }
       ],
@@ -17644,7 +17727,7 @@ System.out.println(response.toString());
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2026-02-06T04:42:03.051Z",
+      "created_at": "2026-02-07T08:44:23.873Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -17664,9 +17747,9 @@ System.out.println(response.toString());
           "event_payload_key": "string",
           "type": "string"
         },
-        "updated": "2026-02-06T04:42:03.051Z",
+        "updated": "2026-02-07T08:44:23.873Z",
         "status": "string",
-        "created": "2026-02-06T04:42:03.051Z",
+        "created": "2026-02-07T08:44:23.873Z",
         "default_aggregation": {
           "formula": "string"
         }
@@ -17676,15 +17759,17 @@ System.out.println(response.toString());
   "provider": "string",
   "billing_type": "string",
   "description": "string",
+  "family_id": "string",
   "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2026-02-06T04:42:03.051Z",
+  "updated_at": "2026-02-07T08:44:23.873Z",
+  "usage_aggregator": "string",
   "reporting_period": "string"
 }
 ```
@@ -17720,6 +17805,7 @@ System.out.println(response.toString());
           "up_to": 0,
           "flat_price_in_decimal": 0.1,
           "unit_price_in_decimal": 0.1,
+          "from": 0,
           "unit_currency_prices": null
         }
       ],
@@ -17732,7 +17818,7 @@ System.out.println(response.toString());
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2026-02-06T04:42:03.051Z",
+      "created_at": "2026-02-07T08:44:23.873Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -17752,9 +17838,9 @@ System.out.println(response.toString());
           "event_payload_key": "string",
           "type": "string"
         },
-        "updated": "2026-02-06T04:42:03.051Z",
+        "updated": "2026-02-07T08:44:23.873Z",
         "status": "string",
-        "created": "2026-02-06T04:42:03.051Z",
+        "created": "2026-02-07T08:44:23.873Z",
         "default_aggregation": {
           "formula": "string"
         }
@@ -17764,15 +17850,17 @@ System.out.println(response.toString());
   "provider": "string",
   "billing_type": "string",
   "description": "string",
+  "family_id": "string",
   "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2026-02-06T04:42:03.051Z",
+  "updated_at": "2026-02-07T08:44:23.873Z",
+  "usage_aggregator": "string",
   "reporting_period": "string"
 }
 ```
@@ -18026,6 +18114,7 @@ System.out.println(response.toString());
             "up_to": 0,
             "flat_price_in_decimal": 0.1,
             "unit_price_in_decimal": 0.1,
+            "from": 0,
             "unit_currency_prices": null
           }
         ],
@@ -18038,7 +18127,7 @@ System.out.println(response.toString());
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "unit": "string",
         "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
@@ -18058,9 +18147,9 @@ System.out.println(response.toString());
             "event_payload_key": null,
             "type": null
           },
-          "updated": "2026-02-06T04:42:03.051Z",
+          "updated": "2026-02-07T08:44:23.873Z",
           "status": "string",
-          "created": "2026-02-06T04:42:03.051Z",
+          "created": "2026-02-07T08:44:23.873Z",
           "default_aggregation": {
             "formula": null
           }
@@ -18070,15 +18159,17 @@ System.out.println(response.toString());
     "provider": "string",
     "billing_type": "string",
     "description": "string",
+    "family_id": "string",
     "external_plan_id": "string",
     "id": "string",
     "status": "string",
     "product_id": "string",
     "metadata": null,
-    "created_at": "2026-02-06T04:42:03.051Z",
+    "created_at": "2026-02-07T08:44:23.873Z",
     "billing_period": "string",
     "unit": "string",
-    "updated_at": "2026-02-06T04:42:03.051Z",
+    "updated_at": "2026-02-07T08:44:23.873Z",
+    "usage_aggregator": "string",
     "reporting_period": "string"
   }
 ]
@@ -18112,6 +18203,7 @@ Status Code **200**
 |»»» up_to|integer(int64)|true|none|none|
 |»»» flat_price_in_decimal|number(double)|false|none|none|
 |»»» unit_price_in_decimal|number(double)|false|none|none|
+|»»» from|integer(int64)|false|none|none|
 |»»» unit_currency_prices|.map[string,string]|false|none|none|
 |»» recognized_revenue_accounting_code|string|false|none|none|
 |»» period_units|string|false|none|none|
@@ -18147,6 +18239,7 @@ Status Code **200**
 |» provider|string|false|none|none|
 |» billing_type|string|false|none|none|
 |» description|string|false|none|none|
+|» family_id|string|false|none|none|
 |» external_plan_id|string|false|none|none|
 |» id|string|false|none|none|
 |» status|string|false|none|none|
@@ -18156,6 +18249,7 @@ Status Code **200**
 |» billing_period|string|false|none|none|
 |» unit|string|false|none|none|
 |» updated_at|string(date-time)|false|none|none|
+|» usage_aggregator|string|false|none|none|
 |» reporting_period|string|false|none|none|
 
 <aside class="warning">
@@ -18405,6 +18499,7 @@ Get the Moesif Plan for authenticated users
           "up_to": 0,
           "flat_price_in_decimal": 0.1,
           "unit_price_in_decimal": 0.1,
+          "from": 0,
           "unit_currency_prices": null
         }
       ],
@@ -18417,7 +18512,7 @@ Get the Moesif Plan for authenticated users
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2026-02-06T04:42:03.051Z",
+      "created_at": "2026-02-07T08:44:23.873Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -18437,9 +18532,9 @@ Get the Moesif Plan for authenticated users
           "event_payload_key": "string",
           "type": "string"
         },
-        "updated": "2026-02-06T04:42:03.051Z",
+        "updated": "2026-02-07T08:44:23.873Z",
         "status": "string",
-        "created": "2026-02-06T04:42:03.051Z",
+        "created": "2026-02-07T08:44:23.873Z",
         "default_aggregation": {
           "formula": "string"
         }
@@ -18449,15 +18544,17 @@ Get the Moesif Plan for authenticated users
   "provider": "string",
   "billing_type": "string",
   "description": "string",
+  "family_id": "string",
   "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2026-02-06T04:42:03.051Z",
+  "updated_at": "2026-02-07T08:44:23.873Z",
+  "usage_aggregator": "string",
   "reporting_period": "string"
 }
 ```
@@ -18726,6 +18823,7 @@ curl -X PUT https://api.moesif.com/v1/~/billing/catalog/plans/{id}?provider=stri
           "up_to": 0,
           "flat_price_in_decimal": 0.1,
           "unit_price_in_decimal": 0.1,
+          "from": 0,
           "unit_currency_prices": null
         }
       ],
@@ -18738,7 +18836,7 @@ curl -X PUT https://api.moesif.com/v1/~/billing/catalog/plans/{id}?provider=stri
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2026-02-06T04:42:03.051Z",
+      "created_at": "2026-02-07T08:44:23.873Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -18758,9 +18856,9 @@ curl -X PUT https://api.moesif.com/v1/~/billing/catalog/plans/{id}?provider=stri
           "event_payload_key": "string",
           "type": "string"
         },
-        "updated": "2026-02-06T04:42:03.051Z",
+        "updated": "2026-02-07T08:44:23.873Z",
         "status": "string",
-        "created": "2026-02-06T04:42:03.051Z",
+        "created": "2026-02-07T08:44:23.873Z",
         "default_aggregation": {
           "formula": "string"
         }
@@ -18770,15 +18868,17 @@ curl -X PUT https://api.moesif.com/v1/~/billing/catalog/plans/{id}?provider=stri
   "provider": "string",
   "billing_type": "string",
   "description": "string",
+  "family_id": "string",
   "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2026-02-06T04:42:03.051Z",
+  "updated_at": "2026-02-07T08:44:23.873Z",
+  "usage_aggregator": "string",
   "reporting_period": "string"
 }' 
 ```
@@ -18804,6 +18904,7 @@ const inputBody = {
           "up_to": 0,
           "flat_price_in_decimal": 0.1,
           "unit_price_in_decimal": 0.1,
+          "from": 0,
           "unit_currency_prices": null
         }
       ],
@@ -18816,7 +18917,7 @@ const inputBody = {
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2026-02-06T04:42:03.051Z",
+      "created_at": "2026-02-07T08:44:23.873Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -18836,9 +18937,9 @@ const inputBody = {
           "event_payload_key": "string",
           "type": "string"
         },
-        "updated": "2026-02-06T04:42:03.051Z",
+        "updated": "2026-02-07T08:44:23.873Z",
         "status": "string",
-        "created": "2026-02-06T04:42:03.051Z",
+        "created": "2026-02-07T08:44:23.873Z",
         "default_aggregation": {
           "formula": "string"
         }
@@ -18848,15 +18949,17 @@ const inputBody = {
   "provider": "string",
   "billing_type": "string",
   "description": "string",
+  "family_id": "string",
   "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2026-02-06T04:42:03.051Z",
+  "updated_at": "2026-02-07T08:44:23.873Z",
+  "usage_aggregator": "string",
   "reporting_period": "string"
 };
 const headers = {
@@ -18905,6 +19008,7 @@ input_body = {
           "up_to": 0,
           "flat_price_in_decimal": 0.1,
           "unit_price_in_decimal": 0.1,
+          "from": 0,
           "unit_currency_prices": null
         }
       ],
@@ -18917,7 +19021,7 @@ input_body = {
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2026-02-06T04:42:03.051Z",
+      "created_at": "2026-02-07T08:44:23.873Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -18937,9 +19041,9 @@ input_body = {
           "event_payload_key": "string",
           "type": "string"
         },
-        "updated": "2026-02-06T04:42:03.051Z",
+        "updated": "2026-02-07T08:44:23.873Z",
         "status": "string",
-        "created": "2026-02-06T04:42:03.051Z",
+        "created": "2026-02-07T08:44:23.873Z",
         "default_aggregation": {
           "formula": "string"
         }
@@ -18949,15 +19053,17 @@ input_body = {
   "provider": "string",
   "billing_type": "string",
   "description": "string",
+  "family_id": "string",
   "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2026-02-06T04:42:03.051Z",
+  "updated_at": "2026-02-07T08:44:23.873Z",
+  "usage_aggregator": "string",
   "reporting_period": "string"
 }
 
@@ -18999,6 +19105,7 @@ input_payload = JSON.parse('{
           "up_to": 0,
           "flat_price_in_decimal": 0.1,
           "unit_price_in_decimal": 0.1,
+          "from": 0,
           "unit_currency_prices": null
         }
       ],
@@ -19011,7 +19118,7 @@ input_payload = JSON.parse('{
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2026-02-06T04:42:03.051Z",
+      "created_at": "2026-02-07T08:44:23.873Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -19031,9 +19138,9 @@ input_payload = JSON.parse('{
           "event_payload_key": "string",
           "type": "string"
         },
-        "updated": "2026-02-06T04:42:03.051Z",
+        "updated": "2026-02-07T08:44:23.873Z",
         "status": "string",
-        "created": "2026-02-06T04:42:03.051Z",
+        "created": "2026-02-07T08:44:23.873Z",
         "default_aggregation": {
           "formula": "string"
         }
@@ -19043,15 +19150,17 @@ input_payload = JSON.parse('{
   "provider": "string",
   "billing_type": "string",
   "description": "string",
+  "family_id": "string",
   "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2026-02-06T04:42:03.051Z",
+  "updated_at": "2026-02-07T08:44:23.873Z",
+  "usage_aggregator": "string",
   "reporting_period": "string"
 }')
 
@@ -19096,6 +19205,7 @@ $inputPayload = json_decode('{
           "up_to": 0,
           "flat_price_in_decimal": 0.1,
           "unit_price_in_decimal": 0.1,
+          "from": 0,
           "unit_currency_prices": null
         }
       ],
@@ -19108,7 +19218,7 @@ $inputPayload = json_decode('{
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2026-02-06T04:42:03.051Z",
+      "created_at": "2026-02-07T08:44:23.873Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -19128,9 +19238,9 @@ $inputPayload = json_decode('{
           "event_payload_key": "string",
           "type": "string"
         },
-        "updated": "2026-02-06T04:42:03.051Z",
+        "updated": "2026-02-07T08:44:23.873Z",
         "status": "string",
-        "created": "2026-02-06T04:42:03.051Z",
+        "created": "2026-02-07T08:44:23.873Z",
         "default_aggregation": {
           "formula": "string"
         }
@@ -19140,15 +19250,17 @@ $inputPayload = json_decode('{
   "provider": "string",
   "billing_type": "string",
   "description": "string",
+  "family_id": "string",
   "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2026-02-06T04:42:03.051Z",
+  "updated_at": "2026-02-07T08:44:23.873Z",
+  "usage_aggregator": "string",
   "reporting_period": "string"
 }')
 
@@ -19205,6 +19317,7 @@ func main() {
           "up_to": 0,
           "flat_price_in_decimal": 0.1,
           "unit_price_in_decimal": 0.1,
+          "from": 0,
           "unit_currency_prices": null
         }
       ],
@@ -19217,7 +19330,7 @@ func main() {
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2026-02-06T04:42:03.051Z",
+      "created_at": "2026-02-07T08:44:23.873Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -19237,9 +19350,9 @@ func main() {
           "event_payload_key": "string",
           "type": "string"
         },
-        "updated": "2026-02-06T04:42:03.051Z",
+        "updated": "2026-02-07T08:44:23.873Z",
         "status": "string",
-        "created": "2026-02-06T04:42:03.051Z",
+        "created": "2026-02-07T08:44:23.873Z",
         "default_aggregation": {
           "formula": "string"
         }
@@ -19249,15 +19362,17 @@ func main() {
   "provider": "string",
   "billing_type": "string",
   "description": "string",
+  "family_id": "string",
   "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2026-02-06T04:42:03.051Z",
+  "updated_at": "2026-02-07T08:44:23.873Z",
+  "usage_aggregator": "string",
   "reporting_period": "string"
 }`
     data := bytes.NewBuffer([]byte(jsonPayload))
@@ -19323,6 +19438,7 @@ public class HttpExample
           ""up_to"": 0,
           ""flat_price_in_decimal"": 0.1,
           ""unit_price_in_decimal"": 0.1,
+          ""from"": 0,
           ""unit_currency_prices"": null
         }
       ],
@@ -19335,7 +19451,7 @@ public class HttpExample
       ""tax_behavior"": ""string"",
       ""currency"": ""string"",
       ""metadata"": null,
-      ""created_at"": ""2026-02-06T04:42:03.051Z"",
+      ""created_at"": ""2026-02-07T08:44:23.873Z"",
       ""unit"": ""string"",
       ""deferred_revenue_accounting_code"": ""string"",
       ""usage_aggregator"": ""string"",
@@ -19355,9 +19471,9 @@ public class HttpExample
           ""event_payload_key"": ""string"",
           ""type"": ""string""
         },
-        ""updated"": ""2026-02-06T04:42:03.051Z"",
+        ""updated"": ""2026-02-07T08:44:23.873Z"",
         ""status"": ""string"",
-        ""created"": ""2026-02-06T04:42:03.051Z"",
+        ""created"": ""2026-02-07T08:44:23.873Z"",
         ""default_aggregation"": {
           ""formula"": ""string""
         }
@@ -19367,15 +19483,17 @@ public class HttpExample
   ""provider"": ""string"",
   ""billing_type"": ""string"",
   ""description"": ""string"",
+  ""family_id"": ""string"",
   ""external_plan_id"": ""string"",
   ""id"": ""string"",
   ""status"": ""string"",
   ""product_id"": ""string"",
   ""metadata"": null,
-  ""created_at"": ""2026-02-06T04:42:03.051Z"",
+  ""created_at"": ""2026-02-07T08:44:23.873Z"",
   ""billing_period"": ""string"",
   ""unit"": ""string"",
-  ""updated_at"": ""2026-02-06T04:42:03.051Z"",
+  ""updated_at"": ""2026-02-07T08:44:23.873Z"",
+  ""usage_aggregator"": ""string"",
   ""reporting_period"": ""string""
 }";
       var content = JsonConvert.DeserializeObject(json);
@@ -19452,6 +19570,7 @@ String jsonPayload = """{
           "up_to": 0,
           "flat_price_in_decimal": 0.1,
           "unit_price_in_decimal": 0.1,
+          "from": 0,
           "unit_currency_prices": null
         }
       ],
@@ -19464,7 +19583,7 @@ String jsonPayload = """{
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2026-02-06T04:42:03.051Z",
+      "created_at": "2026-02-07T08:44:23.873Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -19484,9 +19603,9 @@ String jsonPayload = """{
           "event_payload_key": "string",
           "type": "string"
         },
-        "updated": "2026-02-06T04:42:03.051Z",
+        "updated": "2026-02-07T08:44:23.873Z",
         "status": "string",
-        "created": "2026-02-06T04:42:03.051Z",
+        "created": "2026-02-07T08:44:23.873Z",
         "default_aggregation": {
           "formula": "string"
         }
@@ -19496,15 +19615,17 @@ String jsonPayload = """{
   "provider": "string",
   "billing_type": "string",
   "description": "string",
+  "family_id": "string",
   "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2026-02-06T04:42:03.051Z",
+  "updated_at": "2026-02-07T08:44:23.873Z",
+  "usage_aggregator": "string",
   "reporting_period": "string"
 }""";
 
@@ -19554,6 +19675,7 @@ System.out.println(response.toString());
           "up_to": 0,
           "flat_price_in_decimal": 0.1,
           "unit_price_in_decimal": 0.1,
+          "from": 0,
           "unit_currency_prices": null
         }
       ],
@@ -19566,7 +19688,7 @@ System.out.println(response.toString());
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2026-02-06T04:42:03.051Z",
+      "created_at": "2026-02-07T08:44:23.873Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -19586,9 +19708,9 @@ System.out.println(response.toString());
           "event_payload_key": "string",
           "type": "string"
         },
-        "updated": "2026-02-06T04:42:03.051Z",
+        "updated": "2026-02-07T08:44:23.873Z",
         "status": "string",
-        "created": "2026-02-06T04:42:03.051Z",
+        "created": "2026-02-07T08:44:23.873Z",
         "default_aggregation": {
           "formula": "string"
         }
@@ -19598,15 +19720,17 @@ System.out.println(response.toString());
   "provider": "string",
   "billing_type": "string",
   "description": "string",
+  "family_id": "string",
   "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2026-02-06T04:42:03.051Z",
+  "updated_at": "2026-02-07T08:44:23.873Z",
+  "usage_aggregator": "string",
   "reporting_period": "string"
 }
 ```
@@ -19643,6 +19767,7 @@ System.out.println(response.toString());
           "up_to": 0,
           "flat_price_in_decimal": 0.1,
           "unit_price_in_decimal": 0.1,
+          "from": 0,
           "unit_currency_prices": null
         }
       ],
@@ -19655,7 +19780,7 @@ System.out.println(response.toString());
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2026-02-06T04:42:03.051Z",
+      "created_at": "2026-02-07T08:44:23.873Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -19675,9 +19800,9 @@ System.out.println(response.toString());
           "event_payload_key": "string",
           "type": "string"
         },
-        "updated": "2026-02-06T04:42:03.051Z",
+        "updated": "2026-02-07T08:44:23.873Z",
         "status": "string",
-        "created": "2026-02-06T04:42:03.051Z",
+        "created": "2026-02-07T08:44:23.873Z",
         "default_aggregation": {
           "formula": "string"
         }
@@ -19687,15 +19812,17 @@ System.out.println(response.toString());
   "provider": "string",
   "billing_type": "string",
   "description": "string",
+  "family_id": "string",
   "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2026-02-06T04:42:03.051Z",
+  "updated_at": "2026-02-07T08:44:23.873Z",
+  "usage_aggregator": "string",
   "reporting_period": "string"
 }
 ```
@@ -19947,9 +20074,9 @@ System.out.println(response.toString());
       "event_payload_key": "string",
       "type": "string"
     },
-    "updated": "2026-02-06T04:42:03.051Z",
+    "updated": "2026-02-07T08:44:23.873Z",
     "status": "string",
-    "created": "2026-02-06T04:42:03.051Z",
+    "created": "2026-02-07T08:44:23.873Z",
     "default_aggregation": {
       "formula": "string"
     }
@@ -20021,6 +20148,7 @@ curl -X POST https://api.moesif.com/v1/~/billing/catalog/prices?provider=string 
       "up_to": 0,
       "flat_price_in_decimal": 0.1,
       "unit_price_in_decimal": 0.1,
+      "from": 0,
       "unit_currency_prices": null
     }
   ],
@@ -20033,7 +20161,7 @@ curl -X POST https://api.moesif.com/v1/~/billing/catalog/prices?provider=string 
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -20053,9 +20181,9 @@ curl -X POST https://api.moesif.com/v1/~/billing/catalog/prices?provider=string 
       "event_payload_key": "string",
       "type": "string"
     },
-    "updated": "2026-02-06T04:42:03.051Z",
+    "updated": "2026-02-07T08:44:23.873Z",
     "status": "string",
-    "created": "2026-02-06T04:42:03.051Z",
+    "created": "2026-02-07T08:44:23.873Z",
     "default_aggregation": {
       "formula": "string"
     }
@@ -20081,6 +20209,7 @@ const inputBody = {
       "up_to": 0,
       "flat_price_in_decimal": 0.1,
       "unit_price_in_decimal": 0.1,
+      "from": 0,
       "unit_currency_prices": null
     }
   ],
@@ -20093,7 +20222,7 @@ const inputBody = {
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -20113,9 +20242,9 @@ const inputBody = {
       "event_payload_key": "string",
       "type": "string"
     },
-    "updated": "2026-02-06T04:42:03.051Z",
+    "updated": "2026-02-07T08:44:23.873Z",
     "status": "string",
-    "created": "2026-02-06T04:42:03.051Z",
+    "created": "2026-02-07T08:44:23.873Z",
     "default_aggregation": {
       "formula": "string"
     }
@@ -20164,6 +20293,7 @@ input_body = {
       "up_to": 0,
       "flat_price_in_decimal": 0.1,
       "unit_price_in_decimal": 0.1,
+      "from": 0,
       "unit_currency_prices": null
     }
   ],
@@ -20176,7 +20306,7 @@ input_body = {
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -20196,9 +20326,9 @@ input_body = {
       "event_payload_key": "string",
       "type": "string"
     },
-    "updated": "2026-02-06T04:42:03.051Z",
+    "updated": "2026-02-07T08:44:23.873Z",
     "status": "string",
-    "created": "2026-02-06T04:42:03.051Z",
+    "created": "2026-02-07T08:44:23.873Z",
     "default_aggregation": {
       "formula": "string"
     }
@@ -20240,6 +20370,7 @@ input_payload = JSON.parse('{
       "up_to": 0,
       "flat_price_in_decimal": 0.1,
       "unit_price_in_decimal": 0.1,
+      "from": 0,
       "unit_currency_prices": null
     }
   ],
@@ -20252,7 +20383,7 @@ input_payload = JSON.parse('{
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -20272,9 +20403,9 @@ input_payload = JSON.parse('{
       "event_payload_key": "string",
       "type": "string"
     },
-    "updated": "2026-02-06T04:42:03.051Z",
+    "updated": "2026-02-07T08:44:23.873Z",
     "status": "string",
-    "created": "2026-02-06T04:42:03.051Z",
+    "created": "2026-02-07T08:44:23.873Z",
     "default_aggregation": {
       "formula": "string"
     }
@@ -20319,6 +20450,7 @@ $inputPayload = json_decode('{
       "up_to": 0,
       "flat_price_in_decimal": 0.1,
       "unit_price_in_decimal": 0.1,
+      "from": 0,
       "unit_currency_prices": null
     }
   ],
@@ -20331,7 +20463,7 @@ $inputPayload = json_decode('{
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -20351,9 +20483,9 @@ $inputPayload = json_decode('{
       "event_payload_key": "string",
       "type": "string"
     },
-    "updated": "2026-02-06T04:42:03.051Z",
+    "updated": "2026-02-07T08:44:23.873Z",
     "status": "string",
-    "created": "2026-02-06T04:42:03.051Z",
+    "created": "2026-02-07T08:44:23.873Z",
     "default_aggregation": {
       "formula": "string"
     }
@@ -20410,6 +20542,7 @@ func main() {
       "up_to": 0,
       "flat_price_in_decimal": 0.1,
       "unit_price_in_decimal": 0.1,
+      "from": 0,
       "unit_currency_prices": null
     }
   ],
@@ -20422,7 +20555,7 @@ func main() {
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -20442,9 +20575,9 @@ func main() {
       "event_payload_key": "string",
       "type": "string"
     },
-    "updated": "2026-02-06T04:42:03.051Z",
+    "updated": "2026-02-07T08:44:23.873Z",
     "status": "string",
-    "created": "2026-02-06T04:42:03.051Z",
+    "created": "2026-02-07T08:44:23.873Z",
     "default_aggregation": {
       "formula": "string"
     }
@@ -20507,6 +20640,7 @@ public class HttpExample
       ""up_to"": 0,
       ""flat_price_in_decimal"": 0.1,
       ""unit_price_in_decimal"": 0.1,
+      ""from"": 0,
       ""unit_currency_prices"": null
     }
   ],
@@ -20519,7 +20653,7 @@ public class HttpExample
   ""tax_behavior"": ""string"",
   ""currency"": ""string"",
   ""metadata"": null,
-  ""created_at"": ""2026-02-06T04:42:03.051Z"",
+  ""created_at"": ""2026-02-07T08:44:23.873Z"",
   ""unit"": ""string"",
   ""deferred_revenue_accounting_code"": ""string"",
   ""usage_aggregator"": ""string"",
@@ -20539,9 +20673,9 @@ public class HttpExample
       ""event_payload_key"": ""string"",
       ""type"": ""string""
     },
-    ""updated"": ""2026-02-06T04:42:03.051Z"",
+    ""updated"": ""2026-02-07T08:44:23.873Z"",
     ""status"": ""string"",
-    ""created"": ""2026-02-06T04:42:03.051Z"",
+    ""created"": ""2026-02-07T08:44:23.873Z"",
     ""default_aggregation"": {
       ""formula"": ""string""
     }
@@ -20616,6 +20750,7 @@ String jsonPayload = """{
       "up_to": 0,
       "flat_price_in_decimal": 0.1,
       "unit_price_in_decimal": 0.1,
+      "from": 0,
       "unit_currency_prices": null
     }
   ],
@@ -20628,7 +20763,7 @@ String jsonPayload = """{
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -20648,9 +20783,9 @@ String jsonPayload = """{
       "event_payload_key": "string",
       "type": "string"
     },
-    "updated": "2026-02-06T04:42:03.051Z",
+    "updated": "2026-02-07T08:44:23.873Z",
     "status": "string",
-    "created": "2026-02-06T04:42:03.051Z",
+    "created": "2026-02-07T08:44:23.873Z",
     "default_aggregation": {
       "formula": "string"
     }
@@ -20700,6 +20835,7 @@ System.out.println(response.toString());
       "up_to": 0,
       "flat_price_in_decimal": 0.1,
       "unit_price_in_decimal": 0.1,
+      "from": 0,
       "unit_currency_prices": null
     }
   ],
@@ -20712,7 +20848,7 @@ System.out.println(response.toString());
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -20732,9 +20868,9 @@ System.out.println(response.toString());
       "event_payload_key": "string",
       "type": "string"
     },
-    "updated": "2026-02-06T04:42:03.051Z",
+    "updated": "2026-02-07T08:44:23.873Z",
     "status": "string",
-    "created": "2026-02-06T04:42:03.051Z",
+    "created": "2026-02-07T08:44:23.873Z",
     "default_aggregation": {
       "formula": "string"
     }
@@ -20770,6 +20906,7 @@ System.out.println(response.toString());
       "up_to": 0,
       "flat_price_in_decimal": 0.1,
       "unit_price_in_decimal": 0.1,
+      "from": 0,
       "unit_currency_prices": null
     }
   ],
@@ -20782,7 +20919,7 @@ System.out.println(response.toString());
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -20802,9 +20939,9 @@ System.out.println(response.toString());
       "event_payload_key": "string",
       "type": "string"
     },
-    "updated": "2026-02-06T04:42:03.051Z",
+    "updated": "2026-02-07T08:44:23.873Z",
     "status": "string",
-    "created": "2026-02-06T04:42:03.051Z",
+    "created": "2026-02-07T08:44:23.873Z",
     "default_aggregation": {
       "formula": "string"
     }
@@ -21057,6 +21194,7 @@ System.out.println(response.toString());
         "up_to": 0,
         "flat_price_in_decimal": 0.1,
         "unit_price_in_decimal": 0.1,
+        "from": 0,
         "unit_currency_prices": null
       }
     ],
@@ -21069,7 +21207,7 @@ System.out.println(response.toString());
     "tax_behavior": "string",
     "currency": "string",
     "metadata": null,
-    "created_at": "2026-02-06T04:42:03.051Z",
+    "created_at": "2026-02-07T08:44:23.873Z",
     "unit": "string",
     "deferred_revenue_accounting_code": "string",
     "usage_aggregator": "string",
@@ -21089,9 +21227,9 @@ System.out.println(response.toString());
         "event_payload_key": "string",
         "type": "string"
       },
-      "updated": "2026-02-06T04:42:03.051Z",
+      "updated": "2026-02-07T08:44:23.873Z",
       "status": "string",
-      "created": "2026-02-06T04:42:03.051Z",
+      "created": "2026-02-07T08:44:23.873Z",
       "default_aggregation": {
         "formula": "string"
       }
@@ -21126,6 +21264,7 @@ Status Code **200**
 |»» up_to|integer(int64)|true|none|none|
 |»» flat_price_in_decimal|number(double)|false|none|none|
 |»» unit_price_in_decimal|number(double)|false|none|none|
+|»» from|integer(int64)|false|none|none|
 |»» unit_currency_prices|.map[string,string]|false|none|none|
 |» recognized_revenue_accounting_code|string|false|none|none|
 |» period_units|string|false|none|none|
@@ -21403,6 +21542,7 @@ Get the Moesif Price for a specific Plan for authenticated users
       "up_to": 0,
       "flat_price_in_decimal": 0.1,
       "unit_price_in_decimal": 0.1,
+      "from": 0,
       "unit_currency_prices": null
     }
   ],
@@ -21415,7 +21555,7 @@ Get the Moesif Price for a specific Plan for authenticated users
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -21435,9 +21575,9 @@ Get the Moesif Price for a specific Plan for authenticated users
       "event_payload_key": "string",
       "type": "string"
     },
-    "updated": "2026-02-06T04:42:03.051Z",
+    "updated": "2026-02-07T08:44:23.873Z",
     "status": "string",
-    "created": "2026-02-06T04:42:03.051Z",
+    "created": "2026-02-07T08:44:23.873Z",
     "default_aggregation": {
       "formula": "string"
     }
@@ -21706,6 +21846,7 @@ curl -X PUT https://api.moesif.com/v1/~/billing/catalog/prices/{id}?provider=str
       "up_to": 0,
       "flat_price_in_decimal": 0.1,
       "unit_price_in_decimal": 0.1,
+      "from": 0,
       "unit_currency_prices": null
     }
   ],
@@ -21718,7 +21859,7 @@ curl -X PUT https://api.moesif.com/v1/~/billing/catalog/prices/{id}?provider=str
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -21738,9 +21879,9 @@ curl -X PUT https://api.moesif.com/v1/~/billing/catalog/prices/{id}?provider=str
       "event_payload_key": "string",
       "type": "string"
     },
-    "updated": "2026-02-06T04:42:03.051Z",
+    "updated": "2026-02-07T08:44:23.873Z",
     "status": "string",
-    "created": "2026-02-06T04:42:03.051Z",
+    "created": "2026-02-07T08:44:23.873Z",
     "default_aggregation": {
       "formula": "string"
     }
@@ -21766,6 +21907,7 @@ const inputBody = {
       "up_to": 0,
       "flat_price_in_decimal": 0.1,
       "unit_price_in_decimal": 0.1,
+      "from": 0,
       "unit_currency_prices": null
     }
   ],
@@ -21778,7 +21920,7 @@ const inputBody = {
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -21798,9 +21940,9 @@ const inputBody = {
       "event_payload_key": "string",
       "type": "string"
     },
-    "updated": "2026-02-06T04:42:03.051Z",
+    "updated": "2026-02-07T08:44:23.873Z",
     "status": "string",
-    "created": "2026-02-06T04:42:03.051Z",
+    "created": "2026-02-07T08:44:23.873Z",
     "default_aggregation": {
       "formula": "string"
     }
@@ -21849,6 +21991,7 @@ input_body = {
       "up_to": 0,
       "flat_price_in_decimal": 0.1,
       "unit_price_in_decimal": 0.1,
+      "from": 0,
       "unit_currency_prices": null
     }
   ],
@@ -21861,7 +22004,7 @@ input_body = {
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -21881,9 +22024,9 @@ input_body = {
       "event_payload_key": "string",
       "type": "string"
     },
-    "updated": "2026-02-06T04:42:03.051Z",
+    "updated": "2026-02-07T08:44:23.873Z",
     "status": "string",
-    "created": "2026-02-06T04:42:03.051Z",
+    "created": "2026-02-07T08:44:23.873Z",
     "default_aggregation": {
       "formula": "string"
     }
@@ -21925,6 +22068,7 @@ input_payload = JSON.parse('{
       "up_to": 0,
       "flat_price_in_decimal": 0.1,
       "unit_price_in_decimal": 0.1,
+      "from": 0,
       "unit_currency_prices": null
     }
   ],
@@ -21937,7 +22081,7 @@ input_payload = JSON.parse('{
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -21957,9 +22101,9 @@ input_payload = JSON.parse('{
       "event_payload_key": "string",
       "type": "string"
     },
-    "updated": "2026-02-06T04:42:03.051Z",
+    "updated": "2026-02-07T08:44:23.873Z",
     "status": "string",
-    "created": "2026-02-06T04:42:03.051Z",
+    "created": "2026-02-07T08:44:23.873Z",
     "default_aggregation": {
       "formula": "string"
     }
@@ -22004,6 +22148,7 @@ $inputPayload = json_decode('{
       "up_to": 0,
       "flat_price_in_decimal": 0.1,
       "unit_price_in_decimal": 0.1,
+      "from": 0,
       "unit_currency_prices": null
     }
   ],
@@ -22016,7 +22161,7 @@ $inputPayload = json_decode('{
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -22036,9 +22181,9 @@ $inputPayload = json_decode('{
       "event_payload_key": "string",
       "type": "string"
     },
-    "updated": "2026-02-06T04:42:03.051Z",
+    "updated": "2026-02-07T08:44:23.873Z",
     "status": "string",
-    "created": "2026-02-06T04:42:03.051Z",
+    "created": "2026-02-07T08:44:23.873Z",
     "default_aggregation": {
       "formula": "string"
     }
@@ -22095,6 +22240,7 @@ func main() {
       "up_to": 0,
       "flat_price_in_decimal": 0.1,
       "unit_price_in_decimal": 0.1,
+      "from": 0,
       "unit_currency_prices": null
     }
   ],
@@ -22107,7 +22253,7 @@ func main() {
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -22127,9 +22273,9 @@ func main() {
       "event_payload_key": "string",
       "type": "string"
     },
-    "updated": "2026-02-06T04:42:03.051Z",
+    "updated": "2026-02-07T08:44:23.873Z",
     "status": "string",
-    "created": "2026-02-06T04:42:03.051Z",
+    "created": "2026-02-07T08:44:23.873Z",
     "default_aggregation": {
       "formula": "string"
     }
@@ -22195,6 +22341,7 @@ public class HttpExample
       ""up_to"": 0,
       ""flat_price_in_decimal"": 0.1,
       ""unit_price_in_decimal"": 0.1,
+      ""from"": 0,
       ""unit_currency_prices"": null
     }
   ],
@@ -22207,7 +22354,7 @@ public class HttpExample
   ""tax_behavior"": ""string"",
   ""currency"": ""string"",
   ""metadata"": null,
-  ""created_at"": ""2026-02-06T04:42:03.051Z"",
+  ""created_at"": ""2026-02-07T08:44:23.873Z"",
   ""unit"": ""string"",
   ""deferred_revenue_accounting_code"": ""string"",
   ""usage_aggregator"": ""string"",
@@ -22227,9 +22374,9 @@ public class HttpExample
       ""event_payload_key"": ""string"",
       ""type"": ""string""
     },
-    ""updated"": ""2026-02-06T04:42:03.051Z"",
+    ""updated"": ""2026-02-07T08:44:23.873Z"",
     ""status"": ""string"",
-    ""created"": ""2026-02-06T04:42:03.051Z"",
+    ""created"": ""2026-02-07T08:44:23.873Z"",
     ""default_aggregation"": {
       ""formula"": ""string""
     }
@@ -22306,6 +22453,7 @@ String jsonPayload = """{
       "up_to": 0,
       "flat_price_in_decimal": 0.1,
       "unit_price_in_decimal": 0.1,
+      "from": 0,
       "unit_currency_prices": null
     }
   ],
@@ -22318,7 +22466,7 @@ String jsonPayload = """{
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -22338,9 +22486,9 @@ String jsonPayload = """{
       "event_payload_key": "string",
       "type": "string"
     },
-    "updated": "2026-02-06T04:42:03.051Z",
+    "updated": "2026-02-07T08:44:23.873Z",
     "status": "string",
-    "created": "2026-02-06T04:42:03.051Z",
+    "created": "2026-02-07T08:44:23.873Z",
     "default_aggregation": {
       "formula": "string"
     }
@@ -22390,6 +22538,7 @@ System.out.println(response.toString());
       "up_to": 0,
       "flat_price_in_decimal": 0.1,
       "unit_price_in_decimal": 0.1,
+      "from": 0,
       "unit_currency_prices": null
     }
   ],
@@ -22402,7 +22551,7 @@ System.out.println(response.toString());
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -22422,9 +22571,9 @@ System.out.println(response.toString());
       "event_payload_key": "string",
       "type": "string"
     },
-    "updated": "2026-02-06T04:42:03.051Z",
+    "updated": "2026-02-07T08:44:23.873Z",
     "status": "string",
-    "created": "2026-02-06T04:42:03.051Z",
+    "created": "2026-02-07T08:44:23.873Z",
     "default_aggregation": {
       "formula": "string"
     }
@@ -22461,6 +22610,7 @@ System.out.println(response.toString());
       "up_to": 0,
       "flat_price_in_decimal": 0.1,
       "unit_price_in_decimal": 0.1,
+      "from": 0,
       "unit_currency_prices": null
     }
   ],
@@ -22473,7 +22623,7 @@ System.out.println(response.toString());
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -22493,9 +22643,9 @@ System.out.println(response.toString());
       "event_payload_key": "string",
       "type": "string"
     },
-    "updated": "2026-02-06T04:42:03.051Z",
+    "updated": "2026-02-07T08:44:23.873Z",
     "status": "string",
-    "created": "2026-02-06T04:42:03.051Z",
+    "created": "2026-02-07T08:44:23.873Z",
     "default_aggregation": {
       "formula": "string"
     }
@@ -24536,9 +24686,9 @@ List Billing Meters
     "_id": "string",
     "slug": "string",
     "status": "string",
-    "modified_at": "2026-02-06T04:42:03.051Z",
+    "modified_at": "2026-02-07T08:44:23.873Z",
     "es_query": "string",
-    "created_at": "2026-02-06T04:42:03.051Z",
+    "created_at": "2026-02-07T08:44:23.873Z",
     "app_id": "string",
     "zero_balance_behavior": "string",
     "org_id": "string"
@@ -26582,9 +26732,9 @@ Get Billing Meter by id
   "_id": "string",
   "slug": "string",
   "status": "string",
-  "modified_at": "2026-02-06T04:42:03.051Z",
+  "modified_at": "2026-02-07T08:44:23.873Z",
   "es_query": "string",
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "app_id": "string",
   "zero_balance_behavior": "string",
   "org_id": "string"
@@ -26836,8 +26986,8 @@ curl -X POST https://api.moesif.com/v1/~/billing/meters/{meterId}/webhooks/chann
   -d '{
   "company_id": "string",
   "quantity": 0,
-  "start_time": "2026-02-06T04:42:03.051Z",
-  "end_time": "2026-02-06T04:42:03.051Z",
+  "start_time": "2026-02-07T08:44:23.873Z",
+  "end_time": "2026-02-07T08:44:23.873Z",
   "subscription_id": "string"
 }' 
 ```
@@ -26847,8 +26997,8 @@ const fetch = require('node-fetch');
 const inputBody = {
   "company_id": "string",
   "quantity": 0,
-  "start_time": "2026-02-06T04:42:03.051Z",
-  "end_time": "2026-02-06T04:42:03.051Z",
+  "start_time": "2026-02-07T08:44:23.873Z",
+  "end_time": "2026-02-07T08:44:23.873Z",
   "subscription_id": "string"
 };
 const headers = {
@@ -26881,8 +27031,8 @@ headers = {
 input_body = {
   "company_id": "string",
   "quantity": 0,
-  "start_time": "2026-02-06T04:42:03.051Z",
-  "end_time": "2026-02-06T04:42:03.051Z",
+  "start_time": "2026-02-07T08:44:23.873Z",
+  "end_time": "2026-02-07T08:44:23.873Z",
   "subscription_id": "string"
 }
 
@@ -26905,8 +27055,8 @@ headers = {
 input_payload = JSON.parse('{
   "company_id": "string",
   "quantity": 0,
-  "start_time": "2026-02-06T04:42:03.051Z",
-  "end_time": "2026-02-06T04:42:03.051Z",
+  "start_time": "2026-02-07T08:44:23.873Z",
+  "end_time": "2026-02-07T08:44:23.873Z",
   "subscription_id": "string"
 }')
 
@@ -26934,8 +27084,8 @@ $headers = array(
 $inputPayload = json_decode('{
   "company_id": "string",
   "quantity": 0,
-  "start_time": "2026-02-06T04:42:03.051Z",
-  "end_time": "2026-02-06T04:42:03.051Z",
+  "start_time": "2026-02-07T08:44:23.873Z",
+  "end_time": "2026-02-07T08:44:23.873Z",
   "subscription_id": "string"
 }')
 
@@ -26976,8 +27126,8 @@ func main() {
     jsonPayload := `{
   "company_id": "string",
   "quantity": 0,
-  "start_time": "2026-02-06T04:42:03.051Z",
-  "end_time": "2026-02-06T04:42:03.051Z",
+  "start_time": "2026-02-07T08:44:23.873Z",
+  "end_time": "2026-02-07T08:44:23.873Z",
   "subscription_id": "string"
 }`
     data := bytes.NewBuffer([]byte(jsonPayload))
@@ -27024,8 +27174,8 @@ public class HttpExample
       string json = @"{
   ""company_id"": ""string"",
   ""quantity"": 0,
-  ""start_time"": ""2026-02-06T04:42:03.051Z"",
-  ""end_time"": ""2026-02-06T04:42:03.051Z"",
+  ""start_time"": ""2026-02-07T08:44:23.873Z"",
+  ""end_time"": ""2026-02-07T08:44:23.873Z"",
   ""subscription_id"": ""string""
 }";
       var content = JsonConvert.DeserializeObject(json);
@@ -27084,8 +27234,8 @@ con.setDoOutput(true);
 String jsonPayload = """{
   "company_id": "string",
   "quantity": 0,
-  "start_time": "2026-02-06T04:42:03.051Z",
-  "end_time": "2026-02-06T04:42:03.051Z",
+  "start_time": "2026-02-07T08:44:23.873Z",
+  "end_time": "2026-02-07T08:44:23.873Z",
   "subscription_id": "string"
 }""";
 
@@ -27121,8 +27271,8 @@ Test the channels for Webhook Billing Meters
 {
   "company_id": "string",
   "quantity": 0,
-  "start_time": "2026-02-06T04:42:03.051Z",
-  "end_time": "2026-02-06T04:42:03.051Z",
+  "start_time": "2026-02-07T08:44:23.873Z",
+  "end_time": "2026-02-07T08:44:23.873Z",
   "subscription_id": "string"
 }
 ```
@@ -27723,9 +27873,9 @@ List Billing Custom Plan
     "slug": "string",
     "external_plan_id": "string",
     "status": "string",
-    "modified_at": "2026-02-06T04:42:03.051Z",
+    "modified_at": "2026-02-07T08:44:23.873Z",
     "metadata": null,
-    "created_at": "2026-02-06T04:42:03.051Z",
+    "created_at": "2026-02-07T08:44:23.873Z",
     "billing_period": "string",
     "app_id": "string",
     "reporting_period": "string",
@@ -28300,9 +28450,9 @@ Get Billing Custom Plan by id
   "slug": "string",
   "external_plan_id": "string",
   "status": "string",
-  "modified_at": "2026-02-06T04:42:03.051Z",
+  "modified_at": "2026-02-07T08:44:23.873Z",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "billing_period": "string",
   "app_id": "string",
   "reporting_period": "string",
@@ -28556,8 +28706,8 @@ curl -X POST https://api.moesif.com/v1/~/billing/reports/balance_transactions \
   -d '{
   "company_id": "string",
   "description": "string",
-  "expire_at": "2026-02-06T04:42:03.051Z",
-  "active_at": "2026-02-06T04:42:03.051Z",
+  "expire_at": "2026-02-07T08:44:23.873Z",
+  "active_at": "2026-02-07T08:44:23.873Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -28570,8 +28720,8 @@ const fetch = require('node-fetch');
 const inputBody = {
   "company_id": "string",
   "description": "string",
-  "expire_at": "2026-02-06T04:42:03.051Z",
-  "active_at": "2026-02-06T04:42:03.051Z",
+  "expire_at": "2026-02-07T08:44:23.873Z",
+  "active_at": "2026-02-07T08:44:23.873Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -28605,8 +28755,8 @@ headers = {
 input_body = {
   "company_id": "string",
   "description": "string",
-  "expire_at": "2026-02-06T04:42:03.051Z",
-  "active_at": "2026-02-06T04:42:03.051Z",
+  "expire_at": "2026-02-07T08:44:23.873Z",
+  "active_at": "2026-02-07T08:44:23.873Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -28631,8 +28781,8 @@ headers = {
 input_payload = JSON.parse('{
   "company_id": "string",
   "description": "string",
-  "expire_at": "2026-02-06T04:42:03.051Z",
-  "active_at": "2026-02-06T04:42:03.051Z",
+  "expire_at": "2026-02-07T08:44:23.873Z",
+  "active_at": "2026-02-07T08:44:23.873Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -28662,8 +28812,8 @@ $headers = array(
 $inputPayload = json_decode('{
   "company_id": "string",
   "description": "string",
-  "expire_at": "2026-02-06T04:42:03.051Z",
-  "active_at": "2026-02-06T04:42:03.051Z",
+  "expire_at": "2026-02-07T08:44:23.873Z",
+  "active_at": "2026-02-07T08:44:23.873Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -28706,8 +28856,8 @@ func main() {
     jsonPayload := `{
   "company_id": "string",
   "description": "string",
-  "expire_at": "2026-02-06T04:42:03.051Z",
-  "active_at": "2026-02-06T04:42:03.051Z",
+  "expire_at": "2026-02-07T08:44:23.873Z",
+  "active_at": "2026-02-07T08:44:23.873Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -28757,8 +28907,8 @@ public class HttpExample
       string json = @"{
   ""company_id"": ""string"",
   ""description"": ""string"",
-  ""expire_at"": ""2026-02-06T04:42:03.051Z"",
-  ""active_at"": ""2026-02-06T04:42:03.051Z"",
+  ""expire_at"": ""2026-02-07T08:44:23.873Z"",
+  ""active_at"": ""2026-02-07T08:44:23.873Z"",
   ""amount"": 0.1,
   ""transaction_id"": ""string"",
   ""subscription_id"": ""string"",
@@ -28819,8 +28969,8 @@ con.setDoOutput(true);
 String jsonPayload = """{
   "company_id": "string",
   "description": "string",
-  "expire_at": "2026-02-06T04:42:03.051Z",
-  "active_at": "2026-02-06T04:42:03.051Z",
+  "expire_at": "2026-02-07T08:44:23.873Z",
+  "active_at": "2026-02-07T08:44:23.873Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -28859,8 +29009,8 @@ Post a billing report of type balance_transaction
 {
   "company_id": "string",
   "description": "string",
-  "expire_at": "2026-02-06T04:42:03.051Z",
-  "active_at": "2026-02-06T04:42:03.051Z",
+  "expire_at": "2026-02-07T08:44:23.873Z",
+  "active_at": "2026-02-07T08:44:23.873Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -30596,9 +30746,9 @@ System.out.println(response.toString());
   "to": "string",
   "week_starts_on": 0,
   "locked_by": "string",
-  "modified_at": "2026-02-06T04:42:03.051Z",
+  "modified_at": "2026-02-07T08:44:23.873Z",
   "from": "string",
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "app_id": "string",
   "cohort_type": "string",
   "time_zone": "string",
@@ -32617,7 +32767,7 @@ System.out.println(response.toString());
   "name": "string",
   "_id": "string",
   "auth_user_id": "string",
-  "modified": "2026-02-06T04:42:03.051Z",
+  "modified": "2026-02-07T08:44:23.873Z",
   "profile_view_promotion": "string",
   "app_id": "string",
   "workspace_ids": [
@@ -32644,7 +32794,7 @@ System.out.println(response.toString());
   },
   "org_id": "string",
   "migration": {},
-  "created": "2026-02-06T04:42:03.051Z"
+  "created": "2026-02-07T08:44:23.873Z"
 }
 ```
 
@@ -37527,7 +37677,7 @@ System.out.println(response.toString());
       "sample_rate": 0
     }
   ],
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "app_id": "string",
   "plans": [
     {
@@ -37804,7 +37954,7 @@ System.out.println(response.toString());
       "sample_rate": 0
     }
   ],
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "app_id": "string",
   "plans": [
     {
@@ -38525,7 +38675,7 @@ System.out.println(response.toString());
       "sample_rate": 0
     }
   ],
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "app_id": "string",
   "plans": [
     {
@@ -38803,7 +38953,7 @@ System.out.println(response.toString());
       "sample_rate": 0
     }
   ],
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "app_id": "string",
   "plans": [
     {
@@ -39123,9 +39273,9 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "to": "string",
   "week_starts_on": 0,
   "locked_by": "string",
-  "modified_at": "2026-02-06T04:42:03.051Z",
+  "modified_at": "2026-02-07T08:44:23.873Z",
   "from": "string",
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "app_id": "string",
   "cohort_type": "string",
   "time_zone": "string",
@@ -39273,8 +39423,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
 
 ```json
 {
-  "period_start": "2026-02-06T04:42:03.051Z",
-  "period_end": "2026-02-06T04:42:03.051Z",
+  "period_start": "2026-02-07T08:44:23.873Z",
+  "period_end": "2026-02-07T08:44:23.873Z",
   "id": "string"
 }
 
@@ -39367,8 +39517,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
 ```json
 {
   "invoice": {
-    "period_start": "2026-02-06T04:42:03.051Z",
-    "period_end": "2026-02-06T04:42:03.051Z",
+    "period_start": "2026-02-07T08:44:23.873Z",
+    "period_end": "2026-02-07T08:44:23.873Z",
     "id": "string"
   },
   "aggregator": "string"
@@ -39394,7 +39544,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 {
   "buckets": [
     {
-      "start": "2026-02-06T04:42:03.051Z",
+      "start": "2026-02-07T08:44:23.873Z",
       "metric": 0.1,
       "amounts": null,
       "ending_balance": {
@@ -39409,7 +39559,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
       "key": {},
       "buckets": [
         {
-          "start": "2026-02-06T04:42:03.051Z",
+          "start": "2026-02-07T08:44:23.873Z",
           "metric": 0.1,
           "amounts": null,
           "ending_balance": {
@@ -39903,8 +40053,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
       ],
       "partner_user_id": "string",
       "message": "string",
-      "created_at": "2026-02-06T04:42:03.051Z",
-      "updated_at": "2026-02-06T04:42:03.051Z"
+      "created_at": "2026-02-07T08:44:23.873Z",
+      "updated_at": "2026-02-07T08:44:23.873Z"
     }
   }
 }
@@ -40269,6 +40419,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
       "up_to": 0,
       "flat_price_in_decimal": 0.1,
       "unit_price_in_decimal": 0.1,
+      "from": 0,
       "unit_currency_prices": null
     }
   ],
@@ -40281,7 +40432,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "tax_behavior": "string",
   "currency": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "unit": "string",
   "deferred_revenue_accounting_code": "string",
   "usage_aggregator": "string",
@@ -40301,9 +40452,9 @@ managementAPIToken ( Scopes: delete:governance_rules )
       "event_payload_key": "string",
       "type": "string"
     },
-    "updated": "2026-02-06T04:42:03.051Z",
+    "updated": "2026-02-07T08:44:23.873Z",
     "status": "string",
-    "created": "2026-02-06T04:42:03.051Z",
+    "created": "2026-02-07T08:44:23.873Z",
     "default_aggregation": {
       "formula": "string"
     }
@@ -40350,8 +40501,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
 {
   "company_id": "string",
   "quantity": 0,
-  "start_time": "2026-02-06T04:42:03.051Z",
-  "end_time": "2026-02-06T04:42:03.051Z",
+  "start_time": "2026-02-07T08:44:23.873Z",
+  "end_time": "2026-02-07T08:44:23.873Z",
   "subscription_id": "string"
 }
 
@@ -40523,7 +40674,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 
 ```json
 {
-  "start": "2026-02-06T04:42:03.051Z",
+  "start": "2026-02-07T08:44:23.873Z",
   "metric": 0.1,
   "amounts": null,
   "ending_balance": {
@@ -40559,9 +40710,9 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "slug": "string",
   "external_plan_id": "string",
   "status": "string",
-  "modified_at": "2026-02-06T04:42:03.051Z",
+  "modified_at": "2026-02-07T08:44:23.873Z",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "billing_period": "string",
   "app_id": "string",
   "reporting_period": "string",
@@ -40785,7 +40936,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "name": "string",
   "_id": "string",
   "auth_user_id": "string",
-  "modified": "2026-02-06T04:42:03.051Z",
+  "modified": "2026-02-07T08:44:23.873Z",
   "profile_view_promotion": "string",
   "app_id": "string",
   "workspace_ids": [
@@ -40812,7 +40963,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   },
   "org_id": "string",
   "migration": {},
-  "created": "2026-02-06T04:42:03.051Z"
+  "created": "2026-02-07T08:44:23.873Z"
 }
 
 ```
@@ -40899,9 +41050,9 @@ managementAPIToken ( Scopes: delete:governance_rules )
     "event_payload_key": "string",
     "type": "string"
   },
-  "updated": "2026-02-06T04:42:03.051Z",
+  "updated": "2026-02-07T08:44:23.873Z",
   "status": "string",
-  "created": "2026-02-06T04:42:03.051Z",
+  "created": "2026-02-07T08:44:23.873Z",
   "default_aggregation": {
     "formula": "string"
   }
@@ -40991,8 +41142,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
   ],
   "partner_user_id": "string",
   "message": "string",
-  "created_at": "2026-02-06T04:42:03.051Z",
-  "updated_at": "2026-02-06T04:42:03.051Z"
+  "created_at": "2026-02-07T08:44:23.873Z",
+  "updated_at": "2026-02-07T08:44:23.873Z"
 }
 
 ```
@@ -41247,8 +41398,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
 {
   "company_id": "string",
   "description": "string",
-  "expire_at": "2026-02-06T04:42:03.051Z",
-  "active_at": "2026-02-06T04:42:03.051Z",
+  "expire_at": "2026-02-07T08:44:23.873Z",
+  "active_at": "2026-02-07T08:44:23.873Z",
   "amount": 0.1,
   "transaction_id": "string",
   "subscription_id": "string",
@@ -41457,6 +41608,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
           "up_to": 0,
           "flat_price_in_decimal": 0.1,
           "unit_price_in_decimal": 0.1,
+          "from": 0,
           "unit_currency_prices": null
         }
       ],
@@ -41469,7 +41621,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
       "tax_behavior": "string",
       "currency": "string",
       "metadata": null,
-      "created_at": "2026-02-06T04:42:03.051Z",
+      "created_at": "2026-02-07T08:44:23.873Z",
       "unit": "string",
       "deferred_revenue_accounting_code": "string",
       "usage_aggregator": "string",
@@ -41489,9 +41641,9 @@ managementAPIToken ( Scopes: delete:governance_rules )
           "event_payload_key": "string",
           "type": "string"
         },
-        "updated": "2026-02-06T04:42:03.051Z",
+        "updated": "2026-02-07T08:44:23.873Z",
         "status": "string",
-        "created": "2026-02-06T04:42:03.051Z",
+        "created": "2026-02-07T08:44:23.873Z",
         "default_aggregation": {
           "formula": "string"
         }
@@ -41501,15 +41653,17 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "provider": "string",
   "billing_type": "string",
   "description": "string",
+  "family_id": "string",
   "external_plan_id": "string",
   "id": "string",
   "status": "string",
   "product_id": "string",
   "metadata": null,
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "billing_period": "string",
   "unit": "string",
-  "updated_at": "2026-02-06T04:42:03.051Z",
+  "updated_at": "2026-02-07T08:44:23.873Z",
+  "usage_aggregator": "string",
   "reporting_period": "string"
 }
 
@@ -41524,6 +41678,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |provider|string|false|none|none|
 |billing_type|string|false|none|none|
 |description|string|false|none|none|
+|family_id|string|false|none|none|
 |external_plan_id|string|false|none|none|
 |id|string|false|none|none|
 |status|string|false|none|none|
@@ -41533,6 +41688,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |billing_period|string|false|none|none|
 |unit|string|false|none|none|
 |updated_at|string(date-time)|false|none|none|
+|usage_aggregator|string|false|none|none|
 |reporting_period|string|false|none|none|
 
 <h2 id="tocS_StripeMeterCustomerMapping">StripeMeterCustomerMapping</h2>
@@ -41926,11 +42082,11 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "provider": "string",
   "invoice_credit_behavior": "string",
   "report_version": 0,
-  "usage_end_time": "2026-02-06T04:42:03.051Z",
+  "usage_end_time": "2026-02-07T08:44:23.873Z",
   "usage": {
     "invoice": {
-      "period_start": "2026-02-06T04:42:03.051Z",
-      "period_end": "2026-02-06T04:42:03.051Z",
+      "period_start": "2026-02-07T08:44:23.873Z",
+      "period_end": "2026-02-07T08:44:23.873Z",
       "id": "string"
     },
     "aggregator": "string"
@@ -41939,7 +42095,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "price_id": "string",
   "price_in_decimal": 0.1,
   "meter_usage": 0.1,
-  "last_success_time": "2026-02-06T04:42:03.051Z",
+  "last_success_time": "2026-02-07T08:44:23.873Z",
   "beginning_balance": {
     "sequence_id": 0,
     "current_balance": 0.1,
@@ -41949,7 +42105,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "billing_meter_id": "string",
   "amount": 0.1,
   "plan_id": "string",
-  "usage_start_time": "2026-02-06T04:42:03.051Z",
+  "usage_start_time": "2026-02-07T08:44:23.873Z",
   "status": "string",
   "provider_requests": [
     {
@@ -41960,7 +42116,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
       "response": "string",
       "error_message": "string",
       "error_code": "string",
-      "request_time": "2026-02-06T04:42:03.051Z"
+      "request_time": "2026-02-07T08:44:23.873Z"
     }
   ],
   "currency": "string",
@@ -41978,15 +42134,15 @@ managementAPIToken ( Scopes: delete:governance_rules )
           "response": "string",
           "error_message": "string",
           "error_code": "string",
-          "request_time": "2026-02-06T04:42:03.051Z"
+          "request_time": "2026-02-07T08:44:23.873Z"
         }
       ]
     }
   ],
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "app_id": "string",
   "subscription_id": "string",
-  "subscription_period_start": "2026-02-06T04:42:03.051Z",
+  "subscription_period_start": "2026-02-07T08:44:23.873Z",
   "balance_changes": [
     {
       "amount": 0.1,
@@ -41994,11 +42150,11 @@ managementAPIToken ( Scopes: delete:governance_rules )
     }
   ],
   "type": "string",
-  "updated_at": "2026-02-06T04:42:03.051Z",
+  "updated_at": "2026-02-07T08:44:23.873Z",
   "subscription_item_id": "string",
   "zero_balance_behavior": "string",
   "org_id": "string",
-  "subscription_period_end": "2026-02-06T04:42:03.051Z",
+  "subscription_period_end": "2026-02-07T08:44:23.873Z",
   "meter_metric": 0.1
 }
 
@@ -42216,7 +42372,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
       "response": "string",
       "error_message": "string",
       "error_code": "string",
-      "request_time": "2026-02-06T04:42:03.051Z"
+      "request_time": "2026-02-07T08:44:23.873Z"
     }
   ]
 }
@@ -42248,7 +42404,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "dashboard": {},
   "height": 0.1,
   "auth_user_id": "string",
-  "modified": "2026-02-06T04:42:03.051Z",
+  "modified": "2026-02-07T08:44:23.873Z",
   "colors": {},
   "sequence": [
     {
@@ -42320,7 +42476,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   },
   "org_id": "string",
   "migration": {},
-  "created": "2026-02-06T04:42:03.051Z",
+  "created": "2026-02-07T08:44:23.873Z",
   "comments": {
     "summary": {
       "count": 0,
@@ -42332,8 +42488,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
         ],
         "partner_user_id": "string",
         "message": "string",
-        "created_at": "2026-02-06T04:42:03.051Z",
-        "updated_at": "2026-02-06T04:42:03.051Z"
+        "created_at": "2026-02-07T08:44:23.873Z",
+        "updated_at": "2026-02-07T08:44:23.873Z"
       }
     }
   }
@@ -42406,6 +42562,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "up_to": 0,
   "flat_price_in_decimal": 0.1,
   "unit_price_in_decimal": 0.1,
+  "from": 0,
   "unit_currency_prices": null
 }
 
@@ -42419,6 +42576,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 |up_to|integer(int64)|true|none|none|
 |flat_price_in_decimal|number(double)|false|none|none|
 |unit_price_in_decimal|number(double)|false|none|none|
+|from|integer(int64)|false|none|none|
 |unit_currency_prices|.map[string,string]|false|none|none|
 
 <h2 id="tocS_BillingMeterDocument">BillingMeterDocument</h2>
@@ -42567,9 +42725,9 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "_id": "string",
   "slug": "string",
   "status": "string",
-  "modified_at": "2026-02-06T04:42:03.051Z",
+  "modified_at": "2026-02-07T08:44:23.873Z",
   "es_query": "string",
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "app_id": "string",
   "zero_balance_behavior": "string",
   "org_id": "string"
@@ -42900,7 +43058,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "key": {},
   "buckets": [
     {
-      "start": "2026-02-06T04:42:03.051Z",
+      "start": "2026-02-07T08:44:23.873Z",
       "metric": 0.1,
       "amounts": null,
       "ending_balance": {
@@ -43636,7 +43794,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
       "sample_rate": 0
     }
   ],
-  "created_at": "2026-02-06T04:42:03.051Z",
+  "created_at": "2026-02-07T08:44:23.873Z",
   "app_id": "string",
   "plans": [
     {
@@ -43971,7 +44129,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "response": "string",
   "error_message": "string",
   "error_code": "string",
-  "request_time": "2026-02-06T04:42:03.051Z"
+  "request_time": "2026-02-07T08:44:23.873Z"
 }
 
 ```
@@ -44115,8 +44273,8 @@ managementAPIToken ( Scopes: delete:governance_rules )
     ],
     "partner_user_id": "string",
     "message": "string",
-    "created_at": "2026-02-06T04:42:03.051Z",
-    "updated_at": "2026-02-06T04:42:03.051Z"
+    "created_at": "2026-02-07T08:44:23.873Z",
+    "updated_at": "2026-02-07T08:44:23.873Z"
   }
 }
 
@@ -44416,9 +44574,9 @@ managementAPIToken ( Scopes: delete:governance_rules )
 
 ```json
 {
-  "trial_start": "2026-02-06T04:42:03.051Z",
+  "trial_start": "2026-02-07T08:44:23.873Z",
   "company_id": "string",
-  "start_date": "2026-02-06T04:42:03.051Z",
+  "start_date": "2026-02-07T08:44:23.873Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -44444,6 +44602,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
             "up_to": null,
             "flat_price_in_decimal": null,
             "unit_price_in_decimal": null,
+            "from": null,
             "unit_currency_prices": null
           }
         ],
@@ -44456,7 +44615,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "unit": "string",
         "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
@@ -44469,20 +44628,20 @@ managementAPIToken ( Scopes: delete:governance_rules )
           "event_time_window": "string",
           "id": "string",
           "customer_mapping": {},
-          "updated": "2026-02-06T04:42:03.051Z",
+          "updated": "2026-02-07T08:44:23.873Z",
           "status": "string",
-          "created": "2026-02-06T04:42:03.051Z",
+          "created": "2026-02-07T08:44:23.873Z",
           "default_aggregation": {}
         }
       },
-      "current_period_start": "2026-02-06T04:42:03.051Z",
+      "current_period_start": "2026-02-07T08:44:23.873Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
       "metadata": {},
       "created_at": "string",
-      "current_period_end": "2026-02-06T04:42:03.051Z",
+      "current_period_end": "2026-02-07T08:44:23.873Z",
       "subscription_item_id": "string",
       "plan": {
         "name": "string",
@@ -44515,32 +44674,34 @@ managementAPIToken ( Scopes: delete:governance_rules )
         "provider": "string",
         "billing_type": "string",
         "description": "string",
+        "family_id": "string",
         "external_plan_id": "string",
         "id": "string",
         "status": "string",
         "product_id": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "billing_period": "string",
         "unit": "string",
-        "updated_at": "2026-02-06T04:42:03.051Z",
+        "updated_at": "2026-02-07T08:44:23.873Z",
+        "usage_aggregator": "string",
         "reporting_period": "string"
       }
     }
   ],
-  "current_period_start": "2026-02-06T04:42:03.051Z",
+  "current_period_start": "2026-02-07T08:44:23.873Z",
   "balance": {
     "available_balance": 0.1,
     "current_balance": 0.1,
     "pending_activity": 0.1,
-    "last_modified": "2026-02-06T04:42:03.051Z"
+    "last_modified": "2026-02-07T08:44:23.873Z"
   },
   "company_external_id": "string",
   "payment_status": "string",
-  "modified_time": "2026-02-06T04:42:03.051Z",
-  "cancel_time": "2026-02-06T04:42:03.051Z",
+  "modified_time": "2026-02-07T08:44:23.873Z",
+  "cancel_time": "2026-02-07T08:44:23.873Z",
   "status": "string",
-  "trial_end": "2026-02-06T04:42:03.051Z",
+  "trial_end": "2026-02-07T08:44:23.873Z",
   "external_id": "string",
   "currency": "string",
   "metadata": {},
@@ -44548,9 +44709,9 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "subscription_id": "string",
   "version_id": "string",
   "type": "string",
-  "current_period_end": "2026-02-06T04:42:03.051Z",
+  "current_period_end": "2026-02-07T08:44:23.873Z",
   "org_id": "string",
-  "created": "2026-02-06T04:42:03.051Z"
+  "created": "2026-02-07T08:44:23.873Z"
 }
 
 ```
@@ -44679,7 +44840,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "email": "string",
   "photo_url": "string",
   "user_id": "string",
-  "modified_time": "2026-02-06T04:42:03.051Z",
+  "modified_time": "2026-02-07T08:44:23.873Z",
   "last_name": "string",
   "metadata": {},
   "user_name": "string",
@@ -44734,6 +44895,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
         "up_to": 0,
         "flat_price_in_decimal": 0.1,
         "unit_price_in_decimal": 0.1,
+        "from": 0,
         "unit_currency_prices": null
       }
     ],
@@ -44746,7 +44908,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
     "tax_behavior": "string",
     "currency": "string",
     "metadata": null,
-    "created_at": "2026-02-06T04:42:03.051Z",
+    "created_at": "2026-02-07T08:44:23.873Z",
     "unit": "string",
     "deferred_revenue_accounting_code": "string",
     "usage_aggregator": "string",
@@ -44766,22 +44928,22 @@ managementAPIToken ( Scopes: delete:governance_rules )
         "event_payload_key": "string",
         "type": "string"
       },
-      "updated": "2026-02-06T04:42:03.051Z",
+      "updated": "2026-02-07T08:44:23.873Z",
       "status": "string",
-      "created": "2026-02-06T04:42:03.051Z",
+      "created": "2026-02-07T08:44:23.873Z",
       "default_aggregation": {
         "formula": "string"
       }
     }
   },
-  "current_period_start": "2026-02-06T04:42:03.051Z",
+  "current_period_start": "2026-02-07T08:44:23.873Z",
   "is_metered": true,
   "plan_id": "string",
   "unit_of_measure": "string",
   "status": "string",
   "metadata": {},
   "created_at": "string",
-  "current_period_end": "2026-02-06T04:42:03.051Z",
+  "current_period_end": "2026-02-07T08:44:23.873Z",
   "subscription_item_id": "string",
   "plan": {
     "name": "string",
@@ -44802,6 +44964,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
             "up_to": null,
             "flat_price_in_decimal": null,
             "unit_price_in_decimal": null,
+            "from": null,
             "unit_currency_prices": null
           }
         ],
@@ -44814,7 +44977,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "unit": "string",
         "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
@@ -44827,9 +44990,9 @@ managementAPIToken ( Scopes: delete:governance_rules )
           "event_time_window": "string",
           "id": "string",
           "customer_mapping": {},
-          "updated": "2026-02-06T04:42:03.051Z",
+          "updated": "2026-02-07T08:44:23.873Z",
           "status": "string",
-          "created": "2026-02-06T04:42:03.051Z",
+          "created": "2026-02-07T08:44:23.873Z",
           "default_aggregation": {}
         }
       }
@@ -44837,15 +45000,17 @@ managementAPIToken ( Scopes: delete:governance_rules )
     "provider": "string",
     "billing_type": "string",
     "description": "string",
+    "family_id": "string",
     "external_plan_id": "string",
     "id": "string",
     "status": "string",
     "product_id": "string",
     "metadata": null,
-    "created_at": "2026-02-06T04:42:03.051Z",
+    "created_at": "2026-02-07T08:44:23.873Z",
     "billing_period": "string",
     "unit": "string",
-    "updated_at": "2026-02-06T04:42:03.051Z",
+    "updated_at": "2026-02-07T08:44:23.873Z",
+    "usage_aggregator": "string",
     "reporting_period": "string"
   }
 }
@@ -44991,7 +45156,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
   "available_balance": 0.1,
   "current_balance": 0.1,
   "pending_activity": 0.1,
-  "last_modified": "2026-02-06T04:42:03.051Z"
+  "last_modified": "2026-02-07T08:44:23.873Z"
 }
 
 ```
@@ -45139,9 +45304,9 @@ managementAPIToken ( Scopes: delete:governance_rules )
 
 ```json
 {
-  "trial_start": "2026-02-06T04:42:03.051Z",
+  "trial_start": "2026-02-07T08:44:23.873Z",
   "company_id": "string",
-  "start_date": "2026-02-06T04:42:03.051Z",
+  "start_date": "2026-02-07T08:44:23.873Z",
   "collection_method": "string",
   "provider": "string",
   "items": [
@@ -45167,6 +45332,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
             "up_to": null,
             "flat_price_in_decimal": null,
             "unit_price_in_decimal": null,
+            "from": null,
             "unit_currency_prices": null
           }
         ],
@@ -45179,7 +45345,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
         "tax_behavior": "string",
         "currency": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "unit": "string",
         "deferred_revenue_accounting_code": "string",
         "usage_aggregator": "string",
@@ -45192,20 +45358,20 @@ managementAPIToken ( Scopes: delete:governance_rules )
           "event_time_window": "string",
           "id": "string",
           "customer_mapping": {},
-          "updated": "2026-02-06T04:42:03.051Z",
+          "updated": "2026-02-07T08:44:23.873Z",
           "status": "string",
-          "created": "2026-02-06T04:42:03.051Z",
+          "created": "2026-02-07T08:44:23.873Z",
           "default_aggregation": {}
         }
       },
-      "current_period_start": "2026-02-06T04:42:03.051Z",
+      "current_period_start": "2026-02-07T08:44:23.873Z",
       "is_metered": true,
       "plan_id": "string",
       "unit_of_measure": "string",
       "status": "string",
       "metadata": {},
       "created_at": "string",
-      "current_period_end": "2026-02-06T04:42:03.051Z",
+      "current_period_end": "2026-02-07T08:44:23.873Z",
       "subscription_item_id": "string",
       "plan": {
         "name": "string",
@@ -45238,32 +45404,34 @@ managementAPIToken ( Scopes: delete:governance_rules )
         "provider": "string",
         "billing_type": "string",
         "description": "string",
+        "family_id": "string",
         "external_plan_id": "string",
         "id": "string",
         "status": "string",
         "product_id": "string",
         "metadata": null,
-        "created_at": "2026-02-06T04:42:03.051Z",
+        "created_at": "2026-02-07T08:44:23.873Z",
         "billing_period": "string",
         "unit": "string",
-        "updated_at": "2026-02-06T04:42:03.051Z",
+        "updated_at": "2026-02-07T08:44:23.873Z",
+        "usage_aggregator": "string",
         "reporting_period": "string"
       }
     }
   ],
-  "current_period_start": "2026-02-06T04:42:03.051Z",
+  "current_period_start": "2026-02-07T08:44:23.873Z",
   "company_external_id": "string",
   "payment_status": "string",
-  "cancel_time": "2026-02-06T04:42:03.051Z",
+  "cancel_time": "2026-02-07T08:44:23.873Z",
   "status": "string",
-  "trial_end": "2026-02-06T04:42:03.051Z",
+  "trial_end": "2026-02-07T08:44:23.873Z",
   "external_id": "string",
   "currency": "string",
   "metadata": {},
   "subscription_id": "string",
   "version_id": "string",
-  "current_period_end": "2026-02-06T04:42:03.051Z",
-  "created": "2026-02-06T04:42:03.051Z"
+  "current_period_end": "2026-02-07T08:44:23.873Z",
+  "created": "2026-02-07T08:44:23.873Z"
 }
 
 ```
@@ -45322,7 +45490,7 @@ managementAPIToken ( Scopes: delete:governance_rules )
 ```json
 {
   "company_id": "string",
-  "modified_time": "2026-02-06T04:42:03.051Z",
+  "modified_time": "2026-02-07T08:44:23.873Z",
   "session_token": "string",
   "company_domain": "string",
   "metadata": {}
