@@ -26,6 +26,7 @@ includes:
   - collector-api/overview
   - collector-api/events-api
   - collector-api/actions-api
+  - collector-api/opentelemetry
   - collector-api/users-api
   - collector-api/companies-api
   - collector-api/subscriptions-api
