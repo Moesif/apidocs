@@ -55,3 +55,7 @@ Moesif server integrations stream events to the collector API in real-time. If y
 However, we understand you may have special circumstances that cause events to be sent later than expected. By default, Moesif can process events that are up to 30 days in the past. By default, events older than 30 days are rejected by the collector API. If you need an exception to backfill more historical data, please contact us so we can enable your account for backfill.
 
 While Moesif will process the events, events that are more than 5 minutes old are considered "late events". Certain workflows with strict deadlines like alerting and billing may be impacted. If you're using a native Moesif server integrations, this shouldn't be an issue as they stream events to Moesif in real-time within milliseconds. If you have an ingestion delay in the minutes it likely implies something wrong with your server integration. Server clock can be another issue if incorrectly set. We do track ingestion delays internally, so we'll reach out if we see such issues happening on your account.
+
+### Maximum Number of Request Query Parameters
+Moesif limits the number of request query parameters to 500 keys to ensure 
+reliable performance of search queries and analytics reports.
