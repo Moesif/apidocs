@@ -438,6 +438,9 @@
                         <li>
                           <a href="#late-events" class="toc-h3 toc-link" data-title="Late Events">Late Events</a>
                         </li>
+                        <li>
+                          <a href="#maximum-number-of-request-query-parameters" class="toc-h3 toc-link" data-title="Maximum Number of Request Query Parameters">Maximum Number of Request Query Parameters</a>
+                        </li>
                     </ul>
                   </li>
               </ul>
@@ -3265,6 +3268,9 @@ If you need to transfer large amounts of data to cloud object storage (like Azur
 <p>However, we understand you may have special circumstances that cause events to be sent later than expected. By default, Moesif can process events that are up to 30 days in the past. By default, events older than 30 days are rejected by the collector API. If you need an exception to backfill more historical data, please contact us so we can enable your account for backfill.</p>
 
 <p>While Moesif will process the events, events that are more than 5 minutes old are considered &quot;late events&quot;. Certain workflows with strict deadlines like alerting and billing may be impacted. If you&#39;re using a native Moesif server integrations, this shouldn&#39;t be an issue as they stream events to Moesif in real-time within milliseconds. If you have an ingestion delay in the minutes it likely implies something wrong with your server integration. Server clock can be another issue if incorrectly set. We do track ingestion delays internally, so we&#39;ll reach out if we see such issues happening on your account.</p>
+<h3 id='maximum-number-of-request-query-parameters'>Maximum Number of Request Query Parameters</h3>
+<p>Moesif limits the number of request query parameters to 500 keys to ensure 
+reliable performance of search queries and analytics reports.</p>
 <h1 id='api-libs'>API Libs</h1>
 <p>These are low-level libraries to access the Moesif Collector API directly. For logging API calls at scale, most
 customers should integrate with one of Moesif&#39;s <a href="https://www.moesif.com/implementation">API monitoring agents</a> which instrument your API automatically and handle batching. Likewise, Moesif has <a href="https://www.moesif.com/implementation/track-user-behaviors-with-browser?platform=browser">client integrations</a> for tracking users and their actions in your UI.</p>
