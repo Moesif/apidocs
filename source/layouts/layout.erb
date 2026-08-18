@@ -82,9 +82,8 @@ under the License.
       <meta property="og:url" content="<%=canonical_url%>">
       <meta name="twitter:url" content="<%=canonical_url%>">
     <% end %>
-    <% if config[:description] %>
+    <% if seo_description %>
       <meta property="og:description" content="<%=seo_description%>">
-      <meta name="description" cotent="<%=seo_description%>"/>
       <meta name="twitter:description" content="<%=seo_description%>">
     <% end %>
     <% if config[:twitter_username] %>
